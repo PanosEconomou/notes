@@ -18,6 +18,8 @@ therefore, $\mathcal{G}$ leaves the angle invariant.
 
 ***Example:*** In Minkowski space the Poincaré group is a subgroup of $\mathcal{G}$.
 
+---
+
 
 
 ## Infinitesimal Transformations
@@ -42,6 +44,12 @@ $$
 t &\mapsto \exp(tX)
 \end{align*}
 $$
+This picture should clarify how it looks like. We follow a left invariant vector field around the group. The “one parameter” is how far along its integral curve we have travelled.
+
+![oneparameter](Conformal_Group.assets/one-parameter-subgroup.png)
+
+
+
 **<u>Defintion:</u>** The flow of $p \in M$ according to a one parameter subgroup $\psi_X$ of $G$ is given by the following curve
 $$
 \begin{align*}
@@ -81,7 +89,17 @@ where $\frac{\partial}{\partial \alpha^\nu}$ is a basis for $\mathfrak{g}$.
 
 This essentially says that given a group action all we need to know is the structure of the lie algebra and not the group. This is only dependent on the lie algebra representation of the group.   
 
+---
 
+
+
+##  Covering maps
+
+Covering maps are really useful objects, they can be thought of in multiple ways, one of which is as extentions of compact topological spaces. 
+
+Consider two topological space $(E,T_E)$ and $(X,T)$. In the following we will study some properties of subsets of $X$ through continious maps from $E$.
+
+**<u>Definition:</u>** Any $U \in T$ is **evenly covered** by a continuous map $q: E \to X$ if $q^{-1}(U)$ is a disjoint union of connected open subsets of $E$. These subsets are called the **sheets** of the covering of $U$, each of which must be homeomorphic to $U$ by a suitable restriction of $q$.
 
 
 
