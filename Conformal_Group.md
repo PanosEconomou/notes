@@ -59,7 +59,7 @@ t &\mapsto e^{tX}p
 $$
 **<u>Note:</u>** We can rewrite $\gamma_p$ as $\gamma_{p,X} = L_p \circ \psi_X$.
 
-**<u>Definition:</u>** An infinitesimal transformation of $M$ with respect to the Lie group $G$ in the direction $X\in \mathfrak{g}$ is given by the map
+**<u>Definition:</u>** An infinitesimal transformation of $M$ with respect to the Lie group $G$ in the direction of $X\in \mathfrak{g}$ is given by the map
 $$
 \begin{align*}
 F:M &\to M\\
@@ -91,7 +91,89 @@ This essentially says that given a group action all we need to know is the struc
 
 ---
 
+## Central Extensions
 
+
+
+**<u>Definition:</u>** A sequence $\{f_i : G_{i-1} \to G_{i}\}_{i\in I}$ of group homomorphisms is **exact** if the image of each homomorphism is the kernel of the next. 
+
+Pictorially we can see this as follows![image-20231004224307511](Conformal_Group.assets/image-20231004224307511.png)
+
+There are some interesting theorems that help us define groups using such sequences by imposing existance and uniqueness conditions on some of its terms.
+
+**<u>Definition:</u>** An **extension** of a some group $G$ by a group $A$ is the group $E$ given by the following exact sequence of group homomorphisms
+$$
+1 \to A \xrightarrow{\iota} E \xrightarrow{\pi} G \to 1
+$$
+The extension is called **central** if $A$ is abelian and the image of $\iota$ is in the center of $E$, i.e.  
+$$
+\iota(A) \subset Z(E)
+$$
+that is $\forall a\in A, b\in Z,$ then $\iota(a) b = b\iota(a)$.
+
+***Note:*** The extension of a group by another is not uniquely defined in general. 
+
+---
+
+## Quantum Hilbert Spaces
+
+The mathematical notion of hilbert spaces is augmented with some extra niceness conditions when doing quantum mechanics. Let’s explore them
+
+**<u>Definition:</u>** A **Hilbert Space** $\mathbb{H}$ is an inner product space, such that the inner product introduces a norm and a metric, such that $\mathbb{H}$ is complete in the induced topology. 
+
+***Note:*** Ok a bunch of terms, there. Inner product space, and norm are cool. So is metric. Complete simply means that every convergent sequence of elements in $\mathbb{H}$ converges in $\mathbb{H}$. This is a statement about no missing points. Like don’t try to define one in such a way that I will be following a path and fall out!
+
+**<u>Definition:</u>** A **hermitian inner product** on a vector space $V$ over $\mathbb{C}$ is a map
+$$
+\lang \cdot,\cdot\rang : V\times V \to \mathbb{C}
+$$
+with the following properties for $x,y,z \in V, a\in \mathbb{C}$.
+
+1. Complex antilinear in the first component. i.e. $\lang ax + y, x\rang = \bar{a} \lang x, z\rang + \lang y, z\rang$
+2. Skew symmetric. i.e. $\lang x,y\rang = \overline{\lang y,x\rang}$
+3. Positive definite. i.e. $\lang x,x\rang \geq 0$
+4. Non degenerate. i.e. $\lang x,x\rang = 0\iff x = 0$
+
+**<u>Corollary:</u>** A complex vector space $V$ together with a **hermitian inner product** has an induced norm given by
+$$
+\begin{align*}
+|\cdot|:V &\to \mathbb{R}\\
+x & \mapsto \sqrt{\lang x,x\rang}
+\end{align*}
+$$
+**<u>Corollary:</u>** The norm induces the metric topology on $V$.
+
+We are almost there! Let’s add some more niceness conditions. For example, we would looove to have a countable basis for our quantum Hilbert space, so that we can do all these fancy identity maphs. So check out this lemma
+
+**<u>Proposition:</u>** A separable (i.e. there exists a countable dense subset) Hilbert space has a countable orthonormal basis 
+
+This is cool! What this means precisely, is that if I get a seperable Hilbert space $\mathbb{H}$ I can find a basis $\{e_n\}_{n\in I}$ where $I$ is countable, and I can write every element $v\in \mathbb{H}$ like
+$$
+v = \sum_{n\in I}v_ne_n
+$$
+where $v_n = \lang v,e_n \rang \in \mathbb{C}$. This not a trivial result at all! We can find a hilbert space made out of functions, and this basically means that we can express each function as a countable sequence of numbers!
+
+
+
+We are ready to define our Hilbert space
+
+**<u>Definition:</u>** A **Quantum Hilbert Space** $\mathbb{H}$ is a separable hilbert space with hermitian inner product. (lol)
+
+
+
+Now let’s pivot in the not at all direction and continue talking about unitary operators
+
+**<u>Definition:</u>** A **unitary operator** $U$ in a quantum Hilbert space $\mathbb{H}$ is a complex bilinear, bijective map $U: \mathbb{H}\to \mathbb{H}$ such that the inner product is invariant. i.e. $\lang Ux,Uy\rang = \lang x,y\rang$. 
+
+We often denote the group of all unitary operators on the Hilbert space as $U(\mathbb{H})$.
+
+
+
+The other helpful definition is often implicitly talked about in physics, but it is the most important. The set of states, is not actually $\mathbb{H}$ it is the ones with unit lenght. In particular, we can identify each state with a “ray” in $\mathbb{H}$. So let’s talk about that set and find its structure. 
+
+
+
+----
 
 ##  Covering maps
 
