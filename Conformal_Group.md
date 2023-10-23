@@ -91,6 +91,8 @@ This essentially says that given a group action all we need to know is the struc
 
 ---
 
+
+
 ## Central Extensions
 
 
@@ -114,6 +116,8 @@ that is $\forall a\in A, b\in Z,$ then $\iota(a) b = b\iota(a)$.
 ***Note:*** The extension of a group by another is not uniquely defined in general. 
 
 ---
+
+
 
 ## Quantum Hilbert Spaces
 
@@ -165,11 +169,76 @@ Now let’s pivot in the not at all direction and continue talking about unitary
 
 **<u>Definition:</u>** A **unitary operator** $U$ in a quantum Hilbert space $\mathbb{H}$ is a complex bilinear, bijective map $U: \mathbb{H}\to \mathbb{H}$ such that the inner product is invariant. i.e. $\lang Ux,Uy\rang = \lang x,y\rang$. 
 
-We often denote the group of all unitary operators on the Hilbert space as $U(\mathbb{H})$.
+We often denote the group of all unitary operators on the Hilbert space as $U(\mathbb{H})$. It is also helpful to define the special unitary group as a subgroup of $U$, namely
+$$
+SU(\mathbb{H}) \coloneqq \{A \in U(\mathbb{H}) \mid \det A = 1\}
+$$
+
 
 
 
 The other helpful definition is often implicitly talked about in physics, but it is the most important. The set of states, is not actually $\mathbb{H}$ it is the ones with unit lenght. In particular, we can identify each state with a “ray” in $\mathbb{H}$. So let’s talk about that set and find its structure. 
+
+**<u>Definition:</u>** Let $\mathbb{P}(\mathbb{H})$ be be the **projective space** composed of 1 dimensional linear subspaces of $\mathbb{H}$. Namely
+$$
+\mathbb{P} \coloneqq \mathbb{P}(\mathbb{H}) = (\mathbb{H} \setminus\{0\})/\sim
+$$
+where $\sim$ is the equivalence relation of the lines of $\mathbb{H}$.
+
+------
+
+
+
+## A glimpse of Quantum Symmetry
+
+With this construction in mind, we can proceed with naturally studying what it means to have a quantum symmetry. A symmetry in the Quantum Sense is a transformation that leaves the transition probabilities invariant. We will formally define transition probability and symmetries here, and study them in the next section.
+
+
+
+**<u>Definition:</u>** Given a quantum Hilbert space $\mathbb{H}$ with projective space $\mathbb{P}$ the map
+$$
+\begin{align*}
+\delta : \mathbb{P}\times \mathbb{P} &\to [0,1]\\
+(f,g) &\mapsto \delta(f,g) =  \frac{|\langle f,g\rangle|^2}{|f|^2|g|^2},
+\end{align*}
+$$
+is the **transition probability map**. Notice the use of two different norms, the complex norm on the numerator, and the induced Hilbert space norm on the denominator. Additionlly, we conventially take the inner product of the unit length vectors on $\mathbb{H}$ corresponding to each equivalence class of $\mathbb{P}$.
+
+**<u>Corollary:</u>** The transition probability defines a topology on $\mathbb{P}$ with basis sets
+$$
+B_f(\varepsilon) = \set{g \in \mathbb{P} \mid  \delta(f,g) < \varepsilon}
+$$
+for some $\varepsilon >0$.
+
+Appart from generating a topology for the projective space, this map is physically, motivated as it is the probability that state $f$ collpses to state $g$. Or in plain words, if we were able to measure state $g$ what is the probility that we would measure it in a system that is in state $f$. 
+
+With this physical intuition we can move on to describing symmetries. 
+
+**<u>Defintition:</u>** A bijective map $T:\mathbb{P}\to \mathbb{P}$ is called a **projective transformation** *(or projective automorphism)* if
+$$
+\delta(Tf,Tg) = \delta(f,g)\ \forall f,g \in \mathbb{P}
+$$
+We denote with $\text{Aut}(\mathbb{P})$ the group of all projective transformations of $\mathbb{P}$. 
+
+This is our intuitive notion of symmetry. It is a way to change our states such that the probability of going from one to the other remains the same. However, this does not encapsulate completely the wider notion that symmetries take in Quantum mechanics. 
+
+This is because, while $\text{Aut}(\mathbb{P})$ contains all the *physical* transformations, we have more degrees of freedom in quantum mechanics. In particular, the Hilbert space is much larger than the projective space, and as we will soon see, all transformations in the projective space originate by transformations in the Quantum Hilbert space. Let’s make this statement more precise now.
+
+**<u>Definition:</u>** Let $q : \mathbb{H}\setminus \{0\} \to \mathbb{P}$ be the canonical quotient map. Then, for any unitary operator $U \in U(\mathbb{H})$ there exists a canonical representation on the quotient space given by 
+$$
+\hat{U}([f]) = q(Uf) \ \ \forall f \in \mathbb{H}
+$$
+*Note:* This is also true for anti unitary operators.
+
+**<u>Theorem:</u>** *(Winger’s Theorem)* For every projective transformation $T \in \text{Aut}(\mathbb{P})$ there exists a unitary or anti-unitary transformation $U$ such that $T = \hat{U}$.
+
+This statement, although abstract is very powerful. At surface level, it tells us that the following lemma is true
+
+**<u>Lemma:</u>** The group of unitary transformations on the Quantum Hilbert space $\mathbb{H}$ is a central extension of the projective transformations by $U(1)$.
+$$
+1 \to U(1) \xrightarrow{\iota} U(\mathbb{H}) \xrightarrow{\wedge} \text{Aut}(\mathbb{P}) \to 1
+$$
+Yet, the grander consequence of this theorem, is that for states that we can physically observe, i.e. elements of $\mathbb{P}$, any symmetry we can make results from a **linear** (unitary or anti-unitary) transformation of the corresponding elements on a Hilbert space. THIS IS HUGE! That is because, it allows us to only study only the linear groups of the Quantum Hilbert space, which have a notoriusly much nicer structure than general transformation groups.
 
 
 
