@@ -51,12 +51,14 @@ Here it is a trivial vector bundle over the spacetime manfold $M$ with fiber $F 
 Using the current we can now create our lagrangian. Consider scalar field theory  where the field of interest is $\phi \in \Gamma^\infty \cong C^\infty(M)$. We need to introduce our mirror scalar field $\bar{\phi} \in \Gamma^\infty$ such that it has the same equation but with the opposite dissipation current. Notice that at this point, we haven’t specified any property on the field itself, other than the fact that $\bar{\phi}$ is another scalar field. Now we will relate them such that they can naturally lead to the dissipation formalism
 
 **<u>Definition:</u>** Given a $k$-form $\omega \in \Omega^{k}(M)$ and and $m$-form $\eta \in \Omega^{m}(M)$ we can define their <u>dissipative form</u> $\lang \omega,\eta\rang_D$ is a bilinear map given by
+
 $$
 \begin{align*}
 \lang\cdot,\cdot\rang_D : \Omega^k(M)\times \Omega^m(M) &\to \Omega^{k+m+1}(M)\\
 (\omega,\eta) &\mapsto \lang\omega,\eta\rang_D \coloneqq d\omega \wedge \eta - (-1)^k\omega \wedge d\eta
 \end{align*}
 $$
+
 Notice that the dissipation form is very similar to taking the exterior derivative $d(\omega \wedge\eta) = d\omega \wedge d\eta + (-1)^k \omega \wedge d\eta$. It just flips the sign between the terms. There is an interesting property of the dissipation form. 
 
 **<u>Proposition:</u>** The <u>dissipative product</u> has the following properties:
@@ -70,12 +72,14 @@ Come on I am not going to write a proof for this….
 
 
 **<u>Proposition:</u>** Let $\phi = f\cdot h$ and $\bar{\phi} = \frac{f}{h}$ where $f,h \in C^\infty(M)$ with $h$ nonvanishing. Then the dissipation form is given by:
+
 $$
 \lang\phi,\bar{\phi}\rang_D = f^2\frac{dh^2}{h^2}
 $$
 
 
 ***Proof:*** The proof is done by simple calculation
+
 $$
 \begin{align*}
 \lang\phi,\bar{\phi}\rang_D
@@ -84,20 +88,25 @@ $$
 &= f^2\frac{dh^2}{h^2}
 \end{align*}
 $$
+
 This is incospicuous until we set $\lang \phi,\bar{\phi}\rang = 2cf$ where $c=c_idx^i\in \Omega^1(M)$ and is constant, the factor of $2$ is important in context. This implies
+
 $$
 \begin{align*}
 \frac{dh^2}{h^2} &= 2c_idx^i\\
 dh &= hc_idx^i
 \end{align*}
 $$
+
 Therefore we would obtain
+
 $$
 \begin{align*}
 h:M&\to\mathbb{R}\\
 p &\mapsto h(p) = \exp(c_ix^i(p))
 \end{align*}
 $$
+
 Which is perfection! We saw how the dissipation form gives rize to the exponential envelope. Clearly current $J$ would instill a preferential direction to the exponential envelope.
 
 
@@ -105,6 +114,7 @@ Which is perfection! We saw how the dissipation form gives rize to the exponenti
 **<u>*Example:*</u>** A simple example is when $\dim M = 1$. This way we have one dimensional functions for fields. In that case we would have some function $f(t)$ and an envelope $h(t)$. Let’s pick an $f(t)$ such that it satisfies the wave equation. We therefore have.
 
 Then the damping envelope wil be given by
+
 $$
 \begin{align*}
 dh &= hC\\
@@ -124,21 +134,26 @@ The blue curve is $\phi$, the red curve is its mirror $\bar\phi$ one loses energ
 ### A Covariant Lagrangian
 
 We are finally at a position to introduce the Lagrangian. Consider two scalar fields $\phi \in \Gamma^\infty$ and its mirror $\bar\phi \in \Gamma^\infty$, their dissipative Lagrangian is given by
+
 $$
 \mathcal{L}(\phi,\bar\phi)=d\phi\wedge\star d\bar \phi - \frac{1}{2}\lang\phi,\bar\phi\rang_D\wedge J
 $$
+
 This is it! We have a covariant lagrangian for the two fields. And now, ladies and gentlemen the derivation of he field equations. Hold on to your butts this is going to be good!
 
 
 
 Consider the action $S$ given by
+
 $$
 \begin{align*}
 S:\Gamma^\infty\times \Gamma^\infty &\to  \R\\
 S(\phi,\bar\phi) &=\int_M \mathcal{L}(\phi,\bar\phi)
 \end{align*}
 $$
+
 Now to obtain the “extremum” we have to define the following function $\mathcal{S}_{\omega\eta}$ for some $\omega,\eta \in \Gamma^\infty$ 
+
 $$
 \begin{align*}
 \mathcal{S}_{\omega\eta} : \mathbb{R}^2 &\to \mathbb{R}\\
@@ -146,14 +161,18 @@ $$
 
 \end{align*}
 $$
+
 We say that $(\phi,\bar\phi)$ is an extremum of the action if $\nabla S_{\omega\eta}(0,0) = 0\ \forall\omega,\eta \in \Gamma^\infty$. This implies
+
 $$
 \begin{align*}
 \frac{\part}{\part x}\mathcal{S}_{\eta\omega}(0,0) &= 0\\
 \frac{\part}{\part y}\mathcal{S}_{\eta\omega}(0,0) &= 0\\
 \end{align*}
 $$
+
 We will solve the first one and then the other is done in a similar way. We therefore get
+
 $$
 \begin{align*}
 \left.\frac{\part}{\part x}\right|_0 \mathcal{S}_{\eta\omega} 
@@ -165,14 +184,18 @@ $$
 &=\int_M d\eta \wedge \star d\bar\phi - \frac{1}{2} d\eta \wedge \bar\phi \wedge J + \frac{1}{2} \eta \wedge d\bar\phi \wedge J
 \end{align*}
 $$
+
 This integral must vanish $\forall \eta \in\Gamma^\infty$ therefore we are in the position of doing by parts integration. Before we do so, notice the following identities:
+
 $$
 \begin{align*}
 d(\eta\bar\phi J) &= d\eta \wedge \bar\phi \wedge J + \eta \wedge d \bar \phi \wedge J + \eta \wedge \bar\phi \wedge dJ\\
 &=\left[d\eta \wedge \bar\phi + \eta \wedge d \bar \phi \right]\wedge J
 \end{align*}
 $$
+
 In the last line we used the fact that $J$ is **conserved**. Doing so we can write the following
+
 $$
 \begin{align*}
 \left.\frac{\part}{\part x}\right|_0 \mathcal{S}_{\eta\omega} 
@@ -182,14 +205,18 @@ $$
 &= - \int_M\eta \wedge  d\star d\bar \phi - \eta \wedge d\bar\phi \wedge J
 \end{align*}
 $$
+
 We therefore, get
+
 $$
 \begin{align*}
 \int_M\eta \wedge  \left(d\star d\bar \phi - d\bar\phi \wedge J\right) &= 0\ \forall\eta \in\Gamma^\infty\\
 \implies d\star d\bar \phi - d\bar\phi \wedge J &= 0
 \end{align*}
 $$
+
 We have successfully derived the field equations! In particular here they are
+
 $$
 d\star d\phi + d\phi\wedge J = 0\\
 d\star d\bar\phi - d\bar\phi\wedge J = 0\\
@@ -197,12 +224,14 @@ $$
 
 
 In vector notation they read
+
 $$
 \begin{align*}
 \Box \phi &=\nabla\phi \cdot \vec{J}\\
 \Box \bar\phi &=-\nabla\phi \cdot \vec{J}\\
 \end{align*}
 $$
+
 So we have gotten the wave equatiuon loosing energy in the direction of the dissipation current. Here is a picture of this
 
 ![image-20230502182139325](Dissipation_Currents.assets/image-20230502182139325.png)

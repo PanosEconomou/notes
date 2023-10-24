@@ -26,12 +26,14 @@ Algebras are vectorspaces with extra structure that can almost resemble a field,
    $$
 
 **<u>Definition:</u>** The canonical volume form on vector space $V$ over an algebra $\mathbb{K} \in \{\mathbb{R},\mathbb{C},\mathbb{H}\}$ is known as the **determinant** and is defined by
+
 $$
 \begin{align}
 \text{vol}: V\times \cdots\times V &\to \mathbb{K}\\
 (v_1,v_2,\cdots,v_n) &\mapsto \det(v_1,v_2,\cdots,v_n)
 \end{align}
 $$
+
 where $v_i \in V$ is a vector. 
 
 ## The Linear Automorphism Groups
@@ -124,6 +126,7 @@ These sets, under composition, are called the **classical groups** for some reas
 
 
 **<u>Theorem:</u>** As subgroups of general linear groups, classical groups are linear. They also have the following dimensions as vector spaces
+
 $$
 \begin{align*}
 \dim \text{SL}(n,\mathbb{R}) &= n^2 - 1\\
@@ -149,6 +152,7 @@ Along with knowing the groups, it is nice to know their lie Algebras. Before we 
 This just says that if I give you a Lie algebra, I can make a shape that has this algebra. In other words imposing the symmetries in your space using a Lie algebra, defines its shape.
 
 **<u>Theorem:</u>** These are the Lie algebras of the Classical Groups we discussed above
+
 $$
 \begin{align*}
 \mathfrak{gl}(n,\mathbb{K}) &= \text{Mat}(n\times n, \mathbb{K})\\
@@ -176,19 +180,25 @@ $$
 Let’s do a physics example just so that we can actually be doing something meaningful. The **Pauli matrices**. The Lie algebra $\mathfrak{su}(2)$ has dimension 3 and consists of the $2\times 2$ skew-hermitian matrices of trace $0$. 
 
 To find the elements here are three linearly independent elements
+
 $$
 \begin{align*}
 \sigma_1 = \begin{pmatrix} 0 & 1 \\ 1 & 0\end{pmatrix} && \sigma_2 = \begin{pmatrix} 0 & -i \\ i & 0\end{pmatrix} && \sigma_3 = \begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}
 \end{align*}
 $$
+
 These definitely form a basis for $\mathfrak{su}(2)$ but we can get a better one defined like so
+
 $$
 \tau_a = -\frac{i}{2}\sigma_a
 $$
+
 Why is this nice? Because it has a pretty commutation relation
+
 $$
 [\tau_a,\tau_b]=\epsilon_{abc}\tau_c
 $$
+
 We can map now the bases of $\mathfrak{so}(3)$ to the bases of $\mathfrak{su}(2)$ and discover that we can create a Lie algebra isomorphism!
 
 
