@@ -3,7 +3,7 @@
 # Geometry
 
 <!-- optional markdown-notes-tree directory description starts here -->
-
+Key intuition or formal definitions of Differential Geometry Concepts because I forget.
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [Automorphism Groups of Vector Spaces](Common_Vector_Space_Groups.md)
