@@ -35,16 +35,20 @@ The topology we add on $\mathcal{J}^\vee$ is that of uniform convergence on any 
 Arbitrarily, distributions may look weird objects to play around with but they aren’t that much. For example, any measurable and bounded function $g\in C^\infty(M,\mathbb{C})$  can give rise to a distribution.
 
 **<u>Example:</u>** Given a function $g: M \to \mathbb{C}$ that is measurable, and bounded, i.e. 
+
 $$
 \int_M g\ d\mu < \infty,
 $$
+
 with respect to some measure $\mu$, and the set $g(M)$ is bounded in $\mathbb{C}$, then the map
+
 $$
 \begin{align*}
 T_g:\mathcal{J} &\to \mathbb{C}\\
 f &\mapsto T_g(f) = \int_M gf\ d\mu,
 \end{align*}
 $$
+
 is a tempered distribution. 
 
 
@@ -81,6 +85,7 @@ Well, ok! We have now managed to define derivatives in a way, but it would be ni
 Ok ok quick sidenote because it is cool
 
 **<u>Example:</u>** Consider the tempered distribution $T_H \in \mathcal{J}^\vee(\mathbb{R})$ where $H$ is the Heaviside function. Taking its derivative we get that for any $f \in \mathcal{J}$
+
 $$
 \begin{align*}
 \frac{\partial}{\partial x} T_H (f) 
@@ -91,10 +96,13 @@ $$
 &= f(0) & \text{as } f \in \mathcal{J},
 \end{align*}
 $$
+
 SO OMG THAT MEANS
+
 $$
 \frac{\partial }{\partial x} T_H = \delta.
 $$
+
 Which is the super well known result where “The delta function is the derivative of the Heaviside function” which always bothered me as Heaviside is not even freaking differentiable!
 
 
