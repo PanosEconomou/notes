@@ -158,7 +158,6 @@ $$
 \begin{align*}
 \mathcal{S}_{\omega\eta} : \mathbb{R}^2 &\to \mathbb{R}\\
 (\alpha,\beta) &\mapsto S(\phi + \alpha \omega ,\bar\phi + \beta \eta)
-
 \end{align*}
 $$
 
