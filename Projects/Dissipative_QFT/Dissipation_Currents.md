@@ -8,7 +8,7 @@ Dealing with dissipative systems is hard, as usually langrians are not covariant
 
 In thermodynamics, one treats an open system by including its surroundings. However, this implies that we need some understanding of the surrounding system in order to proceed. This can grow very quickly to an unmanageably complex description. Therefore we need a way to simplify the description.
 
-![image-20230427110335025](Dissipation_Currents.assets/image-20230427110335025.png)
+![image-20230427110335025](.Dissipation_Currents.assets/image-20230427110335025.png)
 
 However, for sufficiently simple systems one can simply introduce a mirror system that instead of loosing energy it gains energy. This is similar to the original system as if it was evolving backwards in time *(hence the term mirror).* An example of this is a wave in a dissipative medium, generating another (virtual) wave with the energy lost.  Here we will use mirror systems to provide a more general description of Dissipative systems. 
 
@@ -18,11 +18,11 @@ However, for sufficiently simple systems one can simply introduce a mirror syste
 
 Consider a wave in 1 spatial dimension. We can represent it using a smooth function over $\R^2$ where one dimension is space and the other is time. Here is a picture of it (right)
 
-![image-20230427111134617](Dissipation_Currents.assets/image-20230427111134617.png)
+![image-20230427111134617](.Dissipation_Currents.assets/image-20230427111134617.png)
 
 In a normal case of dissipation we have the same wave, only it is simply damped towards the time direction, as its decreases with increasing time. We could think of this as having to squeeze the wave between an envelope. Yet calculating the envelope is dificult for most applications.
 
-![image-20230427111356751](Dissipation_Currents.assets/image-20230427111356751.png)
+![image-20230427111356751](.Dissipation_Currents.assets/image-20230427111356751.png)
 
 
 
@@ -38,7 +38,7 @@ Here we rigorously formalize the intuition of the previous section using differe
 
 Consider an $n$ dimensional smooth manifold $M$ with a symplectic metric $g$. We will now define the structure for our fields. In this case we are working in a scalar field theory so we consider the follwoing Fiber Bundle $(E,\pi,M,\mathcal{F})$
 
-![image-20230427114939603](Dissipation_Currents.assets/image-20230427114939603.png)
+![image-20230427114939603](.Dissipation_Currents.assets/image-20230427114939603.png)
 
 Here it is a trivial vector bundle over the spacetime manfold $M$ with fiber $F = \R$. The set of smooth sections on $E$ is denoted as $\Gamma^\infty\cong C^\infty(M)$ and it is the set of smooth functions over $M$. 
 
@@ -125,7 +125,7 @@ $$
 
 Therefore the field $\phi = f(t)e^{ct}$ and the mirror field would be $f(t)e^{-ct}$. We have showed that stationary points of the disispation form cause fields that have the damping characteristic. This can be seen in the picture where $f(t) = \sin(t)$
 
-![image-20230502175151300](Dissipation_Currents.assets/image-20230502175151300.png)
+![image-20230502175151300](.Dissipation_Currents.assets/image-20230502175151300.png)
 
 
 
@@ -234,7 +234,7 @@ $$
 
 So we have gotten the wave equatiuon loosing energy in the direction of the dissipation current. Here is a picture of this
 
-![image-20230502182139325](Dissipation_Currents.assets/image-20230502182139325.png)
+![image-20230502182139325](.Dissipation_Currents.assets/image-20230502182139325.png)
 
 The field of interest is loosing energy in the direction of the dissipation current, whereas the mirror field is gaining energy in the direction of the current. 
 

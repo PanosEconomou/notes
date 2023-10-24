@@ -96,7 +96,7 @@ If the map is also an isomorphism of vector spaces it is called an isomorphism o
 
 In particular take a look at this diagram and now we can move around it.
 
-![image-20230205194857301](Representations.assets/image-20230205194857301.png)
+![image-20230205194857301](.Representations.assets/image-20230205194857301.png)
 
 This implies that for any vector field $X \in \mathfrak{g}$ we can write its representation as
 
