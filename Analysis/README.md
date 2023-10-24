@@ -3,7 +3,7 @@
 # Analysis
 
 <!-- optional markdown-notes-tree directory description starts here -->
-
+Honestly emptier than it should be...
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [Functional Analysis](Functional_Analysis.md)
