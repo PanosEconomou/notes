@@ -24,6 +24,8 @@ for all $p,k \in \mathbb{N}$ (where $\alpha$ is some multi-index). $\mathcal{J}$
 
 This has an interesting implication
 
+
+
 **<u>Corollary:</u>** Any tempered distribution $T$ is bounded for every seminorm, i.e. for all  $f\in \mathcal{J}$, $p,k \in \mathbb{N}$ the image
 
 $$
@@ -130,7 +132,6 @@ YES! Yes we can do this
 $$
 \int_M
 $$
-
 
 
 
