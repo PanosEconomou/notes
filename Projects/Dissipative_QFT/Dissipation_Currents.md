@@ -50,12 +50,12 @@ Here it is a trivial vector bundle over the spacetime manfold $M$ with fiber $F 
 
 Using the current we can now create our lagrangian. Consider scalar field theory  where the field of interest is $\phi \in \Gamma^\infty \cong C^\infty(M)$. We need to introduce our mirror scalar field $\bar{\phi} \in \Gamma^\infty$ such that it has the same equation but with the opposite dissipation current. Notice that at this point, we haven’t specified any property on the field itself, other than the fact that $\bar{\phi}$ is another scalar field. Now we will relate them such that they can naturally lead to the dissipation formalism
 
-**<u>Definition:</u>** Given a $k$-form $\omega \in \Omega^{k}(M)$ and and $m$-form $\eta \in \Omega^{m}(M)$ we can define their <u>dissipative form</u> $\lang \omega,\eta\rang_D$ is a bilinear map given by
+**<u>Definition:</u>** Given a $k$-form $\omega \in \Omega^{k}(M)$ and and $m$-form $\eta \in \Omega^{m}(M)$ we can define their <u>dissipative form</u> $\langle \omega,\eta\rangle_D$ is a bilinear map given by
 
 $$
 \begin{align*}
-\lang\cdot,\cdot\rang_D : \Omega^k(M)\times \Omega^m(M) &\to \Omega^{k+m+1}(M)\\
-(\omega,\eta) &\mapsto \lang\omega,\eta\rang_D \coloneqq d\omega \wedge \eta - (-1)^k\omega \wedge d\eta
+\langle\cdot,\cdot\rangle_D : \Omega^k(M)\times \Omega^m(M) &\to \Omega^{k+m+1}(M)\\
+(\omega,\eta) &\mapsto \langle\omega,\eta\rangle_D \coloneqq d\omega \wedge \eta - (-1)^k\omega \wedge d\eta
 \end{align*}
 $$
 
@@ -63,9 +63,9 @@ Notice that the dissipation form is very similar to taking the exterior derivati
 
 **<u>Proposition:</u>** The <u>dissipative product</u> has the following properties:
 
-1. Antisymmetric: $$\lang\eta,\omega\rang_D = - \lang\omega,\eta\rang_D$$
+1. Antisymmetric: $$\langle\eta,\omega\rangle_D = - \langle\omega,\eta\rangle_D$$
 2. linear (by the linearity of the differential and wedge product)
-3. $$\lang\eta,1\rang_D = d\eta$$
+3. $$\langle\eta,1\rangle_D = d\eta$$
 
 Come on I am not going to write a proof for this….
 
@@ -74,7 +74,7 @@ Come on I am not going to write a proof for this….
 **<u>Proposition:</u>** Let $\phi = f\cdot h$ and $\bar{\phi} = \frac{f}{h}$ where $f,h \in C^\infty(M)$ with $h$ nonvanishing. Then the dissipation form is given by:
 
 $$
-\lang\phi,\bar{\phi}\rang_D = f^2\frac{dh^2}{h^2}
+\langle\phi,\bar{\phi}\rangle_D = f^2\frac{dh^2}{h^2}
 $$
 
 
@@ -82,14 +82,14 @@ $$
 
 $$
 \begin{align*}
-\lang\phi,\bar{\phi}\rang_D
+\langle\phi,\bar{\phi}\rangle_D
 &= d\phi \wedge \bar\phi - \phi \wedge d\bar{\phi}\\
 &= {\bar\phi}^2d\frac{\phi}{\bar\phi}\ \ \ \ \ \  \text{or } 0 \text{ iff }\bar\phi = 0\\
 &= f^2\frac{dh^2}{h^2}
 \end{align*}
 $$
 
-This is incospicuous until we set $\lang \phi,\bar{\phi}\rang = 2cf$ where $c=c_idx^i\in \Omega^1(M)$ and is constant, the factor of $2$ is important in context. This implies
+This is incospicuous until we set $\langle \phi,\bar{\phi}\rangle = 2cf$ where $c=c_idx^i\in \Omega^1(M)$ and is constant, the factor of $2$ is important in context. This implies
 
 $$
 \begin{align*}
@@ -129,14 +129,14 @@ Therefore the field $\phi = f(t)e^{ct}$ and the mirror field would be $f(t)e^{-c
 
 
 
-The blue curve is $\phi$, the red curve is its mirror $\bar\phi$ one loses energy in time the other one gains it. Note that the green curve is simply $c f^2 = \lang \phi,\bar{\phi}\rang_D$ which is really cool! It tells us that the dissipation form, removes the envelope and adds a mass term to the undamped field proportional to the damping coefficient!
+The blue curve is $\phi$, the red curve is its mirror $\bar\phi$ one loses energy in time the other one gains it. Note that the green curve is simply $c f^2 = \langle \phi,\bar{\phi}\rangle_D$ which is really cool! It tells us that the dissipation form, removes the envelope and adds a mass term to the undamped field proportional to the damping coefficient!
 
 ### A Covariant Lagrangian
 
 We are finally at a position to introduce the Lagrangian. Consider two scalar fields $\phi \in \Gamma^\infty$ and its mirror $\bar\phi \in \Gamma^\infty$, their dissipative Lagrangian is given by
 
 $$
-\mathcal{L}(\phi,\bar\phi)=d\phi\wedge\star d\bar \phi - \frac{1}{2}\lang\phi,\bar\phi\rang_D\wedge J
+\mathcal{L}(\phi,\bar\phi)=d\phi\wedge\star d\bar \phi - \frac{1}{2}\langle\phi,\bar\phi\rangle_D\wedge J
 $$
 
 This is it! We have a covariant lagrangian for the two fields. And now, ladies and gentlemen the derivation of he field equations. Hold on to your butts this is going to be good!
@@ -179,8 +179,8 @@ $$
 &= \left.\frac{\part}{\part \alpha}\right|_0 S(\phi + \alpha \omega ,\bar\phi)\\
 &= \lim_{\alpha \to 0} \frac{1}{\alpha}\left[S(\phi + \alpha \omega ,\bar\phi) - S(\phi,\bar\phi)\right]\\
 &=\lim_{\alpha \to 0} \frac{1}{\alpha} \int_M \mathcal{L}(\phi + \alpha \omega ,\bar\phi) - \mathcal{L}(\phi,\bar\phi)\\
-&=\lim_{\alpha \to 0} \frac{1}{\alpha} \int_M  \alpha\,d\eta\wedge \star d\bar\phi- \frac{\alpha}{2}\, \lang\eta,\bar\phi\rang \wedge J\\
-&=\int_M  d\eta\wedge \star d\bar\phi- \frac{1}{2}\lang\eta,\bar\phi\rang\wedge J \\
+&=\lim_{\alpha \to 0} \frac{1}{\alpha} \int_M  \alpha\,d\eta\wedge \star d\bar\phi- \frac{\alpha}{2}\, \langle\eta,\bar\phi\rangle \wedge J\\
+&=\int_M  d\eta\wedge \star d\bar\phi- \frac{1}{2}\langle\eta,\bar\phi\rangle\wedge J \\
 &=\int_M d\eta \wedge \star d\bar\phi - \frac{1}{2} d\eta \wedge \bar\phi \wedge J + \frac{1}{2} \eta \wedge d\bar\phi \wedge J
 \end{align*}
 $$
