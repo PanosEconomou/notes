@@ -126,6 +126,10 @@ This is a much more powerful proposition than it seems. It means that we can uni
 ## Partial Differential Equations of Distributions
 
 YES! Yes we can do this!
+$$
+\int_M
+$$
+
 
 
 
