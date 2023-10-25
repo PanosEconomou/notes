@@ -80,13 +80,13 @@ I mean… look at it, we just multiplied it by a constant.
 
 Well, ok! We have now managed to define derivatives in a way, but it would be nice to show that the derivatives of distributions have a compatible intuition with derivatives of maps in some sense. Because we would like to use them in physics as such.
 
-
+I am gonna start by saying that even though distributions can be thought of as “generalized functions” the concept of the value of a distribution at a point doesn’t have a rigorous definition. However, some of them do! We defined distributions $T_{g}$ for sufficiently nice functions $g$. In fact all $g$ needed to be was measurable and bounded. And with this we could relate the distribution with a function $T_g \leftrightarrow g$. So the “value” of $T_g$ at some point is the value of the function $g$. But this is clearly not true for all tempered distributions, and it doesn’t have to be! The point of having a *distribution* is that it is well defined to integrate against, and anything physical thing we choose to describe with such a construction we should be taking the integral of in order to extract a physical meaning.
 
 
 
 Ok ok quick sidenote because it is cool
 
-**<u>Example:</u>** Consider the tempered distribution $T_H \in \mathcal{J}^\vee(\mathbb{R})$ where $H$ is the Heaviside function. Taking its derivative we get that for any $f \in \mathcal{J}$
+**<u>Example:</u>** Consider the tempered distribution $T_H \in \mathcal{J}^\vee(\mathbb{R})$ where $H:\mathbb{R} \to \mathbb{R}$ is the Heaviside function. Taking its derivative we get that for any $f \in \mathcal{J}$
 
 $$
 \begin{align*}
@@ -127,19 +127,105 @@ This is a much more powerful proposition than it seems. It means that we can uni
 
 ## Partial Differential Equations of Distributions
 
-YES! Yes we can do this
+YES! Yes we can do this! In fact this is what distributions are MOST famous for. We use them as tools to build solutions for differential equations. The whole theory of Green’s functions is based on using distributions as solutions to partial differential equations through convolving the source with a special distribution. Sometimes this distribution is of the form $T_G$ so we simply describe it with $G$. So let’s build this beautiful framework.
+
+Let’s initially focus on linear PDE’s with constant complex coefficients, since these most useful in the language of field theory. 
+
+**<u>Definition:</u>** Given $n$ indeterminates $\{X_1,X_2,\cdots,X_n\}$ with a product structre, a multivariate polynomial with complex coefficients $P \in \mathbb{C}[X_1,X_2,\cdots,X_n]$  is an element of the polynomial ring over the complex field, where the operations are addition and multiplications of a vector space (or if not possible a free field).
+
+I HATE this definition, it is just fancy words to say that if you have things you can multiply you can form polynomials in n variables. The only good thing is that it allows us to suuuuper general about what is a polynomial for example
+
+**<u>Definition:</u>** Given a smooth manifold $M$, and a basis  $\mathcal{B} = \{v_1,v_2,\cdots,v_n\} \subset TM$ of the tangent bundle at $p\in M$, a differential operator $D$ with constant coefficients is a polynomial $D\in \mathbb{C}[-i\mathcal{B}]= \mathbb{C}[-iv_1,-iv_2,\cdots,-iv_n]$.
+
+We often use a standard basis like $\frac{\partial}{\partial x^\mu}$ to get expressions like
 
 $$
-\int_M
+D = \sum_{\alpha \in A} C_{\alpha} (-i\partial)^\alpha
 $$
 
+Summing over a set of multi-indices $\alpha = (\alpha_1,\alpha_2, \cdots, \alpha_k) \in A$. This is really pretentious, so here are some examples
+
+**<u>Example:</u>** The laplace operator is given by
+
+$$
+\Delta = \partial_1^2 +  \partial_2^2 + \cdots  + \partial_n^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n]
+$$
+
+The Klein-Gordon operator, the wave equation for massive scalar fields is given by
+
+$$
+\mathcal{D} = \Delta + m^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n],
+$$
+
+for some constant $m\in \mathbb{R}$ that we call the mass.
+
+Last example is D’Alembert’s operator given by
+
+$$
+\Box = -\partial_1^2 +  \partial_2^2 + \cdots  + \partial_n^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n]
+$$
+
+which is the wave equation operator. 
 
 
 
+Ok! Why am I even saying all this? We can now start defining differential equations in a way that they are symbollically compatible with both functions and distributions. For example using the last Proposition, we know that derivatives of distributions span the set of distributions so we can use this fact to write relations like this.
+
+**<u>Definition:</u>** Given a differential operator $D \in \mathbb{C}[-i\mathcal{B}]$ and a distribution (smooth function) $f \in \mathcal{J}^\vee(M)$ a **solution** of the differential equation defined by $D$ sourced by $f$ is a distribution $u \in \mathcal{J}^\vee(M)$ such that
+
+$$
+Du = T_f
+$$
+
+A **fundamental solution** of the differential equation defined by $D$ is a distribution $G \in \mathcal{J}^\vee(M)$ such that
+
+$$
+D G = \delta
+$$
+
+where $\delta \in \mathcal{J}^\vee(M)$ is the delta function. 
+
+I will explain the reasoning behind the introduction of the fundamental solution right after this definition
+
+**<u>Definition:</u>** Given any two decreasing functions $f,g \in \mathcal{J}(M)$ is defined as 
+
+$$
+f\star g(x) = \int_M f(y)g(x-y) dy
+$$
+
+Similarly, the convolution between a distribution $T \in \mathcal{J}^\vee(M)$ and the function $f$ is defined as the distribution
+
+$$
+\begin{align*}
+T\star f : \mathcal{J}(M) &\to \mathbb{C}\\
+g &\mapsto (T\star f)(g) = T(f\star g)
+\end{align*}
+$$
+
+**<u>Proposition:</u>** *(Properties of convolutions)* Given functions $f,g\in \mathcal{J}(M)$ and a distribution $T\in \mathcal{J}^\vee(M)$ then the following hold
+
+1. $f\star g = g\star f$
+2. $\partial_i(f\star g) = (\partial_i f) \star g = f \star (\partial_i g)$ 
+3. $\partial_i (T\star f) = (\partial_i T)\star f = T \star (\partial_i f)$
+4. For the delta function $\delta \in \mathcal{J}^\vee(M)$ we have that $(\delta \star f)(g) = \delta (f\star g) = \int_Mf g\ d\mu = T_f$
+
+Ok with these properties we can finally write about the fundamental solution that
+
+$$
+D G =\delta \implies D (G\star f) = (DG)\star f = \delta \star f = T_f
+$$
+
+Therfore the following propsition
+
+**<u>Proposition:</u>** Given a differential operator $D$ and a fundamental solution $G$ a solution for the differential equation of $D$ sourced by $f\in \mathcal{J}(M)$ is the distribution $G\star f$.
+
+------
 
 
 
+## Fourier Transforms of Distributions
 
+In our exploration of finding the fundamental solutions we introduce the Fourier Transform. We will simply use it as a tool
 
 
 
