@@ -151,21 +151,21 @@ $$
 \Delta = \partial_1^2 +  \partial_2^2 + \cdots  + \partial_n^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n]
 $$
 
-The Klein-Gordon operator, the wave equation for massive scalar fields is given by
-
-$$
-\mathcal{D} = \Delta + m^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n],
-$$
-
-for some constant $m\in \mathbb{R}$ that we call the mass.
-
-Last example is D’Alembert’s operator given by
+Another example is D’Alembert’s operator given by
 
 $$
 \Box = -\partial_1^2 +  \partial_2^2 + \cdots  + \partial_n^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n]
 $$
 
 which is the wave equation operator. 
+
+Finally, the Klein-Gordon operator, the wave equation for massive scalar fields is given by
+
+$$
+\mathcal{D} = \Box + m^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n],
+$$
+
+for some constant $m\in \mathbb{R}$ that we call the mass.
 
 
 
@@ -225,7 +225,79 @@ Therfore the following propsition
 
 ## Fourier Transforms of Distributions
 
-In our exploration of finding the fundamental solutions we introduce the Fourier Transform. We will simply use it as a tool
+In our exploration of finding the fundamental solutions we introduce the Fourier Transform. We initially use it as a tool for finding fundamental solutions.
+
+
+
+**<u>Definition:</u>** The **Fourier Transform** on a riemannian manifold $(M,g)$ is a continuous, linear map
+
+$$
+\begin{align*}
+\mathcal{F} : \mathcal{J}(M) &\to \mathcal{J}(M)\\
+f &\mapsto (\mathcal{F}f)(\omega)=\int_M f(x) e^{ig(x,\omega)}dx
+\end{align*}
+$$
+
+**<u>Proposition:</u>** The Fourier Transform is invevrible with inverse
+
+$$
+\begin{align*}
+\mathcal{F}^{-1}:\mathcal{J}(M) &\to \mathcal{J}(M)\\
+f &\mapsto (\mathcal{F}^{-1}f)(\omega) = \frac{1}{(2\pi)^{\dim M}}\int_M f(x) e^{-ig(\omega,x)}dx
+\end{align*}
+$$
+
+**<u>Proof:</u>** Guaranteed by Fourier’s Identity.
+
+
+After this formulation of the Fourier transform in the language of Schwarz functions, we can define the Fourier transform on distributions by inducing a similar map on the dual space. To do this we use the beautiful adjoint! (as we have been sectretly doing all this time)
+
+**<u>Definition:</u>** The **Fourier Transform** of distributions $\mathcal{F}'$ on a Riemannian manifold $(M,g)$ is the adjoint of the Fourier transform, given by
+
+$$
+(\mathcal{F}'T)(f) = T(\mathcal{F} f)
+$$
+
+***Note:*** We often drop the prime when talking about the fourier transform of distributions and functions, just like we did for the derivatives. 
+
+**<u>Proposition:</u>** Given a map $g \in \mathcal{J}(M)$ then $\mathcal{F}T_g = T_{\mathcal{F}g}$.
+
+**<u>Examples:</u>** Here are some examples of Fourier transforms of distributions. Here we use some abuse of notation, where given a function $f:M\to\mathbb{C}$ we say some distribution $T = f \iff T =T_f$ .
+
+1. $\mathcal{F} H = \frac{i}{\omega}$
+2. $\mathcal{F}\delta = 1$
+3. $\mathcal{F}^{-1}(e^{ig(p,y)})= \delta_y$
+
+
+
+The Fourier transform is super useful because of the following proposition
+
+**<u>Proposition:</u>** Given some distribution $T \in \mathcal{J}^\vee(M)$, then the following identity holds
+
+$$
+\mathcal{F}{\partial^\alpha T} = (-ip)^\alpha \mathcal{F}T
+$$
+
+for some multi-index $\alpha$. 
+
+This leads immidiately to the following super nice Proposition. 
+
+**<u>Proposition:</u>** Given a differential operator $D \in \mathbb{C}[-i\mathcal{B}]$ we can find its characteristic polynomial $P$ as the polynomial with the same coefficients $P\in \mathbb{C}[p^1,p^2,\cdots, p^n]$. Therefore, a fundamental solution $G$ to the differential equation defined by $D$ is given by
+
+$$
+G = \mathcal{F}^{-1}\frac{1}{P}
+$$
+
+**<u>Example:</u>** Consider the Klein Gordon equation given by the differential operator $\mathcal{D} = \Box + m^2$ for some $m>0$. The characteristic polynomial is given by $P = g(p,p) + m^2 = p^\mu p_{\mu} +m^2$ where $g$ is the metric. Then a fundamental solution is given by
+
+$$
+G = \mathcal{F}^{-1}\frac{1}{P} = \mathcal{F}^{-1}\frac{1}{p^2 + m}
+$$
+
+
+
+
+
 
 
 
