@@ -6,4 +6,5 @@
 Honestly emptier than it should be...
 <!-- optional markdown-notes-tree directory description ends here -->
 
+- [Distributions](Distributions.md)
 - [Functional Analysis](Functional_Analysis.md)
