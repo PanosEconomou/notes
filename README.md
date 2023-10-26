@@ -9,6 +9,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
 
 - [**Analysis**](Analysis)  
     Honestly emptier than it should be...
+    - [Distributions](Analysis/Distributions.md)
     - [Functional Analysis](Analysis/Functional_Analysis.md)
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.
