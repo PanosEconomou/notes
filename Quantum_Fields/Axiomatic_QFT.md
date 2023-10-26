@@ -15,10 +15,9 @@ Here we will extend the notion of operators by allowing them to be defined in su
 **<u>Definition:</u>** An **operator** on $\mathbb{H}$ is a pair $(A,D_A)$ where $A:D_A\to \mathbb{H}$  complex linear map defined on a subsapce $D_A \subset \mathbb{H}$. We call an operator **desnsely defined** if $D_A$ is dense in $\mathbb{H}$. The **adjoint** of the operator $(A,D_A)$ is the operator $(A^\dagger,D_{A^\dagger})$ where
 
 $$
-D_{A^\dagger} \coloneqq \{u\in \mathbb{H} \mid \exist v\in \mathbb{H} \text{ s.t } \forall w\in D_A\ \langle v,w\rangle = \langle u,Aw \rangle\}\\
+D_{A^\dagger} \coloneqq \{u\in \mathbb{H} \mid \exists v\in \mathbb{H} \text{ s.t } \forall w\in D_A\ \langle v,w\rangle = \langle u,Aw \rangle\}\\
 \langle A^\dagger u,v\rangle = \langle u, Av\rangle \ \ \forall u\in D_{A^\dagger}, v\in D_A
 $$
-
 
 
 
