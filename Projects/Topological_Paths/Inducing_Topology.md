@@ -93,7 +93,39 @@ The obvious caveat is that we are reducing the original set $X$ to a much smalle
 
 ## Inducing Topology from Multiple maps
 
-We have already seen how we can induce a topology using a single map. Here we want to talk about a systematic way of inducing it using multiple maps. The answer to that is products. We will use maps to the product space to talk about these 
+We have already seen how we can induce a topology using a single map. Here we want to talk about a systematic way of inducing it using multiple maps. The answer to that is products. We will use maps to the product space and show a nice equivalence between other ways of using multiple maps to induce topology and using the product space. The reduction to the product space is nice because most topological properties still exist after products.
+
+
+
+**<u>Proposition:</u>** Let $X$ be a set, $Y_1,Y_2$ topological spaces that are second countable and Hausdorff, and $f_1:X\to Y_1$ and $f_2 : X\to Y_2$ be injective maps then the space $Y = Y_1 \times Y_2$ is a second countable and Hausdorff and the map $f : X \to Y$ such that $\pi_1 \circ f = f_1$ and $\pi_2 \circ f = f_2$ is injective. 
+
+To extend this into infinite products we need two theorems.
+
+**<u>Theorem:</u>** Countable products of second countable spaces are second countable. Products of Hausdorff spaces are Hausdorff.
+
+Using the theorem above we can prove the following proposition
+
+**<u>Proposition:</u>** Let $X$ be a set, $\mathcal{Y} = \{Y_n\}_{n\in J}$ is a countable collection of second countable Hausdorff topological spaces and $\mathcal{F} = \{f_n:X\to Y_n\}_{n\in J}$ is a countable collection of maps. Then the map $f:X\to \prod \mathcal{Y}$ such that $\pi_n \circ f = f_n$ maps to a second countable Hausdorff space. Additionally if any element of $\mathcal{F}$ is injective, then $f$ is injective.
+
+![image-20231127171124389](_Inducing_Topology.assets/image-20231127171124389.png)
+
+**<u>Corollary:</u>** The functions $\pi_n \circ f = f_n$ are continuous. 
+
+This proposition is pretty cool because it transforms the question of constructing a topology using a countably infinite set of maps to studying a the one constructed by a single map. Also the image above gives an intuition for showing that every other way of inducing such a topology using multiple maps is equivalent. 
+
+
+
+## In practice
+
+By now we have the following cool results. We can induce a topology to any set using a map to a topological space that preserves second countability and Hausdorffness if an only if that map is injective. We have also shown that if we want to consider countably infinite maps then we can just consider the product of them as a single map and arrive to the same result. 
+
+The question now is “what map?” So let’s go back to our original problem where we consider inducing a topology on the set of all spacelike slices $\mathcal{M}$. So far the least we know is that any $M \in \mathcal{M}$ is an $n$-dimensional Riemannian manifold. So we need to find thigns we can calculate about those manifolds that can separate them.
+
+Examples would be things such as the Riemann curvature, or the genus of the manifold, or other invariants.
+
+
+
+
 
 
 
