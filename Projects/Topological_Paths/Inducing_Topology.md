@@ -81,9 +81,19 @@ Yet injectivity is **very strong**. Who knows if we can even find a map to a sec
 
 **<u>Proposition:</u>** Given a map $f:X\to Y$ between any two sets $X,Y$ the restriction of the map to the equivalence classes of $f$ in $X$ in injective.
 
-The equivalence classes referred to here are the fibres of $f$. 
+![image-20231127133426502](_Inducing_Topology.assets/image-20231127133426502.png)
+
+The equivalence classes referred to here are the fibres of $f$. In particular $x\sim y \iff f(x) = f(y)$ so $f:X/{\sim} \to Y$ is injective by construction. 
 
 
+
+The obvious caveat is that we are reducing the original set $X$ to a much smaller one that might not be fine enough to contain all the interesting cases. So this begs the natural question, can we proceed with making sequences of maps with finer and finer equivalence classes?
+
+
+
+## Inducing Topology from Multiple maps
+
+We have already seen how we can induce a topology using a single map. Here we want to talk about a systematic way of inducing it using multiple maps. The answer to that is products. We will use maps to the product space to talk about these 
 
 
 
