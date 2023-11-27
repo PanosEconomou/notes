@@ -23,6 +23,8 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
 - [**Projects**](Projects)
     - [**Dissipative_QFT**](Projects/Dissipative_QFT)
         - [Dissipation Currents](Projects/Dissipative_QFT/Dissipation_Currents.md)
+    - [**Topological_Paths**](Projects/Topological_Paths)
+        - [Inducing Topology Using Maps](Projects/Topological_Paths/Inducing_Topology.md)
 - [**Quantum Fields**](Quantum_Fields)  
     Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
     - [Axiomatic QFT](Quantum_Fields/Axiomatic_QFT.md)
