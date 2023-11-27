@@ -50,11 +50,44 @@ $(\impliedby)$ Assume that $X$ is Hausdorff, then for any pair of points $p,q \i
 
 We can prove a similar proposition for second countability. Which is great because second countable Hausdorff spaces have a shit ton of properties that can help us.
 
-**<u>Proposition:</u>** $(X,T_f)$ is second countable iff $f$ is an injective map to a second countable space. 
+**<u>Proposition:</u>** $(X,T_f)$ is second countable if $f$ is an injective map to a second countable space. 
 
 ***Proof:*** $(\implies)$ Assume that $f:X\to Y$ is injective to a second countable space $Y$ with a countable basis $\mathcal{B}$. Then $\mathcal{B}_f \coloneqq \{f^{-1}(B) \mid B\in \mathcal{B}\}$ is a basis for $T_f$ because for any map the preimage of unions is the union of the preimages, and the preimage of finite intersections is the preimage of intersections if the map is injective. 
 
-$(\impliedby)$ Assume that $X$ is second countable with countable basis $\mathcal{B}_f$. Then pick $A \subset X$ and consider 
+![image-20231127124157010](_Inducing_Topology.assets/image-20231127124157010.png)
+
+***Note:*** Since we only care for Hausdorff spaces $f$ has to be injective, so there is reason to prove the backwards statement of the previous proposition. 
+
+
+
+Now we can build up to the next really useful theorem!
+
+**<u>Theorem:</u>** *(Topology Induction by a single map)* Given a set $X$, a toplogical space $Y$ that is second countable and Hausdorff, and a map $f: X\to Y$  the topological space $(X,T_f)$ is second countable and Hausdorff iff $f$ is injective.
+
+
+
+### Injectivity Sucks!
+
+The previous theorem is great because it shows us an equivalent condition for the topological space to have most of the niceness properties we require. Here is a glimpse of what we get by using an injective map:
+
+1. If a sequence converges the limit is unique.
+2. Baire Category theorem: Countable intersections of dense sets are dense. This is very helpful in characterizing the space later.
+3. If in addition it is regular (this is a weaker condition of normality), i.e. a closed set and a point outside it are separated by open neighborhoods, then $X$ is metrizable. (Urysohn Theorem)
+4. $X$ is separable and Lindelöf. 
+
+and more! Personally this makes me very happy, because the step for showing that $X$ is a metrizable space is very simple after this point, which is eventually what we want to build up to. 
+
+Yet injectivity is **very strong**. Who knows if we can even find a map to a second countable Hausdorff space that maps ALL THE (nice) MANIFOLDS!? So injectivity sucks. Yet we don’t have to give up. We can turn any map into an injective map by restricting the domain. So we can explore that
+
+**<u>Proposition:</u>** Given a map $f:X\to Y$ between any two sets $X,Y$ the restriction of the map to the equivalence classes of $f$ in $X$ in injective.
+
+The equivalence classes referred to here are the fibres of $f$. 
+
+
+
+
+
+
 
 
 
