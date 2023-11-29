@@ -212,7 +212,7 @@ The other helpful definition is often implicitly talked about in physics, but it
 **<u>Definition:</u>** Let $\mathbb{P}(\mathbb{H})$ be be the **projective space** composed of 1 dimensional linear subspaces of $\mathbb{H}$. Namely
 
 $$
-\mathbb{P} \coloneqq \mathbb{P}(\mathbb{H}) = (\mathbb{H} \setminus\{0\})/\sim
+\mathbb{P} \coloneqq \mathbb{P}(\mathbb{H}) = (\mathbb{H} \setminus\{0\})/{\sim}
 $$
 
 where $\sim$ is the equivalence relation of the lines of $\mathbb{H}$.
@@ -290,6 +290,6 @@ Yet, the grander consequence of this theorem, is that for states that we can phy
 
 Covering maps are really useful objects, they can be thought of in multiple ways, one of which is as extentions of compact topological spaces. 
 
-Consider two topological space $(E,T_E)$ and $(X,T)$. In the following we will study some properties of subsets of $X$ through continious maps from $E$.
+…Consider two topological space $(E,T_E)$ and $(X,T)$. In the following we will study some properties of subsets of $X$ through continious maps from $E$.
 
 **<u>Definition:</u>** Any $U \in T$ is **evenly covered** by a continuous map $q: E \to X$ if $q^{-1}(U)$ is a disjoint union of connected open subsets of $E$. These subsets are called the **sheets** of the covering of $U$, each of which must be homeomorphic to $U$ by a suitable restriction of $q$.

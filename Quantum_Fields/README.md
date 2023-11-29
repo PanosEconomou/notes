@@ -6,5 +6,6 @@
 Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 <!-- optional markdown-notes-tree directory description ends here -->
 
+- [Axioms in 2D CFT](2D_CFT_Axioms.md)
 - [Axiomatic QFT](Axiomatic_QFT.md)
 - [Conformal Group](Conformal_Group.md)
