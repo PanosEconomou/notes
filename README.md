@@ -27,6 +27,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
         - [Inducing Topology Using Maps](Projects/Topological_Paths/Inducing_Topology.md)
 - [**Quantum Fields**](Quantum_Fields)  
     Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
+    - [Axioms in 2D CFT](Quantum_Fields/2D_CFT_Axioms.md)
     - [Axiomatic QFT](Quantum_Fields/Axiomatic_QFT.md)
     - [Conformal Group](Quantum_Fields/Conformal_Group.md)
 
