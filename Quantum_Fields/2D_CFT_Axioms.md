@@ -149,7 +149,51 @@ Nice. What that means in practice is that these transformations are coordinate t
 
 
 
-When $M = \mathbb{C}$  we can write the Eucledian metric as $g = dz\, d\bar{z}$ and then we find that conformal transformations must act as as follows. 
+## Conformal Transformations in $\mathbb{C}$
+
+When $M = \mathbb{C}$  we can write the Eucledian metric as $g = dz\, d\bar{z}$. The following is an amazing result about conformal field theories in two dimensions.
+
+**<u>Theorem:</u>** The conformal transformations in $\mathbb{C}$ are exactly the analytic ones.
+
+***Proof:*** Let $f: \mathbb{C} \to \mathbb{C}$ be any map. Then we can check the pullback of the metric under $f$ where we should have
+
+$$
+\begin{align*}
+f^\star g &= f^\star dz\, d\bar{z}\\
+&= df^\star z \, df^\star \bar{z}\\
+&= df\, d\bar{f}\\
+&= \frac{\partial f}{\partial z}\frac{\partial \bar f}{\partial z} dz\, dz + \left( \frac{\partial f}{\partial z}\frac{\partial \bar f}{\partial \bar z} + \frac{\partial f}{\partial \bar z}\frac{\partial \bar f}{\partial z} \right) dz\, d \bar z + \frac{\partial f}{\partial \bar z}\frac{\partial \bar f}{\partial \bar z} dz\, dz
+\end{align*}
+$$
+
+Notice that in order for this to be conformal we need to at least have
+
+$$
+\begin{align*}
+\frac{\partial f}{\partial z}\frac{\partial \bar f}{\partial z} &= 0
+\end{align*}
+$$
+
+Therefore, either $\frac{\partial f}{\partial z} = 0$ or $\frac{\partial f}{\partial \bar z} = 0$. If both are zero then the metric vanishes, so it’s not good. Both of these conditions are restatements of the cauchy criterion, therefore $f$ is analytic. As a result, without loss of generaility we can assume $\frac{\partial f}{\partial \bar{z}} = 0 $. Therefore we have that
+
+$$
+f^\star g  = \left|\frac{df}{dz}\right|^2 dz\, d\bar z
+$$
+
+Which also shows the sign enforcement as well. $\Box$
+
+
+
+Now consider a tensor field $\Phi \in \mathcal{T}^{(m,n)}(\mathbb{C})$, then it transforms as
+
+$$
+f^\star \Phi = \Big(\frac{df}{dz}\Big)^h \Big(\frac{d\bar f}{d\bar z}\Big)^{\bar h} \Phi
+$$
+
+
+
+
+
 
 
 
