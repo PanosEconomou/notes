@@ -181,13 +181,13 @@ where $\delta \in \mathcal{J}^\vee(M)$ is the delta function.
 
 I will explain the reasoning behind the introduction of the fundamental solution right after this definition
 
-**<u>Definition:</u>** Given any two decreasing functions $f,g \in \mathcal{J}(M)$ is defined as 
+**<u>Definition:</u>** Given any two decreasing functions $f,g \in \mathcal{J}(M)$ their **convolution** is defined as 
 
 $$
 f\star g(x) = \int_M f(y)g(x-y) dy
 $$
 
-Similarly, the convolution between a distribution $T \in \mathcal{J}^\vee(M)$ and the function $f$ is defined as the distribution
+Similarly, the **convolution** between a distribution $T \in \mathcal{J}^\vee(M)$ and the function $f$ is defined as the distribution
 
 $$
 \begin{align*}
