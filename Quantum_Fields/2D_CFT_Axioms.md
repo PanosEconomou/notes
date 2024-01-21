@@ -22,11 +22,11 @@ Notice that these operators do not have to be bounded or have any other niceness
 
 ### Quick aside on the domain of operators
 
-Now the next question is: should we restrict to function defined in the entirety of the Hilbert space? The answer is, surprisingly, no! 
+Now the next question is: should we restrict the definition of operators to a function defined in the entirety of the Hilbert space? The answer is, surprisingly, no! 
 
 Infact this is not even a new idea, we have implicitly been doing it in physics for ages! Think about any continuous function $f:\mathbb{R}^2 \to \mathbb{R}$. Now restrict the function on $D = \mathbb{R}\setminus \{0\}$ to obtain $\tilde{f}:D\to \mathbb{R}$. However we know that since $D$ is dense and $f$ is continuous on $\overline{D}$ that $\lim_{x\to 0} \tilde{f}(x) = f(x)$. In other words simply by continuity we can extract the value of $f$ at some point outisde of $D$ simply by looking at the limit! This is great because if $D$ is dense, we could extend $\tilde{f}$ to all of $\mathbb{R}^2$ by doing this limit thing. Let’s summarize this in the following proposition.
 
-**<u>Proposition:</u>** Let $f:X \to Y$ be continuous from some topologucal space $X$ to some topological space $Y$ and $D\subset X$ be desnse. Then given the restriction $\tilde{f}:D\to Y$ of $f$ we have that $\forall y \in \overline{D} = X$
+**<u>Proposition:</u>** Let $f:X \to Y$ be continuous from some topological space $X$ to some topological space $Y$ and $D\subset X$ be desnse. Then given the restriction $\tilde{f}:D\to Y$ of $f$ we have that $\forall y \in \overline{D} = X$
 
 $$
 \lim_{x\to y} \tilde{f}(x) = f(y)
@@ -77,7 +77,7 @@ The adjoint still means the same thing, but we had to be careful about where it 
 
 ## Field Operators
 
-The next step is to talk about the concept of a **field operator**. This is a bit harder to define. What I picture as a field operator is simply a map that takes a manifold and assigns an operator to its every point. Obviously this is quantum mechanics so it doesn’t work. But why?
+The next step is to talk about the concept of a **field operator**. This is a bit harder to define. What I picture as a field operator is simply a map that takes a manifold and assigns an operator to its every point. Obviously, this is quantum mechanics so it doesn’t work. But why?
 
 The central object of quantum mechanics is not really the value of the field itself, but rather expectation values of stuff. We don’t care about what happens at a particular point, we always care about what happens on average in a region (that could be arbitrarily small). By restricting ourselves to thinking about functions we are loosing the ability to talk about regions. Perhaps some functions are not ingerable in some regions, or perhaps some information about a region could not be expressed in terms of functions. That’s why we create distributions. So we are going to use those to define our field operators.
 
@@ -91,9 +91,9 @@ such that there exists a dense subspace $D\subset \mathbb{H}$ where
 
 1. For all $f\in \mathcal{J}(M)$ we have that $D\subset D_{\Phi(f)}$.
 2. The induced map $\mathcal{J}(M) \to \text{End}(D), f\mapsto \left.\Phi(f)\right|_D$ is linear. 
-3. For all $v\in D$ and $w \in \mathbb{H}$ the map $f \mapsto \langle w,\Phi(f)(v)\rangle$ is a tempered distribution. 
+3. For all $v\in D$ and $w \in \mathbb{H}$ the map $f \mapsto \langle w,\Phi(f)(v)\rangle$ is a tempered distribution on $M$. 
 
-Where $\mathcal{J}(M)$ is the set of rapidly decaying (Schwartz) functions on $M$. 
+Where $\mathcal{J}(M)$ is the set of rapidly decaying (Schwartz) functions on $M$. The **set of all field operators** is denoted as $\mathbb{\Phi}(M,\mathbb{H})$ or just $\mathbb{\Phi}$ when the setting is understood. 
 
 
 
@@ -191,6 +191,54 @@ f^\star \Phi = \Big(\frac{df}{dz}\Big)^h \Big(\frac{d\bar f}{d\bar z}\Big)^{\bar
 $$
 
 where $h,\bar{h} \in \mathbb{N}$. So that’s pretty, where we can fully classify our operators. Again we are building up to thinking of operator valued distributions instead of maps. But for now we are good!
+
+
+
+## Duality of Fields and States
+
+What we aim to do in the following is to define a set of axioms such that we ensure a duality between **Field Operators** and **States** or elements of the chosen quantum Hilbert space. In reality we do not really care about the fields themselves. What defines the theory is the correlation functions (i.e. the green’s functions) that are constructed through vacuum expectation values of field operators. This will make sense as we go along. To start with we need some defintions of the nice spaces we are working on.
+
+**<u>Definition:</u>** The **configuration space** of $n$ points in $\mathbb{C}$ is the set
+
+$$
+M_n\coloneqq\{(z_1,z_2,\cdots,z_n) \in \mathbb{C}^n \mid z_i\neq z_j \text{ for } i,j=1\dots n\}
+$$
+
+Then the **ordered configuration space** is the subset with positive real coefficients given by
+
+$$
+M_n^+ \coloneqq \{(z_1,z_2,\cdots,z_n) \in M_n \mid \Re\, z_i >0 \text{ for }i=1\dots n\}
+$$
+
+This is the space where all the points have coefficients in the positive half plane. So if there are many points at some time and space we just put them all together. The obvious next step is to define the spaces of Scwartz functions on these sets so that we can define operators very soon. In particular they are defined like so
+
+**<u>Definition:</u>** The space of **rapidly decreasing functions** of $n$ points is given by
+
+$$
+\mathcal{J}_n^+\coloneqq\{f \in \mathcal{J}(\mathbb{C}^n) \mid \text{supp }f \subset M_n^+\}
+$$
+
+where $\mathcal{J}_0^+ = \mathbb{C}$, and $\mathcal{J}(\mathbb{C}^n) \subset C^\infty(\mathbb{C}^n)$ is the space of **Scwartz functions** $f\in C^\infty(\mathbb{C}^n)$ which are defined to rapidly decrease such that for any multiindex $\alpha$, and any $p,k\in \mathbb{N}$ the following exists and is finite
+
+$$
+\sup_{|\alpha| < p} \sup_{x\in \mathbb{C}^n} \abs{\partial^\alpha f(x)} (1+|x|^2)^k
+$$
+
+Now we will start with the axiomatization of the theory. The first thing we want to construct is to define the set of all propagators and give them the right properties under conformal transformations. 
+
+
+
+### Correlation functions
+
+Here we will first give an intuitive picture of correlation functions just to illustrate how important of a role they play in this. In QFT correlation functions are the result of taking the expectation value of an operator composed by acting with the field operators in a *time ordered way.* For example, think of a simple experiment. 
+
+Usually we take a priviledged state in our hilbert space that we call the vacuum. Acting with a field operator on the vacuum is giving us a different state that is interpreted as “““adding a particle in some position in spacetime””” (in as many quotations as I can get here). Essentially the state we get back by acting with an field operator is the one that generates a particle of that field. 
+
+
+
+
+
+
 
 
 
