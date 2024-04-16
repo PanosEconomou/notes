@@ -194,28 +194,57 @@ where $h,\bar{h} \in \mathbb{N}$. So that’s pretty, where we can fully classif
 
 
 
-## Duality of Fields and States
+## Setting for Axiomatization
 
 What we aim to do in the following is to define a set of axioms such that we ensure a duality between **Field Operators** and **States** or elements of the chosen quantum Hilbert space. In reality we do not really care about the fields themselves. What defines the theory is the correlation functions (i.e. the green’s functions) that are constructed through vacuum expectation values of field operators. This will make sense as we go along. To start with we need some defintions of the nice spaces we are working on.
 
-**<u>Definition:</u>** The **configuration space** of $n$ points in $\mathbb{C}$ is the set
+**<u>Definition:</u>** The **ordered configuration space** of $n$ points in some set $X$ is the set
 
 $$
-M_n\coloneqq\{(z_1,z_2,\cdots,z_n) \in \mathbb{C}^n \mid z_i\neq z_j \text{ for } i,j=1\dots n\}
+C_n(X) = \text{Conf}_n(X)\coloneqq\{(z_1,z_2,\cdots,z_n) \in X^n \mid z_i\neq z_j \text{ for } i,j=1\dots n\}
 $$
 
-Then the **ordered configuration space** is the subset with positive real coefficients given by
+Then the **time ordered configuration space** is the subset of $C_n(\mathbb{C})$ with positive real coefficients given by
 
 $$
-M_n^+ \coloneqq \{(z_1,z_2,\cdots,z_n) \in M_n \mid \Re\, z_i >0 \text{ for }i=1\dots n\}
+C_n^+(\mathbb{C}) = \text{Conf}_n^+(\mathbb{C}) \coloneqq \{(z_1,z_2,\cdots,z_n) \in C_n(\mathbb{C}) \mid \Re\, z_i >0 \text{ for }i=1\dots n\}
 $$
 
-This is the space where all the points have coefficients in the positive half plane. So if there are many points at some time and space we just put them all together. The obvious next step is to define the spaces of Scwartz functions on these sets so that we can define operators very soon. In particular they are defined like so
+This is the space where all the points have coefficients in the positive half plane. So if there are many points at some time and space we just put them all together. We will drop the $\mathbb{C}$ in the rest of the text and assume that $C_n$ and $C_n^+$ refer to the complex configuration space.
 
-**<u>Definition:</u>** The space of **rapidly decreasing functions** of $n$ points is given by
+This is already a pretty good starting point, the next step would be to force something else on the base space. We could force that the order at which the configuration is taken does not matter. In practice this means that for any point $(z_1,z_2,\cdots, z_n) \in C_n$ if we permute the coordinates to say $(z_2,z_1,\cdots,z_n)\in C_n$ we would still get the same point. To be more rigorous about it consider the permutation action.
+
+**<u>Definition:</u>** The **permutation action** of on $C_n$ is a group action of the permutation group of $n$ elements $S_n$ given by
 
 $$
-\mathcal{J}_n^+\coloneqq\{f \in \mathcal{J}(\mathbb{C}^n) \mid \text{supp }f \subset M_n^+\}
+\begin{align*}
+\rho : C_n\times S_n &\to C_n\\
+((z_1,z_2,\cdots, z_n),\pi) &\to (z_{\pi(1)},z_{\pi(2)},\cdots, z_{\pi(n)})
+\end{align*}
+$$
+
+We use it to define the space where the order does not matter!
+
+**<u>Definition:</u>** The **unordered configuration space** of $n$ points in some set $X$ is the set of orbits of the permutation action on $C_n(X)$ given by
+
+$$
+\mathcal{C}_n(X) \coloneqq C_n(X)/S_n
+$$
+
+Similarly the **time ordered unordered configuration space** (lmao I love the name) of $n$ complex numbers is defined similarly as
+
+$$
+\mathcal{C}_n^+ \coloneqq C_n^+(X)/S_n
+$$
+
+I know I have spent a lot of time showing these stuff, however, they will lead to real simplification in a second essentially implementing locality in our correlation functions. 
+
+The obvious next step is to define the spaces of Scwartz functions on these sets so that we can define operators very soon. In particular they are defined like so
+
+**<u>Definition:</u>** The space of **rapidly decreasing functions** of $n$ unordered points is given by
+
+$$
+\mathcal{J}_n^+\coloneqq\{f \in \mathcal{J}(\mathbb{C}^n) \mid \text{supp }f \subset \mathcal{C}_n^+\}
 $$
 
 where $\mathcal{J}_0^+ = \mathbb{C}$, and $\mathcal{J}(\mathbb{C}^n) \subset C^\infty(\mathbb{C}^n)$ is the space of **Scwartz functions** $f\in C^\infty(\mathbb{C}^n)$ which are defined to rapidly decrease such that for any multiindex $\alpha$, and any $p,k\in \mathbb{N}$ the following exists and is finite
@@ -228,13 +257,21 @@ Now we will start with the axiomatization of the theory. The first thing we want
 
 
 
+The next step is to talk about symmetries.
+
+
+
 ### Correlation functions
 
 Here we will first give an intuitive picture of correlation functions just to illustrate how important of a role they play in this. In QFT correlation functions are the result of taking the expectation value of an operator composed by acting with the field operators in a *time ordered way.* For example, think of a simple experiment. 
 
 Usually we take a priviledged state in our hilbert space that we call the vacuum. Acting with a field operator on the vacuum is giving us a different state that is interpreted as “““adding a particle in some position in spacetime””” (in as many quotations as I can get here). Essentially the state we get back by acting with an field operator is the one that generates a particle of that field. 
 
+[…]
 
+Now we are ready for a fomal definition of $n$-point correlation functions in the language of two dimensional CFTs.
+
+**<u>Definition:</u>** An **$n$-point correlation function** for some $n\in \mathbb{N}$ is a polynomially bounded continuous map from the unordered configuration space, such that there are *conformal weights* $h, \bar h \in \mathbb{R}$ such that
 
 
 
