@@ -61,7 +61,7 @@ Here they are, from left to right they go  as $L_{-1} \cdots L_3$! First of all,
 
 ## Virasoro Algebra
 
-In [here](./Conformal_Group.md#Central_Extensions)
+In [here](./Conformal_Group.md#Central-Extensions)
 
 
 
