@@ -11,3 +11,4 @@ Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 - [Conformal Group](Conformal_Group.md)
 - [Path Integrals](Path_Integrals.md)
 - [Spinors](Spinors.md)
+- [Virasoro Algebra](Virasoro_Algebra.md)
