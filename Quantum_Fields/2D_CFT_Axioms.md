@@ -24,9 +24,9 @@ Notice that these operators do not have to be bounded or have any other niceness
 
 Now the next question is: should we restrict the definition of operators to a function defined in the entirety of the Hilbert space? The answer is, surprisingly, no! 
 
-Infact this is not even a new idea, we have implicitly been doing it in physics for ages! Think about any continuous function $f:\mathbb{R}^2 \to \mathbb{R}$. Now restrict the function on $D = \mathbb{R}\setminus \{0\}$ to obtain $\tilde{f}:D\to \mathbb{R}$. However we know that since $D$ is dense and $f$ is continuous on $\overline{D}$ that $\lim_{x\to 0} \tilde{f}(x) = f(x)$. In other words simply by continuity we can extract the value of $f$ at some point outisde of $D$ simply by looking at the limit! This is great because if $D$ is dense, we could extend $\tilde{f}$ to all of $\mathbb{R}^2$ by doing this limit thing. Let’s summarize this in the following proposition.
+Infact this is not even a new idea, we have implicitly been doing it in physics for ages! Think about any continuous function $f:\mathbb{R}^2 \to \mathbb{R}$. Now restrict the function on $D = \mathbb{R}\setminus \{0\}$ to obtain $\tilde{f}:D\to \mathbb{R}$. However we know that since $D$ is dense and $f$ is continuous on $\overline{D}$ that $\lim_{x\to 0} \tilde{f}(x) = f(x)$. In other words by continuity we can extract the value of $f$ at some point outisde of $D$ simply by looking at the limit! This is great because if $D$ is dense, we could extend $\tilde{f}$ to all of $\mathbb{R}^2$ by doing this limit thing. Let’s summarize this in the following proposition.
 
-**<u>Proposition:</u>** Let $f:X \to Y$ be continuous from some topological space $X$ to some topological space $Y$ and $D\subset X$ be desnse. Then given the restriction $\tilde{f}:D\to Y$ of $f$ we have that $\forall y \in \overline{D} = X$
+**<u>Proposition:</u>** Let $f:X \to Y$ be continuous from some topological space $X$ to some topological space $Y$ and $D\subset X$ be dense. Then given the restriction $\tilde{f}:D\to Y$ of $f$ we have that $\forall y \in \overline{D} = X$
 
 $$
 \lim_{x\to y} \tilde{f}(x) = f(y)
@@ -42,9 +42,9 @@ Therefore, we *have* to make our physics work using functions that are not neces
 
 But if we are not considering some points in the entirety of space won’t we loose information about them? The answer is no! In fact that’s what we’ve shown in the previous proposition. If the function is continuous everywhere, then we can recover its value everywhere from any restriction to a dense subset. So we have lost nothing. On the contrary we have gained a richer tool to talk about functions. 
 
-Often in physics classes, this remains unsaid, because it is a REALLY subtle point that at the end, ends up changing nothing in day to day calculations. But we do use it every time we change to spherical or cylindrical coordinates which I think is pretty cool. 
+Often, this remains unsaid, because it is a REALLY subtle point that at the end, ends up changing nothing in day to day calculations. But we do use it every time we change to spherical or cylindrical coordinates which I think is pretty cool. 
 
-On the matter at hand, when we are trying to axiomatize something as complicated as QFT we need to take into account the same subtlety. We don’t just wanna study operators that map from the entire hilbert space, we want to do it for ones defined in a dense subset of it. So let’s start building on that
+On the matter at hand, when we are trying to axiomatize something as complicated as QFT we need to take into account the same subtlety. **We don’t just wanna study operators that map from the entire hilbert space, we want to do it for ones defined in a dense subset of it.** So let’s start building on that
 
 ---
 
@@ -52,7 +52,7 @@ On the matter at hand, when we are trying to axiomatize something as complicated
 
 Ok now that we have motivated the need to talk about operators from dense subsets of the hilbert space other than its entirety let’s try to define them!
 
-**<u>Definition:</u>** An **operator** defined on a quantum hilbert space $\mathbb{H}$ is a pair $(A,D)$ where $D \subset \mathbb{H}$ is a linear subspace and $A:D \to \mathbb{H}$ is a $\mathbb{C}$-linear map. The operator is **densely defined** if $D$ is dense in $\mathbb{H}$. We call $\mathcal{O}(\mathbb{H})$ the set of all densely defined operators on $\mathbb{H}$.  We often denote $D$ by $D_A$.
+**<u>Definition:</u>** An **operator** defined on a quantum hilbert space $\mathbb{H}$ is a pair $(A,D)$ where $D \subset \mathbb{H}$ is a linear subspace and $A:D \to \mathbb{H}$ is a $\mathbb{C}$-linear map. The operator is **densely defined** if $D$ is dense in $\mathbb{H}$. We call $\mathcal{O}(\mathbb{H})$ the set of all *densely defined* operators on $\mathbb{H}$.  We often denote $D$ by $D_A$.
 
 TADAAAA!
 
@@ -111,7 +111,7 @@ Note that a priori a Weyl transform does not tell you anything about the metric 
 
 
 
-**<u>Definition:</u>** Let $(M,g)$ be some $n$-dimensional Riemannian manifold. Then a conformal transformation $F:(M,g)\to (M,g)$ is a diffeomorphism such that 
+**<u>Definition:</u>** Let $(M,g)$ be some $n$-dimensional Riemannian manifold. Then a **conformal transformation** $F:(M,g)\to (M,g)$ is a diffeomorphism such that 
 
 $$
 F^\star g = \Omega \ g
@@ -121,7 +121,7 @@ where $\Omega \in C^{\infty}(M)$ and $\Omega(x) > 0, \forall x\in M$.
 
 This is suuuper confusing. To unpack first we understand that $F$ is a diffeomorphism of manifolds, i.e. a smooth map between manifolds with smooth inverse. In this case, it maps to the manifold we started with, but with the same metric. YET, for some reason the pullback of the metric is different. 
 
-The pullback of $g$ can be loosely thought of what $g$ would look like if we take it back to the original manifold *through* $F$. This doesn’t help, I know. Here is the expression
+The pullback of $g$ can be loosely thought of what $g$ would look like if we take it back to the original manifold *through* $F$. This doesn’t help. Here is the expression
 
 $$
 (F^\star g)(X,Y) = g(F_\star X,F_\star Y)
@@ -192,6 +192,10 @@ $$
 
 where $h,\bar{h} \in \mathbb{N}$. So that’s pretty, where we can fully classify our operators. Again we are building up to thinking of operator valued distributions instead of maps. But for now we are good!
 
+---
+
+---
+
 
 
 ## Setting for Axiomatization
@@ -239,7 +243,7 @@ $$
 
 I know I have spent a lot of time showing these stuff, however, they will lead to real simplification in a second essentially implementing locality in our correlation functions. 
 
-The obvious next step is to define the spaces of Scwartz functions on these sets so that we can define operators very soon. In particular they are defined like so
+The next step is to define the spaces of Scwartz functions on these sets so that we can define operators very soon. In particular they are defined like so
 
 **<u>Definition:</u>** The space of **rapidly decreasing functions** of $n$ unordered points is given by
 
@@ -256,8 +260,6 @@ $$
 Now we will start with the axiomatization of the theory. The first thing we want to construct is to define the set of all propagators and give them the right properties under conformal transformations. 
 
 
-
-The next step is to talk about symmetries.
 
 ### Conformal Group
 
@@ -277,13 +279,9 @@ where $L_i \in W$ and $\bar L_i \in \bar W$, with multiplication. In order, firs
 
 ### Correlation functions
 
-Here we will first give an intuitive picture of correlation functions just to illustrate how important of a role they play in this. In QFT correlation functions are the result of taking the expectation value of an operator composed by acting with the field operators in a *time ordered way.* For example, think of a simple experiment. 
+Here we will first give an intuitive picture of correlation functions just to illustrate how important of a role they play in this. In QFT correlation functions are the result of taking the expectation value of an operator composed by acting with the field operators in a *time ordered way.* Now we are ready for a fomal definition of $n$-point correlation functions in the language of two dimensional CFTs.
 
-Usually we take a priviledged state in our hilbert space that we call the vacuum. Acting with a field operator on the vacuum is giving us a different state that is interpreted as “adding a particle in some position in spacetime” (in as many quotations as I can get). Essentially the state we get back by acting with an field operator is the one that generates a particle of that field. 
-
-Now we are ready for a fomal definition of $n$-point correlation functions in the language of two dimensional CFTs.
-
-**<u>Definition:</u>** An **$n$-point correlation function** for some $n\in \mathbb{N}$ is a polynomially bounded continuous map $G\in \mathcal J_n^+$ from the unordered configuration space, such that there are *conformal weights* $h, \bar h \in \mathbb{R}$ such that for any $w \in SL(2,\mathbb{C})$ we have that
+**<u>Definition:</u>** An **$n$-point correlation function** for some $n\in \mathbb{N}$ is a polynomially bounded continuous map $G\in \mathcal J_n^+$ from the unordered configuration space, with *conformal weights* $h, \bar h \in \mathbb{R}$ such that for any $w \in SL(2,\mathbb{C})$ we have that
 
 $$
 G(z_1,\bar z_1, \cdots , z_n,\bar z_n) = \prod_{j=1}^n \left(\frac{\partial w}{\partial z^j}\right)^{h_j}\left(\overline{\frac{\partial w}{\partial z^j}}\right)^{\bar h_j} G(w_1,\bar w_1, \cdots , w_n,\bar w_n),
@@ -305,7 +303,7 @@ We can keep deriving these identities, but this is amazing! We could just use co
 
 ### Reconstruction of Field Operators
 
-With a given set of $n$ point correlation functions there is a proceedure we can go through to define a quantum hilbert space $\mathbb{H}$ with natural field operators that that give rise to the specific correlations, as well as have a natural unitary representation of the Eucledian group, and contain a vector $\Omega \in \mathbb{H}$ such that it is invariant under the unitary representation of the Eucledian group. I am going to skip the details of this construction now because it is unnessesarily involved, but the important thing is that it is always possible to do so with a unique $\mathbb{H}$.
+With a given set of $n$ point correlation functions there is a proceedure we can go through to define a quantum hilbert space $\mathbb{H}$ with natural field operators that that give rise to the specific correlations, as well as have a natural unitary representation of the conformal group, and contain a vector $\Omega \in \mathbb{H}$ such that it is invariant under the unitary representation of the conformal group. I am going to skip the details of this construction now because it is unnessesarily involved, but the important thing is that it is always possible to do so and obtain a unique $\mathbb{H}$.
 
 **<u>Theorem:</u>** *(Reconstruction of Field Operators)* Given a set of indexed correlation functions $\{G_{i_1,\cdots,i_n}\}_{i_1,\cdots,i_n \in B}$ there exists a unique quantum hilbert space $\mathbb{H}$ with a canonical representation $U:SL(2,\mathbb{C}) \to \text{Aut}(\mathbb{H})$ of $SL(2,\mathbb{C})$ and an invariant vector $\Omega \in \mathbb H$ such that there exist quantum fields $\Phi_i : \mathcal J^+ \to \text{End}(D)$ for some $D\subset \mathbb{H}$ a dense subspace such that for some $w\in SL(2,\mathbb{C})$, $z\in \mathbb{C}$
 
@@ -318,6 +316,8 @@ $$
 $$
 \langle \Omega, \Phi_{i_1}(z_1) \Phi_{i_2}(z_2) \cdots \Phi_{i_n}(z_n) \Omega   \rangle = G_{i_1,i_2,\cdots,i_n}(z_1,z_2,\cdots,z_n)
 $$
+
+Note that when we say $\Phi(z)$ what we really mean is evaluating the dual of $\Phi$ at position $z\in \mathbb{C}$.
 
 Ok! Now we are cooking! We have our field operators, even somewhat haphazardly, so now let’s try to figure out what they really mean. 
 
@@ -340,10 +340,6 @@ Let’s study those correlation functions a bit more in detail and develop some 
 3. $$
    0 = \sum_{j=0}^n \left(z_j^2\frac{\partial }{\partial z_j} + 2h_jz_j\right)G(z_1,z_2,\cdots,z_n)
    $$
-
-4. 
-
-
 
 We use these identities to further restrict the form that the correlation functions can take. We will see it in practice later, but they are important to mention here. 
 
@@ -404,7 +400,21 @@ If this decomposition is finite, we call the conformal field theory **minimal.**
 
 
 
+Now we are ready to define a conformal field theory. (This is useless, but cool)
 
+**<u>Definition:</u>** A **conformal field theory** for a countable index set $B$ is a family of $n$-point correlation functions $\mathcal{G} = (G_i)_{i\in \mathcal B}$, where $\mathcal B = \bigcup_{n\in \mathbb{N}} B^n$ (i.e. the set of all multi-indeces obtained from $B$), together with a stress energy tensor $T_{\mu\nu} \in \mathbb{\Phi}(\mathcal{G})$.
+
+YES! This is it! Isn’t this amazing? The following corollary summarizes what we have done so far.
+
+**<u>Corollary:</u>** For any conformal field theory $(\mathcal{G},B)$ for a countable index set $B$, and $n-$point correllation functions $\mathcal{G}$ there exists a unique, up to isomorphism, quantum Hilbert space $\mathbb{H}(\mathcal{G})$ and a unique collection of quantum fields $\mathbb{\Phi}(\mathbb{H})$ 
+
+
+
+## Operator Product Expansion
+
+The first thing we need in order to talk about this concept, which is super useful in calculation, is to get the Primary Fields. Let’s understand what they are. 
+
+**<u>Definition:</u>** In 
 
 
 
