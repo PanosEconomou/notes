@@ -163,9 +163,20 @@ i.e. $V_n$ is the eigenspace of $\rho(L_0)$ with eigenvalue $n+ h$.
 
 
 
+## Reducing Representations
 
+In CFTs we will obtain a symmetry of the form of a representation of the Virasoro algebra in some hilbert space. It would be nice to decompose the hilbert space into highest weight representations. Let’s see how to do that 
 
+**<u>Definition:</u>** A vector space $M$ with a lie algebra representation of the Virasoro Algebra is **indecomposable** if there exist no proper subspaces $V,W$ invariant by the rerpesentation such that $M = V\oplus W$. Otherwise it is called **decomposable.**
 
+**<u>Definition:</u>** M is called **irreducible** if there is no invariant proper subspace of $M$ under the representation. 
+
+**<u>Theorem:</u>** For each conformal weights $(c,h) \in \mathbb{C}^2$ we have that
+
+1. The verma module $M(c,h)$ is indecomposable.
+2. If $M(c,h)$ is reducible then there is a maximal invariant subspace $I(c,h)$ such that $M(c,h)/I(c,h)$ is an irreducible, heighest weight representation. 
+3. There is at most one, up to isomorphism, positive definite unitary highest weight representation of the virasoro algebra. We call the corresponding verma module $W(c,h)$
+4. Any positive definite highest weight unitary representation $W(c,h)$ is irreducible. 
 
 
 
