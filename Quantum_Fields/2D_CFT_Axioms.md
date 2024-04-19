@@ -325,7 +325,84 @@ Ok! Now we are cooking! We have our field operators, even somewhat haphazardly, 
 
 ### Conformal Ward Identities 
 
-Let’s study those correlation functions a bit more in detail
+Let’s study those correlation functions a bit more in detail and develop some tools that will be useful for calculation. These are called ward identities. 
+
+**<u>Theorem:</u>** *(Conformal Ward Identities)* The transformation assumptions of correlation functions under $SL(2,\mathbb{C})$ leads to the following identities
+
+1. $$
+   0 = \sum_{j=0}^n \frac{\partial }{\partial z_j}G(z_1,z_2,\cdots,z_n)
+   $$
+
+2. $$
+   0 = \sum_{j=0}^n \left(z_j\frac{\partial }{\partial z_j} + h_j\right)G(z_1,z_2,\cdots,z_n)
+   $$
+
+3. $$
+   0 = \sum_{j=0}^n \left(z_j^2\frac{\partial }{\partial z_j} + 2h_jz_j\right)G(z_1,z_2,\cdots,z_n)
+   $$
+
+4. 
+
+
+
+We use these identities to further restrict the form that the correlation functions can take. We will see it in practice later, but they are important to mention here. 
+
+
+
+### Energy Momentum Tensor
+
+The central object that encodes our physics is the stress energy tensor of the theory. Here is a definition for it.
+
+**<u>Definition:</u>** An **energy momentum tensor** is 4 quantum fields $T_{\mu\nu}:\mathcal J^+ \to \text{End}(D)$ such that 
+
+1. $T_{\mu \nu} = T_{\nu\mu}$ and $T_{\mu \nu}(z)^\ast = T_{\nu\mu}(-z^\ast)$ 
+2. $\frac{\partial T_{\mu 0}}{\partial t} + \frac{\partial T_{\mu 1}}{\partial x} = 0$​
+3. It has scaling dimension $\Delta_{\mu\nu} = h_{\mu\nu} + \bar h_{\mu\nu} = 2$ and spin $s_{\mu\nu} = \pm 2$.
+
+**<u>Corollary:</u>** *(Properties of the Energy Momentum Tensor)* The axioms of hte energy momentum tensor and the covariance properties lead to
+
+1. $\Tr(T_{\mu\nu}) = 0$. 
+2. The quantum field $T = T_{00} - i T_{01}$  is holomorphic with conformal weights $h_T = 2, \bar h_T =0$
+3. The quantum field $\bar T = T_00 + iT_{01}$ is antiholomorphic with conformal weights $h_T = 0, \bar h_T =2 $
+
+
+
+### Vermification of our Hilber Space
+
+Now you’re probably about to say. Ok? SO WHAT? Why even bother defining such a strange object. The reason is because it will give us the symmetries of our theory. Let’s do some groundwork
+
+Consider the following operators in the quantum Hilbert space
+
+$$
+\begin{align*}
+L_{-n} \coloneqq \frac{1}{2\pi i} \int_{|x| = 1} \frac{T(x)}{x^{n+1}} dx && \bar L_{-n} \coloneqq \frac{1}{2\pi i} \int_{|x| = 1} \frac{\bar T(x)}{x^{n+1}} dx 
+\end{align*}
+$$
+
+**<u>Proposition:</u>** The operators $L_{-n}$ and $\bar L_{-n}$ on the quantum Hilbert space $\mathbb{H}$​ follow the commutation relation of two unitary representations of the [Virasoro Algebra](./Virasoro_Algebra.md#virasoro-algebra) with the same central charge $c$. 
+
+HELL YEAH! We found it! We have found our symmetry algebra. Now we can do something else that is cool, we can reconstruct the stress tensor
+
+**<u>Corollary:</u>** *(Stress Tensor Reconstruction)* It follows that given these two representations the stress tensor components can be obtained by
+
+$$
+\begin{align*}
+T(z) = \sum_{n\in \mathbb{Z}} L_{n}z^{-n-2}
+&& \bar T(z) = \sum_{n\in \mathbb{Z}} \bar L_{n}\bar z^{-n-2}
+\end{align*}
+$$
+
+This is amazing! We essentially have found that the stress energy tensor yields a unitary representation of $\text{Vir} \times \overline{\text{Vir}}$. Now we can attempt to decompose it. 
+
+**<u>Lemma:</u>** *(Decomposition of Hilbert Space)* Under the virasoro representation of defined by the stress energy tensor $T$, the quantum Hilbert space can be decomposted to a direct sum of irreducible unitary positive definite highest weight representations, i.e. 
+
+$$
+\mathbb{H} \supset D \cong \bigoplus_{c,h} W(c,h) \otimes \bar W(c,\bar h)
+$$
+
+If this decomposition is finite, we call the conformal field theory **minimal.**
+
+
 
 
 
