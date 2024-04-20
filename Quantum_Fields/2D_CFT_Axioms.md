@@ -353,7 +353,7 @@ The central object that encodes our physics is the stress energy tensor of the t
 
 1. $T_{\mu \nu} = T_{\nu\mu}$ and $T_{\mu \nu}(z)^\ast = T_{\nu\mu}(-z^\ast)$ 
 2. $\frac{\partial T_{\mu 0}}{\partial t} + \frac{\partial T_{\mu 1}}{\partial x} = 0$​
-3. It has scaling dimension $\Delta_{\mu\nu} = h_{\mu\nu} + \bar h_{\mu\nu} = 2$ and spin $s_{\mu\nu} = \pm 2$.
+3. It has scaling dimension $\Delta_{\mu\nu} = h_{\mu\nu} + \bar h_{\mu\nu} = 2$ and conformal spin $s_{\mu\nu} = \pm 2$.
 
 **<u>Corollary:</u>** *(Properties of the Energy Momentum Tensor)* The axioms of hte energy momentum tensor and the covariance properties lead to
 
@@ -363,7 +363,7 @@ The central object that encodes our physics is the stress energy tensor of the t
 
 
 
-### Vermification of our Hilber Space
+### Virasorization of our Hilber Space
 
 Now you’re probably about to say. Ok? SO WHAT? Why even bother defining such a strange object. The reason is because it will give us the symmetries of our theory. Let’s do some groundwork
 
@@ -402,11 +402,11 @@ If this decomposition is finite, we call the conformal field theory **minimal.**
 
 Now we are ready to define a conformal field theory. (This is useless, but cool)
 
-**<u>Definition:</u>** A **conformal field theory** for a countable index set $B$ is a family of $n$-point correlation functions $\mathcal{G} = (G_i)_{i\in \mathcal B}$, where $\mathcal B = \bigcup_{n\in \mathbb{N}} B^n$ (i.e. the set of all multi-indeces obtained from $B$), together with a stress energy tensor $T_{\mu\nu} \in \mathbb{\Phi}(\mathcal{G})$.
+**<u>Definition:</u>** A **conformal field theory** for a countable index set $B$ is a family of $n$-point correlation functions $\mathcal{G} = (G_i)_{i\in \mathcal B}$, where $\mathcal B = \bigcup_{n\in \mathbb{N}} B^n$ (i.e. the set of all multi-indeces obtained from $B$), together with a stress energy tensor $T_{\mu\nu} \in \mathbb{\Phi}(\mathcal{G})$, where $\mathbb{\Phi}(\mathcal{G})$ is the set of quantum fields that generate $\mathcal{G}$.
 
 YES! This is it! Isn’t this amazing? The following corollary summarizes what we have done so far.
 
-**<u>Corollary:</u>** For any conformal field theory $(\mathcal{G},B)$ for a countable index set $B$, and $n-$point correllation functions $\mathcal{G}$ there exists a unique, up to isomorphism, quantum Hilbert space $\mathbb{H}(\mathcal{G})$ and a unique collection of quantum fields $\mathbb{\Phi}(\mathbb{H})$ 
+**<u>Corollary:</u>** For any conformal field theory $(\mathcal{G},B)$ for a countable index set $B$, and $n-$point correllation functions $\mathcal{G}$ there exists a unique, up to isomorphism, quantum Hilbert space $\mathbb{H}(\mathcal{G})$ with a canonical unitary representation of the conformal group and a vacuum state $\Omega \in \mathbb{H}(\mathcal{G})$ invariant under the that representation. There also exists a unique collection of quantum fields $\mathbb{\Phi}(\mathbb{H})$ that generate $\mathcal{G}$. 
 
 
 
@@ -414,7 +414,43 @@ YES! This is it! Isn’t this amazing? The following corollary summarizes what w
 
 The first thing we need in order to talk about this concept, which is super useful in calculation, is to get the Primary Fields. Let’s understand what they are. 
 
-**<u>Definition:</u>** In 
+**<u>Definition:</u>** A quantum field $\Phi : \mathcal J^+ \to \text{End}(D)$ is a **primary field** if
+
+$$
+[L_n,\Phi(z,\bar z)] = z^{n+1}\frac{\partial \Phi(z,\bar z)}{\partial z} + h_{\phi}(n+1) z^n\Phi(z,\bar z)
+$$
+
+where $h_\Phi$ is its conformal weight.
+
+**<u>Corollary:</u>** A primary fields satisfies
+
+$$
+[\bar L_n,\Phi(z,\bar z)] = \bar z^{n+1}\frac{\partial \Phi(z,\bar z)}{\partial \bar z} + \bar h_{\phi}(n+1) \bar z^n\Phi(z,\bar z)
+$$
+
+Ok this was kind of a lame corollary, but here is a cool one, which will help us introduce the Operator Product expansion.
+
+**<u>Corollary:</u>** A primary field $\Phi$ satisfies
+
+$$
+T(z)\Phi(z') \sim \frac{h_\Phi}{(z-z')^2} \Phi(z') + \frac{1}{z-z'}\frac{\partial \Phi(z')}{\partial z'}
+$$
+
+Where the symbol $\sim$ signifies the asymptotic expansion, i.e. 
+
+$$
+A(z) \sim B(z) \iff A(z) = B(z) + R(z), \text{ where } \int_{S^1} R dz = 0
+$$
+
+Honestly, I am not sure how to prove this, and I will get there eventually. However, here is what we mean by OPE.
+
+**<u>Theorem:</u>** *(Operator Product Expansion of Primary Fields)* Any pair primary fields $\Phi,\Psi$ obey the following
+
+$$
+\Phi(z) \Psi(w) \sim \sum_{X\in \mathcal{G}} C_{\Phi\Psi X} (z-w)^{h_X- h_\Psi - h_\Phi} X(w)
+$$
+
+where $C_{\Phi\Psi X} \in \mathbb{C}$ is some constant. We can figure out these constants by how conformal invariance implies restrictions in the correlation functions. 
 
 
 
