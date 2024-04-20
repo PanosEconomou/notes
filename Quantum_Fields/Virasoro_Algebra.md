@@ -180,6 +180,10 @@ In CFTs we will obtain a symmetry of the form of a representation of the Virasor
 
 
 
+## KAC Determinant
+
+We have been studying positive highest weight unitary representations. Here is a tool to help us decide if these representations have these properties. 
+
 
 
 
