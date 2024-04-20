@@ -541,13 +541,9 @@ When I read this, I was screaming to my computer that $[\Phi]$ is not a subspace
 
 The corollary is that for any conformal family we can find a corresponding subspace in the hilbert space with the same properties. So esssentially, with this step we have managed to partition our quantum Hilbert space (or at least a dense subset of it) in verma modules! 
 
+**<u>Corollary:</u>** For some field operator $\Phi$ the Verma module $[\Phi]$ is isomorphic to $V_\nu \subset \mathbb{H}$ for $\nu = \lim_{z\to 0}\Phi(z) \Omega$. And thus $V_\nu$ is a Verma module with conformal parameters $(c,h)$.
 
-
-
-
-
-
-
+But here is the thing. We know $h$ from $\Phi$, but what about $c$, the central charge? To find the central charge we only need to do some algebra. 
 
 
 
