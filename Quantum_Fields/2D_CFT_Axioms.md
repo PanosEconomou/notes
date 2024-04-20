@@ -456,7 +456,9 @@ where $C_{\Phi\Psi X} \in \mathbb{C}$​ is some constant. We can figure out the
 
 
 
-**<u>Remark:</u>** We usually require that in a CFT the OPE is *associative*. This really means that when we are expanding the vaccuum expectation values it doesn’t matter which field operator we take the OPE of first, we should obtain the same result regardless. 
+**<u>Remark:</u>** We usually require that in a CFT the OPE is *associative*. This really means that when we are expanding the vaccuum expectation values it doesn’t matter which field operator we take the OPE of first, we should obtain the same result regardless. This is sometimes known as **crossing symmetry** and all it really means is that the following diagrams evaluate to the same thing
+
+![image-20240419230003368](_2D_CFT_Axioms.assets/image-20240419230003368.png)
 
 
 
