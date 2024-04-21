@@ -6,6 +6,8 @@
 
 <!-- optional markdown-notes-tree directory description ends here -->
 
+- [**CFT**](CFT)
+    - [Ising Model](CFT/Ising_Model.md)
 - [**Dissipative_QFT**](Dissipative_QFT)
     - [Dissipation Currents](Dissipative_QFT/Dissipation_Currents.md)
 - [**Topological_Paths**](Topological_Paths)
