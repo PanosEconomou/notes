@@ -21,6 +21,8 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Representation Theory](Geometry/Representations.md)
     - [Vector Valued Forms](Geometry/Vector_Valued_Forms.md)
 - [**Projects**](Projects)
+    - [**CFT**](Projects/CFT)
+        - [Ising Model](Projects/CFT/Ising_Model.md)
     - [**Dissipative_QFT**](Projects/Dissipative_QFT)
         - [Dissipation Currents](Projects/Dissipative_QFT/Dissipation_Currents.md)
     - [**Topological_Paths**](Projects/Topological_Paths)
