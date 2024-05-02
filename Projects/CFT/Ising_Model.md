@@ -74,6 +74,8 @@ $$
 
 The cool thing is that $s_i,s_j$ are uncorrelated unless $i,j$ are neighbors. Therefore we can write this a sum of the uncorrelated differences, which depends only on $|i-j|$ which hints to translation invariance, and a really cool use of CFT!
 
+We will use CFT to calculate these correlation functions.
+
 
 
 ## Mean Field Theory During Transition
