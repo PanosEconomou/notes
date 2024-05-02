@@ -28,15 +28,15 @@ $$
 C_N \coloneqq \mathbb Z_n^2 \times \mathbb Z_2.
 $$
 
-Notice that $\mathbb{Z}_n^2$ admits the topology of a discrete donought! That is because we can connect the endpoints of the grid for each $\mathbb Z_n$. The next ingredient we need is a Hamiltonian $H:C_N\to \mathbb{R}$.
+Notice that $\mathbb{Z}_n^2$ as a graph admits the topology of a discrete donought! That is because we can connect the endpoints of the grid for each $\mathbb Z_n$. The next ingredient we need is a Hamiltonian $H:C_N\to \mathbb{R}$.
 
 The Hamiltonian in this case must capture the interaction of the neighboring spins. For some point $p = (s_1,s_2,\cdots, s_N) \in C_N$ we usually pick the hamiltonian 
 
 $$
-H(p) = -\sum_{i,j} J_{ij} s_i s_j -  h \sum_{i} s_i = - p^T (J + h) p
+H(p) = -\sum_{i,j} J_{ij} s_i s_j -  h \sum_{i} s_i
 $$
 
-where $J$ is an $N\times N$ symmetric matrix such that $J_{ij} = I >0$ iff $s_i$ is neighboring $s_j$, otherwise $J_{ij} = 0$, and $h > 0$ represents some external magnetic field type interaction. Note that $s_i \in \{0,1\}$. Now we are ready to calculate the magnetization in the Canonical ensemble.
+where $J$ is an $N\times N$ symmetric matrix such that $J_{ij} = I >0$ iff $s_i$ is neighboring $s_j$, otherwise $J_{ij} = 0$, and $h > 0$ represents some external magnetic field type interaction. Note that $s_i \in \{-1,1\}$. Now we are ready to calculate the magnetization in the Canonical ensemble.
 
 
 
@@ -54,7 +54,7 @@ $$
 M = \frac{1}{N\beta} \langle s_T \rangle = \frac{1}{N \beta} \sum_{i = 0}^N\langle s_i\rangle = \frac{1}{N \beta} \frac{\partial }{\partial h} \log Z.
 $$
 
-Where the phase transition happens is on the sucsceptibility which is given by
+The phase transition also appears on the sucsceptibility which is given by
 
 $$
 \chi = \left.\frac{\partial M}{\partial h}\right|_{h=0} = \frac{1}{N \beta} \left.\frac{\partial ^2}{\partial h^2}\right|_{h=0} \log Z
@@ -76,9 +76,23 @@ The cool thing is that $s_i,s_j$ are uncorrelated unless $i,j$ are neighbors. Th
 
 
 
-## Phase transition
+## Mean Field Theory During Transition
 
-To observe the phase transition we follow what Osanger did (I think) by introducing an involutive transform in the base space $\mathbb Z_n^2$. In essence we want to introduce an ising model 
+
+
+----
+
+
+
+# Quantum Treatment
+
+Ok everythign up to now has been fun, but it has mostly been background so that when we treat Ising in CFT we can be like OH COOL! Look at these conformal weights! They are the same as the classical ones!
+
+
+
+
+
+
 
 
 
