@@ -4,7 +4,7 @@ Here we build 2D Conformal Field Theories from an axiomatic point of view and ca
 
 [TOC]
 
-## Operators in CFT
+# Operators in CFT
 
 The first and potentially most important step in understanding the propagators in CFT is to understand the operators and their structure. We begin by describing a hilbert space of states, defining its properties and then talk about operators on the hilbert space. Then we will talk about operator valued distributions there that are what we call operators in CFT. Finally, we will prove certain niceness properties between them and the hilbert space.
 
@@ -20,7 +20,7 @@ Notice that these operators do not have to be bounded or have any other niceness
 
 ---
 
-### Quick aside on the domain of operators
+## Quick aside on the domain of operators
 
 Now the next question is: should we restrict the definition of operators to a function defined in the entirety of the Hilbert space? The answer is, surprisingly, no! 
 
@@ -198,7 +198,7 @@ where $h,\bar{h} \in \mathbb{N}$. So that’s pretty, where we can fully classif
 
 
 
-## Setting for Axiomatization
+# Setting for Axiomatization
 
 What we aim to do in the following is to define a set of axioms such that we ensure a duality between **Field Operators** and **States** or elements of the chosen quantum Hilbert space. In reality we do not really care about the fields themselves. What defines the theory is the correlation functions (i.e. the green’s functions) that are constructed through vacuum expectation values of field operators. This will make sense as we go along. To start with we need some defintions of the nice spaces we are working on.
 
@@ -261,7 +261,7 @@ Now we will start with the axiomatization of the theory. The first thing we want
 
 
 
-### Conformal Group
+## Conformal Group
 
 We have talked about the [Witt Algebra](./Virasoro_Algebra.md#witt-algebra) in detail and showed how the generators look. The important corollary is that the following generators under matrix multiplication form a group called the **conformal group** which is the group of transformations we want our theory to be invariant under.
 
@@ -277,7 +277,7 @@ where $L_i \in W$ and $\bar L_i \in \bar W$, with multiplication. In order, firs
 
 
 
-### Correlation functions
+## Correlation functions
 
 Here we will first give an intuitive picture of correlation functions just to illustrate how important of a role they play in this. In QFT correlation functions are the result of taking the expectation value of an operator composed by acting with the field operators in a *time ordered way.* Now we are ready for a fomal definition of $n$-point correlation functions in the language of two dimensional CFTs.
 
@@ -301,7 +301,7 @@ We can keep deriving these identities, but this is amazing! We could just use co
 
 
 
-### Reconstruction of Field Operators
+## Reconstruction of Field Operators
 
 With a given set of $n$ point correlation functions there is a proceedure we can go through to define a quantum hilbert space $\mathbb{H}$ with natural field operators that that give rise to the specific correlations, as well as have a natural unitary representation of the conformal group, and contain a vector $\Omega \in \mathbb{H}$ such that it is invariant under the unitary representation of the conformal group. I am going to skip the details of this construction now because it is unnessesarily involved, but the important thing is that it is always possible to do so and obtain a unique $\mathbb{H}$.
 
@@ -323,7 +323,7 @@ Ok! Now we are cooking! We have our field operators, even somewhat haphazardly, 
 
 
 
-### Conformal Ward Identities 
+## Conformal Ward Identities
 
 Let’s study those correlation functions a bit more in detail and develop some tools that will be useful for calculation. These are called ward identities. 
 
@@ -345,7 +345,7 @@ We use these identities to further restrict the form that the correlation functi
 
 
 
-### Energy Momentum Tensor
+## Energy Momentum Tensor
 
 The central object that encodes our physics is the stress energy tensor of the theory. Here is a definition for it.
 
@@ -363,7 +363,7 @@ The central object that encodes our physics is the stress energy tensor of the t
 
 
 
-### Virasorization of our Hilber Space
+## Virasorization of our Hilber Space
 
 Now you’re probably about to say. Ok? SO WHAT? Why even bother defining such a strange object. The reason is because it will give us the symmetries of our theory. Let’s do some groundwork
 
@@ -400,7 +400,7 @@ If this decomposition is finite, we call the conformal field theory **minimal.**
 
 
 
-## Definition of a 2D CFT
+# Definition of a 2D CFT
 
 Now we are ready to define a conformal field theory. (This is useless, but cool)
 
@@ -409,6 +409,50 @@ Now we are ready to define a conformal field theory. (This is useless, but cool)
 YES! This is it! Isn’t this amazing? The following corollary summarizes what we have done so far.
 
 **<u>Corollary:</u>** For any conformal field theory $(\mathcal{G},B)$ for a countable index set $B$, and $n-$point correllation functions $\mathcal{G}$ there exists a unique, up to isomorphism, quantum Hilbert space $\mathbb{H}(\mathcal{G})$ with a canonical unitary representation of the conformal group and a vacuum state $\Omega \in \mathbb{H}(\mathcal{G})$ invariant under the that representation. There also exists a unique collection of quantum fields $\mathbb{\Phi}(\mathbb{H})$ that generate $\mathcal{G}$. 
+
+Now that we have something, let’s look at some examples
+
+**<u>Example:</u>** *(Free Boson)* Consider a complex scalar field $\phi: \mathbb{C} \to \mathbb{C}$ with the action $S: C^\infty(\mathbb{C}) \to \mathbb{R}$ 
+
+$$
+S(\phi) = \frac{1}{2\pi}\int_{\mathbb{C}} d\phi \wedge \star d \bar \phi.
+$$
+
+Using variational principle we can calculate the the 2 point correlation function is
+
+$$
+G(z,\bar z,w,\bar w) =  \langle\phi(z,\bar z) \phi(w,\bar w)\rangle = -\log|z-w|^2.
+$$
+
+The interesting thing to notice is that this expression is (by properties of logarithms)
+
+$$
+G(z,\bar z,w,\bar w) = \log|z-w|^2= -\log(z-w) -\log(\bar z - \bar w),
+$$
+
+which is a really cute formula, essentially saying that this correlation can be split in two. In practice is does. From the equations of motion we see that
+
+$$
+\phi =\frac{1}{2} (\psi + \bar \psi),
+$$
+
+for some holomorphic and anti holomorphic functions $\psi, \bar \psi$. These have the following two point functions
+
+$$
+\begin{align*}
+\langle \psi(z) \psi (w)\rangle = -\log(z-w) && \langle \bar \psi(\bar z) \bar \psi (\bar w)\rangle = -\log(\bar z-\bar w)
+\end{align*}
+$$
+
+Now we see that $\psi$ doesn’t have the structure of a conformal field because its correlation function doesn’t look conformally invariant (for example, scaling transformations look like adding a constant). However their derivatives just might! In fact 
+
+$$
+\langle \partial \psi(z) \partial \psi (w)\rangle = -\frac{1}{(z-w)^2}
+$$
+
+which we can see that is invariant under transations, and under scalings it just aquires an exponent to the power of 2! So this looks like it could be a conformal field with weights $(h,\bar h) = (1,0)$.
+
+
 
 
 
@@ -462,7 +506,7 @@ where $C_{\Phi\Psi X} \in \mathbb{C}$​ is some constant. We can figure out the
 
 
 
-### Local Symetries (Where are the Verma Modules?)
+## Local Symetries (Where are the Verma Modules?)
 
 So far we have seen that by adding a stress energy tensor in our theory, we have effectively created a global representation  of the Virasoro algebra. Here we will study local symmetry.
 
