@@ -7,6 +7,7 @@ Key intuition or formal definitions of Differential Geometry Concepts because I 
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [Automorphism Groups of Vector Spaces](Common_Vector_Space_Groups.md)
+- [Complex Structures](Complex_Structures.md)
 - [Forms](Forms.md)
 - [Differential Geometry](Geometry.md)
 - [Lie Crap](Lie_Crap.md)
