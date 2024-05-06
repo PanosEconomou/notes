@@ -14,6 +14,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.
     - [Automorphism Groups of Vector Spaces](Geometry/Common_Vector_Space_Groups.md)
+    - [Complex Structures](Geometry/Complex_Structures.md)
     - [Forms](Geometry/Forms.md)
     - [Differential Geometry](Geometry/Geometry.md)
     - [Lie Crap](Geometry/Lie_Crap.md)
