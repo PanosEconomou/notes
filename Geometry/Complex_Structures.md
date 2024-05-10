@@ -1,6 +1,6 @@
 # Complex Structures
 
-Time to understand complex manifolds! Really the main point is to use definitions from [Differential Geometry][./Geometry.md] and extend them so that we can effectively do calculus on complex manifolds with holomorphic and anti-holomorphic maps.
+Time to understand complex manifolds! Really the main point is to use definitions from [Differential Geometry][./Geometry.md] and extend them so that we can effectively do calculus on complex manifolds with holomorphic and anti-holomorphic maps. This is primarily following [Nakahara Chapter 8](http://www.stat.ucla.edu/~ywu/GTP.pdf).
 
 [TOC]
 
@@ -30,7 +30,9 @@ $$
 
 is a holomorphic function. We call the last condition the compatibility of charts, and $m\in \mathbb{N}$ the **complex dimension** of the manifold.
 
+**<u>Corollary:</u>** Any complex manifold with dimension $m$ is a real manifold with dimension $2m$. 
 
+ 
 
 With this we can copy paste the useful definitions for maps. In particular
 
@@ -70,15 +72,169 @@ $$
 V^{\mathbb{C}} = V\otimes \mathbb{C}
 $$
 
-where the tensor product is taken by treating $\mathbb{C}$​ as a real vector space and it defines a scalar product with the complex field. 
+where the tensor product is taken by treating $\mathbb{C}$​ as a real vector space and it defines a scalar product with the complex field.
 
 Let’s examine it a bit closer in the following proposition. 
 
-**<u>Proposition:</u>** For any $v\in V^{\mathbb{C}}$​ is given by 
+**<u>Proposition:</u>** For any $v\in V^{\mathbb{C}}$​ there exist $u,w \in V$ such that $v = u + i w$. 
+
+Using this proposition we can define the conjugate to be
+
+**<u>Definition:</u>** For any $v = u + iw \in V^{\mathbb{C}}$ for $u,w \in V$ its **complex conjugate** is given by $\bar v = u - iw$. A vector $v$ is **real** if $\bar v = v$. In addition, for a linear map $f : V \to W$ we can define the **complexified** linear map $f^\mathbb{C} : V^{\mathbb{C}}\to W^{\mathbb{C}}$ like so
+
+$$
+f^{\mathbb{C}}(u+iw) = f(u) + if(w),
+$$
+
+for any $u,w \in V$. A complex linear map is real if it is equal to its conjugate. 
+
+I know this is boring, just a little more! This proposition is kinda what unlocks the complexification of the tangent space.
+
+**<u>Proposition:</u>** Let $\{e_j\}_{j=1}^m$ be a basis of $V$. Then $\{e_j + i 0\}_{i=1}^m$ is a basis for $V^{\mathbb{C}}$.
+
+**<u>Corollary:</u>** $\dim_{\mathbb{R}} V = \dim_{\mathbb{C}} V^{\mathbb{C}}$.
+
+Now we can finally complexify the tangent space, just like any other vector space. What we care about is the complexified cotangent space. The ambiguity is resolved with this proposition
+
+**<u>Proposition:</u>** Given a real manifold $M$  and $p \in M$,  $(T_p^\ast M)^\mathbb{C} \cong (T_p M^\mathbb{C})^\ast$ 
+
+Also note that the properties we wanted are captured here
+
+**<u>Proposition:</u>** Any $Z = X + i Y \in T_p M^\mathbb{C}$ for $X,Y\in T_pM$ has a natural action on $C^\infty(M)^\mathbb{C}$ where $X : C^\infty(M)^\mathbb{C} \to \mathbb{C}$ such that for all $f \in C^\infty(M)^\mathbb{C}$
+
+$$
+Zf = Z(f_1 + if_2) = Xf_1 - Yf_2 +iXf_2 + iYf_1
+$$
+
+Using these we can talk about the complexificaition of sections of vector bundles! Let’s define that real quick
+
+**<u>Definition:</u>** Let $E\xrightarrow{\pi} M $ be a vector bundle over $M$ with fiber a real vector space $V$. The we can define the complexified set of smooth sections $\Gamma(E)^\mathbb{C}$ as the set of all sections on the bundle $\tilde{E} \xrightarrow{\pi} M$ with fiber $V^\mathbb{C}$.
+
+Note that this definition may seem to abstract, but it has just taught us how to complexify the set of all tensors over any real manifold. We think of $(r,s)$ tensors as sections of the bundle $(TM)^{\otimes r}\otimes (T^\ast M)^{\otimes s}$ therefore their complexification is borrowed directly from the complexification of vector spaces, and their canonical action on the set of smooth complex functions is borrowed from the complexification of the tangent space.  
+
+## Almost Complex Structures
+
+We saw that the set of holomorphic functions is way too restrictive but we still want to do differential geometry and have some nice notion of volumes forms, differentials, etc.. With that as a starting point we want to use vector fields on complex manifolds to define a structure that will make them look more like $\mathbb{C}$. Doing so will give us interesting results that will emulate calculus.
+
+**<u>Note:</u>** on notation. We said before that any complex manifold $M$ is also a real manifold. Therefore we don’t have to redefine the concepts of tangent space etc. For any $p\in M$, we still call $T_pM$ the tangent space of $M$ at $p$ as if it was a real manifold. However we will find useful the complexified tangent space $T_pM^\mathbb{C}$ as it has a natural action on the set of complex smooth functions of $M$. 
+
+Treating $M$ as a real manifold of dimension $2m$ we can pick a basis on some chart $(U,\phi)$ for it of the form $\phi:U\to \mathbb{C}$ such that 
+
+$$
+\phi(p) = (x^1(p)+iy^1(p),\cdots, x^m(p)+iy^m(p))
+$$
+
+we will notice that the functions $\{x^i,y^i\}$ form a real chart. Therefore we can immidiately say that the following vector fields are a basis of the real tangent bundle
+
+$$
+\frac{\partial}{\partial x^\mu},\frac{\partial}{\partial y^\mu}
+$$
+
+for $1\leq \mu \leq m$. However, as we have shown when we were complexifying vector spaces, these vector fields will also be a basis for the complexified tangent bundle. Let’s take some linear combination of them that is more useful in defining a complex structure 
+
+$$
+\frac{\partial }{\partial z^\mu} = \frac{1}{2}\left[\frac{\partial}{\partial x^\mu} - i \frac{\partial}{\partial y^\mu}\right],
+$$
+
+for $1\leq \mu \leq m$. The factor for $\frac{1}{2}$ is there sot hat this partial derivative reduces to the complex derivative in 1D. Similarly we define its conjugate
+
+$$
+\frac{\partial}{\partial \bar z^\mu} =\frac{1}{2}\left[\frac{\partial}{\partial x^\mu} + i \frac{\partial}{\partial y^\mu}\right].
+$$
+
+These are also bases of the complexified tangent space, with the following special property. 
+
+**<u>Proposition:</u>** A map $f \in C^\infty(M)^\mathbb{C}$  is holomorphic if and only if $\frac{\partial f}{\partial \bar z^\mu} = 0$ and it is anti holomrphic if and only if $\frac{\partial f}{\partial z^\mu} = 0$ for any $1\leq \mu \leq m$.
+
+This is pretty cool! Similarly, we can define a basis for the complexified cotangent bundle using the 1-forms
+
+$$
+\begin{align*}
+dz^\mu = dx^\mu + idy^\mu && d\bar z^\mu = dx^\mu - idy^\mu
+\end{align*}
+$$
+
+Note that these bases are dual to each other. Why is there no 1/2? Because if you work it out we have that
+
+**<u>Proposition:</u>** For any $f \in C^\infty(M)^\mathbb{C}$
+
+$$
+df = \frac{\partial f}{\partial z}dz + \frac{\partial f}{\partial \bar z} d\bar z.
+$$
+
+Now we have enough tools to define almost complex structures!
+
+**<u>Definition:</u>** Given a manifold $M$ an **almost complex structure** $J:TM\to TM$ on $M$ is a smooth section $\Gamma (T^\ast M\otimes T^\ast M)$ such taht $J\circ J = -\text{Id}$. A manifld with an almost complex structure is often called an **almost complex manifold.** 
+
+*Sidenote:* We often denote $J\circ J = -\text{Id}$ as $J^2 = -1$ to resemble the almost complex structure of the complex plane. 
+
+This might seem inconspicuous as a definition. But just the fact that the manifold can have an almost complex structure is a big deal in turning it into a complex manifold. Namely
+
+**<u>Proposition:</u>** (Properties of Complex Structures) A manifold $M$ of dimension $n$ that admits a complex structure $J$ satisfies
+
+1. $J$ is a bundle automorphism on $TM$. 
+2. $(\det J)^2 = (-1)^n \implies n$ must be even.
+3. $M$ is orientable.
 
 
 
+This is pretty cool in turning real manifolds into complex manifolds! We are almost there, but before we hit the nail to the coffin, there is a lot to be gained by studying the almost complex structure of a complex manifold.
 
+**<u>Proposition:</u>** Every complex manifold $M$ admits a complex structure $J$ that in the local basis described above is given by 
+
+$$
+J = i\left[ dz^\mu \otimes \frac{\partial }{\partial z^\mu } - d\bar z^\mu \otimes \frac{\partial }{\partial \bar z^\mu } \right]
+$$
+
+I think this is very nice because we can now play around some more! We can use the complex structure to break down the tangent bundle based on holomorphy (is that even a word? It sounds really funny)
+
+**<u>Definition:</u>** Given an almost complex manifold $M$ with complex structure $J$ the **holomorphic** subspace of $T_pM^\mathbb{C}$ for some $p \in M$ is the subspace
+
+$$
+T_pM^+= \{X \in T_pM^\mathbb{C} \mid JX = i X \}
+$$
+
+and the **anti-holomorphic subspace** is 
+
+$$
+T_pM^- = \{X\in T_pM^\mathbb{C} \mid JX = -iX\}
+$$
+
+The interesting part is the corollary below
+
+**<u>Corollary:</u>** The complex tangent space at $p \in M$ for any almost complex manifold is given by
+
+$$
+T_pM^{\mathbb{C}} = T_pM^+\oplus T_pM^-
+$$
+
+where $T_pM^+$ is spanned by $\left.\frac{\partial }{\partial z^\mu}\right|_p$ while $T_pM^-$ is spanned by $\left.\frac{\partial }{\partial \bar z^\mu}\right|_p$. Also we note that
+
+$$
+T_pM^- = \overline{T_pM^+} \coloneqq \{\bar Z \in T_pM^\mathbb{C}\mid Z \in T_pM^+\}
+$$
+
+and thus $\dim_\mathbb{C} T_pM^+ = \dim_\mathbb{C} T_pM ^- = \frac{1}{2}\dim_\mathbb{C} T_pM = \frac{1}{2}\dim_\mathbb{C} M $.
+
+
+
+Splitting the tangent space has the corollary of splitting the tangent bundle. In particular we can see that
+
+**<u>Corollary:</u>** For an almost complex manifold $M$ the set of complex vector fields can be decomposed as
+
+$$
+\mathfrak{X}(M)^\mathbb{C} = \mathfrak{X}(M)^+ \oplus \mathfrak{X}(M)^-
+$$
+
+where $\mathfrak{X}(M)^\pm \coloneqq \{X \in \mathfrak{X}(M)^\mathbb{C} \mid JX = \pm iX\}$. Additionally, under the Lie bracket of vector fields we each $\mathfrak{X}(M)^\pm $ is a Lie algebra. 
+
+
+
+# Complex Forms
+
+Now that we have seen complex forms and complex structures, it is time to start working on understanding complex forms. The goal is to try and extend our differential operator to a nicer version using the holomorphic and antiholomorphic decomposition of the space of smooth sections of the tangent bundle. I also want to define volume forms for complex manifolds, integrate them and figure out what is stokes theorem in this setting. 
+
+We will start with quickly defining forms, then talk about differentials, hermitian metrics, hodge duality and finally parallel transport. Then we will stufy Kahler manifolds in particular that are a particularly cute kind of complex manifolds. 
 
 
 
