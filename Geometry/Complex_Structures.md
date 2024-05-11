@@ -234,7 +234,64 @@ where $\mathfrak{X}(M)^\pm \coloneqq \{X \in \mathfrak{X}(M)^\mathbb{C} \mid JX 
 
 Now that we have seen complex forms and complex structures, it is time to start working on understanding complex forms. The goal is to try and extend our differential operator to a nicer version using the holomorphic and antiholomorphic decomposition of the space of smooth sections of the tangent bundle. I also want to define volume forms for complex manifolds, integrate them and figure out what is stokes theorem in this setting. 
 
-We will start with quickly defining forms, then talk about differentials, hermitian metrics, hodge duality and finally parallel transport. Then we will stufy Kahler manifolds in particular that are a particularly cute kind of complex manifolds. 
+We will start with quickly defining forms, then talk about differentials, hermitian metrics, hodge duality and finally parallel transport. Then we will study Kahler manifolds in particular that are a particularly cute kind of complex manifolds. 
+
+
+
+## Complexification of Forms
+
+We have previously seen how to complexify vector bundles therefore treating forms as sections of vector bundles where the fibre is some product of cotangent spaces complexifies them. We won't waste time writing the definitions, but here are some cool properties.
+
+**<u>Proposition:</u>** *(Properties of Complex Forms)* Let $\omega,\eta \in \Omega^n(M)^\mathbb{C}$ be a complex $n$-form on a manifold $M$, and $\{X_i\}_{i=1}^n \subset \mathfrak{X}(M)^\mathbb{C}$ be a collection of complex vectors. Then the following properties hold
+
+1. $\overline{\omega}(X_1,X_2,\cdots,X_n) = \overline{\omega(\bar X_1,\bar X_2,\cdots,\bar X_n)}$
+2. $\overline{\omega + \eta} = \bar \omega + \bar \eta$
+3. $\bar{\bar{\omega}} = \omega$
+
+The more interesting thing is to see if the algebra structure of $\Omega(M)$ given by the wedge product is preserved in $\Omega(M)^\mathbb{C}$. 
+
+**<u>Proposition:</u>** *(Wedge Product of Complex forms and differential)* Consider two complex forms $\omega \in \Omega^n(M)^\mathbb{C},\ z \in \Omega^m(M)^\mathbb{C}$ given by $\omega = u + iv, \, z=x+iy$, where $u,v \in \Omega^n(M),\, x,y \in \Omega^m(M).$ Then there is a canonical extension of the wedge product given by
+
+$$
+\omega\wedge z = (u+iv)\wedge (x+iy) = u\wedge x -v\wedge y + i (v\wedge x +u\wedge y)
+$$
+
+Furthermore, the exterior derivative acts on complex forms as
+
+$$
+d\omega = du + idv
+$$
+
+Therefore the following still hold
+
+1. $\omega \wedge z = (-1)^{nm} z\wedge \omega$
+2. $d(\omega \wedge z) = d\omega \wedge z + (-1)^n \omega \wedge dz$
+
+
+
+## On Complex Manifolds
+
+We have seen that on almost complex manifolds there is a nice decomposition of the complexified tangent space to a holomorphic and nonholomorphic component. In particular we have seen that
+
+$$
+T_pM^\mathbb{C} = T_pM^+ \oplus T_pM^-
+$$
+
+for any $p \in M$. This can help us classify complex differential forms on complex manifolds in a better way.
+
+**<u>Definition:</u>** For an $n$ dimensional complex manifold $M$ and a complex form $\omega \in \Omega^k(M)^\mathbb{C}$ we say that $\omega$ has **bidegree** $(r,s)$ for $r+s = k$ such that for $\{V_i\}_{i=1}^k \subset \mathfrak{X}(M)^\mathbb{C}$ then $\omega(V_1,V_2,\cdots,V_k) = 0$ unless $r$ of the vector fields are in $\mathfrak{X}(M)^+$ and $s$ of the vector fields are in $\mathfrak{X}(M)^-$. The set of all forms with bidigree $(r,s)$ is denoted by $\Omega^{(r,s)}(M)$.  
+
+**<u>Proposition:</u>** The forms $dz^{\mu_1} \wedge dz^{\mu_2}\wedge \cdots \wedge dz^{\mu_r} \wedge d\bar z^{\mu_{r+1}} \wedge d\bar z^{\mu_{r+2}} \wedge \cdots \wedge d\bar z^{\mu_{r+s}}$ form a basis for $\Omega^{(r,s)}(M)$. 
+
+
+
+
+
+
+
+
+
+
 
 
 
