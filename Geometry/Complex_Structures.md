@@ -283,7 +283,56 @@ for any $p \in M$. This can help us classify complex differential forms on compl
 
 **<u>Proposition:</u>** The forms $dz^{\mu_1} \wedge dz^{\mu_2}\wedge \cdots \wedge dz^{\mu_r} \wedge d\bar z^{\mu_{r+1}} \wedge d\bar z^{\mu_{r+2}} \wedge \cdots \wedge d\bar z^{\mu_{r+s}}$ form a basis for $\Omega^{(r,s)}(M)$. 
 
+Here are so cute properties of classifying complex forms in this way.
 
+**<u>Proposition:</u>** *(Properties of complex forms)* Let $z \in \Omega^{(r,s)}(M)$ and $\omega \in \Omega^{(m,n)}(M)$. Then the following are true
+
+1. $\bar z \in \Omega^{(s,r)}(M)$
+
+2. $z\wedge \omega \in \Omega^{(r+m,s+n)}(M)$
+
+3. $z = \sum_{p + q = r+s} z^{(p,q)}$, where $z^{(p,q)} \in \Omega^{(p,q)}(M)$. This implies that the complex forms can be decomposed as
+   $$
+   \Omega^{n}(M)^\mathbb{C} = \bigoplus_{r+s =n}\Omega^{(r,s)}(M)
+   $$
+
+
+
+The last property is particularly important and pretty. The interesting thing is that we can break down the action of the differential based on the bidegree of the form. To do this we will introduce Dolbeault operators. 
+
+**<u>Definition:</u>** The **Dolbeault** operators are the maps $\partial : \Omega^{(r,s)}(M) \to \Omega^{(r+1,s)}(M)$ and $\bar \partial : \Omega^{(r,s)}(M) \to \Omega^{(r,s+1)}(M)$ such that for some $z \in \Omega^{(r,s)}(M)$
+
+$$
+\partial z = \frac{\partial}{\partial z^\mu} z_{\nu_1,\cdots \nu_{r+s}} dz^\mu\wedge dz^{\nu_1} \wedge \cdots \wedge d\bar z^{\nu_{r+s}}\\
+\bar \partial z = \frac{\partial}{\partial \bar z^\mu} z_{\nu_1,\cdots \nu_{r+s}} d\bar z^\mu\wedge dz^{\nu_1} \wedge \cdots \wedge d\bar z^{\nu_{r+s}}
+$$
+
+**<u>Corollary:</u>** The differential operator on $M$ as a real manifold is given by
+
+$$
+d = \partial +\bar \partial
+$$
+
+Let's show some properties just to be able to calculate stuff with these objects.
+
+**<u>Proposition:</u>** *(Properties of Dolbealut operators)* Let $z \in \Omega^{(r,s)}(M)$ and $\omega \in \Omega^{(m,n)}(M)$. Then the following are true
+
+1. $\partial \partial \omega = (\partial \bar \partial +\bar \partial \partial)\omega = \bar \partial \bar \partial \omega = 0$
+2. $\partial \bar\omega = \overline{\bar \partial \omega}$
+3. $\bar \partial \bar \omega = \overline{\partial \omega}$
+4. Leibniz rule. 
+
+ And now it is time to actually use these operators for what they are meant to be, which is defining holomorphic and antiholomorphic forms in a way similar to how we did it with maps, but now we are extending it to the rest of the forms. 
+
+**<u>Definition:</u>** A form $\omega \in \Omega^{k,0}(M)$ such that $\bar \partial \omega =0$ is a **holomorphic form**. A form $\eta \in \Omega^{0,k}(M)$ such that $\partial \eta = 0$ is an **anit-holomorphic form**. 
+
+This is great because we have extended our definition and now we are ready to talk about metrics and start putting everything together!
+
+
+
+# Hermitian Manifolds
+
+We have seen the basic definitions of complexified stuff, which are all pretty and whatnot, however, the time has come to actually build up some structures that we can use in practice! We will add metrics on these manifolds that will have special properties and we will use them as 
 
 
 
