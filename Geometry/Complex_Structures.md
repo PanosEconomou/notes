@@ -332,10 +332,55 @@ This is great because we have extended our definition and now we are ready to ta
 
 # Hermitian Manifolds
 
-We have seen the basic definitions of complexified stuff, which are all pretty and whatnot, however, the time has come to actually build up some structures that we can use in practice! We will add metrics on these manifolds that will have special properties and we will use them as 
+We have seen the basic definitions of complexified stuff, which are all pretty and whatnot, however, the time has come to actually build up some structures that we can use in practice! We will add metrics on these manifolds that will have special properties and we will use them to form things like action functionals and whatnot.
 
+## Hermitian Metrics
 
+Let's start by extending the notion of a metric
 
+**<u>Definition:</u>** Let $(M,g)$ be a complex Riemannian manifold with almost complex structure $J$. If $g$ satisfies for any $X,Y\in \mathfrak{X}(M)^\mathbb{C}$
+
+$$
+g(JX,JY) = g(X,Y),
+$$
+
+then the metric is called **Hermitian** and $M$ is called a **Hermitian Manifold.**
+
+By the way reading this definition you might be thinking, why the hell can I plug in elements of the complexified space of vector fields  into a Riemannian metric. The answer is that since we have complexified all vector bundles in our general theorem before and identified the real subspace of the complexified sections we can just pick g by identification to act canonically on complex vector fields. 
+
+**<u>Theorem:</u>** Every complex Riemannian manifold admits a hermitian metric. 
+
+***Proof:*** The proof is by construction. Given any metric $g$ on a complex Riemannian manifold $M$ we have that the following is a Hermitian metric
+
+$$
+\hat g(X,Y) = \frac{1}{2} \left[g(X,Y) + g(JX,JY)\right],
+$$
+
+for any $X,Y \in \mathfrak{X}(M)^{\mathbb{C}}$.
+
+Ok but check this out!
+
+**<u>Proposition:</u>** Any hermitian metric can be represented in the holomorphic basis as
+
+$$
+g = g_{\mu\bar \nu} dz^\mu \otimes d\bar z^{\nu} + g_{\bar \mu\nu} d\bar z^\mu \otimes dz^\nu
+$$
+
+Notice that in this convention
+
+$$
+g_{\mu\bar\nu} = g\left(\frac{\partial}{\partial z^\mu},\frac{\partial}{\partial \bar z^\nu}\right),
+$$
+
+etc.
+
+This is a pretty cool result and it is based on the fact that $g(\partial_{z^\mu},\partial_{z^\nu}) = g(J\partial_{z^\mu},J\partial_{z^\nu}) = -g(\partial_{z^\mu},\partial_{z^\nu}) = 0$. So this can only depend on alternating holomorphic and antiholomorphic components. Another cool fact is that a hermitian metric makes the complex structure act like multiplication by i does in $\mathbb C$ by making the vectors perpendicular. 
+
+**<u>Proposition:</u>** Let $X\in \mathfrak{X}(M)^\mathbb{C}$ then
+
+$$
+g(JX,X) = - g(X,JX) = -g(JX,X) = 0
+$$
 
 
 
