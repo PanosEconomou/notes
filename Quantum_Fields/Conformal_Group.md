@@ -102,7 +102,7 @@ $$
 
 where $\frac{\partial}{\partial \alpha^\nu}$ is a basis for $\mathfrak{g}$. 
 
-**<u>Note:</u>** In physics we usually denote $\varepsilon^\nu = X^\nu \frac{\partial L_p^\mu}{\partial \alpha^\nu}$.
+**<u>Note:</u>** In physics we usually denote $\varepsilon^\u = X^\nu \frac{\partial L_p^\mu}{\partial \alpha^\nu}$.
 
 
 

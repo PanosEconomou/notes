@@ -8,7 +8,7 @@ The path we will follow is first constract the Witt algebra, a lie alebra formed
 
 ## Witt Algebra
 
-We have shown [here](./2D_CFT_Axioms.md) that the conformal transformations in the eucledian place are the holomorphic and anti-holomorphic functions, wherever the derivative does not vanish. Identifying the eucledian plane with $\mathbb{C}$ we can use taylor’s theorem to express these functions. To be more formal we have
+We have shown [here](./2D_CFT_Axioms.md) that the conformal transformations in the eucledian plane are the holomorphic and anti-holomorphic functions, wherever the derivative does not vanish. Identifying the eucledian plane with $\mathbb{C}$ we can use taylor’s theorem to express these functions. To be more formal we have
 
 **<u>Proposition:</u>** For some (anti) holomorphic map $f:\mathbb{C} \to \mathbb{C}$ we can write 
 

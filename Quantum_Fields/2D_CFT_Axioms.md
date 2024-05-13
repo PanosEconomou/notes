@@ -418,6 +418,26 @@ $$
 S(\phi) = \frac{1}{2\pi}\int_{\mathbb{C}} d\phi \wedge \star d \bar \phi.
 $$
 
+$$
+S(\phi) = \frac{1}{2\pi} \int_{\mathbb C} \partial \phi \wedge \bar \partial \phi = \frac{1}{2\pi }\int_{\mathbb{C}} \frac{\partial \phi}{\partial z} \frac{\partial \phi}{\partial \bar z}  dzd\bar z
+$$
+
+
+
+Assuming radial quantization, we have that the radial coordinate is timelike so the metric on $\mathbb{C}$ must look like:
+
+$$
+g = -dr\otimes dr +r^2 d\theta \otimes d\theta
+$$
+
+Converting back to cartesian coordinates we have that the metric is given by
+
+$$
+g = -\frac{1}{2} \left[\frac{\bar z}{z} dz\otimes dz + \frac{z}{\bar z} d\bar z \otimes d\bar z\right]
+$$
+
+Notice that this metric is hermitian so we don’t need to do any more work on it. 
+
 Using variational principle we can calculate the the 2 point correlation function is
 
 $$
