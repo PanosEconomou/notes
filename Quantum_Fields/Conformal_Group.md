@@ -92,7 +92,7 @@ $$
 
 is a lie algebra action induced by the lie group action. This could be a representation but we have much more general stuff.
 
-**<u>Proposition:</u>** The components of an infinitesimal transformation of a point $p \in M$ are given by
+**<u>Proposition:</u>** The components of an infinitesimal transformation of a point $p \in \mathbb{R}^n$ are given by
 
 $$
 \begin{align*}
@@ -102,7 +102,7 @@ $$
 
 where $\frac{\partial}{\partial \alpha^\nu}$ is a basis for $\mathfrak{g}$. 
 
-**<u>Note:</u>** In physics we usually denote $\varepsilon^\u = X^\nu \frac{\partial L_p^\mu}{\partial \alpha^\nu}$.
+**<u>Note:</u>** In physics we usually denote $\varepsilon^\mu = X^\nu \frac{\partial L_p^\mu}{\partial \alpha^\nu}$.
 
 
 
