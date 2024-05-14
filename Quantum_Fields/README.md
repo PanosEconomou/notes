@@ -10,5 +10,6 @@ Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 - [Axiomatic QFT](Axiomatic_QFT.md)
 - [Conformal Group](Conformal_Group.md)
 - [Path Integrals](Path_Integrals.md)
+- [Renormalization Group](Renormalization_Group.md)
 - [Spinors](Spinors.md)
 - [Virasoro Algebra](Virasoro_Algebra.md)
