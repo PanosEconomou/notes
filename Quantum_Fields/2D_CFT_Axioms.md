@@ -418,36 +418,34 @@ $$
 S(\phi) = \frac{1}{2\pi}\int_{\mathbb{C}} d\phi \wedge \star d \bar \phi.
 $$
 
-$$
-S(\phi) = \frac{1}{2\pi} \int_{\mathbb C} \partial \phi \wedge \bar \partial \phi = \frac{1}{2\pi }\int_{\mathbb{C}} \frac{\partial \phi}{\partial z} \frac{\partial \phi}{\partial \bar z}  dzd\bar z
-$$
-
-
-
-Assuming radial quantization, we have that the radial coordinate is timelike so the metric on $\mathbb{C}$ must look like:
+Where the metric is given by 
 
 $$
-g = -dr\otimes dr +r^2 d\theta \otimes d\theta
+g = \frac{1}{2} \left[dz\otimes d\bar z + d\bar z \otimes dz \right] = dz\cdot d\bar z
 $$
 
-Converting back to cartesian coordinates we have that the metric is given by
+Let’s find the green’s functions to do so we will rearrange using Leinbiz rule the action to obtain
 
 $$
-g = -\frac{1}{2} \left[\frac{\bar z}{z} dz\otimes dz + \frac{z}{\bar z} d\bar z \otimes d\bar z\right]
+S(\phi) = -\frac{1}{2\pi} \int_{\mathbb{C}} \phi\,  d\star d \bar \phi - d(\phi \star d\bar \phi)
 $$
 
-Notice that this metric is hermitian so we don’t need to do any more work on it. 
+Then we consider the set of variations $\eta \in C^\infty(\mathbb{C})^\mathbb{{C}}$ such that $\int_\mathbb{C} d\eta = 0$. As a result we can write
+
+$$
+\lim_{\epsilon \to 0} \frac{1}{\epsilon} \left[S(\phi + \epsilon \eta) - S(\phi)\right] = -\frac{1}{2\pi}\int_{\mathbb{C}} \eta\, d\star d \bar \phi + \bar \eta\,  d\star d \phi
+$$
+
+As a result, we have that the equation of motion is given by
+
+$$
+\frac{1}{2\pi}d\star d \phi = 0 \implies \frac{1}{2\pi} G(z,w) = \frac{1}{2}\log\frac{1}{\abs{z-w}}
+$$
 
 Using variational principle we can calculate the the 2 point correlation function is
 
 $$
-G(z,\bar z,w,\bar w) =  \langle\phi(z,\bar z) \phi(w,\bar w)\rangle = -\log|z-w|^2.
-$$
-
-The interesting thing to notice is that this expression is (by properties of logarithms)
-
-$$
-G(z,\bar z,w,\bar w) = \log|z-w|^2= -\log(z-w) -\log(\bar z - \bar w),
+G(z,\bar z,w,\bar w) =  \langle\phi(z,\bar z) \phi(w,\bar w)\rangle = -\frac{1}{2}\log|z-w|,
 $$
 
 which is a really cute formula, essentially saying that this correlation can be split in two. In practice is does. From the equations of motion we see that
