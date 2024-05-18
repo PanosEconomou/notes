@@ -114,8 +114,6 @@ This essentially says that given a group action all we need to know is the struc
 
 ## Central Extensions
 
-
-
 **<u>Definition:</u>** A sequence $\{f_i : G_{i-1} \to G_{i}\}_{i\in I}$ of group homomorphisms is **exact** if the image of each homomorphism is the kernel of the next. 
 
 Pictorially we can see this as follows![image-20231004224307511](.Conformal_Group.assets/image-20231004224307511.png)
