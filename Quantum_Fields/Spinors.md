@@ -2,21 +2,25 @@
 
 I am constantly scared every time I see a spinor and every time I hear anything about it. I don’t wanna deal with them, but here it is. 
 
+[toc]
+
 ## Wordy Introduction
 
 When doing experimental particle physics we found out that not all particles are nicely described using scalar or vector fields (i.e. attaching a number or a vector in space). We found out that some of them are better described in the case where fields LOOK like attaching a vector at every point, but when we turn around, the vectors are not exactly stuck on the plane. In fact they look like they are rotating slower than the plane. Like they’re lagging behind in a sense. This would be such that when you do a full rotation of a plane they would have only done half a rotation in the same direction. **You can see why I hate them.** 
 
-In here we will build a regorous description of doing this half rotation thing. Also we will build it in much generality, and then specify stuff. One of the cool results that given some spacetime (say Minkowski space) we will see is that this type of slow spinny vector (the spinor) cannot have any dimension! It has to have a specific dimension so that it is compatble with rotations in that spacetime. A simple example which will be helpful in guiding intuition is rotations in $\mathbb{R}^3$. These rotations are always about an axis! So any vector that describes rotations HAS to have 3 dimensions to denote the axis. However, in $\mathbb{R}^2$ the situation is not as you expect, the rotation vector is still a member of $\mathbb{R}^3$ but it is just perpendicular to the plane having only one degree of freedom instead of 2 as we might have expected. As a result fixing information about the rotation kinda fixes the type of objects that we use to describe them. This is a sidenote that will become clearer as we go along, but it is nice to be slightly familiar with it when we come across it again.
+In here we will build a rigorous description of doing this half rotation thing. We will build it in much generality, and then specify stuff. One of the cool results we will see is that given some spacetime (say Minkowski space) this type of slow spinny vector (the spinor) cannot have any dimension! It has to have a specific dimension so that it is compatble with rotations in that spacetime. A simple example which will be helpful in guiding intuition is rotations in $\mathbb{R}^3$. These rotations are always about an axis! So any vector that describes rotations HAS to have 3 dimensions to denote the axis. However, in $\mathbb{R}^2$ the situation is not as you expect, the rotation vector is still a member of $\mathbb{R}^3$ but it is just perpendicular to the plane having only one degree of freedom instead of 2 as we might have expected. As a result fixing information about the rotation kinda fixes the type of objects that we use to describe them. This is a sidenote that will become clearer as we go along, but it is nice to be slightly familiar with it when we come across it again.
 
-How do we rigorously describe the disgusting concept of half rotation? It is not as simple as rotating by half the angle unfortunately. The way we do this is by constructing an algebraic construction, called a Clifford Algebra, that will help us describe the square root of the elements of the rotation group, in such a way that when we apply them twice we get the full rotation. Then we will form a group out of this Clifford Algebra square-root–of-a-group-thype-thing and then use a representation (a way to map a group element to an object that can transform quantum sates or whatnot) to a particular vector space that will contain our spinors. The representation will tell us how the spinors rotate. 
+How do we rigorously describe the disgusting concept of half rotation? It is not as simple as rotating by half the angle unfortunately. The way we do this is by constructing an algebraic object, called a Clifford Algebra, that will help us describe the square root of the elements of the rotation group, in such a way that when we apply them twice we get the full rotation. Then we will form a group out of this Clifford Algebra square-root–of-a-group-thype-thing and then use a representation (a way to map a group element to an object that can transform quantum sates or whatnot) to a particular vector space that will contain our spinors. The representation will tell us how the spinors rotate. 
 
 
 
-## Clifford Algebras
+# Clifford Algebras
 
-The first thing to talk about is more of a helper object, called a *Clifford algebra.* It was invented when people were trying to find out a way to take “the square root” of the laplace operator $\Delta = \sum_i \frac{\partial }{\partial x^i}\frac{\partial }{\partial x^i}$ . We now know that its square root is a different operator $\nabla = \sum_{i}\frac{\partial }{\partial x^i}  e_i$. Notice that even though $\nabla^2 = \Delta$ the object $\nabla$ clearly belongs to a different space because it can be thought of as a vector. This space is some Clifford algebra. The way we think about them, is that I give you a vector space and with some norm, and then you give me an algebra that contains elements that are interpreted as the square root of the norm. Finally, let’s be rigorous about this!
+The first thing to talk about is more of a helper object, called a *Clifford algebra.* It was invented when people were trying to find out a way to take “the square root” of the laplace operator $\Delta = \sum_i \frac{\partial }{\partial x^i}\frac{\partial }{\partial x^i}$ . We now know that its square root is a different operator $\nabla = \sum_{i}\frac{\partial }{\partial x^i}  e_i$. Notice that even though $\nabla^2 = \Delta$ the object $\nabla$​ clearly belongs to a different space because it can be thought of as a vector. This space is some Clifford algebra. The way we think about them, is that I give you a vector space and with some norm, and then you give me an algebra that contains elements that are interpreted as the square root of the norm. Let’s formalize this!
 
-**<u>Definition:</u>** Given a vector space $V$ over a field $\mathbb{K}$ equipped with a nondegenerate bilinear form $B$, a **Clifford Algebra** is an associative unital algebra $\text{Cl}(V,B)$ over $\mathbb{K}$ such that there exists a $\mathbb{K}$-linear map $\gamma: V \to \text{Cl}(V,B)$ such that for any $v\in V$
+## Definitions
+
+**<u>Definition:</u>** Given a vector space $V$ over a field $\mathbb{K}$ equipped with a nondegenerate bilinear form $B$, a **Clifford Algebra** is an associative unital algebra $\text{Cl}(V,B)$ over $\mathbb{K}$ such that there exists a $\mathbb{K}$-linear map $\gamma: V \to \text{Cl}(V,B)$ where for any $v\in V$
 
 $$
 \gamma(v)^2 = - B(v,v) \cdot 1,
@@ -24,7 +28,295 @@ $$
 
 and for any other such map $\delta : V \to A$ to some other associative unital algebra $A$ that satisfied the same property, there exists a unique algebra homomorphism $\phi: \text{Cl}(V,B) \to A$ such that $\phi \circ \gamma = \delta$. 
 
-The last property is called the universal property of the clifford algebra and is what helps us define it uniquely. We can alternatively approach the subject constructively by taking a quotient of the tensor algebra $T(V)$ generated by $V$ with the two sided ideal $I(Q) \coloneqq \text{span}\{v\otimes v + Q(v,v) \mid v \in V\}$. After doing this it takes some tedium to show uniqueness and we have an equivalent definition that I am not gonna formulate. 
+The last property is called the universal property of the clifford algebra and is what helps us define it uniquely. Also note that the map $\gamma : V \to \text{Cl}(V,B)$ looks like the map that takes a vector and gives you its *square root* since $\gamma(v)^2 = - B(v,v)\cdot 1$. 
+
+We can alternatively approach the subject constructively by taking a quotient of the tensor algebra $T(V)$ generated by $V$ with the two sided ideal $I(B) \coloneqq \text{span}\{v\otimes v + Q(v,v) \mid v \in V\}$​. After doing this it takes some tedium to show uniqueness and we have an equivalent definition that I am not gonna write down because it’s long, but I will write this as a corollary. 
+
+**<u>Corollary:</u>** A clifford algebra $\text{Cl}(V,B)$ is isomorphic to
+
+$$
+\text{Cl}(V,B) \cong T(V)/I(B)
+$$
+
+where $I(B) \coloneqq \text{span}\{v\otimes v + B(v,v) \mid v \in V\}$ is the two sided ideal defined by the form $B$ and $T(V)$ is the tensor algebra of the vector space $(V,\mathbb{K})$ given by
+
+$$
+T(V) = \mathbb{K} \oplus V\oplus V^{\otimes 2} \oplus \cdots 
+$$
+
+Doing so gives us a convenient way to split the algebra in half. Namely, 
+
+**<u>Definition:</u>** Given a vector space $V$ over a field $\mathbb{K}$ the **even and odd subspaces** of its tensor algebra are given by
+
+$$
+\begin{align*}
+T^0(V) &\coloneqq \text{span}\{v_1\otimes v_2\otimes \cdots \otimes v_k \mid k \text{ even } v_i \in V \}\\
+T^1(V) &\coloneqq \text{span}\{v_1\otimes v_2\otimes \cdots \otimes v_k \mid k \text{ odd } v_i \in V \}
+\end{align*}
+$$
+
+then given a clifford algebra $\text{Cl}(V,B)$ we can define its **even and odd parts** as
+
+$$
+\begin{align*}
+\text{Cl}^0(V,B) &\coloneqq T^0(V)/(T^0(V) \cap I(B))\\
+\text{Cl}^1(V,B) &\coloneqq T^1(V)/(T^1(V) \cap I(B))
+\end{align*}
+$$
+
+With these definitions we have the corollary that everyone expected.
+
+**<u>Corollary:</u>** Any clifford algebra can be decomposed as
+
+$$
+\text{Cl}(V,B) = \text{Cl}^0(V,B) \oplus \text{Cl}^1(V,B)
+$$
+
+this is going to be super useful when we start speaking of majorana vs dirac spinors, but for now it seems a bit arbitrary. 
+
+
+
+## Common Examples
+
+Let’s see some common Clifford algebras that are used all the time in physics. 
+
+**<u>Definition:</u>** For the vector space $\mathbb R^{s,t}$ with the inner product given by the metric $\eta$ the clifford algebra is denoted by $\text{Cl}(s,t)$. If $t= 0$ we denote the algebra as $\text{Cl}(s)$. For the vector space $\mathbb C^n$ with the standard eucledian inner product $q$ (not a Hermitian form) the Clifford algebra is denoted by $\mathbb C\text{l}(d)$.
+
+With these definitions of common algebras we can play around a lot in interesting ways! In particular the following proposition will help establish why complex numbers appear out of nowhere when describing spinors. 
+
+**<u>Proposition:</u>** Any complex Cliffpord algebra is isomorphic to a complexification of a real Clifford agebra, i.e.
+
+$$
+\mathbb{C}\text{l}(s+t) =\text{Cl}(s,t) \otimes \mathbb{C}
+$$
+
+therefore complex representations of $\text{Cl}(s,t)$ are equivalent to representations of the complex clifford algebras. 
+
+Then the following lemma will unlock more about spinors when we talk about their dimension and such. Namely,
+
+**<u>Lemma:</u>** For $n\geq 1$ $\mathbb C \text l^0(n) \cong \mathbb C \text l(n-1)$
+
+
+
+## Gamma Matrices
+
+Honestly we are building all the materials of spinors before even talking about them. Next up we have the *gamma matrices*. These are objects tied to a particular representation of the algebra and help us see how they act. In particular here is a definition.
+
+**<u>Definition:</u>** Consder an algebra representation $\rho : \text{Cl}(s,t) \to \text{End}(\Sigma)$ of the real Clifford agebra of $\mathbb{R}^{s,t}$ to the endomorphism algebra of a $\mathbb{K}$ vector space $\Sigma = \mathbb K^N$. Assume that $\mathbb{R}^{s,t}$ has a basis $e_1, e_2,\cdots e_n$ where $n = s+t$. Then the **physical gamma matrices** are the representation of the basis given by
+
+$$
+\gamma_{\alpha} = -i \rho\circ \gamma(e_\alpha),
+$$
+
+for $1 \leq \alpha \leq n$, where $\gamma$ is the map that defines the clifford relation. 
+
+The $-i$ factor is there because it makes physics look prettier, but other conventions exist and are used. An intuitive view of the $\gamma$ matrices is that they are the representations of the square root of the basis of minkowski space. In other words is how the square roots of minkowski space vectors would transform the vectors of $\Sigma$. These matrices have cool properties
+
+**<u>Proposition:</u>** The Gamma matrices satisfy
+
+$$
+\{\gamma_\alpha,\gamma_\beta\} = 2 \eta_{\alpha\beta}\, I_N,
+$$
+
+where $I_N$ is the idenity on $\Sigma$.
+
+
+
+## Chirality
+
+There is a special element in representations of Clifford algebras associated with even dimensional vector spaces. This element is used to prove a lot of things and representations of it are related to really cool physical symmetries.
+
+**<u>Definition:</u>** For $n$ even and $e_1,e_2,\cdots, e_n$ an oriented orthonormal basis of $\mathbb R^{s,t}$ the **chirality element** of $\mathbb C\text l (n)$ is given by
+
+$$
+\omega = \lambda \gamma(e_1) \gamma(e_2) \cdots \gamma(e_n).
+$$
+
+where $\lambda \in \mathbb{C}$ is given by $\lambda = -i^{n/2 + t}$
+
+**<u>Corollary:</u>** The chirality element is independent of the choice of basis, and it satisfies
+
+1. $\{\omega,\gamma(e_\alpha)\} = 0$
+
+2. $[\omega,\gamma(e_\alpha)\gamma(e_\beta)] = 0$
+
+3. if $\lambda^2 = (-1)^{n/2 + t}$ then $\omega^2 = 1$​. 
+
+4. Given a complex representation $\rho : \text{Cl}(s,t) \to \text{End}(\Sigma)$ the representation of the chirality element is given by
+   $$
+   \gamma_{n+1} = \rho(\omega) = -i^{n/2 + t}\gamma_{1} \gamma_{2} \cdots \gamma_n.
+   $$
+
+5. 
+
+
+
+## Properties of Standard Clifford Algebras
+
+Honestly, I am writing this part because we will be using results about the standard Clifford algebras all the time when talking about spinors almost interchangeably so a lookup table would be useful.
+
+We start some results that are super cute and then we will pull them together. 
+
+**<u>Lemma:</u>** *(Complex Clifford Algebras are Periodic)* Ahe complex Clifford algebras satisfy 
+
+$$
+\mathbb C \text l (n+2) \cong \mathbb C \text l (n) \otimes_{\mathbb C} \mathbb C \text l (2) \cong \mathbb C \text l (n) \otimes_{\mathbb C} \text{End}(\mathbb C^2)
+$$
+
+This will help us prove a very nice theorem that can classify the clifford algebras. 
+
+**<u>Theorem:</u>** *(Structure theorem for complex Clifford algebras)* Complex Clifford algebras and their even part are classified as follows
+
+| $n$  | $\mathbb C \text l (n)$                                      | $\mathbb{C} \text l^0(n)$                                    | $N$           |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
+| Even | $\text{End}(\mathbb C^N)$                                    | $\text{End}(\mathbb C^{N/2}) \oplus \text{End}(\mathbb C^{N/2})$ | $2^{n/2}$     |
+| Odd  | $\text{End}(\mathbb C^{N}) \oplus \text{End}(\mathbb C^{N})$ | $\text{End}(\mathbb C^{N})$                                  | $2^{(n-1)/2}$ |
+
+Then we have a similar, but less pretty theorem for classifying the real Clifford Algebras.
+
+**<u>Theorem:</u>** *(Structure Theorem for real Clifford algebras)* Real Clifford algebras of the form $\text{Cl}(s,t)$ with $\rho = s-t$ and $n = s+t$ are cassified like so
+
+| $\rho \mod 8$ | $\text{Cl}(s,t)$                                          | $N$           | $\text{Cl}^0(s,t)$                                         | $M$           |
+| :-----------: | --------------------------------------------------------- | ------------- | ---------------------------------------------------------- | ------------- |
+|      $0$      | $\text{End}(\mathbb{R}^N)$                                | $2^{n/2}$     | $\text{End}(\mathbb{R}^M)\oplus \text{End}(\mathbb{R}^M)$  | $2^{(n-2)/2}$ |
+|      $1$      | $\text{End}(\mathbb{C}^N)$                                | $2^{(n-1)/2}$ | $\text{End}(\mathbb{R}^M)$                                 | $2^{(n-1)/2}$ |
+|      $2$      | $\text{End}(\mathbb{H}^N)$                                | $2^{(n-2)/2}$ | $\text{End}(\mathbb{C}^M)$                                 | $2^{(n-2)/2}$ |
+|      $3$      | $\text{End}(\mathbb{H}^N)\oplus \text{End}(\mathbb{H}^N)$ | $2^{(n-3)/2}$ | $\text{End}(\mathbb{H}^M)$                                 | $2^{(n-3)/2}$ |
+|      $4$      | $\text{End}(\mathbb{H}^N)$                                | $2^{(n-1)/2}$ | $\text{End}(\mathbb{H}^M) \oplus \text{End}(\mathbb{H}^M)$ | $2^{(n-4)/2}$ |
+|      $5$      | $\text{End}(\mathbb{C}^N)$                                | $2^{(n-1)/2}$ | $\text{End}(\mathbb{H}^M)$                                 | $2^{(n-3)/2}$ |
+|      $6$      | $\text{End}(\mathbb{R}^N)$                                | $2^{n/2}$     | $\text{End}(\mathbb{C}^M)$                                 | $2^{(n-2)/2}$ |
+|      $7$      | $\text{End}(\mathbb{R}^N)\oplus \text{End}(\mathbb{R}^N)$ | $2^{(n-1)/2}$ | $\text{End}(\mathbb{R}^M)$                                 | $2^{(n-1)/2}$ |
+
+
+
+**<u>Example:</u>** For the useful example of minkowski space we have that
+
+$$
+\text{Cl}(1,3) \cong \text{End}(\mathbb{R}^4)\\
+\text{Cl}(3,1) \cong \text{End}(\mathbb{H}^4)\\
+\text{Cl}^0(3,1) \cong \text{Cl}^0(1,3)  \cong \text{End}(\mathbb{C}^2)
+$$
+
+With these in mind we are finally ready to talk about spinors!!
+
+
+
+# Spinor Representations
+
+Finally! Without further ado we have 
+
+**<u>Definition:</u>** The **vector space of Dirac Spinors** is given by $\Delta_n = \mathbb{C}^N$ where $N = 2^{n/2},2^{(n-1)/2}$ when $n$ is even or odd respectively. Then the **Dirac spinor representation of the complex Clifford algebra** is given by 
+
+$$
+\rho : \mathbb C \text l(n) \to \text{End}(\Delta_n)
+$$
+
+defined by the structure theorem for complex clifford algebras, given by
+
+| $n$  | Representation                                               |
+| :--: | ------------------------------------------------------------ |
+| Even | $\mathbb C \text l(n) \xrightarrow{\cong} \text{End}(\Delta_n)$ |
+| Odd  | $\mathbb C \text l(n) \xrightarrow{\cong} \text{End}(\Delta_n) \oplus \text{End}(\Delta_n) \xrightarrow{\text{pr}_1} \text{End}(\Delta_n)$ |
+
+These are induced complex representations of $\text{Cl}(s,t)$. 
+
+Using this definition we can find a way that vectors from $\mathbb{R}^{s,t}$ can multiply spinors (which are elements of the spinor vector space). 
+
+**<u>Defintion:</u>** The **Clifford multiplication** is a bilinear map 
+
+$$
+\begin{align*}
+\mathbb{R}^{s,t} \times \Delta_n &\to \Delta_n\\
+(X,\psi) &\mapsto X\cdot \psi \coloneqq -i \rho \circ \gamma (X) \psi = X^\mu \gamma_\mu \psi
+\end{align*}
+$$
+
+Via the isomorphism of vector spaces
+
+$$
+\Lambda^\ast \mathbb R^{s,t} \to \text{Cl}(s,t),
+$$
+
+we can extend this definition to the multiplication of spinors by forms given by the complecification of $\text{Cl}(s,t)$. 
+
+Ok yey! Let’s keep going! The next thing to understand are the left and right handed spinors. 
+
+
+
+## Weyl Spinors
+
+**<u>Corollary:</u>** *(Weyl Spinor representations)* Consider the restriction of the spinor representation to $\mathbb C \text{l}^0(n)$ the even subspace. Then 
+
+1. If $n$ is odd then the induced representation is irreducible and it is given by the isomorphism
+   $$
+   \mathbb{C} \text l^0 (n) \xrightarrow{\cong} \text{End}(\Delta_n)
+   $$
+
+2. If $n$ is even then the induced representation decomposes to two irreducible ones called the **left-handed** and **right-handed Weyl Spinors.** 
+   $$
+   \mathbb C \text l^0 (n) \xrightarrow{\cong} \text{End}(\Delta_n^+) \oplus \text{End}(\Delta_n^+)
+   $$
+   where $\Delta_n^\pm \cong \mathbb C^{N/2}$.
+
+That’s so cool! We see that in even dimensions the spinor representation breaks into two! This is really cool. Let’s see some properties. 
+
+**<u>Proposition:</u>** *(Properties of Weyl Spinors)* Let $n= 2k$ for $k\in \mathbb {N}$ and the Dirac spinor representation on $\Delta_n$ and $\Gamma_{n+1}$ the representation of the chirality representation. Then the following is true. 
+
+1. $\Delta_n^\pm$ is the eigenspace of $\Gamma_{n+1}$ with eigenvalue $\pm 1$ on $\Delta_n$.
+
+2. The induced representation of $\mathbb C \text l^0 (n)$ leaves $\Delta_n^\pm$ invariant, and the induced representation $\mathbb C \text l^1(n)$ maps $\Delta_n^{\pm}$ to $\Delta_n^{\mp}$. Therefore, it follows that
+   $$
+   \mathbb C\text l^0(n) \cong \text{Hom}(\Delta_n^+,\Delta_n^+) \oplus \text{Hom}(\Delta_n^-,\Delta_n^-)\\
+   \mathbb C\text l^1(n) \cong \text{Hom}(\Delta_n^+,\Delta_n^-) \oplus \text{Hom}(\Delta_n^-,\Delta_n^+)
+   $$
+
+
+
+## Spin Groups
+
+Before we move on to Majorana spinors it would be nice to think of the algebra we are taking the representations of as the lie algebra of some lie group. Let’s find these groups. 
+
+We begin with a very friendly and simple lemma that is going to be the guiding principle for the rest of the section. 
+
+**<u>Lemma:</u>** Let $\mathbb K \in \{\mathbb R, \mathbb C, \mathbb H\}$. Then 
+
+$$
+\text{End}(\mathbb K^n) \cong \mathbb{K}^n \times \mathbb{K}^n.
+$$
+
+This is intuitively clear as we are assigning a 
+
+
+
+## Majorana Spinors
+
+Some of the spinors in a spinor representation are Majorana. Every spinor representation can admit a real or quarternionic structure. The special real (or quarternionic) elements of the structure are what we call Majorana spinors. The reason is that these elments have special properties. Let’s see them.
+
+**<u>Definition:</u>** Consider a complex vector space $V$ with a representation of a Lie group $G$. 
+
+1. A **real structure** on $V$ is a complex antilinear $G$ equivariant map $\sigma : V \to V$ such that $\sigma \circ \sigma = 1$. If a vector space has a real structure, the **real subspace** is given by 
+   $$
+   V^\sigma = \{v \in V \mid \sigma(v) = v\}
+   $$
+
+2. A **quarternionic structure** on $V$ is a complex antilinear $G$ equivariant map $J : V \to V$ such that $J \circ J = -1$.
+
+**<u>Proposition:</u>** Given a complex vector space $V$ with a real structure $\sigma$ we can write 
+
+$$
+V = V^\sigma \oplus i V^\sigma
+$$
+
+
+
+
+
+
+
+
+
+
+
 
 
 
