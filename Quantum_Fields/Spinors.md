@@ -284,7 +284,105 @@ $$
 \text{End}(\mathbb K^n) \cong \mathbb{K}^n \times \mathbb{K}^n.
 $$
 
-This is intuitively clear as we are assigning a 
+This is intuitively clear as we are assigning an element of $\mathbb{K}^n$ to each element of $\mathbb{K}^n$ without caring if it is invertible, with the only requirement that the map is linear. Then we consider the invertible transformations as the invertible elements of $\mathbb{K}^n \times \mathbb{K}^n$ and call that subgroup $GL(\mathbb K,n)$. 
+
+What we will see is that inside every Clifford algebra there are hidden Lie groups that end up being double covers of orthogonal and pseudo orthogonal groups. Let’s start weeding them out. 
+
+**<u>Definition:</u>** Given a Clifford algebra $\text{Cl}(V,B)$ we define the **group of invertible elements** of the algebra as
+
+$$
+\text{Cl}^\times(V,B) \coloneqq \{x \in \text{Cl}(V,B) \mid \exists y \in \text{Cl}(V,B) : xy = yx = 1 \}
+$$
+
+**<u>Lemma:</u>** The group of invertible elements is an open subset of the clifford algebra, and it is therefore a lie group. 
+
+Now let’s define some nice subsets of $\mathbb{R}^{s,t}$. 
+
+1. $S_+ ^{s,t} \coloneqq \{v \in \mathbb{R}^{s,t} \mid \eta(v,v) = + 1\}$
+2. $S_- ^{s,t} \coloneqq \{v \in \mathbb{R}^{s,t} \mid \eta(v,v) = - 1\}$
+3. $S_\pm ^{s,t} \coloneqq S^{s,t}_+ \cup S^{s,t}_-$
+
+You can see that these subsets of the Lorenz space are the corresponding spheres. For examples for $\mathbb{R}^{1,3}$ we have that $S_+$ is a sphere in $\mathbb{R}^3$, and $S_-$​​ contains two points 
+
+| ![image-20240521181234978](_Spinors.assets/image-20240521181234978.png) | ![image-20240521181543760](_Spinors.assets/image-20240521181543760.png) |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| An example of the spaces for Minkowski space $\mathbb{R}^{1,1}$, where $S_+$ is the blue curve, and $S_-$ is the blue curve. | An example of the spaces for Eucledian space $\mathbb{R}^{2}$, where $S_+$ is the blue curve, and $S_-$ is empty. |
+
+These are basically the spheres with positive and negative radii, we will use them to find nice groups hidden inside the Clifford algebra. 
+
+**<u>Definition:</u>** The **Pin group** is the subgroup of $\text{Cl}^\times(s,t)$ given by 
+
+$$
+\text{Pin}(s,t) \coloneqq \{\gamma(v_1)\gamma(v_2)\cdots \gamma(v_k) \in \text{Cl}(s,t) \mid v_i \in S_\pm, k \in \mathbb{N}\}
+$$
+
+The **Spin group** (or Special Pin group) is given by
+
+$$
+\text{Spin}(s,t) \coloneqq \text{Pin}(s,t) \cap \text{Cl}^0(s,t) = \{\gamma(v_1)\gamma(v_2)\cdots \gamma(v_{2k}) \in \text{Cl}(s,t) \mid v_i \in S_\pm, k \in \mathbb{N}\}
+$$
+
+Finally, the **Orthochronous Spin Group** is given by
+
+$$
+\text{Spin}^+(s,t) \coloneqq \{\gamma(v_1)\cdots \gamma(v_{2k}) \gamma(w_1)\cdots \gamma(w_{2l}) \in \text{Cl}(s,t)\mid v_i \in S_+, w_i \in S_-, k,l \in \mathbb{N}\}
+$$
+
+Now we can formulate a lot of theorems that show how these spin and pin groups correspond to rotations of vectors in $\mathbb{R}^{s,t}$ through conjugation. To do this, let’s write a canonical group action of the spin groups to the Lorenzian spaces by considering that $\gamma : \mathbb R^{s,t} \to \text{Cl}(s,t)$ is an embedding, therefore it has a left inverse $\bar \gamma$ such that $\bar \gamma \circ \gamma= 1$. 
+
+**<u>Definition:</u>** The **canonical action of the Pin group** is given by the map
+
+$$
+\begin{align*}
+R : \text{Pin}(s,t) \times \mathbb R^{s,t} &\to \mathbb R^{s,t} \\
+(u,v) &\mapsto  (-1)^{\deg(u)}\bar\gamma(u \gamma(v) u^{-1})
+\end{align*}
+$$
+
+where $\deg(u)$ is the **degree** of the group element $u$ which is $0$ if $u \in \text{Cl}^0(s,t)$ and $1$ if $u \in \text{Cl}^1(s,t)$.
+
+This action basically works by considering the canonical embedding of a vector in the clifford algebra, then moving it by the element of the spin group via conjugation and then come back by the natural left inverse. Let’s see how this action lends itself to cool stuffs.
+
+**<u>Lemma:</u>** The following map is a continuous homomorphism of Lie groups
+
+$$
+\begin{align*}
+\lambda : \text{Pin}(s,t) &\to  O(s,t)\\
+u &\mapsto R_u \coloneqq R(u,\cdot) \in O(s,t)
+\end{align*}
+$$
+
+Furthermore the following are true
+
+1. $\lambda$ is surjective with kernel $\ker \lambda = \{\pm 1\}$.
+2. The preimages under $\lambda$ of $SO(s,t)$ and $SO^+(s,t)$ are equal to $\text{Spin}(s,t)$ and $\text{Spin}^+(s,t)$ respectively. 
+3. $\lambda$ restricts to surjective homomorphisms in $\text{Spin}(s,t)$ and $\text{Spin}^+(s,t)$ with kernel equal to  $\{\pm 1\}$.
+4. The orthochronous spin group is connected if $s\geq 2$ or $t\geq 2$. 
+5. For all $n\geq 2$ the restrictions of the homomorphisms are universal (double) covers. 
+
+Notice that since $\text{Spin}$ and $\text{Spin}^+$ are subgroups of $\text{Pin}$​ they also have canonically defined actions and homomorphisms. 
+
+**<u>Example:</u>** We see that $\text{Spin}(3,0) = SU(2),\ \text{Spin}(4,0) = SU(2)\times SU(2)$ and most importantly for physics
+
+$$
+\text{Spin}^+(1,3)\cong SL(2,\mathbb{C})
+$$
+
+We can use this to see how the spinors affect the vectors of Minkowski space!
+
+
+
+## Spinor Representation of Spin Groups
+
+We can define the natural representation of the orthochronous spin group by copy pasting it from the representation of the clifford algebra since the spin groups are subspaces of it. 
+
+**<u>Definition:</u>** The **spinor representation of the **$\text{Spin}^+(s,t)$ **group** is the restriction 
+
+$$
+\kappa : \text{Spin}^+(s,t) \to GL(\Delta_n)
+$$
+
+induced by the restriction of the spinor representation $\rho$ of the Clifford algebra $\text{Cl}(s,t).$ 
 
 
 
@@ -306,7 +404,6 @@ Some of the spinors in a spinor representation are Majorana. Every spinor repres
 $$
 V = V^\sigma \oplus i V^\sigma
 $$
-
 
 
 
