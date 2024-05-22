@@ -193,7 +193,49 @@ We already created an $O(n)$ structure on $M$ by using the Riemannian metric. No
 
 
 
-# Associated Vector Bundles 
+# Vector Bundles
+
+One of the most commonly used type of bundles is one where the fiber is a vector space. They have awesome properties and a lot of natural structures that we can list here. 
+
+**<u>Definition:</u>** A fibre bundle $\pi : E \to M$ with fiber $V$ a $k$ dimensional vector space over a field $\mathbb K$ is a **vector bundle of rank $k$**  if there exists a bundle atlas $\mathcal A$ such that the induced maps $\phi_p : E_p \to V$ are vector space isomorphisms for any $p\in M$. The atlas is called a **vector bundle atlas.** Also a vector bundle of rank $1$ is a **line bundle**. 
+
+Why is this nice? Because we can add and multiply any two sections of a vector bundle using the pointwise multiplication of the fibre. 
+
+**<u>Example:</u>** The tangent and cotangent bundles are vector bundles. So are all the antisymmetric and symmetric bundles. 
+
+**<u>Corollary:</u>** Vector bundles always admit global sections!
+
+
+
+## Linear Algebra Constructions over Vector Bundles
+
+We are ready to unlock the real power of vector bundles which is the ability to define all the linear algebra constructions, such as direct sums, tensor products, antisymmetric products, etc. over the manifold! 
+
+We do this by applying the construction fiber wise. For example, say $E,F$ are vector bundles over the same base manifold we can create the following bundles
+
+$$
+\begin{align*}
+E \oplus F && E\otimes F && E^\ast && \Lambda^k E && \text{Hom}(E,F) && \bar E.
+\end{align*}
+$$
+
+Another useful definition is one of the subbundle. 
+
+**<u>Definition:</u>** Let $V\to E \xrightarrow{\pi} M$ be a vector bundle of rank $k$ a subset $F\subset E$ is called a **vector subbundle of rank** $m$ of $E$  if for any $p\in M$ there exists a local trivialization to $M \times W$ where $W$ is an $m$ dimensional subspace of $V$. 
+
+Next up we have metrics!
+
+**<u>Definition:</u>** A **Eucledian bundle metric** of some vector bundle $E$ is a smooth section $\langle \cdot, \cdot \rangle \in \Gamma(E^\ast \otimes E^\ast)$ such that at every point on $M$ it defines a nondegenerate symmetric form on the fiber. Similarly, a **Hermitian bundle metric** of some complex vector bundle $E$ is a smooth section $\langle \cdot, \cdot \rangle \in \Gamma(\bar E^\ast \otimes E^\ast)$ such that at every point on $M$ it defines a nondegenerate hermitian form on the fiber. 
+
+What about orthogonal complements? Now that we have metrics, it only makes sense!
+
+**<u>Definition:</u>** $E$ be a vector bundle and $F$ be a vector subbundle of $E$. Then the **orthogonal complement** $F^\perp$ is a vector subbundle of $E$ such that $F\otimes F^\perp \cong E$. 
+
+That should be enough for now, but we will revisit the structures once we want to add derivatives. 
+
+
+
+# Associated Vector Bundles
 
 This is my favorite part of these constructions! We use the language of principal bundles in order to come up with Vector bundles 
 
