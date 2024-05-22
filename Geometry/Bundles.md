@@ -237,7 +237,53 @@ That should be enough for now, but we will revisit the structures once we want t
 
 # Associated Vector Bundles
 
-This is my favorite part of these constructions! We use the language of principal bundles in order to come up with Vector bundles 
+This is my favorite part of these constructions! We use the language of principal bundles in order to come up with Vector bundles that transform under some representation of the structure group. These are the vector bundles that we take sections of and we call those sections *matter* in physics. They have other cool applications but honestly they are cool by themselves. 
+
+**<u>Definition:</u>** Given a principal $G$ bundle $\pi : P \to M$ and a representation $\rho: G \to GL(V)$ on some $k$ dimensional vector space over the field $\mathbb K$, an **associated vector bundle** is the vector bundle 
+
+$$
+V \to E \coloneqq P\times_\rho V \xrightarrow{\pi_E} M
+$$
+
+where
+
+$$
+M\times_\rho V \coloneqq P\times V/G = \{(p, G \cdot v)  \mid (p,v)\in P\times V \}
+$$
+
+is the set of orbits under the representation $\rho$, and $\pi_E: E\to M$ is such that $\pi_E[p,v] = \pi(p)$. There are pretty pictures that one can draw and when I will find them I will put them here as well.
+
+Sections of an associated vector bundle can be trivialized using Gauges! 
+
+**<u>Proposition:</u>** Let $P$ be a principal $G$ bundle, $\rho : G\to GL(V)$ a representation, and $\sigma \in \Gamma(P_U)$ a local gauge of $P$. Then for any section $\tau \in \Gamma(E_U)$ of the associated vector bundle $E = P\times_\rho V$ there exists a smooth map $f:U\to V$ such that 
+
+$$
+\tau(p) = [\sigma(p),f(p)],
+$$
+
+for any $p\in M$. 
+
+What about the lie algebra representations? Well they still induce vector bundles
+
+**<u>Definition:</u>** The sections of an associated vector bundle $P \times_\rho V$ are called **charged** if $\rho_\ast : G \to \text{End}(V)$ is not trivial. 
+
+Since the associated vector bundle is still a vector bundle we can add canonical bundle metrics here! This will be useful when we put our geometric constructions on it. The only thing we require is that the metric on the fibers is invariant under the action of the group. 
+
+**<u>Definition:</u>** Let $\langle\cdot,\cdot\rangle : V\times V \to \mathbb{K}$ be a $G$ invariant scalar product on $V$. Then the **bundle metric** of some associated vector bundle $E = P\times_\rho V$ is given for any $[p,v],[p,w] \in E$
+
+$$
+\langle[p,v],[p,w]\rangle_E = \langle v,w\rangle
+$$
+
+The fact this can be defined outside of the equivalence classes is because of the $G$ invariance of the inner product. In other words, we can induce a bundle metric only when the products are $G$ invariant. 
+
+
+
+
+
+
+
+
 
 
 
