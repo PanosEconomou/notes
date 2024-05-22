@@ -536,9 +536,68 @@ The time is Finally here to create spinor bundles over some spacetime and take s
 
 In order to spin stuff it would be helpful to have an orientation. We could define orientations using top forms, but there is a much more involved way that is going to help us understand intuitively what is going on for spin structures. This is the language of **Frame bundles**. Let’s play with them for a second. 
 
+**<u>Definition:</u>** Let $M$ be a smooth manifold and $p \in M$. Then the **set of all bases** of $T_pM$ is given by 
 
+$$
+\text{Fr}_{GL}(M)_p \coloneqq \{(v_1,v_2,\cdots, v_n) \subset T_pM \text{ basis}\}
+$$
 
-Here are some definitions. 
+The disjoint union 
+
+$$
+\text{Fr}_{GL}(M) \coloneqq \bigsqcup_{p\in M}\text{Fr}_{GL}(M)_p
+$$
+
+is known as the **Frame Bundle** of $M$.
+
+The definition is not complete yet, let’s figure out why that thing is a bundle.
+
+**<u>Proposition:</u>** There exists a natural projection $\pi : \text{Fr}_{GL}(M) \to M$ and an action 
+
+$$
+\begin{align*}
+\text{Fr}_{GL}(M) \times GL(n,\mathbb R) &\to \text{Fr}_{GL}(M)\\
+((v_1,v_2,\cdots, v_n), A) &\mapsto (A_{\ 1}^i v_i, A_{\ 2}^i v_i, \cdots, A_{\ n}^i v_i).
+\end{align*}
+$$
+
+Also the projection and action make $\pi : \text{Fr}_{GL}(M) \to M$ into a principal $GL(n,\mathbb R)$ bundle. 
+
+**<u>Corollary:</u>** Consider an $n$-dimensional Riemannian manifold $(M,g)$ then we can similarly define an **orthogonal frame bundle** which is a principal $O(n)$ bundle 
+
+$$
+\pi : \text{Fr}_O(M) \to M,
+$$
+
+such that the fiber consists of the set of all orthonormal bases in $T_pM$. 
+
+The process by which we defined the orthogonal frame bundle is called *reduction.* Let’s define it more rigorously for general principal $G$ bundles. 
+
+**<u>Definition:</u>** Suppose $G \to P \xrightarrow{\pi} M$ and $G' \to P' \xrightarrow{\pi'} M$ are principal $G$ and $G'$ bundles respectively, and $f:G\to G'$ is a lie group homomorphism then a **bundle morphism** between $P$ and $P'$ is an $f$ equivariant smooth bundle map $H: P\to P'$ such that
+
+$$
+\pi' \circ H = \pi
+$$
+
+and for any $p\in P, g \in G$ 
+
+$$
+H(p\cdot g) = H(p) \cdot f(g)
+$$
+
+Together with the homorphism $f$, $P'$ is known as a **$f$ reduction of $P'$**. If $f$ is an embedding, then $H$ is called a **$G$ reduction of $P’$** and the image of $H$ is called a **principal $G$ subbundle**. 
+
+To see how the reduction was used in the previous corollary look at the following proposition.
+
+**<u>Proposition:</u>** Any Riemanian metric defines an $O(n)$ reduction of the frame bundle. 
+
+Finally, we can take a look into this definitino which is going to be popping up again and again, so we might as well give it a name.
+
+**<u>Definition:</u>** Let $G$ be a Lie group. A principal subbundle of the frame bundle of $M$, aka a $G$ reduction of the frame bundle, is called a **$G$ structure on $M$.**
+
+We already created an $O(n)$ structure on $M$ by using the Riemannian metric. Now it becomes clear that a spin structure would be some kind of reduction of $GL(n)$ by the spin group. 
+
+But I talked about orthogonality! Here are some definitions. 
 
 **<u>Definition:</u>** Let $(M,g)$ be a pseudo-Riemannian manifold with signature $(s,t)$. Then we define the following orientations
 
@@ -546,9 +605,13 @@ Here are some definitions.
 2. $M$ is **time orientable** if its frame bundle can be reduced to a principal $O^+(s,t)$ bundle under the embedding $O^+(s,t) \subset O(s,t)$.
 3. $M$ is **orientable and time orientable** if its frame bundle can be reduced to a principal $SO^+(s,t)$ bundle under the embedding $SO^+(s,t) \subset O(s,t)$.
 
+
+
+Other than orientations is there any other reason to even define a frame bundle? The answer is yes! Associated vector bundles of the frame bundle are going to give us the all the tensor bundles, sections of which are what we call tensor fields! This is really cool! Really the matter contect of our physics is taken by associated vector bundles of the frame bundle. What we aim to do with spinors is to take a $\text{Spin}^+$ reduction of the frame bundle (similar to taking an orthogonal reduction when adding a Riemannian metric, and an orthochronous reduction when adding an orientation witha Lorenzian metric) and then construct all possible matter content. What we will find is all the tensor bundles we have seen before, as well as new spinor subspaces that we haven’t.
+
 ## Definitions
 
-Now we are ready to talk about Spin Structures
+We are now ready to talk about Spin Structures!
 
 **<u>Definition:</u>** Given $(M,g)$ a pseudo-Riemannian manifold with signature $(s,t)$ a **spin structure** on $M$ is a Principal $\text{Spin}^+(s,t)$ bundle 
 
@@ -566,11 +629,21 @@ such that the following diagram commutes.
 
 ![image-20240521214301081](_Spinors.assets/image-20240521214301081.png)
 
+Now we can show that this is a Spin reduction.
+
+**<u>Corollary:</u>** The spin structure is thus a $\lambda$ equivariant bundle morphism $\Lambda$ therefore the spin structure is a $\text{Spin}^+(s,t)$ reduction of the $SO^+(s,t)$ frame bundle. 
+
 There are various hard to pronounce theorems that guarantee existance and uniqueness of the spin bundle for a given manifold. But basically the only thing required is some version of orientability. The interesting corollary is this 
 
 **<u>Corollary:</u>** The manifold $\mathbb R^{s,t}$ admits a unique spin structure for any $s,t \geq 0$ 
 
+Cool! We almost made it! Let’s see how to use the spin structures.
 
+**<u>Defintion:</u>** A local section $e$ of the frame bundle $SO^+(M)$ is called a **vielbein.**
+
+**<u>Lemma:</u>** Let $M$ have a spin structure. Then for any vielbein $e$ on a contractible open set $U \subset M$ there exist precisely two local sections $\epsilon_\pm \in \Gamma(\text{Spin}^+(M))$ over $U$ such that $\Lambda \circ \epsilon_\pm = e$.
+
+This is sort of guaranteed by the fact that the spin group is a double cover of $SO^+$ but it also has a deeper meaning. A vielbein corresponds to a smooth coordinate system that we can place on the tangent bundle. We see that for each such coordinate system there are two distinct ways we can form it using elements of the spin group. This is starting to be reminiscent of the square root thing we tried to achieve using Clifford algebras. 
 
 
 
