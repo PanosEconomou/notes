@@ -532,13 +532,43 @@ Notice that if spinors are anticommuting then we have that the dirac form is a h
 
 The time is Finally here to create spinor bundles over some spacetime and take sections that we will call spinor fields! This is where a lot of the formalism unfolds naturally. In this section we will examine what is a *spin structure* over a Lorenzian manifold. We will find that there is a unique one see how it acts and then create spinor bundles! With spinor bundles we will expand some of the ingredients we have already discussed in a natural way. Namely, we will add Dirac and Majorana bundle metrics over the spinor bundle as well as real and quarternionic structures to talk about Majorana spinors and so on. 
 
+## Orientability and Frame Bundles
+
+In order to spin stuff it would be helpful to have an orientation. We could define orientations using top forms, but there is a much more involved way that is going to help us understand intuitively what is going on for spin structures. This is the language of **Frame bundles**. Let’s play with them for a second. 
 
 
 
+Here are some definitions. 
 
+**<u>Definition:</u>** Let $(M,g)$ be a pseudo-Riemannian manifold with signature $(s,t)$. Then we define the following orientations
 
+1. $M$ is **orientable** if its frame bundle can be reduced to a principal $SO(s,t)$ bundle under the embedding $SO(s,t) \subset O(s,t)$.
+2. $M$ is **time orientable** if its frame bundle can be reduced to a principal $O^+(s,t)$ bundle under the embedding $O^+(s,t) \subset O(s,t)$.
+3. $M$ is **orientable and time orientable** if its frame bundle can be reduced to a principal $SO^+(s,t)$ bundle under the embedding $SO^+(s,t) \subset O(s,t)$.
 
+## Definitions
 
+Now we are ready to talk about Spin Structures
+
+**<u>Definition:</u>** Given $(M,g)$ a pseudo-Riemannian manifold with signature $(s,t)$ a **spin structure** on $M$ is a Principal $\text{Spin}^+(s,t)$ bundle 
+
+$$
+\pi_{\text{Spin}}:\text{Spin}^+(M) \to M,
+$$
+
+with a double cover
+
+$$
+\Lambda : \text{Spin}^+(M) \to SO^+(M)
+$$
+
+such that the following diagram commutes. 
+
+![image-20240521214301081](_Spinors.assets/image-20240521214301081.png)
+
+There are various hard to pronounce theorems that guarantee existance and uniqueness of the spin bundle for a given manifold. But basically the only thing required is some version of orientability. The interesting corollary is this 
+
+**<u>Corollary:</u>** The manifold $\mathbb R^{s,t}$ admits a unique spin structure for any $s,t \geq 0$ 
 
 
 
