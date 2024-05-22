@@ -147,8 +147,6 @@ where $\lambda \in \mathbb{C}$ is given by $\lambda = -i^{n/2 + t}$
    \gamma_{n+1} = \rho(\omega) = -i^{n/2 + t}\gamma_{1} \gamma_{2} \cdots \gamma_n.
    $$
 
-5. 
-
 
 
 ## Properties of Standard Clifford Algebras
@@ -384,6 +382,33 @@ $$
 
 induced by the restriction of the spinor representation $\rho$ of the Clifford algebra $\text{Cl}(s,t).$ 
 
+We can also use this representation to study the differential of the covering map! 
+
+**<u>Proposition:</u>** *(Lie Algebra of Orthochronous spin group)* The lie algebra of the orthochronous spin group is given by 
+
+$$
+\mathfrak{spin}^+(s,t) \coloneqq \{\gamma(e_i)\gamma(e_j) \in \text{Cl}(s,t) \mid 1 \leq i < j \leq s+t\}
+$$
+
+with the canonical commutator $[\cdot,\cdot]$.
+
+**<u>Corollary:</u>** *(The differential of the Covering Homomorphism)* The covering homomorphism $\lambda$ restricted on the spin group 
+
+$$
+\lambda : \text{Spin}^+(s,t) \to SO^+(s,t)
+$$
+
+has a pushforward given by 
+
+$$
+\begin{align*}
+\lambda_\ast : \mathfrak{spin}^+(s,t) &\to \mathfrak{so}(s,t)\\
+\lambda_\ast(z) x &= [z,x] = zx - xz
+\end{align*}
+$$
+
+and it is an isomorphism. 
+
 
 
 ## Majorana Spinors
@@ -397,7 +422,9 @@ Some of the spinors in a spinor representation are Majorana. Every spinor repres
    V^\sigma = \{v \in V \mid \sigma(v) = v\}
    $$
 
-2. A **quarternionic structure** on $V$ is a complex antilinear $G$ equivariant map $J : V \to V$ such that $J \circ J = -1$.
+2. A **complex structure** on $V$ is a complex linear $G$ equivariant map $I:V\to V$ such taht $I\circ I = -1$. 
+
+3. A **quarternionic structure** on $V$ is a complex antilinear $G$ equivariant map $J : V \to V$ such that $J \circ J = -1$.
 
 **<u>Proposition:</u>** Given a complex vector space $V$ with a real structure $\sigma$ we can write 
 
@@ -405,11 +432,105 @@ $$
 V = V^\sigma \oplus i V^\sigma
 $$
 
+Now we are ready to define Majorana spinors. We will use the representations of the spin group to do so. Eitherway, they completely define our Spinor vector space. 
+
+**<u>Definition:</u>** Let $\kappa : \text{Spin}^+(s,t) \to GL(\Delta_n)$ be the complex spinor representation of the orthochronous spin group. Then 
+
+1. If $\Delta_n$ admits a real $\text{Spin}^+(s,t)$ equivariant structure $\sigma$ then the representation is called **Majorana,** and there exists a real subspace of half dimension $\Delta^\sigma_n$ where $\kappa$ induces a real representation of the orthochronous spin group. Elements of $\Delta_n^\sigma$ are called **Majorana Spinors**. We also define the **Majorana conjugate** of a spinor $\psi \in \Delta_n$ as $\psi^C \coloneqq \sigma(\psi)$. 
+2. If $\Delta_n$ admits a quarternionic $\text{Spin}^+(s,t)$ equivariant structure $J$ then the representation is called **symplectic Majorana** and elements of $\Delta_n$ are called **symplectic Majorana spinors.** 
 
 
 
+## Spin Invariant Scalar Products
+
+The next thing we want is to come up with ways to measure “length” for spinors in order to define a notion of kinetic energy. We will do this using different bilinear forms that we will then use to promote to bundle metrics when we are talking about spinor fields. 
+
+**<u>Definition:</u>** Consider a complex spinor representation to $\Delta_n$ of $\text{Cl}(s,t)$. A **Majorana form** on $\Delta_n$ is a complex bilinear form $(\cdot, \cdot): \Delta_n \times \Delta_n \to \mathbb{C}$ such that for any $\phi,\psi \in \Delta_n$ and $X \in \mathbb{R}^{s,t}$
+
+1. $(\phi,X\cdot \psi) = \mu(X\cdot \phi,\psi)$ 
+2. $(\phi,\psi) = \nu(\psi,\phi)$ 
+
+where $\mu,\nu = \pm 1$ and are given by 
+
+| $n \mod 8$ | $\mu$ | $\nu$ |
+| :--------: | :---: | :---: |
+|    $0$     | $-1$  | $+1$  |
+|    $0$     | $+1$  | $+1$  |
+|    $1$     | $+1$  | $+1$  |
+|    $2$     | $+1$  | $+1$  |
+|    $2$     | $-1$  | $-1$  |
+|    $3$     | $-1$  | $-1$  |
+|    $4$     | $-1$  | $-1$  |
+|    $4$     | $+1$  | $-1$  |
+|    $5$     | $+1$  | $-1$  |
+|    $6$     | $+1$  | $-1$  |
+|    $6$     | $-1$  | $+1$  |
+|    $7$     | $-1$  | $+1$  |
+
+**<u>Lemma:</u>** There exists a complex matrix $C$ such that for any $\phi,\psi \in \Delta_n$
+
+$$
+(\psi,\phi) = \psi^T C \phi,
+$$
+
+which has the following properties:
+
+1. $C^T = \nu C$
+2. $\mu C^{-1} \gamma_\mu C = {\gamma_{\mu}}^T$
+
+This matrix is called the **charge conjugation matrix**. 
+
+**<u>Corollary:</u>** Every Majorana form is invariant under the action of the orthochronous spin group. 
+
+**<u>Example:</u>** As we can see from the above table, in dimension $4$ the charge conjugation matrix is necessarily antisymmetric. 
+
+**<u>Definition:</u>** Given a spinor $\psi \in \Delta_n$ we define its **Majorana conjugate** as 
+
+$$
+\tilde{\psi} = (\psi,\cdot) = \psi^T C
+$$
 
 
+Next up we have the king of spinors, the **Dira forms.** These are the traditional bilinear forms that we think of when we try to define kinetic energies of spinors. They’re an almost Hermitian innner product in the spinor vector space.
+
+**<u>Definition:</u>** Consider a complex spinor representation to $\Delta_n$ of $\text{Cl}(s,t)$. A **Dirac form** on $\Delta_n$ is a non degenerate $\mathbb R$ bilinear form $\langle\cdot, \cdot\rangle: \Delta_n \times \Delta_n \to \mathbb{C}$ such that for any $c \in \mathbb{C}$,  $\phi,\psi \in \Delta_n$ and $X \in \mathbb{R}^{s,t}$ 
+
+1. $\langle \psi, X\cdot \phi \rangle = \delta \langle C \cdot \psi, \phi \rangle,$
+2. $\langle \psi,\phi\rangle = \langle \phi ,\psi \rangle^\ast$
+3. $\langle \psi,c\phi\rangle = c\langle \psi ,\phi \rangle = \langle c^\ast \psi ,\phi \rangle$ 
+
+where $\delta = \pm 1$ is an arbitrary choice.
+
+Note that we did not assume that the form is positive definite as a Hermitian form would otherwise be. This is super close approximation to a hermitian form. Just as in Majorana forms we have a similar Lemma
+
+**<u>Lemma:</u>** For any Dirac form there exists a complex matrix $A$ such that for any $\phi,\psi \in \Delta_n$
+
+$$
+\langle \psi, A \phi\rangle = \psi^\dagger A \phi,
+$$
+
+with the following properties
+
+1. $A^\dagger = A$
+2. $-\delta A\gamma_\mu A^{-1} = \gamma_\mu^\dagger$
+
+**<u>Lemma:</u>** Every Dirac form is invariant under the reperesentation of the orthochronous Spin group. 
+
+**<u>Definition:</u>** The **Dirac Conjugate** $\bar \psi$ of a spinor $\psi \in \Delta_n$ is given by 
+
+$$
+\bar \psi = \langle \psi,\cdot \rangle = \psi^\dagger A
+$$
+
+Notice that if spinors are anticommuting then we have that the dirac form is a hermitian form! 
+
+**<u>Corollary:</u>** For Majorana spinors the Dirac and Majorana conjugates are equal. 
+
+
+
+# Spin Structures
+
+The time is Finally here to create spinor bundles over some spacetime and take sections that we will call spinor fields! This is where a lot of the formalism unfolds naturally. In this section we will examine what is a *spin structure* over a Lorenzian manifold. We will find that there is a unique one see how it acts and then create spinor bundles! With spinor bundles we will expand some of the ingredients we have already discussed in a natural way. Namely, we will add Dirac and Majorana bundle metrics over the spinor bundle as well as real and quarternionic structures to talk about Majorana spinors and so on. 
 
 
 
