@@ -193,6 +193,10 @@ We already created an $O(n)$ structure on $M$ by using the Riemannian metric. No
 
 
 
+# Associated Vector Bundles 
+
+This is my favorite part of these constructions! We use the language of principal bundles in order to come up with Vector bundles 
+
 
 
 

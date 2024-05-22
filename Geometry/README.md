@@ -6,6 +6,7 @@
 Key intuition or formal definitions of Differential Geometry Concepts because I forget.
 <!-- optional markdown-notes-tree directory description ends here -->
 
+- [Fibre Bundles](Bundles.md)
 - [Automorphism Groups of Vector Spaces](Common_Vector_Space_Groups.md)
 - [Complex Structures](Complex_Structures.md)
 - [Forms](Forms.md)
