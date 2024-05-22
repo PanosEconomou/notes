@@ -13,6 +13,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Functional Analysis](Analysis/Functional_Analysis.md)
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.
+    - [Fibre Bundles](Geometry/Bundles.md)
     - [Automorphism Groups of Vector Spaces](Geometry/Common_Vector_Space_Groups.md)
     - [Complex Structures](Geometry/Complex_Structures.md)
     - [Forms](Geometry/Forms.md)
