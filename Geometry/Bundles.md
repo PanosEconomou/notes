@@ -229,11 +229,148 @@ Next up we have metrics!
 
 What about orthogonal complements? Now that we have metrics, it only makes sense!
 
-**<u>Definition:</u>** $E$ be a vector bundle and $F$ be a vector subbundle of $E$. Then the **orthogonal complement** $F^\perp$ is a vector subbundle of $E$ such that $F\otimes F^\perp \cong E$. 
-
-That should be enough for now, but we will revisit the structures once we want to add derivatives. 
+**<u>Definition:</u>** $E$ be a vector bundle and $F$ be a vector subbundle of $E$. Then the **orthogonal complement** $F^\perp$ is a vector subbundle of $E$ such that $F\otimes F^\perp \cong E$​. 
 
 
+
+## Vector Valued Forms
+
+Now we can have fun! The structures we want to define to be able to do calculus on vector fields. 
+
+**<u>Definition:</u>** A **vector valued $k$​ form** with values on vector space $V$​ is a smooth section $\omega \in \Gamma(\Lambda^k T^\ast M \otimes E)$​ where $E$​ is some vector bundle over $M$​ with fibre $V$​. We usually denote the set of vector valued forms as $\Omega^k(M,E)$​. 
+
+Note that with this definition $\Omega^0(M,E) = \Gamma(E)$. 
+
+Vector valued forms obey a bunch of properties that are similar to regular forms. Here are some of them.
+
+**<u>Definition:</u>** Given two vector valued forms $\omega = \omega^a\otimes e_a \in \Omega^p(M,E)$ and $\eta = \eta^a \otimes e_a \in \Omega^q(M,E')$ their **wedge product** is given by 
+
+$$
+\begin{align*}
+\wedge : \Omega^{p}(M,E) \times \Omega^q(M,E') &\to \Omega^{p+q}(M,E\otimes E')\\
+(\omega,\eta) &\mapsto \omega \wedge \eta = \omega^a\wedge \eta^b \otimes (e_a \otimes e_b)
+\end{align*}
+$$
+
+Additionally, we can define the **pullback of vector valued forms** under a smooth map $f:M\to N$ like so 
+
+$$
+f^\ast \omega = (f^\ast \omega^a) \otimes e_a
+$$
+
+These definitions are such that all the properties of these structures we know and love still hold. What we can’t define a priori is a differential! We do this though using a choice of parallel transport. If we have a connection we can interpret it the following way. 
+
+
+
+## Connections on Vector Bundles
+
+A connection $\nabla : \Gamma(TM) \times \Gamma(E) \to \Gamma(E)$ takes in a vector field and a smooth section of the vector bundle and returns another one. In other words, we could reinterpret this object as 
+
+$$
+\nabla : \Gamma(E) = \Omega^0(M,E)\to \Omega^1(M,E),
+$$
+
+which is the starting point of our differential! This is a really cool definition that we can extend as follows 
+
+**<u>Definition:</u>** Given a vector bundle $E$ over a manifold $M$ with a connection $\nabla$, the **exterior covariant derivative** is a map
+
+$$
+d_\nabla : \Omega^k(M,E) \to \Omega^{k+1}(M,E)
+$$
+
+such that  for any $\omega \in \Omega^p(M,E), \eta \in \Omega^q(M)$  (notice that $\eta$ is an ordinay form!)
+
+$$
+d_\nabla (\omega\wedge \eta) = d_\nabla\omega \wedge \eta + (-1)^p \omega \wedge d\eta
+$$
+
+**Notice** that there is no reason that $d_\nabla ^2 = 0$ in this general setting! However, if we pick a flat connection we see that this is the case. 
+
+This is great! We know how to take derivatives of sections given a connection! In the next section we will see more natural choices for picking the connections in the special case of the associated vector bundles. 
+
+The last cool thing to notice is that we can treat things like vector fields as vector valued 0 forms where the vector bundle is the tangent bundle! Our definition extended the covariant derivative to vector fields as well! 
+
+There are multiple objects we can define to characterise these derivatives and by extension the connection. 
+
+**<u>Definition:</u>** Given a connection $\nabla$ on a vector bundle $E$ over $M$, the **curvature 2 form** $F_\nabla \in \Omega^2(M,E^\ast \otimes E)$ is defined for all sections $s \in \Gamma(E)$ and vector fields $X,Y \in \mathfrak{X}(M)$
+
+$$
+F(X,Y)(s) = \nabla_X \nabla_Y s - \nabla_Y\nabla_X s + \nabla_{[X,Y]}s
+$$
+
+A connection is called **flat** if $F_\nabla$ vanishes. 
+
+We haven’t written some theorems in a while, here are some important ones. 
+
+**<u>Theorem:</u>** Given a connection $\nabla$ on a vector bundle $E$ over $M$ then for any section $\sigma \in \Gamma(E)$
+
+$$
+d^2_\nabla \sigma = F_\nabla \wedge \sigma
+$$
+
+**<u>Theorem:</u>** *(Bianchi Identity)* The following identity holds
+
+$$
+d_\nabla F_\nabla = 0
+$$
+
+The last thing we will explore is the idea of a connection one form. We can define a connection using a one form and vice versa. To do this we first note this nice proposition.
+
+**<u>Proposition:</u>** The linear endomorphism bundle of a vector bundle $E$ is given by another vector bundle
+
+$$
+\text{End}(E) \cong E^\ast \otimes E
+$$
+
+to continue we will do everything locally
+
+
+
+## Locally Expressing Connections
+
+In physics we always calculate things locally. So it would be instructive to see what happens given a local structure for our connection. 
+
+Given a vector bundle $E$ over $M$ with fibre $V$, we pick a local frame $e = (e_1,e_2,\cdots,e_n)$ of smooth sections $e_i \in \Gamma(E_U)$ over some $U\subset M$ such that they form a basis for each fibre pointwise. In other words $e$ is a local section of the frame bundle constructed with all the bases of $V$.
+
+**<u>Definition:</u>** A **connection 1-form** of a connection $\nabla$ on a vector bundle $E$ is an endomorphism valued 1-form $A \in \Omega^1(U,E_U^\ast\otimes E_U)$ such that for any vector field $X \in \mathfrak{X}(U)$ and any section $ \sigma \in \Gamma(U)$ the connection is given by
+
+$$
+\nabla s =ds + As
+$$
+
+where $ds = d s^a \otimes e_a \in \Omega^1(U,U)$ and $As = A^i_{\ j} s^j \otimes e_i$ which is standard matrix multiplication. 
+
+Notice that the connection one form is a section of a vector bundle, therefore there always exist global sections $A$ we can pick in order to define $\nabla$. In fact we will see this 
+
+
+
+## Hodge Duality in Vector Bundles
+
+We’re already familiar with Hodge duality for traditional k forms. Once we have a bundle metric it is possible to define hodge duals with vector valued forms such that they have similar properties. We define them like so 
+
+**<u>Definition:</u>** Let $\pi : E\to M$ be a vector bundle with a bundle metric $\langle \cdot,\cdot \rangle_E : \Gamma(E) \times \Gamma(E) \to C^\infty(M)$. Then a **scalar product of twisted forms** is given by 
+
+$$
+\begin{align*}
+\langle \cdot,\cdot \rangle_E : \Omega^{k}(M,E)\times \Omega^{k}(M,E) &\to C^\infty(M)\\
+(\omega^a \otimes e_a,\eta^b \otimes e_b) &\mapsto \langle\omega ^a,\eta^b\rangle \langle e_a, e_b\rangle_E
+\end{align*}
+$$
+
+where $\langle\cdot,\cdot\rangle $ is the canonical inner product structure of forms (sometimes defined using a Lorenzian metric). 
+
+Now that we know how to extend the definition of th einner product of forms, we can create a Hodge duality!
+
+**<u>Definition:</u>** The **Hodge star** operator on twisted forms is a linear map given by 
+
+$$
+\begin{align*}
+\star : \Omega^k(M,E) &\to \Omega^{n-k}(M,E)\\
+\omega^a \otimes e_a &\mapsto (\star\omega^a)\otimes e_a
+\end{align*}
+$$
+
+Notice that 
 
 # Associated Vector Bundles
 
@@ -279,11 +416,36 @@ The fact this can be defined outside of the equivalence classes is because of th
 
 
 
+## Geometry on Associated Bundles
 
+we often want to take derivatives and such of the sections of associated vector bundles. In the previous section on vector bundles we saw that all we really need in order to do that we need to define a connection on the vector bundle. Then there was no natural choice of connection, but now there is. We can use the structure group and its representation to tell us how vectors transform and this help us define what we mean by “parallel.”
 
+We start bu thinking a bit more on what is a connection one form.
 
+**<u>Definition:</u>** A **connection one form** on a principal $G$ bundle is a Lie aglebra valued 1-form $A \in \Omega(P,\mathfrak g)$ such that
 
+1. $r_g^\ast A = \text{Ad}_{g^{-1}} \circ A$ for any $g \in G$
+2. $A(\tilde X) = X$ where $\tilde X$ is the fundamental vector field associated with $X \in \mathfrak g$. 
 
+We also call connection one forms **gauge fields**. 
+
+Notice that the connection one form can always be globally defined, but we don’t use that in order to define a connection on the associated vector bundle. Instead, we use a trivialization of it with the help of a gauge. 
+
+**<u>Definition:</u>** Given a local gauge $\sigma \in \Gamma(U)$ on some $U\subset M$ and a connection one form $A$, then a **local connection one form** is given by 
+
+$$
+A_\sigma = \sigma^\ast A \in \Omega^1(U,\mathfrak g).
+$$
+
+Now we have a local one form on any neighborhood. But if we have an associated vector bundle we have a representation $\rho : G \to \text{Aut}(V)$ which induces a lie algebra representation $\rho_\ast : \mathfrak g \to \text{End}(V)$ which is an excellent object to help us transform the local gauge field into a local connection 1 form that can define a connection $\nabla_A$ on our associated vector bundle. 
+
+**<u>Lemma:</u>** The form $\rho_\ast(A_\sigma) = (A_\sigma)_i \otimes \rho_\ast(X^i) \in \Omega^1(U,\text{End}(E))$ defines a connection $\nabla^A: \Gamma(E) \to \Omega^{1}(M,E)$ on the associated vector bundle $E = P \times_\rho G$ such that for any local section $s \in \Gamma(U)$
+
+$$
+\nabla^As = ds + \rho_\ast(A_\sigma) s
+$$
+
+We use this connection $\nabla^A$ to define an exterior covariant derivative $d_{\nabla^A} \eqqcolon d_A$ on the associated vector bundle. Just as we did with the previous objects. 
 
 
 
