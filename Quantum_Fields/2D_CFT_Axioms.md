@@ -570,7 +570,7 @@ $$
 
 with highest weight vector $\nu$.
 
-**<u>Definition:</u>** Any states in $ x \in V_{\nu} $ is called a **decendant **of $\nu$ if $x\neq \nu$.
+**<u>Definition:</u>** A state $ x \in V_{\nu} $ is called a **decendant **of $\nu$ if $x\neq \nu$.
 
 We usually think of those states as excited states. We usually require in addition that the decendants of the assymptotic states for all primary fields span a dense subset of the quantum Hilbert space. In this case we can decompose the hilbert space into Virasoro modules using just the primary fields. 
 
