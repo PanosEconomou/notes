@@ -647,3 +647,111 @@ This is sort of guaranteed by the fact that the spin group is a double cover of 
 
 
 
+## Spinor Bundles
+
+Now we are ready to add spinors into our space! The reason for introducing the frame bundle stuff and the spin structures as $\text{Spin}^+$ reductions of the frame bundle is in order to motivate how the spinor bundles naturally appear when we are doing physics. They appear as associated vector bundles to the principabl subbundle of the frame bundle, as do all the possible matter fields!
+
+Let’s start by examining the bundle itself and then making the connection. 
+
+**<u>Definition:</u>** Let $\pi: \text{Spin}^+(M) \to M$ be a spin structure on some lorenzian manifold $(M,g)$ with signature $(s,t)$ and consider the complex spinor representation of the orthochronous spin group 
+
+$$
+\kappa : \text{Spin}^+(s,t) \to GL(\Delta_n).
+$$
+
+Then the **Dirac spinor bundle of $M$** is the associated vector bundle 
+
+$$
+S \coloneqq \text{Spin}^+(M)\times_k \Delta_n.
+$$
+
+Sections of $S$ are called **spinor fields** or **spinors.** 
+
+Under this definition all the stuff we defined before can be casted as pointwise operations. Namely there is a Clifford multiplication from the tangent bundle or cotangent bundle as well as a weil spinor bundle decomposition when applicatble. Additionally, the structures we considered before such as the Majorana and Dirac forms can be extended fiberwise to gobal structures on the spinor bundle as bundle metrics. 
+
+Now the setting is complete, we need to figure out how to do physics, which involves writing out derivatives. 
+
+
+
+# Spin Covariant Derivative
+
+Most of physics is writing down differential equations. It would be useless if we couldn’t find a way to take derivatives of spinors. Therefore let’s find a way to do this using connections on vector bundles as we have explored before. 
+
+
+
+## Spin Connection
+
+As we have seen in when definining [connections on vector bundles](../Geometry/Bundles.md#Vector-Bundles) in order to define an exterior covariant derivative on an associated vector bundle we need to define a connection. We did this by finding a connection one form on the principal bundle and then we induced a local connection one form on the associated vector bundle in turn inducing a connection which gives rize to an exterior covariant derivative. 
+
+We will do the same thing. 
+
+**<u>Definition:</u>** Consider a local section of the frame bundle (i.e. vielbein) $e = (e_1,e_2,\cdots, e_n)$ in $U \subset M$ of an $n$ dimensional oriented and time oriented manifold $(M,g)$ with a metric connection $\nabla : \mathfrak{X}(M) \to \Omega^1(M,TM)$ on the tangent bundle. Then we can define a set of uniquely determined **curvature 1 forms** $\omega_{ab} \in \Omega^1(M)$ such that
+
+$$
+\nabla e_a = \eta^{cb}\omega_{ba} \otimes e_c
+$$
+
+where $\eta$ is the flat metric for the signature of $M$. 
+
+**<u>Corollary:</u>** The curvature forms are related like so 
+
+$$
+\omega_{ab} = - \omega_{ba}
+$$
+
+Before we do everything on the associated vector bundle we can see some cool results about the $SO^+(s,t)$ reduction of the frame bundle. 
+
+**<u>Lemma:</u>** The tangent bundle is the associated vector bundle of the $SO^+(s,t)$ reduction of the frame bundle under the defining representation $\rho_{SO}$ on $\mathbb{R}^{s,t}$. Namely
+
+$$
+TM = \text{Fr}_{SO^+}(M) \times_{\rho_{SO}}\mathbb R^{s,t}.
+$$
+
+This is cool because it means that the metric connection $\nabla$ can be induced by a connection one form on the $SO^+(s,t)$ struscture on $M$. We call the connection one form that induces the metric connection $A_{SO} \in \Omega^{1}(SO^+(M),\mathfrak so^+(M))$. 
+
+We already have a map $\lambda_\ast : \mathfrak{spin}^+(s,t) \to \mathfrak{so}^+(s,t)$ therefore we can define
+
+**<u>Definition:</u>** The **spin connection** is a one form $A_{Sp} \in \Omega^1(\text{Spin}^+(M),\mathfrak{spin}(s,t))$ given by 
+
+$$
+A_{Sp} \coloneqq \lambda_\ast^{-1} \circ (\Lambda^\ast A_{SO})
+$$
+
+YEY! And now, by extension we can use it to define a compatible version of differentiation on the spinor bundles. 
+
+
+
+## Exterior Covariant Derivative on Spinor Bundles
+
+**<u>Definition:</u>** The **exterior covariant derivative** on a spinor bundle is the exterior covariant derivative induced by the spin connection $\nabla^{A_{Sp}}$ given by
+
+$$
+d_\nabla : \Omega^k(M,S) \to \Omega^{k+1}(M,S)
+$$
+
+such that for any spinor $\psi \in \Gamma(S)$ then 
+
+$$
+d_\nabla \psi = \nabla^{A_{Sp}} \psi
+$$
+
+In some local trivialization $\epsilon$ we have that
+
+$$
+d_\nabla \psi = d\psi + \kappa_{\ast}(s^\ast A_{Sp}) \psi.
+$$
+
+Finally we can write derivatives of spinors!! This is amazing! Notice that in a flat connection, the exterior covariant derivative is the standard covariant derivative applied componentwise. This is the most common case that we encounter in QFT. 
+
+As we have seen, we can add bundle metrics on $S$ but the probelm is this can only work on sections. What if we want to measure the norm of $\nabla \psi$? What we need is to somehow induce a bundle metric on $\Omega^1(M,S)$. 
+
+
+
+
+
+
+
+
+
+
+
