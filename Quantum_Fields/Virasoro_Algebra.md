@@ -216,9 +216,40 @@ Why this form? The reason is that this is a particularly nice form where $L_{-n}
 
 **<u>Corollary:</u>** $M(c,h)/\ker H$ is a Virasoro module where $H$ is nondegenerate. 
 
-**<u>Corollary:</u>** If $H$ is positive semi definite then $h\geq 0$ and $c\geq 0$. 
+**<u>Corollary:</u>** If $H$ is positive semi definite then $h\geq 0$ and $c\geq 0$.
+
+The proof of this uses the following proposition that is going to be useful 
+
+**<u>Proposition:</u>** $H$ has the following property
+
+$$
+H(v_n,v_n) = 2nh +\frac{c}{12}n(n^2-1)
+$$
+
+Now we are ready to define the the Kac detarminant. 
+
+**<u>Definition:</u>** Let $\mathcal B = \{b_1,\cdots,b_k\}$ be a basis for $V_n$. Then the **Kac determinant** is the determinant of the Gram Matrix $A_n$ of the basis $\mathcal B$ given by 
+
+$$
+\det A_n = \det \left(H(b_i,b_j)\right)_{ij}
+$$
+
+What we can see is that if all the Gram matrices are positive definite, then so is $H$. The highest weight representation associated with the Verma module $M(c,h)$ will be unitary if $H$ is in addition positive definite or positive semidefinite. So if we could calculate the determinant as a function of $c,h$ then everything would be awesome! As luck would have it, someone did!
+
+**<u>Theorem:</u>** Let $c,h \in\mathbb R$ the Kac determinant is given by 
+
+$$
+\det A_n = K_n \prod_{\substack{p,q\in \mathbb N\\pq \leq n}} (h - h_{p,q}(c))^{\dim V_{n-pq}},
+$$
+
+where $K_n \geq 0 $ is some constant and 
+
+$$
+h_{p,q}(c) = \frac{1}{48}\left[(13-c)(p^2 + q^2) + \sqrt{(c-1)(c-25)} (p^2-q^2) - 24pq - 2+2c\right]
+$$
 
 
+What we see is that if $h$ is greater or equal to $h_{p,q}$ for all such $p,q$ then the Kac determinant is going to be positive semidefinite. As a result, requiring unitarity (almost) fixes the values of $h$ as a function of $c$! This is a really cool result in the classification of CFTs.
 
 
 
