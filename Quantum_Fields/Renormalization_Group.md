@@ -6,7 +6,7 @@ Time to understand wtf the renormalization group is. This follows Peskin and Gro
 
 # Wilsonian Scheme
 
-Let’s bootsrap of off a scalar field in 4D and then move on to generalize a bit more. We can start by defining an interaction of degree $k$ like so. 
+Let’s bootstrap of off a scalar field in 4D and then move on to generalize a bit more. We can start by defining an interaction of degree $k$ like so. 
 
 **<u>Definition:</u>** Given a vector space $V$, the set of Scwartz functions $\mathcal J (V)$ on $V$ and a Poincare invariant tempered distribution $K_J \in (\mathcal J(V)^k)^{\vee}$ a **homogeneous** $k$ **interaction** $J$ is given by the map
 
