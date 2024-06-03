@@ -359,7 +359,7 @@ The central object that encodes our physics is the stress energy tensor of the t
 
 1. $\Tr(T_{\mu\nu}) = 0$. 
 2. The quantum field $T = T_{00} - i T_{01}$  is holomorphic with conformal weights $h_T = 2, \bar h_T =0$
-3. The quantum field $\bar T = T_00 + iT_{01}$ is antiholomorphic with conformal weights $h_T = 0, \bar h_T =2 $
+3. The quantum field $\bar T = T_{00} + iT_{01}$ is antiholomorphic with conformal weights $h_T = 0, \bar h_T =2 $
 
 
 
