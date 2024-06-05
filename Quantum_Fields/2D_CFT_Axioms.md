@@ -97,7 +97,61 @@ Where $\mathcal{J}(M)$ is the set of rapidly decaying (Schwartz) functions on $M
 
 
 
-The first condition is to say that every operator that we attach is densely defined in a way that if we compose all of them we will still have a densely defined operator (we won’t accidentally remove a chunk of our hilbert space that we can’t take back). The next condition is that we want this to be linear in the dense domain shared by all, and finally that if we fix two states we want to get back a distribution. Also there is some small abuse of notation. While $\Phi(f)$ is technically $(A,D)$ we choose to refer to $A = \Phi(f)$ and $D = D_{\Phi(f)}$. I know it sucks, but it makes sense. 
+The first condition is to say that every operator that we attach is densely defined in a way that if we compose all of them we will still have a densely defined operator (we won’t accidentally remove a chunk of our hilbert space that we can’t take back). The next condition is that we want this to be linear in the dense domain shared by all, and finally that if we fix two states we want to get back a distribution. Also there is some small abuse of notation. While $\Phi(f)$ is technically $(A,D)$ we choose to refer to $A = \Phi(f)$ and $D = D_{\Phi(f)}$​. I know it sucks, but it makes sense. 
+
+
+
+## Field Operators at a Point
+
+In physics, we would really like to view field operators as functions on spacetime even more so than they are now. That is because we want to be able to write expressions of the form $\phi(x)$ for some $x\in M, \phi \in \mathbb{\Phi}(M,\mathbb{H})$. While we can’t do this exactly, there is a way that statements like this can make sense on distributions. We do that using bump functions. 
+
+**<u>Definition:</u>** A smooth function $\phi_x \in \mathcal C^\infty(M)$ is a **bump function centered at** $x \in M$ if it is compactly supported in some neighborhood $U \subset M$ of $x$. 
+
+Notice that by compact support everty bump function is a Schwarz function $\phi_x \in \mathcal J(M)$. Therefore we can define a canonical multiplication of distributions with schwarz functions like so
+
+**<u>Definition:</u>** The **multiplication of Scwartz functions with Quantum Fields** is the smooth map $\cdot: \mathbb \Phi(M,\mathbb H) \times \mathcal J(M) \to \mathbb \Phi(M,\mathbb H) $ such that for any $f,g \in \mathcal J(M)$ and $\Phi \in \mathbb \Phi(M,\mathbb H) $ 
+
+$$
+(\Phi \cdot f)(g) = \Phi(fg)
+$$
+
+This might seem like a useless definition but it can be really helpful because of the following identification. 
+
+**<u>Definition:</u>** Two distributions $A,B \in \mathbb \Phi(M,\mathbb H)$  are **pointwise equal at** $x\in M$ if for all bump functions $\phi_x$ centered at $x$ the following holds
+
+$$
+A\cdot \phi_x = B\cdot \phi_x
+$$
+
+If two distributions are pointwise equal, we often write
+
+$$
+A(x) = B(x)
+$$
+
+
+We did it! We have found a way to define a distribution at a point! What we really did, is that we have managed to find a way to write equalities between distributions like equalities between functions. This is a really cool result! Let’s see some other ways to play with this. 
+
+**<u>Example:</u>** Consider a Scwarz function $f \in \mathcal J(M)$ and its dual tempered distribution $T_f \in \mathcal J^\ast(M)$ such that for any $g\in \mathcal J(M)$ 
+
+$$
+T_f(g) = \int_M fg\, d\text{vol}
+$$
+
+Then for any test function $g \in \mathcal J(M)$ and any $x \in M$
+
+$$
+f(x) = g(x) \iff T_f(x) = T_g(x)
+$$
+
+Another cool fact about evaluating distributions at a point is that we can multiply them pointwise!
+
+**<u>Definition:</u>** Given two quantum fields $A,B \in \mathbb \Phi(M,\mathbb H)$ their **pointwise product** is a distribution such that
+
+$$
+A
+$$
+
 
 
 
