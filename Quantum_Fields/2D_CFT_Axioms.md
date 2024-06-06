@@ -148,9 +148,7 @@ Another cool fact about evaluating distributions at a point is that we can multi
 
 **<u>Definition:</u>** Given two quantum fields $A,B \in \mathbb \Phi(M,\mathbb H)$ their **pointwise product** is a distribution such that
 
-$$
-A
-$$
+
 
 
 
