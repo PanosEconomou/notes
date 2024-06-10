@@ -326,6 +326,23 @@ to continue we will do everything locally
 
 
 
+## Common Induced Connections
+
+By far the most common induced connection is the one on tensor bundles which are tensor products of vector bundles. Here is the definition
+
+**<u>Definition:</u>** Let $E,F$ be vector bundles over $M$ with connections $\nabla_E$ and $\nabla_F$ respectively. The **tensor connection** is a connection $\nabla: \Gamma^{\infty}(E\otimes F) \to \Omega^{1}(M,E\otimes F)$ on the tensor bundle $E\otimes F$ such that for any section $\sigma = e\otimes f \in \Gamma^\infty(E\otimes F)$ where $e\in \Gamma^\infty(E), f\in \Gamma^\infty(F)$ the connection is given by
+
+$$
+\nabla (e\otimes f) = \nabla_E e \otimes f + e \otimes \nabla_Ff
+$$
+
+
+In physics we use this all the time to define the exterior covariant derivative on tensors. The other really cool connection is the one on the dual bundle. Knowing these two we can find a notion of exterior covariant derivative in any tensor. 
+
+
+
+
+
 ## Locally Expressing Connections
 
 In physics we always calculate things locally. So it would be instructive to see what happens given a local structure for our connection. 
