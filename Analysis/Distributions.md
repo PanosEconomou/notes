@@ -62,7 +62,9 @@ $$
 \sum_{A\in \mathcal A} \epsilon_A(x) = 1
 $$
 
-Note that the $\omega_\epsilon$ functions we defined earlier are such bump functions. 
+Note that the $\omega_\epsilon$​ functions we defined earlier are such bump functions. 
+
+
 
 ## Turning $\mathcal D(U)$ into a topological space
 
@@ -82,7 +84,47 @@ The **set of p-integrable functions** is defined as $\mathcal L^p(U)$​. Furthe
 
 Now that we know that $D(U)$ is a metric space we can talk about sequences of functions and so on. Let’s use this to show something cool
 
-**<u>Theorem</u>** $\mathcal D(U)$ is dense in $\mathcal L^p(U)$ for some open subset $U$. 
+**<u>Theorem</u>** $\mathcal D(U)$ is dense in $\mathcal L^p(U)$ for some open subset $U$​. 
+
+
+
+## The Canonical LF Topology on $\mathcal D(U)$
+
+While metric spaces are amazing, when it comes to finite dimensional vector spaces they might lack the limiting properties that we desire. To fix this we have introduced a type of topological spaces called ***L**imit of **F**rechet* spaces that are often more useful when talking about spaces of functions. We will try to find a canonical choice of an LF topology for the set of test functions.
+
+The theory of LF spaces requires category theory to be able to fully describe, but we can cheat and define directly the LF topology on $\mathcal D(U)$ instead.  
+
+**<u>Definition:</u>** A **linear smooth differential operator in** $U \subset M$ an open subset of an $n$ dimensional smooth manifold, is a smooth linear map $D : C^\infty(U) \to C^\infty(U)$ of the form
+
+$$
+D = \sum_{\alpha \in \mathbb N^n} c_\alpha \partial^\alpha,
+$$
+
+where all but finitely many $c_\alpha \in C^\infty(U)$ vanish. The **order** of such an operator is given by the largest norm of the multiindex of the nonvanishing coefficients $c_\alpha$, i.e. $\text{ord\,} D = |D|\coloneqq \sup \{|\alpha| \in \mathbb N^n\mid c_\alpha \neq 0\}$.
+
+The point of the LF topology is to make all the differential operators continuous maps in $\mathcal D(U)$​. To do this we will first examine what type of topologies the space of test functions admits that are compatible with the vector space structure that it inherits as a set of Banach valued maps.
+
+The topology that is compatible with a vector space is one that makes the operations of the vector space continuous maps. 
+
+**<u>Definition:</u>** A **vector space topology** is a Frechet topology on an algebraic vector space such that the scalar multiplication and vector addtion maps are continuous. A vector space with a vector space topology is a **topological vector space.**
+
+**<u>Corollary:</u>** A topological vector space is Hausdorff. 
+
+***Proof:*** The proof relies on the fact that a vector space topology is Frechet (or $T_1$). We could have equivalently defined a vector space topology to be Hausdorff. 
+
+The next thing we want, apart from compatibility with the algebraic vector space structure is a notion of convexity. 
+
+**<u>Definition:</u>** A topological vector space $V$ over a field $\mathbb F$ is **locally convex** if for $0 \in V$ there exists a  (topological) neighborhood basis that consists of balanced convex sets. In other words for any neighborhood $U$ of the origin there exists some open, convex set $B$ in the basis such that for any $x \in U$ and $s \in \mathbb F$ such that $|s| \leq 1$ then $sx \in B$. 
+
+The local convexity really is a property that can help us take narrower and narrower neighborhoods around the identity which will help A LOT with taking limits and proving convergence. We are now ready to define the topology on $\mathcal D(U)$.
+
+**<u>Definition:</u>** The **canonical LF topology** on $\mathcal D(U)$ is the coursest locally convex vector space topology such that all linear smooth differential operators are continuous endomorphisms. 
+
+From now on this is the topology we will assign to $\mathcal D(U)$. 
+
+**<u>Lemma:</u>** The canonical LF topology on $\mathcal D(U)$ is strictly finer than the topology induced by $C^\infty(U)$ and $L^p(U).$ If a sequence converges using the norms $\|\cdot \|_p$ then it converges in $\mathcal D(U)$. 
+
+From now on we will always assume that $\mathcal D(U)$ has the canonical LF topology. 
 
 
 
@@ -112,6 +154,8 @@ $$
 
 There is a notion of restriction of a distribution to submanifolds that we will explore soon. Also there is a canonical product of distributions that share singularities.
 
+
+
 ## Examples
 
 Now we can have some fun playing with examples. We will introduce certain commonly encountered distributions as well as classes of distributions. The first thing is a very useful class of distributions called regular. 
@@ -124,7 +168,24 @@ $$
 
 In the case of regular distributions we often abuse notation and write $f$ instead of $F$​ to denote the distribution. 
 
-**<u>Corollary:</u>** Since $\mathcal D(U) \subset \mathcal L^1_{\text{loc}}(U)$ with this identification there is an inclusion $\mathcal D(U) \hookrightarrow \mathcal D'(U)$ as well. 
+**<u>Corollary:</u>** Since $\mathcal D(U) \subset \mathcal L^1_{\text{loc}}(U)$ with this identification there is an inclusion $\mathcal D(U) \hookrightarrow \mathcal D'(U)$​ as well. 
+
+**<u>Example:</u>** *(The Heaviside function)* Consider the Heaviside function $h \in \mathcal L^1_{\text{loc}}(\mathbb{R})$ given by 
+
+$$
+h(x) = \begin{cases}
+1, & x\geq 0\\
+0, & x<0
+\end{cases}
+$$
+
+Then according to the natural identification above the Heaviside function can be considered as a distribution $H \in \mathcal D'(\mathbb{R})$ where for any test function $f \in \mathcal D(\mathbb R)$
+
+$$
+H(f) = \int_0^\infty f(x) dx
+$$
+
+An interesting property is that $H(\omega_\epsilon) = \frac{1}{2}$  for any $\epsilon > 0$. But since $\omega_\epsilon$ is supported on $[-\epsilon,\epsilon]$ we can take the limit as $\epsilon \to 0$ to find that $\lim_{\epsilon \to 0} H(\omega_\epsilon) = \frac{1}{2}$ which is the reason that in a lot of applications we say that $h(0) = \frac{1}{2}$ instead of $1$. 
 
 **<u>Example:</u>** *(The $\delta$ function)* Finally we can define one of the most commonly used objects in physics. The **delta function** on some open subset $U$ of some manifold centered at point $p \in U$ is the distribution $\delta_p \in \mathcal D'(U)$ such that for any $f \in \mathcal D(U)$ 
 
@@ -142,9 +203,83 @@ There are multiple ways we can construct it. One particularly nice one is using 
 
 Then every delta sequence converges to the delta function, i.e. $\delta_p^k \to \delta_p$ as $k \to \infty$. 
 
-Delta sequences are super powerful in prooving things because we can use them to construct averages of a function around a point. 
+Delta sequences are super powerful in prooving things because we can use them to construct averages of a function around a point. One such delta sequence is the bump functions $\omega_\epsilon \in \mathcal D(\mathbb R)$ we described earlier.
+
+**<u>Example:</u>** *(The principal value)* We define the complex valued distribution $\mathcal P\frac{1}{x} \in \mathcal D'(\mathbb C)$ such that for any test function $f \in \mathcal D(\mathbb C)$ 
+
+$$
+\mathcal P\frac{1}{x} (f) = P.V. \int_\mathbb R \frac{f(x)}{x} dx = \lim_{\epsilon \to 0} \left[\int_{-\infty}^{-\epsilon} \frac{f(x)}{x} dx + \int_{\epsilon}^\infty \frac{f(x)}{x} dx\right]
+$$
+
+This is a very helpful distribution in physics since we always take integrals of the form when solving PDEs
+
+$$
+\lim_{\epsilon \to 0}\int_{\mathbb R} \frac{\phi(x)}{x + i\epsilon} dx = -\pi i \phi(0) + \mathcal P\frac{1}{x} (\phi)
+$$
+
+Therefore we can define the following super cool and helpful distributions
+
+$$
+\frac{1}{x + i0^{\pm}} = \mathcal P\frac{1}{x} \mp \pi i \delta
+$$
+
+## Remark on Scwartz Distributions
+
+The set of test functions that we have defined so far is large. Sometimes we might want to restrict that set to functions with special properties. This will help us define things such as the Fourier transform of distributions and so on. Here we will introduce a commonly used set of test functions $\mathcal J(U)$ known as the *Scwarz functions* whose dual is a subspace of $\mathcal D'(U)$. Notice that $\mathcal J(U)$ doesn’t have to be a subset of $\mathcal D(U)$ in order for its dual to be so. 
+
+**<u>Definition:</u>** 
+
+
 
 # Localization
+
+There is a particularly interesting class of distributions that we use all the time in physics because they can be super similar to functions. These are called *local distributions*. They are the ones that can be thought of as functions almost everywhere in space with the exception of some sets that we don’t mind. To do this we need to talk about support of distributions. 
+
+## Support of Distributions
+
+Smooth functions have support and in principle this notion should extend to distributions as well. Here is how we do it. Throughout the rest we assume that $U$ is some open subset of a smooth manifold unless indicated otherwise.
+
+**<u>Definition:</u>** Given a distribution $f \in \mathcal D'(U)$ the **support of** $f$ is the complement of the largest subset where $f$ restricts to $0$. In other words
+
+$$
+\text{supp }f = U \setminus O
+$$
+
+ where $O$ is the largest subset such that $\left.f\right|_O = 0$. 
+
+This definition already lends itself into some notion of localization of distribution. For example a distribution compactly supported in $U$ can then be naturally extended to the entire manifold. But there is a notion of support that is far more interesting to study.
+
+**<u>Definition:</u>** Given a distribution $f \in \mathcal D'(U)$ the **singular support of** $f$, denoted by $\text{sing\,supp\,}f$ is the set of points in which there exists no neighborhood that the distribution restricts to a regular one, i.e. 
+
+$$
+\text{sing\,supp\,}f = \{x \in U\mid \nexists A \text{ neighborhood of }x \text{ s.t. } \left.f\right|_A \in \mathcal L^1_{\text{loc}}(A)\}
+$$
+
+
+These are essentially the points where if we were to try to think of the distribution as a function it would “blow up”. 
+
+**<u>Example:</u>** $\text{sing\,supp\,}\delta_p = \text{supp\,}\delta_p = \{p\}$ for $\delta_p \in \mathcal D'(U),\ p\in U$. 
+
+
+
+## Local Distributions
+
+Now we are finally ready to talk about local distributions. We will define them here, show some examples, but really uncover how cool they are later.
+
+**<u>Defintion:</u>** A distribution $f \in \mathcal D(U)$ is called **local** if its singular support has measure $0$. In other words a local distribution is regular in a neighborhood of almost every point in $U$. 
+
+**<u>Example:</u>** The following are local distributions
+
+1. The delta function
+2. Any regural distribution
+3. The Principal value
+4. Probability measures for continuous random variables
+
+
+
+
+
+
 
 
 
