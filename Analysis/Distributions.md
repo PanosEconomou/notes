@@ -1,5 +1,127 @@
 # Distributions
 
+Formal distributions are such cool concepts in physics and we use them all the time! They are a way to generalize functions over some spaces but their genious is that so much of their properties are defined even better than most functions. For example all their derivatives exist, their Fourier transform exists, every linear PDE has a fundamental solution given by a distribution and that barely scratches the surface.
+
+In here we will talk about distributions in a general sense such that we can build up to describing Quantum Fields in QFT.
+
+We will start with defining *weak limits* of functions which will naturally lead to realizing the need for an extra object which is a distribution. Then we will define the set of test function, give it a nice topology and proceed with defining the set of distributions as linear maps on this space and identifying it with the closure under a nice topology. After that we will start playing! We will see examples of distributions, take their fourier transform, understand what local distributions are and so much more. 
+
+[toc]
+
+
+
+
+
+# Definions and Formalism in Charts
+
+We begin by studying limits of functions. In essence this is an attempt to add a topology to the set of functions over some space. Eventually, we want to define distributions on smooth manifolds because at the end of the day we want to do physics. However, this is slightly cumbersome, so we will first define everything on a chart, and then generalize to a general open subset of a manifold. 
+
+As a reminder a chart is defined as follows
+
+**<u>Defintion:</u>** Given a smooth $n$ dimensional manifold $M$ a chart is a pair $(U,\phi)$ of an open subset $U \subset M$ and a smooth embedding $\phi:U\to \mathbb{R}^n$. When it is clear from context, we sometimes refer to either the open subset or the map as the *‘chart.’* Two charts $(U,\phi),\ (V,\psi)$ are compatible if both
+
+$$
+\phi\circ \left.\psi\right|_{\psi(U\cap V)}^{-1} \text{ and } \psi\circ \left.\phi\right|_{\phi(U\cap V)}^{-1}
+$$
+
+are smooth. 
+
+Basically a chart is a coordinate patch, and a manifold is constructed in such a way that it is covered by compatible charts. We do this because it is hard to define things like convolutions and whatnot on arbitrary manifolds but we can do it in open subsets of $\mathbb R^n$ which is as good as it gets. 
+
+## Set of Test Functions
+
+Distributions are objects that take in a test function and give you a number. Here we will talk about what is a test function in the first place. 
+
+**<u>Definition:</u>** Let $U \subset \mathbb{R}^n$ be an open subset. The **set of test functions** $\mathcal D (U)$ is the set of all smooth functions with compact support on $U$. In other words it is given by
+
+$$
+\mathcal D(U) \coloneqq \{f \in C^\infty(U) \mid \text{supp } f \subset U\}
+$$
+
+We pick these functions because they are particularly nice. They have all their derivatives defined and integrals finite for any open set that we can choose. Here is a very nice series of such functions. 
+
+**<u>Example:</u>** Consider the following series of functions $\{\omega_{\epsilon}\}_{\epsilon \in \mathbb{R}^n} \subset \mathcal D(\mathbb R^n)$ given by
+
+$$
+\omega_\epsilon(x) = \begin{cases}A_\epsilon \exp\frac{-\epsilon^2}{\epsilon^2 - |x|^2} & |x| < \epsilon \\ 0 & |x| \geq \epsilon\end{cases}
+$$
+
+Where $A_\epsilon^{-1} = \int_{|x| \leq \epsilon} \exp\frac{-\epsilon^2}{\epsilon^2 - |x|^2}$. We will see later that sequences of these functions converge to the $\delta$ function under a particular definition of convergence. In fact we will use these as examples to come up with the topology of the set $\mathcal D(U)$ in more generality. 
+
+Before we add a topology, let’s consider a special set of functions called bump functions. We will define it in general manifolds because we will use it later anyway. 
+
+**<u>Theorem:</u>** *(Existance of bump functions)* Consider a manifold $M$ and a compact subset $A \subset M$, and $B\subset M$ is an open subset that contains $A$. Then there exists a smooth function $\eta_A: M \to [0,1]$ such that
+
+$$
+\eta_A(x) = 
+\begin{cases}
+1 & \text{if } x \in A\\
+0 & \text{if } x \in M \setminus B
+\end{cases}
+$$
+
+**<u>Corollary:</u>** Given an open subset $U \subset M$ for any compact subset $A \subset U$ there exists a bump function $\eta_A \in \mathcal D(U)$. 
+
+***Note:*** We sometimes call bump functions characteristic functions. 
+
+The more interesting theorem is the partitions of unity which we borrow directly from geometry
+
+**<u>Theorem:</u>** *(Existance of Partitions of unity)* Given a locally finite open cover $\mathcal A$ of $U\subset M$ there exists a set of smooth functions $\{\epsilon_A : A \to [0,1]\}_{A\in \mathcal A}$ such that $\epsilon_A \in \mathcal D(A)$ and for any $x \in U$
+
+$$
+\sum_{A\in \mathcal A} \epsilon_A(x) = 1
+$$
+
+Note that the $\omega_\epsilon$ functions we defined earlier are such bump functions. 
+
+## Turning $\mathcal D(U)$ into a topological space
+
+We want to add a sense of closesness into our set of test functions. Luckily the set of test functions is a subset of the integrable functions on $U$ which apart form being a vector space can also admit the topology of a metric space. Let’s see how to do this. 
+
+**<u>Definition:</u>** Let $U \subset \mathbb{R}^n$ be an open subset, and $f : U \to \mathbb{R}$ be some measurable function on $U$. Then $f$ is **p-integrable** if
+
+$$
+||f||_{p} \coloneqq \int_U |f|^p < \infty
+$$
+
+The **set of p-integrable functions** is defined as $\mathcal L^p(U)$. 
+
+**<u>Corollary:</u>** The map $|| \cdot || : \mathcal L^p(U) \to \mathbb{R}$ is a metric. And therefore $\mathcal L^p(U)$ is a metric space.
+
+**<u>Corollary:</u>** $\mathcal D (U) \subset \mathcal L^p(U)$ for any $p > 0$. Therefore $D(U)$ is a metric space. 
+
+Now that we know that $D(U)$ is a metric space we can talk about sequences of functions and so on. Let’s use this to show something cool
+
+**<u>Theorem</u>** $\mathcal D(U)$ is dense in $\mathcal L^p(U)$. 
+
+
+
+## Distributions
+
+Now we are ready to define distributions!
+
+**<u>Definition:</u>** A **distribution** on some open subset $U \subset \mathbb R^n$ is an element of the dual space $\mathcal D'(U)$ of $\mathcal D(U)$, i.e. a continuous linear map $\phi: \mathcal D(U) \to \mathbb R$. 
+
+**<u>Remark:</u>** While linearity is intuitively clear, continuity in this sense might be mysterious. In practice it means that for every convergent sequence of test functions $\{f_n\}_{n\in \mathbb{N}}$ 
+
+$$
+f_n \to f \in \mathcal D(U) \implies \phi(f_n) \to \phi(f) \text{ as } n\to \infty
+$$
+
+**<u>Corollary:</u>** $U \subset V \implies D'(U) \subset D'(V)$. 
+
+This was language so far, 
+
+
+
+
+
+
+
+
+
+
+
 It would be tempting to think that since in Classical field theory the fields are sections of vector bundles over $M$, (and often can be reduced to $C^{\infty}(M)$ functions) this is not the case for a their quantum counterparts in QFT. A good description ends up being formulated in the language of distributions which we are going to talk about here.
 
 **<u>Definition:</u>** Consider the set $\mathcal{J}(M) \subset C^\infty(M,\mathbb{C})$ that contains all smooth complex valued functions such that
