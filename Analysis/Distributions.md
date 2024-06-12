@@ -12,27 +12,17 @@ We will start with defining *weak limits* of functions which will naturally lead
 
 
 
-# Definions and Formalism in Charts
+# Definions and Formalism
 
-We begin by studying limits of functions. In essence this is an attempt to add a topology to the set of functions over some space. Eventually, we want to define distributions on smooth manifolds because at the end of the day we want to do physics. However, this is slightly cumbersome, so we will first define everything on a chart, and then generalize to a general open subset of a manifold. 
+We begin by studying limits of functions. In essence this is an attempt to add a topology to the set of functions over some space. Eventually, we want to define distributions on smooth manifolds because at the end of the day we want to do physics. However, this is slightly cumbersome, so when proving things we will prove them in charts and then generalize to a general open subset of a manifold. 
 
-As a reminder a chart is defined as follows
-
-**<u>Defintion:</u>** Given a smooth $n$ dimensional manifold $M$ a chart is a pair $(U,\phi)$ of an open subset $U \subset M$ and a smooth embedding $\phi:U\to \mathbb{R}^n$. When it is clear from context, we sometimes refer to either the open subset or the map as the *‘chart.’* Two charts $(U,\phi),\ (V,\psi)$ are compatible if both
-
-$$
-\phi\circ \left.\psi\right|_{\psi(U\cap V)}^{-1} \text{ and } \psi\circ \left.\phi\right|_{\phi(U\cap V)}^{-1}
-$$
-
-are smooth. 
-
-Basically a chart is a coordinate patch, and a manifold is constructed in such a way that it is covered by compatible charts. We do this because it is hard to define things like convolutions and whatnot on arbitrary manifolds but we can do it in open subsets of $\mathbb R^n$ which is as good as it gets. 
+> **<u>Remark:</u>** When talking about integration we will use a Riemannian manifold here in order to define the appropriate topology. A Riemannian manifold comes with a natural integration of smooth functions that lends itself to a Legesque integral that widens the set of measurable functions to things that are not necessarily smooth. This is the integral we use here, even though we don’t explicitly construct it.  
 
 ## Set of Test Functions
 
 Distributions are objects that take in a test function and give you a number. Here we will talk about what is a test function in the first place. 
 
-**<u>Definition:</u>** Let $U \subset \mathbb{R}^n$ be an open subset. The **set of test functions** $\mathcal D (U)$ is the set of all smooth functions with compact support on $U$. In other words it is given by
+**<u>Definition:</u>** Let $U$ be an open subset of some smooth manifold. The **set of test functions** $\mathcal D (U)$ is the set of all smooth functions with compact support on $U$. In other words it is given by
 
 $$
 \mathcal D(U) \coloneqq \{f \in C^\infty(U) \mid \text{supp } f \subset U\}
@@ -78,13 +68,13 @@ Note that the $\omega_\epsilon$ functions we defined earlier are such bump funct
 
 We want to add a sense of closesness into our set of test functions. Luckily the set of test functions is a subset of the integrable functions on $U$ which apart form being a vector space can also admit the topology of a metric space. Let’s see how to do this. 
 
-**<u>Definition:</u>** Let $U \subset \mathbb{R}^n$ be an open subset, and $f : U \to \mathbb{R}$ be some measurable function on $U$. Then $f$ is **p-integrable** if
+**<u>Definition:</u>** Let $U$ be an open subset of some smooth *Riemannian* manifold and $f : U \to \mathbb{R}$ be some measurable function on $U$. Then $f$ is **p-integrable** if
 
 $$
 ||f||_{p} \coloneqq \int_U |f|^p < \infty
 $$
 
-The **set of p-integrable functions** is defined as $\mathcal L^p(U)$. 
+The **set of p-integrable functions** is defined as $\mathcal L^p(U)$​. Furthermore a function $f \in \mathcal L^p(U)$ is known as **locally p-integrable** if for every $x \in U$ there exists a neighborhood $V$ of $x$ such that $f \in \mathcal L^p(V)$. The **set of locally p-integrable** functions is denonted by $\mathcal L^p_{\text{loc}}(U)$. 
 
 **<u>Corollary:</u>** The map $|| \cdot || : \mathcal L^p(U) \to \mathbb{R}$ is a metric. And therefore $\mathcal L^p(U)$ is a metric space.
 
@@ -92,15 +82,15 @@ The **set of p-integrable functions** is defined as $\mathcal L^p(U)$.
 
 Now that we know that $D(U)$ is a metric space we can talk about sequences of functions and so on. Let’s use this to show something cool
 
-**<u>Theorem</u>** $\mathcal D(U)$ is dense in $\mathcal L^p(U)$. 
+**<u>Theorem</u>** $\mathcal D(U)$ is dense in $\mathcal L^p(U)$ for some open subset $U$. 
 
 
 
 ## Distributions
 
-Now we are ready to define distributions!
+Now we are ready to define distributions.
 
-**<u>Definition:</u>** A **distribution** on some open subset $U \subset \mathbb R^n$ is an element of the dual space $\mathcal D'(U)$ of $\mathcal D(U)$, i.e. a continuous linear map $\phi: \mathcal D(U) \to \mathbb R$. 
+**<u>Definition:</u>** A **distribution** on some open subset $U$ of a Riemannian manifold is an element of the dual space $\mathcal D'(U)$ of $\mathcal D(U)$, i.e. a continuous linear map $\phi: \mathcal D(U) \to \mathbb R$. 
 
 **<u>Remark:</u>** While linearity is intuitively clear, continuity in this sense might be mysterious. In practice it means that for every convergent sequence of test functions $\{f_n\}_{n\in \mathbb{N}}$ 
 
@@ -108,9 +98,53 @@ $$
 f_n \to f \in \mathcal D(U) \implies \phi(f_n) \to \phi(f) \text{ as } n\to \infty
 $$
 
+Notice that if the manifold was not Riemannian we would have no natural topology on $\mathcal D(U)$. Also as the dual space of $\mathcal D(U)$, $\mathcal D'(U)$ inherits all the nice operations on distributions that we normally have, like addition and scalar multiplication and so on. 
+
 **<u>Corollary:</u>** $U \subset V \implies D'(U) \subset D'(V)$. 
 
-This was language so far, 
+Any open subset of a chart is a chart, so it would be helpful to think about restrictions of distributions.
+
+**<u>Definition:</u>** Let $V\subset U$ be an open subset of some open subset $U$, and $f \in \mathcal D'(U)$, then the **restriction of** $f$ is a distribution $\left.f\right|_{V} \in \mathcal D'(V)$ such that for any $\phi \in D(V) \subset D(U)$
+
+$$
+\left. f\right|_V (\phi) = f(\phi)
+$$
+
+There is a notion of restriction of a distribution to submanifolds that we will explore soon. Also there is a canonical product of distributions that share singularities.
+
+## Examples
+
+Now we can have some fun playing with examples. We will introduce certain commonly encountered distributions as well as classes of distributions. The first thing is a very useful class of distributions called regular. 
+
+**<u>Definition:</u>** A distribution $F\in \mathcal D'(U)$ on some open subset $U$ of a smooth manifold is called **regular** if there exist a locally integrable function $f \in \mathcal L^1_{\text{loc}}(U)$ such that for any test function $\phi \in D(U)$ 
+
+$$
+F(\phi) = \int_U f\phi
+$$
+
+In the case of regular distributions we often abuse notation and write $f$ instead of $F$​ to denote the distribution. 
+
+**<u>Corollary:</u>** Since $\mathcal D(U) \subset \mathcal L^1_{\text{loc}}(U)$ with this identification there is an inclusion $\mathcal D(U) \hookrightarrow \mathcal D'(U)$ as well. 
+
+**<u>Example:</u>** *(The $\delta$ function)* Finally we can define one of the most commonly used objects in physics. The **delta function** on some open subset $U$ of some manifold centered at point $p \in U$ is the distribution $\delta_p \in \mathcal D'(U)$ such that for any $f \in \mathcal D(U)$ 
+
+$$
+\delta_p (f) = f(p)
+$$
+
+There are multiple ways we can construct it. One particularly nice one is using delta sequences. A sequence $\{\delta_p^k\}_{k\in \mathbb N} \subset \mathcal L^1_{\text{loc}}(U)$ (where we can use the identification we mentioned before to think of them as elements of $\mathcal D'(U)$) is a  **delta sequence**  if 
+
+1. $p \in \text{supp } \delta_p^k \ \forall k\in \mathbb N$
+2. $\text{supp } \delta_p^k$ is compact
+3. $\int_U \delta_p^k = 1 \ \forall k\in \mathbb N$
+4. $\int_U \delta_p^k = 1 \ \forall k\in \mathbb N$
+5. $\int_{\text{supp}(\delta_p^k)} \to 0$ as $k \to \infty$. 
+
+Then every delta sequence converges to the delta function, i.e. $\delta_p^k \to \delta_p$ as $k \to \infty$. 
+
+Delta sequences are super powerful in prooving things because we can use them to construct averages of a function around a point. 
+
+# Localization
 
 
 
@@ -118,9 +152,11 @@ This was language so far,
 
 
 
+[The Schwartz Space on a Manifold](https://mathoverflow.net/questions/80094/the-schwartz-space-on-a-manifold)
 
+[Does a Fourier transformation on a (pseudo-)Riemannian manifold make sense?](https://math.stackexchange.com/questions/13902/does-a-fourier-transformation-on-a-pseudo-riemannian-manifold-make-sense)
 
-
+[Tempered distributions and Schwartz functions on definable manifolds](https://www.sciencedirect.com/science/article/abs/pii/S0022123620300148)
 
 It would be tempting to think that since in Classical field theory the fields are sections of vector bundles over $M$, (and often can be reduced to $C^{\infty}(M)$ functions) this is not the case for a their quantum counterparts in QFT. A good description ends up being formulated in the language of distributions which we are going to talk about here.
 
