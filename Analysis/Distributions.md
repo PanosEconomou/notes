@@ -6,6 +6,16 @@ In here we will talk about distributions in a general sense such that we can bui
 
 We will start with defining *weak limits* of functions which will naturally lead to realizing the need for an extra object which is a distribution. Then we will define the set of test function, give it a nice topology and proceed with defining the set of distributions as linear maps on this space and identifying it with the closure under a nice topology. After that we will start playing! We will see examples of distributions, take their fourier transform, understand what local distributions are and so much more. 
 
+These notes are compiled from: 
+
+1. [The Analysis of Linear Partial Differential Operators I](https://link.springer.com/book/10.1007/978-3-642-61497-2)
+2. [Methods of the Theory of Generalized Functions](https://www.taylorfrancis.com/books/mono/10.1201/9781482288162/methods-theory-generalized-functions-vladimirov) 
+3. [Advanced Mathematical Analysis](https://link.springer.com/book/10.1007/978-1-4684-9886-8) 
+4. [Generalized Functions and Partial Differential Equations](https://archive.org/details/generalizedfunct0000shil) 
+5. [Partial Differential Equations I: Basic Theory](https://link.springer.com/book/10.1007/978-3-031-33859-5)
+
+
+
 [toc]
 
 
@@ -227,7 +237,7 @@ $$
 
 The set of test functions that we have defined so far is large. Sometimes we might want to restrict that set to functions with special properties. This will help us define things such as the Fourier transform of distributions and so on. Here we will introduce a commonly used set of test functions $\mathcal J(U)$ known as the *Scwarz functions* whose dual is a subspace of $\mathcal D'(U)$. Notice that $\mathcal J(U)$ doesn’t have to be a subset of $\mathcal D(U)$ in order for its dual to be so. 
 
-**<u>Definition:</u>** 
+(TBD)
 
 
 
@@ -275,6 +285,37 @@ Now we are finally ready to talk about local distributions. We will define them 
 3. The Principal value
 4. Probability measures for continuous random variables
 
+
+
+## Distributions With Compact Support
+
+Given some distribution with compact support, we can actually extend how it acts on any smooth function, not just test functions. Let’s see how to do this.
+
+**<u>Theorem:</u>** Let $u \in \mathcal D(U)$ be a distribution with compact support. Then $u$ can be canonically extended to a continuous linear functional $U : \mathcal C^\infty(U) \to \mathbb R$ such that for any test function $f \in C^\infty(U)$ 
+
+$$
+U(f) = u(\eta_{\text{supp\,}u} f)
+$$
+
+where $\eta_{\text{supp\,}u}$ is the bump function on the support of $u$. 
+
+Therefore we could define a class of distributions that act on all functions that are smooth in the support of $U$. The delta function is one such distribution. 
+
+
+
+# Algebra and Calculus of Distributions
+
+Distributions are generalized functions, but they are a bit finicky to work with. Here we develop multiple methods by which we can perform operations that resemble as closely as we can the operations of smooth functions. 
+
+## Products with Test Functions
+
+Apart from the natural addition and scalar multiplication inherited by the structure of $\mathcal D(U)$ as a vector space it would be helpful to be able to multiply distributions with test functions.
+
+**<u>Definition:</u>** The product of distributions with test functions is a continuous linear map $\cdot : \mathcal{D}(U) \times \mathcal D'(U) \to \mathcal D'(U)$ such that $(f,u) \mapsto f\cdot u = fu$ and for any $g \in \mathcal D(U)$
+
+$$
+fu(g) = u(fg) 
+$$
 
 
 
