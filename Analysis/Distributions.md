@@ -22,7 +22,7 @@ These notes are compiled from:
 
 
 
-# Definions and Formalism
+# Definitions and Formalism
 
 We begin by studying limits of functions. In essence this is an attempt to add a topology to the set of functions over some space. Eventually, we want to define distributions on smooth manifolds because at the end of the day we want to do physics. However, this is slightly cumbersome, so when proving things we will prove them in charts and then generalize to a general open subset of a manifold. 
 
@@ -307,15 +307,115 @@ Therefore we could define a class of distributions that act on all functions tha
 
 Distributions are generalized functions, but they are a bit finicky to work with. Here we develop multiple methods by which we can perform operations that resemble as closely as we can the operations of smooth functions. 
 
-## Products with Test Functions
+## Products with Test Functions and Partial Derivatives
 
 Apart from the natural addition and scalar multiplication inherited by the structure of $\mathcal D(U)$ as a vector space it would be helpful to be able to multiply distributions with test functions.
 
-**<u>Definition:</u>** The product of distributions with test functions is a continuous linear map $\cdot : \mathcal{D}(U) \times \mathcal D'(U) \to \mathcal D'(U)$ such that $(f,u) \mapsto f\cdot u = fu$ and for any $g \in \mathcal D(U)$
+**<u>Definition:</u>** The **product of distributions with test functions** is a continuous linear map $\cdot : \mathcal{D}(U) \times \mathcal D'(U) \to \mathcal D'(U)$ such that $(f,u) \mapsto f\cdot u = fu$ and for any $g \in \mathcal D(U)$
 
 $$
-fu(g) = u(fg) 
+fu(g) = u(fg).
 $$
+
+The next thing we want is the partial derivatives.
+
+**<u>Definition:</u>** Given a derivation $\partial : C^\infty (U) \to C^\infty(U)$ on $U$ the **derivative of a distribution** $u \in \mathcal D'(U)$ is given by the distribution $\partial u \in \mathcal D'(U)$ defined such that for any $f\in \mathcal D(U)$
+
+$$
+\partial u (f) = -u(\partial f).
+$$
+
+**<u>Remark:</u>** The negative sign comes to make this definition compatible with regular distributions. To see this, let $u \in \mathcal D(U)$, then as a distribution it acts on test functions $f \in \mathcal D(U)$ as 
+
+$$
+u(f) = \int_U uf
+$$
+
+Therefore we would like $\partial u$ to act in a similar way. If we say its true we get using by parts
+
+$$
+\partial u(f) = \int_U (\partial u) f = - \int_U u\partial f = -u(\partial f)
+$$
+
+
+We can now use bundle the two definitions above in the following lemma.
+
+**<u>Lemma:</u>** Given a smooth linear differential operator $P$ of order $k$ and a distribution $u \in \mathcal D'(U)$ then there is a unique distribution $Pu \in \mathcal D'(U)$ that acts on test functions $f\in \mathcal D(U)$ like so
+
+$$
+Pu(f) = (-1)^k u(Df)
+$$
+
+
+One cool thing to notice is that all distributions are infinitely differentiable in this sense. Since we have an idea of what it means to take derivatives of distributions and we have seen that the locally integrable functions are distributions, we can find their derivatives!
+
+**<u>Example:</u>** *(Derivative of Heaviside)* Consider the heaviside distribution $H \in \mathcal D'(\mathbb R)$ defined previously. Its derivative is given by $\frac{dH}{dx} \in \mathcal D'(\mathbb R)$ and it acts on test functions $f \in \mathcal D(\mathbb R)$ such that
+
+$$
+\begin{align*}
+\frac{dH}{dx}(f) 
+&=  -H\left(\frac{df}{dx}\right)\\
+&= -\int_{0}^\infty \frac{df}{dx} dx\\
+&= f(0)
+\end{align*}
+$$
+
+Therefore $\frac{dH}{dx} = \delta$.
+
+This definition also gives us our first steps towards thinking of distributions as the right object to do PDEs with. In fact we can now talk about fundamental solutions!
+
+**<u>Defintion:</u>** Given a smooth linear differential operator $P$ a **fundamental solution** of the differential equation defined by $P$ in an open subset $U$ of a manifold relative to some point $p \in U$ is a distribution $G_p \in \mathcal D'(U)$ such that
+
+$$
+PG_p = \delta_p
+$$
+
+Soon we will see the cases where convolutions can be defined and then we can use fundamental solutions as amazing tools to prove existance and uniqueness of solutions to PDEs. 
+
+
+
+## Outer Product of Distributions
+
+Another easy product that we can create which is surprisingly useful in physics is the outer product. It is a way of forming a distribution on the space $U\times U$. 
+
+**<u>Definition:</u>** The **outer product of distributions** is a continuous binlinear map $\cdot \times \cdot : \mathcal D'(U)\times \mathcal D'(U) \to \mathcal D'(U\times U)$ where $(u,v) \to u\times v$ such that for any test function $f \in \mathcal D(U\times U)$ 
+
+$$
+(u\times v)(f) = u(v(f)),
+$$
+
+where we regard $v(f)$ to act on the second argument of $f$, i.e. $v(f) \in \mathcal D(U)$ such that $v(f)(x) = v(f(x,\cdot))$  for any $x \in U$. 
+
+The complications arize when we try to multiply distributions in an associative way such that we obtain a distribution over the same subset $U$​. There is no general definition for that, but we will soon see ways in which that makes sense. 
+
+
+
+## Pullback of Distributions
+
+We want to generalize the operation of composition. Since we can compose functions with smooth maps we would like to extend this notion on distributions. 
+
+**<u>Definition:</u>** Let $u \in \mathcal D'(U)$ be a distribution over an open set $U \subset M$ of a manifold $M$ and $\phi : V \to U$ be a diffeomorphism from an open set $V \subset N$ of a manifold $N$. Then the **pullback** of the distribution $u$ is a distribution $\phi^\ast u \in \mathcal D'(V)$ on $V \subset N$ such that for all test functions $f \in \mathcal D(V)$ 
+
+$$
+(\phi^\ast u)(f) = \frac{1}{|\det J_\phi|} u(f\circ \phi) = u \left(\frac{f\circ \phi}{|\det J_\phi|} \right),
+$$
+
+where $J_\phi$ is the Jacobian of the diffeomorphism.
+
+The following proposition sums up some properties of the pullback. Notice that we denote the pullback of functions $f \in \mathbb{C}^\infty(U)$ as $\phi^\ast f = f\circ \phi$. 
+
+**<u>Proposition:</u>** Given distributions $u,v \in \mathcal D' (U)$,  test functions $f,g \in \mathcal D(U)$ and a diffeomorphism $\phi: V\to U$ the following are true
+
+1. Given some linear differential operator $\partial$ then $\partial \phi^\ast u = \partial \phi^k \frac{\partial u}{\partial x^k}$
+2. $\phi^\ast (fu) = (\phi^\ast f) (\phi^\ast u)$
+
+**<u>Example:</u>** Consider an automorphism $\phi : U\to U$ such that $\phi(p) = q$, and $\det J_\phi(p) = 1$. Then $\phi^\ast \delta_q = \delta_p$.
+
+
+
+
+
+
 
 
 
@@ -333,298 +433,6 @@ $$
 [Does a Fourier transformation on a (pseudo-)Riemannian manifold make sense?](https://math.stackexchange.com/questions/13902/does-a-fourier-transformation-on-a-pseudo-riemannian-manifold-make-sense)
 
 [Tempered distributions and Schwartz functions on definable manifolds](https://www.sciencedirect.com/science/article/abs/pii/S0022123620300148)
-
-It would be tempting to think that since in Classical field theory the fields are sections of vector bundles over $M$, (and often can be reduced to $C^{\infty}(M)$ functions) this is not the case for a their quantum counterparts in QFT. A good description ends up being formulated in the language of distributions which we are going to talk about here.
-
-**<u>Definition:</u>** Consider the set $\mathcal{J}(M) \subset C^\infty(M,\mathbb{C})$ that contains all smooth complex valued functions such that
-
-$$
-|f|_{p,k} \coloneqq \sup_{|\alpha| \leq p} \sup_{x\in M} |\partial^\alpha f(x)|(1+|x|^2)^k < \infty,
-$$
-
-for all $p,k \in \mathbb{N}$ (where $\alpha$ is some multi-index). $\mathcal{J}$ is a complex vector space for any smooth manifold $M$, and is known as the space of **rapidly decreasing functions on M**. We also call the dual space $\mathcal{J}^\vee$ the space of **tempered distributions.**
-
-***Note:*** $|\cdot|_{p,k}$ Defines a seminorm on $\mathcal{J}$ for all $p,k \in \mathbb{N}$.
-
-**<u>Property:</u>** **(Defining Property of tempered distributions)** A tempered distribution $T \in \mathcal{J}^\vee$ is a linear map $T: \mathcal{J} \to \mathbb{C}$ that is continuous in the topology induced by all such seminorms. 
-
-*This is simply a restatement of the definition of the dual space*.
-
-This has an interesting implication
-
-
-
-**<u>Corollary:</u>** Any tempered distribution $T$ is bounded for every seminorm, i.e. for all  $f\in \mathcal{J}$, $p,k \in \mathbb{N}$ the image
-
-$$
-|T(f)| \leq C|f|_{p,k},
-$$
-
-The topology we add on $\mathcal{J}^\vee$ is that of uniform convergence on any compact subset of $\mathcal{J}$.
-
-Arbitrarily, distributions may look weird objects to play around with but they aren’t that much. For example, any measurable and bounded function $g\in C^\infty(M,\mathbb{C})$  can give rise to a distribution.
-
-**<u>Example:</u>** Given a function $g: M \to \mathbb{C}$ that is measurable, and bounded, i.e. 
-
-$$
-\int_M g\ d\mu < \infty,
-$$
-
-with respect to some measure $\mu$, and the set $g(M)$ is bounded in $\mathbb{C}$, then the map
-
-$$
-\begin{align*}
-T_g:\mathcal{J} &\to \mathbb{C}\\
-f &\mapsto T_g(f) = \int_M gf\ d\mu,
-\end{align*}
-$$
-
-is a tempered distribution. 
-
-
-
-***Note:*** Distributions are much richer objects. It goes without saying that it is possible to have distributions that are not associated with maps in any way. For example the $\delta$ function is such a distribution. 
-
-
-
-Even though distributions are terrible objects, we would like to somehow treat them with the same confidence that we treat smooth maps. And as metrizable vector spaces we could start thinking about taking their derivatives and such
-
-**<u>Definition:</u>** Given a tempered distribution $T \in \mathcal{J}^\vee (M)$ we define its derivate $\partial^\alpha T$ with respect to some multi-index $\alpha = (\alpha_1, \alpha_2, \cdots \alpha_n)$ as the map
-
-$$
-\begin{align*}
-\partial^\alpha T : \mathcal{J}^\vee &\to \mathbb{C}\\
-f &\mapsto \partial^\alpha T(f) = (-1)^{|\alpha|} \ T(\partial^{\alpha} f)
-\end{align*}
-$$
-
-**<u>Corollary:</u>** Any derivative of $T \in \mathcal{J}^\vee$ is a tempered distribution. 
-
-I mean… look at it, we just multiplied it by a constant.
-
-**<u>Corollary:</u>** $\partial^\alpha T_g = T_{\partial^\alpha g}$.
-
-
-
-Well, ok! We have now managed to define derivatives in a way, but it would be nice to show that the derivatives of distributions have a compatible intuition with derivatives of maps in some sense. Because we would like to use them in physics as such.
-
-I am gonna start by saying that even though distributions can be thought of as “generalized functions” the concept of the value of a distribution at a point doesn’t have a rigorous definition. However, some of them do! We defined distributions $T_{g}$ for sufficiently nice functions $g$. In fact all $g$ needed to be was measurable and bounded. And with this we could relate the distribution with a function $T_g \leftrightarrow g$. So the “value” of $T_g$ at some point is the value of the function $g$. But this is clearly not true for all tempered distributions, and it doesn’t have to be! The point of having a *distribution* is that it is well defined to integrate against, and anything physical thing we choose to describe with such a construction we should be taking the integral of in order to extract a physical meaning.
-
-
-
-Ok ok quick sidenote because it is cool
-
-**<u>Example:</u>** Consider the tempered distribution $T_H \in \mathcal{J}^\vee(\mathbb{R})$ where $H:\mathbb{R} \to \mathbb{R}$ is the Heaviside function. Taking its derivative we get that for any $f \in \mathcal{J}$
-
-$$
-\begin{align*}
-\frac{\partial}{\partial x} T_H (f) 
-&= - T_H\left(\frac{\partial f}{\partial x}\right)\\ 
-&= - \int_{\mathbb{R}} H\ \frac{\partial f}{\partial x} dx\\
-&= - \int_{0}^\infty \frac{\partial f}{\partial x} dx\\
-&= f(0) - \lim_{x\to \infty}f(x)\\
-&= f(0) & \text{as } f \in \mathcal{J},
-\end{align*}
-$$
-
-SO OMG THAT MEANS
-
-$$
-\frac{\partial }{\partial x} T_H = \delta.
-$$
-
-Which is the super well known result where “The delta function is the derivative of the Heaviside function” which always bothered me as Heaviside is not even freaking differentiable!
-
-
-
-Directly pinging off of this example, we can prove the following property
-
-**<u>Proposition:</u>** Any tempered distribution $T \in \mathcal{J}^\vee(\mathbb{R}^n)$ can be written as 
-
-$$
-T = \sum_{0 \leq |\alpha| \leq k} \partial^\alpha T_{p_\alpha}
-$$
-
-where $p_\alpha : M \to \mathbb{C}$ for some multi-index $\alpha$ is a continuous function of at most polynomial growth, i.e. $|p_\alpha(x)| \leq C (|x|^{-|\alpha|} + |x|^{|\alpha|})$ 
-
-This is a much more powerful proposition than it seems. It means that we can uniquely identify any tempered distribution by knowing derivatives of distributions that are associated to functions. Which means we can write differential equations to solve for distributions! Therefore, they are so much more similar to smooth functions.
-
------
-
-
-
-## Partial Differential Equations of Distributions
-
-YES! Yes we can do this! In fact this is what distributions are MOST famous for. We use them as tools to build solutions for differential equations. The whole theory of Green’s functions is based on using distributions as solutions to partial differential equations through convolving the source with a special distribution. Sometimes this distribution is of the form $T_G$ so we simply describe it with $G$. So let’s build this beautiful framework.
-
-Let’s initially focus on linear PDE’s with constant complex coefficients, since these most useful in the language of field theory. 
-
-**<u>Definition:</u>** Given $n$ indeterminates $\{X_1,X_2,\cdots,X_n\}$ with a product structre, a multivariate polynomial with complex coefficients $P \in \mathbb{C}[X_1,X_2,\cdots,X_n]$  is an element of the polynomial ring over the complex field, where the operations are addition and multiplications of a vector space (or if not possible a free field).
-
-I HATE this definition, it is just fancy words to say that if you have things you can multiply you can form polynomials in n variables. The only good thing is that it allows us to suuuuper general about what is a polynomial for example
-
-**<u>Definition:</u>** Given a smooth manifold $M$, and a basis  $\mathcal{B} = \{v_1,v_2,\cdots,v_n\} \subset TM$ of the tangent bundle at $p\in M$, a differential operator $D$ with constant coefficients is a polynomial $D\in \mathbb{C}[-i\mathcal{B}]= \mathbb{C}[-iv_1,-iv_2,\cdots,-iv_n]$.
-
-We often use a standard basis like $\frac{\partial}{\partial x^\mu}$ to get expressions like
-
-$$
-D = \sum_{\alpha \in A} C_{\alpha} (-i\partial)^\alpha
-$$
-
-Summing over a set of multi-indices $\alpha = (\alpha_1,\alpha_2, \cdots, \alpha_k) \in A$. This is really pretentious, so here are some examples
-
-**<u>Example:</u>** The laplace operator is given by
-
-$$
-\Delta = \partial_1^2 +  \partial_2^2 + \cdots  + \partial_n^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n]
-$$
-
-Another example is D’Alembert’s operator given by
-
-$$
-\Box = -\partial_1^2 +  \partial_2^2 + \cdots  + \partial_n^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n]
-$$
-
-which is the wave equation operator. 
-
-Finally, the Klein-Gordon operator, the wave equation for massive scalar fields is given by
-
-$$
-\mathcal{D} = \Box + m^2 \in \mathbb{C}[-i\partial_1,-i\partial_2, \cdots ,-i\partial_n],
-$$
-
-for some constant $m\in \mathbb{R}$ that we call the mass.
-
-
-
-Ok! Why am I even saying all this? We can now start defining differential equations in a way that they are symbollically compatible with both functions and distributions. For example using the last Proposition, we know that derivatives of distributions span the set of distributions so we can use this fact to write relations like this.
-
-**<u>Definition:</u>** Given a differential operator $D \in \mathbb{C}[-i\mathcal{B}]$ and a distribution (smooth function) $f \in \mathcal{J}^\vee(M)$ a **solution** of the differential equation defined by $D$ sourced by $f$ is a distribution $u \in \mathcal{J}^\vee(M)$ such that
-
-$$
-Du = T_f
-$$
-
-A **fundamental solution** of the differential equation defined by $D$ is a distribution $G \in \mathcal{J}^\vee(M)$ such that
-
-$$
-D G = \delta
-$$
-
-where $\delta \in \mathcal{J}^\vee(M)$ is the delta function. 
-
-I will explain the reasoning behind the introduction of the fundamental solution right after this definition
-
-**<u>Definition:</u>** Given any two decreasing functions $f,g \in \mathcal{J}(M)$ their **convolution** is defined as 
-
-$$
-f\star g(x) = \int_M f(y)g(x-y) dy
-$$
-
-Similarly, the **convolution** between a distribution $T \in \mathcal{J}^\vee(M)$ and the function $f$ is defined as the distribution
-
-$$
-\begin{align*}
-T\star f : \mathcal{J}(M) &\to \mathbb{C}\\
-g &\mapsto (T\star f)(g) = T(f\star g)
-\end{align*}
-$$
-
-**<u>Proposition:</u>** *(Properties of convolutions)* Given functions $f,g\in \mathcal{J}(M)$ and a distribution $T\in \mathcal{J}^\vee(M)$ then the following hold
-
-1. $f\star g = g\star f$
-2. $\partial_i(f\star g) = (\partial_i f) \star g = f \star (\partial_i g)$ 
-3. $\partial_i (T\star f) = (\partial_i T)\star f = T \star (\partial_i f)$
-4. For the delta function $\delta \in \mathcal{J}^\vee(M)$ we have that $(\delta \star f)(g) = \delta (f\star g) = \int_Mf g\ d\mu = T_f$
-
-Ok with these properties we can finally write about the fundamental solution that
-
-$$
-D G =\delta \implies D (G\star f) = (DG)\star f = \delta \star f = T_f
-$$
-
-Therfore the following propsition
-
-**<u>Proposition:</u>** Given a differential operator $D$ and a fundamental solution $G$ a solution for the differential equation of $D$ sourced by $f\in \mathcal{J}(M)$ is the distribution $G\star f$.
-
-------
-
-
-
-## Fourier Transforms of Distributions
-
-In our exploration of finding the fundamental solutions we introduce the Fourier Transform. We initially use it as a tool for finding fundamental solutions.
-
-
-
-**<u>Definition:</u>** The **Fourier Transform** on a riemannian manifold $(M,g)$ is a continuous, linear map
-
-$$
-\begin{align*}
-\mathcal{F} : \mathcal{J}(M) &\to \mathcal{J}(M)\\
-f &\mapsto (\mathcal{F}f)(\omega)=\int_M f(x) e^{ig(x,\omega)}dx
-\end{align*}
-$$
-
-**<u>Proposition:</u>** The Fourier Transform is invevrible with inverse
-
-$$
-\begin{align*}
-\mathcal{F}^{-1}:\mathcal{J}(M) &\to \mathcal{J}(M)\\
-f &\mapsto (\mathcal{F}^{-1}f)(\omega) = \frac{1}{(2\pi)^{\dim M}}\int_M f(x) e^{-ig(\omega,x)}dx
-\end{align*}
-$$
-
-**<u>Proof:</u>** Guaranteed by Fourier’s Identity.
-
-
-After this formulation of the Fourier transform in the language of Schwarz functions, we can define the Fourier transform on distributions by inducing a similar map on the dual space. To do this we use the beautiful adjoint! (as we have been sectretly doing all this time)
-
-**<u>Definition:</u>** The **Fourier Transform** of distributions $\mathcal{F}'$ on a Riemannian manifold $(M,g)$ is the adjoint of the Fourier transform, given by
-
-$$
-(\mathcal{F}'T)(f) = T(\mathcal{F} f)
-$$
-
-***Note:*** We often drop the prime when talking about the fourier transform of distributions and functions, just like we did for the derivatives. 
-
-**<u>Proposition:</u>** Given a map $g \in \mathcal{J}(M)$ then $\mathcal{F}T_g = T_{\mathcal{F}g}$.
-
-**<u>Examples:</u>** Here are some examples of Fourier transforms of distributions. Here we use some abuse of notation, where given a function $f:M\to\mathbb{C}$ we say some distribution $T = f \iff T =T_f$ .
-
-1. $\mathcal{F} H = \frac{i}{\omega}$
-2. $\mathcal{F}\delta = 1$
-3. $\mathcal{F}^{-1}(e^{ig(p,y)})= \delta_y$
-
-
-
-The Fourier transform is super useful because of the following proposition
-
-**<u>Proposition:</u>** Given some distribution $T \in \mathcal{J}^\vee(M)$, then the following identity holds
-
-$$
-\mathcal{F}{\partial^\alpha T} = (-ip)^\alpha \mathcal{F}T
-$$
-
-for some multi-index $\alpha$. 
-
-This leads immidiately to the following super nice Proposition. 
-
-**<u>Proposition:</u>** Given a differential operator $D \in \mathbb{C}[-i\mathcal{B}]$ we can find its characteristic polynomial $P$ as the polynomial with the same coefficients $P\in \mathbb{C}[p^1,p^2,\cdots, p^n]$. Therefore, a fundamental solution $G$ to the differential equation defined by $D$ is given by
-
-$$
-G = \mathcal{F}^{-1}\frac{1}{P}
-$$
-
-**<u>Example:</u>** Consider the Klein Gordon equation given by the differential operator $\mathcal{D} = \Box + m^2$ for some $m>0$. The characteristic polynomial is given by $P = g(p,p) + m^2 = p^\mu p_{\mu} +m^2$ where $g$ is the metric. Then a fundamental solution is given by
-
-$$
-G = \mathcal{F}^{-1}\frac{1}{P} = \mathcal{F}^{-1}\frac{1}{p^2 + m}
-$$
-
-We can do much more rich operations in the language of distributions motivated by problems in physics. 
-
-
 
 
 
