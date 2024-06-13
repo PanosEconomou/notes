@@ -2,9 +2,11 @@
 
 Formal distributions are such cool concepts in physics and we use them all the time! They are a way to generalize functions over some spaces but their genious is that so much of their properties are defined even better than most functions. For example all their derivatives exist, their Fourier transform exists, every linear PDE has a fundamental solution given by a distribution and that barely scratches the surface.
 
-In here we will talk about distributions in a general sense such that we can build up to describing Quantum Fields in QFT.
+In here we will talk about distributions in a general sense such that we can build up to describing quantum fields in QFT.
 
-We will start with defining *weak limits* of functions which will naturally lead to realizing the need for an extra object which is a distribution. Then we will define the set of test function, give it a nice topology and proceed with defining the set of distributions as linear maps on this space and identifying it with the closure under a nice topology. After that we will start playing! We will see examples of distributions, take their fourier transform, understand what local distributions are and so much more. 
+We will start by defining test functions, playing around with their topology and slightly stretching what they can be. Then we define distributions as continous linear maps of test functions, highlight some of their properties and then we start playing! The main focus will be on the study of *local distributions* which are a special type of distributions that is super useful when we think of
+
+
 
 These notes are compiled from: 
 
@@ -13,6 +15,7 @@ These notes are compiled from:
 3. [Advanced Mathematical Analysis](https://link.springer.com/book/10.1007/978-1-4684-9886-8) 
 4. [Generalized Functions and Partial Differential Equations](https://archive.org/details/generalizedfunct0000shil) 
 5. [Partial Differential Equations I: Basic Theory](https://link.springer.com/book/10.1007/978-3-031-33859-5)
+6. [A smooth introduction to the wavefront set](https://arxiv.org/pdf/1404.1778)
 
 
 
@@ -32,15 +35,17 @@ We begin by studying limits of functions. In essence this is an attempt to add a
 
 Distributions are objects that take in a test function and give you a number. Here we will talk about what is a test function in the first place. 
 
-**<u>Definition:</u>** Let $U$ be an open subset of some smooth manifold. The **set of test functions** $\mathcal D (U)$ is the set of all smooth functions with compact support on $U$. In other words it is given by
+**<u>Definition:</u>** Let $U$ be an open subset of some smooth manifold, and $A$ a unital division algebra. The **set of test functions** $\mathcal D (U)$ is the set of all smooth functions with compact support on $U$. In other words it is given by
 
 $$
-\mathcal D(U) \coloneqq \{f \in C^\infty(U) \mid \text{supp } f \subset U\}
+\mathcal D(U,A) \coloneqq \{f \in C^\infty(U,A) \mid \text{supp } f \subset U\}.
 $$
 
-We pick these functions because they are particularly nice. They have all their derivatives defined and integrals finite for any open set that we can choose. Here is a very nice series of such functions. 
+**<u>Remark:</u>** Here and throughout we will use the notation $C^\infty(U)$, $\mathcal D(U)$ to refer to the particular choice of $A = \mathbb R$ but the definitions are similar.
 
-**<u>Example:</u>** Consider the following series of functions $\{\omega_{\epsilon}\}_{\epsilon \in \mathbb{R}^n} \subset \mathcal D(\mathbb R^n)$ given by
+We pick these functions because they are particularly nice. They have all their derivatives defined and integrals finite for any open set that we can choose. Here is a very nice sequence of such functions. 
+
+**<u>Example:</u>** Consider the following sequence of functions $\{\omega_{\epsilon}\}_{\epsilon \in \mathbb{R}^n} \subset \mathcal D(\mathbb R^n)$ given by
 
 $$
 \omega_\epsilon(x) = \begin{cases}A_\epsilon \exp\frac{-\epsilon^2}{\epsilon^2 - |x|^2} & |x| < \epsilon \\ 0 & |x| \geq \epsilon\end{cases}
@@ -69,7 +74,7 @@ The more interesting theorem is the partitions of unity which we borrow directly
 **<u>Theorem:</u>** *(Existance of Partitions of unity)* Given a locally finite open cover $\mathcal A$ of $U\subset M$ there exists a set of smooth functions $\{\epsilon_A : A \to [0,1]\}_{A\in \mathcal A}$ such that $\epsilon_A \in \mathcal D(A)$ and for any $x \in U$
 
 $$
-\sum_{A\in \mathcal A} \epsilon_A(x) = 1
+\sum_{A\in \mathcal A} \epsilon_A(x) = 1.
 $$
 
 Note that the $\omega_\epsilon$​ functions we defined earlier are such bump functions. 
@@ -83,7 +88,7 @@ We want to add a sense of closesness into our set of test functions. Luckily the
 **<u>Definition:</u>** Let $U$ be an open subset of some smooth *Riemannian* manifold and $f : U \to \mathbb{R}$ be some measurable function on $U$. Then $f$ is **p-integrable** if
 
 $$
-||f||_{p} \coloneqq \int_U |f|^p < \infty
+||f||_{p} \coloneqq \int_U |f|^p < \infty.
 $$
 
 The **set of p-integrable functions** is defined as $\mathcal L^p(U)$​. Furthermore a function $f \in \mathcal L^p(U)$ is known as **locally p-integrable** if for every $x \in U$ there exists a neighborhood $V$ of $x$ such that $f \in \mathcal L^p(V)$. The **set of locally p-integrable** functions is denonted by $\mathcal L^p_{\text{loc}}(U)$. 
@@ -147,19 +152,19 @@ Now we are ready to define distributions.
 **<u>Remark:</u>** While linearity is intuitively clear, continuity in this sense might be mysterious. In practice it means that for every convergent sequence of test functions $\{f_n\}_{n\in \mathbb{N}}$ 
 
 $$
-f_n \to f \in \mathcal D(U) \implies \phi(f_n) \to \phi(f) \text{ as } n\to \infty
+f_n \to f \in \mathcal D(U) \implies \phi(f_n) \to \phi(f) \text{ as } n\to \infty.
 $$
 
 Notice that if the manifold was not Riemannian we would have no natural topology on $\mathcal D(U)$. Also as the dual space of $\mathcal D(U)$, $\mathcal D'(U)$ inherits all the nice operations on distributions that we normally have, like addition and scalar multiplication and so on. 
 
-**<u>Corollary:</u>** $U \subset V \implies D'(U) \subset D'(V)$. 
+**<u>Lemma:</u>** $U \subset V \implies D'(U) \subset D'(V)$. 
 
 Any open subset of a chart is a chart, so it would be helpful to think about restrictions of distributions.
 
 **<u>Definition:</u>** Let $V\subset U$ be an open subset of some open subset $U$, and $f \in \mathcal D'(U)$, then the **restriction of** $f$ is a distribution $\left.f\right|_{V} \in \mathcal D'(V)$ such that for any $\phi \in D(V) \subset D(U)$
 
 $$
-\left. f\right|_V (\phi) = f(\phi)
+\left. f\right|_V (\phi) = f(\phi).
 $$
 
 There is a notion of restriction of a distribution to submanifolds that we will explore soon. Also there is a canonical product of distributions that share singularities.
@@ -173,7 +178,7 @@ Now we can have some fun playing with examples. We will introduce certain common
 **<u>Definition:</u>** A distribution $F\in \mathcal D'(U)$ on some open subset $U$ of a smooth manifold is called **regular** if there exist a locally integrable function $f \in \mathcal L^1_{\text{loc}}(U)$ such that for any test function $\phi \in D(U)$ 
 
 $$
-F(\phi) = \int_U f\phi
+F(\phi) = \int_U f\phi.
 $$
 
 In the case of regular distributions we often abuse notation and write $f$ instead of $F$​ to denote the distribution. 
@@ -186,13 +191,13 @@ $$
 h(x) = \begin{cases}
 1, & x\geq 0\\
 0, & x<0
-\end{cases}
+\end{cases}.
 $$
 
 Then according to the natural identification above the Heaviside function can be considered as a distribution $H \in \mathcal D'(\mathbb{R})$ where for any test function $f \in \mathcal D(\mathbb R)$
 
 $$
-H(f) = \int_0^\infty f(x) dx
+H(f) = \int_0^\infty f(x) dx.
 $$
 
 An interesting property is that $H(\omega_\epsilon) = \frac{1}{2}$  for any $\epsilon > 0$. But since $\omega_\epsilon$ is supported on $[-\epsilon,\epsilon]$ we can take the limit as $\epsilon \to 0$ to find that $\lim_{\epsilon \to 0} H(\omega_\epsilon) = \frac{1}{2}$ which is the reason that in a lot of applications we say that $h(0) = \frac{1}{2}$ instead of $1$. 
@@ -218,26 +223,26 @@ Delta sequences are super powerful in prooving things because we can use them to
 **<u>Example:</u>** *(The principal value)* We define the complex valued distribution $\mathcal P\frac{1}{x} \in \mathcal D'(\mathbb C)$ such that for any test function $f \in \mathcal D(\mathbb C)$ 
 
 $$
-\mathcal P\frac{1}{x} (f) = P.V. \int_\mathbb R \frac{f(x)}{x} dx = \lim_{\epsilon \to 0} \left[\int_{-\infty}^{-\epsilon} \frac{f(x)}{x} dx + \int_{\epsilon}^\infty \frac{f(x)}{x} dx\right]
+\mathcal P\frac{1}{x} (f) = P.V. \int_\mathbb R \frac{f(x)}{x} dx = \lim_{\epsilon \to 0} \left[\int_{-\infty}^{-\epsilon} \frac{f(x)}{x} dx + \int_{\epsilon}^\infty \frac{f(x)}{x} dx\right].
 $$
 
 This is a very helpful distribution in physics since we always take integrals of the form when solving PDEs
 
 $$
-\lim_{\epsilon \to 0}\int_{\mathbb R} \frac{\phi(x)}{x + i\epsilon} dx = -\pi i \phi(0) + \mathcal P\frac{1}{x} (\phi)
+\lim_{\epsilon \to 0}\int_{\mathbb R} \frac{\phi(x)}{x + i\epsilon} dx = -\pi i \phi(0) + \mathcal P\frac{1}{x} (\phi).
 $$
 
 Therefore we can define the following super cool and helpful distributions
 
 $$
-\frac{1}{x + i0^{\pm}} = \mathcal P\frac{1}{x} \mp \pi i \delta
+\frac{1}{x + i0^{\pm}} = \mathcal P\frac{1}{x} \mp \pi i \delta.
 $$
 
 ## Remark on Scwartz Distributions
 
 The set of test functions that we have defined so far is large. Sometimes we might want to restrict that set to functions with special properties. This will help us define things such as the Fourier transform of distributions and so on. Here we will introduce a commonly used set of test functions $\mathcal J(U)$ known as the *Scwarz functions* whose dual is a subspace of $\mathcal D'(U)$. Notice that $\mathcal J(U)$ doesn’t have to be a subset of $\mathcal D(U)$ in order for its dual to be so. 
 
-(TBD)
+(ToDo)
 
 
 
@@ -252,7 +257,7 @@ Smooth functions have support and in principle this notion should extend to dist
 **<u>Definition:</u>** Given a distribution $f \in \mathcal D'(U)$ the **support of** $f$ is the complement of the largest subset where $f$ restricts to $0$. In other words
 
 $$
-\text{supp }f = U \setminus O
+\text{supp }f = U \setminus O,
 $$
 
  where $O$ is the largest subset such that $\left.f\right|_O = 0$. 
@@ -262,7 +267,7 @@ This definition already lends itself into some notion of localization of distrib
 **<u>Definition:</u>** Given a distribution $f \in \mathcal D'(U)$ the **singular support of** $f$, denoted by $\text{sing\,supp\,}f$ is the set of points in which there exists no neighborhood that the distribution restricts to a regular one, i.e. 
 
 $$
-\text{sing\,supp\,}f = \{x \in U\mid \nexists A \text{ neighborhood of }x \text{ s.t. } \left.f\right|_A \in \mathcal L^1_{\text{loc}}(A)\}
+\text{sing\,supp\,}f = \{x \in U\mid \nexists A \text{ neighborhood of }x \text{ s.t. } \left.f\right|_A \in \mathcal L^1_{\text{loc}}(A)\}.
 $$
 
 
@@ -285,6 +290,8 @@ Now we are finally ready to talk about local distributions. We will define them 
 3. The Principal value
 4. Probability measures for continuous random variables
 
+The main usefulness of local distributions is the following 
+
 
 
 ## Distributions With Compact Support
@@ -294,7 +301,7 @@ Given some distribution with compact support, we can actually extend how it acts
 **<u>Theorem:</u>** Let $u \in \mathcal D(U)$ be a distribution with compact support. Then $u$ can be canonically extended to a continuous linear functional $U : \mathcal C^\infty(U) \to \mathbb R$ such that for any test function $f \in C^\infty(U)$ 
 
 $$
-U(f) = u(\eta_{\text{supp\,}u} f)
+U(f) = u(\eta_{\text{supp\,}u} f),
 $$
 
 where $\eta_{\text{supp\,}u}$ is the bump function on the support of $u$. 
@@ -328,13 +335,13 @@ $$
 **<u>Remark:</u>** The negative sign comes to make this definition compatible with regular distributions. To see this, let $u \in \mathcal D(U)$, then as a distribution it acts on test functions $f \in \mathcal D(U)$ as 
 
 $$
-u(f) = \int_U uf
+u(f) = \int_U uf.
 $$
 
 Therefore we would like $\partial u$ to act in a similar way. If we say its true we get using by parts
 
 $$
-\partial u(f) = \int_U (\partial u) f = - \int_U u\partial f = -u(\partial f)
+\partial u(f) = \int_U (\partial u) f = - \int_U u\partial f = -u(\partial f).
 $$
 
 
@@ -343,7 +350,7 @@ We can now use bundle the two definitions above in the following lemma.
 **<u>Lemma:</u>** Given a smooth linear differential operator $P$ of order $k$ and a distribution $u \in \mathcal D'(U)$ then there is a unique distribution $Pu \in \mathcal D'(U)$ that acts on test functions $f\in \mathcal D(U)$ like so
 
 $$
-Pu(f) = (-1)^k u(Df)
+Pu(f) = (-1)^k u(Df).
 $$
 
 
@@ -356,7 +363,7 @@ $$
 \frac{dH}{dx}(f) 
 &=  -H\left(\frac{df}{dx}\right)\\
 &= -\int_{0}^\infty \frac{df}{dx} dx\\
-&= f(0)
+&= f(0).
 \end{align*}
 $$
 
@@ -367,7 +374,7 @@ This definition also gives us our first steps towards thinking of distributions 
 **<u>Defintion:</u>** Given a smooth linear differential operator $P$ a **fundamental solution** of the differential equation defined by $P$ in an open subset $U$ of a manifold relative to some point $p \in U$ is a distribution $G_p \in \mathcal D'(U)$ such that
 
 $$
-PG_p = \delta_p
+PG_p = \delta_p.
 $$
 
 Soon we will see the cases where convolutions can be defined and then we can use fundamental solutions as amazing tools to prove existance and uniqueness of solutions to PDEs. 
@@ -412,6 +419,42 @@ The following proposition sums up some properties of the pullback. Notice that w
 **<u>Example:</u>** Consider an automorphism $\phi : U\to U$ such that $\phi(p) = q$, and $\det J_\phi(p) = 1$. Then $\phi^\ast \delta_q = \delta_p$.
 
 
+
+# Fourier Transforms
+
+Since we did all this analysis on manifolds, it would be nice to talk about Fourier transforms on manifolds. The immidiate problem is that a Fourier transform doesn’t seem to generalize to a definition on the whole manifold, because there is no canonical notion of inner product of points of a manifold!
+
+The goal of these notes is to study distributions in a local sense in order to prepare for the analysis of quantum fields, so we will define a Fourier transform in a way that it can help us extract local properties of the distributions. This will have the interesting consequence of not giving us a unique (even up to constants) definition, however the properties that we want to study, such as singularities will be there regardless of the choice. 
+
+## Killing Vector Fields
+
+A Fourier transform requires a canonical notion of translation on the manifold. Killing vector fields provide us with one! We will introduce them here and then explore relevant interesting results that will help us define the Fourier transform on certain open subsets of a manifold.
+
+**<u>Definition:</u>** A vector field $X \in \mathfrak{X}(U)$ on some open subset $U \subset M$ of a smooth Riemannian manifold $(M,g)$ is **Killing** if 
+
+$$
+\mathcal L_X g =0,
+$$
+
+where $\mathcal L$ is the Lie derivative. 
+
+In fact any Killing vector field can be thought of as the fundamental vector field of some Lie group action on $M$. The Lie group in question is the isometry group. 
+
+**<u>Definition:</u>** Given a, open subset $U \subset M$ of a smooth Riemannian manifold $(M,g)$ a **local isometry** is a diffeomorphism $f: U\to U$ such that $f^\ast g = g$. The set of local isometries forms a Lie group known as the **local isometry group of** $U$ denoted by $I_g(U)$. 
+
+The local isometry group comes with a free (i.e. at no cost to the physicist) defining smooth group action, which can be used to generate the killing vector fields. 
+
+
+
+# Singular Analysis
+
+We want to examine the properties of the singularities of distributions. This is particularly applicable in physics in Conformal Field Theory where we look at expansions of products of local distributions near their singularities. The main tool we are going to develop is the *Wavefront Set* of a distribution. This will be a collection of one forms in the cotangent space that we will interpret as the wavefronts caused by the presence of a singularity in the distribution. I promise this will make sense as this goes along. 
+
+
+
+## Wavefront Sets
+
+Using the Wavefront Sets we will be able to extend a lot of the properties of functions to distributions including pulling back distributions on submanifolds or writing something similar to Laurent series around a singularity. 
 
 
 
