@@ -262,7 +262,13 @@ $$
 
  where $O$ is the largest subset such that $\left.f\right|_O = 0$. 
 
-This definition already lends itself into some notion of localization of distribution. For example a distribution compactly supported in $U$ can then be naturally extended to the entire manifold. But there is a notion of support that is far more interesting to study.
+This definition already lends itself into some notion of localization of distribution. For example a distribution compactly supported in $U$​ can then be naturally extended to the entire manifold. 
+
+**<u>Definition:</u>** The set of distributions with compact support on $U$ is denoted by $\mathcal E'(U)$
+
+**<u>Lemma:</u>** $\mathcal E'(U)$ is homeomorphic to the set of continuous linear functionals of $\mathcal C^\infty(U)$
+
+But there is a notion of support that is far more interesting to study.
 
 **<u>Definition:</u>** Given a distribution $f \in \mathcal D'(U)$ the **singular support of** $f$, denoted by $\text{sing\,supp\,}f$ is the set of points in which there exists no neighborhood that the distribution restricts to a regular one, i.e. 
 
@@ -426,23 +432,65 @@ Since we did all this analysis on manifolds, it would be nice to talk about Four
 
 The goal of these notes is to study distributions in a local sense in order to prepare for the analysis of quantum fields, so we will define a Fourier transform in a way that it can help us extract local properties of the distributions. This will have the interesting consequence of not giving us a unique (even up to constants) definition, however the properties that we want to study, such as singularities will be there regardless of the choice. 
 
-## Killing Vector Fields
+
+
+## Local Trivializations
+
+We want to introduce Fourier transform in so far as they help us study singularities. So our definition might look unfamiliar. In particular we will define the fourier transform on a neighborhood, which makes sense only on smooth functions supported in this neighborhood. To do this, we need to find a way to make the manifold trivial. 
+
+**<u>Definition:</u>** A **local trvialization** of an open subset $U$ of a smooth $n$ dimensional manifold is a diffeomorphism $\tau: U \to I \times Q$, where $I \subset \mathbb R^k$ is some open subset of $\mathbb R^k$ and $Q$ is a quotient manifold of $U$ of dimension $n - k$.
+
+This is similar to the notion of trivialization of a Fibre bundle over $Q$. By picking a chart we guarantee the existance of trivializations. 
+
+**<u>Theorem:</u>** *(Existance of trivializations)* For any $p \in M$ for some manifol $M$ there exists a trivialization of a neighborhood $U$ of $p$. 
+
+**<u>Example:</u>** Consider a chart $(U,\phi)$ of the manifold $M$. Then $\phi$ is a trivialization of $U$ to $\phi(U) \subset M$. 
+
+But we can define cooler trivializations in a way that they are compatible with the metric. Such trivializations can be given using objects like Killing vectors which are introduced below.  We are building up to building a notion of Fourier transforms on trivializations.  
+
+
+
+## Killing Vector Fields and the Quotient Manifold Theorem
 
 A Fourier transform requires a canonical notion of translation on the manifold. Killing vector fields provide us with one! We will introduce them here and then explore relevant interesting results that will help us define the Fourier transform on certain open subsets of a manifold.
 
-**<u>Definition:</u>** A vector field $X \in \mathfrak{X}(U)$ on some open subset $U \subset M$ of a smooth Riemannian manifold $(M,g)$ is **Killing** if 
+**<u>Definition:</u>** A vector field $X \in \mathfrak{X}(M)$ of a smooth Riemannian manifold $(M,g)$ is **Killing** if 
 
 $$
 \mathcal L_X g =0,
 $$
 
-where $\mathcal L$ is the Lie derivative. 
+where $\mathcal L$ is the Lie derivative. If we can define integral curves from all of $\mathbb R$ for each point of the Manifold then it is **complete**.
 
-In fact any Killing vector field can be thought of as the fundamental vector field of some Lie group action on $M$. The Lie group in question is the isometry group. 
+In fact any Killing vector field can be thought of as the fundamental vector field of some Lie group action on $M$. Let’s see how this works
 
-**<u>Definition:</u>** Given a, open subset $U \subset M$ of a smooth Riemannian manifold $(M,g)$ a **local isometry** is a diffeomorphism $f: U\to U$ such that $f^\ast g = g$. The set of local isometries forms a Lie group known as the **local isometry group of** $U$ denoted by $I_g(U)$. 
+**<u>Theorem:</u>** A complete nonvanishing Killing vector field defines a smooth free proper action of $\mathbb R$ on $M$.
 
-The local isometry group comes with a free (i.e. at no cost to the physicist) defining smooth group action, which can be used to generate the killing vector fields. 
+***Proof:*** Let $X \in \mathfrak X(M)$ be a complete nonvanishing Killing vector field. Then we know that its flow $\phi : \mathbb R \times M \to M$ is a smooth invertible map. To show that $\phi$ is a smooth group action of $\mathbb R$ we use the fundamental property of flows, i.e. $\phi_X(t,\phi_X(s,p)) = \phi(s+t,p)$ for all $p\in M$ and $s,t \in \mathbb{R}$​​. 
+
+To show that it is free we use the fact that if $\phi(t,p) = p$ for some nonzero $t \in \mathbb R$ and $p\in M$ then we know that $\phi(\cdot, p): \mathbb R \to \phi(\mathbb R ,p)$​ is not injective. However, as a diffeomorphism it must be invertible, therefore the action must be free. 
+
+To show that it is proper we will use the fact that $X$ is Killing. Let $C \subset M$ be a compact subset, then $\text{diam\,} C = \text{diam\,}f^{-1}(C)$ because as a metric space the flow of the killing vector does not change the metric. Therfore both $C$ and its preimage are bounded. Now we need to show that it is closed, but this is guaranteed since the flow is smooth. $\Box$  
+
+
+
+This is a pretty cool result, because it means that a complete nonvanishing Killing vector field defines a trivialization. To construct it check out this theorem.
+
+**<u>Theorem:</u>** *(Quotient Manifold Theorem)* Given a smooth manifold $M$ and a free proper $G$ action of some lie group $G$, the orbit set $M/G$ is a smooth manifold of dimension $\dim M - \dim G$. 
+
+**<u>Corollary:</u>** Given a set of $k$ Killing vector fields on a Riemannian manifold $M$ there exists a trivialization $\mathbb{R}^k \times Q$, where $Q$ is the quotient manifold under the product action of the Killing flows.
+
+We are now ready to see why this is amazing!
+
+
+
+## Tempered Distributions
+
+We will define the Fourier transform on trivializations of Manifolds and so far, we have introduced the two most useful trivializations for our purposes. The following discussion will define the Fourier transform on a (large enough) subset of distributions called tempered distributions. Canonical extensions exists of the entirety of $\mathcal D'(U)$. 
+
+We start by defining the set of test functions called the Swartz space $\mathcal J(U)$.
+
+**<u>Definition:</u>** Given a trivialization of an open set $U$ into $I\times Q$ of a smooth manifold, the set of 
 
 
 
