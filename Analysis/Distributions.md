@@ -238,12 +238,6 @@ $$
 \frac{1}{x + i0^{\pm}} = \mathcal P\frac{1}{x} \mp \pi i \delta.
 $$
 
-## Remark on Scwartz Distributions
-
-The set of test functions that we have defined so far is large. Sometimes we might want to restrict that set to functions with special properties. This will help us define things such as the Fourier transform of distributions and so on. Here we will introduce a commonly used set of test functions $\mathcal J(U)$ known as the *Scwarz functions* whose dual is a subspace of $\mathcal D'(U)$. Notice that $\mathcal J(U)$ doesn’t have to be a subset of $\mathcal D(U)$ in order for its dual to be so. 
-
-(ToDo)
-
 
 
 # Localization
@@ -264,7 +258,7 @@ $$
 
 This definition already lends itself into some notion of localization of distribution. For example a distribution compactly supported in $U$​ can then be naturally extended to the entire manifold. 
 
-**<u>Definition:</u>** The set of distributions with compact support on $U$ is denoted by $\mathcal E'(U)$
+**<u>Definition:</u>** The **set of distributions with compact support** on $U$ is denoted by $\mathcal E'(U)$
 
 **<u>Lemma:</u>** $\mathcal E'(U)$ is homeomorphic to the set of continuous linear functionals of $\mathcal C^\infty(U)$
 
@@ -407,7 +401,7 @@ The complications arize when we try to multiply distributions in an associative 
 
 We want to generalize the operation of composition. Since we can compose functions with smooth maps we would like to extend this notion on distributions. 
 
-**<u>Definition:</u>** Let $u \in \mathcal D'(U)$ be a distribution over an open set $U \subset M$ of a manifold $M$ and $\phi : V \to U$ be a diffeomorphism from an open set $V \subset N$ of a manifold $N$. Then the **pullback** of the distribution $u$ is a distribution $\phi^\ast u \in \mathcal D'(V)$ on $V \subset N$ such that for all test functions $f \in \mathcal D(V)$ 
+**<u>Definition:</u>** Let $u \in \mathcal D'(U)$ be a distribution over an open set $U \subset M$ of a manifold $M$ and $\phi : V \to U$ be a diffeomorphism from an open set $V \subset N$ of a manifold $N$. Then the **pullback** of the disan tribution $u$ is a distribution $\phi^\ast u \in \mathcal D'(V)$ on $V \subset N$ such that for all test functions $f \in \mathcal D(V)$ 
 
 $$
 (\phi^\ast u)(f) = \frac{1}{|\det J_\phi|} u(f\circ \phi) = u \left(\frac{f\circ \phi}{|\det J_\phi|} \right),
@@ -484,13 +478,111 @@ We are now ready to see why this is amazing!
 
 
 
-## Tempered Distributions
+## Fourier Transform in $\mathbb R^n$
 
-We will define the Fourier transform on trivializations of Manifolds and so far, we have introduced the two most useful trivializations for our purposes. The following discussion will define the Fourier transform on a (large enough) subset of distributions called tempered distributions. Canonical extensions exists of the entirety of $\mathcal D'(U)$. 
+We start by quickly reviewing the Fourier transform of compactly supported smooth functions of $\mathbb R^n$. Before we do this lets look at this very useful lemma.
 
-We start by defining the set of test functions called the Swartz space $\mathcal J(U)$.
+**<u>Lemma:</u>** Let $U\subset \mathbb{R}^n$ be an open subset, then any compactly supported function or distribution on $U$ is a compactly supported function on $\mathbb R^n$ by the zero extension. 
 
-**<u>Definition:</u>** Given a trivialization of an open set $U$ into $I\times Q$ of a smooth manifold, the set of 
+This just says that of we take a compactly supported function or distribution we can put zeros to the rest of the points and talk about it as if it is on all of $\mathbb R^n$. So it makes sense to study compactly supported distributions and functions in all the space not just an open subset. 
+
+**<u>Definition:</u>** Given a function $f \in \mathcal L^1(\mathbb R^n)$ its **Fourier transform** is a function $\hat f : \mathbb R^n \to \mathbb C$ such that for any $\omega \in \mathbb R^n$
+
+$$
+\hat f(\omega) = \int_{\mathbb R^n} e^{-i \omega \cdot x} f(x)dx
+$$
+
+ **<u>Proposition:</u>** The Fourier transform is bounded and continuous.
+
+***Proof:*** Boundedness comes from Parseval's identity, and continuity comes from sequential convergence under an integral sign. 
+
+**<u>Definition:</u>** If the Fourier transform $\hat f$ of some function $f \in \mathcal L^1(\mathbb R^n)$ is also integrable, then its **inverse Fourier transform** is given by
+
+$$
+f(x) = \frac{1}{(2\pi)^n} \int_{\mathbb R^n} e^{i\omega\cdot x} \hat f(\omega) d\omega
+$$
+
+Now we can have a Fourier transform of functions. However, we want to be able to study it as a linear map between spaces of functions. The best way to do this is using Schwartz functions. Here is how this works.
+
+**<u>Definition:</u>** A **Schwartz function** is any $f\in C^\infty(\mathbb R^n)$ such that 
+
+$$
+\sup_{x\in \mathbb R^n} |x^\beta \partial^\alpha \phi(x)| < \infty
+$$
+
+for any multiindex $\alpha,\beta$. We call the set of all Scwartz functions $\mathcal J(\mathbb R^n)$ and assign it its canonical LF topology in a similar way as we did for $\mathcal D(U)$ turning it into a Frechet space. 
+
+Some reasons for introducing such a set of functions are the following propositions
+
+**<u>Proposition:</u>** The Fourier transform is a continuous linear map $\mathcal F:\mathcal J(\mathbb R^n) \to \mathcal J(\mathbb R^n)$ with inverse $\mathcal F^{-1}$ given by the Fourier inversion formula. 
+
+**<u>Proposition:</u>** $\mathcal D(\mathbb R^n)$ is a dense subset of $\mathcal J(\mathbb R^n)$, and there are canonical inclusions of $\mathcal L^p(\mathbb R^n) \subset \mathcal J'(\mathbb R^n)$ for any $p \geq 1$.
+
+As a result, it is worth studying continuous linear functionals on $\mathcal J$. Here they are
+
+**<u>Definition:</u>** The set of continuous linear functionals of $\mathcal J(\mathbb R^n)$ is known as the set of **tempered distributions** $\mathcal J'(\mathbb R^n)$.
+
+Using some topology we can show that 
+
+**<u>Lemma:</u>** $\mathcal J'(\mathbb R^n)$ is a vector subspace of $\mathcal D'(\mathbb R^n)$
+
+The remark here is that not every distribution has a well defined Fourier transform. However we are interesting in studying compactly supported ones. Therefore we can show the following.
+
+**<u>Proposition:</u>** $\mathcal E'(\mathbb R^n)$ is a vector subspace of $\mathcal J'(\mathbb R^n)$.
+
+Therefore the compactly supported distributions *are* tempered. As a result they have nice Fourier transforms defined. Let's finally see how they are defined.
+
+**<u>Definition:</u>** Let $u \in \mathcal J'(\mathbb R^n)$ be a tempered distribution. Its **Fourier transform** is a tempered distribution $\hat u \in \mathcal J'(\mathbb R^n)$ such that for any tempered function $f \in \mathcal J(\mathbb R^n)$ 
+
+$$
+\hat u(f) = h(\hat f)
+$$
+
+And there we have it! A Fourier transform of distributions, which includes compactly supported ones. In particular, here is a really cool theorem.
+
+**<u>Theorem:</u>** The Fourier transform of any compactly supported distribution $u \in \mathcal E'(\mathbb R^n)$ is regular and is given by the function
+
+$$
+\hat u(\omega) = u(e^{-i \omega\cdot x}), \ \forall \omega \in \mathbb{C}^n
+$$
+
+where we assume that the right hand side is how $u$ acts on functions of $x \in \mathbb R^n$.  Moreover $\hat u$ is an entire function (i.e. holomorphic in the complex plane) 
+
+This is probably one of the coolest theorems here! Not only is the Fourier transform of a compactly supported distribution regular, but it is also entire! We will use this result in the next section to talk about singularities. Before we do so let's extend the definition onto a manifold. 
+
+ 
+
+## Partial Fourier Transforms on Manifolds
+
+A partial Fourier transform is exactly that, a Fourier transform on some of the variables. We will define this for compact functions and distributions. 
+
+**<u>Definition:</u>** Let $f \in \mathcal D(U)$ be a test function on some open subset $U \subset M$ of a Riemannian manifold $M$ with trivialization $\tau : U \to I\times Q$, where $I \subset \mathbb R^k$. Then a **partial Fourier transform** of $f$ in this trivialization is the map obtained by
+
+$$
+\hat f(\omega,p) = \int_{\mathbb R} f\circ \tau(x,p) e^{-i \omega\cdot x} dx
+$$
+
+for any $\omega \in \mathbb C^k, p\in Q$. 
+
+**<u>Remark:</u>** Notice that the partial Fourier transform of $f$ is no longer a test function on $U$, but it is rather a function on $\mathbb C^k \times Q$. This is not bad as we can think of the natural extention of test functions on $U$ as test functions on $\mathcal D(I\times Q)$ and since they have compact support on $I$ they can then be considered as test functions on $\mathcal D(\mathbb R^k \times Q)$, or as we have shown before, test functions of the form $\mathcal D(\mathbb R^k) \times \mathcal D(Q)$. There are canonical identifications of each, related by pullbacks. What we are really doing is that we are taking a function with compact support on some region on a manifold with a trivialization and then we take the fourier transform on the component of the function under the trivialization. 
+
+Let's understand this better through the following lemma. 
+
+**<u>Lemma:</u>** A trivialization $\tau : U \to I \times Q$, where $I \subset \mathbb R^k$, induces an embedding $\epsilon: \mathcal D(U) \to \mathcal D(\mathbb R^k) \times\mathcal D(Q)$. If $U = M$ then $\epsilon$ is an isomorphism. 
+
+The proof uses the canonical extension of functions with compact support on the entire space. 
+
+**<u>Example:</u>** Consider Minkowski space $\mathbb R^{p,q}$, then we can find $p+q$ independent Killing vector fields and create a trivialization $\tau : \mathbb R^{p,q} \to \mathbb R^{p+q}$ as we saw before. In this case the induced embedding $\epsilon$ is also surjective, therefore we can identify the partial Fourier transform of test functions on $\mathbb R^{p,q}$ with test functions in $\mathbb R^{p,q}$ which is great. 
+
+Now that we have this we can proceed with defining the partial Fourier transform of distributions
+
+**<u>Definition:</u>** Let $u \in \mathcal E'(U)$ be a distribution with compact support on some open subset $U \subset M$ with trivialization $\tau:U \to I\times Q$ where $I\subset \mathbb R^k$. Then its **partial Fourier transform** is a distribution $\hat u \in \mathcal D'(\mathbb C^k \times Q)$ such that for any test function $f \in \mathcal D(\mathbb C^k \times Q)$ 
+
+$$
+\hat u(f) = u(\hat f)
+$$
+
+Using the theorem we showed in the previous section we can see that the partial Fourier transform is simply a complex valued distribution on $Q$. 
 
 
 
