@@ -596,9 +596,9 @@ We want to examine the properties of the singularities of distributions. This is
 
 Using the Wavefront Sets we will be able to extend a lot of the properties of functions to distributions including pulling back distributions on submanifolds or writing something similar to Laurent series around a singularity. 
 
+![blobby](_Distributions.assets/blobby.svg)
 
-
-
+This is some text below the figure.
 
 
 
