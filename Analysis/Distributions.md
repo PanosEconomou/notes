@@ -51,9 +51,13 @@ $$
 \omega_\epsilon(x) = \begin{cases}A_\epsilon \exp\frac{-\epsilon^2}{\epsilon^2 - |x|^2} & |x| < \epsilon \\ 0 & |x| \geq \epsilon\end{cases}
 $$
 
-Where $A_\epsilon^{-1} = \int_{|x| \leq \epsilon} \exp\frac{-\epsilon^2}{\epsilon^2 - |x|^2}$. We will see later that sequences of these functions converge to the $\delta$ function under a particular definition of convergence. In fact we will use these as examples to come up with the topology of the set $\mathcal D(U)$ in more generality. 
+Where $A_\epsilon^{-1} = \int_{|x| \leq \epsilon} \exp\frac{-\epsilon^2}{\epsilon^2 - |x|^2}$. We will see later that sequences of these functions converge to the $\delta$ function under a particular definition of convergence. In fact we will use these as examples to come up with the topology of the set $\mathcal D(U)$ in more generality. Here is a picture of them
 
-Before we add a topology, let’s consider a special set of functions called bump functions. We will define it in general manifolds because we will use it later anyway. 
+  ![image-20240617191532637](_Distributions.assets/image-20240617191532637.png)
+
+
+
+Before we add a topology, let’s consider a special set of functions called *bump functions*. We will define it in general manifolds because we will use it later anyway. 
 
 **<u>Theorem:</u>** *(Existance of bump functions)* Consider a manifold $M$ and a compact subset $A \subset M$, and $B\subset M$ is an open subset that contains $A$. Then there exists a smooth function $\eta_A: M \to [0,1]$ such that
 
@@ -67,7 +71,9 @@ $$
 
 **<u>Corollary:</u>** Given an open subset $U \subset M$ for any compact subset $A \subset U$ there exists a bump function $\eta_A \in \mathcal D(U)$. 
 
-***Note:*** We sometimes call bump functions characteristic functions. 
+***Note:*** We sometimes call bump functions characteristic functions. Here is an illustration of what we have constructed. 
+
+![bump](_Distributions.assets/bump.svg)
 
 The more interesting theorem is the partitions of unity which we borrow directly from geometry
 
@@ -403,15 +409,21 @@ The complications arize when we try to multiply distributions in an associative 
 
 ## Pullback of Distributions
 
-We want to generalize the operation of composition. Since we can compose functions with smooth maps we would like to extend this notion on distributions. 
+We want to generalize the operation of composition. Since we can compose functions with smooth maps we would like to extend this notion on distributions. We start by defining the pullback of functions.
 
-**<u>Definition:</u>** Let $u \in \mathcal D'(U)$ be a distribution over an open set $U \subset M$ of a manifold $M$ and $\phi : V \to U$ be a diffeomorphism from an open set $V \subset N$ of a manifold $N$. Then the **pullback** of the disan tribution $u$ is a distribution $\phi^\ast u \in \mathcal D'(V)$ on $V \subset N$ such that for all test functions $f \in \mathcal D(V)$ 
+**<u>Definition:</u>** Let $\phi:U\to V$ be a diffeomorphism from an open set $V \subset N$ of a manifold $N$. Then the **pullback of a function** $f: V \to X$ where $X$ is some set, is given by
 
 $$
-(\phi^\ast u)(f) = \frac{1}{|\det J_\phi|} u(f\circ \phi) = u \left(\frac{f\circ \phi}{|\det J_\phi|} \right),
+\phi^\ast  f = f \circ \phi : U \to X
 $$
 
-where $J_\phi$ is the Jacobian of the diffeomorphism.
+An interesting property of the pullback is as follows.
+
+**<u>Proposition:</u>** $\phi^\ast : C^\infty(V) \to C^\infty(U) $ is continuous if its jacobian $J_\phi(x)$ is surjective for all $x \in U$. 
+
+To define the pullback of distributions is a bit trickier. We take advantage of the fact that $\mathcal D(U)$ is dense in $\mathcal D'(U)$ under the canonical identification of test functions with distributions that we described before. Therefore every distribution can be thought of as a limit of test functions. As a result, we can define this by proxy using the following theorem. 
+
+**<u>Theorem:</u>** Let $U \subset M$ and $V\subset N$ be open sets of Riemannian manifolds related by a smooth map $\phi:U \to V$ such that $J_\phi(x)$ is surjective for any $x \in U$. Then there is a unique continuous linear map $\phi^\ast : \mathcal D'(V) \to \mathcal D'(U)$ such that if $v \in \mathcal D'(V)$ is a regular distribution defined by a function $f \in \mathcal D(V)$, then $\phi^\ast v \in \mathcal D'(U)$ is a regular distribution defined by the function $\phi^\ast f \in \mathcal D(U)$. 
 
 The following proposition sums up some properties of the pullback. Notice that we denote the pullback of functions $f \in \mathbb{C}^\infty(U)$ as $\phi^\ast f = f\circ \phi$. 
 
@@ -421,6 +433,34 @@ The following proposition sums up some properties of the pullback. Notice that w
 2. $\phi^\ast (fu) = (\phi^\ast f) (\phi^\ast u)$
 
 **<u>Example:</u>** Consider an automorphism $\phi : U\to U$ such that $\phi(p) = q$, and $\det J_\phi(p) = 1$. Then $\phi^\ast \delta_q = \delta_p$.
+
+
+
+## First Attempt at Product of Distributions
+
+We have an outer product and a pullback, then it would make sense to try and define a product of distributions by pulling back the outer product from the diagonal map. This actually tends to work for some of them. As we move on we will figure out the condition under which the following is well defined. 
+
+**<u>Definition:</u>** Let $X$ be a set. Its **diagonal map** $\Delta_X : X \to X\times X $ is the embedding $x \mapsto (x,x)$. 
+
+![diagonal_map](_Distributions.assets/diagonal_map.svg)
+
+Then with the diagonal map, we can do the following.
+
+**<u>Definition:</u>** Let $u,v \in \mathcal D'(M)$ of some smooth Riemannian manifold $M$, then their product is defined as the distribution $u\cdot v \in \mathcal D'(M)$ as
+
+$$
+u\cdot v = \Delta_X^\ast (u\times v).
+$$
+
+**<u>Remark:</u>** Often this product is not defined. Consider for example $\delta \in \mathcal D'(\mathbb R)$. Then if we take
+
+$$
+\delta \cdot \delta = \Delta^\ast_{\mathbb R} \delta \times \delta
+$$
+
+We see that the pullback of $\delta \times \delta$ is not defined under this map, therefore we should start to struggle. This will eventually evolve into the criteria for multiplication of distributions using wavefront sets. 
+
+**<u>Example:</u>** Let $u,v \in \mathcal D'(U)$ be regular distributions obtained from some functions $f,g \in \mathcal L^1(U)$. Then $u\cdot v$ is the regular distribution obtained from the function $f\cdot g$, which is a property that we want our product to satisfy. Soon we will see the same thing for local distributions where we are going to have much more fun!
 
 
 
@@ -499,7 +539,7 @@ This just says that of we take a compactly supported function or distribution we
 **<u>Definition:</u>** Given a function $f \in \mathcal L^1(\mathbb R^n)$ its **Fourier transform** is a function $\hat f : \mathbb R^n \to \mathbb C$ such that for any $\omega \in \mathbb R^n$
 
 $$
-\hat f(\omega) = \int_{\mathbb R^n} e^{-i \omega \cdot x} f(x)dx
+\hat f(\omega) = \int_{\mathbb R^n} e^{-i \omega \cdot x} f(x)dx.
 $$
 
  **<u>Proposition:</u>** The Fourier transform is bounded and continuous.
@@ -509,7 +549,7 @@ $$
 **<u>Definition:</u>** If the Fourier transform $\hat f$ of some function $f \in \mathcal L^1(\mathbb R^n)$ is also integrable, then its **inverse Fourier transform** is given by
 
 $$
-f(x) = \frac{1}{(2\pi)^n} \int_{\mathbb R^n} e^{i\omega\cdot x} \hat f(\omega) d\omega
+f(x) = \frac{1}{(2\pi)^n} \int_{\mathbb R^n} e^{i\omega\cdot x} \hat f(\omega) d\omega.
 $$
 
 Now we can have a Fourier transform of functions. However, we want to be able to study it as a linear map between spaces of functions. The best way to do this is using Schwartz functions. Here is how this works.
@@ -517,7 +557,7 @@ Now we can have a Fourier transform of functions. However, we want to be able to
 **<u>Definition:</u>** A **Schwartz function** is any $f\in C^\infty(\mathbb R^n)$ such that 
 
 $$
-\sup_{x\in \mathbb R^n} |x^\beta \partial^\alpha \phi(x)| < \infty
+\sup_{x\in \mathbb R^n} |x^\beta \partial^\alpha \phi(x)| < \infty,
 $$
 
 for any multiindex $\alpha,\beta$. We call the set of all Scwartz functions $\mathcal J(\mathbb R^n)$ and assign it its canonical LF topology in a similar way as we did for $\mathcal D(U)$ turning it into a Frechet space. 
@@ -569,7 +609,7 @@ A partial Fourier transform is exactly that, a Fourier transform on some of the 
 **<u>Definition:</u>** Let $f \in \mathcal D(U)$ be a test function on some open subset $U \subset M$ of a Riemannian manifold $M$ with trivialization $\tau : U \to I\times Q$, where $I \subset \mathbb R^k$. Then a **partial Fourier transform** of $f$ in this trivialization is the map obtained by
 
 $$
-\hat f(\omega,p) = \int_{\mathbb R} f\circ \tau(x,p) e^{-i \omega\cdot x} dx
+\hat f(\omega,p) = \int_{\mathbb R} f\circ \tau^{-1}(x,p) e^{-i \omega\cdot x} dx,
 $$
 
 for any $\omega \in \mathbb C^k, p\in Q$. 
@@ -589,26 +629,134 @@ Now that we have this we can proceed with defining the partial Fourier transform
 **<u>Definition:</u>** Let $u \in \mathcal E'(U)$ be a distribution with compact support on some open subset $U \subset M$ with trivialization $\tau:U \to I\times Q$ where $I\subset \mathbb R^k$. Then its **partial Fourier transform** is a distribution $\hat u \in \mathcal D'(\mathbb C^k \times Q)$ such that for any test function $f \in \mathcal D(\mathbb C^k \times Q)$ 
 
 $$
-\hat u(f) = u(\hat f)
+\hat u(f) = u(\hat f).
 $$
 
 Using the theorem we showed in the previous section we can see that the partial Fourier transform is simply a complex valued distribution on $Q$. 
 
 
 
+## Local Convolutions
+
+Having a Fourier transform one could think that we can locally multiply distributions by the property of the Fourier transform and its convolution. Let’s first introduce these concepts and then see when this multiplication fails.
+
+**<u>Definition:</u>** Let $f,g \in \mathcal D(U)$ be test functions on an open subset $U\subset M$ of a Riemannian manifold with trivialization $\tau : U\to I\subset \mathbb R^n$. Then the **convolution** of the two functions is defined as the test function $f\ast g \in \mathcal D(U')$ given by
+
+$$
+f \ast g (\tau^{-1}(x)) = \int_{\mathbb R^n} f\circ \tau^{-1}(y) \cdot g\circ \tau^{-1}(x-y) dx,
+$$
+
+for any $x\in \tau(U)$, where the distribution is supported in 
+
+$$
+U' = \text{supp\,}f +_\tau \text{supp\,}g \coloneqq \{\tau^{-1}(p+q) \mid p \in \tau(\text{supp\,}f),\ q \in \tau(\text{supp\,}g) \}.
+$$
+
+**<u>Remark:</u>** Notice that the convolution is not defined between any two aribitrary test functions. It is defined as long as $U' \subset U$. Also this definition amounds to going to the trivialization and doing the convolution there. 
+
+This is a severely restricted version of the convolution we are used to in $\mathbb R^n$, but it still works well in this case. We can, in fact, define convolutions of distributions.
+
+**<u>Definition:</u>** Let $f \in \mathcal D(U)$ and $u \in \mathcal D'(U)$ for some $U$ with trivialization $\tau : U \to I \subset \mathbb R^k$, then their **convolution** is the smooth function $u\ast f \in C^\infty(U)$ such that for any $x \in \tau(U)$ 
+
+$$
+(u\ast f)(\tau^{-1}(x)) = u(f \circ \tau^{-1}(x - \cdot)),
+$$
+
+where $f \circ \tau^{-1}(x - \cdot)$ is the translated funtoin by $x$. 
+
+**<u>Corollary:</u>** $\text{supp\,}u\ast f \subset \text{supp\,}u +_\tau \text{supp\,}f$​
+
+The convolution of distributions with each other is also defined but only as long as one has compact support. Here is how it works.
+
+**<u>Definition:</u>** Let $u \in \mathcal E'(U)$ and $v \in \mathcal D'(U)$ on some $U$ with trivialization $\tau: U\to I \subset \mathbb R^n$. Then their **convolution** is the unique distribution $u\ast v \in \mathcal D'(U)$ such that for any test function $f \in \mathcal D(U)$
+
+$$
+u\ast v(f) = u(v\ast f) = v(u\ast f).
+$$
+
+> **<u>Remark:</u>** Notice that in this version, the convolution of the distributions depends on the trivialization. Often in physics there is a canonical choice of trivialization such as the one on Minkowski space. In essence by picking a trivialization we are picking a notion of translation on the open set we are working with. Therefore this is why it can very easily happen that we can pick trivializations such that the convolution is not defined. Having fixed a trivialization, however, the rest of the properties that we will derive hold. 
+
+Here is a common property that becomes subtly annoying in this generalization.
+
+**<u>Proposition:</u>** Let $f,g \in \mathcal D(U)$ on some $U$ with trivialization $\tau : U \to I\subset \mathbb R^n$ then,
+
+$$
+\mathcal F(f\ast g) = \mathcal F(f ) \cdot \mathcal F(g).
+$$
+
+This looks familiar, but it is no longer a function on $U \subset M$, it is rather a function on $\mathbb C^n$ so there is no standard way to take its inverse fourier transform. Yet, we can still extract a lot of features by studying functions in this way! In fact we can see that if this doesn’t have an inverse fourier transform in $\mathbb C^n$ then it definitely doesn’t have a product as distributions! 
+
+
+
+
+
 # Singular Analysis
 
-We want to examine the properties of the singularities of distributions. This is particularly applicable in physics in Conformal Field Theory where we look at expansions of products of local distributions near their singularities. The main tool we are going to develop is the *Wavefront Set* of a distribution. This will be a collection of one forms in the cotangent space that we will interpret as the wavefronts caused by the presence of a singularity in the distribution. I promise this will make sense as this goes along. 
+We want to examine the properties of the singularities of distributions. This is particularly applicable in physics in Conformal Field Theory where we look at expansions of products of local distributions near their singularities. The main tool we are going to develop is the *Wave Front Set* of a distribution. This will be a collection of points in the cotangent bundle that we will interpret as the wavefronts caused by the presence of a singularity in the distribution. I promise this will make sense as this goes along. 
+
+Using the Wavefront Sets we will be able to extend a lot of the properties of functions to distributions including pulling back distributions on submanifolds, writing something similar to Laurent series around a singularity, or even multiplication of distributions.
+
+## Distinguishing Regularity Using Fourier Transforms
+
+Let’s limit our scope to studying compactly supported distributions, i.e. elements of $\mathcal E'(U)$ on an open subset $U$ of a Riemannian manifold. One useful fact is the following.
+
+**<u>Theorem:</u>** Let $u \in \mathcal E'(U)$ on some trivializable open subset of a Riemannian manifold. Then $u$ is a regular distribution obtained from $f \in \mathcal D(U)$ if and only if
+
+$$
+|\hat u(\omega)| \leq C_N (1+|\omega|)^{-N},
+$$
+
+for all $N\in \mathbb N$, $\omega \in \mathbb R^n$ and arbitrary constants $C_N \in \mathbb R^+$. 
+
+This is a really powerful theorem and the proof comes from the continuity of the Fourier transform as a map between the scwartz functions or tempered distributions (In fact we recognize that this is parseval’s equality bounded by all the possible seminorms induced by the canonical LF topology on $\mathcal J(U)$). 
+
+What the theorem tells us is that the behavior of the Fourier transform at infinity tells us about the singular structure of the distribution. Lets see some examples. 
+
+**<u>Example:</u>** *(The Delta function)* The fourier transform of the delta function $\delta \in \mathcal E'(\mathbb R^n)$ is the map $1$ which takes the value $1$ everywhere. In fact if we multiply it with any compact envelope function, such as $\omega_\epsilon$, the distribution $\omega_\epsilon \cdot \delta$ has compact support in a ball of radius $\epsilon > 0$. For any $\epsilon > 0$ the fourier transform of $\omega_\epsilon \cdot \delta$ is always $1$. However if we translate $\omega_\epsilon$ by any nontrivial translation, then there exists an $\epsilon$ such that the fourier transform is regular (in fact it is zero in this case). This gives us a hint that there is a singularity around $0$ for the distribution $\delta$. In fact we already know there is one since $\text{sing\,supp\,}\delta = \{0\}$. 
+
+**<u>Example</u>** *(The Causal Propagator)* We have already defined the distribution of the causal propagator as
+
+$$
+\frac{1}{x + i0} \coloneqq \lim_{\epsilon \to 0} \frac{1}{x + i\epsilon}.
+$$
+
+We can see that the its fourier transform is given by
+
+$$
+\mathcal F \left[\frac{1}{x+i0}\right] (\omega) = e^{-\epsilon \omega} h(\Re\, \omega),
+$$
+
+where $h$ is the Heaviside function. Here is a plot of how this looks like (this actually isn’t how it looks like but the intuition is correct. It’s just that the correct drawing on the left was harder to draw so I plotted something similar to its magniture squared, still works though)
+
+![singular-fourier](_Distributions.assets/singular-fourier.svg)
+
+As we can see at the limit, the Fourier transpose is simply $h(\Re\, \omega)$​ which doesn’t satisfy the convergence criterion that we have been describing, which implies that there is a singularity for any neighborhood around zero.
 
 
 
-## Wavefront Sets
+## Conic Neighborhoods and Smoothness of Distributions
 
-Using the Wavefront Sets we will be able to extend a lot of the properties of functions to distributions including pulling back distributions on submanifolds or writing something similar to Laurent series around a singularity. The figure below shows a picture of some wavefront set for some distribution $u \in \mathcal D(U)$ with singularities at $p,q \in U \subset M$. 
+What we have seen is two examples of distribution whose Fourier transform does not converge  fast enough when they have a singularity. But they don’t seem to be going to infinity the same way. The Fourier transform of the delta function is going to infinity from any direction, but the one of the causal propagator is going only in the positive directions. We want to find a way to quantify this. We do this using conic neighborhoods.
+
+**<u>Definition:</u>** A **conic neighborhood** around a point $X_0 = (p,X_p) \in T^\ast M$ is an open subset $C \subset T^\ast M$ of the cotangent bundle such that $X_0 \in C$ and for any $\alpha > 0$ and $X \in C$ then $\alpha X \in C$. 
+
+
+
+When we think of smoothness of a function we usually check if all the directional derivatives exist and are continuous. We could port it in the sense of distributions, but all their derivatives exist already. This doesn’t mean that they’re smooth though, because we could have things like Heaviside distribution which is not smooth as a function. Additionally, we want smoothness to be a local property, and the distributional derivative is *not* a local operator. 
+
+Therefore our notion of smoothness should be upgraded. Interestingly, unlike a function, a distribution can be smooth 
+
+
+
+
+
+ The figure below shows a picture of some wavefront set for some distribution $u \in \mathcal D(U)$ with singularities at $p,q \in U \subset M$. 
 
 ![blobby](_Distributions.assets/blobby.svg)
 
-The wavefront set is some kind of conical subset of the cotangent space of the manifold where the directions point in some special way. We will construct it explicitly in this section, but before we do so
+The wavefront set is some kind of conical subset of the cotangent space of the manifold where the directions point in some special way. We will construct it explicitly in this section, but before we do so lets understand what all these conical stuff are.
+
+
 
 
 
