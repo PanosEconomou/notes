@@ -821,7 +821,7 @@ What we have seen is two examples of distribution whose Fourier transform does n
 
 Here is a picture of one (lol I learned how to draw diagrams and now I can’t stop).
 
-![conic neighborhood](_Distributions.assets/conic neighborhood.svg)
+![conic neighborhood](_Distributions.assets/conic-neighborhood.svg)
 
 When we think of smoothness of a function we usually check if all the directional derivatives exist and are continuous. We could port it in the sense of distributions, but all their derivatives exist already. This doesn’t mean that they’re smooth though, because we could have things like Heaviside distribution which is not smooth as a function. Additionally, we want smoothness to be a local property, and the distributional derivative is *not* a local operator. 
 
