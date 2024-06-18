@@ -476,9 +476,9 @@ The goal of these notes is to study distributions in a local sense in order to p
 
 We want to introduce Fourier transform in so far as they help us study singularities. So our definition might look unfamiliar. In particular we will define the fourier transform on a neighborhood, which makes sense only on smooth functions supported in this neighborhood. To do this, we need to find a way to make the manifold trivial. 
 
-**<u>Definition:</u>** A **local trvialization** of an open subset $U$ of a smooth $n$ dimensional manifold is a diffeomorphism $\tau: U \to I \times Q$, where $I \subset \mathbb R^k$ is some open subset of $\mathbb R^k$ and $Q$ is a quotient manifold of $U$ of dimension $n - k$.
+**<u>Definition:</u>** A **local trvialization** of an open subset $U$ of a smooth $n$ dimensional manifold is a diffeomorphism $\tau: U \to I \times Q$, where $I \subset \mathbb R^k$ is some open subset of $\mathbb R^k$ and $Q$ is a quotient manifold of $U$ of dimension $n - k$. If the trvialization is a diffeomorphism to an open subset of $\mathbb R^n$ we call it a **chart.** 
 
-This is similar to the notion of trivialization of a Fibre bundle over $Q$​. Here is a picture that schematically denotes a trivialization,
+This is similar to the notion of trivialization of a Fibre bundle over $Q$​. Here is a picture that schematically denotes a trivialization.
 
 ![trvializations](_Distributions.assets/trvializations.svg)
 
@@ -524,7 +524,9 @@ Here is a pictire of a complete killing vector field with its integral curves.
 
 ![killing-vector-field](_Distributions.assets/killing-vector-field.svg)
 
-We can see how we could quotient the manifold by equivalence classes of the integral curves and obtain something nice looking like $\mathbb R $ along the fibers.  This is one of the nicest trvializations we can do in order to define local Fourier transform on Riemannian manifolds. 
+We can see how we could quotient the manifold by equivalence classes of the integral curves and obtain something nice looking like $\mathbb R $​ along the fibers.  This is one of the nicest trvializations we can do in order to define local Fourier transform on Riemannian manifolds. 
+
+We can take this a step further though. In every neighborhood we can find local coordinate vector fields
 
 
 
@@ -600,9 +602,85 @@ where we assume that the right hand side is how $u$ acts on functions of $x \in 
 
 This is probably one of the coolest theorems here! Not only is the Fourier transform of a compactly supported distribution regular, but it is also entire! We will use this result in the next section to talk about singularities. Before we do so let's extend the definition onto a manifold. 
 
- 
 
-## Partial Fourier Transforms on Manifolds
+
+## Fourier Transform as a Map of Bundles
+
+This is very nice so far, but we have use the canonical inner product in $\mathbb R^n$ in order to define it. The cool thing is that we can use anything else to do so! In fact we can get rid of the dependence in the transform bby mapping to the dual space instead of the same one. 
+
+**<u>Proposition:</u>** An inner product $g : \mathbb R^n \times \mathbb R^n \to \mathbb R$ on $\mathbb R^n$ induces a diffeomorphism $g : \mathbb R^n \to (\mathbb R^n)^\ast$ such that $x \mapsto g(x,\cdot )$. 
+
+**<u>Corollary:</u>** There exists a canonical homeomorphism between $\mathcal J (\mathbb R^n)$ and $\mathcal J ((\mathbb R^n)^\ast)$. 
+
+Using this corollary we can define the Fourier transform of $u \in \mathcal J(\mathbb R^n)$ such that for any $\omega \in (\mathbb R^n)^\ast$
+
+$$
+\hat u(\omega) = \int_{\mathbb R^n} u(x)e^{-i\omega(x)} dx
+$$
+
+Everything else can be casted into this definition. Now we are ready to move onto manifolds. 
+
+
+
+## Local Fourier Transforms on Manifolds
+
+Surprisingly, the Fourier transform, at its core is a local object. In this section we will explore a general definition of a local Fourier transform find some cool properties and also show how the Fourier transform in the real numbers is a special case of the local one on a manifolds.
+
+We first start with the fact that each chart defines a trivialization of the manifold that in turn defines an exponential map of some neighborhood of the identity of of the tangent space to the manifold. Here is how it works.
+
+**<u>Theorem:</u>** Given a Riemannian manifold $M$ and $p \in M$ there exists a neighborhood $U \subset M$ of $p$ where the diffeomorpshism 
+
+$$
+\exp_p : T_p M \supset \log U\to U
+$$
+
+ where $\log U \subset T_pM$ is a neighborhood of the identity of $T_pM$, is defined such that for any $X \in T_pM$, 
+
+$$
+\exp_pX = e^{X_p}=\gamma_X(1),
+$$
+
+where $\gamma_X : I \to U$ is the integral curve of $X$ such that $\gamma(0) = p$. This map is known as the **exponential map based at** $p$​. When the choice of base point is clear from context we drop it from the notation. In the case of Riemannian Manifolds we can always find a basis in local Killing vector fields for the Tangent space. 
+
+![exponential-map](_Distributions.assets/exponential-map.svg)
+
+Notice that the exponential map is only locally defined, in the case of Lie groups the exponential map definition is cannonically associated with the exponential map of the connected component to the identity. 
+
+This might seem a bit restrictive, but we will soon see that it is not. Let’s try to define a local Fourier transform on a chart.
+
+**<u>Definition:</u>** Let $(M,g)$ be a Riemannian Manifold, and $U \subset M$ be a chart of $p$. Then the **local Fourier transform** at $p \in U$ is a continuous map $\mathcal F_p : \mathcal D(U) \to \mathcal C^\infty(T^*M)$ such that any $f \in \mathcal D(U)$ is mapped to
+
+$$
+\mathcal F_p [f](\omega) =\hat f(\omega) \coloneqq \int_{T_pM} f(e^X)e^{-i\omega(X)}dX,
+$$
+
+where $dX$ is the measure induced in the tangent space via the metric $g$​, for any $\omega \in T_p^\ast M$.
+
+**<u>Remark:</u>** Since there is an identification of a subset of the tangent space with the sbset of the manifold we can simply think that this is the natural Fourier transform we defined previously, where we have made the identification of $\mathbb R^n$ with the cotangent space. The only issue is that the local Fourier transform is not invertible in general.
+
+We can extend this definition to locally supported distributions in a similar fasion.
+
+**<u>Definition:</u>** Let $u \in \mathcal E'(U)$ where $U \subset M$ is a chart of $p\in M$ on a Riemannian Manifold. Then the **local Fourier transform of $u$ at $p$** is a distribution $\mathcal Fu \in \mathcal D'(T_p^\ast M)$ such that, for any $f \in \mathcal D(T_p^\ast M)$
+
+$$
+\mathcal F u( f) = \hat u(f) = u(\hat f)
+$$
+
+**<u>Remark:</u>** That the fourier transform of $f$ is taken as a function of the cotangent bundle.
+
+The theorem we have shown before still holds though. 
+
+**<u>Theorem:</u>** The local Fourier transform at $p \in U$ of a compactly supported distribution $u \in \mathcal E'(U)$ is regular and is generated by the smooth function 
+
+$$
+\hat u(\omega) = u(e^{-i\omega(\cdot)}).
+$$
+
+This is all we need from Fourier transforms really. The rest is an alternate way to define the Fourier transform in greater generality that it becomes slightly unhelpful after a while. One can safely skip. 
+
+
+
+## Partial Fourier Transforms on Manifolds*
 
 A partial Fourier transform is exactly that, a Fourier transform on some of the variables. We will define this for compact functions and distributions. 
 
@@ -636,7 +714,7 @@ Using the theorem we showed in the previous section we can see that the partial 
 
 
 
-## Local Convolutions
+## Local Convolutions*
 
 Having a Fourier transform one could think that we can locally multiply distributions by the property of the Fourier transform and its convolution. Let’s first introduce these concepts and then see when this multiplication fails.
 
@@ -723,10 +801,11 @@ $$
 We can see that the its fourier transform is given by
 
 $$
-\mathcal F \left[\frac{1}{x+i0}\right] (\omega) = e^{-\epsilon \omega} h(\Re\, \omega),
+\mathcal F \left[\frac{1}{x+i0}\right] (\omega) = \lim_{\epsilon\to 0}e^{-\epsilon \omega} h(- \omega), = h(-
+\omega)
 $$
 
-where $h$ is the Heaviside function. Here is a plot of how this looks like (this actually isn’t how it looks like but the intuition is correct. It’s just that the correct drawing on the left was harder to draw so I plotted something similar to its magniture squared, still works though)
+where $h$ is the Heaviside function. Here is a plot of how this looks like (Notice that I am plotting the absolute value on the left side. The actual function is complex valued so it doesn’t make sense).
 
 ![singular-fourier](_Distributions.assets/singular-fourier.svg)
 
