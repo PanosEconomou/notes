@@ -259,7 +259,7 @@ F(h) = \int_{U} \frac{g(z)}{(z-s)^k} h(z,\bar z)dvol,
 $$
 
 
-  
+
 
 
 
@@ -398,7 +398,7 @@ Therefore $\frac{dH}{dx} = \delta$.
 
 This definition also gives us our first steps towards thinking of distributions as the right object to do PDEs with. In fact we can now talk about fundamental solutions!
 
-**<u>Defintion:</u>** Given a smooth linear differential operator $P$ a **fundamental solution** of the differential equation defined by $P$ in an open subset $U$ of a manifold relative to some point $p \in U$ is a distribution $G_p \in \mathcal D'(U)$ such that
+**<u>Definition:</u>** Given a smooth linear differential operator $P$ a **fundamental solution** of the differential equation defined by $P$ in an open subset $U$ of a manifold relative to some point $p \in U$ is a distribution $G_p \in \mathcal D'(U)$ such that
 
 $$
 PG_p = \delta_p.
@@ -491,11 +491,11 @@ The goal of these notes is to study distributions in a local sense in order to p
 
 ## Local Trivializations
 
-We want to introduce Fourier transform in so far as they help us study singularities. So our definition might look unfamiliar. In particular we will define the fourier transform on a neighborhood, which makes sense only on smooth functions supported in this neighborhood. To do this, we need to find a way to make the manifold trivial. 
+We want to introduce Fourier transform in so far as they help us study singularities. So our definition might look unfamiliar. In particular we will define the Fourier transform on a neighborhood, which makes sense only on smooth functions supported in this neighborhood. To do this, we need to find a way to make the manifold trivial. 
 
 **<u>Definition:</u>** A **local trvialization** of an open subset $U$ of a smooth $n$ dimensional manifold is a diffeomorphism $\tau: U \to I \times Q$, where $I \subset \mathbb R^k$ is some open subset of $\mathbb R^k$ and $Q$ is a quotient manifold of $U$ of dimension $n - k$. If the trvialization is a diffeomorphism to an open subset of $\mathbb R^n$ we call it a **chart.** 
 
-This is similar to the notion of trivialization of a Fibre bundle over $Q$​. Here is a picture that schematically denotes a trivialization.
+This is similar to the notion of trivialization of a Fiber bundle over $Q$​. Here is a picture that schematically denotes a trivialization.
 
 ![trvializations](_Distributions.assets/trvializations.svg)
 
@@ -958,7 +958,17 @@ The definition is a bit clunky, but the intuition is not. Two distributions can 
 
  
 
+## Operator Product Expansions
 
+We can now play around and define operator product expansions which are particularly nice series representations of operators. Here is the theorem.
+
+**<u>Theorem:</u>** Let $u,v \in \mathcal D'(U)$, then their outer product $u\times v \in \mathcal D'(U\times U)$ is such that for any $N \in \mathbb N$ and  $\epsilon > 0$ there exists a compact subset $A_N \subset U\times U$ with support function $\eta_N$ such that for all $f \in \mathcal D(U\times U)$
+
+$$
+[\eta_N \cdot (u\times v)] (f) = \left[\sum_{n = 0}^N C_n(x-y) \cdot \omega_k  + \mathcal O_N\right](f),
+$$
+
+for fixed smooth functions $C_n \in \mathcal D(U\times U)$ 
 
 
 
