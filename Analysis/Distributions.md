@@ -226,7 +226,7 @@ Then every delta sequence converges to the delta function, i.e. $\delta_p^k \to 
 
 Delta sequences are super powerful in prooving things because we can use them to construct averages of a function around a point. One such delta sequence is the bump functions $\omega_\epsilon \in \mathcal D(\mathbb R)$ we described earlier.
 
-**<u>Example:</u>** *(The principal value)* We define the complex valued distribution $\mathcal P\frac{1}{x} \in \mathcal D'(\mathbb C)$ such that for any test function $f \in \mathcal D(\mathbb C)$ 
+**<u>Example:</u>** *(The principal value)* We define the  distribution $\mathcal P\frac{1}{x} \in \mathcal D'(\mathbb R)$ such that for any test function $f \in \mathcal D(\mathbb R)$ 
 
 $$
 \mathcal P\frac{1}{x} (f) = P.V. \int_\mathbb R \frac{f(x)}{x} dx = \lim_{\epsilon \to 0} \left[\int_{-\infty}^{-\epsilon} \frac{f(x)}{x} dx + \int_{\epsilon}^\infty \frac{f(x)}{x} dx\right].
@@ -243,6 +243,23 @@ Therefore we can define the following super cool and helpful distributions
 $$
 \frac{1}{x + i0^{\pm}} = \mathcal P\frac{1}{x} \mp \pi i \delta.
 $$
+
+**<u>Example:</u>** *(Distributions from analytic functions with finite order poles)* Let $f$ be an analytic function on the complex plane with the exception of a discrete set $S \subset \mathbb C$ of poles. Consider a pole $s \in S$, then we know that there exists an open bounded neighborhood $U \subset \mathbb C$ of $s$ and an analytic function $g: U \to \mathbb C$ such that for any $z \in U\setminus \{s\}$ 
+
+$$
+f(z) = \frac{g(z)}{(z-s)^k},
+$$
+
+for some $k \in \mathbb N$. 
+
+Then there is a unique distribution $F \in \mathcal D'(\mathbb C)$ such that for any test function $h \in \mathcal D(U)$ 
+
+$$
+F(h) = \int_{U} \frac{g(z)}{(z-s)^k} h(z,\bar z)dvol,
+$$
+
+
+  
 
 
 
