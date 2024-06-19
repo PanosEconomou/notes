@@ -81,72 +81,26 @@ The next step is to talk about the concept of a **field operator**. This is a bi
 
 The central object of quantum mechanics is not really the value of the field itself, but rather expectation values of stuff. We don’t care about what happens at a particular point, we always care about what happens on average in a region (that could be arbitrarily small). By restricting ourselves to thinking about functions we are loosing the ability to talk about regions. Perhaps some functions are not ingerable in some regions, or perhaps some information about a region could not be expressed in terms of functions. That’s why we create distributions. So we are going to use those to define our field operators.
 
-**<u>Definition:</u>** A **field operator** or a **quantum field** is an operator valued distribution on some manifold $M$, i.e. a map
+**<u>Definition:</u>** An **operator valued distribution** on an open subset $U \subset M$ of a (pseudo-) Riemannian manifold $M$ is a continuous linear map $u \in \mathcal D'(U,\mathbb H)$ of the form $u : \mathcal D(U) \to \mathcal O(\mathbb H)$, where $\mathcal D(U)$ is the space of compactly supported test functions on $U$ defined [here](../Analysis/Distributions.md). 
+
+**<u>Definition:</u>** A **field operator** or a **quantum field** is a local operator valued distribution on some manifold $M$, i.e. a linear map
 
 $$
-\Phi:\mathcal{J}(M) \to \mathcal{O}(\mathbb{H})
+\Phi:\mathcal{D}(M) \to \mathcal{O}(\mathbb{H})
 $$
 
 such that there exists a dense subspace $D\subset \mathbb{H}$ where
 
-1. For all $f\in \mathcal{J}(M)$ we have that $D\subset D_{\Phi(f)}$.
-2. The induced map $\mathcal{J}(M) \to \text{End}(D), f\mapsto \left.\Phi(f)\right|_D$ is linear. 
-3. For all $v\in D$ and $w \in \mathbb{H}$ the map $f \mapsto \langle w,\Phi(f)(v)\rangle$ is a tempered distribution on $M$. 
+1. For all $f\in \mathcal{D}(M)$ we have that $D\subset D_{\Phi(f)}$.
+2. The induced map $\mathcal{D}(M) \to \text{End}(D), f\mapsto \left.\Phi(f)\right|_D$ is linear. 
+3. For all $v\in D$ and $w \in \mathbb{H}$ the map $f \mapsto \langle w,\Phi(f)(v)\rangle$ is a distribution on $M$. 
+4. $\text{sing\,supp\,} \Phi$ has measure $0$ on $M$.
 
-Where $\mathcal{J}(M)$ is the set of rapidly decaying (Schwartz) functions on $M$. The **set of all field operators** is denoted as $\mathbb{\Phi}(M,\mathbb{H})$ or just $\mathbb{\Phi}$ when the setting is understood. 
-
-
-
-The first condition is to say that every operator that we attach is densely defined in a way that if we compose all of them we will still have a densely defined operator (we won’t accidentally remove a chunk of our hilbert space that we can’t take back). The next condition is that we want this to be linear in the dense domain shared by all, and finally that if we fix two states we want to get back a distribution. Also there is some small abuse of notation. While $\Phi(f)$ is technically $(A,D)$ we choose to refer to $A = \Phi(f)$ and $D = D_{\Phi(f)}$​. I know it sucks, but it makes sense. 
+The **set of all field operators** is denoted as $\mathbb{\Phi}(M,\mathbb{H})$ or just $\mathbb{\Phi}$ when the setting is understood. 
 
 
 
-## Field Operators at a Point
-
-In physics, we would really like to view field operators as functions on spacetime even more so than they are now. That is because we want to be able to write expressions of the form $\phi(x)$ for some $x\in M, \phi \in \mathbb{\Phi}(M,\mathbb{H})$. While we can’t do this exactly, there is a way that statements like this can make sense on distributions. We do that using bump functions. 
-
-**<u>Definition:</u>** A smooth function $\phi_x \in \mathcal C^\infty(M)$ is a **bump function centered at** $x \in M$ if it is compactly supported in some neighborhood $U \subset M$ of $x$. 
-
-Notice that by compact support everty bump function is a Schwarz function $\phi_x \in \mathcal J(M)$. Therefore we can define a canonical multiplication of distributions with schwarz functions like so
-
-**<u>Definition:</u>** The **multiplication of Scwartz functions with Quantum Fields** is the smooth map $\cdot: \mathbb \Phi(M,\mathbb H) \times \mathcal J(M) \to \mathbb \Phi(M,\mathbb H) $ such that for any $f,g \in \mathcal J(M)$ and $\Phi \in \mathbb \Phi(M,\mathbb H) $ 
-
-$$
-(\Phi \cdot f)(g) = \Phi(fg)
-$$
-
-This might seem like a useless definition but it can be really helpful because of the following identification. 
-
-**<u>Definition:</u>** Two distributions $A,B \in \mathbb \Phi(M,\mathbb H)$  are **pointwise equal at** $x\in M$ if for all bump functions $\phi_x$ centered at $x$ the following holds
-
-$$
-A\cdot \phi_x = B\cdot \phi_x
-$$
-
-If two distributions are pointwise equal, we often write
-
-$$
-A(x) = B(x)
-$$
-
-
-We did it! We have found a way to define a distribution at a point! What we really did, is that we have managed to find a way to write equalities between distributions like equalities between functions. This is a really cool result! Let’s see some other ways to play with this. 
-
-**<u>Example:</u>** Consider a Scwarz function $f \in \mathcal J(M)$ and its dual tempered distribution $T_f \in \mathcal J^\ast(M)$ such that for any $g\in \mathcal J(M)$ 
-
-$$
-T_f(g) = \int_M fg\, d\text{vol}
-$$
-
-Then for any test function $g \in \mathcal J(M)$ and any $x \in M$
-
-$$
-f(x) = g(x) \iff T_f(x) = T_g(x)
-$$
-
-Another cool fact about evaluating distributions at a point is that we can multiply them pointwise!
-
-**<u>Definition:</u>** Given two quantum fields $A,B \in \mathbb \Phi(M,\mathbb H)$ their **pointwise product** is a distribution such that
+The first condition is to say that every operator that we attach is densely defined in a way that if we compose all of them we will still have a densely defined operator (we won’t accidentally remove a chunk of our Hilbert space that we can’t take back). The next condition is that we want this to be linear in the dense domain shared by all, and finally that if we fix two states we want to get back a distribution. Also there is some small abuse of notation. While $\Phi(f)$ is technically $(A,D)$ we choose to refer to $A = \Phi(f)$ and $D = D_{\Phi(f)}$. I know it sucks, but it makes sense. The last condition is locality, in other words we want the singularities of the distribution to be of measure zero such that there is a neighborhood around every point where the distribution is regular. A more detailed version of distributions is presented [here](../Analysis/Distributions.md).
 
 
 
@@ -243,8 +197,6 @@ f^\star \Phi = \Big(\frac{df}{dz}\Big)^h \Big(\frac{d\bar f}{d\bar z}\Big)^{\bar
 $$
 
 where $h,\bar{h} \in \mathbb{N}$. So that’s pretty, where we can fully classify our operators. Again we are building up to thinking of operator valued distributions instead of maps. But for now we are good!
-
----
 
 ---
 
@@ -651,7 +603,7 @@ With this definition we have done multiple steps. The first one is that we have 
 
 When I read this, I was screaming to my computer that $[\Phi]$ is not a subspace of the quantum Hilbert space $\mathbb{H}$ so why do we even care about the representation at the level of quantum fields? The reason is the state to field operator correspondance. Here it is formulated in a nice way. 
 
-**<u>Theorem:</u>** *(Field Operator, State Correspondance)* If the asymptotic states span and the decendants (i.e. $V_\nu$ for every $\nu$) span a dense subset $V \subset \mathbb{H}$  of the quantum Hilbert space, then for any $x \in V$ there exists a unique field $\Phi \in \mathbb{\Phi}$ such that $x = \lim_{z\to 0}\Phi(z) \Omega$. 
+**<u>Theorem:</u>** *(Field Operator, State Correspondence)* If the asymptotic states span and the descendants (i.e. $V_\nu$ for every $\nu$) span a dense subset $V \subset \mathbb{H}$  of the quantum Hilbert space, then for any $x \in V$ there exists a unique field $\Phi \in \mathbb{\Phi}$ such that $x = \lim_{z\to 0}\Phi(z) \Omega$. 
 
 The corollary is that for any conformal family we can find a corresponding subspace in the hilbert space with the same properties. So esssentially, with this step we have managed to partition our quantum Hilbert space (or at least a dense subset of it) in verma modules! 
 
