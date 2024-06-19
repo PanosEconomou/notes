@@ -255,7 +255,7 @@ $$
 \mathcal{J}_n^+\coloneqq\{f \in \mathcal{J}(\mathbb{C}^n) \mid \text{supp }f \subset \mathcal{C}_n^+\}
 $$
 
-where $\mathcal{J}_0^+ = \mathbb{C}$, and $\mathcal{J}(\mathbb{C}^n) \subset C^\infty(\mathbb{C}^n)$ is the space of **Scwartz functions** $f\in C^\infty(\mathbb{C}^n)$ which are defined to rapidly decrease such that for any multiindex $\alpha$, and any $p,k\in \mathbb{N}$ the following exists and is finite
+where $\mathcal{J}_0^+ = \mathbb{C}\setminus \{0\}$, and $\mathcal{J}(\mathbb{C}^n) \subset C^\infty(\mathbb{C}^n)$ is the space of **Scwartz functions** $f\in C^\infty(\mathbb{C}^n)$ which are defined to rapidly decrease such that for any multiindex $\alpha$, and any $p,k\in \mathbb{N}$ the following exists and is finite
 
 $$
 \sup_{|\alpha| < p} \sup_{x\in \mathbb{C}^n} \abs{\partial^\alpha f(x)} (1+|x|^2)^k
@@ -283,7 +283,7 @@ where $L_i \in W$ and $\bar L_i \in \bar W$, with multiplication. In order, firs
 
 ## Correlation functions
 
-Here we will first give an intuitive picture of correlation functions just to illustrate how important of a role they play in this. In QFT correlation functions are the result of taking the expectation value of an operator composed by acting with the field operators in a *time ordered way.* Now we are ready for a fomal definition of $n$-point correlation functions in the language of two dimensional CFTs.
+Here we will first give an intuitive picture of correlation functions just to illustrate how important of a role they play in this. In QFT correlation functions are the result of taking the expectation value of an operator composed by acting with the field operators in a *time ordered way.* Now we are ready for a formal definition of $n$-point correlation functions in the language of two dimensional CFTs.
 
 **<u>Definition:</u>** An **$n$-point correlation function** for some $n\in \mathbb{N}$ is a polynomially bounded continuous map $G\in \mathcal J_n^+$ from the unordered configuration space, with *conformal weights* $h, \bar h \in \mathbb{R}$ such that for any $w \in SL(2,\mathbb{C})$ we have that
 
@@ -301,7 +301,7 @@ The important thing to notice is that this definition implies that there aren’
 2. if $h_i = \bar h_i = 0$ then $G(z_{ij}) = C\in \mathbb{C}, \ \forall z_{ij} \in \mathbb{C}$
 3. if $h_i = \bar h_i = 1$ then $G(z_1,\bar z_1,z_2,\bar z_2) = \frac{C} {z_{12}^2 \bar z_{12}^2}$ for some $C\in \mathbb{C}$.
 
-We can keep deriving these identities, but this is amazing! We could just use contour integration to figure out anything about the correllation functions, simply by knowing their weights. 
+We can keep deriving these identities, but this is amazing! We could just use contour integration to figure out anything about the correlation functions, simply by knowing their weights. 
 
 
 
@@ -359,7 +359,7 @@ The central object that encodes our physics is the stress energy tensor of the t
 2. $\frac{\partial T_{\mu 0}}{\partial t} + \frac{\partial T_{\mu 1}}{\partial x} = 0$​
 3. It has scaling dimension $\Delta_{\mu\nu} = h_{\mu\nu} + \bar h_{\mu\nu} = 2$ and conformal spin $s_{\mu\nu} = \pm 2$.
 
-**<u>Corollary:</u>** *(Properties of the Energy Momentum Tensor)* The axioms of hte energy momentum tensor and the covariance properties lead to
+**<u>Corollary:</u>** *(Properties of the Energy Momentum Tensor)* The axioms of the energy momentum tensor and the covariance properties lead to
 
 1. $\Tr(T_{\mu\nu}) = 0$ 
 2. The quantum field $T = T_{00} - i T_{01}$  is holomorphic with conformal weights $h_T = 2, \bar h_T =0$
@@ -367,9 +367,9 @@ The central object that encodes our physics is the stress energy tensor of the t
 
 
 
-## Virasorization of our Hilber Space
+## Virasorization of our Hilbert Space
 
-Now you’re probably about to say. Ok? SO WHAT? Why even bother defining such a strange object. The reason is because it will give us the symmetries of our theory. Let’s do some groundwork
+Ok? Why even bother defining such a strange object. The reason is because it will give us the symmetries of our theory. Let’s do some groundwork
 
 Consider the following operators in the quantum Hilbert space
 
@@ -379,7 +379,7 @@ L_{-n} \coloneqq \frac{1}{2\pi i}\lim_{\epsilon \to 0} \int_{|x| = \epsilon} \fr
 \end{align*}.
 $$
 
-The integral here is well defined since $T$ is a local distribution which means that if it has a singularity near $x = 0$ there is a neighborhood $U$ of $x \in \mathbb C$ such that in $U\setminus \{x\}$ $T$ is regular. Therefore we use the function that generates $T$ to define it. Notice that with this definition the distributions $T$ and $T + \delta$  yield the same operators. This is going to be a useful observation for later, when we are studying anomalies. 
+The integral here is well defined since $T$ is a local distribution which means that if it has a singularity near $x = 0$ there is a neighborhood $U$ of $x \in \mathbb C$ such that  $T$ is regular in $U\setminus \{x\}$. Therefore we use the function that generates $T$ to define it. Notice that with this definition the distributions $T$ and $T + \delta$  yield the same operators. This is going to be a useful observation for later, when we are studying anomalies. 
 
 **<u>Proposition:</u>** The operators $L_{-n}$ and $\bar L_{-n}$ on the quantum Hilbert space $\mathbb{H}$​ follow the commutation relation of two unitary representations of the [Virasoro Algebra](./Virasoro_Algebra.md#virasoro-algebra) with the same central charge $c$. 
 
