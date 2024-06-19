@@ -875,7 +875,7 @@ The wavefront set contains all the information of the singular support of the fu
 
 Ok cool, but what can we do with wavefront sets? First we can define pullbacks in a way that they work! To do this we introduce the normal and conormal bundles. 
 
-**<u>Definition:</u>** Let $S \subset M$ be a submanifold of a Riemannian manifold $M$. The **normal bundle** of $S$ is the vector bundle $\pi : NS \to S$ such that for all $p\in S$ and any $X_p \in T_pS\subset T_pM$ then any $Y_p \in N_pS$ satisfies
+**<u>Definition:</u>** Let $S \subset M$ be a submanif	old of a Riemannian manifold $M$. The **normal bundle** of $S$ is the vector bundle $\pi : NS \to S$ such that for all $p\in S$ and any $X_p \in T_pS\subset T_pM$ then any $Y_p \in N_pS$ satisfies
 
 $$
 g_p(X_p,Y_p) = 0
@@ -904,7 +904,6 @@ such that for any regular distribution $U \in \mathcal D'(M)$ from a distributio
 $$
 WF(f^\ast u) \subset f^\ast WF(u).
 $$
-
 
 
 
