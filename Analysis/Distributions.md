@@ -805,7 +805,7 @@ $$
 \omega)
 $$
 
-where $h$ is the Heaviside function. Here is a plot of how this looks like (Notice that I am plotting the absolute value on the left side. The actual function is complex valued so it doesn’t make sense).
+where $h$ is the Heaviside function. Here is a plot of how this looks like (Notice that I am plotting the absolute value on the left side. The actual function is complex valued so to plot it would be uglier).
 
 ![singular-fourier](_Distributions.assets/singular-fourier.svg)
 
@@ -855,9 +855,56 @@ This is a pretty nifty result, because this is giving us a condition.
 
 
 
-## Wavefront Sets
+## Wave Front Sets
 
-We built all this formalism so that we reach this tool. The 
+We built all this formalism so that we reach this tool. The wavefront set is defined as follows
+
+**<u>Definition:</u>** Given a distribution $u \in \mathcal D'(U)$ on some open subset $U\subset M$ of a Riemannian manifold $M$ its **wave front set** $WF(u) \subset T^\ast M$ is the set of all points in $TM$ where the distribution is not smooth in any conical neighborhood. 
+
+**<u>Corollary:</u>** The wavefront set is a conical subset.
+
+The wavefront set contains all the information of the singular support of the function. 
+
+**<u>Theorem:</u>** Let $\pi: TM \to M$ be the canonical projection. Then $\pi(WF(u)) = \text{sing\,supp\,}u$ for any $u\in \mathcal D'(M)$.
+
+**<u>Example:</u>** The wavefront set of the causal propagator is the positive ray. The wavefront set of the delta function and the Heaviside function is the punctured line. 
+
+
+
+## Pullback of Distributions
+
+Ok cool, but what can we do with wavefront sets? First we can define pullbacks in a way that they work! To do this we introduce the normal and conormal bundles. 
+
+**<u>Definition:</u>** Let $S \subset M$ be a submanifold of a Riemannian manifold $M$. The **normal bundle** of $S$ is the vector bundle $\pi : NS \to S$ such that for all $p\in S$ and any $X_p \in T_pS\subset T_pM$ then any $Y_p \in N_pS$ satisfies
+
+$$
+g_p(X_p,Y_p) = 0
+$$
+
+The dual bundle to $NS$ is called the **conormal bundle** $N^\ast S$. 
+
+![normal](_Distributions.assets/normal.svg)
+
+This is esentially the collection of all the normal vectors to the submanifold. We will use it to pull back distributions on submanifolds!
+
+**<u>Theorem:</u>** Given a smooth immersion $f: S\to M$ there exists a unique continuous map $f^\ast$ from the space of distributions on $M$ whose wave front set does not intersect with the conormal bundle of $S$ to the distributions on $S$. The set of compatible distributions is 
+
+$$
+\mathcal W'(M,S) \coloneqq \{ u \in \mathcal D'(M) \mid WF(u) \cap NS = \emptyset\}
+$$
+
+therefore the **pullback** can be written as the continuous map
+
+$$
+f^\ast : \mathcal W'(M,S) \to \mathcal D'(S)
+$$
+
+such that for any regular distribution $U \in \mathcal D'(M)$ from a distribution $u \in \mathcal D(M)$ then $f^\ast U \in \mathcal D'(S)$ is the distribution obtained from $u\circ f \in \mathcal D(S)$, and the wavefront set of the pullback of any $u \in \mathcal W'(M,S)$ is such that
+
+$$
+WF(f^\ast u) \subset f^\ast WF(u).
+$$
+
 
 
 
