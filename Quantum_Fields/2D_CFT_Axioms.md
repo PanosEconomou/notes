@@ -94,7 +94,7 @@ such that there exists a dense subspace $D\subset \mathbb{H}$ where
 1. For all $f\in \mathcal{D}(M)$ we have that $D\subset D_{\Phi(f)}$.
 2. The induced map $\mathcal{D}(M) \to \text{End}(D), f\mapsto \left.\Phi(f)\right|_D$ is linear. 
 3. For all $v\in D$ and $w \in \mathbb{H}$ the map $f \mapsto \langle w,\Phi(f)(v)\rangle$ is a distribution on $M$. 
-4. $\text{sing\,supp\,} \Phi$ has measure $0$ on $M$.
+4. $\text{sing\,supp\,} \Phi$ is a discrete set of measure $0$ on $M$.
 
 The **set of all field operators** is denoted as $\mathbb{\Phi}(M,\mathbb{H})$ or just $\mathbb{\Phi}$ when the setting is understood. 
 
@@ -165,8 +165,8 @@ When $M = \mathbb{C}$  we can write the Eucledian metric as $g = dz\, d\bar{z}$.
 
 $$
 \begin{align*}
-f^\star g &= f^\star dz\, d\bar{z}\\
-&= df^\star z \, df^\star \bar{z}\\
+f^\ast g &= f^\ast dz\, d\bar{z}\\
+&= df^\ast z \, df^\ast \bar{z}\\
 &= df\, d\bar{f}\\
 &= \frac{\partial f}{\partial z}\frac{\partial \bar f}{\partial z} dz\, dz + \left( \frac{\partial f}{\partial z}\frac{\partial \bar f}{\partial \bar z} + \frac{\partial f}{\partial \bar z}\frac{\partial \bar f}{\partial z} \right) dz\, d \bar z + \frac{\partial f}{\partial \bar z}\frac{\partial \bar f}{\partial \bar z} dz\, dz
 \end{align*}
@@ -183,7 +183,7 @@ $$
 Therefore, either $\frac{\partial f}{\partial z} = 0$ or $\frac{\partial f}{\partial \bar z} = 0$. If both are zero then the metric vanishes, so it’s not good. Both of these conditions are restatements of the cauchy criterion, therefore $f$ is analytic. As a result, without loss of generaility we can assume $\frac{\partial f}{\partial \bar{z}} = 0 $. Therefore we have that
 
 $$
-f^\star g  = \left|\frac{df}{dz}\right|^2 dz\, d\bar z
+f^\ast g  = \left|\frac{df}{dz}\right|^2 dz\, d\bar z
 $$
 
 Which also shows the sign enforcement as well. $\Box$
@@ -193,7 +193,7 @@ Which also shows the sign enforcement as well. $\Box$
 Now consider a tensor field $\Phi \in \mathcal{T}^{(m,n)}(\mathbb{C})$, then it transforms as
 
 $$
-f^\star \Phi = \Big(\frac{df}{dz}\Big)^h \Big(\frac{d\bar f}{d\bar z}\Big)^{\bar h} \Phi
+f^\ast \Phi = \Big(\frac{df}{dz}\Big)^h \Big(\frac{d\bar f}{d\bar z}\Big)^{\bar h} \Phi
 $$
 
 where $h,\bar{h} \in \mathbb{N}$. So that’s pretty, where we can fully classify our operators. Again we are building up to thinking of operator valued distributions instead of maps. But for now we are good!
@@ -307,7 +307,7 @@ We can keep deriving these identities, but this is amazing! We could just use co
 
 ## Reconstruction of Field Operators
 
-With a given set of $n$ point correlation functions there is a proceedure we can go through to define a quantum hilbert space $\mathbb{H}$ with natural field operators that that give rise to the specific correlations, as well as have a natural unitary representation of the conformal group, and contain a vector $\Omega \in \mathbb{H}$ such that it is invariant under the unitary representation of the conformal group. I am going to skip the details of this construction now because it is unnessesarily involved, but the important thing is that it is always possible to do so and obtain a unique $\mathbb{H}$.
+With a given set of $n$ point correlation functions there is a proceedure we can go through to define a quantum Hilbert space $\mathbb{H}$ with natural field operators that that give rise to the specific correlations, as well as have a natural unitary representation of the conformal group, and contain a vector $\Omega \in \mathbb{H}$ such that it is invariant under the unitary representation of the conformal group. I am going to skip the details of this construction now because it is unnessesarily involved, but the important thing is that it is always possible to do so and obtain a unique $\mathbb{H}$.
 
 **<u>Theorem:</u>** *(Reconstruction of Field Operators)* Given a set of indexed correlation functions $\{G_{i_1,\cdots,i_n}\}_{i_1,\cdots,i_n \in B}$ there exists a unique quantum hilbert space $\mathbb{H}$ with a canonical representation $U:SL(2,\mathbb{C}) \to \text{Aut}(\mathbb{H})$ of $SL(2,\mathbb{C})$ and an invariant vector $\Omega \in \mathbb H$ such that there exist quantum fields $\Phi_i : \mathcal J^+ \to \text{End}(D)$ for some $D\subset \mathbb{H}$ a dense subspace such that for some $w\in SL(2,\mathbb{C})$, $z\in \mathbb{C}$
 
@@ -321,7 +321,7 @@ $$
 \langle \Omega, \Phi_{i_1}(z_1) \Phi_{i_2}(z_2) \cdots \Phi_{i_n}(z_n) \Omega   \rangle = G_{i_1,i_2,\cdots,i_n}(z_1,z_2,\cdots,z_n)
 $$
 
-Note that when we say $\Phi(z)$ what we really mean is evaluating the dual of $\Phi$ at position $z\in \mathbb{C}$.
+Note that when we say $\Phi(z)$ what we really mean is that the operator $\Phi$ acts on the variable $z$ of a function of many variables. 
 
 Ok! Now we are cooking! We have our field operators, even somewhat haphazardly, so now let’s try to figure out what they really mean. 
 
@@ -375,9 +375,11 @@ Consider the following operators in the quantum Hilbert space
 
 $$
 \begin{align*}
-L_{-n} \coloneqq \frac{1}{2\pi i} \int_{|x| = 1} \frac{T(x)}{x^{n+1}} dx && \bar L_{-n} \coloneqq \frac{1}{2\pi i} \int_{|x| = 1} \frac{\bar T(x)}{x^{n+1}} dx 
-\end{align*}
+L_{-n} \coloneqq \frac{1}{2\pi i}\lim_{\epsilon \to 0} \int_{|x| = \epsilon} \frac{T(x)}{x^{n+1}} dx && \bar L_{-n} \coloneqq \frac{1}{2\pi i} \lim_{\epsilon \to 0} \int_{|x| = \epsilon} \frac{\bar T(x)}{x^{n+1}} dx 
+\end{align*}.
 $$
+
+The integral here is well defined since $T$ is a local distribution which means that if it has a singularity near $x = 0$ there is a neighborhood $U$ of $x \in \mathbb C$ such that in $U\setminus \{x\}$ $T$ is regular. Therefore we use the function that generates $T$ to define it. Notice that with this definition the distributions $T$ and $T + \delta$  yield the same operators. This is going to be a useful observation for later, when we are studying anomalies. 
 
 **<u>Proposition:</u>** The operators $L_{-n}$ and $\bar L_{-n}$ on the quantum Hilbert space $\mathbb{H}$​ follow the commutation relation of two unitary representations of the [Virasoro Algebra](./Virasoro_Algebra.md#virasoro-algebra) with the same central charge $c$. 
 
@@ -392,9 +394,9 @@ T(z) = \sum_{n\in \mathbb{Z}} L_{n}z^{-n-2}
 \end{align*}
 $$
 
-This is amazing! We essentially have found that the stress energy tensor yields a unitary representation of $\text{Vir} \times \overline{\text{Vir}}$. Now we can attempt to decompose it. 
+This is amazing! We essentially have found that the stress energy tensor yields a unitary representation of $\text{Vir} \times \overline{\text{Vir}}$. Now we can attempt to decompose it. One piece of subtlety is that we have not reconstructed $T$ entirely, but we instead reconstructed its regular part, which we analytically continue to obtain another distribution. 
 
-**<u>Lemma:</u>** *(Decomposition of Hilbert Space)* Under the virasoro representation of defined by the stress energy tensor $T$, the quantum Hilbert space can be decomposted to a direct sum of irreducible unitary positive definite highest weight representations, i.e. 
+**<u>Lemma:</u>** *(Decomposition of Hilbert Space)* Under the Virasoro representation of defined by the stress energy tensor $T$, the quantum Hilbert space can be decomposed to a direct sum of irreducible unitary positive definite highest weight representations, i.e. 
 
 $$
 \mathbb{H} \supset D \cong \bigoplus_{c,h} W(c,h) \otimes \bar W(c,\bar h)
@@ -472,7 +474,7 @@ $$
 \langle \partial \psi(z) \partial \psi (w)\rangle = -\frac{1}{(z-w)^2}
 $$
 
-which we can see that is invariant under transations, and under scalings it just aquires an exponent to the power of 2! So this looks like it could be a conformal field with weights $(h,\bar h) = (1,0)$.
+which we can see that is invariant under translations, and under scalings it just acquires an exponent to the power of 2! So this looks like it could be a conformal field with weights $(h,\bar h) = (1,0)$.
 
 
 
@@ -525,6 +527,10 @@ where $C_{\Phi\Psi X} \in \mathbb{C}$​ is some constant. We can figure out the
 **<u>Remark:</u>** We usually require that in a CFT the OPE is *associative*. This really means that when we are expanding the vaccuum expectation values it doesn’t matter which field operator we take the OPE of first, we should obtain the same result regardless. This is sometimes known as **crossing symmetry** and all it really means is that the following diagrams evaluate to the same thing
 
 ![image-20240419230003368](_2D_CFT_Axioms.assets/image-20240419230003368.png)
+
+Now we are ready to talk about an OPE in more generality.
+
+
 
 
 
