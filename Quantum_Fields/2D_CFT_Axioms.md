@@ -534,7 +534,7 @@ Now we are ready to talk about an OPE in more generality.
 
 
 
-## Local Symetries (Where are the Verma Modules?)
+## Local Symmetries (Where are the Verma Modules?)
 
 So far we have seen that by adding a stress energy tensor in our theory, we have effectively created a global representation  of the Virasoro algebra. Here we will study local symmetry.
 
@@ -548,7 +548,7 @@ where $\Omega \in \mathbb{H}$ is the vacuum vector.
 
 These are what we call asymptotic states, and they are very useful for starting to talk about highest weight representations of Virasoro algebra. Take a look at this corollary, which will be one of the very few here with proofs.
 
-**<u>Proposition:</u>** An asymptotic state $\nu$ is an eigenstate of $L_0$ with eighenvalue $h$. and $L_n \nu = 0$
+**<u>Proposition:</u>** An asymptotic state $\nu$ is an eigenstate of $L_0$ with eigenvalue $h$. and $L_n \nu = 0$
 
 ***Proof:*** We know from the commutation relations we derived that 
 
@@ -580,11 +580,11 @@ $$
 
 with highest weight vector $\nu$.
 
-**<u>Definition:</u>** A state $ x \in V_{\nu} $ is called a **decendant **of $\nu$ if $x\neq \nu$.
+**<u>Definition:</u>** A state $ x \in V_{\nu} $ is called a **descendant **of $\nu$ if $x\neq \nu$.
 
-We usually think of those states as excited states. We usually require in addition that the decendants of the assymptotic states for all primary fields span a dense subset of the quantum Hilbert space. In this case we can decompose the hilbert space into Virasoro modules using just the primary fields. 
+We usually think of those states as excited states. We usually require in addition that the descendants of the asymptotic states for all primary fields span a dense subset of the quantum Hilbert space. In this case we can decompose the Hilbert space into Virasoro modules using just the primary fields. 
 
-**<u>Definition:</u>** Given a primary field $\Phi$ a **secondary field** or **decendant** of **level** $n$ (yes same name) $\Phi^a$ is given by
+**<u>Definition:</u>** Given a primary field $\Phi$ a **secondary field** or **descendant** of **level** $n$ (yes same name) $\Phi^a$ is given by
 
 $$
 \Phi^a(z) = L_{-a_1}(z)L_{-a_2}(z)\cdots L_{-a_n}(z) \Phi(z)
@@ -607,7 +607,7 @@ With this definition we have done multiple steps. The first one is that we have 
 
 **<u>Proposition:</u>** For a primary field $\Phi$ with conformal weights $(h,\bar h)$ and any $z \in \mathbb{C}$, its conformal family $[\Phi]$ defines a highest weight representation of the Virasoro algebra with conformal parameters $(c_{\Phi},h)$ and highest weight vector $\nu = \Phi(z)$. 
 
-When I read this, I was screaming to my computer that $[\Phi]$ is not a subspace of the quantum Hilbert space $\mathbb{H}$ so why do we even care about the representation at the level of quantum fields? The reason is the state to field operator correspondance. Here it is formulated in a nice way. 
+When I read this, I was screaming to my computer that $[\Phi]$ is not a subspace of the quantum Hilbert space $\mathbb{H}$ so why do we even care about the representation at the level of quantum fields? The reason is the state to field operator correspondence. Here it is formulated in a nice way. 
 
 **<u>Theorem:</u>** *(Field Operator, State Correspondence)* If the asymptotic states span and the descendants (i.e. $V_\nu$ for every $\nu$) span a dense subset $V \subset \mathbb{H}$  of the quantum Hilbert space, then for any $x \in V$ there exists a unique field $\Phi \in \mathbb{\Phi}$ such that $x = \lim_{z\to 0}\Phi(z) \Omega$. 
 
