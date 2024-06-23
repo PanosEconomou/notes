@@ -958,23 +958,5 @@ The definition is a bit clunky, but the intuition is not. Two distributions can 
 
  
 
-## Operator Product Expansions
-
-We can now play around and define operator product expansions which are particularly nice series representations of operators. Here is the theorem.
-
-**<u>Theorem:</u>** Let $u,v \in \mathcal D'(U)$, then their outer product $u\times v \in \mathcal D'(U\times U)$ is such that for any $N \in \mathbb N$ and  $\epsilon > 0$ there exists a compact subset $A_N \subset U\times U$ with support function $\eta_N$ such that for all $f \in \mathcal D(U\times U)$
-
-$$
-[\eta_N \cdot (u\times v)] (f) = \left[\sum_{n = 0}^N C_n(x-y) \cdot \omega_k  + \mathcal O_N\right](f),
-$$
-
-for fixed smooth functions $C_n \in \mathcal D(U\times U)$ 
-
-
-
-
-
-
-
 
 
