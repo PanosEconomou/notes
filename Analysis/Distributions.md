@@ -457,7 +457,7 @@ The following proposition sums up some properties of the pullback. Notice that w
 
 We have an outer product and a pullback, then it would make sense to try and define a product of distributions by pulling back the outer product from the diagonal map. This actually tends to work for some of them. As we move on we will figure out the condition under which the following is well defined. 
 
-**<u>Definition:</u>** Let $X$ be a set. Its **diagonal map** $\Delta_X : X \to X\times X $ is the embedding $x \mapsto (x,x)$. 
+**<u>Definition:</u>** Let $X$ be a set. Its **diagonal map** $\Delta_X : X \to X\times X$ is the embedding $x \mapsto (x,x)$. 
 
 ![diagonal_map](_Distributions.assets/diagonal_map.svg)
 
@@ -844,7 +844,7 @@ When we think of smoothness of a function we usually check if all the directiona
 
 Therefore our notion of smoothness should be upgraded. Interestingly, unlike a function, a distribution’s smoothness depends on the direction. Here is the definition.
 
-**<u>Definition:</u>** A distribution $u \in \mathcal D'(U)$ on some open subset $U\subset M$ of a Riemannian manifold $M$ is **smooth at a point** $\omega_p \in T^\ast_p M$ if there exist a bump function $\eta \in \mathcal D(U)$ and a conical neighborhood $\Gamma_p \subset $ of $\omega_p$ such that for any $\alpha \in \Gamma_p$ there exist $C_N > 0$
+**<u>Definition:</u>** A distribution $u \in \mathcal D'(U)$ on some open subset $U\subset M$ of a Riemannian manifold $M$ is **smooth at a point** $\omega_p \in T^\ast_p M$ if there exist a bump function $\eta \in \mathcal D(U)$ and a conical neighborhood $\Gamma_p \subset$ of $\omega_p$ such that for any $\alpha \in \Gamma_p$ there exist $C_N > 0$
 
 $$
 |\mathcal F_p[\eta \cdot u](\alpha)| \leq C_N(1-|\alpha|)^{-N},
