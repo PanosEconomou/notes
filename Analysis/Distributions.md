@@ -436,7 +436,7 @@ $$
 
 An interesting property of the pullback is as follows.
 
-**<u>Proposition:</u>** $\phi^\ast : C^\infty(V) \to C^\infty(U) $ is continuous if its jacobian $J_\phi(x)$ is surjective for all $x \in U$. 
+**<u>Proposition:</u>** $\phi^\ast : C^\infty(V) \to C^\infty(U)$ is continuous if its jacobian $J_\phi(x)$ is surjective for all $x \in U$. 
 
 To define the pullback of distributions is a bit trickier. We take advantage of the fact that $\mathcal D(U)$ is dense in $\mathcal D'(U)$ under the canonical identification of test functions with distributions that we described before. Therefore every distribution can be thought of as a limit of test functions. As a result, we can define this by proxy using the following theorem. 
 
