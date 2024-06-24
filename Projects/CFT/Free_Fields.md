@@ -82,6 +82,48 @@ With all the definitions out of the way, we are now ready to talk about free fie
 
 
 
+## The Free Scalar Field
+
+Possibly the simplest example of the formalism above is the free scalar field, because we don't even have to talk about a vector bundle, since Sections of the canonical real line bundle over a manifold can be identified with smooth functions over the manifold. We will avoid talking about this example in the line bundle terms just to show an alternative way, but we will generalize this anyway in the next section about vector bosons.
+
+**<u>Definition:</u>** Given a (pseudo) Riemannian manifold $(M,g)$ the **free scalar field Lagrangian** $\mathcal L : C^\infty(M) \to \Omega^n(M)$ is given by 
+
+$$
+f \in C^\infty(M) \mapsto df\wedge \ast df \in \Omega^n(M).
+$$
+
+Notice that the hodge duality is given by the metric $g$ directly. 
+
+Now let's fix our attention to particularly nice manifolds $M$ that have a global isometry group $I(M)$ with the defining group action on $M$. This structure does not exist in general, but in most manifold we use in physics, like $\mathbb R^{p,q}$ the group is well defined. 
+
+**<u>Example:</u>** Under the transformations of the isometry group, a stress energy tensor for this theory is given by the linear map
+
+$$
+\phi \in C^\infty(M) \mapsto d\phi \otimes d\phi.
+$$
+
+***Proof:*** To show this construction we calculate conserved currents. In particular consider a lie algebra element of the isometry group lie algebra $X \in \mathfrak i(M)$, and a field $\phi \in C^\infty(M)$. Then we can see that any such element, though the exponential map has an induced map like so
+
+$$
+\phi \mapsto (e^X) ^\ast \phi,
+$$
+
+ where the action is given by the induced representation of the Lie algebra from the defining action of the isometry group. For example in the case of $M = \mathbb R^n$ we have that for any $p \in \mathbb R^n$
+
+$$
+(e^X)(p) = p + \tilde X,
+$$
+
+where $\tilde X \in \mathfrak X(\mathbb R^n)$ is the related vector field to $X \in \mathfrak i(\mathbb R^n)$. Therefore we see that $(e^X)^\ast \phi = \phi + \tilde X\phi$. This formula is true on a general manifold $M$ as well with a well defined isometry group. 
+
+
+
+
+
+
+
+
+
 
 
 
