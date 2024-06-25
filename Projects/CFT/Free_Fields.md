@@ -222,10 +222,10 @@ This wedge product still has the same properties as the one that we have seen be
 
 We are finally ready to define the following as the free field Lagrangian.
 
-**<u>Definition:</u>** A **free field Lagrangian** $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ on $M$ is such that for any $\phi \in \Gamma^\infty(E)$
+**<u>Definition:</u>** A **free field Lagrangian** $\mathcal L_{F} : \Gamma^\infty(E) \to \Omega^n(M)$ on $M$ is such that for any $\phi \in \Gamma^\infty(E)$
 
 $$
-\mathcal L(\phi) = \ast \langle \nabla \phi,\nabla \phi \rangle_E = d_\nabla \phi \wedge_M \ast d_\nabla \phi.
+\mathcal L_F(\phi) = \ast \langle \nabla \phi,\nabla \phi \rangle_E = d_\nabla \phi \wedge_M \ast d_\nabla \phi.
 $$
 
 **<u>Remark:</u>** The cool thing is that this Lagrangian reduces to the free scalar field Lagrangian we discussed in the previous section if $E$ is the real line bundle.
@@ -292,6 +292,22 @@ which is what we physically expect to happen. The other interesting thing is tha
 The above notation is a bit cumbersome. It gets super complicated super fast and for most things in physics it suffices to look at tensor fields instead. These are sections of tensor bundles, in other words bundles of the form $TM^{\otimes k}  \otimes T^\ast M^{\otimes l}$ for some $k,l \in \mathbb N$. Given a Riemannian manfiold, they have a canonical connection and bundle metric that allows us to simplify the notation a bit by identifying twisted forms with sections of tensor bundles with higher order.
 
   
+
+# Conformal Free Fields
+
+The whole point of doing the classical exploration was to start playing with conformal field theories properly. There are notes on defining CFTs abstractly [here](../../Quantum_Fields/2D_CFT_Axioms.md). Here we will dive more into examples for 2 dimensional manifolds and construct the Conformal Field Theories for free fields. We do this in order to understand how the objects in a CFT language work. 
+
+
+
+## Free Scalar Field and Radial Quantization
+
+ The prototypical example of a conformal field theory is the Free scalar field in $2$ dimensions. In this case only, we will not directly apply the formalism developed [in these notes](../../Quantum_Fields/2D_CFT_Axioms.md), but rather motivate it through the procedure of radial quantization. 
+
+Consider the Free scalar field in $\mathbb R^2$ with the Lagrangian we have found before.
+
+
+
+
 
 
 
