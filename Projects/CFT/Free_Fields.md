@@ -114,7 +114,25 @@ $$
 (e^X)(p) = p + \tilde X,
 $$
 
-where $\tilde X \in \mathfrak X(\mathbb R^n)$ is the related vector field to $X \in \mathfrak i(\mathbb R^n)$. Therefore we see that $(e^X)^\ast \phi = \phi + \tilde X\phi$. This formula is true on a general manifold $M$ as well with a well defined isometry group. 
+where $\tilde X \in \mathfrak X(\mathbb R^n)$ is the related vector field to $X \in \mathfrak i(\mathbb R^n)$. Therefore we see that $(e^X)^\ast \phi = \phi + \tilde X\phi$. This formula is true on a general manifold $M$ as well with a well defined isometry group. To see how it works we will interrupt the proof for the following cool facts about Lie groups.
+
+
+
+**<u>Theorem:</u>** *(Induced Lie algebra representation on vector bundles)* Consider $\pi:E\to M$ a vector bundle over a manifold $M$ with connection $\nabla : \Gamma^\infty(E)\times \mathfrak X(M) \to \Gamma^\infty(M)$, and the local isomorphism group $I(M)$ of $M$. Then there exists a unique, up to scaling, Lie algebra representation $\bar \rho : \mathfrak i(M) \to \text{End}(\Gamma^\infty(M))$ given by 
+
+$$
+\bar \rho(X) = \nabla_{\tilde X},
+$$
+
+where $\tilde X \in \mathfrak X(M)$ is the fundamental vector field of $X \in \mathfrak i(M)$.
+
+***Proof:*** Since the group is the local isometry group, the fundamental vector fields of any element of the Lie algebra are Killing. Therefore, we know that
+
+$$
+
+$$
+
+ 
 
 
 
