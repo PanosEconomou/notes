@@ -78,6 +78,44 @@ Then for each independent related vector field $\tilde X \in \mathfrak X(M)$ of 
 
 
 
+## Moving Sections of Vector Bundles
+
+Very often in physics we have a vector bundle (for example a spinor bundle) and we want to take its derivative, or see how it acts under an infinitesimal local transformation. That transformation can either be a Gauge transformation or a local isometry. We can bundle (see what I did there?) all of this intuition using the language of principal bundles.
+
+Here are some more detailed notes about what a [principal bundle](../../Geometry/Bundles.md#principal-bundles) is. Without rewriting the definitions, we can give some intuition. A To construct a principal bundle we need a Lie group $G$ and a base manifold $M$. We construct the bundle $P$ such that it is a bundle over $M$ with fiber $G$ and with a smooth Lie group action $G\times P \to P$. So now we basically have a way to take sections of this bundle, and create local transformations on the manifold! That's why we introduce them.
+
+If I give you a representation $\rho: G \to \text{Aut}(V)$ of the gauge group to some vector space $V$ one can form an **associated vector bundle** which is a quotient of the principal bundle in such a way that we construct a vector bundle with fiber $V$ where elements of the principal bundle canonically act on! We usually write the associated vector bundle like so $P\times_\rho V$. Now we can pick our fields to be sections of this bundle since it is bundle isomorphic to our original vector bundle $E$. Doing so we have gained a powerful way of transforming our fields. 
+
+In the notes linked above all the formal definitions of these objects are outlined, but one cool result, is that by picking a Gauge Field, i.e. Lie algebra valued one form $A \in \Omega^1(P,\mathfrak g)$ on $P$, one can come up with a connection and thus an exterior covariant derivative on $V$ that is a Lie algebra reprsentation of $\mathfrak g$ on $\Gamma^\infty(P\times_\rho V)$. This is an amazing result! In the following we will assume the existence of this connection and denote it as $\nabla$.
+
+Words aside here is how a connection helps us calculate the infinitesimal transformations of a field!
+
+**<u>Proposition:</u>** Let $\phi \in \Gamma^\infty(E)$ be a section of a vector bundle $\pi : E\to M$ over some smooth manifold $M$ with connection $\nabla : \Gamma^\infty(E) \times \mathfrak X(M) \to \Gamma^\infty(E)$. Let $X \in \mathfrak X(M)$ be a nonvanishing vector field. Then the transformed version of the $\phi$ under the flow of $\epsilon X$ for some $\epsilon > 0$ is given by
+
+$$
+\tilde \phi_\epsilon = \phi + \epsilon \nabla_X \phi + \mathcal O(\epsilon^2)
+$$
+
+This is going to be really useful when taking variations. In fact we can define the variation like so.
+
+**<u>Definition:</u>** Let $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ be a Lagrangian. A **variation of the Lagrangian under a vector field** $X \in \mathfrak X$ at $\phi \in \Gamma^\infty(E)$ is given by
+
+$$
+\left.\frac{d}{d\epsilon}\right|_0 \mathcal L(\tilde\phi_\epsilon) = \lim_{\epsilon \to 0} \frac{1}{\epsilon}\left[\mathcal L(\phi + \epsilon\nabla_X\phi) -\mathcal L(\phi) \right]
+$$
+
+**<u>Remark:</u>** Note that the second order term inside the Lagrangian would vanish anyway because it would be subleading. However, from our discussion before we have argued that there would be a connection that acts as a representation of the Lie algebra! Therefore a variation stripes out all the properties of a transformation except from the Lie algebra properties. This is pretty cool, because we can get so much physics without knowing the full details of the transformation group, but rather knowing about the algebra. 
+
+**<u>Corollary:</u>** Given a Lie group $G$ with a smooth action on a manifold $M$, then there is an induced Lie algebra representation $\mathfrak g \to \mathfrak X (M)$ given by $X\in \mathfrak g \mapsto \tilde X \in \mathfrak X (M)$ which maps Lie algebra elements to their related vector fields. Given a one parameter group $\{f_\epsilon = e^{\epsilon X}\}_{\epsilon \in I \subset \mathbb R} \subset G$ for some $X \in \mathfrak g$ we have that the variation of any Lagrangian $\mathcal L$ on $E$ at $\phi \in \Gamma^\infty(E)$ is given by
+
+$$
+\left.\frac{d}{d\epsilon}\right|_0 \mathcal L(\tilde\phi_\epsilon) = \lim_{\epsilon \to 0} \frac{1}{\epsilon}\left[\mathcal L(\phi + \epsilon\nabla_{\tilde X}\phi) -\mathcal L(\phi) \right] = 0
+$$
+
+ If the Lagrangian is invariant under that transformation and $\phi$ is a field.
+
+This is the central piece of information that we use to calculate Noether currents and so on! We will be using it constantly in the coming sections. 
+
 With all the definitions out of the way, we are now ready to talk about free field theories.
 
 
@@ -114,27 +152,138 @@ $$
 (e^X)(p) = p + \tilde X,
 $$
 
-where $\tilde X \in \mathfrak X(\mathbb R^n)$ is the related vector field to $X \in \mathfrak i(\mathbb R^n)$. Therefore we see that $(e^X)^\ast \phi = \phi + \tilde X\phi$. This formula is true on a general manifold $M$ as well with a well defined isometry group. To see how it works we will interrupt the proof for the following cool facts about Lie groups.
-
-
-
-**<u>Theorem:</u>** *(Induced Lie algebra representation on vector bundles)* Consider $\pi:E\to M$ a vector bundle over a manifold $M$ with connection $\nabla : \Gamma^\infty(E)\times \mathfrak X(M) \to \Gamma^\infty(M)$, and the local isomorphism group $I(M)$ of $M$. Then there exists a unique, up to scaling, Lie algebra representation $\bar \rho : \mathfrak i(M) \to \text{End}(\Gamma^\infty(M))$ given by 
+where $\tilde X \in \mathfrak X(\mathbb R^n)$ is the related vector field to $X \in \mathfrak i(\mathbb R^n)$. Therefore we see that $(e^X)^\ast \phi(x) = \phi(x + X)$, which is a much simpler version of the first proposition in the previous section. Before we carry the variation we show that for any $\phi \in C^\infty(M)$
 
 $$
-\bar \rho(X) = \nabla_{\tilde X},
+\begin{align}
+(e^X)^\ast \mathcal L(\phi) 
+&= (e^X)^\ast(d\phi \wedge \ast d\phi)\\
+&= d\phi \wedge \ast d\phi,
+\end{align}
 $$
 
-where $\tilde X \in \mathfrak X(M)$ is the fundamental vector field of $X \in \mathfrak i(M)$.
-
-***Proof:*** Since the group is the local isometry group, the fundamental vector fields of any element of the Lie algebra are Killing. Therefore, we know that
+ therefore the Lagrangian is invariant under this transformation. As a result,As  from the Corollary of the previous section we know that the variation of the Lagrangian will also be invariant. Let's calculate it.
 
 $$
-
+\begin{align}
+0 &=\lim_{\epsilon\to 0} \frac{1}{\epsilon} \left[\mathcal L (\phi + \nabla_{\tilde X} \phi) - \mathcal L(\phi)\right]\\
+&= \lim_{\epsilon\to 0} \frac{1}{\epsilon} \left[\mathcal L (\phi + \tilde X \phi) - \mathcal L(\phi)\right]\\
+&= 2 d\phi \wedge \ast d(\tilde X\phi)\\
+&= \tilde X\phi\,  d\ast d \phi + d \ast (\tilde X\phi \, d\phi)\\
+&= \tilde X\phi\,  d\ast d \phi + d \ast (d\phi (\tilde X) \, d\phi).
+\end{align}
 $$
 
- 
+More specifically if $\phi$ is a field, then by the field equation $d\ast d \phi = 0$ which we didn't prove here, but to show it we do exactly the same procedure we find that:
+
+$$
+d\ast\left[d\phi(\tilde X) d\phi\right] = 0.
+$$
+
+Therefore the conserved current is
+
+$$
+J_{\tilde X} = \ast\left[d\phi(\tilde X) d\phi\right] = \ast T(\tilde X)
+$$
+
+As a result we can read off that a valid stress tensor is
+
+$$
+\begin{equation}
+T = d\phi \otimes d\phi.  \tag*{$\Box$}
+\end{equation}
+$$
 
 
+ ## Free Vector Fields 
+
+Free vector fields include both vector bosons as well as spinors. These are not necessarily tensor fields! They could be anything else. Yet, tensor fields are a subcategory of this, but we usually use a different, more convenient, equivalent notation to talk about them. Here we will do it in some abstract way that encompasses all these cases with the goal of obtaining the stress tensor in general. 
+
+For this section we will make reference to the following ingredients for our Free field theory. Assume that the following objects are defined:
+
+1. A (pseudo) Riemannian manifold $(M,g)$ of dimension $n \in \mathbb N$
+2. A vector bundle $\pi :E \to M$  over $M$ of rank $k < n$ with fiber $V$ some real inner product space with inner product $\langle \cdot , \cdot \rangle : E\times E \to \mathbb R$ (Complex works just fine but we have to take conjugates on our inner products.) 
+3. The induced bundle metric $\langle \cdot , \cdot \rangle_E \in \Gamma^\infty(E^\ast \otimes E^\ast)$.
+4. A connection $\nabla : \Gamma^\infty(E) \times \mathfrak X(M) \to \Gamma^\infty(E)$ on the vector bundle. And its induced exterior covariant derivative.
+
+And that's it! We will also need to address something. So far we have a canonical wedge product of twisted forms which gives a twisted form with values on the tensor product bundle. We want to have a wedge product that gives regular k forms in order to form the Lagrangian. Thankfully having a bundle metric we can immidiately get that using the definition below. To write it we will first need this lemma.
+
+**<u>Lemma:</u>** Given any twisted form $\omega \in \Omega^m(M,E)$ there exist $k$ forms $\omega^i \in \Omega^m(M)$ such that $\omega = \omega^i \otimes e_i$ for any collection of basis sections $\{e_i\}_{i=1}^k \subset \Gamma(E)$. 
+
+Now the definition of the wedge product.
+
+**<u>Definition:</u>** Let $\sigma \in \Omega^l(M,E), \eta \in \Omega^m(M,E)$ their **reduced wedge product** is the form $\omega \wedge_M\eta \in \Omega^{l+m}(M)$ given by 
+
+$$
+\omega\wedge_M \eta = \omega^i\wedge \eta^j\, \langle e_i ,e_j\rangle_E.
+$$
+
+This wedge product still has the same properties as the one that we have seen before. This can be also seen as taking the trace of the canonical wedge product. 
+
+We are finally ready to define the following as the free field Lagrangian.
+
+**<u>Definition:</u>** A **free field Lagrangian** $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ on $M$ is such that for any $\phi \in \Gamma^\infty(E)$
+
+$$
+\mathcal L(\phi) = \ast \langle \nabla \phi,\nabla \phi \rangle_E = d_\nabla \phi \wedge_M \ast d_\nabla \phi.
+$$
+
+**<u>Remark:</u>** The cool thing is that this Lagrangian reduces to the free scalar field Lagrangian we discussed in the previous section if $E$ is the real line bundle.
+
+
+
+We are now ready to calculate a stress tensor.
+
+**<u>Theorem:</u>** A stress energy tensor for the free field Lagrangian is given by the linear map
+
+$$
+\phi \in \Gamma^\infty(E) \mapsto \langle\nabla\phi \otimes \nabla\phi\rangle_E \in \Gamma^\infty(TM\otimes TM).
+$$
+
+***Proof:*** Similarly to the previous proof we will consider that $M$ has a well defined isometry group $I(M)$ and see what happens under variation of any related vector field $\tilde X \in \mathfrak X(M)$ of a Lie algebra element $X\in \mathfrak g$. In particular we have that
+
+$$
+\begin{align}
+0 &=\lim_{\epsilon\to 0} \frac{1}{\epsilon} \left[\mathcal L (\phi + \nabla_{\tilde X} \phi) - \mathcal L(\phi)\right]\\
+&= 2 \nabla \phi \wedge_E \ast \nabla \nabla_{\tilde X}\phi\\
+&= \langle \nabla_{\tilde X}\phi \otimes d_\nabla \ast d_\nabla \phi \rangle_E + \langle d_\nabla \ast (\nabla_{\tilde X}\phi \otimes  \nabla \phi)\rangle_E.
+\end{align}
+$$
+
+Therefore we see that the conserved current is given by
+
+$$
+J_{\tilde X} = \langle\ast(\nabla_{\tilde X}\phi \otimes  \nabla \phi)\rangle_E = \ast T(\tilde X).
+$$
+
+As a result, the stress tensor is obtained by
+
+$$
+T = \langle \nabla \phi \otimes \nabla \phi \rangle_E,
+$$
+
+which we can also think of as the length of the velocity vector, which I find really cool to be honest. 
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+It is time to see an example. The simplest one I can come up with is a bunch of scalar fields. 
+
+**<u>Example:</u>** *(Multiple Scalar Fields)* This will be a trivial vector bundle over the manifold with a connection $\nabla$ with the property that for some basis sections $\{e_i\}_{i=0}^k \subset \Gamma^\infty(E)$ it satisfies
+
+$$
+\nabla e_i = 0.
+$$
+
+If we further add the Eucledian bundle metric on $E$ we have that the stress tensor of a field $\phi \in \Gamma^\infty(E)$ given by $\phi = \phi^i \otimes e_i$ for $k$ smooth functions $\phi^i \in C^\infty(M)$ is given by
+
+$$
+T(\phi) = \sum_{i= 1}^k d\phi_i \otimes d\phi_i
+$$
+
+which is what we physically expect to happen. The other interesting thing is that the Lagrangian is the sum of Lagrangians of free fields. 
 
 
 
