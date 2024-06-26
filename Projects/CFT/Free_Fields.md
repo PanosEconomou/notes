@@ -114,7 +114,7 @@ $$
 
  If the Lagrangian is invariant under that transformation and $\phi$ is a field.
 
-This is the central piece of information that we use to calculate Noether currents and so on! We will be using it constantly in the coming sections. 
+by This is the central piece of information that we use to calculate Noether currents and so on! We will be using it constantly in the coming sections. 
 
 With all the definitions out of the way, we are now ready to talk about free field theories.
 
@@ -183,7 +183,7 @@ $$
 Therefore the conserved current is
 
 $$
-J_{\tilde X} = \ast\left[d\phi(\tilde X) d\phi\right] = \ast T(\tilde X)
+J_{\tilde X} = \ast\left[d\phi(\tilde X) d\phi\right] = \ast T(\tilde X).
 $$
 
 As a result we can read off that a valid stress tensor is
@@ -309,7 +309,7 @@ Consider the Free scalar field in $\mathbb R^{1,1}$ with the Lagrangian $\mathca
 
 ## Wick Rotation
 
-A Wick rotation is a maneuver we do in field theory that involves analytic continuation of some fields in such a way that we can "convert" our theory from Minkowski space to Eucledian space. Here we will formally develop it for scalar field theories on Lorentzian manifolds, but the extension should be clear. 
+A Wick rotation is a maneuver we do in field theory that involves analytic continuation of some fields in such a way that we can "convert" our theory from Minkowski space to Euclidean space. Here we will formally develop it for scalar field theories on Lorentzian manifolds, but the extension should be clear. 
 
 Not any Lorentzian manifold is useful for this purpose. For example, I can totally imagine a Lorentzian manifold that is compact, in which case interpreting the time direction causes all sorts of problems. Therefore we will limit our attention to manifolds that do not have a "compact time direction." The precise meaning of this is as follows.
 
@@ -338,11 +338,25 @@ Now that we can split a manifold, we can play with this corollary on fields.
 
 **<u>Corollary:</u>** $C^\infty(M)$ is isomorphic to $\mathbb C^\infty(\mathbb R \times \Sigma) \subset C^\infty(\mathbb C\times \Sigma)$.  
 
-The cool thing is that there is a Riemannian manifold hidden in $\mathbb C \times \Sigma$, because we can analytically continue the metric. Lets check this out step by step like so.
+The cool thing is that there is a Riemannian manifold hidden in $\mathbb C \times \Sigma$, because we can analytically continue the metric. Therefore any analytic function on $\mathbb C$ can induce functions with the same data on both the Riemannian and Lorentzian copies of $\mathbb R$. In the other direction, we can analytically continue functions from the Euclidean to the Lorentzian space! 
 
-**<u>Proposition:</u>** Both the Lorentzian and Riemannian manifolds $\mathbb R$ with metrics $-dx\otimes dx$ and $dx\otimes dx$ embed in the Hermitian manifold $\mathbb C$ with metric $dz\otimes dz$. 
+The next step is to believe that any field has an analytic continuation on the imaginary axis. This is not an unreasonable assumption. For example, in the case of the free field we see that the field equations for some $\phi \in C^\infty(\mathbb R^{1,1})$ are
 
-The proof is by direct calculation, but what is interesting is that $\mathbb C$ is a complex manifold. Therefore any analytic function on $\mathbb C$ can induce functions with the same data on both the Riemannian and Lorentzian copies of $\mathbb R$. In the other direction, we can analytically continue functions from the Eucledian to the Lorentzian space! Now lets take the next step on this. 
+$$
+d\ast d\phi = 0,
+$$
+
+which in a local coordinate system becomes
+
+$$
+\frac{\partial^2 \phi}{\partial t^2} = \frac{\partial^2 \phi}{\partial x^2}.
+$$
+
+We know that we can solve this equation such that for any $x \in \mathbb R$, the function $\phi(\cdot, x)$ is a limit of real analytic functions (via separation of variables). Since it is real analytic, it has an analytic continuation to the complex numbers. Therefore we can safely assume that there exists a function $\phi_\mathbb C \in C^\infty_{\mathbb C}(\mathbb C\times \mathbb R)$ such that $\phi_{\mathbb C}(\cdot, x)$ is analytic for any $x \in \mathbb R$ and for any $t \in \mathbb R$ it satisfies $\phi_{\mathbb C}(t,x) = \phi(t,x)$. 
+
+It is easy to see that the function $\phi_{\mathbb C}$ 
+
+
 
 
 
