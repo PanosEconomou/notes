@@ -309,17 +309,40 @@ Consider the Free scalar field in $\mathbb R^{1,1}$ with the Lagrangian $\mathca
 
 ## Wick Rotation
 
-A Wick rotation is a maneuver we do in field theory that involves analytic continuation of some fields in such a way that we can "convert" our theory from Minkowski space to Eucledian space. Here we will formally develop it for scalar field theories on Lorenzian manifolds, but the extension should be clear. 
+A Wick rotation is a maneuver we do in field theory that involves analytic continuation of some fields in such a way that we can "convert" our theory from Minkowski space to Eucledian space. Here we will formally develop it for scalar field theories on Lorentzian manifolds, but the extension should be clear. 
 
-The idea is that we will extend our theory into a complex manifold by using analytic continuation. We start by seeing how we can construct such a manifold.
+Not any Lorentzian manifold is useful for this purpose. For example, I can totally imagine a Lorentzian manifold that is compact, in which case interpreting the time direction causes all sorts of problems. Therefore we will limit our attention to manifolds that do not have a "compact time direction." The precise meaning of this is as follows.
 
-**<u>Theorem:</u>** Given a Lorenzian Manifold $M$ with signature $(1,n-1)$ the product manifold $M\times M$ can be endowed with a complex manifold structure.
+**<u>Theorem:</u>** Let $(M,g)$ be a Lorentzian manifold with signature $(1,n-1)$ that admits a global, nonvanishing, timelike Killing vector field, i.e. there exists $X \in \mathfrak X(M)$ such that $\mathcal L_Xg = 0$ and $g(X,X) < 0$. Then there exists a spacelike surface $\Sigma \subset M$ such that $M$ embeds in $\mathbb C \times \Sigma$. 
 
-***Proof:*** 
+![trivialization](/home/data1/po524/notes/Projects/CFT/_Free_Fields.assets/trivialization.svg)
+
+***Proof:*** The flow of a global nonvanishing Killing vector field $\phi_X : \mathbb R\times M \to M$ defines a smooth free proper $\mathbb R$ action on $M$. Therefore, by the [quotient manifold](../../Analysis/Distributions.md#killing-vector-fields-and-the-quotient-manifold-theorem) theorem the quotient $\Sigma \coloneqq M/\mathbb R$ under the orbit equivalence $\sim$, i.e. for any two $p,q \in M$
+
+$$
+p\sim q \iff \exists t \in \mathbb R \text{ s.t. } \phi_X(t,p) = q,
+$$
+
+ is a submanifold of $M$. 
+
+To show that this submanifold is spacelike it is enough to show that the metric is Riemannian. Consider the inclusion map $\iota : \Sigma \to M$. If there exists a vector $Y_p \in T_p\Sigma$ for some $p\in \Sigma$ such that  $\iota^\ast g_p(Y_p,Y_p) < 0$ then $i_\ast Y_p = Y_p \in T_pM$ is a timelike vector. Now consider the projection of $Y_p$ on $X_p$ denoted by $\bar Y_p$, as a result any path tangent to $\bar Y_p$ is also tangent to $X_p$ which means that it is contained in the flow of $X_p$ and thus not on $\Sigma$. Therefore $\bar Y_p = 0$ which also implies that $g(Y_p,X_p) = 0$. This means that $Y_p$ and $X_p$ are orthogonal timelike vectors, implying that $\text{sign}(M,g) = (q,n-q)$ with $q \geq 2$ which is a contradiction. Therefore there exists no timelike vector in $\Sigma$. 
+
+Finally, the embedding to $\mathbb C \times \Sigma$ comes from the canonical diffeomorphism $M \to \mathbb R\times \Sigma$ using the flow to lift the quotient map composed with the canonical embedding $\mathbb R \times \Sigma \to \mathbb C\times \Sigma$.  
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
+Now that we can split a manifold, we can play with this corollary on fields.
 
+**<u>Corollary:</u>** $C^\infty(M)$ is isomorphic to $\mathbb C^\infty(\mathbb R \times \Sigma) \subset C^\infty(\mathbb C\times \Sigma)$.  
 
+The cool thing is that there is a Riemannian manifold hidden in $\mathbb C \times \Sigma$, because we can analytically continue the metric. Lets check this out step by step like so.
+
+**<u>Proposition:</u>** Both the Lorentzian and Riemannian manifolds $\mathbb R$ with metrics $-dx\otimes dx$ and $dx\otimes dx$ embed in the Hermitian manifold $\mathbb C$ with metric $dz\otimes dz$. 
+
+The proof is by direct calculation, but what is interesting is that $\mathbb C$ is a complex manifold. Therefore any analytic function on $\mathbb C$ can induce functions with the same data on both the Riemannian and Lorentzian copies of $\mathbb R$. In the other direction, we can analytically continue functions from the Eucledian to the Lorentzian space! Now lets take the next step on this. 
 
 
 
