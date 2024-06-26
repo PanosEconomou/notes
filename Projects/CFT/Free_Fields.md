@@ -303,7 +303,19 @@ The whole point of doing the classical exploration was to start playing with con
 
  The prototypical example of a conformal field theory is the Free scalar field in $2$ dimensions. In this case only, we will not directly apply the formalism developed [in these notes](../../Quantum_Fields/2D_CFT_Axioms.md), but rather motivate it through the procedure of radial quantization. 
 
-Consider the Free scalar field in $\mathbb R^2$ with the Lagrangian we have found before.
+Consider the Free scalar field in $\mathbb R^{1,1}$ with the Lagrangian $\mathcal L_F : C^\infty(\mathbb R^{1,1}) \to \Omega^2(\mathbb R^{1,1})$ that we have found before. The first step to radially quantize is to perform a *Wick rotation*. This is a really common trick in Quantum Field theory and since we will be using it a lot, it would be nice to devote a section in understanding it.
+
+
+
+## Wick Rotation
+
+A Wick rotation is a maneuver we do in field theory that involves analytic continuation of some fields in such a way that we can "convert" our theory from Minkowski space to Eucledian space. Here we will formally develop it for scalar field theories on Lorenzian manifolds, but the extension should be clear. 
+
+The idea is that we will extend our theory into a complex manifold by using analytic continuation. We start by seeing how we can construct such a manifold.
+
+**<u>Theorem:</u>** Given a Lorenzian Manifold $M$ with signature $(1,n-1)$ the product manifold $M\times M$ can be endowed with a complex manifold structure.
+
+***Proof:*** 
 
 
 
