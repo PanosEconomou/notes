@@ -164,7 +164,7 @@ $$
 
 Now we have enough tools to define almost complex structures!
 
-**<u>Definition:</u>** Given a manifold $M$ an **almost complex structure** $J:TM\to TM$ on $M$ is a smooth section $\Gamma (T^\ast M\otimes T^\ast M)$ such taht $J\circ J = -\text{Id}$. A manifld with an almost complex structure is often called an **almost complex manifold.** 
+**<u>Definition:</u>** Given a manifold $M$ an **almost complex structure** $J:TM\to TM$ on $M$ is a smooth section $\Gamma (T^\ast M\otimes T M)$ such that $J\circ J = -\text{Id}$. A manifold with an almost complex structure is often called an **almost complex manifold.** 
 
 *Sidenote:* We often denote $J\circ J = -\text{Id}$ as $J^2 = -1$ to resemble the almost complex structure of the complex plane. 
 
