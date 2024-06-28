@@ -333,28 +333,99 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
-Now that we can split a manifold, we can play with this corollary on fields.
-
-**<u>Corollary:</u>** $C^\infty(M)$ is isomorphic to $\mathbb C^\infty(\mathbb R \times \Sigma) \subset C^\infty(\mathbb C\times \Sigma)$.  
-
-The cool thing is that there is a Riemannian manifold hidden in $\mathbb C \times \Sigma$, because we can analytically continue the metric. Therefore any analytic function on $\mathbb C$ can induce functions with the same data on both the Riemannian and Lorentzian copies of $\mathbb R$. In the other direction, we can analytically continue functions from the Euclidean to the Lorentzian space! 
-
-The next step is to believe that any field has an analytic continuation on the imaginary axis. This is not an unreasonable assumption. For example, in the case of the free field we see that the field equations for some $\phi \in C^\infty(\mathbb R^{1,1})$ are
+**<u>Corollary:</u>** The induced metric $g$ on $\mathbb R\times \Sigma$ can be written around any point as 
 
 $$
-d\ast d\phi = 0,
+g = -\chi + \eta,
 $$
 
-which in a local coordinate system becomes
+where $\eta$ is a Riemannian metric on $\Sigma$, and $\chi$ is a Riemannian metric on $\mathbb R$.
+
+**<u>Remark:</u>** We usually pick a chart on $\mathbb R \times \Sigma$ such that $\chi = dt\otimes dt$.  
+
+The first interesting result of these is that we can embed both the Riemannian and Lorentzian versions of $\mathbb R\times \Sigma$ with metrics $g_E = \chi + \eta$ and $g = -\chi + \eta$ respectively in $\mathbb C \times \Sigma$. Here is how this works.
+
+**<u>Proposition:</u>** There exists a metric $g_{\mathbb C} \in \Gamma^\infty(T^\ast_{\mathbb C} \mathbb C\times \Sigma\otimes T^\ast_{\mathbb C} \mathbb C\times \Sigma)$ such that both the Lorentzian and Riemannian versions of $\mathbb R\times \Sigma$ isometrically embed on $\mathbb C\times \Sigma$. 
+
+Notice that this metric spans the complexified cotangent space. However, this is not bad at all because the next step is to extend our Lagrangian on the complexified vector bundle. For more about complexified vector bundles [check this out](../../Geometry/Complex_Structures.md).
+
+**<u>Definition:</u>** A form $\omega \in \Omega^{n}(\mathbb R\times \Sigma)$ is called **extendable** if there exists a holomorphic form $\omega_{\mathbb C} \in \Omega^n(\mathbb C \times \Sigma)^{\mathbb C}$ (i.e. $\bar \partial \omega_{\mathbb C} = 0$) such that
 
 $$
-\frac{\partial^2 \phi}{\partial t^2} = \frac{\partial^2 \phi}{\partial x^2}.
+\iota^\ast \omega_{\mathbb C} = \omega.
 $$
 
-We know that we can solve this equation such that for any $x \in \mathbb R$, the function $\phi(\cdot, x)$ is a limit of real analytic functions (via separation of variables). Since it is real analytic, it has an analytic continuation to the complex numbers. Therefore we can safely assume that there exists a function $\phi_\mathbb C \in C^\infty_{\mathbb C}(\mathbb C\times \mathbb R)$ such that $\phi_{\mathbb C}(\cdot, x)$ is analytic for any $x \in \mathbb R$ and for any $t \in \mathbb R$ it satisfies $\phi_{\mathbb C}(t,x) = \phi(t,x)$. 
+A Lagrangian $\mathcal L : \Gamma^\infty(E) \to \Omega^n(\mathbb R \times \Sigma)$ is called **extendable** if for any $\phi \in \Gamma^\infty(E)$ then $\mathcal L(\phi)$ is extendable. 
 
-It is easy to see that the function $\phi_{\mathbb C}$ 
+**<u>Proposition:</u>** The free field Lagrangian is extendable.
+
+This definition allows us to consider Lagrangians that have analytic continuations in the complex numbers. With this definition we are ready to create the Wick rotated Lagrangian.
+
+**<u>Theorem:</u>** *(Wick Rotation)* Let $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ be an extendable Lagrangian, over a Lorentzian Manifold with a global timelike Killing vector field. Then there exists a Lagrangian $\mathcal L' : \Gamma^\infty(E^{\mathbb C}) \to \Omega^n(M)^{\mathbb C}$  such that for any field $\phi \in \Gamma^\infty(E)$ there exists a unique field $\psi \in \Gamma^\infty(E^{\mathbb C})$ such that
+
+$$
+i^\ast \mathcal L'(\psi)_{\mathbb C} = \mathcal L(\phi).
+$$
+
+The Lagrangian $\mathcal L'$ is called the **Wick rotated Lagrangian of** $\mathcal L$.
+
+**<u>Remark:</u>** In other words this says that for any field $\phi$ we can find a complex reparameterization $\psi$ such that it solves a simpler Lagrangian!
+
+Let's see this in practice.
+
+**<u>Example:</u>** *(Wick Rotation of Scalar Fields)* Consider the Free field Lagrangian of a scalar field $\phi \in C^\infty(\mathbb R\times \Sigma)$ over a Lorentzian manifold with a global timelike killing field and metric
+
+$$
+g = -dt\otimes dt + \eta,
+$$
+
+where $(\mathbb R,dt\otimes dt)$ and $(\Sigma, \eta)$ are Remannian manifolds. Then for each $\phi$ we have that $\mathcal L (\phi) = d\phi \wedge \ast d\phi$. The extension of the form $\mathcal L(\phi)$ is  given by the analytic continuation of $\phi$ into an analytic function $\phi_{\mathbb C} : C^\infty(\mathbb C \times \Sigma, \mathbb C)$ such that $\bar \partial \phi_{\mathbb C} =0$. Then we find that 
+
+$$
+\omega = d\phi_{\mathbb C} \wedge \ast d(\bar \phi_{\mathbb C} dz) \in \Omega^n(\mathbb C\times \Sigma)^{\mathbb C}
+$$
+
+with metric $g_{\mathbb C} = -dz\cdot d\bar z + \eta$ is the extension of $\mathcal L(\phi)$ since
+
+$$
+\begin{align}
+\iota^\ast \omega 
+&= \iota^\ast  \ast_{\Sigma}\left(- 2\left|\frac{\partial \phi_{\mathbb C}}{\partial z}\right|^2 + \partial_i \phi_{\mathbb C} \partial^i \phi_{\mathbb C}\right) dz\\
+&= \ast_{\Sigma}\left(- (\partial_t\phi)^2 + \partial_i \phi \partial^i \phi\right) dt\\
+&= d\phi \wedge \ast d\phi.
+\end{align}
+$$
+
+We notice, however, that under the inclusion $\epsilon : \mathbb R\times \Sigma\to \mathbb C\times \Sigma$ given by $(t,p)\mapsto (0,-t,p) = (-it,p)$ we obtain the following pullback of the extension $\omega$
+
+$$
+\begin{align}
+\epsilon^\ast\omega 
+&= \epsilon^\ast  \ast_{\Sigma}\left(- 2\left|\frac{\partial \phi_{\mathbb C}}{\partial z}\right|^2 + \partial_i \phi_{\mathbb C} \partial^i \phi_{\mathbb C}\right) dz\\
+&= i\ast_{\Sigma}\left((\partial_t\phi_{\mathbb C})^2 + \partial_i \phi_{\mathbb C} \partial^i \phi_{\mathbb C}\right) dt\\
+&= id\phi_{\mathbb C} \wedge \ast_E d\phi_{\mathbb C}.
+\end{align}
+$$
+
+where $\ast_E$ is the Hodge duality for the Riemannian metric $g_E = dt\otimes dt + \eta$. This is a really cool result since we have found away to obtain the Wick rotation of the Lagrangian to be
+
+$$
+\mathcal L'(\phi) = id\phi\wedge\ast_E d\phi.
+$$
+
+In other words if we solve for $\phi$ that is a field for $\mathcal L'$ we can use this analytic continuation such that we obtain a field for $\mathcal L$. 
+
+
+
+## Mode Expansion
+
+In the previous way we have seen an argument as to why solving for a free particle in a Riemannian manifold gives us unique solutions for the free particle in Minkowski space, under some assumptions on the niceness of the time axis. Now that we can work in a Riemannian Manifold, we can finally play around with mode expansions! 
+
+Unfortunately, mode expansions rely on Fourier transforms, therefore 
+
+
+
+
 
 
 
