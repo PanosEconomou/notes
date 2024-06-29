@@ -421,7 +421,29 @@ In other words if we solve for $\phi$ that is a field for $\mathcal L'$ we can u
 
 In the previous way we have seen an argument as to why solving for a free particle in a Riemannian manifold gives us unique solutions for the free particle in Minkowski space, under some assumptions on the niceness of the time axis. Now that we can work in a Riemannian Manifold, we can finally play around with mode expansions! 
 
-Unfortunately, mode expansions rely on Fourier transforms, therefore 
+Unfortunately, mode expansions rely on Fourier transforms which are hard to define on an arbitrary manifold. The main idea of Fourier series is that we are able to find a basis for some big set of functions that consists of eigenfunctions of the Laplacian. These are called *characters.* In $\mathbb R^n$ the eigenfunctions of the Laplacian $\ast d \ast d$ are exponential functions of the form $e^{ik\cdot x}$ for some $k \in \mathbb R^n$. 
+
+The issue is that there is no reason that characters should exist globally on a random Riemannian manifold. What we do know is that they exist for Lie groups (using the exponential map) and compact Riemannian manifolds (using some more complicated mess of a procedure). 
+
+The purpose of this is to derive everything for a 2 Dimensional CFT, so we will now restrict to $\mathbb R^2 \cong \mathbb C$ where we know the characters.
+
+**<u>Theorem:</u>** Let $\phi \in C^\infty(\mathbb C \setminus\{0\})$ then it admits an **angular mode expansion**. In other words, there exist functions $\phi_n \in C^\infty(\mathbb R^+)$ such that
+
+$$
+\phi(r,\theta) = \sum_{n = -\infty}^\infty \phi_n(r) e^{in\theta}.
+$$
+
+The functions $\phi_n$ are called the **angular modes of** $\phi$.
+
+We can use mode expansions to rewrite the action. 
+
+**<u>Corollary:</u>** The Wick rotated free scalar field action can be rewritten for any $\phi \in C^\infty(\mathbb C)$
+
+$$
+S(\phi) = \sum_{n=-\infty}^\infty i\int_{\mathbb R^+}rdr\, \left |\frac{\partial \phi_n}{\partial r} \right|^2 - \frac{n^2}{r^2} |\phi_n|^2.
+$$
+
+**<u>Remark:</u>** We recognize this result as the sum of infinite harmonic oscillators. This is something that we know how to quantize. 
 
 
 
