@@ -42,11 +42,11 @@ $$
 
 The actual interesting thing is to incorporate the fact that the fiber of $E$ is a vector space! To do that we will introduce a metric.
 
-**<u>Definition:</u>** A <u>bundle metric</u> $\langle\cdot,\cdot\rang$ is a smooth symmetric section of the vector bundle $E^*\otimes E^*$. In other words we see that $\forall p \in M$ we have that
+**<u>Definition:</u>** A <u>bundle metric</u> $\langle\cdot,\cdot\rangle$ is a smooth symmetric section of the vector bundle $E^*\otimes E^*$. In other words we see that $\forall p \in M$ we have that
 
 $$
 \begin{align*}
-\langle\cdot,\cdot\rang_p:E_p\times E_p \to \mathbb{R}
+\langle\cdot,\cdot\rangle_p:E_p\times E_p \to \mathbb{R}
 \end{align*}
 $$
 
