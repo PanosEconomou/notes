@@ -7,6 +7,7 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [**CFT**](CFT)
+    - [Free Conformal Field Theories](CFT/Free_Fields.md)
     - [Ising Model](CFT/Ising_Model.md)
 - [**Dissipative_QFT**](Dissipative_QFT)
     - [Dissipation Currents](Dissipative_QFT/Dissipation_Currents.md)
