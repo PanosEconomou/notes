@@ -6,14 +6,15 @@
 }
 
 /* The background */
-canvas{
+canvas {
     width: 100%;
-    height: 100vh;
-    /* filter: blur(100px); */
+    height: 100%;
     position:absolute;
     left:0;
     top:0;
     z-index:-10;
+    background-color: #fff;
+    filter: blur(35px) contrast(30) blur(2px) brightness(20) blur(1px) contrast(2);
 }
 
 body {

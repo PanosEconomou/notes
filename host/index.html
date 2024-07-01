@@ -10,40 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="main-animations.js" defer></script>
-    <script src="msqr.min.js"></script>
 </head>
 
 <body>
     <!-- Background -->
     <canvas id="background"></canvas>
-    <script>
-        const canvas = document.getElementById("background");
-        const ctx = canvas.getContext("2d");
-
-        function f(x,y){
-            s = 10;
-            return Math.exp(-s*x*x -s*y*y)*255
-        }
-
-        const values = []; // 2D array of function values
-        for (let y = 0; y < canvas.height; y++) {
-            values[y] = [];
-            for (let x = 0; x < canvas.width; x++) {
-                values[y][x] = f(x, y); 
-            }
-        }
-
-        const paths = MSQR(values, 100); // isovalue is the contour level
-
-        // Draw the paths on the canvas
-        paths.forEach(path => {
-            ctx.beginPath();
-            ctx.moveTo(path[0][0], path[0][1]);
-            for (let i = 1; i < path.length; i++) {
-                ctx.lineTo(path[i][0], path[i][1]);
-            }            ctx.stroke();
-        });
-    </script>
+    <script src="canvas-animation.js"></script>
 
 
     <!-- Welcome DIV -->
