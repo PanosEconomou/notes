@@ -440,13 +440,62 @@ We can use mode expansions to rewrite the action.
 **<u>Corollary:</u>** The Wick rotated free scalar field action can be rewritten for any $\phi \in C^\infty(\mathbb C)$
 
 $$
-S(\phi) = \sum_{n=-\infty}^\infty i\int_{\mathbb R^+}rdr\, \left |\frac{\partial \phi_n}{\partial r} \right|^2 - \frac{n^2}{r^2} |\phi_n|^2.
+S(\phi) = \sum_{n=-\infty}^\infty i\int_{\mathbb R^+}rdr\, \left[\left |\frac{\partial \phi_n}{\partial r} \right|^2 - \frac{n^2}{r^2} |\phi_n|^2\right].
 $$
 
 **<u>Remark:</u>** We recognize this result as the sum of infinite harmonic oscillators. This is something that we know how to quantize. 
 
+What we will figure out is that each of these modes is a Virasoro generator. But for now let's attempt to quantize this. Let's focus for a single mode. This is going to have the following Lagrangian
+
+$$
+\mathcal {L}_n(\phi) = \left[\left |\frac{\partial \phi_n}{\partial r} \right|^2 - \frac{n^2}{r^2} |\phi_n|^2\right] rdr = (d\phi \wedge \ast d\bar \phi) - \frac{n^2}{r^2} \ast \phi \bar \phi.
+$$
+
+If this Lagrangian did not have $\frac{1}{r^2}$ factor in the second term it would be exactly the one for a harmonic oscillator, however we need to deal with that first before continuing. Luckily this is isn't a problem since we already know how to treat such potentials. Let's take the Legendre transform in order to obtain the Hamiltonian.
+
+**<u>Proposition:</u>** The Hamiltonian $H_n$ associated to the Legendre Transform of the Lagrangian $\mathcal L_n$ is given by
+
+$$
+H_n(\pi,\phi) = \ast \left[\pi\bar \pi + \frac{n^2}{r^2} \phi \bar \phi\right],
+$$
+
+where $\pi = \frac{\partial \phi}{\partial r}$ is the canonical conjugate momentum.
+
+Here is a good time to examine the structure of the phase space onto which the Hamiltonian is acting on. 
+
+## Phase Spaces
+
+A phase space in classical mechanics is easy to interpret. It is the cotangent bundle of space. Its abstraction in field theory, however, is slightly more complicated. Let's see how to do this by first examining the structure of phase space on the 1-dimensional setting. 
+
+In the following we will consider our base manifold to be time ($\mathbb R$) and our fields are sections of the trivial bundle $\mathbb R\times M$, where $M$ is some Riemannian manifold that represents space. This is the setting of classical mechanics but interpreted from a Field theory point of view, where we assign a point on space for every point in time. In other words, sections of $\mathbb R\times M$ are paths on $M$. 
+
+We want to construct the phase space of this system. Phase space is to be interpreted as the space of *all configurations* of the fields. If we fix a point in time, using uniqueness of second order ODEs everything we need in order to determine the field, is a point $q \in M$ and its initial velocty $v \in T_qM$ or equivalently its momentum $p\in T^\ast_q M$. Since each field configuration only needs these two data we identify the space of all field configurations as the cotangent bundle $T^\ast M$. (So far in this argument there was no reason to prefer $T^\ast M$ over $TM$, we are not going to focus on that here.)
+
+Now let's try to structure this intuition in such a way that it generalizes.
+
+**<u>Definition:</u>**  Let $(M,g)$ be a Lorentzian manifold with a nonvanishing global timelike Killing vector field $X \in \mathfrak{X}(M)$ with trivialization $M \cong \mathbb R \times \Sigma$, where $\Sigma$ is a Riemannian submanifold. The **phase space of fields** that are sections of a fiber bundle $\pi: E\to M$ with fiber the manifold $N$ is the set
+
+$$
+\mathcal P (E,\Sigma) = \Gamma^\infty(\Sigma \times T^\ast N).
+$$
+
+**<u>Example:</u>** *(Classical Mechanics)* Consider $\mathbb R$ with fields on the trivial bundle $M\times \mathbb R$ where $M$ is some Riemannian manifold. We recognize this as the setting of classical mechanics. We see that the phase space is
+
+$$
+\mathcal P(M\times \mathbb R,\{t\}) = \Gamma^\infty(\{t\}\times T^\ast M) \cong T^\ast M.
+$$
+
+ **<u>Lemma:</u>** The phase space of fields admits a Frechet manifold structure.
+
+Another way to think of the phase space is as the set of all initial conditions of time evolution. In other words, each point in the phase space fully defines a configuration of the fields over time. The implicit assumption we have made here is that the equations of motion are second order. In the case of free fields they are though, so we are good.  
 
 
+
+Now we can construct the full Hamiltonian on the product space. This Hamiltonian is given by
+
+$$
+H = \sum_{n=-\infty}^\infty H_n
+$$
 
 
 
