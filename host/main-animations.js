@@ -75,7 +75,6 @@ function typeWriter() {
         }
         i++;
     }
-    typeWriter.classList.remove('cursor');
 }
 
 typeWriter(); 

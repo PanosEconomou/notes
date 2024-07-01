@@ -1,14 +1,26 @@
 * {
-    /* margin: 0;
+    margin: 0;
     padding: 0;
-    border: 0; */
+    border: 0;
     scroll-behavior: smooth;
+}
+
+/* The background */
+canvas{
+    width: 100%;
+    height: 100vh;
+    /* filter: blur(100px); */
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-10;
 }
 
 body {
     padding: 0;
     margin: 0;
 }
+
 main {
     color: #fff;
     max-width: 1200px;
@@ -61,7 +73,7 @@ h1 {
     padding-right: 2px;
     margin-bottom: 0;
     margin-left: auto;
-    border-right: 5px solid black; 
+    border-right: 2px solid black; 
     animation: blink-caret 0.85s step-end infinite;
     font-variation-settings: "wght" 700;
     transition-duration: 0.2s;   
@@ -99,6 +111,6 @@ h2:hover {
 }
 
 hr {
-    border: 2px solid #000;
+    border: 1px solid #000;
 }
 
