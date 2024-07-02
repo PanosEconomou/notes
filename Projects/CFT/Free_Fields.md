@@ -487,20 +487,57 @@ $$
 
  **<u>Lemma:</u>** The phase space of fields admits a Frechet manifold structure.
 
-Another way to think of the phase space is as the set of all initial conditions of time evolution. In other words, each point in the phase space fully defines a configuration of the fields over time. The implicit assumption we have made here is that the equations of motion are second order. In the case of free fields they are though, so we are good.  
+Another way to think of the phase space is as the set of all initial conditions of time evolution. In other words, each point in the phase space fully defines a configuration of the fields over time. The implicit assumption we have made here is that the equations of motion are second order. In the case of free fields they are though, so we are good. A more general formulation uses Jet bundles to replace the cotangent bundle. 
+
+Since any point on phase space defines everything we need to do time evolution of the fields, and since any observable depends on the fields, it would make sense to turn any observable in smooth functions over phase space. For example, in a classical mechanics theory the mass observable is a constant function over phase space, or the momentum observable is one of the coordinate maps of the cotangent bundle, etc. 
+
+Therefore, we want to turn our attention to studying these maps.
+
+**<u>Proposition:</u>** The set $\{\phi_x^i, \pi_x^i\}_{x \in \Sigma} \subset C^\infty_0(\mathcal P)$ defined such that for any $(\phi,\pi) \in \mathcal P$
+
+$$
+\begin{align}
+\phi_x^i(\phi,\pi) = \phi^i(x) && \pi_x^i(\phi,\pi) = \pi^i(x)
+\end{align}
+$$
+
+is a basis for the vector space $C^\infty_0(\mathcal P)$. 
+
+The first thing we see is that the set of smooth maps admits a Lie algebra structure using a construction called the *Poisson Bracket.* 
+
+**<u>Proposition:</u>** The **Poisson Bracket**  $\{\cdot,\cdot\}: C^\infty( \mathcal P) \times C^\infty( \mathcal P) \to C^\infty( \mathcal P) $ defined for any $f,g \in C^\infty(\mathcal P)$ 
+
+$$
+\{f, g\} = \sum_{i=1}^{\dim T^\ast N}\int_{\Sigma}\frac{\partial f}{\partial \phi_x^i} \frac{\partial g}{\partial \pi_x^i} - \frac{\partial g}{\partial \phi_x^i} \frac{\partial f}{\partial \pi_x^i} dx  
+$$
+
+is a Lie Bracket on $C^\infty_0( \mathcal P)$.
+
+**<u>Corollary:</u>** The following identity holds
+
+$$
+\{\phi_x^i,\pi_y^j\} = \delta^{ij}\delta(x-y)
+$$
+
+We now have a phase space description for our stuff.
 
 
 
-Now we can construct the full Hamiltonian on the product space. This Hamiltonian is given by
+## Quantizing the Harmonic Oscillators
+
+With this diversion out of the way we can construct the full Hamiltonian on the product space. This Hamiltonian is given by
 
 $$
 H = \sum_{n=-\infty}^\infty H_n
 $$
 
+On the space $\mathcal P \coloneqq \Gamma^\infty( \mathbb Z \times T^\ast \mathbb C) \cong {\mathbb C^2}^{\mathbb z}$, which is the space of all sequences on $\mathbb C^2$. From canonical quantization we can see that
 
+$$
+\{\phi_n,\pi_m\} \mapsto [\phi_n,\pi_m] = i\delta_{nm}
+$$
 
-
-
+For the basis. This can help us construct the Hilbert space. 
 
 
 
