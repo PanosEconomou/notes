@@ -80,17 +80,17 @@ this is going to be super useful when we start speaking of majorana vs dirac spi
 
 Let’s see some common Clifford algebras that are used all the time in physics. 
 
-**<u>Definition:</u>** For the vector space $\mathbb R^{s,t}$ with the inner product given by the metric $\eta$ the clifford algebra is denoted by $\text{Cl}(s,t)$. If $t= 0$ we denote the algebra as $\text{Cl}(s)$. For the vector space $\mathbb C^n$ with the standard eucledian inner product $q$ (not a Hermitian form) the Clifford algebra is denoted by $\mathbb C\text{l}(d)$.
+**<u>Definition:</u>** For the vector space $\mathbb R^{s,t}$ with the inner product given by the metric $\eta$ the Clifford algebra is denoted by $\text{Cl}(s,t)$. If $t= 0$ we denote the algebra as $\text{Cl}(s)$. For the vector space $\mathbb C^n$ with the standard eucledian inner product $q$ (not a Hermitian form) the Clifford algebra is denoted by $\mathbb C\text{l}(d)$.
 
 With these definitions of common algebras we can play around a lot in interesting ways! In particular the following proposition will help establish why complex numbers appear out of nowhere when describing spinors. 
 
-**<u>Proposition:</u>** Any complex Cliffpord algebra is isomorphic to a complexification of a real Clifford agebra, i.e.
+**<u>Proposition:</u>** Any complex Clifford algebra is isomorphic to a complexification of a real Clifford algebra, i.e.
 
 $$
 \mathbb{C}\text{l}(s+t) =\text{Cl}(s,t) \otimes \mathbb{C}
 $$
 
-therefore complex representations of $\text{Cl}(s,t)$ are equivalent to representations of the complex clifford algebras. 
+therefore complex representations of $\text{Cl}(s,t)$ are equivalent to representations of the complex Clifford algebras. 
 
 Then the following lemma will unlock more about spinors when we talk about their dimension and such. Namely,
 
@@ -102,13 +102,13 @@ Then the following lemma will unlock more about spinors when we talk about their
 
 Honestly we are building all the materials of spinors before even talking about them. Next up we have the *gamma matrices*. These are objects tied to a particular representation of the algebra and help us see how they act. In particular here is a definition.
 
-**<u>Definition:</u>** Consder an algebra representation $\rho : \text{Cl}(s,t) \to \text{End}(\Sigma)$ of the real Clifford agebra of $\mathbb{R}^{s,t}$ to the endomorphism algebra of a $\mathbb{K}$ vector space $\Sigma = \mathbb K^N$. Assume that $\mathbb{R}^{s,t}$ has a basis $e_1, e_2,\cdots e_n$ where $n = s+t$. Then the **physical gamma matrices** are the representation of the basis given by
+**<u>Definition:</u>** Consider an algebra representation $\rho : \text{Cl}(s,t) \to \text{End}(\Sigma)$ of the real Clifford algebra of $\mathbb{R}^{s,t}$ to the endomorphism algebra of a $\mathbb{K}$ vector space $\Sigma = \mathbb K^N$. Assume that $\mathbb{R}^{s,t}$ has a basis $e_1, e_2,\cdots e_n$ where $n = s+t$. Then the **physical gamma matrices** are the representation of the basis given by
 
 $$
 \gamma_{\alpha} = -i \rho\circ \gamma(e_\alpha),
 $$
 
-for $1 \leq \alpha \leq n$, where $\gamma$ is the map that defines the clifford relation. 
+for $1 \leq \alpha \leq n$, where $\gamma$ is the map that defines the Clifford relation. 
 
 The $-i$ factor is there because it makes physics look prettier, but other conventions exist and are used. An intuitive view of the $\gamma$ matrices is that they are the representations of the square root of the basis of minkowski space. In other words is how the square roots of minkowski space vectors would transform the vectors of $\Sigma$. These matrices have cool properties
 
@@ -155,13 +155,13 @@ Honestly, I am writing this part because we will be using results about the stan
 
 We start some results that are super cute and then we will pull them together. 
 
-**<u>Lemma:</u>** *(Complex Clifford Algebras are Periodic)* Ahe complex Clifford algebras satisfy 
+**<u>Lemma:</u>** *(Complex Clifford Algebras are Periodic)* All complex Clifford algebras satisfy 
 
 $$
 \mathbb C \text l (n+2) \cong \mathbb C \text l (n) \otimes_{\mathbb C} \mathbb C \text l (2) \cong \mathbb C \text l (n) \otimes_{\mathbb C} \text{End}(\mathbb C^2)
 $$
 
-This will help us prove a very nice theorem that can classify the clifford algebras. 
+This will help us prove a very nice theorem that can classify the cCifford algebras. 
 
 **<u>Theorem:</u>** *(Structure theorem for complex Clifford algebras)* Complex Clifford algebras and their even part are classified as follows
 
@@ -209,7 +209,7 @@ $$
 \rho : \mathbb C \text l(n) \to \text{End}(\Delta_n)
 $$
 
-defined by the structure theorem for complex clifford algebras, given by
+defined by the structure theorem for complex Clifford algebras, given by
 
 | $n$  | Representation                                               |
 | :--: | ------------------------------------------------------------ |
@@ -439,7 +439,7 @@ Now we are ready to define Majorana spinors. We will use the representations of 
 1. If $\Delta_n$ admits a real $\text{Spin}^+(s,t)$ equivariant structure $\sigma$ then the representation is called **Majorana,** and there exists a real subspace of half dimension $\Delta^\sigma_n$ where $\kappa$ induces a real representation of the orthochronous spin group. Elements of $\Delta_n^\sigma$ are called **Majorana Spinors**. We also define the **Majorana conjugate** of a spinor $\psi \in \Delta_n$ as $\psi^C \coloneqq \sigma(\psi)$. 
 2. If $\Delta_n$ admits a quarternionic $\text{Spin}^+(s,t)$ equivariant structure $J$ then the representation is called **symplectic Majorana** and elements of $\Delta_n$ are called **symplectic Majorana spinors.** 
 
-
+Ahe
 
 ## Spin Invariant Scalar Products
 
@@ -522,7 +522,7 @@ $$
 \bar \psi = \langle \psi,\cdot \rangle = \psi^\dagger A
 $$
 
-Notice that if spinors are anticommuting then we have that the dirac form is a hermitian form! 
+Notice that if spinors are anticommuting then we have that the Dirac form is a hermitian form! 
 
 **<u>Corollary:</u>** For Majorana spinors the Dirac and Majorana conjugates are equal. 
 
