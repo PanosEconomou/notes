@@ -456,7 +456,7 @@ If this Lagrangian did not have $\frac{1}{r^2}$ factor in the second term it wou
 **<u>Proposition:</u>** The Hamiltonian $H_n$ associated to the Legendre Transform of the Lagrangian $\mathcal L_n$ is given by
 
 $$
-H_n(\pi,\phi) = \ast \left[\pi\bar \pi + \frac{n^2}{r^2} \phi \bar \phi\right],
+H_n(\pi,\phi) = \pi\bar \pi + \frac{n^2}{r^2} \phi \bar \phi,
 $$
 
 where $\pi = \frac{\partial \phi}{\partial r}$ is the canonical conjugate momentum.
@@ -525,27 +525,22 @@ We now have a phase space description for our stuff.
 
 ## Quantizing the Harmonic Oscillators
 
-With this diversion out of the way we can construct the full Hamiltonian on the product space. This Hamiltonian is given by
+With the Hamiltonian for each mode given by $H_n$ we immidiatelly realize that it looks so tantalizingly close to a harmonic oscillator. But then we also immidiately realize that $\mathbb C \setminus \{0\}$ is diffeomorphic to a cylinder via the diffeomorphism
 
 $$
-H = \sum_{n=-\infty}^\infty H_n
+\begin{align}
+f : \mathbb C \setminus\{0\} &\to \mathbb R \times S^1\\
+(z,\bar z) &\mapsto \left(\frac{1}{2} \log(z\bar z),\frac{1}{2i} \log\frac{z}{\bar z}\right) 
+\end{align}
 $$
 
-On the space $\mathcal P \coloneqq \Gamma^\infty( \mathbb Z \times T^\ast \mathbb C) \cong {\mathbb C^2}^{\mathbb z}$, which is the space of all sequences on $\mathbb C^2$. From canonical quantization we can see that
+We don't care that this isn't an isometry, because we can use it to change our action to 
+
+
+
 
 $$
-\{\phi_n,\pi_m\} \mapsto [\phi_n,\pi_m] = i\delta_{nm}
+
 $$
-
-For the basis. This can help us construct the Hilbert space. 
-
-
-
-
-
-
-
-
-
 
 
