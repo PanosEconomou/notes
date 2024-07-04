@@ -525,7 +525,7 @@ We now have a phase space description for our stuff.
 
 ## Quantizing the Harmonic Oscillators
 
-With the Hamiltonian for each mode given by $H_n$ we immidiatelly realize that it looks so tantalizingly close to a harmonic oscillator. But then we also immidiately realize that $\mathbb C \setminus \{0\}$ is diffeomorphic to a cylinder via the diffeomorphism
+With the Hamiltonian for each mode given by $H_n$ we immediately realize that it looks so tantalizingly close to a harmonic oscillator. But then we also immidiately realize that $\mathbb C \setminus \{0\}$ is diffeomorphic to a cylinder via the diffeomorphism
 
 $$
 \begin{align}
@@ -534,13 +534,65 @@ f : \mathbb C \setminus\{0\} &\to \mathbb R \times S^1\\
 \end{align}
 $$
 
-We don't care that this isn't an isometry, because we can use it to change our action to 
+We don't care that this isn't an isometry, because we can use it to push the Lagrangian forward the following way.
 
-
-
-
-$$
+**<u>Definition:</u>** Given a Lagrangian $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ and a diffeomorphism $f : N\to M$ of $n$ dimensional manifolds $N,M$, then the **pullback of the Lagrangian under** $f$ is the map $f^\ast \mathcal L : \Gamma^\infty(f^\ast E) \to \Omega^n(N)$ such that for any $\phi \in \Gamma^\infty(f^\ast E)$ 
 
 $$
+(f^\ast \mathcal L)(\phi) = f^\ast[\mathcal L(f_\ast \phi)].
+$$
+
+The definition of what the pushforward of sections of the Pullback bundle means is [here](../../Geometry/Bundles.md).
+
+Now we can see that the Fourier modes of the fields are so much better defined in this case. In particular the following proposition is true. 
+
+**<u>Proposition:</u>** For any $\phi \in C^\infty(\mathbb R\times S^1)$ there exists a unique $\{\phi_n\}_{n\in \mathbb Z} \subset C^\infty(\mathbb R,\mathbb C)$ such that for any $(r,\theta) \in \mathbb R \times S^1$ 
+
+$$
+\phi(r,\theta) = \sum_{n=-\infty}^\infty \phi_n(r)e^{in\theta}.
+$$
+
+We call $\phi_n$ the **angular mode of order** $n$ of $\phi$. 
+
+With this in mind, taking the pullback. under the transformation $f^{-1} : \mathbb R\times S^1 \to  \mathbb C\setminus \{0\}$ we introduced above, of the free scalar field Lagrangian on $\mathbb C\setminus \{0\}$ we obtain the following lagrangian $\mathcal L'$ which we can rewrite in Fourier modes as
+
+$$
+\mathcal L'(\phi) = \frac{1}{4}  \sum_{n,m=-\infty}^\infty \left[ \frac{\partial \phi_n}{\partial r} \frac{\partial \phi_m}{\partial r} - nm \phi_n \phi_m\right] e^{i(n+m)\theta} dr\wedge d\theta = \sum_{n,m=-\infty}^\infty  d(\phi_ne^{in\theta}) \wedge \ast d(\phi_m e^{im \theta}).
+$$
+
+  Yet, the more interesting aspect of this is that the action can be integrated on the angle variable to obtain
+
+$$
+S'(\phi) = \int_{\mathbb R \times S^1} \mathcal L'(\phi) = \frac{\pi}{2} \int_{\mathbb R} \sum_{n=-\infty}^\infty \left[ \frac{\partial \phi_n}{\partial r} \frac{\partial \bar \phi_n}{\partial r} - n^2 \phi_n \bar \phi_n\right] dr,
+$$
+
+where we have used the property that $\Im\,\phi(r,\theta) = 0 \ \forall (r,\theta) \in \mathbb R\times S^1 \implies \phi_n = -\bar \phi_{-n} $. This now looks like a bunch of complex harmonic oscillators (the careful transformation we took, got rid of the pesky radius). So we have created an equivalence between the theory of a free scalar field in $\mathbb R^{1,1}$ with the field theory of $\mathbb Z$ harmonic oscillators on $\mathbb R$. 
+
+For this theory we have that our fields are on a vector bundle over $\mathbb R$, where the fiber is $\mathbb R^\mathbb N $, which is the topological vector space of sequences on $\mathbb R$. Let's call this bundle $E$. Now we can finally talk about the phase space, which in this case is isomorphic to $\mathcal P \coloneqq \Gamma^\infty(\{0\}\times T^\ast \mathbb R^{\mathbb N}) \cong  T^\ast \mathbb R^{\mathbb N} \cong (\mathbb R^2)^{\mathbb N}$. By performing the Legendre transform we can write our Hamiltonian $H : \mathcal P \to \mathbb R$ as
+
+$$
+H(\phi,\pi) = \frac{1}{2} \sum_{n=-\infty}^\infty \pi_n \bar \pi_n + n^2 \phi_n \bar \phi_n.
+$$
+
+We see that with the canonical Lie bracket we have that
+
+$$
+\{\phi_n,\pi_m\} = \delta_{nm}.
+$$
+
+Which leads to the quantization condition $[\phi_n,\pi_m] = i\delta_{nm}$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
