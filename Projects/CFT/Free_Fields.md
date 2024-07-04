@@ -580,7 +580,19 @@ $$
 \{\phi_n,\pi_m\} = \delta_{nm}.
 $$
 
-Which leads to the quantization condition $[\phi_n,\pi_m] = i\delta_{nm}$. 
+Which leads to the quantization condition $[\phi_n,\pi_m] = i\delta_{nm}$. Let's introduce the functions $a_n : \mathcal P \to \mathbb C$, given by
+
+$$
+a_n = \frac{1}{\sqrt{2}} \left[\pi_n + i n \phi_{-n}\right].
+$$
+
+Then we can see that the Hamiltonian can be written as
+
+$$
+H = \sum_{n=0}^\infty H_n, \ \ H_n \coloneqq a_na_{-n}.
+$$
+
+and we can see that $\{a_n,a_m\} = i n \delta_{n+m}$. However, $H_n$ is the Hamiltonian of a canonical harmonic oscillator. Say that the Quantum Hilbert space associated with that Hamiltonian is $\mathcal H_1$, then the total Hilbert space is $\mathcal H = \otimes_{\mathbb N} \mathcal H_1$.   
 
 
 
