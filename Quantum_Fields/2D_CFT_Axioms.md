@@ -295,7 +295,7 @@ where $w_j = w(z_j)$, $\bar w_j = \overline{w( z_j)}$​. Since the generator of
 
 The important thing to notice is that this definition implies that there aren’t many choices for these functions. Let’s look at the following proposition.
 
-**<u>Proposition:</u>** Consider an n-point correllation function $G$ with $n\geq 2$. Then denote by $z_{ij} = z_i - z_j$ and we can write 
+**<u>Proposition:</u>** Consider an n-point correlation function $G$ with $n\geq 2$. Then denote by $z_{ij} = z_i - z_j$ and we can write 
 
 1. $G(z_i,\bar z_i) = G(z_i-z_j,\bar z_i - \bar z_j,0)$, i.e. they only depend on the difference of the coordinates.  
 2. if $h_i = \bar h_i = 0$ then $G(z_{ij}) = C\in \mathbb{C}, \ \forall z_{ij} \in \mathbb{C}$
@@ -369,7 +369,7 @@ The central object that encodes our physics is the stress energy tensor of the t
 
 ## Virasorization of our Hilbert Space
 
-Ok? Why even bother defining such a strange object. The reason is because it will give us the symmetries of our theory. Let’s do some groundwork
+We derived this object because it will give us the symmetries of our theory. Let’s do some groundwork
 
 Consider the following operators in the quantum Hilbert space
 
