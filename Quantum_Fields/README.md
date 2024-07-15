@@ -12,4 +12,5 @@ Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 - [Path Integrals](Path_Integrals.md)
 - [Renormalization Group](Renormalization_Group.md)
 - [Spinors](Spinors.md)
+- [Vertex Operator Algebras](Vertex_Operator_Algebras.md)
 - [Virasoro Algebra](Virasoro_Algebra.md)
