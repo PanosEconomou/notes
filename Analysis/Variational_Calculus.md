@@ -100,7 +100,9 @@ $$
 \delta F[f](g) = \int_M \ast \frac{\delta F}{\delta f} \cdot  g,
 $$
 
-for any $g \in B$. Now we are done! 
+for any $g \in B$. Now we are almost done and we can show some cool properties that are very reminiscent of derivatives in this notation. Before we do so however, it would be nice to generalize this non regular distributions. But thankfully we have already developed a machinery that does that almost automatically. 
+
+
 
 
 
