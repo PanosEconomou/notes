@@ -596,15 +596,118 @@ and we can see that $\{a_n,a_m\} = i n \delta_{n+m}$. However, $H_n$ is the Hami
 
 
 
-# Free Fermion
+# Free (Majorana) Fermion
 
-Another example that is worth going in detail in a way that is more similar to how we would work on it using modern methods is the free Fermion in 2D. We start by identifying all the spin structures on flat 2D Minkowski space and eventually build up to a conformal field theory in the conformal sphere.
+Another example that is worth going in detail in a way that is more similar to how we would work on it using modern methods is the free Fermion in 2D. We start by identifying all the spin structures on flat 2D space and eventually build up to a conformal field theory in the conformal sphere.
 
-## Spinor Representation on 1+1D
+## Spinor Representation on 2D
 
- The actual structure building is done [here](../../Quantum_Fields/Spinors.md), in this section we will summarize results for spinors in $\mathbb R^{1,1}$.
+ The actual structure building is done [here](../../Quantum_Fields/Spinors.md), in this section we will summarize results for spinors in $\mathbb R^{2}$.
 
-**<u>Lemma:</u>** Let $(\mathbb R^{1,1},\eta)$ be the 2-dimensional Minkowski space
+**<u>Lemma:</u>** The Dirac spinor representation in 2 dimensions is isomorphic to $\mathbb C^2$, and the representation of the even subspace has a Weyl decomposition in left and right handed spinors. In particular, the spinor representation consists of the following gamma matrices
+
+$$
+\gamma^0 = \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} && 
+\gamma^1 = \begin{pmatrix}0 & i\\ -i & 0\end{pmatrix}
+$$
+
+An interesting corollary is the following.
+
+**<u>Corollary:</u>** The Dirac operator in this spinor representation is given by
+
+$$
+\centernot{\partial} = 2\begin{pmatrix}0 & \frac{\partial}{\partial z}\\ \frac{\partial}{\partial \bar z} & 0\end{pmatrix}.
+$$
+
+***Proof:*** The proof is by direct calculation.
+
+$$
+\centernot{\partial} \coloneqq \gamma^0 \frac{\partial}{\partial x^0} + \gamma^1 \frac{\partial}{\partial x^1}.
+$$
+
+We have chosen carefully the basis for the representation such that the Dirac operator is given by that condition. 
+
+
+
+## The Majorana Weyl Representation
+
+The 2-dimensional spinor representation is particularly nice. To see how let's first recall a couple of cool theorems.
+
+**<u>Theorem:</u>** Let $\rho: \mathbb C\text l(2) \to \text{End}(\mathbb C^2)$ be the 2-dimensional spinor representation. Then  
+
+
+
+## Defining the Action
+
+Now we can play with calculating some correlation functions.
+
+**<u>Definition:</u>** Given a spinor bundle $S$ over $\mathbb R^{2}$ with a Majorana form $\langle \cdot,\cdot \rangle_M$ the free Lagrangian is given by
+
+$$
+\begin{align*}
+\mathcal L_F : \Gamma^\infty(S) &\to \Omega^2(\mathbb R^{1,1})\\
+\psi &\mapsto L_f(\psi) =  \ast \langle \mathcal  \psi,(\centernot\partial +m) \psi \rangle_M,
+\end{align*}
+$$
+
+for some $m \geq 0$.
+
+We know from studying [spinors](../../Quantum_Fields/Spinors.md) that for any Majorana form we have a Majorana conjugate spinor that is defined for any $\psi \in \Gamma^\infty(S)$ as $\tilde \psi \coloneqq \langle \psi, \cdot \rangle_M$. There aren't infinite Majorana forms we can place here, so lets see what's going on. The majorana form must have the property that
+
+$$
+\langle X\cdot \psi,\phi\rangle = \langle \psi,X\cdot \phi\rangle.
+$$
+
+We notice however that
+
+$$
+\gamma^0\gamma^\mu = (\gamma^0\gamma^\mu)^T.
+$$
+
+Therefore we can see that such an inner product is
+
+$$
+\langle \phi, \psi\rangle_M \coloneqq \phi^T\gamma^0 \psi.
+$$
+
+With this we can rewrite the action as:
+
+**<u>Corollary:</u>** By writing $\psi = \binom{\psi}{\bar \psi} \in \Gamma^\infty(S)$ we can rewrite the free Lagrangian (for $m=0$) as
+
+$$
+\mathcal L_F(\psi) = \ast \left(\psi \frac{\partial}{\partial \bar z} \psi + \bar \psi \frac{\partial}{\partial z} \bar \psi  \right).
+$$
+
+ As a result the action is given by
+
+$$
+S(\psi) = \int_{\mathbb C} \mathcal L_F(\psi) = \int_{\mathbb C} \left(\psi \frac{\partial}{\partial \bar z} \psi + \bar \psi \frac{\partial}{\partial z} \bar \psi  \right) d^2z.
+$$
+
+
+## Calculating 2-point Functions
+
+We will use path integral quantization to calculate two point functions for this free theory. To do so we use that
+
+$$
+\langle \psi(x) \psi(y) \rangle = \frac{1}{Z(0)} \int \mathcal D \bar \psi \mathcal D \psi\ \psi(x)\psi(y)e^{iS(\psi)}.
+$$
+
+We can do this using the partition function.
+
+**<u>Definition:</u>** The partition function of 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

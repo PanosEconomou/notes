@@ -292,7 +292,7 @@ $$
 \text{Cl}^\times(V,B) \coloneqq \{x \in \text{Cl}(V,B) \mid \exists y \in \text{Cl}(V,B) : xy = yx = 1 \}
 $$
 
-**<u>Lemma:</u>** The group of invertible elements is an open subset of the clifford algebra, and it is therefore a lie group. 
+**<u>Lemma:</u>** The group of invertible elements is an open subset of the Clifford algebra, and it is therefore a lie group. 
 
 Now let’s define some nice subsets of $\mathbb{R}^{s,t}$. 
 
@@ -439,7 +439,7 @@ Now we are ready to define Majorana spinors. We will use the representations of 
 1. If $\Delta_n$ admits a real $\text{Spin}^+(s,t)$ equivariant structure $\sigma$ then the representation is called **Majorana,** and there exists a real subspace of half dimension $\Delta^\sigma_n$ where $\kappa$ induces a real representation of the orthochronous spin group. Elements of $\Delta_n^\sigma$ are called **Majorana Spinors**. We also define the **Majorana conjugate** of a spinor $\psi \in \Delta_n$ as $\psi^C \coloneqq \sigma(\psi)$. 
 2. If $\Delta_n$ admits a quarternionic $\text{Spin}^+(s,t)$ equivariant structure $J$ then the representation is called **symplectic Majorana** and elements of $\Delta_n$ are called **symplectic Majorana spinors.** 
 
-Ahe
+
 
 ## Spin Invariant Scalar Products
 
