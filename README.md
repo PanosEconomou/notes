@@ -11,6 +11,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     Honestly emptier than it should be...
     - [Distributions](Analysis/Distributions.md)
     - [Functional Analysis](Analysis/Functional_Analysis.md)
+    - [Variational Calculus](Analysis/Variational_Calculus.md)
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.
     - [Fibre Bundles](Geometry/Bundles.md)

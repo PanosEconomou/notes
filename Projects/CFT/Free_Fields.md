@@ -315,7 +315,7 @@ Not any Lorentzian manifold is useful for this purpose. For example, I can total
 
 **<u>Theorem:</u>** Let $(M,g)$ be a Lorentzian manifold with signature $(1,n-1)$ that admits a global, nonvanishing, timelike Killing vector field, i.e. there exists $X \in \mathfrak X(M)$ such that $\mathcal L_Xg = 0$ and $g(X,X) < 0$. Then there exists a spacelike surface $\Sigma \subset M$ such that $M$ embeds in $\mathbb C \times \Sigma$. 
 
-![trivialization](/home/data1/po524/notes/Projects/CFT/_Free_Fields.assets/trivialization.svg)
+![trivialization](./_Free_Fields.assets/trivialization.svg)
 
 ***Proof:*** The flow of a global nonvanishing Killing vector field $\phi_X : \mathbb R\times M \to M$ defines a smooth free proper $\mathbb R$ action on $M$. Therefore, by the [quotient manifold](../../Analysis/Distributions.md#killing-vector-fields-and-the-quotient-manifold-theorem) theorem the quotient $\Sigma \coloneqq M/\mathbb R$ under the orbit equivalence $\sim$, i.e. for any two $p,q \in M$
 
