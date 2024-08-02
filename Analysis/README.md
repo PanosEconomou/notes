@@ -8,3 +8,4 @@ Honestly emptier than it should be...
 
 - [Distributions](Distributions.md)
 - [Functional Analysis](Functional_Analysis.md)
+- [Variational Calculus](Variational_Calculus.md)
