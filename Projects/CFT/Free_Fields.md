@@ -836,6 +836,9 @@ $$
 
 where we have also used $G(z-w) = - G(w-z)$.
 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
 
