@@ -491,11 +491,11 @@ $$
 $$
 
 
-Next up we have the king of spinors, the **Dira forms.** These are the traditional bilinear forms that we think of when we try to define kinetic energies of spinors. They’re an almost Hermitian innner product in the spinor vector space.
+Next up we have the king of spinors, the **Dirac forms.** These are the traditional bilinear forms that we think of when we try to define kinetic energies of spinors. They’re an almost Hermitian innner product in the spinor vector space.
 
 **<u>Definition:</u>** Consider a complex spinor representation to $\Delta_n$ of $\text{Cl}(s,t)$. A **Dirac form** on $\Delta_n$ is a non degenerate $\mathbb R$ bilinear form $\langle\cdot, \cdot\rangle: \Delta_n \times \Delta_n \to \mathbb{C}$ such that for any $c \in \mathbb{C}$,  $\phi,\psi \in \Delta_n$ and $X \in \mathbb{R}^{s,t}$ 
 
-1. $\langle \psi, X\cdot \phi \rangle = \delta \langle C \cdot \psi, \phi \rangle,$
+1. $\langle \psi, X\cdot \phi \rangle = \delta \langle X \cdot \psi, \phi \rangle,$
 2. $\langle \psi,\phi\rangle = \langle \phi ,\psi \rangle^\ast$
 3. $\langle \psi,c\phi\rangle = c\langle \psi ,\phi \rangle = \langle c^\ast \psi ,\phi \rangle$ 
 
