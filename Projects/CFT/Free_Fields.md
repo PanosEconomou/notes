@@ -840,10 +840,36 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
+Now we can finally write the following coordinate transformation
+
+**<u>Proposition:</u>** The partition function is given by
+
+$$
+Z(\eta) = Z(0)\exp\left[-\int_{\mathbb C} d^2z\int_{\mathbb C}d^2w\  \eta^T(z) G(z-w)\eta(w)\right].
+$$
+
+***Proof:*** We consider the coordinate transformation $\tilde \psi(z) = \psi(z) + i\int_{\mathbb C} dw\, G(z-w) \eta(w)$, then complete the square and we are done.
+
+**<u>Proposition:</u>** The correlation functions are given by
+
+$$
+\langle \psi(z, \bar z) \psi^T(w,\bar w) \rangle = G(z-w).
+$$
+
+This can also be expressed as
+
+$$
+\begin{pmatrix}\langle\psi(z) \psi(w)\rangle & \langle\bar \psi(\bar z) \psi(w)\rangle \\ \langle\psi(z) \bar \psi(\bar  w)\rangle & \langle\bar \psi(\bar z) \bar \psi(\bar w)\rangle\end{pmatrix} = \begin{pmatrix}\frac{1}{z-w} & 0\\ 0&\frac{1}{\bar z - \bar w}\end{pmatrix}.
+$$
 
 
+## Stress Energy Tensor
 
+We can now do a small diversion into finding the stress energy tensor of this fermionic theory. 
 
+## Operator Product Expansions of Fermions
+
+Using the correlation functions we can derive the 
 
 
 
