@@ -84,10 +84,13 @@ var open_menu = document.getElementById("open-menu");
 
 // When the user's cursor is near the bottom of the page, fade in the button
 window.addEventListener('mousemove', (event) => {
-  console.log(event.clientY);
-  if (event.clientY > window.innerHeight / 2) {
+  if (event.clientY > window.innerHeight*0.6) {
     open_menu.style.bottom = '12%';
+    open_menu.style.opacity = 1;
+    // open_menu.style.transform = 'scale(1)';
   } else if (open_menu.style.bottom != '-10%'){
-    open_menu.style.bottom = '-10%';
+    open_menu.style.bottom = '-5%';
+    open_menu.style.opacity = 0;
+    open_menu.style.transform = 'scale(0/.5)';
   }
 });

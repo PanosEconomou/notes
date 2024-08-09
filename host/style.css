@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     border: 0;
-    scroll-behavior: none;
+    scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 /* The background */
@@ -115,22 +116,30 @@ hr {
     border: 1px solid #000;
 }
 
+menu {
+    text-align: center;
+    /* border: 1px solid #000; */
+    width: 100vw;
+    height: 5vh;
+}
+
 #open-menu {
+    overflow: visible;
     font-size: 24px;
+    /* text-align: center; */
     font-family: 'Playfair Display';
     font-weight: 400;
     font-variation-settings: "wght" 400;
-    display: inline-block;
-    position: fixed;
-    bottom: -10%;
-    right: 50%;
+    position: relative;
+    bottom: -20%;
     z-index: 2;
     border: none; 
     outline: none;
     background-color: white;
     cursor: pointer;
     padding: 10px;
-    transition: bottom 0.5s ease-out, font-variation-settings 0.2s ease-in-out;
+    opacity: 0;
+    transition: bottom 0.4s ease-out, transform 0.4s ease-out, opacity 0.4s ease-out, font-variation-settings 0.2s ease-in-out;
 }
 
 #open-menu:hover {
