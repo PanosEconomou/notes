@@ -78,3 +78,16 @@ function typeWriter() {
 }
 
 typeWriter(); 
+
+// Menu Button Animatio n
+var open_menu = document.getElementById("open-menu");
+
+// When the user's cursor is near the bottom of the page, fade in the button
+window.addEventListener('mousemove', (event) => {
+  console.log(event.clientY);
+  if (event.clientY > window.innerHeight / 2) {
+    open_menu.style.bottom = '12%';
+  } else if (open_menu.style.bottom != '-10%'){
+    open_menu.style.bottom = '-10%';
+  }
+});
