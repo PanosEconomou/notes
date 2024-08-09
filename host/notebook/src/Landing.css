@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+/* Import fonts */
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap);
+
+main {
+    color: #fff;
+    max-width: 1200px;
+    min-width: 1000px;
+    width: 80vw;
+    height: 90vh;
+    /* border: 1px solid black; */
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 50%;
+    margin: auto;
+    /* border: 1px solid black; */
+}
+
+#path-dashed {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.15s ease-out;
+}
+
+#welcome {
+    padding: 0 20px 0 20px;
+}
+
+#welcome div {
+    text-align: right;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Playfair Display';
+    font-size: 54px;
+    font-style: bold;
+    color: #000;
+    padding-right: 2px;
+    margin-bottom: 0;
+    margin-left: auto;
+    border-right: 2px solid black; 
+    animation: blink-caret 0.85s step-end infinite;
+    font-variation-settings: "wght" 700;
+    transition-duration: 0.2s;   
+}
+
+h1:hover {
+    font-variation-settings: "wght" 1000;
+    transition-duration: 0.2s;   
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}
+
+h2 {
+    font-family: 'Playfair Display';
+    font-size: 14px;
+    font-weight: 100;
+    color: #000;
+    margin-top: 0;
+    padding-right: 7px;
+    font-variation-settings: "wght" 400;
+    transition-duration: 0.2s;
+}
+
+h2:hover {
+    font-variation-settings: "wght" 700;
+    transition-duration: 0.2s;
+}
+
+hr {
+    border: 1px solid #000;
+}
+
+menu {
+    text-align: center;
+    /* border: 1px solid #000; */
+    width: 100vw;
+    height: 5vh;
+}
+
+#open-menu {
+    overflow: visible;
+    font-size: 24px;
+    /* text-align: center; */
+    font-family: 'Playfair Display';
+    font-weight: 400;
+    font-variation-settings: "wght" 400;
+    position: relative;
+    bottom: -20%;
+    z-index: 2;
+    border: none; 
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+    padding: 10px;
+    opacity: 0;
+    transition: bottom 0.4s ease-out, transform 0.4s ease-out, opacity 0.4s ease-out, font-variation-settings 0.2s ease-in-out;
+}
+
+#open-menu:hover {
+    font-variation-settings: "wght" 700;
+    transition: font-variation-settings 0.2s ease-in-out;
+}
