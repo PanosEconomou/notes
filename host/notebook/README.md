@@ -6,7 +6,7 @@
 
 <!-- optional markdown-notes-tree directory description ends here -->
 
-- [**dist**](dist)
+- [**public**](dist)
     - [**assets**](dist/assets)
 - [**public**](public)
 - [**src**](src)

@@ -7,7 +7,7 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [**React + Vite**](notebook)
-    - [**dist**](notebook/dist)
+    - [**public**](notebook/dist)
         - [**assets**](notebook/dist/assets)
     - [**public**](notebook/public)
     - [**src**](notebook/src)
