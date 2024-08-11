@@ -48,25 +48,6 @@ section {
     width: 100%;
 }
 
-h1 {
-    font-family: 'Playfair Display';
-    font-size: 54px;
-    font-style: bold;
-    color: #000;
-    padding-right: 2px;
-    margin-bottom: 0;
-    margin-left: auto;
-    border-right: 2px solid black; 
-    animation: blink-caret 0.85s step-end infinite;
-    font-variation-settings: "wght" 700;
-    transition-duration: 0.2s;   
-}
-
-h1:hover {
-    font-variation-settings: "wght" 1000;
-    transition-duration: 0.2s;   
-}
-
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
@@ -97,12 +78,12 @@ hr {
     border: 1px solid #000;
 }
 
-menu {
+/* menu {
     text-align: center;
-    /* border: 1px solid #000; */
+     border: 1px solid #000;
     width: 100vw;
     height: 5vh;
-}
+} */
 
 #open-menu {
     overflow: visible;

@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import './Typewriter.css'
 
 export default function Typewriter({ text = "Notesbo\b\b\bbook", speed = 150 }) {
     const [currentText, setCurrentText] = useState("");
@@ -29,8 +30,6 @@ export default function Typewriter({ text = "Notesbo\b\b\bbook", speed = 150 }) 
     }
 
     return (
-        <>
-            <h1>{currentText}</h1>
-        </>
-    )
+        <h1>{currentText}</h1>
+    );
 }

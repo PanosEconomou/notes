@@ -2,6 +2,7 @@ import "./Landing.css"
 import React from 'react'
 import Manifold from './assets/Manifold'
 import Typewriter from "./assets/Typewriter"
+import MenuButton from "./assets/MenuButton"
 
 export default function Landing() {
   return (
@@ -22,9 +23,9 @@ export default function Landing() {
         </section>
       </main>
 
-      <menu>
-        <button id="open-menu">explore</button>
-      </menu>
+      <MenuButton onClick={() => console.log('Button clicked!')}>
+        <h2 style={{fontSize: '24px'}}>explore</h2>
+      </MenuButton>
     </>
   )
 }
