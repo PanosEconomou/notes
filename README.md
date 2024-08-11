@@ -25,7 +25,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Vector Valued Forms](Geometry/Vector_Valued_Forms.md)
 - [**host**](host)
     - [**React + Vite**](host/notebook)
-        - [**dist**](host/notebook/dist)
+        - [**public**](host/notebook/dist)
             - [**assets**](host/notebook/dist/assets)
         - [**public**](host/notebook/public)
         - [**src**](host/notebook/src)

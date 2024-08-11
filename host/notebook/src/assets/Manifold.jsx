@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useWheel } from '@use-gesture/react';
 import { motion, useMotionValue } from "framer-motion"
 
