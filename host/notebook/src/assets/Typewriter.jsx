@@ -1,7 +1,7 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import './Typewriter.css'
 
-export default function Typewriter({ text = "Notesbo\b\b\bbook", speed = 150 }) {
+export default function Typewriter({ text = "Notesbo\b\b\bbook", speed = 150, cssStyle, onMouseEnter=null, onMouseLeave=null }) {
     const [currentText, setCurrentText] = useState("");
     const hasRun = useRef(false);
 
@@ -30,6 +30,6 @@ export default function Typewriter({ text = "Notesbo\b\b\bbook", speed = 150 }) 
     }
 
     return (
-        <h1>{currentText}</h1>
+        <h1 onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={cssStyle}>{currentText}</h1>
     );
 }

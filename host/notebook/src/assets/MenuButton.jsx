@@ -22,7 +22,7 @@ export default function MenuButton({ children, onClick }) {
 
     const mouseListener = (event) => {
         let yPosition = event.clientY;
-        if (yPosition > window.innerHeight / 2) {
+        if (yPosition > window.innerHeight *.4) {
             setButtonState("visible");
         } else {
             setButtonState("hidden");
@@ -52,10 +52,10 @@ export default function MenuButton({ children, onClick }) {
                 onClick={onClick}
                 style={{
                     position: "relative",
-                    bottom: "12%",
+                    bottom: "8vh",
                     border: 'none',
                     outline: 'none',
-                    backgroundColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0)',
                     cursor: 'pointer',
                 }}
             >
