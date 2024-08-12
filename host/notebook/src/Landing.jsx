@@ -3,9 +3,13 @@ import React from 'react'
 import Manifold from './assets/Manifold'
 import Typewriter from "./assets/Typewriter"
 import MenuButton from "./assets/MenuButton"
+import Cursor from "./assets/Cursor"
 
-export default function Landing({ setCursorVariant }) {
+import { useState } from 'react'
 
+export default function Landing() {
+
+  const [cursorVariant, setCursorVariant] = useState('default');
 
   const enterHighlight = () => {
     setCursorVariant("highlight");
@@ -17,6 +21,8 @@ export default function Landing({ setCursorVariant }) {
 
   return (
     <>
+      <Cursor cursorVariant={cursorVariant} />
+
       <main>
         {/* Manifold */}
         <section id="manifold">
@@ -36,7 +42,7 @@ export default function Landing({ setCursorVariant }) {
       </main>
 
       {/* Visit Menu */}
-      <MenuButton onClick={() => console.log('Button clicked!')}>
+      <MenuButton>
         <h2 className="noSelect" style={{ fontSize: '24px' }} onMouseEnter={enterHighlight} onMouseLeave={exitHighlight}>
           explore
         </h2>

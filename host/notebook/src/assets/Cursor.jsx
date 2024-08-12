@@ -3,7 +3,7 @@ import './cursor.css'
 import { useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-export default function Cursor({ cursorVariant }) {
+export default function Cursor({ cursorVariant, stickTo }) {
     let size = 30;
     const mouse = {
         x: useMotionValue(window.innerWidth / 2),
@@ -14,6 +14,10 @@ export default function Cursor({ cursorVariant }) {
         mouse.x.set(event.clientX - size / 2);
         mouse.y.set(event.clientY - size / 2);
     };
+
+    const printME = () => {
+        console.log('IT WORKS!');
+    }
 
     const springMouse = {
         x: useSpring(mouse.x, { stiffness: 300, damping: 20, mass: 0.5 }),
