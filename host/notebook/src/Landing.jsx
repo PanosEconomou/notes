@@ -10,6 +10,7 @@ import { useState } from 'react'
 export default function Landing() {
 
   const [cursorVariant, setCursorVariant] = useState('default');
+  const [stickTo, setStickTo] = useState(null);
 
   const enterHighlight = () => {
     setCursorVariant("highlight");
@@ -21,7 +22,7 @@ export default function Landing() {
 
   return (
     <>
-      <Cursor cursorVariant={cursorVariant} />
+      <Cursor cursorVariant={cursorVariant} setCursorVariant={setCursorVariant} />
 
       <main>
         {/* Manifold */}
