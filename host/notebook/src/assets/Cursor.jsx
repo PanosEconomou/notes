@@ -7,7 +7,6 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     const size = 30;
     const ref = useRef(null);
 
-    // console.log(stickTo);
 
     const scale = useMotionValue(1);
     const scaleSpring = useSpring(scale, { stiffness: 800, damping: 20, mass: 1 });
@@ -17,16 +16,14 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     }
 
     const mouseMove = (event) => {
-        // console.log(stickTo, typeof stickTo)
-        if (typeof stickTo !== 'string') {
+        if (stickTo.current !== null) {
             const center = {
-                x: stickTo.left + stickTo.width / 2,
-                y: stickTo.top + stickTo.height / 2,
+                x: stickTo.current.left + stickTo.current.width / 2,
+                y: stickTo.current.top + stickTo.current.height / 2,
             }
-            console.log(center);
 
-            mouse.x.set(center.x);
-            mouse.y.set(center.y);
+            mouse.x.set(center.x - (1.5*stickTo.current?.width || size) / 2);
+            mouse.y.set(center.y - (1.5*stickTo.current?.height || size) / 2);
 
         } else {
             mouse.x.set(event.clientX - (ref.current?.offsetWidth || size) / 2);
@@ -73,6 +70,11 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             width: 4 * size,
             height: 4 * size,
         },
+        stuck: {
+            width: 1.5*stickTo.current?.width || size,
+            height: 1.5*stickTo.current?.height || size,
+            borderRadius: `${Math.min(1.5*stickTo.current?.width || size,1.5*stickTo.current?.height || size)}px`
+        }
     }
 
 

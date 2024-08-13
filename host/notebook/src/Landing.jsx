@@ -1,17 +1,15 @@
 import "./Landing.css"
-import React, { createRef } from 'react'
+import { useState, useRef } from 'react'
 import Manifold from './assets/Manifold'
 import Typewriter from "./assets/Typewriter"
 import MenuButton from "./assets/MenuButton"
 import Cursor from "./assets/Cursor"
 
-import { useState, useRef } from 'react'
-
 export default function Landing() {
 
   const [cursorVariant, setCursorVariant] = useState('default');
-  const button = createRef(null);
-  let [stickTo, setStickTo] = useState('none');
+  const button = useRef(null);
+  const stickTo = useRef(null);
 
   const enterHighlight = () => {
     setCursorVariant("highlight");
@@ -22,11 +20,13 @@ export default function Landing() {
   }
 
   const enterStick = (stick) => {
-    setStickTo(stick);
+    setCursorVariant("stuck");
+    stickTo.current = stick;
   }
 
   const exitStick = () => {
-    setStickTo('none') ;
+    stickTo.current = null;
+    setCursorVariant("default");
   }
 
   return (
@@ -55,19 +55,15 @@ export default function Landing() {
       <MenuButton>
         <h2
           ref={button}
-          className="noSelect"
+          className="noSelect buttonText"
           style={{ fontSize: '24px' }}
           onMouseEnter={() => {
-            enterHighlight();
             enterStick(button.current.getBoundingClientRect());
           }}
           onMouseLeave={() => {
-            exitHighlight();
             exitStick();
           }}
-        >
-          explore
-        </h2>
+        >explore </h2>
       </MenuButton>
     </>
   )

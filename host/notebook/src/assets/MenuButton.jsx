@@ -51,6 +51,7 @@ export default function MenuButton({ children, onClick }) {
                 animate={buttonState}
                 onClick={onClick}
                 style={{
+                    textAlign:"center",
                     position: "relative",
                     bottom: "8vh",
                     border: 'none',
