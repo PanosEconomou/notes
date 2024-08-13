@@ -1,13 +1,13 @@
 import './cursor.css'
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     const size = 30;
     const ref = useRef(null);
 
-    console.log(cursorVariant);
+    // console.log(stickTo);
 
     const scale = useMotionValue(1);
     const scaleSpring = useSpring(scale, { stiffness: 800, damping: 20, mass: 1 });
@@ -17,8 +17,21 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     }
 
     const mouseMove = (event) => {
-        mouse.x.set(event.clientX - (ref.current?.offsetWidth || size) / 2);
-        mouse.y.set(event.clientY - (ref.current?.offsetHeight || size) / 2);
+        // console.log(stickTo, typeof stickTo)
+        if (typeof stickTo !== 'string') {
+            const center = {
+                x: stickTo.left + stickTo.width / 2,
+                y: stickTo.top + stickTo.height / 2,
+            }
+            console.log(center);
+
+            mouse.x.set(center.x);
+            mouse.y.set(center.y);
+
+        } else {
+            mouse.x.set(event.clientX - (ref.current?.offsetWidth || size) / 2);
+            mouse.y.set(event.clientY - (ref.current?.offsetHeight || size) / 2);
+        }
     };
 
     const springMouse = {
@@ -48,18 +61,15 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
 
     const variants = {
         hidden: {
-            scale: 1,
             width: 0,
             height: 0,
         },
         default: {
-            scale: 1,
             width: size,
             height: size,
 
         },
         highlight: {
-            scale: 1,
             width: 4 * size,
             height: 4 * size,
         },
