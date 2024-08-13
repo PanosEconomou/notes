@@ -50,13 +50,25 @@ section {
 }
 
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: black; }
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: black;
+    }
 }
 
 h2 {
@@ -87,6 +99,11 @@ hr {
 .buttonText {
     text-align: center;
     /* border: 1px solid black; */
-    padding: 10px;
-    /* margin: auto; */
+    padding: 10px 20px 10px 20px;
+    position: relative;
+}
+
+.buttonText:hover {
+    padding: 50px 70px 50px 70px;
+    transform: translateY(-40px);
 }

@@ -4,6 +4,7 @@ import Manifold from './assets/Manifold'
 import Typewriter from "./assets/Typewriter"
 import MenuButton from "./assets/MenuButton"
 import Cursor from "./assets/Cursor"
+import Magnetic from "./assets/Magnetic"
 
 export default function Landing() {
 
@@ -53,17 +54,19 @@ export default function Landing() {
 
       {/* Visit Menu */}
       <MenuButton>
-        <h2
-          ref={button}
-          className="noSelect buttonText"
-          style={{ fontSize: '24px' }}
-          onMouseEnter={() => {
-            enterStick(button.current.getBoundingClientRect());
-          }}
-          onMouseLeave={() => {
-            exitStick();
-          }}
-        >explore </h2>
+        <Magnetic>
+          <h2
+            ref={button}
+            className="noSelect buttonText"
+            style={{ fontSize: '24px' }}
+            onMouseEnter={() => {
+              enterStick(button.current.getBoundingClientRect());
+            }}
+            onMouseLeave={() => {
+              exitStick();
+            }}
+          >explore</h2>
+        </Magnetic>
       </MenuButton>
     </>
   )

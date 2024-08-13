@@ -4,15 +4,22 @@ import { useEffect, useRef, } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
-    const size = 30;
+    const size = useRef(30);
     const ref = useRef(null);
-
+    const fraction = 1
+    const motionRatio = 0.1
 
     const scale = useMotionValue(1);
     const scaleSpring = useSpring(scale, { stiffness: 800, damping: 20, mass: 1 });
+
     const mouse = {
         x: useMotionValue(window.innerWidth / 2),
         y: useMotionValue(window.innerHeight / 2),
+    }
+
+    const springMouse = {
+        x: useSpring(mouse.x, { stiffness: 300, damping: 20, mass: 0.5 }),
+        y: useSpring(mouse.y, { stiffness: 300, damping: 20, mass: 0.5 }),
     }
 
     const mouseMove = (event) => {
@@ -22,18 +29,18 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
                 y: stickTo.current.top + stickTo.current.height / 2,
             }
 
-            mouse.x.set(center.x - (1.5*stickTo.current?.width || size) / 2);
-            mouse.y.set(center.y - (1.5*stickTo.current?.height || size) / 2);
+            const distance = {
+                x: event.clientX - center.x,
+                y: event.clientY - center.y,
+            }
+
+            mouse.x.set(center.x - (fraction * stickTo.current?.width || size.current) / 2 + distance.x * motionRatio);
+            mouse.y.set(center.y - (fraction * stickTo.current?.height || size.current) / 2 + distance.y * motionRatio);
 
         } else {
-            mouse.x.set(event.clientX - (ref.current?.offsetWidth || size) / 2);
-            mouse.y.set(event.clientY - (ref.current?.offsetHeight || size) / 2);
+            mouse.x.set(event.clientX - size.current / 2);
+            mouse.y.set(event.clientY - size.current / 2);
         }
-    };
-
-    const springMouse = {
-        x: useSpring(mouse.x, { stiffness: 300, damping: 20, mass: 0.5 }),
-        y: useSpring(mouse.y, { stiffness: 300, damping: 20, mass: 0.5 }),
     }
 
     const mouseTapStart = () => {
@@ -56,24 +63,38 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
         }
     }, [])
 
+
+    switch (cursorVariant) {
+        case 'hidden':
+            size.current = 0;
+            break;
+        case 'default':
+            size.current = 30;
+            break;
+        case 'highlight':
+            size.current = 120;
+            break;
+        default: size.current = 30;
+    }
+
     const variants = {
         hidden: {
-            width: 0,
-            height: 0,
+            width: size.current,
+            height: size.current,
         },
         default: {
-            width: size,
-            height: size,
+            width: size.current,
+            height: size.current,
 
         },
         highlight: {
-            width: 4 * size,
-            height: 4 * size,
+            width: size.current,
+            height: size.current,
         },
         stuck: {
-            width: 1.5*stickTo.current?.width || size,
-            height: 1.5*stickTo.current?.height || size,
-            borderRadius: `${Math.min(1.5*stickTo.current?.width || size,1.5*stickTo.current?.height || size)}px`
+            width: fraction * stickTo.current?.width || size.current,
+            height: fraction * stickTo.current?.height || size.current,
+            borderRadius: `${Math.min(fraction * stickTo.current?.width || size.current, fraction * stickTo.current?.height || size.current)}px`
         }
     }
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react";
 
-export default function MenuButton({ children, onClick }) {
+export default function MenuButton({ children, onClick, onMouseEnter, onMouseExit }) {
 
     const [buttonState, setButtonState] = useState("hidden");
 
@@ -50,12 +50,15 @@ export default function MenuButton({ children, onClick }) {
                 initial="hidden"
                 animate={buttonState}
                 onClick={onClick}
+                onMouseEnter={onMouseEnter} 
+                onMouseExit={onMouseExit}
                 style={{
                     textAlign:"center",
                     position: "relative",
                     bottom: "8vh",
                     border: 'none',
                     outline: 'none',
+                    height: '100%',
                     backgroundColor: 'rgba(255,255,255,0)',
                     cursor: 'pointer',
                 }}
