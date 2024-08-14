@@ -96,6 +96,8 @@
         width: 60vw;
         height: 90vh;
         margin: auto;
+        padding: 5vh;
+        margin-bottom: 5vh;
         /* border: 1px solid black; */
         /* overflow: hidden; */
     }
@@ -163,6 +165,8 @@
     img {
         width: auto;
         max-width: 100%;
+        display: block;
+        margin: auto;
     }
 
     body {
@@ -308,9 +312,10 @@
         .p,
         p,
         li {
-            font-size: 1.25rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.6;
             font-family: 'Space Grotesk';
+            margin-bottom: 1em;
         }
 
         table {
@@ -588,5 +593,20 @@
 
     li>*:last-child {
         margin-bottom: 0;
+    }
+
+    mjx-container[jax="SVG"][display="true"] {
+        font-size: 110%;
+    }
+
+    strong {
+        font-weight: 500;
+        font-variation-settings: "wght" 500;
+        transition-duration: 0.2s;
+    }
+
+    strong:hover {
+        font-variation-settings: "wght" 900;
+        transition-duration: 0.2s;
     }
 }
