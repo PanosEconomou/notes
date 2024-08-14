@@ -9,14 +9,14 @@ import rehypeMathjax from 'rehype-mathjax'
 import Magnetic from './assets/Magnetic';
 import { useParams } from 'react-router-dom';
 
-export default function NotebookPage({}) {
+export default function NotebookPage({ }) {
 
   let { path } = useParams();
 
-  let directory = "./NOTES/"+path.slice(0,path.lastIndexOf('+')+1).replace("+","/") 
-  let name = path.slice(path.lastIndexOf('+')+1)
-  let filename = directory+name+".md";
-  // console.log(directory, name, filename);
+  let directory = "./NOTES/" + path.slice(0, path.lastIndexOf('+') + 1).replace("+", "/")
+  let name = path.slice(path.lastIndexOf('+') + 1)
+  let filename = directory + name + ".md";
+
 
 
   const [markdown, setMarkdown] = useState('');
@@ -100,8 +100,8 @@ export default function NotebookPage({}) {
   }, [])
 
   const parseLink = (link) => {
-    if (!link.startsWith('http')){
-      return directory+link;
+    if (!link.startsWith('http')) {
+      return directory + link;
     } else {
       return link;
     }
@@ -133,9 +133,7 @@ export default function NotebookPage({}) {
           a(props) {
             const { node, ...rest } = props
             return (
-              <Magnetic>
-                <a onMouseEnter={stickLink} onMouseLeave={() => { unstick(); }} {...rest} />
-              </Magnetic>
+              <a onMouseEnter={stickLink} onMouseLeave={() => { unstick(); }} {...rest} />
             );
           }
         }}
