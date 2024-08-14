@@ -6,7 +6,6 @@
 
 <!-- optional markdown-notes-tree directory description ends here -->
 
-- [Distributions](Distributions.md)
 - [**NOTES**](NOTES)
     - [**Analysis**](NOTES/Analysis)  
         Honestly emptier than it should be...

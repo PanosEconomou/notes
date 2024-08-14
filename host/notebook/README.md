@@ -47,7 +47,6 @@
             - [Vertex Operator Algebras](dist/NOTES/Quantum_Fields/Vertex_Operator_Algebras.md)
             - [Virasoro Algebra](dist/NOTES/Quantum_Fields/Virasoro_Algebra.md)
 - [**public**](public)
-    - [Distributions](public/Distributions.md)
     - [**NOTES**](public/NOTES)
         - [**Analysis**](public/NOTES/Analysis)  
             Honestly emptier than it should be...
