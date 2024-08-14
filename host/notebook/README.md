@@ -10,6 +10,5 @@
     - [**assets**](dist/assets)
 - [**public**](public)
     - [Distributions](public/Distributions.md)
-    - [**pixyll**](public/pixyll)
 - [**src**](src)
     - [**assets**](src/assets)
