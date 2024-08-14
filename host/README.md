@@ -10,5 +10,7 @@
     - [**public**](notebook/dist)
         - [**assets**](notebook/dist/assets)
     - [**public**](notebook/public)
+        - [Distributions](notebook/public/Distributions.md)
+        - [**pixyll**](notebook/public/pixyll)
     - [**src**](notebook/src)
         - [**assets**](notebook/src/assets)
