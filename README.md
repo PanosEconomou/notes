@@ -29,6 +29,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
             - [**assets**](host/notebook/dist/assets)
         - [**public**](host/notebook/public)
             - [Distributions](host/notebook/public/Distributions.md)
+            - [**pixyll**](host/notebook/public/pixyll)
         - [**src**](host/notebook/src)
             - [**assets**](host/notebook/src/assets)
 - [**Projects**](Projects)
