@@ -66,7 +66,6 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
                     - [Vertex Operator Algebras](host/notebook/dist/NOTES/Quantum_Fields/Vertex_Operator_Algebras.md)
                     - [Virasoro Algebra](host/notebook/dist/NOTES/Quantum_Fields/Virasoro_Algebra.md)
         - [**public**](host/notebook/public)
-            - [Distributions](host/notebook/public/Distributions.md)
             - [**NOTES**](host/notebook/public/NOTES)
                 - [**Analysis**](host/notebook/public/NOTES/Analysis)  
                     Honestly emptier than it should be...

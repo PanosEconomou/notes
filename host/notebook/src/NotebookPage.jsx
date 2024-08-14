@@ -7,8 +7,17 @@ import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math'
 import rehypeMathjax from 'rehype-mathjax'
 import Magnetic from './assets/Magnetic';
+import { useParams } from 'react-router-dom';
 
-export default function NotebookPage({ filename = './Distributions.md' }) {
+export default function NotebookPage({}) {
+
+  let { path } = useParams();
+
+  let directory = "./NOTES/"+path.slice(0,path.lastIndexOf('+')+1).replace("+","/") 
+  let name = path.slice(path.lastIndexOf('+')+1)
+  let filename = directory+name+".md";
+  // console.log(directory, name, filename);
+
 
   const [markdown, setMarkdown] = useState('');
   const [cursorVariant, setCursorVariant] = useState('default')
@@ -90,6 +99,14 @@ export default function NotebookPage({ filename = './Distributions.md' }) {
     }
   }, [])
 
+  const parseLink = (link) => {
+    if (!link.startsWith('http')){
+      return directory+link;
+    } else {
+      return link;
+    }
+  }
+
   const markdownRender = useMemo(() => {
     return (
       <Markdown
@@ -97,7 +114,8 @@ export default function NotebookPage({ filename = './Distributions.md' }) {
         rehypePlugins={[rehypeRaw, rehypeMathjax]}
         components={{
           img(props) {
-            const { node, ...rest } = props
+            let { node, ...rest } = props
+            rest.src = parseLink(rest.src);
             return <img onMouseEnter={() => { enterHighlight(); }} onMouseLeave={() => { exitHighlight(); }} {...rest} />
           },
           p(props) {
