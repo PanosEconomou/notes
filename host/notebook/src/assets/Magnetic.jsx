@@ -25,7 +25,10 @@ export default function Magnetic({ children, motionRatio = 0.1 }) {
     const { x, y } = position;
     return (
         <motion.div
-            style={{ position: "relative" }}
+            style={{ 
+                position: "relative", 
+                display: "inline-block"
+            }}
             ref={ref}
             onMouseMove={handleMouse}
             onMouseLeave={reset}

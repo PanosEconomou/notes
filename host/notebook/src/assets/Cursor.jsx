@@ -4,14 +4,18 @@ import { useEffect, useRef, } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
-    const size = useRef(30);
+    const size = {
+        x: useRef(30),
+        y: useRef(30),
+    }
     const ref = useRef(null);
-    const fraction = 1
+    const stuck = useRef('over');
+    const fraction = 1.1
     const motionRatio = 0.1
 
     const scale = {
-        x:useMotionValue(1),
-        y:useMotionValue(1),
+        x: useMotionValue(1),
+        y: useMotionValue(1),
     }
     const scaleSpring = {
         x: useSpring(scale.x, { stiffness: 800, damping: 20, mass: 1 }),
@@ -20,7 +24,7 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
 
     const mouse = {
         x: useMotionValue(window.innerWidth / 2),
-        y: useMotionValue(-size.current),
+        y: useMotionValue(-size.y.current),
     }
 
     const springMouse = {
@@ -38,14 +42,14 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             const displacement = {
                 x: event.clientX - center.x,
                 y: event.clientY - center.y,
-            }
+            }        
 
-            mouse.x.set(center.x - (fraction * stickTo.current?.width || size.current) / 2 + displacement.x * motionRatio);
-            mouse.y.set(center.y - (fraction * stickTo.current?.height || size.current) / 2 + displacement.y * motionRatio);
+            mouse.x.set(center.x - (fraction * stickTo.current?.width || size.x.current) / 2 + displacement.x * motionRatio);
+            mouse.y.set(center.y - (fraction * stickTo.current?.height || size.y.current) * ( (stuck.current === 'under') ? -0.5 : 0.5 ) + displacement.y * motionRatio);
 
         } else {
-            mouse.x.set(event.clientX - size.current / 2);
-            mouse.y.set(event.clientY - size.current / 2);
+            mouse.x.set(event.clientX - size.x.current / 2);
+            mouse.y.set(event.clientY - size.y.current / 2);
         }
     }
 
@@ -74,35 +78,73 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
 
     switch (cursorVariant) {
         case 'hidden':
-            size.current = 0;
+            size.x.current = 0;
+            size.y.current = 0;
             break;
         case 'default':
-            size.current = 30;
+            size.x.current = 30;
+            size.y.current = 30;
             break;
         case 'highlight':
-            size.current = 120;
+            size.x.current = 120;
+            size.y.current = 120;
             break;
-        default: size.current = 30;
+        case 'bar':
+            size.x.current = 2;
+            size.y.current = 30;
+            break;
+        case 'stuckUnder':
+            stuck.current = 'under';
+            break;
+        case 'stuck':
+        case 'stuckLink':
+            stuck.current = 'over';
+            break;
+        default:
+            size.x.current = 30;
+            size.y.current = 30;
     }
 
     const variants = {
         hidden: {
-            width: size.current,
-            height: size.current,
+            width: size.x.current,
+            height: size.y.current,
         },
         default: {
-            width: size.current,
-            height: size.current,
+            width: size.x.current,
+            height: size.y.current,
+            transition: {
+                duration: 0.1,
+              },
 
         },
         highlight: {
-            width: size.current,
-            height: size.current,
+            width: size.x.current,
+            height: size.y.current,
         },
         stuck: {
-            width: fraction * stickTo.current?.width || size.current,
-            height: fraction * stickTo.current?.height || size.current,
-            borderRadius: `${Math.min(fraction * stickTo.current?.width || size.current, fraction * stickTo.current?.height || size.current)}px`
+            width: fraction * stickTo.current?.width || size.x.current,
+            height: fraction * stickTo.current?.height || size.y.current,
+            borderRadius: `${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
+        },
+        stuckLink: {
+            width: fraction * stickTo.current?.width || size.x.current,
+            height: fraction * stickTo.current?.height || size.y.current,
+            borderRadius: '1px',//`${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
+            // backgroundColor: 'rgba(255, 99, 71, 0.5)'
+        },
+        bar: {
+            width: size.x.current,
+            height: size.y.current,
+            borderRadius: '1px',
+        },
+        stuckUnder: {
+            width: fraction * stickTo.current?.width || size.x.current,
+            height: '5px',
+            borderRadius: '1px',
+            transition: {
+                duration: 0.1,
+              },
         }
     }
 
