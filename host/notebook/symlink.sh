@@ -12,3 +12,6 @@ do
         cp -r "$folder" "$public_dir/$base_name"
     fi
 done
+
+# List all files and directories recursively
+find "$public_dir" -type f -o -type d | sed "s|$public_dir/||" > "$public_dir/directory_listing.txt"
