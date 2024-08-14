@@ -1,11 +1,21 @@
 import Landing from './Landing'
+import NotebookPage from './NotebookPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-
   return (
-    <>
-      <Landing />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route 
+          path="/"
+          element={<Landing />}
+        />
+        <Route 
+          path="/test"
+          element={<NotebookPage />}
+        />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

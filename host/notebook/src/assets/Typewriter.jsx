@@ -30,6 +30,6 @@ export default function Typewriter({ text = "Notesbo\b\b\bbook", speed = 150, cs
     }
 
     return (
-        <h1 onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={cssStyle}>{currentText}</h1>
+        <h1 id="typewriter" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} style={cssStyle}>{currentText}</h1>
     );
 }

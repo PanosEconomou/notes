@@ -1,4 +1,4 @@
-h1 {
+#typewriter {
     font-family: 'Playfair Display';
     font-size: 54px;
     font-style: bold;
@@ -6,13 +6,13 @@ h1 {
     padding-right: 2px;
     margin-bottom: 0;
     margin-left: auto;
-    border-right: 2px solid black; 
+    border-right: 2px solid black;
     animation: blink-caret 0.85s step-end infinite;
     font-variation-settings: "wght" 700;
-    transition-duration: 0.2s;   
-}
+    transition-duration: 0.2s;
 
-h1:hover {
-    font-variation-settings: "wght" 1000;
-    transition-duration: 0.2s;   
+    &:hover {
+        font-variation-settings: "wght" 1000;
+        transition-duration: 0.2s;
+    }
 }

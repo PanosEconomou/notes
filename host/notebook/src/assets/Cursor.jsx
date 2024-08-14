@@ -9,12 +9,18 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     const fraction = 1
     const motionRatio = 0.1
 
-    const scale = useMotionValue(1);
-    const scaleSpring = useSpring(scale, { stiffness: 800, damping: 20, mass: 1 });
+    const scale = {
+        x:useMotionValue(1),
+        y:useMotionValue(1),
+    }
+    const scaleSpring = {
+        x: useSpring(scale.x, { stiffness: 800, damping: 20, mass: 1 }),
+        y: useSpring(scale.x, { stiffness: 800, damping: 20, mass: 1 }),
+    }
 
     const mouse = {
         x: useMotionValue(window.innerWidth / 2),
-        y: useMotionValue(window.innerHeight / 2),
+        y: useMotionValue(-size.current),
     }
 
     const springMouse = {
@@ -29,13 +35,13 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
                 y: stickTo.current.top + stickTo.current.height / 2,
             }
 
-            const distance = {
+            const displacement = {
                 x: event.clientX - center.x,
                 y: event.clientY - center.y,
             }
 
-            mouse.x.set(center.x - (fraction * stickTo.current?.width || size.current) / 2 + distance.x * motionRatio);
-            mouse.y.set(center.y - (fraction * stickTo.current?.height || size.current) / 2 + distance.y * motionRatio);
+            mouse.x.set(center.x - (fraction * stickTo.current?.width || size.current) / 2 + displacement.x * motionRatio);
+            mouse.y.set(center.y - (fraction * stickTo.current?.height || size.current) / 2 + displacement.y * motionRatio);
 
         } else {
             mouse.x.set(event.clientX - size.current / 2);
@@ -44,11 +50,13 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     }
 
     const mouseTapStart = () => {
-        scale.set(0.8);
+        scale.x.set(0.8);
+        scale.y.set(0.8);
     }
 
     const mouseTapEnd = () => {
-        scale.set(1);
+        scale.x.set(1);
+        scale.y.set(1);
     }
 
     useEffect(() => {
@@ -110,7 +118,8 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             style={{
                 x: springMouse.x,
                 y: springMouse.y,
-                scale: scaleSpring,
+                scaleX: scaleSpring.x,
+                scaleY: scaleSpring.y,
             }}
 
         />

@@ -51,7 +51,7 @@ export default function MenuButton({ children, onClick, onMouseEnter, onMouseExi
                 animate={buttonState}
                 onClick={onClick}
                 onMouseEnter={onMouseEnter} 
-                onMouseExit={onMouseExit}
+                onMouseLeave={onMouseExit}
                 style={{
                     textAlign:"center",
                     position: "relative",

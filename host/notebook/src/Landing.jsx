@@ -5,6 +5,7 @@ import Typewriter from "./assets/Typewriter"
 import MenuButton from "./assets/MenuButton"
 import Cursor from "./assets/Cursor"
 import Magnetic from "./assets/Magnetic"
+import { Link } from "react-router-dom"
 
 export default function Landing() {
 
@@ -31,7 +32,7 @@ export default function Landing() {
   }
 
   return (
-    <>
+    <div id="landing">
       <Cursor cursorVariant={cursorVariant} setCursorVariant={setCursorVariant} stickTo={stickTo} />
 
       <main>
@@ -55,19 +56,23 @@ export default function Landing() {
       {/* Visit Menu */}
       <MenuButton>
         <Magnetic>
-          <h2
-            ref={button}
-            className="noSelect buttonText"
-            style={{ fontSize: '24px' }}
-            onMouseEnter={() => {
-              enterStick(button.current.getBoundingClientRect());
-            }}
-            onMouseLeave={() => {
-              exitStick();
-            }}
-          >explore</h2>
+          <Link to="/test">
+            <h2
+              ref={button}
+              className="noSelect buttonText"
+              style={{ fontSize: '24px' }}
+              onMouseEnter={() => {
+                enterStick(button.current.getBoundingClientRect());
+              }}
+              onMouseLeave={() => {
+                exitStick();
+              }}
+            >
+              explore
+            </h2>
+          </Link>
         </Magnetic>
       </MenuButton>
-    </>
+    </div>
   )
 }
