@@ -65,7 +65,7 @@ export default function Landing() {
       </main>
 
       {/* Visit Menu */}
-      <MenuButton onClick={handleMenu}>
+      <MenuButton onClick={handleMenu} >
         <Magnetic>
           {/* <Link to="/test"> */}
           <h2

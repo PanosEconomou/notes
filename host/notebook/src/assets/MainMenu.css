@@ -1,5 +1,5 @@
 #mainMenu {
-    pointer-events: none;
+    /* pointer-events: none; */
 
     nav {
         position: absolute;
@@ -20,4 +20,25 @@
         background-color: rgba(170, 170, 170, .15);  
         backdrop-filter: blur(5px);
     }
+
+    a {
+        font-weight: 300;
+        font-variation-settings: "wght" 300;
+        transition-duration: 0.2s;
+        text-decoration: none;
+        text-decoration-color: none;
+        color: #444;
+
+        &:hover {
+            font-variation-settings: "wght" 600;
+            transition-duration: 0.2s;
+        }
+    }
+
+    ul {
+        padding: 25px;
+        position: absolute;
+        top: 100px;
+        width: 230px;
+      }
 }

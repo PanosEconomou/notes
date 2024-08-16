@@ -1,6 +1,7 @@
 import "./MainMenu.css"
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
+import Navigation from "./Navigation";
 
 export default function MainMenu({ isOpen = 'closed' }) {
 
@@ -67,6 +68,7 @@ export default function MainMenu({ isOpen = 'closed' }) {
                 className="background"
                 variants={variants}
             />
+            <Navigation />
         </motion.nav>
     )
 }
