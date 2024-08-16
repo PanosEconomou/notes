@@ -13,7 +13,7 @@ export default function NotebookPage({ }) {
 
   let { path } = useParams();
 
-  let directory = "./NOTES/" + path.slice(0, path.lastIndexOf('+') + 1).replace("+", "/")
+  let directory = "./NOTES/" + path.slice(0, path.lastIndexOf('+') + 1).replaceAll("+", "/")
   let name = path.slice(path.lastIndexOf('+') + 1)
   let filename = directory + name + ".md";
 

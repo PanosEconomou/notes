@@ -585,4 +585,8 @@ body button {
         transform-origin: top;
     }
 
+    ::selection {
+        background: #c7c7c7;
+      }
+
 }

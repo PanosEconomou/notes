@@ -114,7 +114,8 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             width: size.x.current,
             height: size.y.current,
             transition: {
-                duration: 0.1,
+                duration: 0.05,
+                ease: 'easeIn',
               },
 
         },

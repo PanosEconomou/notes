@@ -1,0 +1,23 @@
+#mainMenu {
+    pointer-events: none;
+
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(170, 170, 170, .15);  
+        backdrop-filter: blur(5px);
+    }
+}

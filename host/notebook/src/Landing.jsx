@@ -5,11 +5,13 @@ import Typewriter from "./assets/Typewriter"
 import MenuButton from "./assets/MenuButton"
 import Cursor from "./assets/Cursor"
 import Magnetic from "./assets/Magnetic"
+import MainMenu from "./assets/MainMenu"
 import { Link } from "react-router-dom"
 
 export default function Landing() {
 
   const [cursorVariant, setCursorVariant] = useState('default');
+  const [menuIsOpen, setMenuIsOpen] = useState("closed");
   const button = useRef(null);
   const stickTo = useRef(null);
 
@@ -29,6 +31,15 @@ export default function Landing() {
   const exitStick = () => {
     stickTo.current = null;
     setCursorVariant("default");
+  }
+
+  const handleMenu = () => {
+    if (menuIsOpen === "open") {
+      setMenuIsOpen("closed");
+    } else {
+      setMenuIsOpen("open");
+    }
+
   }
 
   return (
@@ -54,25 +65,26 @@ export default function Landing() {
       </main>
 
       {/* Visit Menu */}
-      <MenuButton>
+      <MenuButton onClick={handleMenu}>
         <Magnetic>
-          <Link to="/test">
-            <h2
-              ref={button}
-              className="noSelect buttonText"
-              style={{ fontSize: '24px' }}
-              onMouseEnter={() => {
-                enterStick(button.current.getBoundingClientRect());
-              }}
-              onMouseLeave={() => {
-                exitStick();
-              }}
-            >
-              explore
-            </h2>
-          </Link>
+          {/* <Link to="/test"> */}
+          <h2
+            ref={button}
+            className="noSelect buttonText"
+            style={{ fontSize: '24px' }}
+            onMouseEnter={() => {
+              enterStick(button.current.getBoundingClientRect());
+            }}
+            onMouseLeave={() => {
+              exitStick();
+            }}
+          >
+            explore
+          </h2>
+          {/* </Link> */}
         </Magnetic>
       </MenuButton>
+      <MainMenu isOpen={menuIsOpen} />
     </div>
   )
 }
