@@ -1,5 +1,10 @@
 #mainMenu {
-    /* pointer-events: none; */
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:0;
+    height:100vh;
+    width: 100vw;
 
     nav {
         position: absolute;
@@ -17,11 +22,26 @@
         bottom: 0;
         height: 100vh;
         width: 100vw;
-        background-color: rgba(170, 170, 170, .15);  
-        backdrop-filter: blur(5px);
+        background-color: rgba(170, 170, 170, .15);
+        backdrop-filter: blur(7px);
     }
 
+    #container {
+        z-index: 10;
+        width: 100%;
+        left: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        overflow: scroll;
+    }
+
+
     a {
+        margin-top:100px;
+        margin-bottom:10px;
         font-weight: 300;
         font-variation-settings: "wght" 300;
         transition-duration: 0.2s;
@@ -36,9 +56,47 @@
     }
 
     ul {
-        padding: 25px;
-        position: absolute;
-        top: 100px;
-        width: 230px;
-      }
+        padding-left: 10px;
+    }
+
+    .menuSection2 {
+        display: inline-block;
+        margin: 70px;
+        min-width: 250px;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Playfair Display';
+        font-weight: 500;
+        color: #000;
+        margin-top: 0;
+        font-variation-settings: "wght" 500;
+        transition-duration: 0.2s;
+        margin-bottom: 0.1em;
+
+        &:hover {
+            font-variation-settings: "wght" 700;
+            transition-duration: 0.2s;
+        }
+    }
+
+    h2 {
+        font-size: 1.625rem;
+        border-bottom: 2px solid black;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: 1rem;
+    }
+
 }

@@ -3,9 +3,8 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import Navigation from "./Navigation";
 
-export default function MainMenu({ isOpen = 'closed' }) {
+export default function MainMenu({ isOpen = 'closed', setIsOpen }) {
 
-    const container = useRef(null);
     const [dimensions, setDimensions] = useState({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -40,7 +39,7 @@ export default function MainMenu({ isOpen = 'closed' }) {
 
     const variants = {
         open: {
-            clipPath: `circle(${dimensions.height * 2 + 200}px at ${mouse.x.current}px ${mouse.y.current}px)`,
+            clipPath: `circle(${dimensions.height * 2 + 200}px at ${window.innerWidth*0.5}px ${window.innerHeight*0.1}px)`,
             transition: {
                 type: "spring",
                 stiffness: 20,
@@ -62,7 +61,12 @@ export default function MainMenu({ isOpen = 'closed' }) {
         <motion.nav id="mainMenu"
             initial={false}
             animate={isOpen}
-            ref={container}
+            onClick={() => {
+                setIsOpen('closed');
+            }}
+            style={{
+                pointerEvents: (isOpen === "open") ? "auto" : "none"
+            }}
         >
             <motion.div
                 className="background"

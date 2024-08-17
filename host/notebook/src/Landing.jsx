@@ -84,7 +84,7 @@ export default function Landing() {
           {/* </Link> */}
         </Magnetic>
       </MenuButton>
-      <MainMenu isOpen={menuIsOpen} />
+      <MainMenu isOpen={menuIsOpen} setIsOpen={setMenuIsOpen}/>
     </div>
   )
 }
