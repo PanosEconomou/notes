@@ -39,6 +39,7 @@ function createNestedObject(array) {
 export default function Navigation({ stickTo, setCursorVariant }) {
 
     const [files, setFiles] = useState([]);
+    const [blur, setBlur] = useState(false);
 
     const fetchFiles = () => {
         fetch("./NOTES/directory_listing.txt")
@@ -64,7 +65,13 @@ export default function Navigation({ stickTo, setCursorVariant }) {
 
             if (typeof value === 'object' && value !== null) {
                 return (
-                    <MenuSection key={i} text={key.replaceAll("_", " ").replaceAll(".md", "")} i={depth}>
+                    <MenuSection
+                        key={i}
+                        text={key.replaceAll("_", " ").replaceAll(".md", "")}
+                        i={depth}
+                        blur={depth == 2 ? blur : false}
+                        setBlur={setBlur}
+                    >
                         <motion.ul key={i + 'ul'} variants={variants}>
                             {renderMenu(value, currentPath, depth + 1)}
                         </motion.ul>

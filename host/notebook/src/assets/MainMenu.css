@@ -42,7 +42,7 @@
         height: 100vh;
         width: 100vw;
         background-color: rgba(170, 170, 170, .15);
-        backdrop-filter: blur(7px);
+        backdrop-filter: blur(10px);
     }
 
     #container {
