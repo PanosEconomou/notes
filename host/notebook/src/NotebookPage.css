@@ -30,6 +30,9 @@ body button {
  */
 
 #notebookPage {
+    .markdown {
+        padding-bottom: 10vh;
+    }
 
     main {
         max-width: 1200px;
@@ -38,7 +41,7 @@ body button {
         height: 90vh;
         margin: auto;
         padding: 5vh;
-        margin-bottom: 5vh;
+        padding-bottom: 5vh;
         /* border: 1px solid black; */
         /* overflow: hidden; */
     }
@@ -587,6 +590,5 @@ body button {
 
     ::selection {
         background: #c7c7c7;
-      }
-
+    }
 }

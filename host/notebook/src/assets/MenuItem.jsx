@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import { useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const variants = {
@@ -19,14 +19,31 @@ const variants = {
     }
 }
 
-export default function MenuItem({ text, href }) {
+export default function MenuItem({ text, href, stickTo, setCursorVariant }) {
+
+    const stickLink = (event) => {
+        stickTo.current = event.target.getBoundingClientRect();
+        setCursorVariant("stuckLink");
+    }
+
+    const unstick = () => {
+        setCursorVariant("default");
+        stickTo.current = null;
+    }
+
+
     return (
         <motion.div
             variants={variants}
-            whileHover={{ scale: 1.1 }}
+            // whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
         >
-            <NavLink to={href}>{text}</NavLink>
+            <NavLink
+                className={"menuLink"}
+                to={href}
+                onMouseEnter={stickLink}
+                onMouseLeave={unstick}
+            >{text}</NavLink>
         </motion.div>
     )
 }

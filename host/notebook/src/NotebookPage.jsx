@@ -109,7 +109,8 @@ export default function NotebookPage({ }) {
 
   const markdownRender = useMemo(() => {
     return (
-      <Markdown
+      <Markdown 
+        className="markdown"
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeRaw, rehypeMathjax]}
         components={{
@@ -151,6 +152,7 @@ export default function NotebookPage({ }) {
           <motion.div className='progressBar' style={{ scaleY: scrollYProgress }} />
           {markdownRender}
         </main>
+        <div className='footer' ></div>
       </div>
     </>
   )

@@ -1,9 +1,10 @@
 import "./MainMenu.css"
 import { useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { delay, motion } from "framer-motion"
 import Navigation from "./Navigation";
+import Typewriter from "./Typewriter";
 
-export default function MainMenu({ isOpen = 'closed', setIsOpen }) {
+export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCursorVariant }) {
 
     const [dimensions, setDimensions] = useState({
         width: window.innerWidth,
@@ -39,7 +40,7 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen }) {
 
     const variants = {
         open: {
-            clipPath: `circle(${dimensions.height * 2 + 200}px at ${window.innerWidth*0.5}px ${window.innerHeight*0.1}px)`,
+            clipPath: `circle(${dimensions.height * 2 + 200}px at ${window.innerWidth * 0.5}px ${window.innerHeight * 0.1}px)`,
             transition: {
                 type: "spring",
                 stiffness: 20,
@@ -53,6 +54,28 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen }) {
                 type: "spring",
                 stiffness: 400,
                 damping: 40
+            }
+        }
+    }
+
+    const titleVariants = {
+        open: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                delay: 0.2,
+                y: { stiffness: 1000, velocity: -100 },
+                staggerChildren: 0.07,
+                delayChildren: 0.01
+            },
+        },
+        closed: {
+            y: 50,
+            opacity: 0,
+            transition: {
+                y: { stiffness: 1000 },
+                staggerChildren: 0.05,
+                staggerDirection: -1
             }
         }
     }
@@ -72,7 +95,13 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen }) {
                 className="background"
                 variants={variants}
             />
-            <Navigation />
+
+            <motion.h1
+                className="title"
+                variants={titleVariants}
+            >Contents</motion.h1>
+
+            <Navigation stickTo={stickTo} setCursorVariant={setCursorVariant} />
         </motion.nav>
     )
 }

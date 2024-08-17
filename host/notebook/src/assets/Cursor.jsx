@@ -1,6 +1,6 @@
 import './cursor.css'
 
-import { useEffect, useRef, } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
@@ -32,6 +32,12 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
         y: useSpring(mouse.y, { stiffness: 300, damping: 20, mass: 0.5 }),
     }
 
+    const [, setRenderTrigger] = useState(0);
+
+    const forceRerender = () => {
+        setRenderTrigger(a => a + 1);
+    };
+
     const mouseMove = (event) => {
         if (stickTo.current !== null) {
             const center = {
@@ -42,10 +48,12 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             const displacement = {
                 x: event.clientX - center.x,
                 y: event.clientY - center.y,
-            }        
+            }
 
             mouse.x.set(center.x - (fraction * stickTo.current?.width || size.x.current) / 2 + displacement.x * motionRatio);
             mouse.y.set(center.y - (fraction * stickTo.current?.height || size.y.current) * ( (stuck.current === 'under') ? -0.5 : 0.5 ) + displacement.y * motionRatio);
+
+            forceRerender();
 
         } else {
             mouse.x.set(event.clientX - size.x.current / 2);

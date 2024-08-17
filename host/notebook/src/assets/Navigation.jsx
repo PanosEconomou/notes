@@ -36,7 +36,7 @@ function createNestedObject(array) {
     return result;
 }
 
-export default function Navigation() {
+export default function Navigation({ stickTo, setCursorVariant }) {
 
     const [files, setFiles] = useState([]);
 
@@ -72,7 +72,7 @@ export default function Navigation() {
                 )
             } else {
                 return (
-                    <MenuItem key={i} text={key.replaceAll("_", " ").replaceAll(".md", "")} href={currentPath.replaceAll("/", "+").replaceAll(".md", "")} />
+                    <MenuItem key={i} text={key.replaceAll("_", " ").replaceAll(".md", "")} href={currentPath.replaceAll("/", "+").replaceAll(".md", "")} stickTo={stickTo} setCursorVariant={setCursorVariant} />
                 );
             }
         });
