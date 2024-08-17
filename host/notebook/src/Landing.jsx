@@ -6,7 +6,6 @@ import MenuButton from "./assets/MenuButton"
 import Cursor from "./assets/Cursor"
 import Magnetic from "./assets/Magnetic"
 import MainMenu from "./assets/MainMenu"
-import { Link } from "react-router-dom"
 
 export default function Landing() {
 

@@ -7,6 +7,8 @@ import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math'
 import rehypeMathjax from 'rehype-mathjax'
 import Magnetic from './assets/Magnetic';
+import PageButton from './assets/PageButton';
+import MainMenu from './assets/MainMenu';
 import { useParams } from 'react-router-dom';
 
 export default function NotebookPage({ }) {
@@ -23,6 +25,8 @@ export default function NotebookPage({ }) {
   const [cursorVariant, setCursorVariant] = useState('default')
   const stickTo = useRef(null);
   const scrolling = useRef(false);
+  const [menuIsOpen, setMenuIsOpen] = useState("closed");
+
   var timer = null;
 
   const { scrollYProgress } = useScroll();
@@ -90,6 +94,15 @@ export default function NotebookPage({ }) {
     }, 50);
   }
 
+  const handleMenu = () => {
+    if (menuIsOpen === "open") {
+      setMenuIsOpen("closed");
+    } else {
+      setMenuIsOpen("open");
+    }
+
+  }
+
   useEffect(() => {
     readFile();
     window.addEventListener('scroll', handleScroll, false);
@@ -109,7 +122,7 @@ export default function NotebookPage({ }) {
 
   const markdownRender = useMemo(() => {
     return (
-      <Markdown 
+      <Markdown
         className="markdown"
         remarkPlugins={[remarkMath]}
         rehypePlugins={[rehypeRaw, rehypeMathjax]}
@@ -148,11 +161,23 @@ export default function NotebookPage({ }) {
     <>
       <Cursor cursorVariant={cursorVariant} setCursorVariant={setCursorVariant} stickTo={stickTo} />
       <div id="notebookPage" >
+        {/* <PageButton onClick={handleMenu}>
+          <Magnetic>
+            <h2
+              className="noSelect buttonText"
+              style={{ fontSize: '24px' }}
+              onMouseEnter={stick}
+              onMouseLeave={unstick}
+            >
+              explore
+            </h2>
+          </Magnetic>
+        </PageButton> */}
         <main>
           <motion.div className='progressBar' style={{ scaleY: scrollYProgress }} />
           {markdownRender}
         </main>
-        <div className='footer' ></div>
+        {/* <MainMenu isOpen={menuIsOpen} setIsOpen={setMenuIsOpen} stickTo={stickTo} setCursorVariant={setCursorVariant} /> */}
       </div>
     </>
   )

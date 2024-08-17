@@ -38,7 +38,7 @@ body button {
         max-width: 1200px;
         min-width: 1000px;
         width: 60vw;
-        height: 90vh;
+        /* height: 90vh; */
         margin: auto;
         padding: 5vh;
         padding-bottom: 5vh;
