@@ -162,12 +162,14 @@ export default function NotebookPage({ }) {
         <Magnetic>
           <h2
             className="noSelect buttonText"
-            style={{ fontSize: '24px' }}
+            style={{ 
+              fontSize: '24px',
+              fontFamily: 'Playfair Display',
+              padding: '10px'
+             }}
             onMouseEnter={stick}
             onMouseLeave={unstick}
-          >
-            explore
-          </h2>
+          >menu</h2>
         </Magnetic>
       </PageButton>
       <div id="notebookPage" >
