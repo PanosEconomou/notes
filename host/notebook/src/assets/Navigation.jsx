@@ -79,7 +79,7 @@ export default function Navigation({ stickTo, setCursorVariant }) {
                 )
             } else {
                 return (
-                    <MenuItem key={i} text={key.replaceAll("_", " ").replaceAll(".md", "")} href={currentPath.replaceAll("/", "+").replaceAll(".md", "")} stickTo={stickTo} setCursorVariant={setCursorVariant} />
+                    <MenuItem key={i} text={key.replaceAll("_", " ").replaceAll(".md", "")} href={"/"+currentPath.replaceAll("/", "+").replaceAll(".md", "")} stickTo={stickTo} setCursorVariant={setCursorVariant} />
                 );
             }
         });

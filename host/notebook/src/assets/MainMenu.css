@@ -1,10 +1,9 @@
 #mainMenu {
-    position: absolute;
-    top:0;
+    float: left;
+    position: fixed;
+    top: 0;
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 0;
     height: 100vh;
     width: 100vw;
     overflow-x: scroll;
@@ -13,8 +12,8 @@
     .title {
         font-family: "Playfair Display";
         position: absolute;
-        top:10vh;
-        left:80px;
+        top: 10vh;
+        left: 80px;
         font-size: 2rem;
         width: 200px;
         border-bottom: 2px solid black;
@@ -25,6 +24,12 @@
             font-variation-settings: "wght" 700;
             transition-duration: 0.2s;
         }
+    }
+
+    .title a {
+
+        all: unset;
+
     }
 
     nav {

@@ -1,8 +1,8 @@
 import "./MainMenu.css"
 import { useEffect, useRef, useState } from "react"
-import { delay, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import Navigation from "./Navigation";
-import Typewriter from "./Typewriter";
+import { NavLink } from "react-router-dom";
 
 export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCursorVariant }) {
 
@@ -99,7 +99,7 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
             <motion.h1
                 className="title"
                 variants={titleVariants}
-            >Contents</motion.h1>
+            ><NavLink to="/">Notebook</NavLink></motion.h1>
 
             <Navigation stickTo={stickTo} setCursorVariant={setCursorVariant} />
         </motion.nav>

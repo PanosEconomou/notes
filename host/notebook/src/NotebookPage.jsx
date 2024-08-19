@@ -19,8 +19,6 @@ export default function NotebookPage({ }) {
   let name = path.slice(path.lastIndexOf('+') + 1)
   let filename = directory + name + ".md";
 
-
-
   const [markdown, setMarkdown] = useState('');
   const [cursorVariant, setCursorVariant] = useState('default')
   const stickTo = useRef(null);
@@ -110,7 +108,7 @@ export default function NotebookPage({ }) {
     return () => {
       window.removeEventListener('scroll', handleScroll, false);
     }
-  }, [])
+  }, [path])
 
   const parseLink = (link) => {
     if (!link.startsWith('http')) {
@@ -160,25 +158,25 @@ export default function NotebookPage({ }) {
   return (
     <>
       <Cursor cursorVariant={cursorVariant} setCursorVariant={setCursorVariant} stickTo={stickTo} />
+      <PageButton onClick={handleMenu}>
+        <Magnetic>
+          <h2
+            className="noSelect buttonText"
+            style={{ fontSize: '24px' }}
+            onMouseEnter={stick}
+            onMouseLeave={unstick}
+          >
+            explore
+          </h2>
+        </Magnetic>
+      </PageButton>
       <div id="notebookPage" >
-        {/* <PageButton onClick={handleMenu}>
-          <Magnetic>
-            <h2
-              className="noSelect buttonText"
-              style={{ fontSize: '24px' }}
-              onMouseEnter={stick}
-              onMouseLeave={unstick}
-            >
-              explore
-            </h2>
-          </Magnetic>
-        </PageButton> */}
         <main>
           <motion.div className='progressBar' style={{ scaleY: scrollYProgress }} />
           {markdownRender}
         </main>
-        {/* <MainMenu isOpen={menuIsOpen} setIsOpen={setMenuIsOpen} stickTo={stickTo} setCursorVariant={setCursorVariant} /> */}
       </div>
+      <MainMenu isOpen={menuIsOpen} setIsOpen={setMenuIsOpen} stickTo={stickTo} setCursorVariant={setCursorVariant} />
     </>
   )
 }
