@@ -7,7 +7,6 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [**public**](dist)
-    - [Distributions](dist/Distributions.md)
     - [**assets**](dist/assets)
     - [**NOTES**](dist/NOTES)
         - [**Analysis**](dist/NOTES/Analysis)  

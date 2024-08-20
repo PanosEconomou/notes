@@ -1,6 +1,6 @@
 # Distributions
 
-Formal distributions are such cool concepts in physics and we use them all the time! They are a way to generalize functions over some spaces but their genious is that so much of their properties are defined even better than most functions. For example all their derivatives exist, their Fourier transform exists, every linear PDE has a fundamental solution given by a distribution and that barely scratches the surface.
+Formal distributions are such cool concepts in physics and we use them all the time! They are a way to generalize functions over some spaces but their genius is that so much of their properties are defined even better than most functions. For example all their derivatives exist, their Fourier transform exists, every linear PDE has a fundamental solution given by a distribution and that barely scratches the surface.
 
 In here we will talk about distributions in a general sense such that we can build up to describing quantum fields in QFT.
 
@@ -36,7 +36,6 @@ We begin by studying limits of functions. In essence this is an attempt to add a
 Distributions are objects that take in a test function and give you a number. Here we will talk about what is a test function in the first place. 
 
 **<u>Definition:</u>** Let $U$ be an open subset of some smooth manifold, and $A$ a unital division algebra. The **set of test functions** $\mathcal D (U)$ is the set of all smooth functions with compact support on $U$. In other words it is given by
-
 $$
 \mathcal D(U,A) \coloneqq \{f \in C^\infty(U,A) \mid \text{supp } f \subset U\}.
 $$

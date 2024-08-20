@@ -8,7 +8,6 @@
 
 - [**React + Vite**](notebook)
     - [**public**](notebook/dist)
-        - [Distributions](notebook/dist/Distributions.md)
         - [**assets**](notebook/dist/assets)
         - [**NOTES**](notebook/dist/NOTES)
             - [**Analysis**](notebook/dist/NOTES/Analysis)  
