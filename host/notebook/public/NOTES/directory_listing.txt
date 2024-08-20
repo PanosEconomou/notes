@@ -1,4 +1,4 @@
-./public/NOTES
+public/NOTES
 Quantum_Fields
 Quantum_Fields/Renormalization_Group.md
 Quantum_Fields/.Conformal_Group.assets
@@ -49,7 +49,6 @@ Analysis/.Functional_Analysis.assets/image-20230621115247067.png
 Analysis/README.md
 Analysis/Functional_Analysis.md
 directory_listing.txt
-directory_listing.json
 Projects
 Projects/.DS_Store
 Projects/Dissipative_QFT
@@ -83,8 +82,6 @@ Projects/Topological_Paths/_Inducing_Topology.assets/image-20231127171124389.png
 Projects/Topological_Paths/_Inducing_Topology.assets/image-20231127102513889.png
 Projects/Topological_Paths/_Inducing_Topology.assets/image-20231127133426502.png
 Projects/Topological_Paths/_Inducing_Topology.assets/image-20231127124157010.png
-README.md
-directory_listing.json.bak
 Geometry
 Geometry/Geometry.md
 Geometry/Forms.md

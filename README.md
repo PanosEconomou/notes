@@ -26,7 +26,6 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
 - [**host**](host)
     - [**React + Vite**](host/notebook)
         - [**public**](host/notebook/dist)
-            - [Distributions](host/notebook/dist/Distributions.md)
             - [**assets**](host/notebook/dist/assets)
             - [**NOTES**](host/notebook/dist/NOTES)
                 - [**Analysis**](host/notebook/dist/NOTES/Analysis)  

@@ -1,7 +1,9 @@
 #!/bin/bash
 
 external_folders_path="../.."
-public_dir="./public/NOTES"
+public_dir="public/NOTES"
+rm -r "$public_dir"
+mkdir "$public_dir"
 
 for folder in "$external_folders_path"/*/;
 do 

@@ -42,7 +42,7 @@ export default function PageButton({ children, onClick, onMouseEnter, onMouseExi
                 position: "sticky",
                 top: 0,
                 left: 0,
-                zIndex: 2,
+                zIndex: 0,
                 float: "left",
                 width: "5vw",
                 height: "100vh",
