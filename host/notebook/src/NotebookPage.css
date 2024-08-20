@@ -7,10 +7,10 @@
     --control-text-color: #777;
 }
 
-body *,
-body button {
+* {
     cursor: none !important;
 }
+
 
 @media only screen and (min-width: 1400px) {
     #write {
