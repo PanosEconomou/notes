@@ -16,7 +16,7 @@ Let’s start by studying measures. In order to do this, we need something to me
 2. $\Sigma$ is closed under complementation (i.e. $A\in \Sigma \implies A^c\in \Sigma$)
 3. $\Sigma$ is closed under countable unions (i.e. $\{A_k\} \subset \Sigma \implies \bigcup_k A_k \in \Sigma$)
 
-***Corollary:*** This implues that $\empty \in \Sigma$ and that $\Sigma$ is closed under countable intersections too! Therefore, the smallest $\sigma$-algebra one can add on any set $S$ is $\Sigma = \{\empty, S\}$.
+***Corollary:*** This implues that $\emptyset \in \Sigma$ and that $\Sigma$ is closed under countable intersections too! Therefore, the smallest $\sigma$-algebra one can add on any set $S$ is $\Sigma = \{\emptyset, S\}$.
 
 **<u>Definition:</u>** Given $\Sigma$, a $\sigma$-algebra of $S$ the pair $(S,\Sigma)$ is called a <u>measurable space</u>
 
@@ -28,7 +28,7 @@ Now to map the a actual subsets to some field like the real numbers. What we con
 
 **<u>Definition:</u>** Given a measurable space $(S,\Sigma)$ and an **ordered,** **compact** field $\mathbb{F}$ (like $\bar{\mathbb{R}} \coloneqq \mathbb{R} \cup\{-\infty,\infty\}$) a map $\mu:\Sigma \to \mathbb{F}$ is <u>measure</u> of $S$ iff
 
-1. $\mu(\empty) = 0$
+1. $\mu(\emptyset) = 0$
 2. $\mu(A) \geq 0 \ \forall A\in \Sigma$
 3. Given a sequence $\{A_k\} \subset \Sigma$ we have $\mu(\bigcup_kA_k) = \sum_k \mu(A_k)$
 
@@ -213,13 +213,13 @@ We have now defined an integral for Banach valued functions. As a result, we can
 
 
 
-**<u>Definition:</u>** An inner product space $H$  with inner product $\lang\cdot,\cdot\rang$ is a <u>Hilbert space</u> iff it is also a metric space with the metric defined by the inner product. 
+**<u>Definition:</u>** An inner product space $H$  with inner product $\langle\cdot,\cdot\rangle$ is a <u>Hilbert space</u> iff it is also a metric space with the metric defined by the inner product. 
 
 ***Corollary:*** A Hilbert space $H$ is also a normed space with a norm $||\cdot||$  given by 
 
 $$
 \begin{align*}
-||x|| \coloneqq \lang x,x\rang && \forall x \in H
+||x|| \coloneqq \langle x,x\rangle && \forall x \in H
 \end{align*}
 $$
 
@@ -229,21 +229,21 @@ Now that we have this out of the way, let’s put it in the back of our minds, a
 
 **<u>Definition:</u>** We say a function $f \in B^X$ is $p$-th lebesgue integrable or $f \in L^p(X,\Sigma,\mu;B)$ iff $||f||^p$ is Lebesgue integrable.
 
-***Corollary:*** For $p>2$ the subspace $L^p(X,B,\mu)$ with inner product $\lang\cdot,\cdot\rang_L$
+***Corollary:*** For $p>2$ the subspace $L^p(X,B,\mu)$ with inner product $\langle\cdot,\cdot\rangle_L$
 
 $$
 \begin{equation*}
-\lang f,g\rang_L \coloneqq \int_X \lang f,g\rang\, d\mu = \int_X f\cdot g\, d\mu
+\langle f,g\rangle_L \coloneqq \int_X \langle f,g\rangle\, d\mu = \int_X f\cdot g\, d\mu
 \end{equation*}
 $$
 
-Note that the product of $\lang f,g\rang$ is taken poinwise to create a function $\lang f,g\rang : X \to \mathbb{R}$ such that $\lang f,g\rang (x) = \lang f(x),g(x)\rang$, using the inner product of $B$.
+Note that the product of $\langle f,g\rangle$ is taken poinwise to create a function $\langle f,g\rangle : X \to \mathbb{R}$ such that $\langle f,g\rangle (x) = \langle f(x),g(x)\rangle$, using the inner product of $B$.
 
 **<u>Theorem:</u>** (Bochner Theorem) Given a measurable function $f:X\to B$ we have that
 
 $$
 \begin{equation*}
-\norm{\int_X f\, d\mu} \leq \int_X \norm{f}\, d\mu
+\left|{\int_X f\, d\mu}\right| \leq \int_X \left|{f}\right|\, d\mu
 \end{equation*}
 $$
 
@@ -278,11 +278,11 @@ Let’s classify them a bit more
 
 **<u>Theorem:</u>** A bounded linear operator is continious, and a closed linear operator is bounded.
 
-**<u>Definition:</u>** Given a Hilbert space $H$ with inner product $\lang \cdot,\cdot\rang$ and a bounded, linear operator $A:H\to H$ we can define it’s <u>adjoint operator</u> $A^\dagger : H \to H$ by the property
+**<u>Definition:</u>** Given a Hilbert space $H$ with inner product $\langle \cdot,\cdot\rangle$ and a bounded, linear operator $A:H\to H$ we can define it’s <u>adjoint operator</u> $A^\dagger : H \to H$ by the property
 
 $$
 \begin{equation*}
-\lang Ax,y\rang = \lang x,A^\dagger y\rang
+\langle Ax,y\rangle = \langle x,A^\dagger y\rangle
 \end{equation*}
 $$
 
