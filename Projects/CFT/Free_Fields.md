@@ -607,8 +607,10 @@ Another example that is worth going in detail in a way that is more similar to h
 **<u>Lemma:</u>** The Dirac spinor representation in 2 dimensions is isomorphic to $\mathbb C^2$, and the representation of the even subspace has a Weyl decomposition in left and right handed spinors. In particular, the spinor representation consists of the following gamma matrices
 
 $$
+\begin{align*}
 \gamma^0 = \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} && 
 \gamma^1 = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix}
+\end{align*}
 $$
 
 An interesting corollary is the following.
