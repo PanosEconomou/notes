@@ -1,0 +1,117 @@
+/* Import fonts */
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    scroll-behavior: smooth;
+    cursor: none !important;
+}
+
+body {
+    background-color: #fff;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: black;
+    }
+}
+
+#landing {
+    main {
+        max-width: 1200px;
+        min-width: 1000px;
+        width: 80vw;
+        height: 90vh;
+        /* border: 1px solid black; */
+        margin: auto;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    section {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        width: 50%;
+        margin: auto;
+        /* border: 1px solid black; */
+    }
+
+    #path-dashed {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 0.15s ease-out;
+    }
+
+    #welcome {
+        padding: 0 20px 0 20px;
+    }
+
+    #welcome div {
+        text-align: right;
+        width: 100%;
+    }
+
+
+    h2 {
+        font-family: 'Playfair Display';
+        font-size: 14px;
+        font-weight: 100;
+        color: #000;
+        margin-top: 0;
+        padding-right: 7px;
+        font-variation-settings: "wght" 400;
+        transition-duration: 0.2s;
+    }
+
+    h2:hover {
+        font-variation-settings: "wght" 700;
+        transition-duration: 0.2s;
+    }
+
+    hr {
+        border: 1px solid #000;
+    }
+
+    .noSelect {
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .buttonText {
+        text-align: center;
+        /* border: 1px solid black; */
+        padding: 10px 20px 10px 20px;
+        position: relative;
+    }
+
+    .buttonText:hover {
+        padding: 50px 70px 50px 70px;
+        transform: translateY(-40px);
+    }
+
+    a {
+        all: unset;
+    }
+}
