@@ -19,4 +19,4 @@ done
 find "$public_dir" -type f -o -type d | sed "s|$public_dir/||" > "$public_dir/directory_listing.txt"
 
 # Handle redirects on netlify
-echo "/* /index.html 200" > "public/_redirects.txt"
+echo "/* /index.html 200" > "public/_redirects"
