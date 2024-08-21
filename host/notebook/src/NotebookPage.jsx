@@ -6,6 +6,7 @@ import Cursor from './assets/Cursor';
 import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math'
 import rehypeMathjax from 'rehype-mathjax'
+import remarkGfm from 'remark-gfm'
 import Magnetic from './assets/Magnetic';
 import PageButton from './assets/PageButton';
 import MainMenu from './assets/MainMenu';
@@ -122,7 +123,7 @@ export default function NotebookPage({ }) {
     return (
       <Markdown
         className="markdown"
-        remarkPlugins={[remarkMath]}
+        remarkPlugins={[remarkMath, remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeMathjax]}
         components={{
           img(props) {
