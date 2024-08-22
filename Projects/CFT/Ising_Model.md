@@ -94,7 +94,7 @@ Ok, everything up to now has been fun, but it has mostly been background so that
 
 Let's first consider the single spin case in 3D. We have a magnetic moment $\mu$ with fixed magnitude and the only thing we care about is its direction.  This is the picture I am thinking about. 
 
-![Frame 1](/home/data1/po524/notes/Projects/CFT/_Ising_Model.assets/spin-sphere.svg)
+![Spin Sphere](_Ising_Model.assets/spin-sphere.svg)
 
 Consider the single spin case. In this case the phase space is $\mathbb Z_2$ so the set of wavefunctions over $\mathbb Z^2$ is $\mathbb C^{\mathbb Z_2} \cong \mathbb C^2 = \mathcal H_1$. This is what we will call the single particle Hilbert space.
 
