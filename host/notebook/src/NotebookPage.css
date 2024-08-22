@@ -591,4 +591,46 @@
     ::selection {
         background: #c7c7c7;
     }
+
+    .TOC {
+        padding: 0px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        ul {
+            list-style-type: none;
+            list-style-position: inside;
+        }
+
+        li {
+            
+            h1,
+            h2,
+            h3 {
+                display: inline;
+                font-size: 1.1rem;
+                font-family: 'Space Grotesk';
+                color: #222;
+                padding: 0;
+                margin: 10px 0 10px 0;
+            }
+
+            h2,
+            h3 {
+                font-variation-settings: "wght" 400;
+            }
+
+            h2 {
+                margin-left: 30px;
+            }
+
+            h3 {
+                margin-left: 60px;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
 }

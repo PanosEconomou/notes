@@ -11,6 +11,10 @@ It is what you think it is. Examples of CFTs for Free fields. We start with clas
 Classically a field is a section of a some associated vector bundle to a principal bundle over spacetime. For example, each (pseudo) Riemannian manifold canonically admits a spin structure and a frame vector subbundle called the spin bundle. The spin bundle is a principal bundle over the manifold with fiber the canonical spin group associated to the particular manifold. Picking different representations of the spin group we get different associated vector bundles and thus we can create all of our classical fields as sections of these associated vector bundles, from bosons to spinors. 
 
 In this we will not go into this level of detail in order to need principal bundles for our construction. Therefore these constructions might seem a bit physically unmotivated, but its good to keep in mind that they have very natural origins in the symmetry group of the spacetime manifold we are working on. 
+$$
+\norm{x}
+$$
+
 
 
 
@@ -605,10 +609,11 @@ Another example that is worth going in detail in a way that is more similar to h
  The actual structure building is done [here](../../Quantum_Fields/Spinors.md), in this section we will summarize results for spinors in $\mathbb R^{2}$.
 
 **<u>Lemma:</u>** The Dirac spinor representation in 2 dimensions is isomorphic to $\mathbb C^2$, and the representation of the even subspace has a Weyl decomposition in left and right handed spinors. In particular, the spinor representation consists of the following gamma matrices
-
 $$
+\begin{align*}
 \gamma^0 = \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix} && 
 \gamma^1 = \begin{pmatrix}0 & -i\\ i & 0\end{pmatrix}
+\end{align*}
 $$
 
 An interesting corollary is the following.
