@@ -83,6 +83,18 @@ export default function NotebookPage({ }) {
     stickTo.current = null;
   }
 
+  const hideOnScroll = () => {
+    stickTo.current = null;
+    setCursorVariant("hidden");
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', hideOnScroll);
+    return () => {
+      window.removeEventListener('scroll', hideOnScroll);
+    }
+  }, [])
+
   const readFile = async () => {
     try {
       const response = await fetch(filename);
@@ -180,7 +192,7 @@ export default function NotebookPage({ }) {
           img(props) {
             let { node, ...rest } = props
             rest.src = parseLink(rest.src);
-            return <img onMouseEnter={() => { enterHighlight(); }} onMouseLeave={() => { exitHighlight(); }} {...rest} />
+            return <img onMouseEnter={enterHighlight} onMouseLeave={exitHighlight} {...rest} />
           },
           p(props) {
             const { node, ...rest } = props
@@ -189,25 +201,25 @@ export default function NotebookPage({ }) {
               node.children = [toc];
               return <div ref={el => (tocRefs.current[tocRefs.current.length] = el)} className="TOC">{toc}</div>
             } else {
-              return <p onMouseEnter={() => { enterBar(); }} onMouseLeave={() => { exitBar(); }} {...rest} />
+              return <p onMouseEnter={enterBar} onMouseLeave={exitBar} {...rest} />
             }
           },
           h1(props) {
             const { node, ...rest } = props
-            return <h1 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={() => { unstick(); }} {...rest} />
+            return <h1 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
           },
           h2(props) {
             const { node, ...rest } = props
-            return <h2 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={() => { unstick(); }} {...rest} />
+            return <h2 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
           },
           h3(props) {
             const { node, ...rest } = props
-            return <h3 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={() => { unstick(); }} {...rest} />
+            return <h3 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
           },
           a(props) {
             const { node, ...rest } = props
             return (
-              <a onMouseEnter={stickLink} onMouseLeave={() => { unstick(); }} {...rest} />
+              <a onMouseEnter={stickLink} onMouseLeave={unstick} {...rest} />
             );
           },
         }}

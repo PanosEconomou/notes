@@ -66,7 +66,6 @@ export default function PageButton({ children, onClick, onMouseEnter, onMouseExi
                     outline: 'none',
                     width: '100%',
                     backgroundColor: 'rgba(255,255,255,0)',
-                    cursor: 'pointer',
                 }}
             >
                 {children}
