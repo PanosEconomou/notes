@@ -44,7 +44,7 @@ export default function PageButton({ children, onClick, onMouseEnter, onMouseExi
                 left: 0,
                 zIndex: 0,
                 float: "left",
-                width: "5vw",
+                width: "70px",
                 height: "100vh",
                 display: "flex",
                 lignItems: "center",
@@ -61,7 +61,7 @@ export default function PageButton({ children, onClick, onMouseEnter, onMouseExi
                 style={{
                     textAlign: "center",
                     position: "relative",
-                    left: "5vw",
+                    left: "70px",
                     border: 'none',
                     outline: 'none',
                     width: '100%',

@@ -603,6 +603,7 @@
         }
 
         li {
+            margin: 0.1rem 0;
 
             h1,
             h2,
@@ -643,5 +644,5 @@
 .buttonTextVert:hover {
     transition-delay: 50ms;
     padding: 50px 50px 50px 50px;
-    transform: translateX(-19px);
+    transform: translateX(-23px);
 }
