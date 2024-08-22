@@ -30,11 +30,11 @@ export default function NotebookPage({ }) {
         if (parseParts.length > 0) {
           parseParts.pop();
         }
-      } else if (part && part !== ".") { 
+      } else if (part && part !== ".") {
         parseParts.push(part);
       }
     }
-    
+
     return (parseParts.join('+'))
   }
 
@@ -239,7 +239,7 @@ export default function NotebookPage({ }) {
               const href = rest.href;
               delete rest.href;
               return (
-                <Link onMouseEnter={stickLink} onMouseLeave={unstick} to={'/'+parseRelativePath(directory.replaceAll('./NOTES/','')+href.replaceAll(".md", ""))} {...rest} />
+                <Link onMouseEnter={stickLink} onMouseLeave={unstick} to={'/' + parseRelativePath(directory.replaceAll('./NOTES/', '') + href.replaceAll(".md", ""))} {...rest} />
               )
             }
             return (
@@ -305,14 +305,24 @@ export default function NotebookPage({ }) {
       <Cursor cursorVariant={cursorVariant} setCursorVariant={setCursorVariant} stickTo={stickTo} />
       <PageButton onClick={handleMenu}>
         <Magnetic>
-          <h2
+          {/* <h2
             className="noSelect buttonTextVert"
             style={{
               fontSize: '24px',
             }}
             onMouseEnter={stick}
             onMouseLeave={unstick}
-          >menu</h2>
+          >menu</h2> */}
+          <motion.div className="buttonTextVert"
+            onMouseEnter={stick}
+            onMouseLeave={unstick}
+          >
+            <svg width="16" height="56" viewBox="0 0 16 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="5" fill="black" />
+              <circle cx="8" cy="28" r="5" fill="black" />
+              <circle cx="8" cy="48" r="5" fill="black" />
+            </svg>
+          </motion.div>
         </Magnetic>
       </PageButton>
       <div id="notebookPage" >

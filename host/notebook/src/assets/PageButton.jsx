@@ -10,13 +10,13 @@ export default function PageButton({ children, onClick, onMouseEnter, onMouseExi
             x: '-10vw',
             opacity: 0,
             scale: 0.5,
-            transition: { ease: 'easeIn', duration: 0.5 }
+            // transition: { ease: 'easeIn', duration: 0.5 }
         },
         visible: {
             x: 0,
             opacity: 1,
             scale: 1,
-            transition: { ease: 'easeOut', duration: 0.5 }
+            // transition: { ease: 'easeOut', duration: 0.5 }
         }
     }
 

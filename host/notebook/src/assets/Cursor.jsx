@@ -117,37 +117,46 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
         hidden: {
             width: size.x.current,
             height: size.y.current,
+            opacity: 0,
+            transition: {
+                duration: 0.1,
+              },
         },
         default: {
+            opacity: 1,
             width: size.x.current,
             height: size.y.current,
             transition: {
-                duration: 0.05,
-                ease: 'easeIn',
+                duration: 0.03,
               },
 
         },
         highlight: {
+            opacity: 1,
             width: size.x.current,
             height: size.y.current,
         },
         stuck: {
+            opacity: 1,
             width: fraction * stickTo.current?.width || size.x.current,
             height: fraction * stickTo.current?.height || size.y.current,
             borderRadius: `${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
         },
         stuckLink: {
+            opacity: 1,
             width: fraction * stickTo.current?.width || size.x.current,
             height: fraction * stickTo.current?.height || size.y.current,
             borderRadius: '1px',//`${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
             // backgroundColor: 'rgba(255, 99, 71, 0.5)'
         },
         bar: {
+            opacity: 1,
             width: size.x.current,
             height: size.y.current,
             borderRadius: '1px',
         },
         stuckUnder: {
+            opacity: 1,
             width: fraction * stickTo.current?.width || size.x.current,
             height: '5px',
             borderRadius: '1px',
