@@ -638,12 +638,12 @@
 .buttonTextVert {
     text-align: center;
     font-family: 'Playfair Display';
-    padding: 10px 20px;
+    padding: 10px 10px 10px 10px;
     position: relative;
 }
 
 .buttonTextVert:hover {
     transition-delay: 50ms;
-    padding: 50px 70px;
-    transform: translateX(-50px);
+    padding: 50px 50px 50px 50px;
+    transform: translateX(-35px);
 }
