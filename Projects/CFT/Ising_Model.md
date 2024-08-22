@@ -18,7 +18,7 @@ Here is a brief overview the classical treatment of the 2D Ising model in order 
 
 ## Physical Setting
 
-The setup is a bunch of arrows arranged in a lattice that can interact with their nierest neighbohrs. A picture is the following, where we have a 2D lattice and an arrow attached at each point.
+The setup is a bunch of arrows arranged in a lattice that can interact with their nearest neighbors. A picture is the following, where we have a 2D lattice and an arrow attached at each point.
 
  ![image-20240420013237038](_Ising_Model.assets/image-20240420013237038.png)
 
@@ -28,9 +28,9 @@ $$
 C_N \coloneqq \mathbb Z_n^2 \times \mathbb Z_2.
 $$
 
-Notice that $\mathbb{Z}_n^2$ as a graph admits the topology of a discrete donought! That is because we can connect the endpoints of the grid for each $\mathbb Z_n$. The next ingredient we need is a Hamiltonian $H:C_N\to \mathbb{R}$.
+Notice that $\mathbb{Z}_n^2$ as a graph admits the topology of a discrete donut! That is because we can connect the endpoints of the grid for each $\mathbb Z_n$. The next ingredient we need is a Hamiltonian $H:C_N\to \mathbb{R}$.
 
-The Hamiltonian in this case must capture the interaction of the neighboring spins. For some point $p = (s_1,s_2,\cdots, s_N) \in C_N$ we usually pick the hamiltonian 
+The Hamiltonian in this case must capture the interaction of the neighboring spins. For some point $p = (s_1,s_2,\cdots, s_N) \in C_N$ we usually pick the Hamiltonian 
 
 $$
 H(p) = -\sum_{i,j} J_{ij} s_i s_j -  h \sum_{i} s_i
@@ -54,7 +54,7 @@ $$
 M = \frac{1}{N\beta} \langle s_T \rangle = \frac{1}{N \beta} \sum_{i = 0}^N\langle s_i\rangle = \frac{1}{N \beta} \frac{\partial }{\partial h} \log Z.
 $$
 
-The phase transition also appears on the sucsceptibility which is given by
+The phase transition also appears on the susceptibility which is given by
 
 $$
 \chi = \left.\frac{\partial M}{\partial h}\right|_{h=0} = \frac{1}{N \beta} \left.\frac{\partial ^2}{\partial h^2}\right|_{h=0} \log Z
@@ -88,7 +88,49 @@ We will use CFT to calculate these correlation functions.
 
 # Quantum Treatment
 
-Ok everythign up to now has been fun, but it has mostly been background so that when we treat Ising in CFT we can be like OH COOL! Look at these conformal weights! They are the same as the classical ones!
+Ok, everything up to now has been fun, but it has mostly been background so that when we treat Ising in CFT we can be like OH COOL! Look at these conformal weights! They are the same as the classical ones! Now we will proceed with establishing a correspondence between the classical Ising model and some CFT. We do this by establishing a connection between the classical treatment and the quantum treatment and then we take a *continuum* limit of the quantum model to some CFT. So before we do everything there let's understand the Quantum Ising model.
+
+## Construction of Hilbert Space
+
+Let's first consider the single spin case in 3D. We have a magnetic moment $\mu$ with fixed magnitude and the only thing we care about is its direction.  This is the picture I am thinking about. 
+
+![Frame 1](/home/data1/po524/notes/Projects/CFT/_Ising_Model.assets/spin-sphere.svg)
+
+Consider the single spin case. In this case the phase space is $\mathbb Z_2$ so the set of wavefunctions over $\mathbb Z^2$ is $\mathbb C^{\mathbb Z_2} \cong \mathbb C^2 = \mathcal H_1$. This is what we will call the single particle Hilbert space.
+
+**<u>Proposition:</u>** The single particle Hilbert space $\mathcal H_1$ is a quantum Hilbert space.
+
+Now we can proceed by defining operators appropriately through second quantization by mapping the coordinate map $s: \mathbb Z_2 \to \mathbb R$ to the linear operator $\hat s : \mathcal H_1 \to \mathcal H_1$. That for the two pure states $\psi_+ = \binom 1 0, \psi_- = \binom 0 1$  it acts as follows
+
+$$
+\begin{align*}
+\hat s \psi_+ = \psi_+ && \hat s \psi_- = -\psi_- && \implies && \hat s = \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
+\end{align*}
+$$
+
+ We can then create the $N$ particle Hilbert space by taking tensor products like so:
+
+**<u>Definition:</u>** The $N$ **particle Hilbert space** is given by $\mathcal H_N \coloneqq \bigotimes_{n=1}^N \mathcal H_1$. And the $i$th spin operator $\hat s_i : \mathcal H_N \to \mathcal H_N$ is given by
+
+$$
+\hat s_i = 1\otimes 1\otimes \cdots \underbrace{\otimes\ \hat s\  \otimes}_{i^{\text{th}}\text{ position}} \cdots \otimes 1.
+$$
+
+ So now we have the Hilbert space constructed and we can proceed with the Hamiltonian.
+
+**<u>Definition:</u>** The **Quantum $N$ particle Ising Hamiltonian** is the linear map $\hat H : \mathcal H_N \to \mathcal H_N$ given by
+
+$$
+\hat H = \hat H_1 + \hat H_0 = -\sum_{i,j = 0}^N J_{ij}\hat s_i \hat s_j - \sum_{i=0}^N h\hat s_i
+$$
+
+where $J$ is the same matrix as in the classical case. 
+
+
+
+## Quantum to Classical Correspondence
+
+
 
 
 
