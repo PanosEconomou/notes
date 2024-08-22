@@ -603,7 +603,7 @@
         }
 
         li {
-            
+
             h1,
             h2,
             h3 {
@@ -633,4 +633,17 @@
             }
         }
     }
+}
+
+.buttonTextVert {
+    text-align: center;
+    font-family: 'Playfair Display';
+    padding: 10px 20px;
+    position: relative;
+}
+
+.buttonTextVert:hover {
+    transition-delay: 50ms;
+    padding: 50px 70px;
+    transform: translateX(-50px);
 }

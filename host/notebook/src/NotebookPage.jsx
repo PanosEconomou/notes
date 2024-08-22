@@ -63,7 +63,11 @@ export default function NotebookPage({ }) {
   const stick = (event) => {
     if (scrolling.current) return;
     setCursorVariant("stuck");
-    stickTo.current = event.target.getBoundingClientRect();
+    if (event.width !== undefined) {
+      stickTo.current = event
+    } else {
+      stickTo.current = event.target.getBoundingClientRect();
+    }
   }
 
   const stickLink = (event) => {
@@ -231,12 +235,12 @@ export default function NotebookPage({ }) {
         {tocObject.map((item, index) => {
           const Tag = item.level
           return (
-          <li key={index}>
-            <a href={`#${slugify(item.text)}`} onMouseEnter={stickLink} onMouseLeave={unstick}>
-              <Tag dangerouslySetInnerHTML={{ __html: item.inner }}></Tag>
-            </a>
-          </li>
-        );
+            <li key={index}>
+              <a href={`#${slugify(item.text)}`} onMouseEnter={stickLink} onMouseLeave={unstick}>
+                <Tag dangerouslySetInnerHTML={{ __html: item.inner }}></Tag>
+              </a>
+            </li>
+          );
         })}
       </ul>
     );
@@ -253,11 +257,9 @@ export default function NotebookPage({ }) {
       <PageButton onClick={handleMenu}>
         <Magnetic>
           <h2
-            className="noSelect buttonText"
+            className="noSelect buttonTextVert"
             style={{
               fontSize: '24px',
-              fontFamily: 'Playfair Display',
-              padding: '10px'
             }}
             onMouseEnter={stick}
             onMouseLeave={unstick}
