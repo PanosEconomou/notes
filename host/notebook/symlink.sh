@@ -17,7 +17,6 @@ done
 
 # List all files and directories recursively
 find "$public_dir" -type f -o -type d | sed "s|$public_dir/||" > "$public_dir/directory_listing.txt"
-find "$public_dir" -type f -o -type d | sed "s|$public_dir/||" 
 
 
 # Handle redirects on netlify

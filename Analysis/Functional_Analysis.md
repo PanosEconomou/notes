@@ -24,7 +24,7 @@ Let’s start by studying measures. In order to do this, we need something to me
 
 Now to map the a actual subsets to some field like the real numbers. What we construct is a measure which works like the picture below.
 
-![image-20230621110356961](.Functional_Analysis.assets/image-20230621110356961.png)
+![image-20230621110356961](_Functional_Analysis.assets/image-20230621110356961.png)
 
 **<u>Definition:</u>** Given a measurable space $(S,\Sigma)$ and an **ordered,** **compact** field $\mathbb{F}$ (like $\bar{\mathbb{R}} \coloneqq \mathbb{R} \cup\{-\infty,\infty\}$) a map $\mu:\Sigma \to \mathbb{F}$ is <u>measure</u> of $S$ iff
 
@@ -64,7 +64,7 @@ $$
 
 With this we can now measure the volumes of intervals in $\mathbb{R}^n$. Now we want to measure arbitrary subsets of $\mathbb{R}^n$. To do this we construct the Lebesgue outer measure.
 
-![image-20230621115247067](.Functional_Analysis.assets/image-20230621115247067.png)
+![image-20230621115247067](_Functional_Analysis.assets/image-20230621115247067.png)
 
 
 
