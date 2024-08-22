@@ -1,22 +1,24 @@
 import Landing from './Landing'
 import NotebookPage from './NotebookPage'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, ScrollRestoration } from 'react-router-dom'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/:path",
+    element: <NotebookPage />,
+  },
+]);
 
 function App() {
 
   return (
-    <BrowserRouter forceRefresh={true}>
-      <Routes>
-        <Route
-          path="/"
-          element={<Landing />}
-        />
-        <Route
-          path="/:path"
-          element={<NotebookPage />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router}>
+      <ScrollRestoration />
+    </RouterProvider>
   )
 }
 

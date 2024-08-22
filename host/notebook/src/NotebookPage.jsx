@@ -114,6 +114,7 @@ export default function NotebookPage({ }) {
   useEffect(() => {
     readFile();
     window.addEventListener('scroll', handleScroll, false);
+    window.scrollTo(0, 0);
 
     return () => {
       window.removeEventListener('scroll', handleScroll, false);
