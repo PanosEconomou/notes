@@ -22,6 +22,22 @@ export default function NotebookPage({ }) {
   const name = path.slice(path.lastIndexOf('+') + 1)
   const filename = directory + name + ".md";
 
+  const parseRelativePath = (path) => {
+    let parts = path.split('/');
+    const parseParts = []
+    for (const part of parts) {
+      if (part === '..') {
+        if (parseParts.length > 0) {
+          parseParts.pop();
+        }
+      } else if (part && part !== ".") { 
+        parseParts.push(part);
+      }
+    }
+    
+    return (parseParts.join('+'))
+  }
+
 
   const [markdown, setMarkdown] = useState('');
   const [cursorVariant, setCursorVariant] = useState('default')
@@ -218,8 +234,16 @@ export default function NotebookPage({ }) {
           },
           a(props) {
             const { node, ...rest } = props
+            if (rest.href[0] === '.') {
+
+              const href = rest.href;
+              delete rest.href;
+              return (
+                <Link onMouseEnter={stickLink} onMouseLeave={unstick} to={'/'+parseRelativePath(directory.replaceAll('./NOTES/','')+href.replaceAll(".md", ""))} {...rest} />
+              )
+            }
             return (
-              <a onMouseEnter={stickLink} onMouseLeave={unstick} {...rest} />
+              <a onMouseEnter={stickLink} onMouseLeave={unstick} target="_blank" {...rest} />
             );
           },
         }}
