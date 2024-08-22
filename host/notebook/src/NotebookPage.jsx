@@ -11,15 +11,17 @@ import remarkGfm from 'remark-gfm'
 import Magnetic from './assets/Magnetic';
 import PageButton from './assets/PageButton';
 import MainMenu from './assets/MainMenu';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 
 export default function NotebookPage({ }) {
 
-  let { path } = useParams();
+  const { path } = useParams();
+  const location = useLocation();
 
-  let directory = "./NOTES/" + path.slice(0, path.lastIndexOf('+') + 1).replaceAll("+", "/")
-  let name = path.slice(path.lastIndexOf('+') + 1)
-  let filename = directory + name + ".md";
+  const directory = "./NOTES/" + path.slice(0, path.lastIndexOf('+') + 1).replaceAll("+", "/")
+  const name = path.slice(path.lastIndexOf('+') + 1)
+  const filename = directory + name + ".md";
+
 
   const [markdown, setMarkdown] = useState('');
   const [cursorVariant, setCursorVariant] = useState('default')
@@ -139,10 +141,10 @@ export default function NotebookPage({ }) {
         // rehypePlugins={[rehypeRaw, rehypeMathjax]}
         rehypePlugins={[rehypeRaw,
           [rehypeMathjax, {
-            load: ['input/tex/extensions/xypic'],
             tex: {
               packages: {
-                '[+]': ['base',
+                '[+]': [
+                  'base',
                   'bracket',
                   'bussproofs',
                   'bbox',
@@ -168,7 +170,8 @@ export default function NotebookPage({ }) {
                   'noundefined',
                   'autoload',
                   'textmacros',
-                  'xypic']
+                  'xypic'
+                ]
               }
             }
           }]
@@ -237,9 +240,9 @@ export default function NotebookPage({ }) {
           const Tag = item.level
           return (
             <li key={index}>
-              <a href={`#${slugify(item.text)}`} onMouseEnter={stickLink} onMouseLeave={unstick}>
+              <Link to={`#${slugify(item.text)}`} onMouseEnter={stickLink} onMouseLeave={unstick}>
                 <Tag dangerouslySetInnerHTML={{ __html: item.inner }}></Tag>
-              </a>
+              </Link>
             </li>
           );
         })}
@@ -251,6 +254,15 @@ export default function NotebookPage({ }) {
     if (headingRefs.current.length != 0) createTOC();
 
   }, [markdown])
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
+      }
+    }
+  }, [markdownRender, location])
 
   return (
     <>

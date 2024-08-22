@@ -22,7 +22,7 @@ export default function PageButton({ children, onClick, onMouseEnter, onMouseExi
 
     const mouseListener = (event) => {
         let xPosition = event.clientX;
-        if (xPosition < window.innerWidth * .2) {
+        if (xPosition < window.innerWidth * .4) {
             setButtonState("visible");
         } else {
             setButtonState("hidden");
