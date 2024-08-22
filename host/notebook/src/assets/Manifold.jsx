@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useWheel } from '@use-gesture/react';
-import { motion, useMotionValue, useAnimate } from "framer-motion"
+import { motion, useMotionValue, useAnimate, useSpring } from "framer-motion"
 
 
 export default function Manifold() {
 
-  const length = useMotionValue(0);
-  const opacity = useMotionValue(0);
+  const lengthSet = useMotionValue(0);
+  const opacitySet = useMotionValue(0);
+  const length = useSpring(lengthSet, { stiffness: 300, damping: 50, mass: 0.5 });
+  const opacity = useSpring(opacitySet, { stiffness: 300, damping: 50, mass: 0.5 });
   const [pathLength, setPathLength] = useState(1);
-  const [scope, animate] = useAnimate()
+  const [scope, animate] = useAnimate();
 
   const bind = useWheel(({ delta: [_, deltaY] }) => {
     setPathLength(Math.max(0, Math.min(1, pathLength - deltaY * 0.0005)));
-    length.set(pathLength * pathLength);
-    opacity.set(0.3 * pathLength * pathLength);
+    lengthSet.set(pathLength * pathLength);
+    opacitySet.set(0.3 * pathLength * pathLength);
   });
 
   useEffect(() => {
