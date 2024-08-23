@@ -92,11 +92,13 @@ Ok, everything up to now has been fun, but it has mostly been background so that
 
 ## Construction of Hilbert Space
 
-Let's first consider the single spin case in 3D. We have a magnetic moment $\mu$ with fixed magnitude and the only thing we care about is its direction.  This is the picture I am thinking about. 
+Let's first consider the single spin case in 3D. We have a magnetic moment $\mu$ with fixed magnitude and the only thing we care about is its direction.  This is the picture of the classical situation. 
 
 ![Spin Sphere](_Ising_Model.assets/spin-sphere.svg)
 
-Consider the single spin case. In this case the phase space is $\mathbb Z_2$ so the set of wavefunctions over $\mathbb Z^2$ is $\mathbb C^{\mathbb Z_2} \cong \mathbb C^2 = \mathcal H_1$. This is what we will call the single particle Hilbert space.
+The only quantity of interest is this angular momentum vector $\mu$, which transforms under a representation of $SO(3)$. 
+
+Consider the single spin case. In this case the phase space is $\mathbb Z_2$ so the set of wavefunctions over $\mathbb Z^2$ is $\mathbb C^{\mathbb Z_2} \cong \mathbb C^2 = \mathcal H_1$. This is what we will call the single particle Hilbert space
 
 **<u>Proposition:</u>** The single particle Hilbert space $\mathcal H_1$ is a quantum Hilbert space.
 
