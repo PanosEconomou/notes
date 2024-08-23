@@ -272,6 +272,10 @@
             color: #444;
         }
 
+        li p {
+            display: inline-block;
+        }
+
         table {
             font-size: 1.25rem;
         }
