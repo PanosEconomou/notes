@@ -1,0 +1,6 @@
+# netlify.toml
+[build]
+  publish = "dist" # or wherever your built site resides
+
+  [build.ignore]
+    command = "echo 'Trying not to skip deploy due to no changes.'"
