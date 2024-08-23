@@ -155,7 +155,11 @@ $$
 $$
 **<u>Proposition:</u>** In the case of a Lie group $G$, with a canonical symplectic potential $\theta \in \Omega^1(T^\ast G)$, its pullback under the left trivialization is given by the form $\tilde \theta \in \Omega^1(G\times \mathfrak g^\ast)$ such that at any point $(g,J) \in G\times \mathfrak g^\ast$
 $$
-\tilde \theta_{g,J} = 
+\tilde \theta_{g,J} (X,L)=  J(X).
+$$
+And the pullback of the symplectic potential is given by
+$$
+\tilde \omega_{g,J}((X,L),(Y,L')) = d\tilde \theta_{g,J} ((X,L),(Y,L')) = 
 $$
 
 
@@ -177,8 +181,7 @@ $$
 
  We can then create the $N$ particle Hilbert space by taking tensor products like so:
 
-**<u>Definition:</u>** The $N$ **particle Hilbert space** is given by $\mathcal H_N \coloneqq \bigotimes_{n=1}^N \mathcal H_1$. And the $i$th spin operator $\hat s_i : \mathcal H_N \to \mathcal H_N$ is given by
-
+**<u>previousDefinition:</u>** The $N$ **particle Hilbert space** is given by $\mathcal H_N \coloneqq \bigotimes_{n=1}^N \mathcal H_1$. And the $i$th spin operator $\hat s_i : \mathcal H_N \to \mathcal H_N$ is given by
 $$
 \hat s_i = 1\otimes 1\otimes \cdots \underbrace{\otimes\ \hat s\  \otimes}_{i^{\text{th}}\text{ position}} \cdots \otimes 1.
 $$
