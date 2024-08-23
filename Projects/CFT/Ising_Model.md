@@ -100,8 +100,11 @@ The only quantity of interest is this angular momentum vector $\mu$, which trans
 
 As a result, we can now form the canonical phase space which in this case is simply the cotangent bundle of $SO(3)$. Notice that this bundle has the form:
 $$
-\xymatrix {
-\mathfrak{so}(3) \ar[r] & T^\ast SO(3) \ar[d]^{\pi} \\ & SO(3)}
+\begin{CD}
+\mathfrak{so}(3) @>>> T^\ast SO(3) \\ 
+@. @VV\pi V\\ 
+@. SO(3)
+\end{CD}
 $$
  where the fiber is the lie algebra of $so(3)$. 
 
