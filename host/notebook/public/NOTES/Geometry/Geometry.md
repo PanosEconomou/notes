@@ -14,7 +14,7 @@ Some definitions that one might find useful in the context of fully describing p
 1. **Locally Eucledian**: $\forall U \in \mathcal{T}(M),\ \exists \phi:U\to\mathbb{R}^n$  such that $\phi$ is a homeomorphism
 2. **Hausdorff**: Given two points $p,q \in M$, there exist two neighborhoods $U_p,\ U_q$ such that $U_p\cap U_q = \empty$
 
-![image-20230203143739383](.Geometry.assets/image-20230203143739383.png)
+![image-20230203143739383](_Geometry.assets/image-20230203143739383.png)
 
 3. **Second Countability**: The topology of $M$ needs to be second countable
 
@@ -27,7 +27,7 @@ $$
 
 are smooth in $\mathbb{R}^n$.
 
-​                              ![image-20230203144731960](.Geometry.assets/image-20230203144731960.png) 
+​                              ![image-20230203144731960](_Geometry.assets/image-20230203144731960.png) 
 
 A compatible atlas, is an atlas where any two charts are compatible. A **maximal atlas** of a topological manifold $M$ is a compatible atlas that is also a cover of $M$.
 
@@ -59,7 +59,7 @@ $$
 \left.\frac{\part }{\part x^i}\right|_p f = \left.\frac{\part f}{\part x^i}\right|_p \coloneqq \left.\frac{\part f \circ x^{-1}}{\part r^i}\right|_{x(p)}
 $$
 
-![image-20230203152019011](.Geometry.assets/image-20230203152019011.png)
+![image-20230203152019011](_Geometry.assets/image-20230203152019011.png)
 
 **<u>*Note*</u>**: We define a differential operator
 
@@ -99,7 +99,7 @@ A vector in diffential geometry takes an extra structure of a derivation. So let
 
 ***<u>Proposition:</u>*** Given a surface $S \subset \mathbb{R}^n$, the tangent plane $\Pi \subset \mathbb{R}^n$ at some $p \in S$, and the tangent space $T_pM$, we can show that $\forall v \in \Pi\ \exists!\ D_v \in T_pM$.
 
-![image-20230203155713152](.Geometry.assets/image-20230203155713152.png) 
+![image-20230203155713152](_Geometry.assets/image-20230203155713152.png) 
 
 **Proof:** Consider the following map $\phi$
 
@@ -137,7 +137,7 @@ $$
 TM \ni \bar{X}_p = X_p = (p,X_p \in T_pM) \mapsto p \in M
 $$
 
-![image-20230203172008053](.Geometry.assets/image-20230203172008053.png)
+![image-20230203172008053](_Geometry.assets/image-20230203172008053.png)
 
 **<u>Proposition:</u>** $\forall X_p \in T_pM\ \ \exists X_p \in TM$
 
@@ -154,7 +154,7 @@ We want vector fields to be such that $\pi(X(p)) = p$, i.e. $\pi \circ X = id_M\
 
 **<u>*Corollary:*</u>** A vector field is a section of the tangent Bundle $TM$ (i.e. a path that covers all of the points $p \in M$)
 
-![image-20230203175303186](.Geometry.assets/image-20230203175303186.png)
+![image-20230203175303186](_Geometry.assets/image-20230203175303186.png)
 
 The space of all vector fields over a manifold $M$ is denoted as $\mathfrak{X}(M)$.
 
