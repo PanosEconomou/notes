@@ -96,7 +96,14 @@ Let's first consider the single spin case in 3D. We have a magnetic moment $\mu$
 
 ![Spin Sphere](_Ising_Model.assets/spin-sphere.svg)
 
-The only quantity of interest is this angular momentum vector $\mu$, which transforms under a representation of $SO(3)$. 
+The only quantity of interest is this angular momentum vector $\mu$, which transforms under a representation of $SO(3)$. In practice, in our physics we don't care about anything other than the orientation of this magnetic moment. Therefore, we can safely say that the *configuration space* is the set of all possible rotations of this vector. Doing so, we will find that this forms the Lie group $SO(3)$.
+
+As a result, we can now form the canonical phase space which in this case is simply the cotangent bundle of $SO(3)$. Notice that this bundle has the form:
+$$
+\xymatrix {
+\mathfrak{so}(3) \ar[r] & T^\ast SO(3) \ar[d]^{\pi} \\ & SO(3)}
+$$
+ where the fiber is the lie algebra of $so(3)$. 
 
 Consider the single spin case. In this case the phase space is $\mathbb Z_2$ so the set of wavefunctions over $\mathbb Z^2$ is $\mathbb C^{\mathbb Z_2} \cong \mathbb C^2 = \mathcal H_1$. This is what we will call the single particle Hilbert space
 
