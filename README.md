@@ -12,6 +12,8 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Distributions](Analysis/Distributions.md)
     - [Functional Analysis](Analysis/Functional_Analysis.md)
     - [Variational Calculus](Analysis/Variational_Calculus.md)
+- [**Quanta**](Classical_Physics)
+    - [Quantum Mechanics](Classical_Physics/Start_Here.md)
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.
     - [Fibre Bundles](Geometry/Bundles.md)
@@ -112,8 +114,6 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
         - [Dissipation Currents](Projects/Dissipative_QFT/Dissipation_Currents.md)
     - [**Topological_Paths**](Projects/Topological_Paths)
         - [Inducing Topology Using Maps](Projects/Topological_Paths/Inducing_Topology.md)
-- [**Quanta**](Quanta)
-    - [Quantum Mechanics](Quanta/Start_Here.md)
 - [**Quantum Fields**](Quantum_Fields)  
     Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
     - [Axioms in 2D CFT](Quantum_Fields/2D_CFT_Axioms.md)
