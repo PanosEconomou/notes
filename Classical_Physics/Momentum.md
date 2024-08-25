@@ -98,11 +98,11 @@ What we will develop here is a way to obtain that vector field from any Hamilton
 
 **<u>Definition:</u>** For any smooth function $f \in C^\infty(P)$ on a phase space $(P,\omega)$ its **Hamiltonian vector field** $X_f \in \mathfrak X(P)$ is a vector field such that
 $$
-df = \iota_{X_f}\omega,
+df = -\iota_{X_f}\omega,
 $$
 where $\iota_{X_f}$ denotes the contraction by $X_f$. Namely, for any $Y\in \mathfrak X(f)$
 $$
-Yf = \omega(X_F,Y).
+Yf = \omega(Y,X_F).
 $$
 **<u>Proposition:</u>** For any $f \in C^\infty(M)$ a Hamiltonian vector field exists and is unique.
 
@@ -113,7 +113,7 @@ $$
 **<u>Example:</u>** *(Hamiltonian vector field of the Hamiltonian)* Let $H : T^\ast \mathbb R^n \to \mathbb R$ be a Hamiltonian in the Euclidean space we defined before. Then, its Hamiltonian vector field $X_H = X^i \frac{\partial }{\partial q^i} + X_i \frac{\partial }{\partial p_i}$ can be calculated similarly to the symplectic potential $\theta$. Namely, we know that
 $$
 \begin{align*}
-\frac{\partial H}{\partial q^j} 
+-\frac{\partial H}{\partial q^j} 
 &= \omega\left(X_H,\frac{\partial}{\partial q^j} \right) \\
 &= dp_i \wedge dq^i\left (X_H,\frac{\partial}{\partial q^j}\right)\\
 &= (dp_i \otimes dq^i- dq^i \otimes dp_i)\left (X_H,\frac{\partial}{\partial q^j}\right)\\
@@ -124,7 +124,7 @@ $$
 and similarly,
 $$
 \begin{align*}
-\frac{\partial H}{\partial p_j} 
+-\frac{\partial H}{\partial p_j} 
 &= \omega\left(X_H,\frac{\partial}{\partial p_j} \right) \\
 &= dp_i \wedge dq^i\left (X_H,\frac{\partial}{\partial p_j}\right)\\
 &= (dp_i \otimes dq^i- dq^i \otimes dp_i)\left (X_H,\frac{\partial}{\partial p_j}\right)\\
@@ -134,23 +134,99 @@ $$
 $$
 Therefore the Hamiltonian vector field of the Hamiltonian is
 $$
-X_H = -\frac{\partial H}{\partial p_i}\frac{\partial }{\partial q^i} + \frac{\partial H}{\partial q^i} \frac{\partial}{\partial p_i}.
+X_H = \frac{\partial H}{\partial p_i}\frac{\partial }{\partial q^i} - \frac{\partial H}{\partial q^i} \frac{\partial}{\partial p_i}.
 $$
-The cool thing to notice is that the integral curves of this vector field follow Hamilton's equations of motion! (well in the opposite direction, but we don't care about that. We could define Hamiltonian vector fields with a negative sign if we wanted)
+The cool thing to notice is that the integral curves of this vector field follow Hamilton's equations of motion! Another cool thing that we notice is that the Hamiltonian vector field can be calculated by applying the following linear transformation to the gradient
+$$
+X_H = 1\cdot \begin{pmatrix}0&1\\-1&0\end{pmatrix} \nabla H,
+$$
+which is a rotation by $\pi/2$! So since the gradient of the Hamiltonian points perpendicular to the level curves, the Hamiltonian vector field is pointing parallel to them. This means that its integral curves (i.e. the physical paths in phase space) are precisely the level curves of the Hamiltonian! Which proves that the Hamiltonian is conserved. Here is an example in $\mathbb R^2$.
 
-Another cool thing that we notice is that the Hamiltonian vector field can be calculated by applying the following linear transformation to the gradient
+![Hamiltonian Plot](_Momentum.assets/hamiltonian-plot.svg)
+
+In Grey is a 2D plot of a Hamiltonian, while in blue is a stream plot of its Hamiltonian vector field. In black is a stream plot of the gradient. We can see that the level curves of the Hamiltonian are the integral curves (streams) of its Hamiltonian vector Field. 
 $$
-X_H = 1\cdot \begin{pmatrix}0&-1\\1&0\end{pmatrix} \nabla H,
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
-which is a rotation by $\pi/2$! So since the gradient of the Hamiltonian points perpendicular to the level curves, the Hamiltonian vector field is pointing parallel to them. This means that its integral curves (i.e. the physical paths in phase space) are precisely the level curves of the Hamiltonian! Which proves that the Hamiltonian is conserved.
+**<u>Proposition:</u>** *(Properties of Hamiltonian Vector Fields)* Let $f,g \in C^\infty(P)$ and $a \in \mathbb R$. Then
+
+1. $X_{f+a g} = X_f + aX_g$
+2. $X_{fg} = gX_f + fX_g$.
+
+We will soon use these properties to show that we can convert $C^\infty(P)$ into a Lie algebra. Another super interesting and useful theorem is the famous phase space conservation theorem.
+
+**<u>Theorem:</u>** *(Liouville's Theorem)* For any $f\in C^\infty(P)$ on some phase space $(P,\omega)$ the volume form is invariant along its Hamiltonian vector field. Namely,
+$$
+\mathcal L_{X_f}\omega =0, \ \ \ \forall f\in C^\infty(P).
+$$
+***Proof:*** In this formalism the proof is very simple. We use the following
+$$
+\begin{align*}
+\mathcal L_{X_f}\omega 
+&= \iota_{X_f}d\omega + d(\iota_{X_f}\omega)
+\end{align*}
+$$
+The first term vanishes because $d\omega = dd\theta = 0$ and the second term vanishes because $d(\iota_{X_f} \omega) = d(-df) = 0$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+A very useful corollary in calculation is the following
+
+**<u>Corollary:</u>** For any two Hamiltonian vector fields $A,B$ we have that
+$$
+[A,B] = X_{\omega(A,B)}
+$$
+
+
+
+
+## Poisson Bracket
+
+With this insight we will introduce one of the most useful constructions of Hamiltonian mechanics. The Poisson bracket. 
+
+**<u>Definition:</u>** Given two smooth functions $f,g \in C^\infty(P)$ on some phase space $(P,\omega)$ their **Poisson bracket** $\{\cdot,\cdot\} : C^\infty(P)\times C^\infty(P) \to C^\infty(P)$ is given by
+$$
+\{f,g\} \coloneqq \omega(X_f,X_g) = X_fg=-X_gf.
+$$
+We can think of the Poisson bracket as a measure of how similar the vector fields are in some sense. For example, if the functions are the same, then by the antisymmetry of $\omega$, their Poisson bracket vanishes. But that is not the only case when they vanish. Let's examine some cases.
+
+Since $\{f,g\} = X_fg$, the poisson measures the change of $g$ along the Hamiltonian vector field of $f$. This is naturally the opposite change of $f$ along the Hamiltonian vector field of $g$ which is verified by t the antisymmetry of the symplectic form. As a result we obtain the following familiar theorem.
+
+**<u>Theorem:</u>** *(Hamiltonian Conservation Laws)* Given $f,g \in C^\infty(P)$ on some phase space $(P,\omega)$ iff
+$$
+\{f,g\} = 0
+$$
+then $g$ is conserved on the level curves of $f$ and vice versa.
+
+Another very interesting theorem is the following.
+
+**<u>Theorem:</u>** The Poisson bracket is a Lie bracket for $C^\infty(P)$ converting it into a Lie algebra over $\mathbb R$.
+
+***Proof:*** The corollary from the previous section can be rewritten as $[X_f,X_g]=X_{\{g,f\}}$. Since we know that $[\cdot,\cdot]$ is a Lie bracket for the Hamiltonian vector fields (closure of the Lie subalgebra is guaranteed by the corollary), we can apply it directly to show
+$$
+\begin{align*}
+0 
+&= [X_f,[X_g,X_h]] + [X_h,[X_f,X_g]] + [X_g,[X_h,X_f]]\\
+&= [X_f,X_{\{g,h\}}] + [X_h,X_{\{f,g\}}] + [X_g,X_{\{h,f\}}]\\
+&= X_{\{f,\{g,h\}\}} + X_{\{h,\{f,g\}\}} + X_{\{g,\{h,f\}\}}\\
+&= X_{\{f,\{g,h\}\}+ \{h,\{f,g\}\}+\{g,\{h,f\}\}}\\
+\implies 0 &= \{f,\{g,h\}\}+ \{h,\{f,g\}\}+\{g,\{h,f\}\}.
+\end{align*}
+$$
+
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 
-## Lie Bracket
 
-With this insight we will introduce one of the most useful constructions of Hamiltonian mechanics. The Lie bracket. 
+
+
+
+
+
+
+
 
 
 
