@@ -293,7 +293,7 @@ This is great news because we can now lift the group action to an action on the 
 
 **<u>Theorem:</u>** Let $\rho : G\times M\to M$ be a Lie group action on a smooth manifold $M$. Then $\hat \rho : G\times T^\ast M\to T^\ast M$ given by
 $$
-(g,\alpha) \mapsto \hat \rho(g)(\alpha) = \phi_{g^{-1} \pi(a)}^\ast \alpha,
+(g,\alpha) \mapsto \hat \rho(g)(\alpha) = \rho(g^{-1})^\ast \alpha,
 $$
 where $\phi_{g^{-1}\pi(\alpha)}$ is the orbit map of $g^{-1}\pi(\alpha)$ and $\pi : T^\ast M \to M$ is the canonical projection map of the cotangent bundle, is a Lie group action on $T^\ast M$. We call $\hat \rho$ the **lift of** $\rho$.
 
@@ -303,7 +303,9 @@ There are too many symbols on this theorem so here is a picture
 
 ![induced-representation](_Momentum.assets/induced-representation.svg)
 
-What we are essentially doing is using the orbit to steal a one form form where we pick it up at $p = \pi(\alpha)$ to the new cotangent space $g\cdot \pi(\alpha)$. But since we need to use a pullback for a form, there is a nice map to choose which is the orbit that takes us from $g\cdot \pi(\alpha)$ to $\pi(\alpha)$. This map is $\phi_{g^{-1}\cdot \pi(\alpha)}$, hence the pullback. 
+What we are essentially doing is using the representation to steal a one form form where we pick it up at $p = \pi(\alpha)$ to the new cotangent space $g\cdot \pi(\alpha)$. But since we need to use a pullback for a form, there is a nice map to choose which is the one that takes us from $g\cdot \pi(\alpha)$ to $\pi(\alpha)$. This map is $\rho(g^{-1})$, hence the pullback. 
+
+As a result, we now have a way to induce an action on the phase space, directly from the group. 
 
 
 
