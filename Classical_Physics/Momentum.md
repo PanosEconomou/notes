@@ -90,6 +90,67 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
+## Hamiltonian Vector Fields
+
+The point of phase space is that given a point, I can tell you exactly how you will flow over time. But there is no time axis here, and to be honest we don't want to include it. Instead we will depict the flow directly. The way we do this geometrically is with a vector field. 
+
+What we will develop here is a way to obtain that vector field from any Hamiltonian-like function. But since the Hamiltonian could be any function on our phase space, might as well generalize it for anything. Doing so we will get some pretty results concerning Lie brackets and so on.
+
+**<u>Definition:</u>** For any smooth function $f \in C^\infty(P)$ on a phase space $(P,\omega)$ its **Hamiltonian vector field** $X_f \in \mathfrak X(P)$ is a vector field such that
+$$
+df = \iota_{X_f}\omega,
+$$
+where $\iota_{X_f}$ denotes the contraction by $X_f$. Namely, for any $Y\in \mathfrak X(f)$
+$$
+Yf = \omega(X_F,Y).
+$$
+**<u>Proposition:</u>** For any $f \in C^\infty(M)$ a Hamiltonian vector field exists and is unique.
+
+***Proof:*** Existence is guaranteed by existence of solutions of 1st order ODEs. Uniqueness is guaranteed by the nondegeneracy of $\omega$ as a symplectic form. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Example:</u>** *(Hamiltonian vector field of the Hamiltonian)* Let $H : T^\ast \mathbb R^n \to \mathbb R$ be a Hamiltonian in the Euclidean space we defined before. Then, its Hamiltonian vector field $X_H = X^i \frac{\partial }{\partial q^i} + X_i \frac{\partial }{\partial p_i}$ can be calculated similarly to the symplectic potential $\theta$. Namely, we know that
+$$
+\begin{align*}
+\frac{\partial H}{\partial q^j} 
+&= \omega\left(X_H,\frac{\partial}{\partial q^j} \right) \\
+&= dp_i \wedge dq^i\left (X_H,\frac{\partial}{\partial q^j}\right)\\
+&= (dp_i \otimes dq^i- dq^i \otimes dp_i)\left (X_H,\frac{\partial}{\partial q^j}\right)\\
+&= dp_i \otimes dq^i \left (X_H,\frac{\partial}{\partial q^j}\right)\\
+&= X_j
+\end{align*}
+$$
+and similarly,
+$$
+\begin{align*}
+\frac{\partial H}{\partial p_j} 
+&= \omega\left(X_H,\frac{\partial}{\partial p_j} \right) \\
+&= dp_i \wedge dq^i\left (X_H,\frac{\partial}{\partial p_j}\right)\\
+&= (dp_i \otimes dq^i- dq^i \otimes dp_i)\left (X_H,\frac{\partial}{\partial p_j}\right)\\
+&= - dq^i \otimes dp_i \left (X_H,\frac{\partial}{\partial p_j}\right)\\
+&= - X^j.
+\end{align*}
+$$
+Therefore the Hamiltonian vector field of the Hamiltonian is
+$$
+X_H = -\frac{\partial H}{\partial p_i}\frac{\partial }{\partial q^i} + \frac{\partial H}{\partial q^i} \frac{\partial}{\partial p_i}.
+$$
+The cool thing to notice is that the integral curves of this vector field follow Hamilton's equations of motion! (well in the opposite direction, but we don't care about that. We could define Hamiltonian vector fields with a negative sign if we wanted)
+
+Another cool thing that we notice is that the Hamiltonian vector field can be calculated by applying the following linear transformation to the gradient
+$$
+X_H = 1\cdot \begin{pmatrix}0&-1\\1&0\end{pmatrix} \nabla H,
+$$
+which is a rotation by $\pi/2$! So since the gradient of the Hamiltonian points perpendicular to the level curves, the Hamiltonian vector field is pointing parallel to them. This means that its integral curves (i.e. the physical paths in phase space) are precisely the level curves of the Hamiltonian! Which proves that the Hamiltonian is conserved.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+## Lie Bracket
+
+With this insight we will introduce one of the most useful constructions of Hamiltonian mechanics. The Lie bracket. 
 
 
 
