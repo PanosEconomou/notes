@@ -220,9 +220,90 @@ $$
 
 
 
+# Motion Using Lie Groups
+
+We often think of motion in $\mathbb R^3$. We are in a position, a vector in $\mathbb R^3$ and then we pick a displacement, another vector in $\mathbb R^3$ to tell us where we will move to. We call that translation, and when a body is in motion it also translates with respect to a point. We also know that there is an associated momentum to translation. 
+
+Intuitively, we can think of the motion of an object as applying successive translations, and the momentum associated to translation telling us how the translations we apply change along the motion.
+
+Translations are not the only way of moving though! We could also rotate, flip, expand, and all sorts of weird things. In this section we will generalize what we mean by motion in our configuration space using the language of Lie groups. 
+
+In the previous example, $\mathbb R^3$ is the Lie group of translations in the configuration space $\mathbb R^3$, and it acts on $\mathbb R^3$ by vector addition. We will generalize this for any Lie group now.
+
+## Lie Group Actions
+
+The way groups transform a configuration space is through Lie group actions. We will quickly introduce them, and then move forward to the nicer topic of Fundamental vector fields.
+
+**<u>Definition:</u>** Let $M$ be a manifold and $G$ a Lie group, then a **Lie group action** is a smooth group homomorphism
+$$
+\begin{align*}
+\rho: G\to \text{Diff}(M).
+\end{align*}
+$$
+ Given a group action $\rho$ for every point $p \in M$ the subgroup 
+$$
+G_p \coloneqq \{g\in G \mid \rho(g)(p) = p\},
+$$
+is called the **group of stabilizers of** $p$. Further more, the **orbit of **$p$ is the set 
+$$
+O_p=G\cdot p = \rho(G)p \coloneqq\{\rho(g)(p) \in M \mid g\in G\}.
+$$
+Finally, the **oribit map** of a point $p\in M$ under the action of $G$ is the smooth map
+$$
+\begin{align*}
+\phi_p:G&\to M\\
+g&\mapsto \rho(g)(p).
+\end{align*}
+$$
+
+
+Using a Lie group action, we can move the underlying configuration space. Here are some examples.
+
+**<u>Example:</u>** *(Euclidean Translation)* Consider the action $\rho : \mathbb R^n \to \text{Diff}(\mathbb R^n)$ where in the standard coordinate system $\psi =(q^1,q^2,\cdots,q^n)$ it is given by 
+$$
+v \in \mathbb R^3 \mapsto \rho(v),
+$$
+where for any $p\in \mathbb R^3$ we have
+$$
+\rho(p) = (q^i(p) + q^i(v)).
+$$
+This is the standard way we translate stuff. But what happens when the manifold is a bit curved? Then we have options on how to translate. 
+
+**<u>Example:</u>** *(Euclidean Rotation)* The set of rotations in $\mathbb R^n$ is describe by the group $SO(n)$ that comes with its defining representation that maps an element of the group to the corresponding matrix.
 
 
 
+## Inducing Actions on Tensor Bundles
+
+Ideally we would like to have a representation not only the configuration space, but also on the Phase space. This is something slightly harder to achieve. If the phase space is not canonical, then we have to figure it out by hand. However if we have an action on the configuration space and we want to lift it to an action on the phase space we absolutely can in a canonical way. Here is how to do it.
+
+We start with formalizing the concept of an infinitesimal transformation. This is done by using the exponential map to induce a representation of the Lie algebra elements of the Group. A more in depth explanation is found [here](../Quantum_Fields/Conformal_Group.md#Infinitesimal-Transformations). In this section we will skip the details of the exponential map, and present the result with some useful properties.
+
+**<u>Definition:</u>** A given a Lie group representation $\rho:G\to \text{Diff}(M)$ a **fundamental vector field** $\tilde X \in \mathfrak X(M)$ on $M$ related to a Lie algebra element $X\in \mathfrak g$ is a vector, such that at any point $p\in M$
+$$
+\tilde X_p \coloneqq {\phi_p}_{\ast,e}(X),
+$$
+ where $\phi_p : G\to M$ is the orbit map of $p\in M$ under the action of $G$.  
+
+This means that for every Lie algebra element we can come up with a smooth vector field on $M$. It has interesting consequences. Perhaps the coolest of them is the following.
+
+**<u>Theorem:</u>** Given a Lie group action of $G$ on $M$, the map $\psi: \mathfrak g \to \mathfrak X(M)$ given by $X\mapsto -\tilde X$, is a Lie algebra homomorphism.
+
+This is great news because we can now lift the group action to an action on the tensor bundle.
+
+**<u>Theorem:</u>** Let $\rho : G\times M\to M$ be a Lie group action on a smooth manifold $M$. Then $\hat \rho : G\times T^\ast M\to T^\ast M$ given by
+$$
+(g,\alpha) \mapsto \hat \rho(g)(\alpha) = \phi_{g^{-1} \pi(a)}^\ast \alpha,
+$$
+where $\phi_{g^{-1}\pi(\alpha)}$ is the orbit map of $g^{-1}\pi(\alpha)$ and $\pi : T^\ast M \to M$ is the canonical projection map of the cotangent bundle, is a Lie group action on $T^\ast M$. We call $\hat \rho$ the **lift of** $\rho$.
+
+
+
+There are too many symbols on this theorem so here is a picture
+
+![induced-representation](_Momentum.assets/induced-representation.svg)
+
+What we are essentially doing is using the orbit to steal a one form form where we pick it up at $p = \pi(\alpha)$ to the new cotangent space $g\cdot \pi(\alpha)$. But since we need to use a pullback for a form, there is a nice map to choose which is the orbit that takes us from $g\cdot \pi(\alpha)$ to $\pi(\alpha)$. This map is $\phi_{g^{-1}\cdot \pi(\alpha)}$, hence the pullback. 
 
 
 
