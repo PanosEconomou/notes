@@ -474,7 +474,6 @@ We want to construct the phase space of this system. Phase space is to be interp
 Now let's try to structure this intuition in such a way that it generalizes.
 
 **<u>Definition:</u>**  Let $(M,g)$ be a Lorentzian manifold with a nonvanishing global timelike Killing vector field $X \in \mathfrak{X}(M)$ with trivialization $M \cong \mathbb R \times \Sigma$, where $\Sigma$ is a Riemannian submanifold. The **phase space of fields** that are sections of a fiber bundle $\pi: E\to M$ with fiber the manifold $N$ is the set
-
 $$
 \mathcal P (E,\Sigma) = \Gamma^\infty(\Sigma \times T^\ast N).
 $$

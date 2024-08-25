@@ -13,6 +13,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Functional Analysis](Analysis/Functional_Analysis.md)
     - [Variational Calculus](Analysis/Variational_Calculus.md)
 - [**Quanta**](Classical_Physics)
+    - [Momentum](Classical_Physics/Momentum.md)
     - [Quantum Mechanics](Classical_Physics/Start_Here.md)
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.
