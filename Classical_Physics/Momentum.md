@@ -352,9 +352,45 @@ The existence of such a momentum map is not guaranteed however. As a result we h
 
 
 
-## Examples
+## Lie Algebra Representation
 
-So what is momentum? So far all we can say is that momentum is a quantity associated with a Hamiltonian action on phase space. Let's do some examples. We will start with a general case that is very useful. The case where the configuration space is a Lie group.
+One of the most interesting results of this exploration is that we have come full circle. In particular, we are about to show that a Hamiltonian action of a Lie group preserves the structure of the Lie algebra in the momenta. As a result, all we really need to know to do Hamiltonian (and by extension quantum) mechanics is the structure of the underlying Lie algebra. This is an amazing result, so let's show it.
+
+**<u>Theorem:</u>** Given a Hamiltonian representation $\rho : G\to \text{Aut}(M,\omega)$ with momentum map $\mu$,  The map $\bar \mu: \mathfrak g \to C^\infty(M)$ defined by $X\mapsto \bar \mu(X) \coloneqq \mu_X$ is a Lie algebra representation.
+
+***Proof:*** We know already that $\mu$ is a linear map. The only thing we need to show is that it also preserves the structure of the Lie bracket. In other words
+$$
+\mu_{[X,Y]} = \{\mu_X,\mu_Y\}.
+$$
+To do so we will use the fact that $\rho$ is symplectic. Since it is symplectic the momentum map follows
+$$
+d\mu_X = \iota_{\tilde X} \omega \implies \tilde X = - X_{\mu_X}.
+$$
+Therefore we can now do
+$$
+\begin{align*}
+X_{\mu_{[X,Y]}} 
+&= -\tilde{[X,Y]}\\
+&= [\tilde X,\tilde Y]\\ 
+&= [X_{\mu_X},X_{\mu_Y}]\\
+&= X_{\{\mu_X,\mu_Y\}},
+\end{align*}
+$$
+which implies the claim.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+# Examples
+
+So what is momentum? So far all we can say is that momentum is a quantity associated with a Hamiltonian action on phase space. Let's do some examples. 
+
+
+
+## Lie Group as Configuration Space
+
+We will start with a general case that is very useful. The case where the configuration space is a Lie group.
 
 **<u>Example:</u>** *(Lie Group as a Configuration space)* Let $G$ be an $n$ dimensional Lie group. Therefore, there is a canonical action on itself by left multiplication. The action of $G$ is given by $\rho:G\to \text{Diff}(G)$ where $g\mapsto L_g$ where
 $$
@@ -413,12 +449,64 @@ This is awesome, because we can prove the following, really cool theorem
 $$
 \{\mu_X,\mu_Y\} = \mu_{[X,Y]}.
 $$
-***Proof:*** We have shown that $ X_{\{\mu_X,\mu_Y\}} = [X_{\mu_X},X_{\mu_Y}]$. However, we know that $[X_{\mu_X},X_{\mu_Y}] = [\tilde X ,\tilde Y] = \tilde{[X,Y]} = X_{\mu_{[X,Y]}}$ which proves the claim.
+***Proof:***  This is an application of the theorem we have proved previously. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 This result is fascinating. It says that the component functions of the symmetry group maintain their Lie algebra relations! So we only need to identify the symmetry group in order to do physics with them on a phase space. 
 
+
+
+An application of this is the following.
+
+**<u>Example:</u>** *(Momentum of Translation)* This is a direct application of what we did before where we can actually calculate the momentum map. Consider that our configuration space is the Lie group $\mathbb R^n$ with coordinates $(q^1,q^2,\cdots, q^n)$. Then we can actually calculate the momentum map of the self left action (i.e. translation).
+
+We pick as generators of the Lie algebra 
+$$
+V_i =\frac{\partial}{\partial q^i} \in \mathfrak X(\mathbb R^n).
+$$
+ Then we know that the symplectic potential is $\theta = p_i dq^i$, where $p_i(\alpha) = V_i(\alpha)$. Now can calculate the canonical momentum map like so.
+$$
+\begin{align*}
+\mu_{V_i} 
+&= \iota_{\tilde V_i} \theta\\
+&= p_j \iota_{V_i} dq^j\\
+&= p_j \delta_i^j\\
+&= p_i.
+\end{align*}
+$$
+Therefore the canonical momentum is $p_i$! And it has to follow the standard commutation relations which as a check we can do since we already know how to calculate them from the symplectic form.
+$$
+0 = \{p_i,p_j\} = \mu_{[V_i,V_j]} = \mu_0 = 0.
+$$
+
+
+**<u>Example:</u>** *(Angular Momentum)* Consider the configuration space to be $G=SO(3)$. This is the Lie group where each element is an orientation of an object in $\mathbb R^3$. Then we can proceed with calculating the momentum. 
+
+Let's use the standard coordinate chart $\psi:SO(3) \to \mathbb R^3$ for $SO(3)$ given by
+$$
+ p\mapsto (\theta^1,\theta^2,\theta^3)
+$$
+such that $\theta^i$ is the rotation around each axis. Then, we know that the Lie algebra elements corresponding to each rotation are the generators $J_i$ with the familiar commutation relations
+$$
+[J_i,J_j] = \epsilon_{ijk} J_k.
+$$
+In such a way that we can write every element of $SO(3)$ as
+$$
+p = e^{\theta^i J_i}.
+$$
+Now we are ready to calculate the momentum components in terms of the angles. Now we know that in the coordinates where $p_i(\alpha) = \frac{\partial}{\partial \theta^i} (\alpha)$ that we have seen before, the Liouville form is given by
+$$
+\omega = dp_i\wedge dq_i = d\theta = d(p_id\theta^i).
+$$
+ However, we can now write the vector fields $\frac{\partial}{\partial \theta^i}$ in terms of $\tilde J_i$. 
+
+By calculating the canonical momentum map in this setting we have:
+$$
+\begin{align*}
+\mu_{J_i} = \iota_{\tilde J_i} \theta.
+\end{align*}
+$$
 
 
 
