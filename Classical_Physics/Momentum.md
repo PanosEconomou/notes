@@ -178,8 +178,6 @@ $$
 $$
 
 
-
-
 ## Poisson Bracket
 
 With this insight we will introduce one of the most useful constructions of Hamiltonian mechanics. The Poisson bracket. 
@@ -273,7 +271,7 @@ This is the standard way we translate stuff. But what happens when the manifold 
 
 
 
-## Inducing Actions on Tensor Bundles
+## Inducing Actions on the Cotangent Bundle
 
 Ideally we would like to have a representation not only the configuration space, but also on the Phase space. This is something slightly harder to achieve. If the phase space is not canonical, then we have to figure it out by hand. However if we have an action on the configuration space and we want to lift it to an action on the phase space we absolutely can in a canonical way. Here is how to do it.
 
@@ -299,17 +297,110 @@ where $\phi_{g^{-1}\pi(\alpha)}$ is the orbit map of $g^{-1}\pi(\alpha)$ and $\p
 
 
 
-There are too many symbols on this theorem so here is a picture
+There are too many symbols on this theorem so here is a picture.
 
 ![induced-representation](_Momentum.assets/induced-representation.svg)
 
 What we are essentially doing is using the representation to steal a one form form where we pick it up at $p = \pi(\alpha)$ to the new cotangent space $g\cdot \pi(\alpha)$. But since we need to use a pullback for a form, there is a nice map to choose which is the one that takes us from $g\cdot \pi(\alpha)$ to $\pi(\alpha)$. This map is $\rho(g^{-1})$, hence the pullback. 
 
-As a result, we now have a way to induce an action on the phase space, directly from the group. 
+
+
+## Symplectic Lie Group Actions
+
+As a result, we now have a way to induce an action on the phase space, directly from the group. However, now that we are on phase space, we would like our action not to be anything! We would like to preserve the symplectic structure. Imagine doing a transformation in the base space that moves you to the left but for some reason switches your momentum to the right. This is not something physical so we need to be mindful of it. In other words we want our action to be symplectic.
+
+**<u>Definition:</u>** Let $M$ be a manifold and $\rho: G\to \text{Diff}(M)$ is a Lie group action. Then $\rho$ is **symplectic** iff $\rho(g)^\ast \omega = \omega$ for all $g \in G$.
+
+This has the following interesting consequences. 
+
+**<u>Corollary:</u>** $\rho(g)$ is a symplectomorphism for all $g \in G$. Therefore the phase space volume is conserved under the action of $G$.
+
+**<u>Lemma:</u>** The lifted group action to the tangent bundle together with the Liouville form is symplectic. 
+
+***Proof:*** We need to show that $\hat \rho(g)^\ast \omega = \omega$ for any $g\in G$. This is rather intricate but there is a nice proof [here](https://people.math.ethz.ch/~acannas/Papers/lsg.pdf)
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
 
 
+# The Momentum Map
+
+We are now ready to talk about momentum! The construction that generalizes the concept of momentum is called the *momentum map* and it is another sort-of-natural construction that we attach to the representation. 
+
+## Definition 
+
+Let's start with a small definition before we start writing examples and properties.
+
+**<u>Definition:</u>**  Given a symplectic Lie group action $\rho : G \to \text{Diff}(M)$ on a symplectic manifold $(M,\omega)$, a **momentum map** $\mu:M\to \mathfrak g^\ast$ for the action of $G$ on $M$ is a map such that for any $X\in \mathfrak g$ 
+$$
+d\mu_X=\iota_{\tilde X}\omega.
+$$
+Here $\mu_X : M \to \mathbb R$ is notation for the smooth function on $M$ given for all $p\in M$ by $\mu_X(p)=\mu(p)(X)$ where $\mu(p) \in \mathfrak g^\ast$.
+
+**<u>Lemma:</u>** *(Momentum map on Tangent Bundle)* Let $\hat\rho : G\to \text{Aut}(T^\ast M,\omega)$ be the lifted Lie group action on a smooth manifold $M$. Then there exists a unique (up to constant) momentum map for this action given by
+$$
+\mu_X = -\iota_{\tilde X}\theta,
+$$
+ where $\theta$ is the canonical symplectic potential.
+
+The existence of such a momentum map is not guaranteed however. As a result we have this definition.
+
+**<u>Definition:</u>** A symplectic Lie group action that admits a momentum map is called a **Hamiltonian action.**
+
+
+
+## Examples
+
+So what is momentum? So far all we can say is that momentum is a quantity associated with a Hamiltonian action on phase space. Let's do some examples. We will start with a general case that is very useful. The case where the configuration space is a Lie group.
+
+**<u>Example:</u>** *(Lie Group as a Configuration space)* Let $G$ be an $n$ dimensional Lie group. Therefore, there is a canonical action on itself by left multiplication. The action of $G$ is given by $\rho:G\to \text{Diff}(G)$ where $g\mapsto L_g$ where
+$$
+L_g(h) = gh \in G,
+$$
+is the left multiplication map on $G$ which is smooth by construction. Using the Lemma from the previous section we can construct a Hamiltonian action on $T^\ast G \cong G\times \mathfrak g$ as follows. For any $\alpha \in T^\ast G$ and $g\in G$ we have
+$$
+\hat \rho(g)(\alpha) = \rho(g^{-1})^\ast \alpha.
+$$
+Here is a really cool trick. We know that the fundamental vector fields of a basis of $\mathfrak g$, which in this case happen to be the left invariant ones, form a basis for each tangent space! Therefore we can write given a basis $\{X_i\}_{i=0}^n$ of the Lie algebra $\mathfrak g$
+$$
+\alpha = \alpha_i L_{\pi(\alpha)^{-1}}^\ast J^i,
+$$
+where $J^i \in \mathfrak g^\ast$ is such that $J^{i}(X_j) = \delta^i_j$.
+
+As a result, we can calculate the lifted action by
+$$
+\begin{align*}
+\hat \rho(g)(\alpha) 
+&= \rho(g^{-1})^\ast \alpha\\
+&= \alpha_i L_{g^{-1}}^\ast L_{\pi(\alpha)^{-1}}^\ast J^i\\
+&= \alpha_i L_{(g\pi(\alpha))^{-1}}^\ast J^i.
+\end{align*}
+$$
+This is pretty cool! We now have the action in terms of the generators! In fact we can now calculate the momentum map. Consider a specific element of the Lie algebra $X\in \mathfrak g$. Then from the previous lemma we know that for any point $\alpha \in T^\ast G$
+$$
+\begin{align*}
+\mu_X(\alpha) 
+&= (\iota_{\tilde X} \theta)(\alpha)\\
+&= \theta_\alpha(\tilde X)\\
+&= \alpha (\pi_\ast \tilde X)\\
+&= \alpha ({L_{\pi(\alpha)}}_\ast X)\\
+&= \alpha_i  L_{\pi(\alpha)^{-1}}^\ast J^i ({L_{\pi(\alpha)}}_\ast X)\\
+&= \alpha_i  J^i ({L_{\pi(\alpha)^{-1}}}_\ast {L_{\pi(\alpha)}}_\ast X)\\
+&= \alpha_i J^i(X)
+\end{align*}
+$$
+So really the momentum is the component of the $J^i$ we just described!! That's really cool! In other words, we can fully define the momentum map as
+$$
+\begin{align*}
+J : T^\ast G &\to \mathfrak g^\ast \\
+(\alpha=\alpha_i L_{\pi(\alpha)^{-1}}^\ast J^i) &\mapsto \mu(\alpha) = a_i J^i, 
+\end{align*}
+$$
+which implies that $\mu = L^\ast_{\pi(\cdot)}$. 
+
+While this is super cool, there is more coolness to be uncovered. 
 
 
 
