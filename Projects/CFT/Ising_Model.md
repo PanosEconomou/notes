@@ -157,17 +157,25 @@ $$
 $$
 \tilde \theta_{g,J} (X,L)=  J(X).
 $$
-And the pullback of the symplectic potential is given by
+With all of that we can use the formalism that is explicitly calculated [here](../../Classical_Physics/Momentum.md#Lie-Group-as-Configuration-Space) to obtain the following result.
+
+**<u>Theorem:</u>** The components of the generalized momentum are a Lie algebra representation of $\mathfrak{so}(3)$, following the commutation relations
 $$
-\tilde \omega_{g,J}((X,L),(Y,L')) = d\tilde \theta_{g,J} ((X,L),(Y,L')) = 
+\{\mu_i,\mu_j\} = \epsilon_{ij}^{\ \ \ \ k} \mu_k.
 $$
+This is the result we want to use when quantizing below. However we are not done yet. 
 
 
 
+## Forcing the Momentum to be Fixed
+
+The interesting aspect of this spinning object is that it can't spin with any momentum. In other words, the magnitude of the magnetic moment remains constant. This decreases our phase space.
+
+Before, our phase space was the cotangent bundle $T^\ast SO(3)$. Now we notice that the Left action (which lifts to a Hamiltonian action on the cotangent bundle) can be reduced. In particular her have shown [here](../../Classical_Physics/Momentum.md), that the magnetic moment is a representation of the Lie algebra $\mathfrak{so}(3)$ on the Lie algebra of functions over the cotangent bundle together with the Poisson bracket. This representation, however, is reducible. 
 
 ## Construction of Hilbert Space
 
-Consider the single spin case. In this case the phase space is $\mathbb Z_2$ so the set of wavefunctions over $\mathbb Z^2$ is $\mathbb C^{\mathbb Z_2} \cong \mathbb C^2 = \mathcal H_1$. This is what we will call the single particle Hilbert space
+
 
 **<u>Proposition:</u>** The single particle Hilbert space $\mathcal H_1$ is a quantum Hilbert space.
 
