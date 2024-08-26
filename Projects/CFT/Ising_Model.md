@@ -173,6 +173,24 @@ The interesting aspect of this spinning object is that it can't spin with any mo
 
 Before, our phase space was the cotangent bundle $T^\ast SO(3)$. Now we notice that the Left action (which lifts to a Hamiltonian action on the cotangent bundle) can be reduced. In particular her have shown [here](../../Classical_Physics/Momentum.md), that the magnetic moment is a representation of the Lie algebra $\mathfrak{so}(3)$ on the Lie algebra of functions over the cotangent bundle together with the Poisson bracket. This representation, however, is reducible. 
 
+Let's assume that the magnetic moment magnitude is fixed such that $\mu_i \mu^i = \mu^2 \in \mathbb R$. Then our momentum can only take values in the following subset of our Lie algebra
+$$
+\mathfrak m \coloneqq \{X\in \mathfrak g \mid \sum_i J_i(X) J_i(X) = \mu^2 \} \subset \mathfrak g.
+$$
+Notice that in the case $\mu>0$ this is not a Lie subalgebra. But that doesn't matter. We can now create our phase space as the following subset.
+$$
+\mathcal P \coloneqq \mu^{-1}(\mathfrak m^\ast),
+$$
+where $\mu:T^\ast SO(3) \to \mathfrak g^\ast$ is the momentum map. We have to show a couple of things.
+
+**<u>Proposition:</u>** The manifold $\mathcal P$ satisfies the following. 
+
+1. $\mathcal P$ is a symplectic submanifold of $T^\ast SO(3)$ with symplectic form the pullback by its inclusion map.
+2. The restriction of $\rho$ on $\mathcal P$ is a Hamiltonian Lie group action.
+3. $\mathcal P \cong SO(3)\times S^2$. 
+
+***Proof:*** We know that the differential of the $\mu$ is well defined and surjective at all points in $T^\ast SO(3)$. Therefore, the preimage of the submanifold $\mathfrak m^\ast \cong S^2$ is a submanifold by the regular value theorem. To show that it is symplectic, we need to show that the pullback of $\omega$ by the inclusion map is a valid symplectic form on $\mathcal P$. 
+
 ## Construction of Hilbert Space
 
 

@@ -184,7 +184,7 @@ With this insight we will introduce one of the most useful constructions of Hami
 
 **<u>Definition:</u>** Given two smooth functions $f,g \in C^\infty(P)$ on some phase space $(P,\omega)$ their **Poisson bracket** $\{\cdot,\cdot\} : C^\infty(P)\times C^\infty(P) \to C^\infty(P)$ is given by
 $$
-\{f,g\} \coloneqq \omega(X_f,X_g) = X_fg=-X_gf.
+\{f,g\} \coloneqq \omega(X_g,X_f) = X_fg=-X_gf.
 $$
 We can think of the Poisson bracket as a measure of how similar the vector fields are in some sense. For example, if the functions are the same, then by the antisymmetry of $\omega$, their Poisson bracket vanishes. But that is not the only case when they vanish. Let's examine some cases.
 
