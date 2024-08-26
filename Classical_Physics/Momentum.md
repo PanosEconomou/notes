@@ -341,7 +341,8 @@ Here $\mu_X : M \to \mathbb R$ is notation for the smooth function on $M$ given 
 
 **<u>Lemma:</u>** *(Momentum map on Tangent Bundle)* Let $\hat\rho : G\to \text{Aut}(T^\ast M,\omega)$ be the lifted Lie group action on a smooth manifold $M$. Then there exists a unique (up to constant) momentum map for this action given by
 $$
-\mu_X = -\iota_{\tilde X}\theta,
+\mu_X = 
+\iota_{\tilde X}\theta,
 $$
  where $\theta$ is the canonical symplectic potential.
 
@@ -400,7 +401,29 @@ J : T^\ast G &\to \mathfrak g^\ast \\
 $$
 which implies that $\mu = L^\ast_{\pi(\cdot)}$. 
 
-While this is super cool, there is more coolness to be uncovered. 
+While this is super cool, there is more coolness to be uncovered. In particular, each $\mu_X \in C^\infty(T^\ast G)$ is the component function of the momentum by moving in the $X \in \mathfrak g$ direction. It would be nice to calculate Poisson brackets.
+
+We know from the theorem in [this section](#Inducing-Actions-on-the-Cotangent-Bundle) that the fundamental vector fields are also Hamiltonian in this case. Therefore we can find which is the corresponding function that generates them. 
+
+**<u>Proposition:</u>** For any $Y \in \mathfrak g$ we have that $\tilde Y = X_{\mu_Y}$.
+
+This is awesome, because we can prove the following, really cool theorem
+
+**<u>Theorem:</u>** For any $X,Y \in \mathfrak {g}$ the following identity holds
+$$
+\{\mu_X,\mu_Y\} = \mu_{[X,Y]}.
+$$
+***Proof:*** We have shown that $ X_{\{\mu_X,\mu_Y\}} = [X_{\mu_X},X_{\mu_Y}]$. However, we know that $[X_{\mu_X},X_{\mu_Y}] = [\tilde X ,\tilde Y] = \tilde{[X,Y]} = X_{\mu_{[X,Y]}}$ which proves the claim.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+This result is fascinating. It says that the component functions of the symmetry group maintain their Lie algebra relations! So we only need to identify the symmetry group in order to do physics with them on a phase space. 
+
+
+
+
+
+
 
 
 
