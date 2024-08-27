@@ -98,7 +98,50 @@ Let's first consider the single spin case in 3D. We have a magnetic moment $\mu$
 
 ![Spin Sphere](_Ising_Model.assets/spin-sphere.svg)
 
-The only quantity of interest is this angular momentum vector $\mu$, which transforms under a representation of $SO(3)$. In practice, in our physics we don't care about anything other than the orientation of this magnetic moment. Therefore, we can safely say that the *configuration space* is just a sphere! We could show this nicely by performing a symplectic redu
+The only quantity of interest is this angular momentum vector $\mu$, which transforms under a representation of $SO(3)$. In practice, in our physics we don't care about anything other than the orientation of this magnetic moment. Therefore, we can safely say that the *configuration space* is just a sphere! We could show this nicely by performing a symplectic reduction of $T^\ast \mathbb R^3$.
+
+For the purposes of this construction we will consider the spin as a point in $S^2$, with the symplectic form $\omega$ given by its embedding in $i:S^2\to \mathbb R^3$ like so 
+$$
+\omega = i^\ast \iota_{n}d\text{vol},
+$$
+where $d\text{vol}$ is the standard volume form of $\mathbb R^3$ and $n \in \mathfrak X(\mathbb R^3)$ is any vector field that is perpendicular to the surface of the sphere. This induces a nondegenerate symplectic form that is the volume form on the sphere given by
+$$
+\omega = \sin\theta d\theta\wedge d\phi,
+$$
+ where $\theta,\phi$ are the standard coordinates on the sphere. 
+
+The first thing that we want to show is to find the momentum map of the sphere.
+
+**<u>Proposition:</u>** The restriction on the sphere of the fundamental representation of $SO(3)$ on $\mathbb R^3$ is a Hamiltonian action on $S^2$ with momentum map the inclusion map $\iota:S^2\to \mathbb R^3 \cong \mathfrak {so}(3)$. 
+
+***Proof:*** We will show that $X_x,X_y,X_z$ follow the standard commutation relations of the generators of $SO(3)$. 
+
+In particular we want to show that
+$$
+\begin{align*}
+\{q^i,q^j\} = \epsilon^{ij}_{\ \ \ k}q^k.
+\end{align*}
+$$
+We can now calculate that
+$$
+\begin{align*}
+\{q^i,q^j\}
+&= \iota_{X_{q^j}}\iota_{X_{q^i}}\omega\\
+&= \iota_{X_{q^j}}\iota_{X_{q^i}} i^\ast \iota_n d\text{vol}
+\end{align*}
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+
+
+
+
+
+
 
 ## Construction of Hilbert Space
 
