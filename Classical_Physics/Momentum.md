@@ -184,11 +184,11 @@ With this insight we will introduce one of the most useful constructions of Hami
 
 **<u>Definition:</u>** Given two smooth functions $f,g \in C^\infty(P)$ on some phase space $(P,\omega)$ their **Poisson bracket** $\{\cdot,\cdot\} : C^\infty(P)\times C^\infty(P) \to C^\infty(P)$ is given by
 $$
-\{f,g\} \coloneqq \omega(X_g,X_f) = X_fg=-X_gf.
+\{f,g\} \coloneqq \omega(X_g,X_f) = X_gf=-X_fg.
 $$
 We can think of the Poisson bracket as a measure of how similar the vector fields are in some sense. For example, if the functions are the same, then by the antisymmetry of $\omega$, their Poisson bracket vanishes. But that is not the only case when they vanish. Let's examine some cases.
 
-Since $\{f,g\} = X_fg$, the poisson measures the change of $g$ along the Hamiltonian vector field of $f$. This is naturally the opposite change of $f$ along the Hamiltonian vector field of $g$ which is verified by t the antisymmetry of the symplectic form. As a result we obtain the following familiar theorem.
+Since $\{f,g\} = X_fg$, the Poisson measures the change of $g$ along the Hamiltonian vector field of $f$. This is naturally the opposite change of $f$ along the Hamiltonian vector field of $g$ which is verified by t the antisymmetry of the symplectic form. As a result we obtain the following familiar theorem.
 
 **<u>Theorem:</u>** *(Hamiltonian Conservation Laws)* Given $f,g \in C^\infty(P)$ on some phase space $(P,\omega)$ iff
 $$
@@ -346,9 +346,41 @@ $$
 $$
  where $\theta$ is the canonical symplectic potential.
 
+**<u>Lemma:</u>** If a momentum map exists, then there also exists a momentum map that is $G$-equivariant, where $G$ acts with the coajoint action (the dual of the adjoint action) on the Lie algebra. 
+
 The existence of such a momentum map is not guaranteed however. As a result we have this definition.
 
-**<u>Definition:</u>** A symplectic Lie group action that admits a momentum map is called a **Hamiltonian action.**
+**<u>Definition:</u>** A symplectic Lie group action that admits an equivariant momentum map is called a **Hamiltonian action.**
+
+
+
+## Marsden–Weinstein Quotient
+
+This is hard to visualize but it is an amazing tool to be able to play with. The momentum map attaches a momentum related to a Hamiltonian action on each point of the symplectic manifold. If the momentum is zero at that point, that means that this point is invariant under that action. Therefore, we can take an interesting quotient by removing the parts of the space that are not useful. This was done in [1974 by Marsden and Weinstein](https://www.sciencedirect.com/science/article/pii/0034487774900214?via%3Dihub). 
+
+Before we write the theorem we need some extra properties.
+
+**<u>Definition:</u>** A group action $\rho : G\to \text{Aut}(X)$ on some set $X$ is called **free** if for some $x\in X$ 
+$$
+g\cdot x = x \implies g = e.
+$$
+Furthermore, a Lie group action is **proper** if the map $G\times X \to X\times X$ such that $(g,x) \mapsto (x,g\cdot x)$ is proper (i.e. the preimage of compact sets is compact).
+
+These are niceness properties for some group actions. The first one says that the only element that fixes any point in the target space is the identity. This includes things like rotations and such. The second one says that essentially, no point from infinity is mapped nearby. Most interesting actions in physics are free and proper. The reason for introducing this is because these are properties necessary for taking the nice quotient I mentioned. 
+
+**<u>Proposition:</u>** Let $(M,\omega)$ be a symplectic manifold with a Hamiltonian Lie group action $\rho:G\to \text{Diff}(M)$ with momentum map $\mu: M\to \mathfrak g^\ast$, then $\mu^{-1}(0)$ is invariant under $G$.
+
+***Proof:*** Since the momentum map is $G$-equivariant, then $\mu(g\cdot p) = g\cdot \mu(p) = 0$. Therefore $G\cdot \mu^{-1}(0) = \mu^{-1}(0)$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Now we are ready to write the theorem.
+
+**<u>Theorem:</u>** *(Symplectic Quotient Theorem)* Let $(M,\omega)$ be a symplectic manifold with a Hamiltonian Lie group action $\rho:G\to \text{Diff}(M)$ with momentum map $\mu: M\to \mathfrak g^\ast$, then if $\left.\rho\right|_{\mu^{-1}(0)} : G\to \text{Diff}(\mu^{-1}(0))$ is free and proper, the quotient $\mu^{-1}(0)/G$ by the orbits of $G$ is a symplectic manifold with symplectic form $\bar \omega = \left.\omega\right|_{\mu^{-1}(0)}$ such that $q^\ast \bar \omega = \omega$. This quotient is known as the **symplectic quotient** of $M$ by $G$ and it is denoted by $M/\!\!/ G$. 
+
+**<u>Corollary:</u>** $\dim{M/\!\!/ G} = \dim M - 2\dim G$. 
+
+So far this might not look like much, but physically this theorem allows us to isolate mechanical systems from one to the other. For example we can isolate the angular momentum from the position dependence to create a classical spin system, or we can isolate a system orbiting around a point and itself into two systems with their respective motions. Some cool examples are shown [below](#examples).
 
 
 
@@ -509,7 +541,53 @@ $$
 $$
 
 
+**<u>Example:</u>** *(Classical Phase Space of a Spin)* We want to create a Hamiltonian system that quantizes to a single spin system. The way we will do this is using the Symplectic quotient by the action of $SO(3)$. 
 
+Consider the action $SO(3) \to \mathbb R^3$ given by its fundamental representation. If we consider the phase space $T^\ast SO(3)$ the fundamental representation canonically lifts to a Hamiltonian action in $T^\ast\mathbb R^3$ as we have seen previously. Let's call the momentum map $\mu : T^\ast \mathbb R^3 \to \mathfrak{so}(3)^\ast$ and find its kernel.
+
+We know that
+$$
+\begin{align*}
+\mu_X 
+&= \iota_{\tilde X} \theta\\
+&= \iota_{\tilde X} p_idq^i\\
+&= p_i\tilde X^i\\
+&= p_i {\phi_{\cdot}}_{\ast,e}(X)^i.
+\end{align*}
+$$
+ Now lets see what points are in its kernel. Consider the point $x=(q^i,p_i) \in T^\ast \mathbb R^3$, and the generator $J_i \in \mathfrak g$ then we have:
+$$
+\begin{align*}
+\mu_{J_j}(x) 
+&= p_i\tilde{J_j}_x^i\\
+&= p^T \tilde{J_i} q,
+\end{align*}
+$$
+where $\tilde J_i = \rho_\ast(J_i)$ is the well known representation of the generators of the Lie algebra. They are listed here
+$$
+\begin{align*}
+J_1 = \begin{pmatrix}0 & 0 & 0\\0 & 0 & -1\\ 0 & 1 & 0\end{pmatrix} &&
+J_2 = \begin{pmatrix}0 & 0 & 1\\0 & 0 & 0\\ -1 & 0 & 0\end{pmatrix} &&
+J_3 = \begin{pmatrix}0 & -1 & 0\\1 & 0 & 0\\ 0 & 0 & 0\end{pmatrix}.
+\end{align*}
+$$
+ As a result, we see that the full momentum map has three components given by
+$$
+(\mu_{J_1},\mu_{J_2},\mu_{J_3}) = q\times p,
+$$
+where $q\times p$ is the canonical cross product between $q,p\in \mathbb R^3$. Now all we need to do is to find the kernel of the cross product between position and momentum. This is all the points where $q=\lambda p$ for any $\lambda \in \mathbb R$ are parallel. To be more precice
+$$
+\mu^{-1}(0) = \{(q,\lambda q) \in T^\ast \mathbb R^3 \mid \lambda \in \mathbb R, q\in \mathbb R^3\}.
+$$
+This looks suspiciously like the diagonal of $T^\ast \mathbb R^3$, but it is not, in fact we can see it with the following proposition.
+
+**<u>Proposition:</u>** $\mu^{-1}(0) \cong \mathbb R^3 \times \mathbb R$.
+
+***Proof:*** Consider the linear map $(q,\lambda) \mapsto (q,\lambda q)$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Now all we need to do is to see whether the restricted action of $SO(3)$ on $\mu^{-1}(0)$ is free and transitive. 
 
 
 
