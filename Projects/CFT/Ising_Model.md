@@ -139,9 +139,21 @@ In fact here is a picture of their Hamiltonian vector fields for $x,y,$ and $z$ 
 
 ![Hamiltonian Vector Fields](_Ising_Model.assets/hamiltonian-vector-fields.svg)
 
-Now we can move on through geometric quantization to produce 
+Now we can move on through geometric quantization to produce the Hilbert space associated to this thing. 
 
 
+
+## Hamiltonian
+
+Now consider the Hamiltonian of that spin system. If the point on the sphere is an angular momentum, then on an external magnetic field $H \in \mathbb R^3$ the Hamiltonian is given by $H:S^2\to \mathbb R$
+$$
+H(p) = q^i(p) H_i.
+$$
+We can actually plot this Hamiltonian right here, 
+
+![Hamiltonian Sphere](_Ising_Model.assets/hamiltonian-sphere.svg)
+
+Where the phase space is shown in translucent gray and the Hamiltonian ($r=H(\phi,\theta)$) is shown as the blue sphere. Notice that in this depiction the magnetic field is pointing towards the top. Therefore we can see two unstable extrema parallel to $H$ and two stable ones perpendicular to it.
 
 ## Construction of Hilbert Space
 
