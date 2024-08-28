@@ -135,11 +135,11 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
+In fact here is a picture of their Hamiltonian vector fields for $x,y,$ and $z$ respectively.
 
+![Hamiltonian Vector Fields](_Ising_Model.assets/hamiltonian-vector-fields.svg)
 
-
-
-
+Now we can move on through geometric quantization to produce 
 
 
 
