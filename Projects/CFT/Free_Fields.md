@@ -277,13 +277,37 @@ $$
 \nabla e_i = 0.
 $$
 
-If we further add the Eucledian bundle metric on $E$ we have that the stress tensor of a field $\phi \in \Gamma^\infty(E)$ given by $\phi = \phi^i \otimes e_i$ for $k$ smooth functions $\phi^i \in C^\infty(M)$ is given by
+If we further add the Euclidean bundle metric on $E$ we have that the stress tensor of a field $\phi \in \Gamma^\infty(E)$ given by $\phi = \phi^i \otimes e_i$ for $k$ smooth functions $\phi^i \in C^\infty(M)$ is given by
 
 $$
 T(\phi) = \sum_{i= 1}^k d\phi_i \otimes d\phi_i
 $$
 
 which is what we physically expect to happen. The other interesting thing is that the Lagrangian is the sum of Lagrangians of free fields. 
+
+## Tracelessness Sidenote
+
+Often in CFT we require the stress tensor to be traceless. Here is what we mean.
+
+**<u>Definition:</u>** Let $A :V\to V^\ast$ be an endomorphism of some inner product vector space $V$. Its trace is a Linear operator such that
+$$
+\Tr(A) = \langle e^\mu,T(e_\mu)\rangle,
+$$
+for some basis $e_\mu$ of $V$ and its canonical dual basis $e^\mu(e_\nu)=\delta^\mu_\nu$ and where $\langle\cdot,\cdot\rangle:V^\ast\times V^\ast\to\mathbb R$ is some nondegenrate bilinear form on $V^\ast$.
+
+**<u>Proposition:</u>** Let $A=X\otimes Y$ where $X,Y\in V^\ast$. Then 
+$$
+\Tr(A)=\langle X,Y\rangle.
+$$
+**<u>Corollary:</u>** The trace of the metric is the dimension of the space. i.e. $\Tr g=\dim V^\ast$.
+
+Using these we can see that we can find a traceless energy momentum tensor like so
+$$
+T'=T-\frac{g\ \Tr T}{\dim M}.
+$$
+
+
+
 
 
 
@@ -595,6 +619,12 @@ and we can see that $\{a_n,a_m\} = i n \delta_{n+m}$. However, $H_n$ is the Hami
 
 
 
+## Extracting the Quantum Fields
+
+Using this prescription we can define field operators that behave nicely. 
+
+
+
 # Free (Majorana) Fermion
 
 Another example that is worth going in detail in a way that is more similar to how we would work on it using modern methods is the free Fermion in 2D. We start by identifying all the spin structures on flat 2D space and eventually build up to a conformal field theory in the conformal sphere.
@@ -708,7 +738,7 @@ $$
 
 for some $m \geq 0$.
 
-We know from studying [spinors](../../Quantum_Fields/Spinors.md) that for any Majorana form we have a Dirac conjugate spinor that is defined for any $\psi \in \Gamma^\infty(S)$ as $\bar \psi \coloneqq \langle \psi, \cdot \rangle$. There aren't infinite Dirac forms we can place here, so lets see what's going on. The Dirac form must have the property that
+We know from studying [spinors](../../Quantum_Fields/Spinors.md) that for any Dirac form we have a Dirac conjugate spinor that is defined for any $\psi \in \Gamma^\infty(S)$ as $\bar \psi \coloneqq \langle \psi, \cdot \rangle$. There aren't infinite Dirac forms we can place here, so lets see what's going on. The Dirac form must have the property that
 
 $$
 \langle X\cdot \psi,\phi\rangle = \langle \psi,X\cdot \phi\rangle.
