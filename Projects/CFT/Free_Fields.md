@@ -313,7 +313,7 @@ $$
 
 ## Free Tensor Fields
 
-The above notation is a bit cumbersome. It gets super complicated super fast and for most things in physics it suffices to look at tensor fields instead. These are sections of tensor bundles, in other words bundles of the form $TM^{\otimes k}  \otimes T^\ast M^{\otimes l}$ for some $k,l \in \mathbb N$. Given a Riemannian manfiold, they have a canonical connection and bundle metric that allows us to simplify the notation a bit by identifying twisted forms with sections of tensor bundles with higher order.
+The above notation is a bit cumbersome. It gets super complicated super fast and for most things in physics it suffices to look at tensor fields instead. These are sections of tensor bundles, in other words bundles of the form $TM^{\otimes k}  \otimes T^\ast M^{\otimes l}$ for some $k,l \in \mathbb N$. Given a Riemannian manfold, they have a canonical connection and bundle metric that allows us to simplify the notation a bit by identifying twisted forms with sections of tensor bundles with higher order.
 
   
 
@@ -548,7 +548,7 @@ We now have a phase space description for our stuff.
 
 ## Quantizing the Harmonic Oscillators
 
-With the Hamiltonian for each mode given by $H_n$ we immediately realize that it looks so tantalizingly close to a harmonic oscillator. But then we also immidiately realize that $\mathbb C \setminus \{0\}$ is diffeomorphic to a cylinder via the diffeomorphism
+With the Hamiltonian for each mode given by $H_n$ we immediately realize that it looks so tantalizingly close to a harmonic oscillator. But then we also immediately realize that $\mathbb C \setminus \{0\}$ is diffeomorphic to a cylinder via the diffeomorphism
 
 $$
 \begin{align}
@@ -560,7 +560,6 @@ $$
 We don't care that this isn't an isometry, because we can use it to push the Lagrangian forward the following way.
 
 **<u>Definition:</u>** Given a Lagrangian $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ and a diffeomorphism $f : N\to M$ of $n$ dimensional manifolds $N,M$, then the **pullback of the Lagrangian under** $f$ is the map $f^\ast \mathcal L : \Gamma^\infty(f^\ast E) \to \Omega^n(N)$ such that for any $\phi \in \Gamma^\infty(f^\ast E)$ 
-
 $$
 (f^\ast \mathcal L)(\phi) = f^\ast[\mathcal L(f_\ast \phi)].
 $$
@@ -570,7 +569,6 @@ The definition of what the pushforward of sections of the Pullback bundle means 
 Now we can see that the Fourier modes of the fields are so much better defined in this case. In particular the following proposition is true. 
 
 **<u>Proposition:</u>** For any $\phi \in C^\infty(\mathbb R\times S^1)$ there exists a unique $\{\phi_n\}_{n\in \mathbb Z} \subset C^\infty(\mathbb R,\mathbb C)$ such that for any $(r,\theta) \in \mathbb R \times S^1$ 
-
 $$
 \phi(r,\theta) = \sum_{n=-\infty}^\infty \phi_n(r)e^{in\theta}.
 $$
@@ -586,10 +584,10 @@ $$
   Yet, the more interesting aspect of this is that the action can be integrated on the angle variable to obtain
 
 $$
-S'(\phi) = \int_{\mathbb R \times S^1} \mathcal L'(\phi) = \frac{\pi}{2} \int_{\mathbb R} \sum_{n=-\infty}^\infty \left[ \frac{\partial \phi_n}{\partial r} \frac{\partial \bar \phi_n}{\partial r} - n^2 \phi_n \bar \phi_n\right] dr,
+S'(\phi) = \int_{\mathbb R \times S^1} \mathcal L'(\phi) = \frac{\pi}{2} \int_{\mathbb R} \sum_{n=-\infty}^\infty \left[ \frac{\partial \phi_n}{\partial r} \frac{\partial \phi_{-n}}{\partial r} - n^2 \phi_n \phi_{-n}\right] dr,
 $$
 
-where we have used the property that $\Im\,\phi(r,\theta) = 0 \ \forall (r,\theta) \in \mathbb R\times S^1 \implies \phi_n = -\bar \phi_{-n} $. This now looks like a bunch of complex harmonic oscillators (the careful transformation we took, got rid of the pesky radius). So we have created an equivalence between the theory of a free scalar field in $\mathbb R^{1,1}$ with the field theory of $\mathbb Z$ harmonic oscillators on $\mathbb R$. 
+where we have used the property that $\Im\,\phi(r,\theta) = 0 \ \forall (r,\theta) \in \mathbb R\times S^1 \implies \phi_n = \bar \phi_{-n} $. This now looks like a bunch of complex harmonic oscillators (the careful transformation we took, got rid of the pesky radius). So we have created an equivalence between the theory of a free scalar field in $\mathbb R^{1,1}$ with the field theory of $\mathbb Z$ harmonic oscillators on $\mathbb R$. 
 
 For this theory we have that our fields are on a vector bundle over $\mathbb R$, where the fiber is $\mathbb R^\mathbb N $, which is the topological vector space of sequences on $\mathbb R$. Let's call this bundle $E$. Now we can finally talk about the phase space, which in this case is isomorphic to $\mathcal P \coloneqq \Gamma^\infty(\{0\}\times T^\ast \mathbb R^{\mathbb N}) \cong  T^\ast \mathbb R^{\mathbb N} \cong (\mathbb R^2)^{\mathbb N}$. By performing the Legendre transform we can write our Hamiltonian $H : \mathcal P \to \mathbb R$ as
 
@@ -606,22 +604,55 @@ $$
 Which leads to the quantization condition $[\phi_n,\pi_m] = i\delta_{nm}$. Let's introduce the functions $a_n : \mathcal P \to \mathbb C$, given by
 
 $$
-a_n = \frac{1}{\sqrt{2}} \left[\pi_n + i n \phi_{-n}\right].
+a_n = \frac{1}{\sqrt{-2}} 
+\begin{cases}
+n\phi_n -i\pi_{-n} & n>0\\
+-n\phi_n + i\pi_{-n} & n < 0
+\end{cases},
 $$
 
-Then we can see that the Hamiltonian can be written as
-
+as well as the functions $\bar a_n :\mathcal P \to \mathbb C$ given by
 $$
-H = \sum_{n=0}^\infty H_n, \ \ H_n \coloneqq a_na_{-n}.
+\bar a_n = \frac{1}{\sqrt{-2}} 
+\begin{cases}
+n\phi_{-n} -i\pi_n & n>0\\
+-n\phi_{-n} + i\pi_n & n < 0
+\end{cases}.
+$$
+By doing some manual labor we can show that
+$$
+\begin{align*}
+\{a_n,a_m\} = \{\bar a_n,\bar a_m\} = -in\delta_{n+m} && \{a_n,\bar a_m\} = 0.
+\end{align*}
+$$
+Then we can further see that the Hamiltonian can be written as
+$$
+H = \frac{1}{2} \pi_0^2+ \sum_{n\neq0} a_na_{-n} + \bar a_n \bar a_{-n}.
 $$
 
-and we can see that $\{a_n,a_m\} = i n \delta_{n+m}$. However, $H_n$ is the Hamiltonian of a canonical harmonic oscillator. Say that the Quantum Hilbert space associated with that Hamiltonian is $\mathcal H_1$, then the total Hilbert space is $\mathcal H = \otimes_{\mathbb N} \mathcal H_1$.   
+Another notable property is that in our quantum theory
+$$
+[H,a_{-n}] = na_{-n}.
+$$
+In fact we see that the Hilbert space is that of two harmonic oscillators. So we can construct it and start to play on it!
 
 
 
 ## Extracting the Quantum Fields
 
-Using this prescription we can define field operators that behave nicely. 
+Using this prescription we can extract the field operators. In particular we know that for any time the value of the field in this decomposition is given by
+$$
+\phi(x,t) = \phi_0 + \pi_0t + i\sum_{n\neq0} \frac{1}{n}\left[a_ne^{in(x-t)} - \bar a_ne^{in(x+t)}\right].
+$$
+ Using the map $f^{-1}:\mathbb R\times S^1\to \mathbb C$ back to the plane, we can extract the value of the field at any $(z,\bar z)$. In particular, we have:
+$$
+\phi(z,\bar z) = \phi_0 -i\pi_0\log(z\bar z) + i\sum_{n\neq0} \frac{1}{n}\left[a_nz^{-n} - \bar a_n\bar z^{-n}\right].
+$$
+This is really cool! Because we can now play the CFT game! Let's consider the stress energy tensor
+
+
+
+
 
 
 
@@ -663,8 +694,7 @@ We have chosen carefully the basis for the representation such that the Dirac op
 
 The 2-dimensional spinor representation is particularly nice. To see how let's first recall a couple of cool theorems.
 
-**<u>Proposition:</u>** Given the representation of the clifford algebra defined by the gamma matrices above, we have that the weyl eigenspaces are given by
-
+**<u>Proposition:</u>** Given the representation of the Clifford algebra defined by the gamma matrices above, we have that the weyl eigenspaces are given by
 $$
 \Delta^{\pm} \coloneqq \{x \in \mathbb C^2 \mid -i\gamma^0\gamma^1 x = \pm i x\} \cong \mathbb C.
 $$
@@ -697,7 +727,6 @@ $$
 Using this we can see something really cool!
 
 **<u>Proposition:</u>** The map $\sigma: \mathbb C^2 \to \mathbb C^2$ given by 
-
 $$
 \psi \in \mathbb C^2 \mapsto \sigma(\psi) = \gamma^0\psi^\ast
 $$
@@ -728,7 +757,6 @@ Therefore, we see that $\mathbb C^2 \cong \Delta^\sigma \oplus i\Delta^\sigma$, 
 Now we can play with calculating some correlation functions.
 
 **<u>Definition:</u>** Given a spinor bundle $S$ over $\mathbb R^{2}$ with a Dirac form $\langle \cdot,\cdot \rangle$ the free Lagrangian is given by
-
 $$
 \begin{align*}
 \mathcal L_F : \Gamma^\infty(S) &\to \Omega^2(\mathbb R^{2})\\
