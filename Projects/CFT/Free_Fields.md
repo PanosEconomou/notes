@@ -90,8 +90,7 @@ In the notes linked above all the formal definitions of these objects are outlin
 
 Words aside here is how a connection helps us calculate the infinitesimal transformations of a field!
 
-**<u>Proposition:</u>** Let $\phi \in \Gamma^\infty(E)$ be a section of a vector bundle $\pi : E\to M$ over some smooth manifold $M$ with connection $\nabla : \Gamma^\infty(E) \times \mathfrak X(M) \to \Gamma^\infty(E)$. Let $X \in \mathfrak X(M)$ be a nonvanishing vector field. Then the transformed version of the $\phi$ under the flow of $\epsilon X$ for some $\epsilon > 0$ is given by
-
+**<u>Proposition:</u>** Let $\phi \in \Gamma^\infty(E)$ be a section of a vector bundle $\pi : E\to M$ over some smooth manifold $M$ with connection $\nabla : \Gamma^\infty(E) \times \mathfrak X(M) \to \Gamma^\infty(E)$. Let $X \in \mathfrak X(M)$ be a non-vanishing vector field. Then the transformed version of the $\phi$ under the flow of $\epsilon X$ for some $\epsilon > 0$ is given by
 $$
 \tilde \phi_\epsilon = \phi + \epsilon \nabla_X \phi + \mathcal O(\epsilon^2)
 $$
@@ -141,7 +140,6 @@ $$
 $$
 
 ***Proof:*** To show this construction we calculate conserved currents. In particular consider a lie algebra element of the isometry group lie algebra $X \in \mathfrak i(M)$, and a field $\phi \in C^\infty(M)$. Then we can see that any such element, though the exponential map has an induced map like so
-
 $$
 \phi \mapsto (e^X) ^\ast \phi,
 $$
@@ -235,7 +233,6 @@ $$
 We are now ready to calculate a stress tensor.
 
 **<u>Theorem:</u>** A stress energy tensor for the free field Lagrangian is given by the linear map
-
 $$
 \phi \in \Gamma^\infty(E) \mapsto \langle\nabla\phi \otimes \nabla\phi\rangle_E \in \Gamma^\infty(TM\otimes TM).
 $$
@@ -244,7 +241,7 @@ $$
 
 $$
 \begin{align}
-0 &=\lim_{\epsilon\to 0} \frac{1}{\epsilon} \left[\mathcal L (\phi + \nabla_{\tilde X} \phi) - \mathcal L(\phi)\right]\\
+0 &=\lim_{\epsilon\to 0} \frac{1}{\epsilon} \left[\mathcal L (\phi + \epsilon\nabla_{\tilde X} \phi) - \mathcal L(\phi)\right]\\
 &= 2 \nabla \phi \wedge_E \ast \nabla \nabla_{\tilde X}\phi\\
 &= \langle \nabla_{\tilde X}\phi \otimes d_\nabla \ast d_\nabla \phi \rangle_E + \langle d_\nabla \ast (\nabla_{\tilde X}\phi \otimes  \nabla \phi)\rangle_E.
 \end{align}
@@ -829,7 +826,7 @@ $$
 \partial_{\bar z} \frac{1}{z-w} = \delta(z-w).
 $$
 
-***Proof:*** Since $F$ is compactly supported, we can use Stoke’s theorem to write
+***Proof:*** Since $F$ is compactly supported, we can use Stokes' theorem to write
 $$
 \frac{\partial F_w}{\partial \bar z}(f) = \int_{U} \frac{\partial }{\partial \bar z} \frac{f(z,\bar z)}{z-w} dzd\bar z = \int_{\partial U} \frac{f(z,\bar z)}{z-w} dz
 $$
@@ -917,7 +914,31 @@ $$
 
 ## Stress Energy Tensor
 
-We can now do a small diversion into finding the stress energy tensor of this fermionic theory. 
+We can now do a small diversion into finding the stress energy tensor of this fermionic theory. Classically speaking we can extract it using the variation principle. In particular we have.
+$$
+S(\psi) = \int_{\mathbb C} \ast \langle \psi,\centernot\partial \psi\rangle \implies \frac{d S(\psi+\epsilon \eta)}{d\epsilon} = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \eta\rangle + \ast \langle \eta,\centernot\partial\psi\rangle.
+$$
+Now we need to consider the case where $\eta$ is the variation of $\psi$ under the local action of the isomorphism group. In this case this is translations. This is particularly nice, because the related vector fields in this case are the same due to the vector space isomorphism of the Lie algebra with the Euclidean group. Therefore we have that
+$$
+(e^{\epsilon X})^\ast \psi = \psi + \epsilon \nabla_{\tilde X} \psi + \mathcal O(\epsilon^2).
+$$
+So we let $\eta = \nabla_{\tilde X}\psi + \mathcal O(\epsilon)$. As a result, we have that the variation is given by
+$$
+\delta S = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \nabla_{\tilde X} \psi\rangle + \ast \langle \nabla_{\tilde X} \psi,\centernot\partial\psi\rangle.
+$$
+The connection $\nabla : \mathfrak X(\mathbb C) \times \Gamma^\infty(\text{Spin}^+(\mathbb C)) \to \Gamma^\infty(\text{Spin}^+(\mathbb C))$ is given by the canonical spin connection. The derivation can be found [here](../../Quantum_Fields/Spinors.md#spin-connection), but the cool thing is that since the space has zero curvature, the spin connection one-form is zero! So we can calculate the derivatives like so:
+$$
+\nabla_X \psi = \nabla_{X} \psi^j e_j = (X \psi^j)e_j + \psi^j \nabla_Xe_j = (X\psi^j)e_j = \begin{pmatrix}X & 0 \\ 0 &X\end{pmatrix} \psi = X\cdot 1 \psi.
+$$
+Now using integration by parts we can write the action as
+$$
+\delta S = \int_{\mathbb C} \ast
+$$
+
+
+
+
+
 
 ## Operator Product Expansions of Fermions
 
