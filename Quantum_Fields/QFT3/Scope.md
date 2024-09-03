@@ -141,6 +141,61 @@ These are all lightcone coordinates. So as we can solve the potential is nonzero
 
 ## Quantizing Scwinger Model
 
+To quantize we will do the classic mode expansion like so
+$$
+A_\mu =  \int \frac{d^2p}{\sqrt{2\omega}} (a_a^\dagger \epsilon ^a_\mu e^{ipx}  + a_b\epsilon^\ast_\mu e^{-i\bar p \bar x}),
+$$
+and we will use the following clifford algebra representation
+$$
+\begin{align*}
+\gamma^0 = \begin{pmatrix}0 & -i \\ i & 0\end{pmatrix} && \gamma^1 = \begin{pmatrix}0 & i \\ i & 0\end{pmatrix}
+\end{align*}
+$$
+With the classic anticommutation relations of the clifford algebra and we will define teh chirality element as
+$$
+\gamma^5 = \gamma^0 \gamma^1 = \begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix},
+$$
+and work with the structures we already know. By splitting into chiralities, i.e. saying that
+$$
+\psi = \binom{\psi_+}{\psi_-}
+$$
+we can write coordinates
+$$
+\begin{align*}
+\partial_+ &=  \partial_0 - \partial_1\\
+\partial_- &= - \partial_0 - \partial_1.
+\end{align*}
+$$
+In these coordinates the field equations of the fermions are given by
+$$
+\begin{align*}
+\partial_- \psi_- = 0 && \partial_+ \psi_+ = 0.
+\end{align*}
+$$
+By the way this coordinate system is given by
+$$
+x_\pm  = \frac{x_0 \pm x^1}{\sqrt 2}.
+$$
+The projection operators of the spinors have names we can write them in fancy notation as
+$$
+P_\pm = \frac{1}{2} (1 \pm \gamma^5).
+$$
+So in other words we have
+$$
+\begin{align*}
+\gamma^5 \psi_+ = \psi_+ &&\gamma^5 \psi_- = -\psi_-.
+\end{align*}
+$$
+We can start writing the Feynman diagrams and calculate their solutions. In particular we want to calculate the polarization to 1 loop. The anomaly is precisely the fact that this integral is *finite*.
+
+In particular we can sum up all the diagrams, so what is the resummed propagator? We will find that
+$$
+D_{\mu \nu }^{\text{Resum}} = \frac{\eta_{\mu\nu} - \frac{p_\mu p_\nu}{p^2}}{p^2 - \boxed{\frac{e^2}{\pi}} - i\varepsilon}
+$$
+WTF!? There is a mass? This is so cool! It seems that the photon is no longer gapless in 2D. To physically interpret this let’s think of a photon propagating in a plasma. So we can see the dispersion relation is
+$$
+\omega^2 = k^2 + \frac{\epsilon^2}{\pi}
+$$
 
 
 
