@@ -99,15 +99,15 @@ export default function NotebookPage({ }) {
     stickTo.current = null;
   }
 
-  const hideOnScroll = () => {
+  const defaultOnScroll = () => {
     stickTo.current = null;
-    setCursorVariant("hidden");
+    setCursorVariant("default");
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', hideOnScroll);
+    window.addEventListener('scroll', defaultOnScroll);
     return () => {
-      window.removeEventListener('scroll', hideOnScroll);
+      window.removeEventListener('scroll', defaultOnScroll);
     }
   }, [])
 
