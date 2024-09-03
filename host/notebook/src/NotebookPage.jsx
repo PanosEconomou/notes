@@ -54,7 +54,6 @@ export default function NotebookPage({ }) {
   const { scrollYProgress } = useScroll();
 
   const enterHighlight = () => {
-    if (scrolling.current) return;
     setCursorVariant("highlight");
   }
 
@@ -63,7 +62,6 @@ export default function NotebookPage({ }) {
   }
 
   const enterBar = () => {
-    if (scrolling.current) return;
     setCursorVariant("bar");
   }
 
