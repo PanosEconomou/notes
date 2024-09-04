@@ -932,7 +932,7 @@ $$
 $$
 Now using integration by parts we can write the action as
 $$
-\delta S = \int_{\mathbb C} \ast \langle \psi,\centernot \partial X\cdot 1\psi \rangle
+\delta S = \int_{\mathbb C} \ast
 $$
 
 
