@@ -194,7 +194,7 @@ D_{\mu \nu }^{\text{Resum}} = \frac{\eta_{\mu\nu} - \frac{p_\mu p_\nu}{p^2}}{p^2
 $$
 WTF!? There is a mass? This is so cool! It seems that the photon is no longer gapless in 2D. To physically interpret this let’s think of a photon propagating in a plasma. So we can see the dispersion relation is
 $$
-\omega^2 = k^2 + \frac{\epsilon^2}{\pi}
+\omega^2 = k^2 + \frac{\epsilon^2}{\pi}.
 $$
 
 
