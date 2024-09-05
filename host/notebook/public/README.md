@@ -12,6 +12,9 @@
         - [Distributions](NOTES/Analysis/Distributions.md)
         - [Functional Analysis](NOTES/Analysis/Functional_Analysis.md)
         - [Variational Calculus](NOTES/Analysis/Variational_Calculus.md)
+    - [**Quanta**](NOTES/Classical_Physics)
+        - [Momentum](NOTES/Classical_Physics/Momentum.md)
+        - [Quantum Mechanics](NOTES/Classical_Physics/Quantum_Entry.md)
     - [**Geometry**](NOTES/Geometry)  
         Key intuition or formal definitions of Differential Geometry Concepts because I forget.
         - [Fibre Bundles](NOTES/Geometry/Bundles.md)
@@ -31,8 +34,6 @@
             - [Dissipation Currents](NOTES/Projects/Dissipative_QFT/Dissipation_Currents.md)
         - [**Topological_Paths**](NOTES/Projects/Topological_Paths)
             - [Inducing Topology Using Maps](NOTES/Projects/Topological_Paths/Inducing_Topology.md)
-    - [**Quanta**](NOTES/Quanta)
-        - [Quantum Mechanics](NOTES/Quanta/Start_Here.md)
     - [**Quantum Fields**](NOTES/Quantum_Fields)  
         Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
         - [Axioms in 2D CFT](NOTES/Quantum_Fields/2D_CFT_Axioms.md)
@@ -41,5 +42,8 @@
         - [Path Integrals](NOTES/Quantum_Fields/Path_Integrals.md)
         - [Renormalization Group](NOTES/Quantum_Fields/Renormalization_Group.md)
         - [Spinors](NOTES/Quantum_Fields/Spinors.md)
+        - [Symmetry Braking](NOTES/Quantum_Fields/Symmetry_Breaking.md)
         - [Vertex Operator Algebras](NOTES/Quantum_Fields/Vertex_Operator_Algebras.md)
         - [Virasoro Algebra](NOTES/Quantum_Fields/Virasoro_Algebra.md)
+        - [**QFT3**](NOTES/Quantum_Fields/QFT3)
+            - [Perturbations on Background Classical Fields](NOTES/Quantum_Fields/QFT3/Scope.md)
