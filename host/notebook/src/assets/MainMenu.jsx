@@ -10,6 +10,16 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
         width: window.innerWidth,
         height: window.innerHeight,
     });
+
+    const container = useRef(null);
+
+    const handleWheel = (event) => {
+        event.preventDefault();
+        const scrollAmount = event.deltaY;
+
+        container.current.scrollLeft += scrollAmount;
+    }
+
     const mouse = {
         x: useRef(window.innerWidth / 2),
         y: useRef(window.innerHeight / 2),
@@ -30,10 +40,12 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         window.addEventListener('mousemove', handleMouseMove);
+        container.current.addEventListener('wheel', handleWheel);
 
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
+            container.current.removeEventListener('wheel', handleWheel);
         }
     }, [])
 
@@ -82,6 +94,7 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
 
     return (
         <motion.nav id="mainMenu"
+            ref={container}
             initial={false}
             animate={isOpen}
             onClick={() => {
