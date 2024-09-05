@@ -10,8 +10,12 @@ Quantum_Fields/_Spinors.assets/image-20240521181543760.png
 Quantum_Fields/_Spinors.assets/image-20240521181234978.png
 Quantum_Fields/_Spinors.assets/image-20240521214301081.png
 Quantum_Fields/Virasoro_Algebra.md
+Quantum_Fields/Symmetry_Breaking.md
 Quantum_Fields/Spinors.md
 Quantum_Fields/README.md
+Quantum_Fields/QFT3
+Quantum_Fields/QFT3/Scope.md
+Quantum_Fields/QFT3/README.md
 Quantum_Fields/Axiomatic_QFT.md
 Quantum_Fields/_Virasoro_Algebra.assets
 Quantum_Fields/_Virasoro_Algebra.assets/generators.png
@@ -49,6 +53,14 @@ Analysis/_Distributions.assets/killing-vector-field.svg
 Analysis/README.md
 Analysis/Functional_Analysis.md
 directory_listing.txt
+Classical_Physics
+Classical_Physics/Quantum_Entry.md
+Classical_Physics/Momentum.md
+Classical_Physics/README.md
+Classical_Physics/_Momentum.assets
+Classical_Physics/_Momentum.assets/pendulum-phase-space.svg
+Classical_Physics/_Momentum.assets/induced-representation.svg
+Classical_Physics/_Momentum.assets/hamiltonian-plot.svg
 Projects
 Projects/.DS_Store
 Projects/Dissipative_QFT
@@ -71,6 +83,9 @@ Projects/CFT/Ising_Model.md
 Projects/CFT/_Ising_Model.assets
 Projects/CFT/_Ising_Model.assets/image-20240420013237038.png
 Projects/CFT/_Ising_Model.assets/image-20240420011150567.png
+Projects/CFT/_Ising_Model.assets/hamiltonian-sphere.svg
+Projects/CFT/_Ising_Model.assets/hamiltonian-vector-fields.svg
+Projects/CFT/_Ising_Model.assets/.hamiltonian-sphere.svg.swp
 Projects/CFT/_Ising_Model.assets/spin-sphere.svg
 Projects/CFT/Free_Fields.md
 Projects/CFT/README.md
@@ -109,6 +124,3 @@ Geometry/_Geometry.assets/image-20230203143739383.png
 Geometry/_Geometry.assets/image-20230203152019011.png
 Geometry/_Geometry.assets/README.md
 Geometry/_Geometry.assets/image-20230203155713152.png
-Quanta
-Quanta/Start_Here.md
-Quanta/README.md

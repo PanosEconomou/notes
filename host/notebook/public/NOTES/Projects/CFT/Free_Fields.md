@@ -90,8 +90,7 @@ In the notes linked above all the formal definitions of these objects are outlin
 
 Words aside here is how a connection helps us calculate the infinitesimal transformations of a field!
 
-**<u>Proposition:</u>** Let $\phi \in \Gamma^\infty(E)$ be a section of a vector bundle $\pi : E\to M$ over some smooth manifold $M$ with connection $\nabla : \Gamma^\infty(E) \times \mathfrak X(M) \to \Gamma^\infty(E)$. Let $X \in \mathfrak X(M)$ be a nonvanishing vector field. Then the transformed version of the $\phi$ under the flow of $\epsilon X$ for some $\epsilon > 0$ is given by
-
+**<u>Proposition:</u>** Let $\phi \in \Gamma^\infty(E)$ be a section of a vector bundle $\pi : E\to M$ over some smooth manifold $M$ with connection $\nabla : \Gamma^\infty(E) \times \mathfrak X(M) \to \Gamma^\infty(E)$. Let $X \in \mathfrak X(M)$ be a non-vanishing vector field. Then the transformed version of the $\phi$ under the flow of $\epsilon X$ for some $\epsilon > 0$ is given by
 $$
 \tilde \phi_\epsilon = \phi + \epsilon \nabla_X \phi + \mathcal O(\epsilon^2)
 $$
@@ -141,7 +140,6 @@ $$
 $$
 
 ***Proof:*** To show this construction we calculate conserved currents. In particular consider a lie algebra element of the isometry group lie algebra $X \in \mathfrak i(M)$, and a field $\phi \in C^\infty(M)$. Then we can see that any such element, though the exponential map has an induced map like so
-
 $$
 \phi \mapsto (e^X) ^\ast \phi,
 $$
@@ -235,7 +233,6 @@ $$
 We are now ready to calculate a stress tensor.
 
 **<u>Theorem:</u>** A stress energy tensor for the free field Lagrangian is given by the linear map
-
 $$
 \phi \in \Gamma^\infty(E) \mapsto \langle\nabla\phi \otimes \nabla\phi\rangle_E \in \Gamma^\infty(TM\otimes TM).
 $$
@@ -244,7 +241,7 @@ $$
 
 $$
 \begin{align}
-0 &=\lim_{\epsilon\to 0} \frac{1}{\epsilon} \left[\mathcal L (\phi + \nabla_{\tilde X} \phi) - \mathcal L(\phi)\right]\\
+0 &=\lim_{\epsilon\to 0} \frac{1}{\epsilon} \left[\mathcal L (\phi + \epsilon\nabla_{\tilde X} \phi) - \mathcal L(\phi)\right]\\
 &= 2 \nabla \phi \wedge_E \ast \nabla \nabla_{\tilde X}\phi\\
 &= \langle \nabla_{\tilde X}\phi \otimes d_\nabla \ast d_\nabla \phi \rangle_E + \langle d_\nabla \ast (\nabla_{\tilde X}\phi \otimes  \nabla \phi)\rangle_E.
 \end{align}
@@ -277,7 +274,7 @@ $$
 \nabla e_i = 0.
 $$
 
-If we further add the Eucledian bundle metric on $E$ we have that the stress tensor of a field $\phi \in \Gamma^\infty(E)$ given by $\phi = \phi^i \otimes e_i$ for $k$ smooth functions $\phi^i \in C^\infty(M)$ is given by
+If we further add the Euclidean bundle metric on $E$ we have that the stress tensor of a field $\phi \in \Gamma^\infty(E)$ given by $\phi = \phi^i \otimes e_i$ for $k$ smooth functions $\phi^i \in C^\infty(M)$ is given by
 
 $$
 T(\phi) = \sum_{i= 1}^k d\phi_i \otimes d\phi_i
@@ -285,11 +282,35 @@ $$
 
 which is what we physically expect to happen. The other interesting thing is that the Lagrangian is the sum of Lagrangians of free fields. 
 
+## Tracelessness Sidenote
+
+Often in CFT we require the stress tensor to be traceless. Here is what we mean.
+
+**<u>Definition:</u>** Let $A :V\to V^\ast$ be an endomorphism of some inner product vector space $V$. Its trace is a Linear operator such that
+$$
+\Tr(A) = \langle e^\mu,T(e_\mu)\rangle,
+$$
+for some basis $e_\mu$ of $V$ and its canonical dual basis $e^\mu(e_\nu)=\delta^\mu_\nu$ and where $\langle\cdot,\cdot\rangle:V^\ast\times V^\ast\to\mathbb R$ is some nondegenrate bilinear form on $V^\ast$.
+
+**<u>Proposition:</u>** Let $A=X\otimes Y$ where $X,Y\in V^\ast$. Then 
+$$
+\Tr(A)=\langle X,Y\rangle.
+$$
+**<u>Corollary:</u>** The trace of the metric is the dimension of the space. i.e. $\Tr g=\dim V^\ast$.
+
+Using these we can see that we can find a traceless energy momentum tensor like so
+$$
+T'=T-\frac{g\ \Tr T}{\dim M}.
+$$
+
+
+
+
 
 
 ## Free Tensor Fields
 
-The above notation is a bit cumbersome. It gets super complicated super fast and for most things in physics it suffices to look at tensor fields instead. These are sections of tensor bundles, in other words bundles of the form $TM^{\otimes k}  \otimes T^\ast M^{\otimes l}$ for some $k,l \in \mathbb N$. Given a Riemannian manfiold, they have a canonical connection and bundle metric that allows us to simplify the notation a bit by identifying twisted forms with sections of tensor bundles with higher order.
+The above notation is a bit cumbersome. It gets super complicated super fast and for most things in physics it suffices to look at tensor fields instead. These are sections of tensor bundles, in other words bundles of the form $TM^{\otimes k}  \otimes T^\ast M^{\otimes l}$ for some $k,l \in \mathbb N$. Given a Riemannian manfold, they have a canonical connection and bundle metric that allows us to simplify the notation a bit by identifying twisted forms with sections of tensor bundles with higher order.
 
   
 
@@ -474,7 +495,6 @@ We want to construct the phase space of this system. Phase space is to be interp
 Now let's try to structure this intuition in such a way that it generalizes.
 
 **<u>Definition:</u>**  Let $(M,g)$ be a Lorentzian manifold with a nonvanishing global timelike Killing vector field $X \in \mathfrak{X}(M)$ with trivialization $M \cong \mathbb R \times \Sigma$, where $\Sigma$ is a Riemannian submanifold. The **phase space of fields** that are sections of a fiber bundle $\pi: E\to M$ with fiber the manifold $N$ is the set
-
 $$
 \mathcal P (E,\Sigma) = \Gamma^\infty(\Sigma \times T^\ast N).
 $$
@@ -525,7 +545,7 @@ We now have a phase space description for our stuff.
 
 ## Quantizing the Harmonic Oscillators
 
-With the Hamiltonian for each mode given by $H_n$ we immediately realize that it looks so tantalizingly close to a harmonic oscillator. But then we also immidiately realize that $\mathbb C \setminus \{0\}$ is diffeomorphic to a cylinder via the diffeomorphism
+With the Hamiltonian for each mode given by $H_n$ we immediately realize that it looks so tantalizingly close to a harmonic oscillator. But then we also immediately realize that $\mathbb C \setminus \{0\}$ is diffeomorphic to a cylinder via the diffeomorphism
 
 $$
 \begin{align}
@@ -537,7 +557,6 @@ $$
 We don't care that this isn't an isometry, because we can use it to push the Lagrangian forward the following way.
 
 **<u>Definition:</u>** Given a Lagrangian $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ and a diffeomorphism $f : N\to M$ of $n$ dimensional manifolds $N,M$, then the **pullback of the Lagrangian under** $f$ is the map $f^\ast \mathcal L : \Gamma^\infty(f^\ast E) \to \Omega^n(N)$ such that for any $\phi \in \Gamma^\infty(f^\ast E)$ 
-
 $$
 (f^\ast \mathcal L)(\phi) = f^\ast[\mathcal L(f_\ast \phi)].
 $$
@@ -547,7 +566,6 @@ The definition of what the pushforward of sections of the Pullback bundle means 
 Now we can see that the Fourier modes of the fields are so much better defined in this case. In particular the following proposition is true. 
 
 **<u>Proposition:</u>** For any $\phi \in C^\infty(\mathbb R\times S^1)$ there exists a unique $\{\phi_n\}_{n\in \mathbb Z} \subset C^\infty(\mathbb R,\mathbb C)$ such that for any $(r,\theta) \in \mathbb R \times S^1$ 
-
 $$
 \phi(r,\theta) = \sum_{n=-\infty}^\infty \phi_n(r)e^{in\theta}.
 $$
@@ -563,10 +581,10 @@ $$
   Yet, the more interesting aspect of this is that the action can be integrated on the angle variable to obtain
 
 $$
-S'(\phi) = \int_{\mathbb R \times S^1} \mathcal L'(\phi) = \frac{\pi}{2} \int_{\mathbb R} \sum_{n=-\infty}^\infty \left[ \frac{\partial \phi_n}{\partial r} \frac{\partial \bar \phi_n}{\partial r} - n^2 \phi_n \bar \phi_n\right] dr,
+S'(\phi) = \int_{\mathbb R \times S^1} \mathcal L'(\phi) = \frac{\pi}{2} \int_{\mathbb R} \sum_{n=-\infty}^\infty \left[ \frac{\partial \phi_n}{\partial r} \frac{\partial \phi_{-n}}{\partial r} - n^2 \phi_n \phi_{-n}\right] dr,
 $$
 
-where we have used the property that $\Im\,\phi(r,\theta) = 0 \ \forall (r,\theta) \in \mathbb R\times S^1 \implies \phi_n = -\bar \phi_{-n} $. This now looks like a bunch of complex harmonic oscillators (the careful transformation we took, got rid of the pesky radius). So we have created an equivalence between the theory of a free scalar field in $\mathbb R^{1,1}$ with the field theory of $\mathbb Z$ harmonic oscillators on $\mathbb R$. 
+where we have used the property that $\Im\,\phi(r,\theta) = 0 \ \forall (r,\theta) \in \mathbb R\times S^1 \implies \phi_n = \bar \phi_{-n} $. This now looks like a bunch of complex harmonic oscillators (the careful transformation we took, got rid of the pesky radius). So we have created an equivalence between the theory of a free scalar field in $\mathbb R^{1,1}$ with the field theory of $\mathbb Z$ harmonic oscillators on $\mathbb R$. 
 
 For this theory we have that our fields are on a vector bundle over $\mathbb R$, where the fiber is $\mathbb R^\mathbb N $, which is the topological vector space of sequences on $\mathbb R$. Let's call this bundle $E$. Now we can finally talk about the phase space, which in this case is isomorphic to $\mathcal P \coloneqq \Gamma^\infty(\{0\}\times T^\ast \mathbb R^{\mathbb N}) \cong  T^\ast \mathbb R^{\mathbb N} \cong (\mathbb R^2)^{\mathbb N}$. By performing the Legendre transform we can write our Hamiltonian $H : \mathcal P \to \mathbb R$ as
 
@@ -583,16 +601,55 @@ $$
 Which leads to the quantization condition $[\phi_n,\pi_m] = i\delta_{nm}$. Let's introduce the functions $a_n : \mathcal P \to \mathbb C$, given by
 
 $$
-a_n = \frac{1}{\sqrt{2}} \left[\pi_n + i n \phi_{-n}\right].
+a_n = \frac{1}{\sqrt{-2}} 
+\begin{cases}
+n\phi_n -i\pi_{-n} & n>0\\
+-n\phi_n + i\pi_{-n} & n < 0
+\end{cases},
 $$
 
-Then we can see that the Hamiltonian can be written as
-
+as well as the functions $\bar a_n :\mathcal P \to \mathbb C$ given by
 $$
-H = \sum_{n=0}^\infty H_n, \ \ H_n \coloneqq a_na_{-n}.
+\bar a_n = \frac{1}{\sqrt{-2}} 
+\begin{cases}
+n\phi_{-n} -i\pi_n & n>0\\
+-n\phi_{-n} + i\pi_n & n < 0
+\end{cases}.
+$$
+By doing some manual labor we can show that
+$$
+\begin{align*}
+\{a_n,a_m\} = \{\bar a_n,\bar a_m\} = -in\delta_{n+m} && \{a_n,\bar a_m\} = 0.
+\end{align*}
+$$
+Then we can further see that the Hamiltonian can be written as
+$$
+H = \frac{1}{2} \pi_0^2+ \sum_{n\neq0} a_na_{-n} + \bar a_n \bar a_{-n}.
 $$
 
-and we can see that $\{a_n,a_m\} = i n \delta_{n+m}$. However, $H_n$ is the Hamiltonian of a canonical harmonic oscillator. Say that the Quantum Hilbert space associated with that Hamiltonian is $\mathcal H_1$, then the total Hilbert space is $\mathcal H = \otimes_{\mathbb N} \mathcal H_1$.   
+Another notable property is that in our quantum theory
+$$
+[H,a_{-n}] = na_{-n}.
+$$
+In fact we see that the Hilbert space is that of two harmonic oscillators. So we can construct it and start to play on it!
+
+
+
+## Extracting the Quantum Fields
+
+Using this prescription we can extract the field operators. In particular we know that for any time the value of the field in this decomposition is given by
+$$
+\phi(x,t) = \phi_0 + \pi_0t + i\sum_{n\neq0} \frac{1}{n}\left[a_ne^{in(x-t)} - \bar a_ne^{in(x+t)}\right].
+$$
+ Using the map $f^{-1}:\mathbb R\times S^1\to \mathbb C$ back to the plane, we can extract the value of the field at any $(z,\bar z)$. In particular, we have:
+$$
+\phi(z,\bar z) = \phi_0 -i\pi_0\log(z\bar z) + i\sum_{n\neq0} \frac{1}{n}\left[a_nz^{-n} - \bar a_n\bar z^{-n}\right].
+$$
+This is really cool! Because we can now play the CFT game! Let's consider the stress energy tensor
+
+
+
+
 
 
 
@@ -634,8 +691,7 @@ We have chosen carefully the basis for the representation such that the Dirac op
 
 The 2-dimensional spinor representation is particularly nice. To see how let's first recall a couple of cool theorems.
 
-**<u>Proposition:</u>** Given the representation of the clifford algebra defined by the gamma matrices above, we have that the weyl eigenspaces are given by
-
+**<u>Proposition:</u>** Given the representation of the Clifford algebra defined by the gamma matrices above, we have that the weyl eigenspaces are given by
 $$
 \Delta^{\pm} \coloneqq \{x \in \mathbb C^2 \mid -i\gamma^0\gamma^1 x = \pm i x\} \cong \mathbb C.
 $$
@@ -643,7 +699,6 @@ $$
 These are vector subspaces and we have that $\Delta^+\oplus \Delta^- \cong \mathbb C^2$. 
 
 ***Proof:*** We know that the Weyl subspaces in the even dimensional Clifford algebra representations are the eigenspaces of the Chirality element. In this representation the chirality element is given by
-
 $$
 \gamma^2 \coloneqq -i\gamma^0\gamma^1 = \begin{pmatrix}1&0\\0&-1\end{pmatrix},
 $$
@@ -655,14 +710,13 @@ $$
 $$
 
 
-This is the Weyl part of the representation. The next interesting part is to find the Majorana. Since the clifford algebra is associated to the even dimensional vector space $\mathbb R^{2}$, there must exist a $\text{spin}^+$-invariant real structure over the spinor representation. 
+This is the Weyl part of the representation. The next interesting part is to find the Majorana. Since the Clifford algebra is associated to the even dimensional vector space $\mathbb R^{2}$, there must exist a $\text{spin}^+$-invariant real structure over the spinor representation. 
 
 Before we find the real structure, we need to find $\text{spin}^+(2)$. 
 
 **<u>Proposition:</u>** The representation of $\text{spin}^+(2)$ on $\mathbb C^2$ is generated by a subset of the linear combinations of $1, -i\gamma^2$.
 
-***Proof:*** Using the definition of the orthochronous spin group we see that it is generated by even clifford products of unit vectors in $\mathbb R^2$. Therefore the only elements it can depend on the representation are the identity and $\gamma^0\gamma^1$. 
-
+***Proof:*** Using the definition of the orthochronous spin group we see that it is generated by even Clifford products of unit vectors in $\mathbb R^2$. Therefore the only elements it can depend on the representation are the identity and $\gamma^0\gamma^1$. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
@@ -670,7 +724,6 @@ $$
 Using this we can see something really cool!
 
 **<u>Proposition:</u>** The map $\sigma: \mathbb C^2 \to \mathbb C^2$ given by 
-
 $$
 \psi \in \mathbb C^2 \mapsto \sigma(\psi) = \gamma^0\psi^\ast
 $$
@@ -678,7 +731,6 @@ $$
 is a $\text{spin}^+(2)$ equivariant real structure for $\mathbb C^2$.
 
 ***Proof:*** We use the property that $\{\gamma^0,\gamma^2\} = 0$ to show equivariance. The rest of the stuff are properties of $\gamma^1$. 
-
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
@@ -702,7 +754,6 @@ Therefore, we see that $\mathbb C^2 \cong \Delta^\sigma \oplus i\Delta^\sigma$, 
 Now we can play with calculating some correlation functions.
 
 **<u>Definition:</u>** Given a spinor bundle $S$ over $\mathbb R^{2}$ with a Dirac form $\langle \cdot,\cdot \rangle$ the free Lagrangian is given by
-
 $$
 \begin{align*}
 \mathcal L_F : \Gamma^\infty(S) &\to \Omega^2(\mathbb R^{2})\\
@@ -712,13 +763,13 @@ $$
 
 for some $m \geq 0$.
 
-We know from studying [spinors](../../Quantum_Fields/Spinors.md) that for any Majorana form we have a Dirac conjugate spinor that is defined for any $\psi \in \Gamma^\infty(S)$ as $\bar \psi \coloneqq \langle \psi, \cdot \rangle$. There aren't infinite Dirac forms we can place here, so lets see what's going on. The Dirac form must have the property that
+We know from studying [spinors](../../Quantum_Fields/Spinors.md) that for any Dirac form we have a Dirac conjugate spinor that is defined for any $\psi \in \Gamma^\infty(S)$ as $\bar \psi \coloneqq \langle \psi, \cdot \rangle$. There aren't infinite Dirac forms we can place here, so lets see what's going on. The Dirac form must have the property that
 
 $$
 \langle X\cdot \psi,\phi\rangle = \langle \psi,X\cdot \phi\rangle.
 $$
 
-Enforcing this rule along with conjugate symmetry we can see that the only choice for the dirac form is the one such that
+Enforcing this rule along with conjugate symmetry we can see that the only choice for the Dirac form is the one such that
 
 $$
 \langle \psi, \phi\rangle = \psi^\dagger \phi.
@@ -727,7 +778,6 @@ $$
 This is a particularly nice choice that relies on the fact that all of our gamma matrices are hermitian. 
 
 **<u>Proposition:</u>** By writing a Majorana fermion $\psi = \binom{\psi}{\bar \psi} \in \Gamma^\infty(S)$, i.e. $\sigma(\psi) = \psi$, we can rewrite the free Lagrangian (for $m=0$) as
-
 $$
 \mathcal L_F(\psi) = \ast \left(\psi \frac{\partial}{\partial \bar z} \psi + \bar \psi \frac{\partial}{\partial z} \bar \psi  \right).
 $$
@@ -776,8 +826,7 @@ $$
 \partial_{\bar z} \frac{1}{z-w} = \delta(z-w).
 $$
 
-***Proof:*** Since $F$ is compactly supported, we can use Stoke’s theorem to write
-
+***Proof:*** Since $F$ is compactly supported, we can use Stokes' theorem to write
 $$
 \frac{\partial F_w}{\partial \bar z}(f) = \int_{U} \frac{\partial }{\partial \bar z} \frac{f(z,\bar z)}{z-w} dzd\bar z = \int_{\partial U} \frac{f(z,\bar z)}{z-w} dz
 $$
@@ -824,7 +873,6 @@ G(x) = \begin{pmatrix}\frac{1}{z-w} & 0 \\ 0 & \frac{1}{\bar z - \bar w}\end{pma
 $$
 
 ***Proof:*** We are operating under the assumption that all of our spinors are locally analytic, in particular we assume that for $\eta = \binom{\eta}{\bar \eta}$, that the first component is locally holomorphic and the second is locally antiholomorphic. Therefore using the identity we derived for the delta function we can write:
-
 $$
 \begin{align*}
 \eta(z) 
@@ -866,7 +914,31 @@ $$
 
 ## Stress Energy Tensor
 
-We can now do a small diversion into finding the stress energy tensor of this fermionic theory. 
+We can now do a small diversion into finding the stress energy tensor of this fermionic theory. Classically speaking we can extract it using the variation principle. In particular we have.
+$$
+S(\psi) = \int_{\mathbb C} \ast \langle \psi,\centernot\partial \psi\rangle \implies \frac{d S(\psi+\epsilon \eta)}{d\epsilon} = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \eta\rangle + \ast \langle \eta,\centernot\partial\psi\rangle.
+$$
+Now we need to consider the case where $\eta$ is the variation of $\psi$ under the local action of the isomorphism group. In this case this is translations. This is particularly nice, because the related vector fields in this case are the same due to the vector space isomorphism of the Lie algebra with the Euclidean group. Therefore we have that
+$$
+(e^{\epsilon X})^\ast \psi = \psi + \epsilon \nabla_{\tilde X} \psi + \mathcal O(\epsilon^2).
+$$
+So we let $\eta = \nabla_{\tilde X}\psi + \mathcal O(\epsilon)$. As a result, we have that the variation is given by
+$$
+\delta S = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \nabla_{\tilde X} \psi\rangle + \ast \langle \nabla_{\tilde X} \psi,\centernot\partial\psi\rangle.
+$$
+The connection $\nabla : \mathfrak X(\mathbb C) \times \Gamma^\infty(\text{Spin}^+(\mathbb C)) \to \Gamma^\infty(\text{Spin}^+(\mathbb C))$ is given by the canonical spin connection. The derivation can be found [here](../../Quantum_Fields/Spinors.md#spin-connection), but the cool thing is that since the space has zero curvature, the spin connection one-form is zero! So we can calculate the derivatives like so:
+$$
+\nabla_X \psi = \nabla_{X} \psi^j e_j = (X \psi^j)e_j + \psi^j \nabla_Xe_j = (X\psi^j)e_j = \begin{pmatrix}X & 0 \\ 0 &X\end{pmatrix} \psi = X\cdot 1 \psi.
+$$
+Now using integration by parts we can write the action as
+$$
+\delta S = \int_{\mathbb C} \ast
+$$
+
+
+
+
+
 
 ## Operator Product Expansions of Fermions
 

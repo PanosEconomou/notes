@@ -430,7 +430,7 @@ $$
 g = \frac{1}{2} \left[dz\otimes d\bar z + d\bar z \otimes dz \right] = dz\cdot d\bar z
 $$
 
-Let’s find the green’s functions to do so we will rearrange using Leinbiz rule the action to obtain
+Let’s find the green’s functions to do so we will rearrange using Leibniz rule the action to obtain
 
 $$
 S(\phi) = -\frac{1}{2\pi} \int_{\mathbb{C}} \phi\,  d\star d \bar \phi - d(\phi \star d\bar \phi)
@@ -616,6 +616,26 @@ The corollary is that for any conformal family we can find a corresponding subsp
 **<u>Corollary:</u>** For some field operator $\Phi$ the Verma module $[\Phi]$ is isomorphic to $V_\nu \subset \mathbb{H}$ for $\nu = \lim_{z\to 0}\Phi(z) \Omega$. And thus $V_\nu$ is a Verma module with conformal parameters $(c,h)$.
 
 But here is the thing. We know $h$ from $\Phi$, but what about $c$, the central charge? To find the central charge we only need to do some algebra. 
+
+
+
+## Wick's Theorem and Normal Ordering
+
+In calculating correlation functions we have a very useful tool in QFT that takes advantage of the noncommutativity of quantum fields.
+
+**<u>Definition:</u>** Let $A,B$ be two quantum fields. Then their **normally ordered product** is given by
+$$
+:AB: = AB - \langle AB\rangle
+$$
+For more operators we do it for all possible contractions. 
+
+
+
+
+
+
+
+
 
 
 
