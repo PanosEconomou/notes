@@ -19,7 +19,7 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
         event.preventDefault();
         if (!container.current || isScrolling) return;
 
-        const scrollAmount = event.deltaY;
+        const scrollAmount = event.deltaY*10;
         if (scrollAmount == 0) return;
         
         isScrolling = true;
@@ -33,7 +33,7 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
 
         setTimeout(() => {
             isScrolling = false;
-        }, 100);
+        }, 10);
 
     }
 

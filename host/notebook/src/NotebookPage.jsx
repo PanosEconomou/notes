@@ -1,6 +1,6 @@
 import './NotebookPage.css'
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Markdown from 'react-markdown';
 import Cursor from './assets/Cursor';
 import rehypeRaw from 'rehype-raw';
@@ -52,6 +52,7 @@ export default function NotebookPage({ }) {
   var timer = null;
 
   const { scrollYProgress } = useScroll();
+  const scaleY = useSpring(scrollYProgress);
 
   const enterHighlight = () => {
     setCursorVariant("highlight");
@@ -325,7 +326,7 @@ export default function NotebookPage({ }) {
       </PageButton>
       <div id="notebookPage" >
         <main>
-          <motion.div className='progressBar' style={{ scaleY: scrollYProgress }} />
+          <motion.div className='progressBar' style={{ scaleY: scaleY }} />
           <div ref={markdownRef}>
             {markdownRender}
           </div>
