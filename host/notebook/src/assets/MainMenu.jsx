@@ -13,11 +13,28 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
 
     const container = useRef(null);
 
+    let isScrolling = false;
+
     const handleWheel = (event) => {
         event.preventDefault();
-        const scrollAmount = event.deltaY;
+        if (!container.current || isScrolling) return;
 
-        container.current.scrollLeft += scrollAmount;
+        const scrollAmount = event.deltaY;
+        if (scrollAmount == 0) return;
+        
+        isScrolling = true;
+
+        container.current.scrollTo({
+            left: container.current.scrollLeft + scrollAmount,
+            behavior: "smooth"
+        });
+
+        console.log(scrollAmount);
+
+        setTimeout(() => {
+            isScrolling = false;
+        }, 100);
+
     }
 
     const mouse = {
@@ -45,7 +62,7 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
-            container.current.removeEventListener('wheel', handleWheel);
+            if (container.current) container.current.removeEventListener('wheel', handleWheel);
         }
     }, [])
 
@@ -115,6 +132,6 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
             ><NavLink to="/">Notebook</NavLink></motion.h1>
 
             <Navigation stickTo={stickTo} setCursorVariant={setCursorVariant} />
-        </motion.nav>
+        </motion.nav >
     )
 }
