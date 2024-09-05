@@ -122,6 +122,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Path Integrals](Quantum_Fields/Path_Integrals.md)
     - [Renormalization Group](Quantum_Fields/Renormalization_Group.md)
     - [Spinors](Quantum_Fields/Spinors.md)
+    - [Symmetry Braking](Quantum_Fields/Symmetry_Breaking.md)
     - [Vertex Operator Algebras](Quantum_Fields/Vertex_Operator_Algebras.md)
     - [Virasoro Algebra](Quantum_Fields/Virasoro_Algebra.md)
     - [**QFT3**](Quantum_Fields/QFT3)
