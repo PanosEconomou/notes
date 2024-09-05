@@ -91,16 +91,18 @@ $$
 $$
 
 
-
-
 ## Goldstone Bosons
 
 A vacuum is the fundamental ingredient of symmetry braking. Now that we have it, we would like to create a field theory around deflections from this vacuum. Here is how we do it.
 
-**<u>Definition:</u>** Let $\phi \in \Gamma^\infty(E)$ be a field and $\phi_0 \in \Gamma^\infty(E)$ a vacuum for some Lagrangian. Then the **shifted field** is 
+**<u>Definition:</u>** Let $\phi \in \Gamma^\infty(E)$ be a field and $\phi_0 \in \Gamma^\infty(E)$ a vacuum for some Lagrangian. Then we know that there exists a section of the Vertical tangent space $\delta\phi \in \Gamma^\infty(VE)$ such that
 $$
-\phi' \coloneqq \phi - \phi_0.
+\phi = e^{\delta \phi} \cdot \phi_0,
 $$
+where $e$ is the canonical exponential map between the tangent space and the manifold. The field $\delta \phi$ is known as the **shift field.**
+
+**<u>Sidenote:</u>** Notice that the vertical tangent space $VE=\ker \pi_\ast$ of any vector bundle $E$ is isomorphic to $E$ if $E$ is trivial, that is because for any point, p, the fiber $V_pE \cong TE_{\pi(p)} \cong E_{\pi(p)}$. 
+
  
 
 
