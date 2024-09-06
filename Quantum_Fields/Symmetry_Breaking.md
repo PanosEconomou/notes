@@ -63,7 +63,13 @@ is called the **unbroken subgroup** of $G$ relative to $\phi_0$.
 
 
 
-Ooof. This was a lot of setup. And while the elements, such as Principal and Associated Vector bundles are explained [here](../Geometry/Bundles.md), they are only there to provide the natural calculus structure that we usually take for granted in physics. In essence, a **vacuum** is a field configuration that minimizes the potential of our theory. 
+Ooof. This was a lot of setup. And while the elements, such as Principal and Associated Vector bundles are explained [here](../Geometry/Bundles.md), they are only there to provide the natural calculus structure that we usually take for granted in physics. In essence, a **vacuum** is a field configuration that minimizes the potential of our theory. Here is a picture of what is going on.
+
+
+
+![linear-sigma-model](_Symmetry_Breaking.assets/linear-sigma-model.svg)
+
+
 
 The interesting theorem that will lead to the creation of Goldstone Bosons is the following.
 
@@ -135,6 +141,56 @@ $$
 \ast \mathcal L(\phi) = \frac{1}{2}\langle \nabla \phi,\nabla \phi \rangle + \frac{\mu^2}{2}\langle \phi, \phi \rangle -\frac{\lambda}{4}\langle  \phi, \phi \rangle^2,
 $$
 where $\mu \in \mathbb R, \lambda >0$. 
+
+This is not a gauge theory (even though it actually is because the frame bundle of this is a principal bundle with fiber $O(N)$) so we can treat it without using principal bundles. 
+
+**<u>Proposition:</u>** The linear sigma model Lagrangian is invariant under the fundamental action of $O(N)$ on $E$ given by the trivialization.
+
+***Proof:*** Let $p \in M$. We know that $E = M\times \mathbb R^N$ since it is a trivial bundle and the fundamental action of $O(N)$ is given by the fundamental representation on $\mathbb R^N$ like so
+$$
+\begin{align*}
+\rho: O(N) \times E &\to E\\
+(g,p,v) &\mapsto (p,gv).
+\end{align*}
+$$
+Therefore we see that for any $\phi,\psi \in \Gamma^\infty(E)$
+$$
+\langle g\phi,g\psi\rangle = \langle \phi,\psi\rangle.
+$$
+Additionally consider
+$$
+\nabla g\phi = \nabla \phi^i g e_i = d\phi^i \otimes ge_i = g \nabla \phi.
+$$
+With these two identities we can show that the Lagrangian remains invariant, i.e.
+$$
+\mathcal L(g\phi) = \mathcal L(\phi).
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+
+So now we have a group that the Lagrangian is invariant under, and more importantly, that the interaction term 
+$$
+V(\phi) = -\frac{\mu^2}{2}\langle \phi, \phi \rangle +\frac{\lambda}{4}\langle  \phi, \phi \rangle^2
+$$
+is invariant under the action of the Lagrangian and it is a bundle lift of a function $v: \mathbb R^N\to \mathbb R$ that looks identical to this one in notation, and is also invariant under the action of $O(N)$. This means that we can try and find a vacuum! 
+
+**<u>Proposition:</u>** The section $\phi \in \Gamma^\infty(E)$ given for any $p\in M$ by
+$$
+\phi(p) = -\sqrt{\frac{\mu}{\lambda}} e_1,
+$$
+is a vacuum for the linear sigma model Lagrangian. 
+
+***Proof:*** 
+
+
+
+
+
+
 
 
 
