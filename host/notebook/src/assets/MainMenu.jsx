@@ -13,28 +13,20 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
 
     const container = useRef(null);
 
-    let isScrolling = false;
-
     const handleWheel = (event) => {
-        event.preventDefault();
-        if (!container.current || isScrolling) return;
+        event.preventDefault(); 
+        console.log(event);
+        if (!container.current) return;
 
-        const scrollAmount = event.deltaY*10;
+        const scrollAmount = event.deltaY*100;
         if (scrollAmount == 0) return;
         
-        isScrolling = true;
-
         container.current.scrollTo({
             left: container.current.scrollLeft + scrollAmount,
-            behavior: "smooth"
+            behavior: "auto"
         });
 
         console.log(scrollAmount);
-
-        setTimeout(() => {
-            isScrolling = false;
-        }, 10);
-
     }
 
     const mouse = {
@@ -57,12 +49,12 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         window.addEventListener('mousemove', handleMouseMove);
-        container.current.addEventListener('wheel', handleWheel);
+        // container.current.addEventListener('wheel', handleWheel);
 
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
-            if (container.current) container.current.removeEventListener('wheel', handleWheel);
+            // if (container.current) container.current.removeEventListener('wheel', handleWheel);
         }
     }, [])
 

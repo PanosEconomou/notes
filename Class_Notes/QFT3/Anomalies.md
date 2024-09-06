@@ -201,7 +201,25 @@ $$
 
 ## Axial Anomaly
 
-We will develop this in the context of 2D Electrodynamics. 
+We will develop this in the context of 2D Electrodynamics. That QED lagrangian has a couple of global symetries. They are
+$$
+\begin{align*}
+U(1): \psi &\to \psi e^{i\alpha}\\
+U(1): \psi &\to e^{i\gamma^5\alpha}\psi.
+\end{align*}
+$$
+These global symmetries will give rize to conserved currents. In this case the currents are
+$$
+\begin{align*}
+J_\mu &= \bar \psi \gamma_\mu \psi\\
+J_\mu^5 &= \bar \psi \gamma_\mu \gamma_5 \psi.
+\end{align*}
+$$
+Consider now another 2-point function. Using ward identities we can see that 
+
+> We said that we assume that charge symmetry is not broken because it is gauged, hence we picked the axial. Would it be possible to consistently break that one instead and get an equivalent anomaly?
+
+
 
 
 
