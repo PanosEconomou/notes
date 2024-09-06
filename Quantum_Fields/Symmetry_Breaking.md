@@ -101,9 +101,42 @@ $$
 $$
 where $e$ is the canonical exponential map between the tangent space and the manifold. The field $\delta \phi$ is known as the **shift field.**
 
-**<u>Sidenote:</u>** Notice that the vertical tangent space $VE=\ker \pi_\ast$ of any vector bundle $E$ is isomorphic to $E$ if $E$ is trivial, that is because for any point, p, the fiber $V_pE \cong TE_{\pi(p)} \cong E_{\pi(p)}$. 
+**<u>Sidenote:</u>** Notice that the vertical tangent space $VE=\ker \pi_\ast$ of any vector bundle $E$ is isomorphic to $E$ that is because for any point, p, the fiber $V_pE \cong TE_{\pi(p)} \cong E_{\pi(p)}$. Therefore the exponential map gives us an isomorphism so we can interpret the shift field $\delta \phi$ as a regular field. 
 
- 
+**<u>Definition:</u>** If $X \in \mathfrak g$ is an element of the Lie algebra of $G$ that maps to $0 \in \tilde {\mathfrak g}$ in the Lie algebra of $G/G_{\phi_0}$ for some vacuum $\phi_0$ then it is called **broken.**
+
+**<u>Lemma:</u>** The vertical tangent space $VE$ admits a vector field basis $\{X_1,X_2,\cdots, X_d, Y_{1},Y_{2},\cdots,Y_{k-d}\}$, where $k = \rank E$ and $d = \dim O_{\phi_0(p)}$ for any $p \in M$, where $X_i = \tilde A_i$ for some $A_i \in G/G_{\phi_0}$ and $Y_i \in \mathfrak X(V^\perp O_{\phi_0})$ are vector fields on the perpendicular subspace of the vacuum orbit. 
+
+***Proof:*** The proof of this is directly taken from the last theorem above in the previous section. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+**<u>Definition:</u>** We can write the shift field in the basis above like so
+$$
+\delta \phi = \pi^i X_i + \sigma^iY_i,
+$$
+where $\pi^i,\sigma^i \in \Gamma^\infty(E)$ are known as **Goldstone fields** and **scalar mesons** respectively. 
+
+**<u>Theorem:</u>** *(Goldstone's Theorem)* A theory with a vacuum admits as many Goldstone fields as independent broken generators of the Lie algebra.
+
+***Proof:*** We have already shown this in the previous lemma. This just combines it with the definition. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+## Linear $\sigma$ Model
+
+As an example we will follow Peskin to construct the Goldstone bosons that arise in the symmetry braking of the Linear Sigma model.
+
+**<u>Definition:</u>** Let $(M,\eta)$ be the $n$-dimensional Minkowski space and $\pi : E \to M$ be a trivial real vector bundle of rank $N$ with a Euclidean bundle metric $\langle \cdot, \cdot \rangle : E \times E\to \mathbb R$. The **linear sigma model Lagrangian** is a Lagrangian $\mathcal L : \Gamma^\infty(E) \to \Omega^n(M)$ such that for any $\phi \in \Gamma^\infty(E)$ it is given by
+$$
+\ast \mathcal L(\phi) = \frac{1}{2}\langle \nabla \phi,\nabla \phi \rangle + \frac{\mu^2}{2}\langle \phi, \phi \rangle -\frac{\lambda}{4}\langle  \phi, \phi \rangle^2,
+$$
+where $\mu \in \mathbb R, \lambda >0$. 
+
+
 
 
 
