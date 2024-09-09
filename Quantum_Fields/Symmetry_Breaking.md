@@ -114,6 +114,20 @@ where $e$ is the canonical exponential map between the tangent space and the man
 **<u>Lemma:</u>** The vertical tangent space $VE$ admits a vector field basis $\{X_1,X_2,\cdots, X_d, Y_{1},Y_{2},\cdots,Y_{k-d}\}$, where $k = \rank E$ and $d = \dim O_{\phi_0(p)}$ for any $p \in M$, where $X_i = \tilde A_i$ for some $A_i \in G/G_{\phi_0}$ and $Y_i \in \mathfrak X(V^\perp O_{\phi_0})$ are vector fields on the perpendicular subspace of the vacuum orbit. 
 
 ***Proof:*** The proof of this is directly taken from the last theorem above in the previous section. 
+
+So we can have an interesting approximation of the Lagrangian.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+**<u>Corollary:</u>** The Lagrangian can be approximated in terms of the shift field as 
+$$
+\ast \mathcal L(\delta \phi) = \frac{1}{2}\langle\delta\phi,\delta\phi\rangle - V(\phi_0) - \frac{\lambda^i}{2}\langle Y_i,Y_i \rangle + \mathcal O(\langle \delta\phi,\delta\phi\rangle^3),
+$$
+where $\lambda^i > 0$ are the eigenvalues of the Hessian of $V$.
+
+***Proof:*** We use the fact that $\phi_0$ is a minimum and Taylor expand to second order. Therefore the first order vanishes. We also know that if we write $\delta\phi$ in its standard basis, using the previous theorem these eigenvalues are zero for the $X_i$, therefore we are left with the corollary's form. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
@@ -178,13 +192,58 @@ V(\phi) = -\frac{\mu^2}{2}\langle \phi, \phi \rangle +\frac{\lambda}{4}\langle  
 $$
 is invariant under the action of the Lagrangian and it is a bundle lift of a function $v: \mathbb R^N\to \mathbb R$ that looks identical to this one in notation, and is also invariant under the action of $O(N)$. This means that we can try and find a vacuum! 
 
-**<u>Proposition:</u>** The section $\phi \in \Gamma^\infty(E)$ given for any $p\in M$ by
+**<u>Proposition:</u>** The section $\phi_0 \in \Gamma^\infty(E)$ given for any $p\in M$ by
 $$
-\phi(p) = -\sqrt{\frac{\mu}{\lambda}} e_1,
+\phi_0(p) = -\frac{\mu}{\sqrt{\lambda}} e_1,
 $$
 is a vacuum for the linear sigma model Lagrangian. 
 
-***Proof:*** 
+***Proof:*** The minimum of $V$ is going to be when a field contains minima of $v:\mathbb R^N\to \mathbb R$. We can now take
+$$
+\frac{\partial v}{\partial x} = (-\mu^2 + \lambda x^Tx) x^T.
+$$
+ Therefore, for this to vanish we need
+$$
+0=-\mu^2 + \lambda x^Tx \implies \norm{x} = \frac{\mu}{\sqrt{\lambda}}.
+$$
+Also we can take the second derivative to obtain the Hessian to be
+$$
+\frac{\partial^2 v}{\partial^2x} = -\mu^2 + \lambda x^Tx +2\lambda xx^T.
+$$
+We see that $\norm {\phi_0(p)} = \frac{\mu}{\sqrt\lambda}$ for any $p\in M$. Therefore, this is a root of the gradient, and produces a positive definite Hessian. As a result, for every $p$, $\phi(p)$ minimizes $v$. To show that it also minimizes $V$ we need to show that
+$$
+\begin{align*}
+\nabla \phi_0 = -\frac{\mu}{\sqrt{\lambda}} \nabla e_1 = 0.
+\end{align*}
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+Out of sheer luck for this case notice that $V(\phi) = 0$ as well! Now we can directly apply our theorem to obtain the decomposition of the Lagrangian. 
+
+**<u>Proposition:</u>** The Lagrangian can be written as
+$$
+\mathcal L(\delta\phi) = \frac{1}{2}\langle \delta \phi,\delta \phi\rangle - \mu^2 \langle e_1,\delta \phi\rangle^2 + \cdots
+$$
+***Proof:*** This is a direct application of the last corollary of the previous section.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+The cool thing though is that this new theory, to this approximation, is a theory of $N-1$ massless (Goldstone bosons) and $1$ massive boson of mass $\sqrt 2 \mu$ that are noninteracting.
+
+
+
+# In Quantum Field Theory
+
+Through the path integral formulation, all of our previous understanding can be directly ported through in our quantum theory. However, this picture hides itself once we start to renormalize. In this section will will go through the renormalization procedure of the linear sigma model and show some ugly outcomes. Then we will look more specifically into quantizing spontaneously broken gauge theories. 
+
+
+
+
+
+
 
 
 
