@@ -916,7 +916,7 @@ $$
 
 We can now do a small diversion into finding the stress energy tensor of this fermionic theory. Classically speaking we can extract it using the variation principle. In particular we have.
 $$
-S(\psi) = \int_{\mathbb C} \ast \langle \psi,\centernot\partial \psi\rangle \implies \frac{d S(\psi+\epsilon \eta)}{d\epsilon} = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \eta\rangle + \ast \langle \eta,\centernot\partial\psi\rangle.
+S(\psi) = \int_{\mathbb C} \ast \langle \psi,\centernot\partial \psi\rangle \implies \frac{d S(\psi+\epsilon \eta)}{d\epsilon} = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \eta\rangle + \ast \langle \eta,\centernot\partial\psi\rangle = \int \ast 2 \langle \eta,.
 $$
 Now we need to consider the case where $\eta$ is the variation of $\psi$ under the local action of the isomorphism group. In this case this is translations. This is particularly nice, because the related vector fields in this case are the same due to the vector space isomorphism of the Lie algebra with the Euclidean group. Therefore we have that
 $$
