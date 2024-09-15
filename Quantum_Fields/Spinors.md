@@ -840,6 +840,8 @@ $$
 $$
 where $b_j \in \Lambda(M)$. 
 
+In fact we extend this to the notion of **superalgebras** allowing us to play such a nicer game here. 
+
 
 
 
