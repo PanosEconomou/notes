@@ -926,16 +926,25 @@ So we let $\eta = \nabla_{\tilde X}\psi + \mathcal O(\epsilon)$. As a result, we
 $$
 \delta S = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \nabla_{\tilde X} \psi\rangle + \ast \langle \nabla_{\tilde X} \psi,\centernot\partial\psi\rangle.
 $$
-The connection $\nabla : \mathfrak X(\mathbb C) \times \Gamma^\infty(\text{Spin}^+(\mathbb C)) \to \Gamma^\infty(\text{Spin}^+(\mathbb C))$ is given by the canonical spin connection. The derivation can be found [here](../../Quantum_Fields/Spinors.md#spin-connection), but the cool thing is that since the space has zero curvature, the spin connection one-form is zero! So we can calculate the derivatives like so:
+The connection $\nabla : \mathfrak X(\mathbb C) \times \Gamma^\infty(\text{Spin}^+(\mathbb C)) \to \Gamma^\infty(\text{Spin}^+(\mathbb C))$ is given by the canonical spin connection. The derivation can be found [here](../../Quantum_Fields/Spinors.md#spin-connection), but the cool thing is that since the space has zero curvature, the spin connection one-form is zero! Using the field equations we derive that the second term must vanish, and therefore we obtain
 $$
-\nabla_X \psi = \nabla_{X} \psi^j e_j = (X \psi^j)e_j + \psi^j \nabla_Xe_j = (X\psi^j)e_j = \begin{pmatrix}X & 0 \\ 0 &X\end{pmatrix} \psi = X\cdot 1 \psi.
+\delta S = \int_{\mathbb C} \ast \langle \psi,\centernot{\partial} \nabla_{\tilde X} \psi \rangle = \int_{\mathbb C} d  \ast \left[ \langle \psi,\gamma_\mu \nabla_{\tilde X} \psi \rangle dx^\mu\right] = \int_{\mathbb C} d \langle \psi,\text{vol} \cdot \nabla_{\tilde X} \psi \rangle,
 $$
-Now using integration by parts we can write the action as
+where $d\text{vol}$ is the volume form of $\mathbb C$ and $\cdot$ denotes the clifford multiplication. As a result we can find that the stress energy tensor is given by
 $$
-\delta S = \int_{\mathbb C} \ast
+T = \langle \psi,\ast \text{vol} \cdot d_{\nabla} \psi \rangle.
 $$
-
-
+Or in any human readable form
+$$
+T=\bar \psi \gamma_\mu \partial_\nu \psi \, dx^\mu \otimes dx^\nu.
+$$
+We immidiately note that this tensor is not symmetric. However, in the case of the off diagonal components we can see that the tensor components vanish because of the field equations. Furthermore, we can write the diagonal components as
+$$
+\begin{align*}
+T = \psi \partial_z \psi && \bar T =\bar \psi \partial_{\bar z}\bar  \psi.
+\end{align*}
+$$
+So in QFT we just need to normal order these expressions and we can actually do OPEs.
 
 
 
