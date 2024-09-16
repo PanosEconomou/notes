@@ -809,7 +809,6 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
 **<u>Corollary:</u>** $\Gamma^\infty(E)$ admits a countable basis $\mathcal B \subset \Gamma^\infty(E)$, i.e. every section $\phi \in \Gamma^\infty(M)$ can be written as
 $$
 \phi =\sum_{b \in \mathcal B} \phi_b b,
@@ -838,17 +837,26 @@ This is quite ugly, but in this notation we can write each $\psi \in \Lambda(M) 
 $$
 \psi = \psi^{ij} e_i b_j,
 $$
-where $b_j \in \Lambda(M)$. 
+where $b_j \in \Lambda(M)$. Now we can express this setting in Bundle language as by trying to create a vector bundle $\hat E$ whose sections are elements of $\Lambda(M) \otimes \Gamma^\infty(E)$. In essence it is like we are thinking of the vector space $V$ be over the Grassmann algebra $\Lambda(M)$ instead of the real or complex numbers. In fact, this is it. Same way we do a complexification of our vector bundle, we do this procedure to 'Grassmannify' our vector bundle.  
 
-In fact we extend this to the notion of **superalgebras** allowing us to play such a nicer game here. 
+We can now define an antisymmetric spinor.
 
-
-
-
+**<u>Definition:</u>** An antisymmetric field is an element of the antisymmetric sections of its associated vector bundle $E$, i.e. an element of the vector subspace given by $\Lambda_1(M) \otimes_{C^\infty(M)} \Gamma^\infty(E)$.
 
 
 
+## Changing Conventions
 
+As one can imagine this definition leads to differences in convention. However, the only point where there is an actual difference is in the definition of the Majorana form. 
+
+**<u>Definition:</u>** Consider a complex spinor representation to $\Delta_n$ of $\text{Cl}(s,t)$. An **antisymmetric Majorana form** on $\Delta_n$ is a complex bilinear form $(\cdot, \cdot): \Delta_n \times \Delta_n \to \mathbb{C}$ such that for any $\phi,\psi \in \Delta_n$ and $X \in \mathbb{R}^{s,t}$
+
+1. $(\phi,X\cdot \psi) = \mu(X\cdot \phi,\psi)$ 
+2. $(\phi,\psi) = -\nu(\psi,\phi)$ 
+
+where $\mu,\nu = \pm 1$ and are given by the same table as the symmetric Majorana form.
+
+The only difference here is that change of sign for $\mu$. This is to avoid the antisymmetry of the components of $\phi,\psi$. Everything else follows through as expected. 
 
 
 
