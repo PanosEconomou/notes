@@ -974,10 +974,7 @@ $$
 T(z)T(w) 
 &= \lim_{z'\to z} \left[\psi(z)\partial_{z'} \psi(z') T(w) + \frac{T(w)}{(z-z')^2} \right]\\
 &= \lim_{z'\to z} \lim_{w'\to w} \left[\psi(z)\partial_{z'} \psi(z') \psi(w)\partial_{w'} \psi(w') + \frac{\psi(z)\partial_{z'} \psi(z')}{(w-w')^2} + \frac{\psi(w)\partial_{w'} \psi(w')}{(z-z')^2}  + \frac{1}{(z - z')^2(w-w')^2} \right]\\
-&= \lim_{z'\to z} \lim_{w'\to w} \left[{:}\psi(z)\partial_{z'} \psi(z') \psi(w)\partial_{w'} \psi(w'){:} - \frac{{:}\partial_{z'}\psi(z')\partial_{w'} \psi(w'){:}}{(z-w)} \right]\\
-&= \lim_{z'\to z} \lim_{w'\to w} \left[{:}\psi(z)\partial_{z'} \psi(z') \psi(w)\partial_{w'} \psi(w'){:} 
-- \frac{\partial_{w'} {:}\partial_{z'}\psi(z')\psi(w'){:}}{(z-w)} 
-\right]\\
+&= \lim_{z'\to z} \lim_{w'\to w} \left[{:}\psi(z)\partial_{z'} \psi(z') \psi(w)\partial_{w'} \psi(w'){:} - \frac{{:}\partial_{z'}\psi(z')\partial_{w'} \psi(w'){:}}{(z-w)} \right]
 \end{align*}
 $$
 
