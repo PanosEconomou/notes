@@ -961,7 +961,7 @@ $$
 \langle \psi(z) \partial_w\psi(w)\rangle 
 &= \partial_w \langle \psi(z) \psi(w)\rangle\\
 &= \partial_w \frac{1}{z-w}\\
-&= - \frac{1}{(z-w)^2}.
+&= \frac{1}{(z-w)^2}.
 \end{align*}
 $$
 Now we can continue to define our theory by taking the OPE of T with itself. 
@@ -974,10 +974,9 @@ $$
 T(z)T(w) 
 &= \lim_{z'\to z} \left[\psi(z)\partial_{z'} \psi(z') T(w) + \frac{T(w)}{(z-z')^2} \right]\\
 &= \lim_{z'\to z} \lim_{w'\to w} \left[\psi(z)\partial_{z'} \psi(z') \psi(w)\partial_{w'} \psi(w') + \frac{\psi(z)\partial_{z'} \psi(z')}{(w-w')^2} + \frac{\psi(w)\partial_{w'} \psi(w')}{(z-z')^2}  + \frac{1}{(z - z')^2(w-w')^2} \right]\\
-&= \lim_{z'\to z} \lim_{w'\to w} \left[{:}\psi(z)\partial_{z'} \psi(z') \psi(w)\partial_{w'} \psi(w'){:} - \frac{{:}\partial_{z'}\psi(z')\partial_{w'} \psi(w'){:}}{(z-w)} \right]
+&= \lim_{z'\to z} \lim_{w'\to w} \left[{:}\psi(z)\partial_{z'} \psi(z') \psi(w)\partial_{w'} \psi(w'){:} - \frac{{:}\partial_{z'}\psi(z')\partial_{w'} \psi(w'){:}}{(z-w)} - \frac{{:}\partial_{z'} \psi(z') \psi(w){:}}{(z-w')^2} + \frac{{:}\psi(z)\partial_{w'}\psi(w'){:}}{(z'-w)^2} + \frac{2{:}\psi(z)\psi(w){:}}{(z'-w')^3} + \frac{2}{(z' - w')^3 (z-w)}\right]
 \end{align*}
 $$
-
 
 
 
