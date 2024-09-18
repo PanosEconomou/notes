@@ -949,7 +949,7 @@ So in QFT we just need to normal order these expressions and we can actually do 
 
 
 
-## Operator Product Expansions of Fermions
+## Central Charge of Free Fermion
 
 Using the correlation functions and the definition of the stress tensor we can find out the central charge of this theory.
 $$
@@ -972,10 +972,17 @@ Now we can continue to define our theory by taking the OPE of T with itself.
 $$
 \begin{align*}
 T(z)T(w) 
-&= \lim_{z'\to z} \left[\psi(z)\partial_{z'} \psi(z') T(w) + \frac{T(w)}{2(z-z')^2} \right]
+&= \lim_{z'\to z} \left[\psi(z)\partial_{z'} \psi(z') T(w) + \frac{T(w)}{2(z-z')^2} \right]\\
+
 
 \end{align*}
 $$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
 
 **<u>Theorem:</u>** The 2 dimensional conformal field theory of a free fermion is minimal.
 
@@ -983,14 +990,6 @@ $$
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
-
-
-
-
-## Free Fermion is a Minimal Model
-
-
-
 
 
 
