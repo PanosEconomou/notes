@@ -221,6 +221,18 @@ Consider now another 2-point function. Using ward identities we can see that
 
 
 
+# Pion Decay
+
+
+
+
+
+
+
+
+
+
+
 
 
 

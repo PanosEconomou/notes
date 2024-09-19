@@ -295,6 +295,16 @@ $$
 
 
 
+$$
+\begin{align*}
+T(\omega,\eta) 
+&= T(\omega_a dx^a,\eta_b dx^b)\\
+&= \omega_a\eta_bT(dx^a,dx^b)\\
+&= \omega_a\eta_b T^{ab}
+\end{align*}
+$$
+
+
 
 
 
