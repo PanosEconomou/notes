@@ -221,10 +221,22 @@ Consider now another 2-point function. Using ward identities we can see that
 
 
 
-# Pion Decay
+## Pion Decay
 
+Look up **[Pauli-Villars regularization](https://en.wikipedia.org/wiki/Pauli–Villars_regularization)**. This involves introducing a massive particle with a mass that at the end we will take the limit to infinity. In other words we add the following term on the lagrangian
+$$
+\mathcal L_M(X) = - i\bar X \centernot{D} X + M\bar X X
+$$
+for some $M \in \mathbb R$. Notice that adding it to the Dirac lagrangian we violate axial (chiral) symmetry. Adding this term to the massive Dirac lagrangian we will obtain that the regularized axial current is given by
+$$
+J^5_\mu = \bar \psi \gamma_\mu \gamma^5 \psi - \bar X \gamma_\mu \gamma^5X.
+$$
+Which is practically the same thing but we subtract the axial current for this new particle. 
 
-
+Another method of regularization is called **point split regularization.** This is simply evaluating a 2 point correlation function a distance $2\delta > 0$ appart. In other words we would have
+$$
+J_\mu^5 = \bar \psi(x + \delta) \gamma_\mu \gamma^5 e^{ie\int_{-\delta}^\delta A}\psi(x - \delta).
+$$
 
 
 

@@ -132,12 +132,11 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
 **<u>Definition:</u>** We can write the shift field in the basis above like so
 $$
 \delta \phi = \pi^i X_i + \sigma^iY_i,
 $$
-where $\pi^i,\sigma^i \in \Gamma^\infty(E)$ are known as **Goldstone fields** and **scalar mesons** respectively. 
+where $\pi^i,\sigma^i \in \Gamma^\infty(E)$ are known as **scalar mesons** and **Goldstone fields** respectively. 
 
 **<u>Theorem:</u>** *(Goldstone's Theorem)* A theory with a vacuum admits as many Goldstone fields as independent broken generators of the Lie algebra.
 
