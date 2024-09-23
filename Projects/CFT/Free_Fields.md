@@ -649,10 +649,6 @@ This is really cool! Because we can now play the CFT game! Let's consider the st
 
 
 
-
-
-
-
 # Free (Majorana) Fermion
 
 Another example that is worth going in detail in a way that is more similar to how we would work on it using modern methods is the free Fermion in 2D. We start by identifying all the spin structures on flat 2D space and eventually build up to a conformal field theory in the conformal sphere.
@@ -990,7 +986,6 @@ $$
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
-
 
 
 
