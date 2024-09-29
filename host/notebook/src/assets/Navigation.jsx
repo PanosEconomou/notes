@@ -1,5 +1,5 @@
-import { motion, useAnimate, useMotionValue } from "framer-motion";
-import { useEffect, useState, useRef } from "react";
+import { motion, useAnimate, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 import MenuSection from "./MenuSection";
 
@@ -40,7 +40,8 @@ export default function Navigation({ stickTo, setCursorVariant }) {
 
     const [files, setFiles] = useState([]);
     const [blur, setBlur] = useState(false);
-    const [divRef, animate] = useAnimate();
+    // const [divRef, animate] = useAnimate();
+    const controls = useAnimation();
     const [move, setMove] = useState({ offset: 0, strength: 100 });
 
     const handleMouseMove = (event) => {
@@ -50,8 +51,18 @@ export default function Navigation({ stickTo, setCursorVariant }) {
 
         const offset = - (window.innerWidth / 2) * (pos > 0 ? 1 : 0);
         const strength = Math.abs(pos);
-        animate(divRef.current, { x: offset }, { type: "spring", velocity: strength, damping: 1, mass: 1})
+        // animate(divRef.current, { x: offset }, { type: "spring", velocity: strength, damping: 1, mass: 1})
         console.log(pos);
+        controls.stop();
+        controls.start({
+            x: offset,
+            transition: {
+                type: "spring",
+                stiffness: strength,
+                damping: 1,
+                mass: 1,
+            }
+        });
         // setMove({ offset: offset, strength: strength });
     };
 
@@ -109,9 +120,9 @@ export default function Navigation({ stickTo, setCursorVariant }) {
         <motion.div
             id="container"
             variants={variants}
-            ref={divRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            // animate={controls}
         // initial={{
         //     x: 0
         // }}
