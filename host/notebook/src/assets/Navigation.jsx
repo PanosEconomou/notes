@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useAnimate, useMotionValue } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 import MenuItem from "./MenuItem";
 import MenuSection from "./MenuSection";
 
@@ -40,6 +40,24 @@ export default function Navigation({ stickTo, setCursorVariant }) {
 
     const [files, setFiles] = useState([]);
     const [blur, setBlur] = useState(false);
+    const [divRef, animate] = useAnimate();
+    const [move, setMove] = useState({ offset: 0, strength: 100 });
+
+    const handleMouseMove = (event) => {
+        const epsilon = 10;
+        const pos = event.clientX - window.innerWidth / 2
+
+
+        const offset = - (window.innerWidth / 2) * (pos > 0 ? 1 : 0);
+        const strength = Math.abs(pos);
+        animate(divRef.current, { x: offset }, { type: "spring", velocity: strength, damping: 1, mass: 1})
+        console.log(pos);
+        // setMove({ offset: offset, strength: strength });
+    };
+
+    const handleMouseLeave = () => {
+        setMove({ offset: 0, strength: 100 });
+    };
 
     const fetchFiles = () => {
         fetch("./NOTES/directory_listing.txt")
@@ -79,7 +97,7 @@ export default function Navigation({ stickTo, setCursorVariant }) {
                 )
             } else {
                 return (
-                    <MenuItem key={i} text={key.replaceAll("_", " ").replaceAll(".md", "")} href={"/"+currentPath.replaceAll("/", "+").replaceAll(".md", "")} stickTo={stickTo} setCursorVariant={setCursorVariant} />
+                    <MenuItem key={i} text={key.replaceAll("_", " ").replaceAll(".md", "")} href={"/" + currentPath.replaceAll("/", "+").replaceAll(".md", "")} stickTo={stickTo} setCursorVariant={setCursorVariant} />
                 );
             }
         });
@@ -88,8 +106,25 @@ export default function Navigation({ stickTo, setCursorVariant }) {
 
 
     return (
-        <motion.div id="container"
+        <motion.div
+            id="container"
             variants={variants}
+            ref={divRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+        // initial={{
+        //     x: 0
+        // }}
+        // animate={{
+        //     x: x,
+        // }}
+        // transition={{
+        //     // duration: move.strength,
+        //     // ease: "linear",
+        //     // type: "spring",
+        //     // stiffness: move.strength,
+        //     // damping: 10,
+        // }}
         >
             {renderMenu(files)}
         </motion.div>
