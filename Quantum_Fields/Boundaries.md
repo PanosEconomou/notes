@@ -8,11 +8,11 @@ What happens when we try to do a 2D CFT on a manifold that has a Boundary? In th
 
 Before we talk about boundaries let's try to explore some relevant properties of Conformal Field Theories that should not be broken when we add a boundary. To study modular invariance we will talk about intertwiners. These are objects that map between representations of CFTs. 
 
-## Complex Quotien Maps of Tori
+## Complex Quotient Maps of Tori
 
 To explain modular invariance, let’s try to understand modular transformations. To do this, we need to understand how we can obtain a torus from the complex plane.
 
-**<u>Lemma:</u>** Any complex number $\tau \in \mathbb H\subset \mathbb C $ in the upper half plane defines an equivalence relation on $\mathbb C$ such that
+**<u>Lemma:</u>** Any complex number $\tau \in \mathbb H\subset \mathbb C $ in the upper half plane defines the **torus equivalence** relation on $\mathbb C$ such that
 $$
 z \sim z + n + m\tau,
 $$
@@ -26,7 +26,9 @@ This is pretty clear to verify, but the picture is looks like this.
 
 
 
-Essentially, each parallelogram is equivalent to each other, making it a donought. 
+Essentially, each parallelogram is equivalent to each other. If we take the quotient we get a torus like so.
+
+**<u>Theorem:</u>** The quotient $\mathbb C/{\sim}$ under the torus equivalence is homeomorphic to a torus iff $\Im \tau \neq 0$ otherwise it is homeomorphic to a Cylinder. In fact the homeomorphism is a diffeomorphism of real smooth manifolds.
 
 
 
