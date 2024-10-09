@@ -58,9 +58,11 @@ for some $\Omega \in C^\infty(M)$.
 
 The intuition behind conformal equivalence is that two manifolds are conformally equivalent if I can take one and stretch it into the other without changing the orientation or any of the angles in the process. 
 
-**<u>Example:</u>** The flat tori obtained by the torus equivalence for any $\tau \in \mathbb H$ are conformally equivalent if $\Im \tau >0$.
+**<u>Example:</u>** The flat tori obtained by the torus equivalence for some $\tau \in \mathbb H$ and $-\frac{1}{\tau}$ are conformally equivalent. 
 
-***Proof:*** Let's sketch out a cute proof of this. Consider $\tau,\tau' \in \mathbb H$, and notice that there exists a conformal transformation $f:\mathbb H\to \mathbb H$ such that $f(\tau) = \tau'$ and $f(1) = 1$. 
+***Proof:*** Let's sketch out a cute proof of this. The transformation $R : \mathbb C\to \mathbb C$ given by $z\mapsto -e^{-i\arg \tau}z$ is a conformal transformation as a rotation of the complex plane. The same thing is true for scalings $D :\mathbb C\to \mathbb C $ where $z\mapsto \frac{1}{||\tau||} z$. 
+
+We know that these maps decends to the quotient
 
 
 
