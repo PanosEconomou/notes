@@ -62,11 +62,9 @@ The intuition behind conformal equivalence is that two manifolds are conformally
 
 ***Proof:*** The transformation $R : \mathbb C\to \mathbb C$ given by $z\mapsto -e^{-i\arg \tau}z$ is a conformal transformation as a rotation of the complex plane. The same thing is true for scalings $D :\mathbb C\to \mathbb C $ where $z\mapsto \frac{1}{||\tau||} z$. We note that the transformation $z\mapsto -\frac{1}{z}$ is the composition of the two so it is conformal. 
 $$
-\begin{xy}
 \xymatrix{
 A \ar[d]^b \ar[r]^a &B\ar[d]^c\\
 C \ar[r]^d &D}
-\end{xy}
 $$
 
 

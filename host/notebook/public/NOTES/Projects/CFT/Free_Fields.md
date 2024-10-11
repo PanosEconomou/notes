@@ -649,10 +649,6 @@ This is really cool! Because we can now play the CFT game! Let's consider the st
 
 
 
-
-
-
-
 # Free (Majorana) Fermion
 
 Another example that is worth going in detail in a way that is more similar to how we would work on it using modern methods is the free Fermion in 2D. We start by identifying all the spin structures on flat 2D space and eventually build up to a conformal field theory in the conformal sphere.
@@ -869,7 +865,7 @@ $$
 where $G$ is the matrix given by
 
 $$
-G(x) = \begin{pmatrix}\frac{1}{z-w} & 0 \\ 0 & \frac{1}{\bar z - \bar w}\end{pmatrix}.
+G(x) = \frac{1}{2} \begin{pmatrix}\frac{1}{z-w} & 0 \\ 0 & \frac{1}{\bar z - \bar w}\end{pmatrix}.
 $$
 
 ***Proof:*** We are operating under the assumption that all of our spinors are locally analytic, in particular we assume that for $\eta = \binom{\eta}{\bar \eta}$, that the first component is locally holomorphic and the second is locally antiholomorphic. Therefore using the identity we derived for the delta function we can write:
@@ -878,8 +874,8 @@ $$
 \eta(z) 
 &= \int_{\mathbb C} \begin{pmatrix}\delta(z-w) &0 \\0&\delta(z-w) \end{pmatrix} \binom{\eta(w)}{\bar \eta(\bar w)}\, dwd\bar w\\
 &= \int_{\mathbb C} \begin{pmatrix}\frac{\partial}{\partial \bar w} \frac{1}{w-z} &0 \\0& \frac{\partial}{\partial w} \frac{1}{\bar w-\bar z} \end{pmatrix} \binom{\eta(w)}{\bar \eta(\bar w)}\, dwd\bar w\\
-&= \int_{\mathbb C} \frac{ \gamma^0\centernot\partial_z}{2} G(z-w)\eta(w)\, dwd\bar w\\
-&= \frac{ \gamma^0\centernot\partial}{2}\int_{\mathbb C} G(z-w)\eta(w)\, dwd\bar w,
+&= \int_{\mathbb C} \gamma^0\centernot\partial_z G(z-w)\eta(w)\, dwd\bar w\\
+&= \gamma^0\centernot\partial\int_{\mathbb C} G(z-w)\eta(w)\, dwd\bar w,
 \end{align*}
 $$
 
@@ -908,7 +904,7 @@ $$
 This can also be expressed as
 
 $$
-\begin{pmatrix}\langle\psi(z) \psi(w)\rangle & \langle\bar \psi(\bar z) \psi(w)\rangle \\ \langle\psi(z) \bar \psi(\bar  w)\rangle & \langle\bar \psi(\bar z) \bar \psi(\bar w)\rangle\end{pmatrix} = \begin{pmatrix}\frac{1}{z-w} & 0\\ 0&\frac{1}{\bar z - \bar w}\end{pmatrix}.
+\begin{pmatrix}\langle\psi(z) \psi(w)\rangle & \langle\bar \psi(\bar z) \psi(w)\rangle \\ \langle\psi(z) \bar \psi(\bar  w)\rangle & \langle\bar \psi(\bar z) \bar \psi(\bar w)\rangle\end{pmatrix} = \frac{1}{2}\begin{pmatrix}\frac{1}{z-w} & 0\\ 0&\frac{1}{\bar z - \bar w}\end{pmatrix}.
 $$
 
 
@@ -916,7 +912,7 @@ $$
 
 We can now do a small diversion into finding the stress energy tensor of this fermionic theory. Classically speaking we can extract it using the variation principle. In particular we have.
 $$
-S(\psi) = \int_{\mathbb C} \ast \langle \psi,\centernot\partial \psi\rangle \implies \frac{d S(\psi+\epsilon \eta)}{d\epsilon} = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \eta\rangle + \ast \langle \eta,\centernot\partial\psi\rangle.
+S(\psi) = \int_{\mathbb C} \ast \langle \psi,\centernot\partial \psi\rangle \implies \frac{d S(\psi+\epsilon \eta)}{d\epsilon} = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \eta\rangle + \ast \langle \eta,\centernot\partial\psi\rangle = \int \ast 2 \langle \eta,.
 $$
 Now we need to consider the case where $\eta$ is the variation of $\psi$ under the local action of the isomorphism group. In this case this is translations. This is particularly nice, because the related vector fields in this case are the same due to the vector space isomorphism of the Lie algebra with the Euclidean group. Therefore we have that
 $$
@@ -926,35 +922,70 @@ So we let $\eta = \nabla_{\tilde X}\psi + \mathcal O(\epsilon)$. As a result, we
 $$
 \delta S = \int_{\mathbb C} \ast \langle \psi,\centernot \partial \nabla_{\tilde X} \psi\rangle + \ast \langle \nabla_{\tilde X} \psi,\centernot\partial\psi\rangle.
 $$
-The connection $\nabla : \mathfrak X(\mathbb C) \times \Gamma^\infty(\text{Spin}^+(\mathbb C)) \to \Gamma^\infty(\text{Spin}^+(\mathbb C))$ is given by the canonical spin connection. The derivation can be found [here](../../Quantum_Fields/Spinors.md#spin-connection), but the cool thing is that since the space has zero curvature, the spin connection one-form is zero! So we can calculate the derivatives like so:
+The connection $\nabla : \mathfrak X(\mathbb C) \times \Gamma^\infty(\text{Spin}^+(\mathbb C)) \to \Gamma^\infty(\text{Spin}^+(\mathbb C))$ is given by the canonical spin connection. The derivation can be found [here](../../Quantum_Fields/Spinors.md#spin-connection), but the cool thing is that since the space has zero curvature, the spin connection one-form is zero! Using the field equations we derive that the second term must vanish, and therefore we obtain
 $$
-\nabla_X \psi = \nabla_{X} \psi^j e_j = (X \psi^j)e_j + \psi^j \nabla_Xe_j = (X\psi^j)e_j = \begin{pmatrix}X & 0 \\ 0 &X\end{pmatrix} \psi = X\cdot 1 \psi.
+\delta S = \int_{\mathbb C} \ast \langle \psi,\centernot{\partial} \nabla_{\tilde X} \psi \rangle = \int_{\mathbb C} d  \ast \left[ \langle \psi,\gamma_\mu \nabla_{\tilde X} \psi \rangle dx^\mu\right] = \int_{\mathbb C} d \langle \psi,\text{vol} \cdot \nabla_{\tilde X} \psi \rangle,
 $$
-Now using integration by parts we can write the action as
+where $d\text{vol}$ is the volume form of $\mathbb C$ and $\cdot$ denotes the Clifford multiplication. As a result we can find that the stress energy tensor is given by
 $$
-\delta S = \int_{\mathbb C} \ast
+T = \langle \psi,\ast \text{vol} \cdot d_{\nabla} \psi \rangle.
+$$
+Or in any human readable form
+$$
+T=\bar \psi \gamma_\mu \partial_\nu \psi \, dx^\mu \otimes dx^\nu.
+$$
+We immidiately note that this tensor is not symmetric. However, in the case of the off diagonal components we can see that the tensor components vanish because of the field equations. Furthermore, we can write the diagonal components as
+$$
+\begin{align*}
+T = \psi \partial_z \psi && \bar T =\bar \psi \partial_{\bar z}\bar  \psi.
+\end{align*}
+$$
+So in QFT we just need to normal order these expressions and we can actually do OPEs.
+
+
+
+
+## Central Charge of Free Fermion
+
+Using the correlation functions and the definition of the stress tensor we can find out the central charge of this theory.
+$$
+T(z) =\, :\psi(z)\partial_z\psi(z):\, = \lim_{w\to z} \left[\psi(z)\partial_w \psi(w) - \langle \psi(z) \partial_w\psi(w)\rangle \right].
+$$
+So let’s calculate the first correlation function
+$$
+\begin{align*}
+\langle \psi(z) \partial_w\psi(w)\rangle 
+&= \partial_w \langle \psi(z) \psi(w)\rangle\\
+&=\frac{1}{2} \partial_w \frac{1}{z-w}\\
+&= \frac{1}{2(z-w)^2}.
+\end{align*}
+$$
+Now we can continue to define our theory by taking the OPE of T with itself. 
+
+**<u>Lemma:</u>** The **central charge** for the conformal field theory of a free fermion is $c=\frac{1}{2}$. 
+
+***Proof:*** We take the following OPE
+$$
+\begin{align*}
+T(z)T(w) 
+&= \lim_{z'\to z} \left[\psi(z)\partial_{z'} \psi(z') T(w) + \frac{T(w)}{2(z-z')^2} \right]\\
+
+
+\end{align*}
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 
 
+**<u>Theorem:</u>** The 2 dimensional conformal field theory of a free fermion is minimal.
 
-
-
-## Operator Product Expansions of Fermions
-
-Using the correlation functions we can derive the 
-
-
-
-
-
-
-
-
-
-
-
-
+***Proof:*** Using the previous lemma $c=1/2$. Since Verma modules with specific conformal parameters are unique up to isomorphism, and the $L_k$ form a unitary representation of the Virasoro algebra, the Hilbert space is decomposed uniquely to the one of the corresponding minimal model by Kac's theorem. So there is a finite number of primary fields, that we can perfectly describe. For more details about that look [here](../../Quantum_Fields/Virasoro_Algebra.md).
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
 

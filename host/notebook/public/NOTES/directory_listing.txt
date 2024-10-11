@@ -1,9 +1,15 @@
 public/NOTES
+Class_Notes
+Class_Notes/README.md
+Class_Notes/QFT3
+Class_Notes/QFT3/README.md
+Class_Notes/QFT3/Anomalies.md
 Quantum_Fields
 Quantum_Fields/_Conformal_Group.assets
 Quantum_Fields/_Conformal_Group.assets/README.md
 Quantum_Fields/_Conformal_Group.assets/image-20231004224307511.png
 Quantum_Fields/_Conformal_Group.assets/one-parameter-subgroup.png
+Quantum_Fields/.DS_Store
 Quantum_Fields/Renormalization_Group.md
 Quantum_Fields/_Spinors.assets
 Quantum_Fields/_Spinors.assets/image-20240521181543760.png
@@ -13,9 +19,9 @@ Quantum_Fields/Virasoro_Algebra.md
 Quantum_Fields/Symmetry_Breaking.md
 Quantum_Fields/Spinors.md
 Quantum_Fields/README.md
-Quantum_Fields/QFT3
-Quantum_Fields/QFT3/Scope.md
-Quantum_Fields/QFT3/README.md
+Quantum_Fields/Boundaries.md
+Quantum_Fields/_Boundaries.assets
+Quantum_Fields/_Boundaries.assets/modular-plane.svg
 Quantum_Fields/Axiomatic_QFT.md
 Quantum_Fields/_Virasoro_Algebra.assets
 Quantum_Fields/_Virasoro_Algebra.assets/generators.png
@@ -26,6 +32,8 @@ Quantum_Fields/_2D_CFT_Axioms.assets/image-20231128193346798.png
 Quantum_Fields/Vertex_Operator_Algebras.md
 Quantum_Fields/Conformal_Group.md
 Quantum_Fields/Path_Integrals.md
+Quantum_Fields/_Symmetry_Breaking.assets
+Quantum_Fields/_Symmetry_Breaking.assets/linear-sigma-model.svg
 Analysis
 Analysis/_Functional_Analysis.assets
 Analysis/_Functional_Analysis.assets/image-20230621110356961.png
@@ -79,6 +87,7 @@ Projects/Dissipative_QFT/Dissipation_Currents.md
 Projects/CFT
 Projects/CFT/_Free_Fields.assets
 Projects/CFT/_Free_Fields.assets/trivialization.svg
+Projects/CFT/.DS_Store
 Projects/CFT/Ising_Model.md
 Projects/CFT/_Ising_Model.assets
 Projects/CFT/_Ising_Model.assets/image-20240420013237038.png

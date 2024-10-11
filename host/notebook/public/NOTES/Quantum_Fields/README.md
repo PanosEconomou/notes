@@ -8,6 +8,7 @@ Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 
 - [Axioms in 2D CFT](2D_CFT_Axioms.md)
 - [Axiomatic QFT](Axiomatic_QFT.md)
+- [Conformal Boundaries](Boundaries.md)
 - [Conformal Group](Conformal_Group.md)
 - [Path Integrals](Path_Integrals.md)
 - [Renormalization Group](Renormalization_Group.md)
@@ -15,5 +16,3 @@ Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 - [Symmetry Braking](Symmetry_Breaking.md)
 - [Vertex Operator Algebras](Vertex_Operator_Algebras.md)
 - [Virasoro Algebra](Virasoro_Algebra.md)
-- [**QFT3**](QFT3)
-    - [Perturbations on Background Classical Fields](QFT3/Scope.md)

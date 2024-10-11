@@ -271,9 +271,37 @@ for some $L\in \mathbb N$, and $\Lambda, \gamma \in \mathbb R$.
 
 Having the quantum mechanical model it is time to "take the continuum limit" and obtain a quantum field theory for it. This is done through the **Jordan-Wigner transformation** that we will explore in mode detail. What we will derive, is a prescription to increase the number of spins in such a way that it limits to the CFT of a free fermion. 
 
+To do so, we will define linear operators $c_i : \mathcal H \to \mathcal H$ such that 
+$$
+\begin{align*}
+\sigma_i^z = - \prod_{i<j}(1-2c_j^\dagger c_j) (c_i + c_i^\dagger) && \sigma_i^x  = 1-2c_i^\dagger c_i.
+\end{align*}
+$$
+**<u>Proposition:</u>** These operators have the following commutation relations
+
+1. $\{c_i,c_j^\dagger\}=\delta_{ij}$
+2. $\{c_i,c_j\}=\{c_i^\dagger,c_j^\dagger\} = 0$
+
+The cool thing is that we can now rewrite the Hamiltonian. 
+
+**<u>Proposition:</u>** The Hamiltonian for the 1D Ising chain can be written as
+$$
+H = -J\sum_{i=1}^N c_i^\dagger c_{i+1} + c_{i+1}^\dagger c_i + c_i^\dagger c_{i+1}^\dagger + c_{i+1}c_i - 2g ci^\dagger c_i + g.
+$$
+***Proof:*** Plug it in and cry.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
- 
+
+
+
+
+
+
+
+
 
 
 

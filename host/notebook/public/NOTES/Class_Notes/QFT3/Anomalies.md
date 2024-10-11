@@ -199,8 +199,68 @@ $$
 
 
 
+## Axial Anomaly
+
+We will develop this in the context of 2D Electrodynamics. That QED lagrangian has a couple of global symetries. They are
+$$
+\begin{align*}
+U(1): \psi &\to \psi e^{i\alpha}\\
+U(1): \psi &\to e^{i\gamma^5\alpha}\psi.
+\end{align*}
+$$
+These global symmetries will give rize to conserved currents. In this case the currents are
+$$
+\begin{align*}
+J_\mu &= \bar \psi \gamma_\mu \psi\\
+J_\mu^5 &= \bar \psi \gamma_\mu \gamma_5 \psi.
+\end{align*}
+$$
+Consider now another 2-point function. Using ward identities we can see that 
+
+> We said that we assume that charge symmetry is not broken because it is gauged, hence we picked the axial. Would it be possible to consistently break that one instead and get an equivalent anomaly?
 
 
+
+## Pion Decay
+
+Look up **[Pauli-Villars regularization](https://en.wikipedia.org/wiki/Pauli–Villars_regularization)**. This involves introducing a massive particle with a mass that at the end we will take the limit to infinity. In other words we add the following term on the lagrangian
+$$
+\mathcal L_M(X) = - i\bar X \centernot{D} X + M\bar X X
+$$
+for some $M \in \mathbb R$. Notice that adding it to the Dirac lagrangian we violate axial (chiral) symmetry. Adding this term to the massive Dirac lagrangian we will obtain that the regularized axial current is given by
+$$
+J^5_\mu = \bar \psi \gamma_\mu \gamma^5 \psi - \bar X \gamma_\mu \gamma^5X.
+$$
+Which is practically the same thing but we subtract the axial current for this new particle. 
+
+Another method of regularization is called **point split regularization.** This is simply evaluating a 2 point correlation function a distance $2\delta > 0$ appart. In other words we would have
+$$
+J_\mu^5 = \bar \psi(x + \delta) \gamma_\mu \gamma^5 e^{ie\int_{-\delta}^\delta A}\psi(x - \delta).
+$$
+
+
+
+# Anomalies in Flow
+
+Consider a Chern Simons theory in 2+1 D given by
+$$
+\mathcal L = \frac{1}{2} F\wedge \ast F + q A\wedge dA + \delta(y) \left[-\frac{1}{4e^2} f\wedge \ast f+ \ast i\bar \psi_L \centernot D \psi_L\right]
+$$
+where $\psi_L$ is a chiral fermion and $f$ is the projection of $A$ on the boundary located at $y=0$.  
+
+To understand the anomalies that we encounter let’s do a gauge transformation. It is given by
+$$
+\delta A_\mu = \partial_\mu \alpha,
+$$
+and the fermions transform as
+$$
+\psi \mapsto e^{i\hat \alpha} \psi,
+$$
+where $\hat \alpha(t,x) = \alpha(t,x,0)$. They will be able to give rize to solitons. 
+
+
+
+## Solitons
 
 
 
