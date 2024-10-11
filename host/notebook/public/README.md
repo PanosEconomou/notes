@@ -12,6 +12,9 @@
         - [Distributions](NOTES/Analysis/Distributions.md)
         - [Functional Analysis](NOTES/Analysis/Functional_Analysis.md)
         - [Variational Calculus](NOTES/Analysis/Variational_Calculus.md)
+    - [**Class_Notes**](NOTES/Class_Notes)
+        - [**QFT3**](NOTES/Class_Notes/QFT3)
+            - [Perturbations on Background Classical Fields](NOTES/Class_Notes/QFT3/Anomalies.md)
     - [**Quanta**](NOTES/Classical_Physics)
         - [Momentum](NOTES/Classical_Physics/Momentum.md)
         - [Quantum Mechanics](NOTES/Classical_Physics/Quantum_Entry.md)
@@ -38,6 +41,7 @@
         Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
         - [Axioms in 2D CFT](NOTES/Quantum_Fields/2D_CFT_Axioms.md)
         - [Axiomatic QFT](NOTES/Quantum_Fields/Axiomatic_QFT.md)
+        - [Conformal Boundaries](NOTES/Quantum_Fields/Boundaries.md)
         - [Conformal Group](NOTES/Quantum_Fields/Conformal_Group.md)
         - [Path Integrals](NOTES/Quantum_Fields/Path_Integrals.md)
         - [Renormalization Group](NOTES/Quantum_Fields/Renormalization_Group.md)
@@ -45,5 +49,3 @@
         - [Symmetry Braking](NOTES/Quantum_Fields/Symmetry_Breaking.md)
         - [Vertex Operator Algebras](NOTES/Quantum_Fields/Vertex_Operator_Algebras.md)
         - [Virasoro Algebra](NOTES/Quantum_Fields/Virasoro_Algebra.md)
-        - [**QFT3**](NOTES/Quantum_Fields/QFT3)
-            - [Perturbations on Background Classical Fields](NOTES/Quantum_Fields/QFT3/Scope.md)
