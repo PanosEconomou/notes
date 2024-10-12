@@ -43,7 +43,6 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
 ## Conformal Equivalence
 
 Conformal equivalence is the property we want the modular transformations to preserve. So let's think about it first before we think of the rest. The idea is very simple. 
@@ -61,13 +60,60 @@ The intuition behind conformal equivalence is that two manifolds are conformally
 **<u>Example:</u>** The flat tori obtained by the torus equivalence for some $\tau \in \mathbb H$ and $-\frac{1}{\tau}$ are conformally equivalent. 
 
 ***Proof:*** The transformation $R : \mathbb C\to \mathbb C$ given by $z\mapsto -e^{-i\arg \tau}z$ is a conformal transformation as a rotation of the complex plane. The same thing is true for scalings $D :\mathbb C\to \mathbb C $ where $z\mapsto \frac{1}{||\tau||} z$. We note that the transformation $z\mapsto -\frac{1}{z}$ is the composition of the two so it is conformal. 
+
+Now take a look at he follwing commutative diagram.
 $$
-\begin{xy}
-\xymatrix{
-A \ar[d]^b \ar[r]^a &B\ar[d]^c\\
-C \ar[r]^d &D}
-\end{xy}
+\begin{CD}
+\mathbb C @>f>> \mathbb C\\
+@Vq_{\tau}VV @VVq_{-\frac{1}{\tau}}V\\
+\mathbb C/{\mathbb Z^2} @>>\tilde f> \mathbb C/{\mathbb Z^2}
+\end{CD}
 $$
+We have a conformal map $f$ such ttaht $q_{-\frac{1}{\tau}} \circ f$ respects the identifications of $q_\tau$. As a result the composition decends to the quotient. In other words there exists a unique map $\tilde f :  \mathbb C/\mathbb Z^2\to \mathbb C/\mathbb Z^2$ such that 
+$$
+\tilde f\circ q_\tau = q_{-\frac{1}{\tau}} \circ f.
+$$
+Using this, we can prove that $\tilde f$ is conformal. Consider the metric
+$$
+g_{-\frac{1}{\tau}} = (q_{-\frac{1}{\tau}}^\ast)^{-1} g,
+$$
+of the right quotient. Then we can take the pullback under $\tilde f$ to obtain
+$$
+\begin{align*}
+\tilde f^\ast g_{-\frac{1}{\tau}} 
+&= \tilde f^\ast \circ (q_{-\frac{1}{\tau}}^\ast)^{-1} g\\
+&= (q_{\tau}^\ast)^{-1} \circ f^\ast \circ q_{-\frac{1}{\tau}}^\ast \circ (q_{-\frac{1}{\tau}}^\ast)^{-1} g\\
+&= (q_{\tau}^\ast)^{-1} \circ f^\ast g\\
+&= (q_{\tau}^\ast)^{-1} \Omega^2 g\\
+&= \tilde \Omega^2 g_{\tau}.
+\end{align*}
+$$
+where we have used the fact the that quotient maps are submersions, therefore their pullback is surjective, and thus invertible since the dimension of the quotient is the dimension of the original manifold. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+## The Modular Group
+
+Now we are ready to find the modular group. 
+
+**<u>Definition:</u>** A diffeomorphism $f: \mathbb H \to \mathbb H$ is called **modular** if for every $\tau \in \mathbb H$ the torus quotients under $\tau$ and $f(\tau)$ are conformally equivalent.
+
+Now it is time to find them by proving the following Lemma.
+
+**<u>Lemma:</u>** The set of modular transformations is the group $PSL(\mathbb Z^2)$ under composition. 
+
+***Proof:*** Since for every $\tau \in \mathbb H$, $f(\tau)$ must also be in the upper half plane, then we know that the group of modular transformations must be contained in the group of smooth maps that leave the upper half plane invariant. This is the group $PGL(\mathbb C)$, which is the quotient of $GL(\mathbb C)$ by its center.
+
+However, there is no guarantee that each of these transformations would preserve the lattice identifications of the respective quotient map. In order to see that, we want for any $\tau \in \mathbb H$ 
+$$
+q_{f(\tau)}(z) = q_{f(\tau)}(w) \iff q_{\tau}(z) = q_{\tau}(w),
+$$
+for all $z,w \in \mathbb C$. If this is true then both maps would make the same identifications and by the lemma we showed before, they quotients would be conformally equivalent iff $f$ is conformal.  
+
+$(\implies)$ If $w = z + m +nf(\tau)$ for some $n,m \in \mathbb Z$ then there must exist $p,q \in \mathbb Z$ such that $w = z + p + q \tau$. 
+
 
 
 
