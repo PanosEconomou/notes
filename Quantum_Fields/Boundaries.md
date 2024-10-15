@@ -106,16 +106,6 @@ Now it is time to find them by proving the following Lemma.
 
 ***Proof:*** Since for every $\tau \in \mathbb H$, $f(\tau)$ must also be in the upper half plane, then we know that the group of modular transformations must be contained in the group of smooth maps that leave the upper half plane invariant. This is the group $PGL(\mathbb C)$, which is the quotient of $GL(\mathbb C)$ by its center.
 
-However, there is no guarantee that each of these transformations would preserve the lattice identifications of the respective quotient map. In order to see that, we want for any $\tau \in \mathbb H$ 
-$$
-q_{f(\tau)}(z) = q_{f(\tau)}(w) \iff q_{\tau}(z) = q_{\tau}(w),
-$$
-for all $z,w \in \mathbb C$. If this is true then both maps would make the same identifications and by the lemma we showed before, they quotients would be conformally equivalent iff $f$ is conformal.  
-
-$(\implies)$ If $w = z + m +nf(\tau)$ for some $n,m \in \mathbb Z$ then there must exist $p,q \in \mathbb Z$ such that $w = z + p + q \tau$. 
-
-
-
 
 
 
