@@ -104,7 +104,7 @@ Now it is time to find them by proving the following Lemma.
 
 **<u>Lemma:</u>** The set of modular transformations is the group $PSL(\mathbb Z^2)$ under composition. 
 
-***Proof:*** Since for every $\tau \in \mathbb H$, $f(\tau)$ must also be in the upper half plane, then we know that the group of modular transformations must be contained in the group of smooth maps that leave the upper half plane invariant. This is the group $PGL(\mathbb C)$, which is the quotient of $GL(\mathbb C)$ by its center.
+***Proof:*** 
 
 
 
