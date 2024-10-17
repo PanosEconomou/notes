@@ -122,7 +122,7 @@ $$
 $$
 Now we use this to find the group action. 
 
-**<u>Proposition:</u>** Given a lattice $\Lambda$ on a vector space $(V,\mathbb{K})$ over ring $R\subset \mathbb{K}$ spanned by the basis $B \subset V$, the map 
+**<u>Proposition:</u>** Given a lattice $\Lambda$ on a topological vector space $(V,\mathbb{K})$ over ring $R\subset \mathbb{K}$ spanned by the basis $B \subset V$, the map 
 $$
 \begin{align*}
 \rho: R^{B}\times V &\to V\\
@@ -131,11 +131,30 @@ $$
 $$
 where $f:R^{B}\to \Lambda$ is the defining homomorphism, defines a *free* and *proper* group action of $R^B$ on $V$.
 
-***Proof:*** 
+***Proof:*** It is easy to see that it is a group action, since for any $g\in R^{B}$ the induced map
+$$
+\rho_g : V\to V,
+$$
+is a vector space isomorphism (so technically $\rho$ is a representation), since it acts by translation. To show that it is free, we need to show that for any $v \in V$, its stabilizer is trivial. The stabilizer for any point is defined as
+$$
+S_v \coloneqq \{ g \in R^B \mid gv = v\}.
+$$
+However, we can see that in this case, we have that $gv = v+ f(g)$ so this implies that $g\in S_v \iff f(g) = 0 \iff g=e$. So the stabilizers are trivial, hence the action is free. Then we can show that the action is proper. A proper action, satisfies that the preimage of any compact set under the map
+$$
+\begin{align*}
+R^B \times V &\to V\times V\\
+(g,v) &\to (gv,v)
+\end{align*}
+$$
+is compact. To show this we treat $R^B$ with the subset topology induced by the defining homomorphism of $f:R^B \to \Lambda \subset V$ and we can see that the preimages of compact sets are simply translated, so they remain compact in the topological vector space topology since translations are proper maps, and so are their products.
+
+Therefore the action is free and proper. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
-
-Now it is time to find them by proving the following Lemma.
+We have enough tools to find the modular transformations now. 
 
 **<u>Lemma:</u>** Let conformal automorphism of a flat torus, lifts to a conformal map of the complex plane.
 
