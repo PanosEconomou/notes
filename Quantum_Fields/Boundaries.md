@@ -93,18 +93,63 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
 ## The Modular Group
 
 Now we are ready to find the modular group. 
 
 **<u>Definition:</u>** A diffeomorphism $f: \mathbb H \to \mathbb H$ is called **modular** if for every $\tau \in \mathbb H$ the torus quotients under $\tau$ and $f(\tau)$ are conformally equivalent.
 
+Before we find them, let’s think about lattices for a second. 
+
+**<u>Definition:</u>** Given a vector space $(V,\mathbb K)$ with a basis $B \subset V$ over a field $\mathbb K$, and a ring $R\subset \mathbb K$, a **lattice** $\Lambda \subset V$ is the $R$ span of the basis $B$ given by
+$$
+\Lambda \coloneqq \left\{ \sum_{b\in B}^\infty r_b b\ \middle|\ r_b \in R  \right\}
+$$
+This definition gives us exactly what we expect from a lattice. We pick a basis, such that we can get to every point in the lattice in integer steps. The reason for introducing them in the first place is because a lattice induces an action of the group $R^{|B|}$ on the vector space $V$ like so.
+
+**<u>Lemma:</u>** Every lattice $\Lambda$ on a vector space $(V,\mathbb{K})$ over ring $R\subset \mathbb{K}$ spanned by the basis $B \subset V$ is homomorphic to $R^{B}$ under addition. 
+
+***Proof:*** The following map is a group homomorphism
+$$
+\begin{align*}
+f: R^{B} &\to \Lambda\\
+\{r_b\}_{b\in B} &\mapsto \sum_{b\in B} r_b b \in \Lambda
+\end{align*}
+$$
+this map is called the **defining homomorphism**. Just so that we can have a name for it.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Now we use this to find the group action. 
+
+**<u>Proposition:</u>** Given a lattice $\Lambda$ on a vector space $(V,\mathbb{K})$ over ring $R\subset \mathbb{K}$ spanned by the basis $B \subset V$, the map 
+$$
+\begin{align*}
+\rho: R^{B}\times V &\to V\\
+(r,v) &\mapsto  v+f(r),
+\end{align*}
+$$
+where $f:R^{B}\to \Lambda$ is the defining homomorphism, defines a *free* and *proper* group action of $R^B$ on $V$.
+
+***Proof:*** 
+
+
+
 Now it is time to find them by proving the following Lemma.
+
+**<u>Lemma:</u>** Let conformal automorphism of a flat torus, lifts to a conformal map of the complex plane.
+
+***Proof:*** We can construct any flat torus given the action of $\mathbb Z^2$ on $\mathbb C$ defined using a lattice. 
 
 **<u>Lemma:</u>** The set of modular transformations is the group $PSL(\mathbb Z^2)$ under composition. 
 
 ***Proof:*** 
+
+
+
+> Look up [**modular forms**](https://en.wikipedia.org/wiki/Modular_form)
+
+
 
 
 
