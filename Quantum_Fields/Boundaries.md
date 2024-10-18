@@ -152,17 +152,68 @@ Therefore the action is free and proper.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+We have enough tools to find the modular transformations now. We will do so by first classifying the conformal automorphisms of the flat torus and then get the modular transformations for free. 
+
+**<u>Lemma:</u>** Any conformal automorphism of a flat torus, lifts to a conformal map of the complex plane.
+
+***Proof:*** We can construct any flat torus given the action of $\mathbb Z^2$ on $\mathbb C$ defined using a lattice $\Lambda$ over $\mathbb Z$ defined using the basis $w \in \mathbb{C}^2$, i.e.
+$$
+\Lambda \coloneqq \{mw_1 + nw_2 \in \mathbb{C}\mid m,n \in \mathbb Z\}.
+$$
+ Using the previous theorem, the action of $\mathbb{Z}^2$ on $\mathbb{C}$ defined by the lattice $\Lambda$ is free and proper, therefore by the quotient manifold theorem, the quotient map $q$ by the $\mathbb Z^2$ orbits is a well defined submersion of $\mathbb{C}$ to the flat torus. Now consider the following commutation diagram
+$$
+\begin{CD}
+\mathbb{C} @>\tilde f>> \mathbb{C}\\
+@VqVV @VVqV\\
+\mathbb{C}/\mathbb{Z}^2 @>>f> \mathbb{C}/\mathbb{Z}^2
+\end{CD}
+$$
+where $f$ is conformal. It is easy to see that $q$ is a covering map, therefore $f$ lifts to a smooth map $\tilde f$ between the covering spaces. In other words, we can see that $f\circ q : \mathbb{C}\to \mathbb{C}/\mathbb{Z}^2$ is a well defined map, and it should have a lift $\tilde f : \mathbb{C}\to \mathbb{C}$ to the covering space of the torus. This map has the property: 
+$$
+q\circ \tilde f = f\circ q.
+$$
+By fixing the origin this map we guarantee uniquess. Also, since $f$ is invertible then we so is $\tilde f$. We will now show that the lifted map is indeed conformal. To do so we use the fact that $q$ is a submersion. 
+
+The metric of $T_{\Lambda} \coloneqq \mathbb{C}/\mathbb{Z}^2$ is given by
+$$
+g_\Lambda = (q^\ast)^{-1} g,
+$$
+where $g$ is the metric of $\mathbb{C}$ and we know that $q^\ast$ is invertible, because $q$ is a submersion to a manifold of the same dimension. Since $f$ is conformal, we know that
+$$
+f^\ast g_{\Lambda} = \Omega^2 f,
+$$
+for some $\Omega \in C^\infty(T_{\Lambda})$. We also know that 
+$$
+(q\circ \tilde f)^\ast = \tilde f ^\ast \circ q^\ast = (f\circ q)^\ast = q^\ast \circ f^\ast \implies \tilde f^\ast = q^\ast \circ f^\ast \circ (q^\ast)^{-1}
+$$
+which, by the way, is the conjugation of $f^\ast$ which I think is pretty cool. Regardless, we can now calculate 
+$$
+\begin{align*}
+\tilde f^\ast g 
+&= q^\ast \circ f^\ast \circ (q^\ast)^{-1}g\\ 
+&= q^\ast \circ f^\ast g_{\Lambda}\\
+&= q^\ast (\Omega^2 g_{\Lambda})\\
+&= (\Omega^2 \circ q)\ q^\ast g_{\Lambda}\\
+&= (\Omega^2 \circ q) g
+\end{align*}
+$$
+Therefore $\tilde f$ is conformal.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+This was a lot of proof, so here is a picture of what we just did. In essence, we said that any conformal map of the flat torus is can be thought of as a conformal map of the 
 
 
-We have enough tools to find the modular transformations now. 
 
-**<u>Lemma:</u>** Let conformal automorphism of a flat torus, lifts to a conformal map of the complex plane.
 
-***Proof:*** We can construct any flat torus given the action of $\mathbb Z^2$ on $\mathbb C$ defined using a lattice. 
+
+
 
 **<u>Lemma:</u>** The set of modular transformations is the group $PSL(\mathbb Z^2)$ under composition. 
 
 ***Proof:*** 
+
+
 
 
 
