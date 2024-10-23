@@ -201,17 +201,27 @@ Therefore $\tilde f$ is conformal.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
-This was a lot of proof, so here is a picture of what we just did. In essence, we said that any conformal map of the flat torus is can be thought of as a conformal map of the 
+This was a lot of proof. In essence, we said that any conformal map of the flat torus is can be thought of as a conformal map of the complex plane. And we are about to use this fact to find all the conformal transformations of the plane. We do this by first classifying the conformal maps of the torus.
 
+**<u>Theorem:</u>** The conformal maps of the flat torus are the group $GL(\mathbb Z^2)$ under composition.
 
-
-
-
-
+***Proof:*** Any such conformal map of the torus lifts to a conformal map of the complex plane. However, since any flat torus is defined by the action of some lattice, in order to obtain the same torus we need the conformal map to leave the lattice invariant. Therefore it must map a lattice basis to a different lattice basis. This implies that the map is an element of $GL(\mathbb Z^2)$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Now we can finally find the modular transformations.
 
 **<u>Lemma:</u>** The set of modular transformations is the group $PSL(\mathbb Z^2)$ under composition. 
 
-***Proof:*** 
+***Proof:*** The modular transformations are the transformations of $\tau$ such that the resulting quotient under the torus equivalence gives conformally equivalent tori. We know that given a basis $w \in \mathbb{C}^2$ for a lattice $\tau \coloneqq \frac{w_1}{w_2}$ as a result, any conformal transformation of the torus will affect $\tau$ only as far as the fraction is irreducible, therefore the only nonequivalent elements form the group $SL(\mathbb{Z}^2)$.  Wanting to keep $\tau \in \mathbb{H}$ in the upper half plane, we want to identify the elements of the center of the group, such that we don\'t accidentally shift the orientation. Therefore we obtain the projective group $PSL(\mathbb{Z}^2)$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+## In the Partition Function of a CFT
+
+So what about conformal transformations? T
 
 
 
