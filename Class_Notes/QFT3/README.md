@@ -7,3 +7,4 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [Perturbations on Background Classical Fields](Anomalies.md)
+- [Magnetic Monopoles](Monopoles.md)
