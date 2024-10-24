@@ -48,9 +48,15 @@ $$
 $$
 for some $\eta \in C^\infty(M)$. Remember that in this case the Higgs field $\phi$ is also lie algebra valued map on the base space. In the gauge where $A_0^a = 0$ $\frac{\partial A_i}{\partial t} = 0$ and $\frac{\partial \phi}{\partial t} = 0$.  
 
-
-
-
+Let’s find a topological charge. What we will do is that the topological charge $Q = 0$ coresponds to the vacuum being perturbative. In order for $Q\neq 0 $ then there must some weirder vacuum. In this theory the topological current is given by 
+$$
+k = \frac{1}{8\pi} d\sigma \wedge d\sigma \wedge d\sigma,
+$$
+where $\sigma = \frac{\phi}{|\phi|}$. Therefore, $d\ast k = 0$. As a result, we can construct 
+$$
+Q = \int_\Sigma k_0,
+$$
+where $\gamma$ is a spacelike slice. Doing the calculation with a bunch of Euler angles we obtain $1$. 
 
 
 

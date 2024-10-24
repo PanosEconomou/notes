@@ -83,7 +83,11 @@ A \xrightarrow{\text{dom}} O && A \xrightarrow{\text{cod}} O.
 $$
 That’s it! We don’t need more axioms like before because they are encapsulated in the definitions of functions and sets. 
 
-**<u>Definition:</u>** In a directed graph the 
+**<u>Definition:</u>** In a directed graph $(O,A)$ a **product over** $O$ is the set
+$$
+A\times_O A \coloneqq \{\langle f,g\rangle \mid f,g \in A \text{ such that } \text{dom\,} f = \text{cod\,}g\}
+$$
+
 
 
 
