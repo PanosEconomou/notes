@@ -92,7 +92,7 @@ $$
 A\times_O A \coloneqq \{\langle f,g\rangle \mid f,g \in A \text{ such that } \text{dom\,} f = \text{cod\,}g\}
 $$
 
-we call these pairs composable. 
+if we call these pairs composable. 
 
 We are now ready to define a category.
 
@@ -116,6 +116,10 @@ $$
 the **hom-set of** $a$ **and** $b$.
 
 **<u>Notation:</u>** Usually, instead of specifying $O$, and $A$ we pick a name for the Category, say $C$ and we abuse notation saying that arrows $f$ and objects $o$ are such that $f\in C$ and $o\in C$.
+
+One more notion that is useful to define is a subcategory.
+
+**<u>Definition:</u>** Given a category $A$, a **subcategory** $S$ of $A$ is a category where the sets of objects and arrows is a subsets of the objects and arrows of $A$ such that for every arrow of $S$ its domain and codomain are in $S$, the identity arrow of every object in $S$ is also in $S$, as well as the composite of every two composable arrows. These last characterizations are equivalent to $S$ being a category by itself, so they aren't strictly needed in this definition.  
 
  
 
@@ -183,16 +187,40 @@ Using functors notions we can define more special objects that we are already fa
 
 We will use such characterizations of functors a lot, so it is nice to have some definitions. However we can characterize these in terms of their actions on hom-sets. 
 
-**<u>Proposition:</u>** Let $A,B$ be categories, $F:A\to B$ be a functor between them, and $a,a' \in A$ be objects in category $A$. Then the action of the arrow map of $F$ defines a map $F_{a,a'}$ between the hom-sets
+**<u>Proposition:</u>** Let $A,B$ be categories, $F:A\to B$ be a functor between them, and $a,a' \in A$ be objects in category $A$. Then the action of the arrow map of $F$ defines a function $F_{a,a'}$ between the hom-sets
 $$
 \begin{align*}
 F_{a,a'} : \hom(a,a') &\to \hom(Fa,Fa')\\
 f&\mapsto Ff.
 \end{align*}
 $$
+Additionally, the following are true
+
+1. If every such function is surjective then $F$ is full.
+2. If every such function is injective then $F$ is faithful.
+3. If $F$ is both full and faithful the every such function is also a bijection. 
+
+Finally, there are some cool results using subcategories.
+
+**<u>Definition:</u>** Given a category $C$ and a subcategory $S$, the injective functor $f:C\to S$ is known as an **inclusion functor**. Additionally, if the inclusion functor is full, the we call the $S$ a **full subcategory**.
+
+**<u>Proposition:</u>** Any inclusion functor is faithful.
 
 
 
+## Natural Transformations 
+
+Now that we know enough about functors it is time to use them! In here we will use it to describe "natural objects." It is often in math that we say that some map "naturally extends" to some other map, or some construction induces some other. We are now ready to make this precise in terms of categories.
+
+
+
+
+
+
+
+
+
+  
 
  
 
