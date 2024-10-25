@@ -137,17 +137,13 @@ It is time to mention a bunch of examples! This is going to be fun.
 
 There is a lot more of these but let's stop here for now. If we need a particular category then we will pick one. 
 
-**<u>Notation:</u>** One might often require the phrase *"the set of objects is any small __"*  a *small* structure often implies the existance of a larger set $U$ called the universe, and any element of it is called small. So a category where the objects are small whatever, is the category where the set of objects is U, even if that is not directly specified. This is done to avoid the self referencing paradox.
+**<u>Notation:</u>** One might often require the phrase *"the set of objects is any small __"*  a *small* structure often implies the existence of a larger set $U$ called the universe, and any element of it is called small. So a category where the objects are small whatever, is the category where the set of objects is U, even if that is not directly specified. This is done to avoid the self referencing paradox.
 
  
 
-# Functors
+## Functors
 
 Let's start getting crazy. We had arrows (or morphisms) inside a category, what if someone wants to describe an "arrow" between categories? That is a functor.
-
-## Definition
-
-The definition is quite simple and we can state it below.
 
 **<u>Definition:</u>** Given categories $A,B$, a **functor** $F:A\to B$ consists of two functions 
 
@@ -167,7 +163,36 @@ Here is a cool example
 
 **<u>Example:</u>** *(Powerset)* The powerset of any set $P(X)$ is defined as the collection of all subsets. It is also a functor $P:\text{Set} \to \text{Set}$ where $\text{Set}$ is the category of small sets which assigns to each object $X\in \text{Set}$ its powerset $P(X)$ and to any morphism $f:X\to Y$ of $\text{Set}$ a morphism $Pf : P(X) \to P(Y)$ such that for every $S \in P(X)$ then $PfS = f(S) \in P(Y)$. 
 
- 
+ **<u>Example:</u>** *(Fundamental Group)* Consider the category of pointed topological spaces $\text{Top}_\ast$ where the objects are pairs of topological spaces with a chosen point, and the arrows are base point preserving continuous maps. Then for each pointed space $(X,x)$, we can construct the fundamental  group $\pi_1(X,x)$ where the elements are all homotopy classes of loops based on $x\in X$ under concatenation of loops. Then the fundamental group is a functor 
+$$
+\pi_1 : \text{Top}_\ast \to \text{Grp},
+$$
+where $\text{Grp}$ is the category of groups where the objects are all small groups and the arrows are group homomorphisms. To show that it is indeed a functor we already know the object map, but we also know that every base point preserving continuous map $f:X\to Y$ between pointed topological spaces $(X,x),(Y,y) \in \text{Top}_\ast$ can be lifted to a group homomorphism $f_\ast : \pi_1(X,x) \to \pi_1(Y,y)$ by its action on homotopy inequivalent loops. It is easy to see that such an induced homomorphism commutes with composition and identity, therefore $\pi_1$ is a functor. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+**<u>Example:</u>** *(Metacategory of all Categories)* For every category there is an identity functor that assigns the objects and maps to themselves. Using this we may define a metacategory where its objects are all categories (they don't have to form a set) and the arrows are all functors, with composition of functors descending to the usual composition of the object and arrow maps respectively. 
+
+Using functors notions we can define more special objects that we are already familiar with in a less abstract context.
+
+**<u>Definition:</u>** Let $A$ and $B$ be categories and $F:A\to B$ be a functor. 
+
+1. If $F$ is bijective then it is an **isomorphism of categories**. 
+2. If for any two objects $a,a' \in A$ and any arrow $f: Fa \to Fa' \in B$ there exists an arrow $g:a\to a' \in A$ such that $f = Fg$ the functor is called **full** (in other words the arrow map is surjective on the arrows of the image of $A$). 
+3. If for any pair of objects $a,a' \in A$ and any pair of arrows $f,f' : a\to a' \in A$ then $Tf = Tf' \implies f=f'$ the functor is called **faithful**, or sometimes an **embedding**. 
+
+We will use such characterizations of functors a lot, so it is nice to have some definitions. However we can characterize these in terms of their actions on hom-sets. 
+
+**<u>Proposition:</u>** Let $A,B$ be categories, $F:A\to B$ be a functor between them, and $a,a' \in A$ be objects in category $A$. Then the action of the arrow map of $F$ defines a map $F_{a,a'}$ between the hom-sets
+$$
+\begin{align*}
+F_{a,a'} : \hom(a,a') &\to \hom(Fa,Fa')\\
+f&\mapsto Ff.
+\end{align*}
+$$
+
+
+
 
  
 
