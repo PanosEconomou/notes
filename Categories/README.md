@@ -7,4 +7,4 @@
 <!-- optional markdown-notes-tree directory description ends here -->
 
 - [Abelian Categories](Abelian_Categories.md)
-- [Categories](Categories.md)
+- [Category Theory](Categories.md)
