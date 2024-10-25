@@ -212,6 +212,24 @@ Finally, there are some cool results using subcategories.
 
 Now that we know enough about functors it is time to use them! In here we will use it to describe "natural objects." It is often in math that we say that some map "naturally extends" to some other map, or some construction induces some other. We are now ready to make this precise in terms of categories.
 
+**<u>Definition:</u>** Let $A$,  $B$ be categories and $F,G : A\to B$ be functors. A **natural transformation** or **functor morphism** often denoted as $\tau: F\to^{\ast} T$ is a map that assigns to each object $a \in A$ an arrow $\tau_a = \tau c : Fc\to Gc$ such that for every arrow $f:a\to a' \in A$, where $a' \in A$  is some other object of $A$, the following diagram commutes
+$$
+\begin{CD}
+a  @.     Fa  @>\tau a>> Ga\\
+   @VfVV      @VFfVV     @VVGfV \\
+a' @.     Fa' @>>\tau {a'}> Ga'
+\end{CD}
+$$
+We call all the maps $\tau a$ for any object $a \in A$ the **components** of the natural transformation $\tau$. If every component is invertible in $B$ then the natural transformation is called a **natural equivalence** or **natural isormorphism** denoted by $\tau: F\cong G$. 
+
+**<u>Example:</u>** *(Determinant)* Consider the category $\text{Mat}_R$ of matrices over a ring $R$, the determinant 
+
+
+
+
+
+
+
 
 
 

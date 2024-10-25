@@ -13,7 +13,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Variational Calculus](Analysis/Variational_Calculus.md)
 - [**Categories**](Categories)
     - [Abelian Categories](Categories/Abelian_Categories.md)
-    - [Categories](Categories/Categories.md)
+    - [Category Theory](Categories/Categories.md)
 - [**Class_Notes**](Class_Notes)
     - [**QFT3**](Class_Notes/QFT3)
         - [Perturbations on Background Classical Fields](Class_Notes/QFT3/Anomalies.md)
