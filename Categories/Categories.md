@@ -139,6 +139,8 @@ It is time to mention a bunch of examples! This is going to be fun.
 
 **<u>Example:</u>** *(Preorders)* A category $P$ where for any objects $p,q \in P$ there exists at most a unique arrow $p\to q$ is a **preorder**. The arrows define a reflexive and transitive binary relation between the objects that we often denote as $\leq$. A preorder is a **partial order** if for any objects $p,q \in P$ such that $p\leq q$  and $q\leq p$ then $p=q$, and it is a **linear order** if either $p\leq q$ or $q\leq p$.
 
+**<u>Example:</u>** (Abelian Categories) A category $A$ is an **Ab-category** or **preaditive** category if every hom set is an additive abelian group, for which the composition map is bilinear. We are going to explore Abelian categories in a lot more detail later.   
+
 There is a lot more of these but let's stop here for now. If we need a particular category then we will pick one. 
 
 **<u>Notation:</u>** One might often require the phrase *"the set of objects is any small __"*  a *small* structure often implies the existence of a larger set $U$ called the universe, and any element of it is called small. So a category where the objects are small whatever, is the category where the set of objects is U, even if that is not directly specified. This is done to avoid the self referencing paradox.
@@ -173,7 +175,7 @@ $$
 $$
 where $\text{Grp}$ is the category of groups where the objects are all small groups and the arrows are group homomorphisms. To show that it is indeed a functor we already know the object map, but we also know that every base point preserving continuous map $f:X\to Y$ between pointed topological spaces $(X,x),(Y,y) \in \text{Top}_\ast$ can be lifted to a group homomorphism $f_\ast : \pi_1(X,x) \to \pi_1(Y,y)$ by its action on homotopy inequivalent loops. It is easy to see that such an induced homomorphism commutes with composition and identity, therefore $\pi_1$ is a functor. 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 **<u>Example:</u>** *(Metacategory of all Categories)* For every category there is an identity functor that assigns the objects and maps to themselves. Using this we may define a metacategory where its objects are all categories (they don't have to form a set) and the arrows are all functors, with composition of functors descending to the usual composition of the object and arrow maps respectively. 
 
@@ -222,27 +224,63 @@ a' @.     Fa' @>>\tau {a'}> Ga'
 $$
 We call all the maps $\tau a$ for any object $a \in A$ the **components** of the natural transformation $\tau$. If every component is invertible in $B$ then the natural transformation is called a **natural equivalence** or **natural isormorphism** denoted by $\tau: F\cong G$. 
 
-**<u>Example:</u>** *(Determinant)* Consider the category $\text{Mat}_R$ of matrices over a ring $R$, the determinant 
+**<u>Example:</u>** *(Determinant)* Consider the category of commutative rings $\text{CRng}$ that has as objects all small commutative rings and arrows are their morphisms the category $\text{Grp}$ that has as elements all small groups and arrows homomorphisms. Then we can write the functor
+$$
+\begin{align*}
+\text{GL}_n : \text{CRng} &\to \text{Grp}\\
+R &\mapsto \text{GL}_nR\\
+f:R\to K &\mapsto f_\ast : \text{GL}_n R\to \text{GL}_n K,
+\end{align*}
+$$
+which maps any commutative ring to the group of $n\times n$ matrices of that ring, and the arrow map simply swaps the coefficients of each matrix by the action of $f$. Additionally, we can write the functor
+$$
+\begin{align*}
+\ast : \text{CRng} &\to \text{Grp}\\
+R &\mapsto R^\ast\\
+f:R\to K &\mapsto f^\ast : R^\ast \to K^\ast 
+\end{align*}
+$$
+where $R^\ast$ is the group of invertible elements of $R$. Since we know that for any matrix $M \in \text{GL}_nR$ the following identity must hold
+$$
+\det_R M^{-1} = (\det_R M)^{-1} \implies \det M \in R^\ast.
+$$
+As a result, we can define a natural transformation $\det : \text{GL}_n \to^\ast \ast$ that acts on every ring $R \in \text{CRng}$ by assigning the map $\det_R : \text{GL}_nR \to R^\ast$. Then we can show that the following diagram
+$$
+\begin{CD}
+\text{GL}_nR @>\det_R>> R^\ast \\
+@Vf_\ast VV @VVf^\ast V\\
+\text{GL}_nK @>\det_K>> K^\ast
+\end{CD}
+$$
+ commutes. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Example:</u>** *(Double Dual Isomorphism)* Consider the category of finite dimensional vector spaces $\text{Vect}_{\mathbb{F}}$ over a field $\mathbb{F}$, where the arrows are $\mathbb{F}$-linear maps. Then consider the functor $\ast : \text{Vect}_\mathbb{F} \to \text{Vect}_\mathbb{F}$ that assigns to each vector space its dual $V\mapsto V^\ast$ and consider its self composition functor $\ast^2 = \ast \circ \ast$ also known as the double dual. Now consider the isomorphism between the dual and double dual $F_V : V\to (V^\ast)^\ast$. Then the transformation $F: I \to^\ast \ast^2$ where $I$ is the identity functor on $\text{Vect}_\mathbb{F}$ is a natural isomorphism.
+
+In general we can use natural transformations to find an equivalence between categories.
+
+**<u>Definition:</u>** Given two categories $A,B$ an **equivalence** between them is a pair of functors $F : A\to B$ and $G:B\to A$ with a pair of natural isomorphisms $\tau_A : I_A\to^\ast G\circ F$ and $\tau_B : I_B \to^\ast F\circ G$ where $I_A,I_B$ are the identity functors on $A$ and $B$ respectively.  
 
 
 
+## Classification of Arrows
 
+There are multiple ways that we can think of arrows and we often encounter them in working with different categories. Let's identify some.
 
+**<u>Definition:</u>** Let $A$ be a category and $a,b \in A$ be objects, then the we have the following definitions.
 
+1. An arrow $f:a\to b$ is **invertible** if there exists an arrow $f^{-1}:b\to a$ such that $f\circ f^{-1} =1_a$ and $f^{-1}\circ f = 1_b$, then $f^{-1}$ is called an **inverse of** $f$. 
+2. The objects $a,b$ are **isomorphic** in the category $A$ if there is an invertible arrow between them. Then we write $a\cong b$. This relation is reflexive, symmetric, and transitive.
+3. An arrow $f:a\to b$ is **monic** in $A$ if for any two parallel arrows $g,h:a\to b$ we have that $f\circ g = f\circ h \implies g=h$. 
+4. An arrow $f:a\to b$ is **epi** in $A$ if for any two parallel arrows $g,h:a\to b$ we have that $ g\circ f = h\circ f \implies g=h$. 
+5. A **left inverse** of $h:b\to a$ of an arrow $f:a\to b$ is such that $h\circ f = 1_a$. A **right inverse** or **section** of an arrow $f:a\to b$ is an arrow $h:b\to a$ such that $f\circ h = 1_b$. 
+6. An arrow $f:a\to a$ is **idempotent** when $f^2 \coloneqq f\circ f = f$.
+7. An object $a \in A$ is **terminal** in $A$ if for every object $b\in A$ there is exactly one arrow $b\to a$. Any two terminal objects are isomorphic in $A$. 
+8. An object $a\in A$ is **initial** in $A$ if for every object $b\in A$ there is exactly one arrow $a\to b$.
+9. A **null object** $z\in A$ is an object that is both initial and terminal. All null objects are isomorphic in $A$. The unique arrow such that $a\to z \to b$ is called a **null arrow**. Composites of null arrows are also null arrows. 
+10. A **groupoid** is a category where every arrow is invertible. A groupoid is **connected** if for any two objects there is an arrow connecting them.
 
-
-
-
-
-
-
-
-
-  
+There are interesting facts for all of these, but for now we just need these definitions to work with category theory.
 
  
-
-
-
-
-
