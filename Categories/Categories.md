@@ -67,7 +67,7 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
 
-**<u>ofExample:</u>** *(Metacategory of Sets)* The simplest example of such a structure is the **metacategory of sets** where the objects are all sets, and tehe arrows are all functions with the usual identity functions for the identity operation and usual composition rules. 
+**<u>Example:</u>** *(Metacategory of Sets)* The simplest example of such a structure is the **metacategory of sets** where the objects are all sets, and the arrows are all functions with the usual identity functions for the identity operation and usual composition rules. 
 
 To be more specific, a function $f$ consists of a set $X = \text{dom\,}f$, a set $Y=\text{cod\,}f$, and a rule $x \in X \mapsto fx \in Y$. The identity function for some set $X$ is $1_X : X \to X$ with the rule $x \mapsto x$, and composition of $f:X\to Y$ and $g:Y\to Z$ is defined by the corresponding rule $x \mapsto g(fx)$.
 
@@ -169,7 +169,7 @@ Here is a cool example
 
 **<u>Example:</u>** *(Powerset)* The powerset of any set $P(X)$ is defined as the collection of all subsets. It is also a functor $P:\text{Set} \to \text{Set}$ where $\text{Set}$ is the category of small sets which assigns to each object $X\in \text{Set}$ its powerset $P(X)$ and to any morphism $f:X\to Y$ of $\text{Set}$ a morphism $Pf : P(X) \to P(Y)$ such that for every $S \in P(X)$ then $PfS = f(S) \in P(Y)$. 
 
- **<u>Example:</u>** *(Fundamental Group)* Consider the category of pointed topological spaces $\text{Top}_\ast$ where the objects are pairs of topological spaces with a chosen point, and the arrows are base point preserving continuous maps. Then for each pointed space $(X,x)$, we can construct the fundamental  group $\pi_1(X,x)$ where the elements are all homotopy classes of loops based on $x\in X$ under concatenation of loops. Then the fundamental group is a functor 
+ **<u>Example:</u>** *(Fundamental Group)* Consider the category of pointed topological spThese These aces $\text{Top}_\ast$ where the objects are pairs of topological spaces with a chosen point, and the arrows are base point preserving continuous maps. Then for each pointed space $(X,x)$, we can construct the fundamental  group $\pi_1(X,x)$ where the elements are all homotopy classes of loops based on $x\in X$ under concatenation of loops. Then the fundamental group is a functor 
 $$
 \pi_1 : \text{Top}_\ast \to \text{Grp},
 $$
@@ -284,3 +284,78 @@ There are multiple ways that we can think of arrows and we often encounter them 
 There are interesting facts for all of these, but for now we just need these definitions to work with category theory.
 
  
+
+# Categorical Constructions
+
+Now that we have defined what a category even is, it is time to lay down some common constructions that appear in so many places in math. These are ways that we can construct new categories from others. Here we will mostly explore constructions that appear in physics. 
+
+## Duality
+
+Duality essentially amounts to taking any axioms that form a category and swapping their domain and codomain (as well as the order of compositions). For example here is a list of statements and their dual.
+
+|     Statement     |   Dual Statement    |
+| :---------------: | :-----------------: |
+|    $f:a\to b$     |     $f:b\to a$      |
+| $a=\text{dom\,}f$ | $a = \text{cod\,}f$ |
+|      $i=1_a$      |       $i=1_a$       |
+|   $h=f\circ g$    |    $h=g\circ f$     |
+|   $f$ is monic    |     $f$ is epi      |
+
+The idea of a dual category is that it is formed by the dual axioms. Thankfully, we don't have to be as abstract, because dualizing the axioms simply amounts to finding a way to reverse the arrows of a category. This leads to the following definition.
+
+**<u>Definition:</u>** Let $C$ be a category. Its **dual category** $C^\ast$ is a category that contains the same objects as $C$ but the arrows are in one to one correspondence with the arrows of $C$ such that for every arrow $f:a\to b \in C$ there is an arrow $f^\ast : b\to a \in C^\ast$ and the composition satisfies $f^\ast \circ g^\ast = (g\circ f)^\ast$.
+
+Surprisingly this is enough! Let's see some examples.
+
+**<u>Example:</u>** *(Dual Vector Space)* A vector space $V$ over a field $\mathbb{F}$ is a monoid $V$ with object set $\{\circ\}$ and composition of morphisms defined by vector addition. In particular for any arrow $v\in V$, there is a map
+$$
+\begin{align*}
+\mathbb{F}\times V &\to V\\
+(a,v) &\mapsto a\cdot v = av,
+\end{align*}
+$$
+such that $1\cdot v = v$ and $0\cdot v = 0$ for any arrow $v \in V$ and where the identity arrow $0 = \text{id}_\circ$ satisfies $a\cdot 0 = 0$ for any $a \in \mathbb{F}$. Then, the composition of arrows $v,u \in V$ denoted by $v\circ u = v+u$ has the following additional properties:
+
+1. **Commutativity:** $u+v = v+u$
+2. **Linearity:** Given any $a,b \in \mathbb{F}$ then $av + aw = a(v+w)$ and $(a+b)v = av+bv$. 
+
+So now we have a definition of a vector space as a category. Therefore we can define the **dual vector space** $V^\ast$ as the category where all the arrows are reversed. In fact we can find a categorical isomorphism between the vector space and its dual. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+However, there is a more interesting association we can make between the dual space and the vector space and this comes directly when we think about functors from a vector space to its dual.
+
+**<u>Definition:</u>** Let $A,B$ be categories and $F:A\to B$ be a functor between the two then we can induce a functor $F^\ast : A^\ast \to B^\ast$ where the object map is the same and the arrow map is defined for any arrow $f^\ast \in A^\ast$ by $F^\ast f^\ast = (Ff)^\ast$. Such a functor is called a **covariant functor**. Additionally consider a functor $F:A^\ast \to B$, the one can induce a functor $\bar F : A\to B$ such that the arrow function is defined for any arrow $f \in A$ by $\bar Ff = F f^\ast$ and the object function is such that for any objects $a,b,c \in A$ and arrows $f:a\to b$,  $g: b\to c$ then
+$$
+\begin{align*}
+\bar F1_a = 1_{\bar Fa} && \bar F(f\circ g) = (\bar F g) \circ (\bar F f).
+\end{align*}
+$$
+With these definitions we are ready to uncover the familiar notion of the dual vector space. We will soon see how to define categories using functors and then we will prove that the dual space to a vector space is some category of contravariant linear functors. 
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
