@@ -60,6 +60,20 @@ where $\gamma$ is a spacelike slice. Doing the calculation with a bunch of Euler
 
 
 
+## Fractionalization
+
+We have a toy model with monopoles. In a 3+1d SU(2) gauge theory with a Higgs ($\mathfrak{su}(2)$ lie algebra valued) and a fermion field that couples with Yukawa.
+$$
+\mathcal{L} = \frac{1}{2} F\wedge \ast F + \frac{1}{2}D\phi \wedge \ast D\phi -V(\phi) + i\langle \psi,\centernot{D} \psi\rangle + h \langle \psi, \phi \psi\rangle.
+$$
+The equations of motion appear as we know them. We can find all the conserved currents
+
+> Panos: You need to study topological solutions to PDEs in general, so that you can talk about solitons, instantons, monopoles, etc. 
+
+
+
+
+
 
 
 
