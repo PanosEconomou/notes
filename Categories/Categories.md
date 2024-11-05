@@ -333,9 +333,37 @@ $$
 $$
 With these definitions we are ready to uncover the familiar notion of the dual vector space. We will soon see how to define categories using functors and then we will prove that the dual space to a vector space is some category of contravariant linear functors. 
 
+**<u>Example:</u>** *(More dual vector spaces)* Consider the category of small vector spaces $\text{Vect}_\mathbb{F}$ over a field $\mathbb{F}$. Then we can define functor $\bar F:\text{Vect}_\mathbb{F} \to \text{Vect}_\mathbb{F}$ where the object map, maps any vector space $V\in \text{Vect}_\mathbb{F}$ to it's dual $V^\ast \in \text{Vect}$ and any linear map $f:V\to W \in \text{Vect}_\mathbb{F}$ to it's dual map $f^\ast :W^\ast \to V^\ast \in \text{Vect}_\mathbb{F}$. Then $F$ is a contravariant functor. That is because it is a functor $F:\text{Vect}_\mathbb{F} \to \text{Vect}_\mathbb{F}^\ast$. From now on we will only deal with covariant functors. 
 
 
 
+## Products
+
+Natural and well defined in terms of sets, so we can extend it to categories.
+
+**<u>Definition:</u>** Given any two categories $A,B$, their **product** is a category $A\times B$ such that the objects are the ordered pairs of objects $\langle a,b \rangle$, where $a\in A$ and $b \in B$, and the arrows are ordered pairs of arrows $\langle f,g\rangle : \langle \text{dom\,}f, \text{dom\,}g \rangle \to \langle \text{cod\,}f,\text{cod\,}g \rangle$. Composability is defined in the natural way. 
+
+**<u>Proposition:</u>** Given two categories $A,B$ and their product $A\times B$ there ate two canonical functors $\pi_A : A\times B \to A$ and $\pi_B : A\times B \to B$ called the **projection functors**. Such that for any object $\langle a,b \rangle \in A\times B$ and any arrow $\langle f,g \rangle \in A\times B$ they act by
+$$
+\begin{align*}
+\pi_A \langle a,b \rangle &= a & \pi_B\langle a,b \rangle &= b\\
+\pi_A \langle f,g \rangle &= f & \pi_B\langle f,g \rangle &= g.
+\end{align*}
+$$
+So far this is all natural, so it is time to define the natural defining property of the product construction.
+
+**<u>Theorem:</u>** *(Universal property of product categories)* Given a category $C$ and two functors $A \xleftarrow f C\xrightarrow g B$ then there exist a unique functor $F:C\to A\times B$ such that the following diagram commutes
+$$
+\xymatrix{
+A \ar[r] \ar[dr] & B \ar[d] \\
+C \ar[r] & D
+}
+$$
+ 
+
+
+
+ 
 
  
 
