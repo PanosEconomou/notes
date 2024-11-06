@@ -211,11 +211,11 @@ export default function NotebookPage({ }) {
             const { node, className, children, ...rest } = props
 
             if (node.properties?.className?.includes('math-inline')) {
-              return <code className={className} {...rest}>{"$" + children + "$"}</code>
+              return <code className={className} onMouseEnter={enterBar} onMouseLeave={exitBar} {...rest}>{"$" + children + "$"}</code>
             }
 
             if (node.properties?.className?.includes('math-display')) {
-              return <code className={className} {...rest}>{"$$" + children + "$$"}</code>
+              return <code className={className} onMouseEnter={enterBar} onMouseLeave={exitBar} {...rest}>{"$$" + children + "$$"}</code>
             }
 
             return <code className={className} {...rest}>{children}</code>
