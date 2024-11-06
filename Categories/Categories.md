@@ -179,7 +179,7 @@ $$
 $$
 **<u>Example:</u>** *(Metacategory of all Categories)* For every category there is an identity functor that assigns the objects and maps to themselves. Using this we may define a metacategory where its objects are all categories (they don't have to form a set) and the arrows are all functors, with composition of functors descending to the usual composition of the object and arrow maps respectively. 
 
-Using functors notions we can define more special objects that we are already familiar with in a less abstract context.
+F\times G : A\times A' \to B\times B'Using functors notions we can define more special objects that we are already familiar with in a less abstract context.
 
 **<u>Definition:</u>** Let $A$ and $B$ be categories and $F:A\to B$ be a functor. 
 
@@ -352,23 +352,36 @@ $$
 $$
 So far this is all natural, so it is time to define the natural defining property of the product construction.
 
-**<u>Theorem:</u>** *(Universal property of product categories)* Given a category $C$ and two functors $A \xleftarrow f C\xrightarrow g B$ then there exist a unique functor $F:C\to A\times B$ such that the following diagram commutes
+**<u>Theorem:</u>** *(Universal property of product categories)* Given a category $C$ and two functors $A \xleftarrow L C\xrightarrow R B$ then there exist a unique functor $F:C\to A\times B$ such that the following diagram commutes
 $$
 \xymatrix {
-& C\ar[dl]_f\ar[dr]^g\ar@{.>}[d]^F &\\
+& C\ar[dl]_L\ar[dr]^R\ar@{.>}[d]^F &\\
 A & A\times B\ar[l]^{\pi_A} \ar[r]_{\pi_B} & B
 }
 $$
 
+***Proof:*** Consider $F:C\to A\times V$ that satisfies the commutation diagram above. Then it must be such that for any $c \in C$ (either arrow or object) $Fc = \langle Lc,Rc \rangle$ using the projection functors. This shows existence and uniqueness. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Using the universal property we can define other product-esque objects, like product functors. Here is how to do this. 
+
+**<u>Definition:</u>** Let $F:A\to A'$ and $G : B\to B'$ be two functors between the corresponding categories. Then their **product functor** is the unique functor $F\times G : A\times B \to A'\times B'$ that makes the diagram below commutative.
+$$
+\xymatrix{
+A \ar[d]_F & A \times B \ar[l]_{\pi_A} \ar[r]^{\pi_B} \ar@{.>}[d]^{F\times G} & B\ar[d]^G\\
+A'&A'\times B'\ar[l]^{\pi_{A'}}\ar[r]_{\pi_{B'}} & B'
+}
+$$
+  With all these definitions, there is a pretty cool result we can show.
+
+**<u>Proposition:</u>** The product operation $\times : \text{Cat}\times \text{Cat} \to \text{Cat}$ is a functor from the product category of small categories, to the category of small categories. 
 
 
 
+## Functor Categories 
 
-
-
-
-
-
+Now it is time to play a better game that will be useful in certain constructions in linear categories. 
 
 
 
