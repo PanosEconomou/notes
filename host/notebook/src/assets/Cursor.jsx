@@ -28,8 +28,8 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     }
 
     const springMouse = {
-        x: useSpring(mouse.x, { stiffness: 300, damping: 20, mass: 0.5 }),
-        y: useSpring(mouse.y, { stiffness: 300, damping: 20, mass: 0.5 }),
+        x: useSpring(mouse.x, { stiffness: 500, damping: 25, mass: 0.5 }),
+        y: useSpring(mouse.y, { stiffness: 500, damping: 25, mass: 0.5 }),
     }
 
     const [, setRenderTrigger] = useState(0);
