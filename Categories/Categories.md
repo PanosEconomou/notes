@@ -362,13 +362,12 @@ U \ar@/_/[ddr]_y \ar@{.>}[dr]|{\langle x,y \rangle} \ar@/^/[drr]^x \\
 }
 \end{xy}
 $$
- 
 
 
 
- 
 
- 
+
+
 
 
 

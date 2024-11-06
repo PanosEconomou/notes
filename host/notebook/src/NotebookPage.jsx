@@ -163,50 +163,8 @@ export default function NotebookPage({ }) {
     return (
       <Markdown
         className="markdown"
-        remarkPlugins={[remarkMath, remarkGfm]} // remarkMath,
-        // rehypePlugins={[rehypeRaw, rehypeMathjax]}
-        rehypePlugins={[rehypeRaw//, rehypeMathjax
-          // [rehypeMathjax, 
-          //   {
-          //   loader: {
-          //     load: ['[custom]/xypic.js'],
-          //     paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
-          //   },
-          //   tex: {
-          //     packages: {
-          //       '[+]': [
-          //         'xypic',
-          //         'base',
-          //         'bracket',
-          //         'bussproofs',
-          //         'bbox',
-          //         'cancel',
-          //         'ams',
-          //         'amscd',
-          //         'extpfeil',
-          //         'boldsymbol',
-          //         'mathtools',
-          //         'amsthm',
-          //         'amssymb',
-          //         'centernot',
-          //         'noerror',
-          //         'mhchem',
-          //         'html',
-          //         'color',
-          //         'newcommand',
-          //         'enclose',
-          //         'action',
-          //         'verb',
-          //         'extpfeil',
-          //         'physics',
-          //         'noundefined',
-          //         'autoload',
-          //         'textmacros'
-          //       ]
-          //     }
-          //   }
-          //   }]
-        ]}
+        remarkPlugins={[remarkMath, remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
         components={{
           img(props) {
             let { node, ...rest } = props

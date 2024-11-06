@@ -7,16 +7,18 @@
   <title>Noteboook</title>
   <script>
     MathJax = {
-      // ...window.MathJax,
       loader: {
-        load: ['[custom]/xypic.js', 'input/tex-full'],
+        load: ['[custom]/xypic.js', 'input/tex-full', '[tex]/textmacros'],
         paths: { custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/' },
       },
       tex: {
+        processEnvironments: true,
+        processRefs: true,
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
         packages: {
           '[+]': [
+            'textmacros',
             'xypic',
             'base',
             'bracket',
@@ -45,6 +47,13 @@
             'autoload',
             'textmacros']
         },
+        macros: {
+          R: '\\mathbb{R}',
+          part: '\\partial',
+          empty: '\\emptyset',
+          lang: '\\langle',
+          rang: '\\rangle',
+        }
       },
       options: {
         ignoreHtmlClass: '.*',
