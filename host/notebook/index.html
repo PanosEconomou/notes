@@ -1,12 +1,64 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noteboook</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noteboook</title>
+  <script>
+    MathJax = {
+      // ...window.MathJax,
+      loader: {
+        load: ['[custom]/xypic.js', 'input/tex-full'],
+        paths: { custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/' },
+      },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        packages: {
+          '[+]': [
+            'xypic',
+            'base',
+            'bracket',
+            'bussproofs',
+            'bbox',
+            'cancel',
+            'ams',
+            'amscd',
+            'extpfeil',
+            'boldsymbol',
+            'mathtools',
+            'amsthm',
+            'amssymb',
+            'centernot',
+            'noerror',
+            'mhchem',
+            'html',
+            'color',
+            'newcommand',
+            'enclose',
+            'action',
+            'verb',
+            'extpfeil',
+            'physics',
+            'noundefined',
+            'autoload',
+            'textmacros']
+        },
+      },
+      options: {
+        ignoreHtmlClass: '.*',
+        processHtmlClass: 'language-math',
+        enableMenu: false,
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml-full.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

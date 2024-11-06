@@ -5,7 +5,6 @@ import Markdown from 'react-markdown';
 import Cursor from './assets/Cursor';
 import rehypeRaw from 'rehype-raw';
 import remarkMath from 'remark-math';
-import rehypeMathjax from 'rehype-mathjax';
 import slugify from 'react-slugify';
 import remarkGfm from 'remark-gfm'
 import Magnetic from './assets/Magnetic';
@@ -164,44 +163,49 @@ export default function NotebookPage({ }) {
     return (
       <Markdown
         className="markdown"
-        remarkPlugins={[remarkMath, remarkGfm]}
+        remarkPlugins={[remarkMath, remarkGfm]} // remarkMath,
         // rehypePlugins={[rehypeRaw, rehypeMathjax]}
-        rehypePlugins={[rehypeRaw,
-          [rehypeMathjax, {
-            tex: {
-              packages: {
-                '[+]': [
-                  'base',
-                  'bracket',
-                  'bussproofs',
-                  'bbox',
-                  'cancel',
-                  'ams',
-                  'amscd',
-                  'extpfeil',
-                  'boldsymbol',
-                  'mathtools',
-                  'amsthm',
-                  'amssymb',
-                  'centernot',
-                  'noerror',
-                  'mhchem',
-                  'html',
-                  'color',
-                  'newcommand',
-                  'enclose',
-                  'action',
-                  'verb',
-                  'extpfeil',
-                  'physics',
-                  'noundefined',
-                  'autoload',
-                  'textmacros',
-                  'xypic'
-                ]
-              }
-            }
-          }]
+        rehypePlugins={[rehypeRaw//, rehypeMathjax
+          // [rehypeMathjax, 
+          //   {
+          //   loader: {
+          //     load: ['[custom]/xypic.js'],
+          //     paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+          //   },
+          //   tex: {
+          //     packages: {
+          //       '[+]': [
+          //         'xypic',
+          //         'base',
+          //         'bracket',
+          //         'bussproofs',
+          //         'bbox',
+          //         'cancel',
+          //         'ams',
+          //         'amscd',
+          //         'extpfeil',
+          //         'boldsymbol',
+          //         'mathtools',
+          //         'amsthm',
+          //         'amssymb',
+          //         'centernot',
+          //         'noerror',
+          //         'mhchem',
+          //         'html',
+          //         'color',
+          //         'newcommand',
+          //         'enclose',
+          //         'action',
+          //         'verb',
+          //         'extpfeil',
+          //         'physics',
+          //         'noundefined',
+          //         'autoload',
+          //         'textmacros'
+          //       ]
+          //     }
+          //   }
+          //   }]
         ]}
         components={{
           img(props) {
@@ -245,6 +249,27 @@ export default function NotebookPage({ }) {
               <a onMouseEnter={stickLink} onMouseLeave={unstick} target="_blank" {...rest} />
             );
           },
+          code(props) {
+            const { node, className, children, ...rest } = props
+
+            if (node.properties?.className?.includes('math-inline')) {
+              return <code className={className} {...rest}>{"$" + children + "$"}</code>
+            }
+
+            if (node.properties?.className?.includes('math-display')) {
+              return <code className={className} {...rest}>{"$$" + children + "$$"}</code>
+            }
+
+            return <code className={className} {...rest}>{children}</code>
+
+          },
+          pre(props) {
+            const { node, children, ...rest } = props
+            if (children?.props.className?.includes("math-display")) {
+              return props.children
+            }
+            return <pre {...rest}>{children}</pre>
+          }
         }}
       >
         {markdown}
@@ -297,7 +322,15 @@ export default function NotebookPage({ }) {
         element.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
       }
     }
+
   }, [markdownRender, location])
+
+  // Trigger MathJax typesetting after the content is rendered
+  useEffect(() => {
+    if (window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise();
+    }
+  }, [markdownRender])
 
   return (
     <>
