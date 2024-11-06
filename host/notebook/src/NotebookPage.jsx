@@ -5,19 +5,12 @@ import Markdown from 'react-markdown';
 import Cursor from './assets/Cursor';
 import rehypeRaw from 'rehype-raw';
 import remarkMath from 'remark-math';
-import preserveDollarSigns from './PreserveDollarSigns';
-// import rehypeMathjax from 'rehype-mathjax';
 import slugify from 'react-slugify';
 import remarkGfm from 'remark-gfm'
 import Magnetic from './assets/Magnetic';
 import PageButton from './assets/PageButton';
 import MainMenu from './assets/MainMenu';
 import { useParams, useLocation, Link } from 'react-router-dom';
-// import { mathjax } from 'mathjax-full/js/mathjax.js';
-// import { TeX } from 'mathjax-full/js/input/tex.js';
-// import { CHTML } from 'mathjax-full/js/output/chtml.js';
-// import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
-// import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
 
 export default function NotebookPage({ }) {
 
@@ -256,6 +249,27 @@ export default function NotebookPage({ }) {
               <a onMouseEnter={stickLink} onMouseLeave={unstick} target="_blank" {...rest} />
             );
           },
+          code(props) {
+            const { node, className, children, ...rest } = props
+
+            if (node.properties?.className?.includes('math-inline')) {
+              return <code className={className} {...rest}>{"$" + children + "$"}</code>
+            }
+
+            if (node.properties?.className?.includes('math-display')) {
+              return <code className={className} {...rest}>{"$$" + children + "$$"}</code>
+            }
+
+            return <code className={className} {...rest}>{children}</code>
+
+          },
+          pre(props) {
+            const { node, children, ...rest } = props
+            if (children?.props.className?.includes("math-display")) {
+              return props.children
+            }
+            return <pre {...rest}>{children}</pre>
+          }
         }}
       >
         {markdown}
@@ -299,11 +313,6 @@ export default function NotebookPage({ }) {
   useEffect(() => {
     if (headingRefs.current.length != 0) createTOC();
 
-    // Trigger MathJax typesetting after the content is rendered
-    if (window.MathJax) {
-      window.MathJax.typesetPromise();
-    }
-
   }, [markdown])
 
   useEffect(() => {
@@ -313,7 +322,15 @@ export default function NotebookPage({ }) {
         element.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll
       }
     }
+
   }, [markdownRender, location])
+
+  // Trigger MathJax typesetting after the content is rendered
+  useEffect(() => {
+    if (window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise();
+    }
+  }, [markdownRender])
 
   return (
     <>

@@ -269,7 +269,7 @@
             margin-bottom: 1em;
             font-weight: 300;
             font-variation-settings: "wght" 300;
-            color: #444;
+            color: #333;
         }
 
         li p {
@@ -452,6 +452,14 @@
         border-right: 0;
         content: ' ';
         opacity: 0;
+    }
+
+    .language-math {
+        color: #333;
+    }
+
+    .math-inline {
+        font-size: 0.88em;
     }
 
     .md-tag {
