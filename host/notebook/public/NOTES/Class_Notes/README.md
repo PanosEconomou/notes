@@ -8,3 +8,5 @@
 
 - [**QFT3**](QFT3)
     - [Perturbations on Background Classical Fields](QFT3/Anomalies.md)
+    - [Axions](QFT3/Axions.md)
+    - [Magnetic Monopoles](QFT3/Monopoles.md)

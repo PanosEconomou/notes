@@ -5,13 +5,19 @@ import Markdown from 'react-markdown';
 import Cursor from './assets/Cursor';
 import rehypeRaw from 'rehype-raw';
 import remarkMath from 'remark-math';
-import rehypeMathjax from 'rehype-mathjax';
+import preserveDollarSigns from './PreserveDollarSigns';
+// import rehypeMathjax from 'rehype-mathjax';
 import slugify from 'react-slugify';
 import remarkGfm from 'remark-gfm'
 import Magnetic from './assets/Magnetic';
 import PageButton from './assets/PageButton';
 import MainMenu from './assets/MainMenu';
 import { useParams, useLocation, Link } from 'react-router-dom';
+// import { mathjax } from 'mathjax-full/js/mathjax.js';
+// import { TeX } from 'mathjax-full/js/input/tex.js';
+// import { CHTML } from 'mathjax-full/js/output/chtml.js';
+// import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
+// import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
 
 export default function NotebookPage({ }) {
 
@@ -164,44 +170,49 @@ export default function NotebookPage({ }) {
     return (
       <Markdown
         className="markdown"
-        remarkPlugins={[remarkMath, remarkGfm]}
+        remarkPlugins={[remarkMath, remarkGfm]} // remarkMath,
         // rehypePlugins={[rehypeRaw, rehypeMathjax]}
-        rehypePlugins={[rehypeRaw,
-          [rehypeMathjax, {
-            tex: {
-              packages: {
-                '[+]': [
-                  'base',
-                  'bracket',
-                  'bussproofs',
-                  'bbox',
-                  'cancel',
-                  'ams',
-                  'amscd',
-                  'extpfeil',
-                  'boldsymbol',
-                  'mathtools',
-                  'amsthm',
-                  'amssymb',
-                  'centernot',
-                  'noerror',
-                  'mhchem',
-                  'html',
-                  'color',
-                  'newcommand',
-                  'enclose',
-                  'action',
-                  'verb',
-                  'extpfeil',
-                  'physics',
-                  'noundefined',
-                  'autoload',
-                  'textmacros',
-                  'xypic'
-                ]
-              }
-            }
-          }]
+        rehypePlugins={[rehypeRaw//, rehypeMathjax
+          // [rehypeMathjax, 
+          //   {
+          //   loader: {
+          //     load: ['[custom]/xypic.js'],
+          //     paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'}
+          //   },
+          //   tex: {
+          //     packages: {
+          //       '[+]': [
+          //         'xypic',
+          //         'base',
+          //         'bracket',
+          //         'bussproofs',
+          //         'bbox',
+          //         'cancel',
+          //         'ams',
+          //         'amscd',
+          //         'extpfeil',
+          //         'boldsymbol',
+          //         'mathtools',
+          //         'amsthm',
+          //         'amssymb',
+          //         'centernot',
+          //         'noerror',
+          //         'mhchem',
+          //         'html',
+          //         'color',
+          //         'newcommand',
+          //         'enclose',
+          //         'action',
+          //         'verb',
+          //         'extpfeil',
+          //         'physics',
+          //         'noundefined',
+          //         'autoload',
+          //         'textmacros'
+          //       ]
+          //     }
+          //   }
+          //   }]
         ]}
         components={{
           img(props) {
@@ -287,6 +298,11 @@ export default function NotebookPage({ }) {
 
   useEffect(() => {
     if (headingRefs.current.length != 0) createTOC();
+
+    // Trigger MathJax typesetting after the content is rendered
+    if (window.MathJax) {
+      window.MathJax.typesetPromise();
+    }
 
   }, [markdown])
 

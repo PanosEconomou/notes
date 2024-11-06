@@ -4,6 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noteboook</title>
+    <script>
+      MathJax = {
+        // ...window.MathJax,
+        loader: {
+          load: ['[custom]/xypic.js','input/tex-full'],
+          paths: {custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'},
+        },
+        tex: {
+          // inlineMath: [['$', '$'], ['\\(', '\\)']], 
+          // displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          inlineMath: [['$', '$'], ['\\(', '\\)']], 
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          // tags: "none",
+          packages: {'[+]': ['base', 'xypic']},
+        },
+        // options: {
+        //   // processHtmlClass: '.*' // Process only specific classes
+        //   // processHtmlClass: 'tex2jax_process',
+          ignoreHtmlClass: '.*', // Ignore all by default
+          processHtmlClass: 'math-inline|math-display' // Process only math classes
+        // }
+      };
+      </script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml-full.js"></script>
   </head>
   <body>
     <div id="root"></div>
