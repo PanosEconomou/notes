@@ -355,10 +355,12 @@ So far this is all natural, so it is time to define the natural defining propert
 **<u>Theorem:</u>** *(Universal property of product categories)* Given a category $C$ and two functors $A \xleftarrow f C\xrightarrow g B$ then there exist a unique functor $F:C\to A\times B$ such that the following diagram commutes
 $$
 \xymatrix {
-& C\ar[dl]_f\ar[dr]^g\ar@{-->}[d]^F &\\
+& C\ar[dl]_f\ar[dr]^g\ar@{.>}[d]^F &\\
 A & A\times B\ar[l]^{\pi_A} \ar[r]_{\pi_B} & B
 }
 $$
+
+
 
 
 
