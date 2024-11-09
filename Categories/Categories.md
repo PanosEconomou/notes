@@ -341,7 +341,11 @@ With these definitions we are ready to uncover the familiar notion of the dual v
 
 Natural and well defined in terms of sets, so we can extend it to categories.
 
-**<u>Definition:</u>** Given any two categories $A,B$, their **product** is a category $A\times B$ such that the objects are the ordered pairs of objects $\langle a,b \rangle$, where $a\in A$ and $b \in B$, and the arrows are ordered pairs of arrows $\langle f,g\rangle : \langle \text{dom\,}f, \text{dom\,}g \rangle \to \langle \text{cod\,}f,\text{cod\,}g \rangle$. Composability is defined in the natural way. 
+**<u>Definition:</u>** Given any two categories $A,B$, their **product** is a category $A\times B$ such that the objects are the ordered pairs of objects $\langle a,b \rangle$, where $a\in A$ and $b \in B$, and the arrows are ordered pairs of arrows $\langle f,g\rangle : \langle \text{dom\,}f, \text{dom\,}g \rangle \to \langle \text{cod\,}f,\text{cod\,}g \rangle$. An arrow is composible iff both elements are and the composition is given by 
+$$
+\langle f,g \rangle \circ \langle f',g' \rangle = \langle f\circ f',g\circ g' \rangle.
+$$
+
 
 **<u>Proposition:</u>** Given two categories $A,B$ and their product $A\times B$ there ate two canonical functors $\pi_A : A\times B \to A$ and $\pi_B : A\times B \to B$ called the **projection functors**. Such that for any object $\langle a,b \rangle \in A\times B$ and any arrow $\langle f,g \rangle \in A\times B$ they act by
 $$
