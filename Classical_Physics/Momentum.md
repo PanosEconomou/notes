@@ -575,7 +575,7 @@ $$
 $$
 (\mu_{J_1},\mu_{J_2},\mu_{J_3}) = q\times p,
 $$
-where $q\times p$ is the canonical cross product between $q,p\in \mathbb R^3$. Now all we need to do is to find the kernel of the cross product between position and momentum. This is all the points where $q=\lambda p$ for any $\lambda \in \mathbb R$ are parallel. To be more precice
+where $q\times p$ is the canonical cross product between $q,p\in \mathbb R^3$. Now all we need to do is to find the kernel of the cross product between position and momentum. This is all the points where $q=\lambda p$ for any $\lambda \in \mathbb R$ are parallel. To be more precise
 $$
 \mu^{-1}(0) = \{(q,\lambda q) \in T^\ast \mathbb R^3 \mid \lambda \in \mathbb R, q\in \mathbb R^3\}.
 $$
