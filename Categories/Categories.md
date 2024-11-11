@@ -385,7 +385,9 @@ $$
 
 ## Functor Categories 
 
-Now it is time to play a better game that will be useful in certain constructions in linear categories. 
+Now it is time to play a better game that will be useful in certain constructions in linear categories. Let's construct categories out of functors.
+
+**<u>Definition:</u>** Let $A,B$ be categories, and consider all the functors $R,S,T,\cdots : A\to B$. If $\sigma :R\to^\ast S$ and $\tau:S\to^\ast T$, consider the following commutative diagram.  
 
 
 
