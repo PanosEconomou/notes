@@ -387,7 +387,15 @@ $$
 
 Now it is time to play a better game that will be useful in certain constructions in linear categories. Let's construct categories out of functors.
 
-**<u>Definition:</u>** Let $A,B$ be categories, and consider all the functors $R,S,T,\cdots : A\to B$. If $\sigma :R\to^\ast S$ and $\tau:S\to^\ast T$, consider the following commutative diagram.  
+**<u>Definition:</u>** Let $A,B$ be categories, and consider all the functors $R,S,T,\cdots : A\to B$. If $\sigma :R\to^\ast S$ and $\tau:S\to^\ast T$, consider the following commutative diagram for any objects $a,b\in A$ and any $f:a\to b$.
+$$
+\xymatrix{
+Ra\ar[d]_{\sigma a}\ar[r]^{Rf}\ar@/_2.5pc/[dd]_{(\tau\cdot \sigma)a} & Rb\ar[d]^{\sigma b} \ar@/^2.5pc/[dd]^{(\tau\cdot \sigma)b}\\
+Sa\ar[d]_{\tau a}  \ar[r]^{Sf} & Sb\ar[d]^{\tau b}\\
+Ta\ar[r]^{Tf} & Tb
+}
+$$
+
 
 
 
