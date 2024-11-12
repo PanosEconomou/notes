@@ -467,9 +467,9 @@ $$
 
 the left diagram are the objects, and the right diagram shows the action of the arrows. 
 
-Aside from this not being very illuminating we can see specific examples. One cool thing to see is that any functor $a: \bold{1} \to A$ from the trivial category to any category $A$ is in bijective correspondence with the elements of $A$. In particular it is fully defined by the object $a\ast \in A$. So in principle it makes sense to talk about the following comma categories.
+Aside from this not being very illuminating we can see specific examples. One cool thing to see is that any functor $a: \boldsymbol{1} \to A$ from the trivial category to any category $A$ is in bijective correspondence with the elements of $A$. In particular it is fully defined by the object $a\ast \in A$. So in principle it makes sense to talk about the following comma categories.
 
-**<u>Definition:</u>** Let $A$ be a category and $a\in A$ an object, then the category of **objects under $a$**  is the category $(a\downarrow A)$ which is the comma category $(S\downarrow T)$ where $S:\bold 1 \to A$ is the functor such that $S\ast = a$ and $T$ is the identity functor of $A$.
+**<u>Definition:</u>** Let $A$ be a category and $a\in A$ an object, then the category of **objects under $a$**  is the category $(a\downarrow A)$ which is the comma category $(S\downarrow T)$ where $S:\boldsymbol 1 \to A$ is the functor such that $S\ast = a$ and $T$ is the identity functor of $A$.
 
 **<u>Corollary:</u>** An alternative way to describe the category of all objects under $a$ $(a\downarrow A)$ is via the objects being pairs $\langle f,b \rangle$ where $f:a\to b$ is an arrow in $A$  and the arrows $h:\langle f,b \rangle \to \langle g,c \rangle$ defined by arrows $h:b\to c$ in $A$ in the following way
 $$
