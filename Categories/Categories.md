@@ -272,14 +272,15 @@ There are multiple ways that we can think of arrows and we often encounter them 
 
 1. An arrow $f:a\to b$ is **invertible** if there exists an arrow $f^{-1}:b\to a$ such that $f\circ f^{-1} =1_a$ and $f^{-1}\circ f = 1_b$, then $f^{-1}$ is called an **inverse of** $f$. 
 2. The objects $a,b$ are **isomorphic** in the category $A$ if there is an invertible arrow between them. Then we write $a\cong b$. This relation is reflexive, symmetric, and transitive.
-3. An arrow $f:a\to b$ is **monic** in $A$ if for any two parallel arrows $g,h:a\to b$ we have that $f\circ g = f\circ h \implies g=h$. 
-4. An arrow $f:a\to b$ is **epi** in $A$ if for any two parallel arrows $g,h:a\to b$ we have that $ g\circ f = h\circ f \implies g=h$. 
-5. A **left inverse** of $h:b\to a$ of an arrow $f:a\to b$ is such that $h\circ f = 1_a$. A **right inverse** or **section** of an arrow $f:a\to b$ is an arrow $h:b\to a$ such that $f\circ h = 1_b$. 
-6. An arrow $f:a\to a$ is **idempotent** when $f^2 \coloneqq f\circ f = f$.
-7. An object $a \in A$ is **terminal** in $A$ if for every object $b\in A$ there is exactly one arrow $b\to a$. Any two terminal objects are isomorphic in $A$. 
-8. An object $a\in A$ is **initial** in $A$ if for every object $b\in A$ there is exactly one arrow $a\to b$.
-9. A **null object** $z\in A$ is an object that is both initial and terminal. All null objects are isomorphic in $A$. The unique arrow such that $a\to z \to b$ is called a **null arrow**. Composites of null arrows are also null arrows. 
-10. A **groupoid** is a category where every arrow is invertible. A groupoid is **connected** if for any two objects there is an arrow connecting them.
+3. An arrow $f:a\to b$ is **endo** in $A$ iff $a=b$.
+4. An arrow $f:a\to b$ is **monic** in $A$ if for any two parallel arrows $g,h:a\to b$ we have that $f\circ g = f\circ h \implies g=h$. 
+5. An arrow $f:a\to b$ is **epi** in $A$ if for any two parallel arrows $g,h:a\to b$ we have that $ g\circ f = h\circ f \implies g=h$. 
+6. A **left inverse** of $h:b\to a$ of an arrow $f:a\to b$ is such that $h\circ f = 1_a$. A **right inverse** or **section** of an arrow $f:a\to b$ is an arrow $h:b\to a$ such that $f\circ h = 1_b$. 
+7. An arrow $f:a\to a$ is **idempotent** when $f^2 \coloneqq f\circ f = f$.
+8. An object $a \in A$ is **terminal** in $A$ if for every object $b\in A$ there is exactly one arrow $b\to a$. Any two terminal objects are isomorphic in $A$. 
+9. An object $a\in A$ is **initial** in $A$ if for every object $b\in A$ there is exactly one arrow $a\to b$.
+10. A **null object** $z\in A$ is an object that is both initial and terminal. All null objects are isomorphic in $A$. The unique arrow such that $a\to z \to b$ is called a **null arrow**. Composites of null arrows are also null arrows. 
+11. A **groupoid** is a category where every arrow is invertible. A groupoid is **connected** if for any two objects there is an arrow connecting them.
 
 There are interesting facts for all of these, but for now we just need these definitions to work with category theory.
 
@@ -387,7 +388,7 @@ $$
 
 Now it is time to play a better game that will be useful in certain constructions in linear categories. Let's construct categories out of functors.
 
-**<u>Definition:</u>** Let $A,B$ be categories, and consider all the functors $R,S,T,\cdots : A\to B$. If $\sigma :R\to^\ast S$ and $\tau:S\to^\ast T$, consider the following commutative diagram for any objects $a,b\in A$ and any $f:a\to b$.
+**<u>Proposition:</u>** Let $A,B$ be categories, and consider all the functors $R,S,T,\cdots : A\to B$. If $\sigma :R\to^\ast S$ and $\tau:S\to^\ast T$, consider the following commutative diagram for any objects $a,b\in A$ and any $f:a\to b$.
 $$
 \xymatrix{
 Ra\ar[d]_{\sigma a}\ar[r]^{Rf}\ar@/_2.5pc/[dd]_{(\tau\cdot \sigma)a} & Rb\ar[d]^{\sigma b} \ar@/^2.5pc/[dd]^{(\tau\cdot \sigma)b}\\
@@ -395,13 +396,57 @@ Sa\ar[d]_{\tau a}  \ar[r]^{Sf} & Sb\ar[d]^{\tau b}\\
 Ta\ar[r]^{Tf} & Tb
 }
 $$
+where $\tau \cdot \sigma$ is the composition of natural transformations defined for any $a\in A$ by
+$$
+(\tau \cdot \sigma) a = \tau a \circ \sigma a.
+$$
+That diagram commutes, and the composite is a natural transformation. 
+
+***Proof:*** The inner boxes of the diagram commute by definition because $\tau$ and $\sigma$ are natural, therefore the semicircles commute. As a result, the composite of two natural transformations is also natural. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+**<u>Definition:</u>** Given categories $A,B$ the **functor category** $B^A = \text{Funct}(A,B)$ is the category with objects all the functors $T:A\to B$ and morphisms all the natural transformations between the functors. The homset for any two objects $S,T \in B^A$ of the functor category are denoted by
+$$
+\text{Nat}(S,T) = B^A(S,T) = \{\tau : S\to^\ast T \text{ natural}\}.
+$$
+This might look like an overcomplicated way to do stuff, but it has a practical purpose. Let's see some examples first.
+
+**<u>Example:</u>** *(Function set)* If $X,Y$ are sets the category $Y^X$ is also a set, and it contains all the functions  from $X$ to $Y$. 
+
+The interesting and useful example is the following. 
+
+**<u>Example:</u>** *(Representations of Groups)* If $G$ is a group and $K$ is a commutative ring, then $\text{Mod}^G_K$ is the category of $K$-linear representations of elements of $G$. To show this, consider the functor $T:G\to \text{Mod}_K$. Let $g\in G$ be some group element (i.e. an arrow in the monoidal category $G$), and $Tg$ be the associated arrow on modules. Since $g$ is endo so is $Tg$. Even more, we can find the specific $K$-module that $Tg$ is acting on. This is the module $T\ast$ where $\ast \in G$ is the single element. Naturally, every functor respects composition, therefore the binary operation of the group elements is respected in the elements' images making $T$ a representation. Notice that the interesting thing, is that the representation carries with it the vector space it maps to which is kinda cute. 
+
+The even cuter part is that the natural transformations, or arrows, of this category are the equivariant maps! In particular consider two representations $T,S:G\to \text{Mod}_K$ and consider an arrow $s : T\ast \to S\ast$ such that the following diagram commutes
+$$
+\xymatrix{
+T\ast \ar[d]_{Tg} \ar[r]^{s} & S\ast \ar[d]^{Sg}\\
+T\ast \ar[r]_s & S\ast
+}
+$$
+for all $g \in G$. Then $s:T\ast \to S\ast$ defines a natural transformation $\sigma : T\to^\ast S$ where $s = \sigma\ast$ which fully defines the natural transformation. This map $s$ (or $\sigma$) is equivariant because for any $v \in T\ast$
+$$
+Sg(s(v)) = s(Tg(v)),
+$$
+or in more familiar notation
+$$
+g\cdot s(v) = s(g\cdot v).
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
 
+# Comma Categories
+
+Honestly, I really wanted to skip this one, but after looking at limits and colimits, it becomes super useful. So, unfortunately we can't skip it. 
 
 
 
-
+ 
 
 
 
