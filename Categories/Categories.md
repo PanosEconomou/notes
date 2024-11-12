@@ -440,7 +440,7 @@ $$
 
 
 
-# Comma Categories
+## Comma Categories
 
 Honestly, I really wanted to skip this one, but after looking at limits and colimits, it becomes super useful. So, unfortunately we can't skip it. 
 
