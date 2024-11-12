@@ -7,6 +7,7 @@ We introduce the basic constructions of Category Theory as well as some cool the
 Most of this discussion is based on
 
 1. [Lane, Categories for the Working Mathematician](https://link.springer.com/book/10.1007/978-1-4757-4721-8)
+1. [nlab](https://ncatlab.org/nlab/show/HomePage)
 
 # Basic Constructions
 
@@ -442,7 +443,53 @@ $$
 
 ## Comma Categories
 
-Honestly, I really wanted to skip this one, but after looking at limits and colimits, it becomes super useful. So, unfortunately we can't skip it. 
+Honestly, I really wanted to skip this one, but after looking at limits and colimits, it becomes super useful. So, unfortunately we can't skip it. *I will fill out the idea later once I fully understand it,* but here is the general definition and some very common *examples*.
+
+**<u>Definition:</u>** Consider the following categories and functors
+$$
+B\xrightarrow T A \xleftarrow S C 
+$$
+then the **comma category** $(T\downarrow S) = (T,S)$ is the category with objects all triplets $\langle b,c,f \rangle$ where $b \in B$, $c\in C$ are objects and $f: Tb \to Sc$ is an arrow in $A$. The arrows are pairs $\langle k,h \rangle$ where $k:b\to b' \in B$ and $h:c\to c' \in C$ and take $\langle b,c,f \rangle \to \langle b',c',f'\rangle$ such that $f'\circ Tk = Sh \circ f$, or in other words
+$$
+\begin{align*}
+\langle b,c,f \rangle = \vcenter{\xymatrix{
+Tb\ar[d]_f\\
+Sc
+}}
+&&
+\langle b,c,f \rangle \to \langle b',c',f'\rangle = \vcenter{\xymatrix{
+Tb\ar[r]^{Tk}\ar[d]_{f} & Tb'\ar[d]^{f'}\\
+Sc\ar[r]_{Sh} & Sc'
+}}.
+\end{align*}
+$$
+
+
+the left diagram are the objects, and the right diagram shows the action of the arrows. 
+
+Aside from this not being very illuminating we can see specific examples. One cool thing to see is that any functor $a: \bold{1} \to A$ from the trivial category to any category $A$ is in bijective correspondence with the elements of $A$. In particular it is fully defined by the object $a\ast \in A$. So in principle it makes sense to talk about the following comma categories.
+
+**<u>Definition:</u>** Let $A$ be a category and $a\in A$ an object, then the category of **objects under $a$**  is the category $(a\downarrow A)$ which is the comma category $(S\downarrow T)$ where $S:\bold 1 \to A$ is the functor such that $S\ast = a$ and $T$ is the identity functor of $A$.
+
+**<u>Corollary:</u>** An alternative way to describe the category of all objects under $a$ $(a\downarrow A)$ is via the objects being pairs $\langle f,b \rangle$ where $f:a\to b$ is an arrow in $A$  and the arrows $h:\langle f,b \rangle \to \langle g,c \rangle$ defined by arrows $h:b\to c$ in $A$ in the following way
+$$
+\begin{align*}
+\langle f,b \rangle = \vcenter{\xymatrix{
+a\ar[d]_f \\
+b 
+}} 
+&&
+h:\langle f,b \rangle \to \langle g,c \rangle = \vcenter{\xymatrix{
+ & a\ar[dl]_f \ar[dr]^{g} &\\
+ b\ar[rr]_h & & c
+}}.
+\end{align*}
+$$
+
+
+
+
+ 
 
 
 
