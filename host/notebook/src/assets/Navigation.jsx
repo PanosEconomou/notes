@@ -46,7 +46,7 @@ export default function Navigation({ stickTo, setCursorVariant }) {
             .then((res) => res.text())
             .then(data => data.split('\n')
                 .filter(Boolean)
-                .filter((item) => item.endsWith(".md") && !item.endsWith("README.md")))
+                .filter((item) => item.endsWith(".md") && !item.endsWith("README.md") && item.startsWith("_")))
             .then((data) => {
                 createNestedObject(data);
                 return data;
