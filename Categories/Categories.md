@@ -485,7 +485,11 @@ h:\langle f,b \rangle \to \langle g,c \rangle = \vcenter{\xymatrix{
 }}.
 \end{align*}
 $$
+These are much easier to think intuitively about. Let's see some examples
 
+**<u>Example:</u>** *(Pointed Sets)* Let $\ast \in \text{Set}$ be the singleton and consider the category of sets below $\ast$. Any map $f:\ast \to s$ where $s \in \text{Set}$ is some set effectively picks an element $f\ast \in s$, so the elements are fully defined by a pointed sets, aka $ \langle p,S \rangle$ where $p\in S$ and $S\in \text{Set}$. The arrows are basepoint preserving maps. In other words, any arrow $f:\langle p,X \rangle \to \langle q,Y \rangle$ has the property that $f(p\ast) = q\ast$ by the diagram above, or in the usual notation where $p = p\ast$ we get $f(p) = q$.
+
+**<u>Example:</u>** *(Abelian pointed groups)* In a similar way we can consider $(\mathbb{Z} \downarrow \text{Ab})$ where any map $f:\mathbb{Z} \to G$ where $G \in \text{Ab}$ is some other Abelian group  
 
 
 
