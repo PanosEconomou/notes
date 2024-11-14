@@ -1,0 +1,64 @@
+# False Vacuum Decay
+
+We consider some potential with a local minimum and a lower global minimum. There must be some process that can move you from the local minimum (false vacuum) to the global minimum (true vacuum).
+
+The way this will look like is that within the false vacuum, the field configuration will form "bubbles" of the true vacuum. We see that the formation of such bubbles is energetically favorable. The physical information is located in the boundary of those bubbles. In particular the energy density as a function of the radius of the bubble $R$ is given by
+$$
+\epsilon = - \rho_0 R^3 + T R^2,
+$$
+where $T$ is some stress energy thing and $\rho_0$ is some energy density of the true vacuum. Expanding the radius we lose energy since the volume increases faster than the surface area. Let's work it out precisely.
+
+
+
+## No Gravity
+
+We will use instantons to calculate those bubbles. Here are the assumptions we will make. Consider the following total potential
+$$
+V = V_0 + \epsilon V_1,
+$$
+where $V_0(\pm \phi_0) = 0$, $V_1(-\phi_0) = 0$ and $V_1(+\phi_0) = 1$. We will further assume that
+$$
+\left.\frac{d V_0}{d \phi}\right|_{\pm \phi_0} = 0.
+$$
+The Euclidean action of a free field is
+$$
+S_E = \int_{\mathbb{R}^4} d\phi\wedge \ast d\phi + \ast U(\phi)
+$$
+where $U = -V$. Where $U$ is the equivalent instanton potential. We will solve for a classical solution called the **bounce solution**. This way we can calculate a bunch of probabilities. In other words, we want to calculate a probability rate in time and volume, which will look like something as
+$$
+\frac{\Gamma}{V} \sim  Ae^{-S_E}.
+$$
+Aposteriori we can make the following assumption that simplifies the algebra. Assume that the solution is $O(4)$ symmetric. Let's take advantage of that to rewrite the integral with spherical coordinates as
+$$
+S_E = 2\pi^2 \int_{\mathbb{R}^4} \rho^3 d\rho \left[ \frac{1}{2}(\phi')^2 + U(\phi) \right]
+$$
+where now $\phi$ is only a function of $r$. Let's assume that $U = U_0 + \mathcal{O}(\epsilon)$, where $\epsilon = U(\phi_+) - U(\phi_1)$. Therefore the equations of motion become
+$$
+\phi'' + \frac{3}{\rho}\phi' = \frac{d U}{d \phi}.
+$$
+But in the thin wall approximation $\rho$ is large, so we can ignore it! As a result, we can solve for $\phi$ as 
+$$
+\frac{1}{2} (\phi')^2 - U_0 = 0 \implies \rho - \bar \rho = \int_{\frac{\phi_+ + \phi_-}{2}}^\phi \frac{d\sigma}{\sqrt{2U_0(\sigma)}}.
+$$
+Now taking a specific form of $U_0$ as follows
+$$
+U_0 = \frac{\lambda}{8} \left(\phi^2 - \frac{\mu^2}{\lambda}  \right)^2,
+$$
+we obtain a full analytic solution to be
+$$
+\phi = \frac{\mu}{\sqrt{\lambda}} + h \left[\frac{\mu}{2} (\rho - \bar \rho)  \right],
+$$
+where the size is $\mu^{-1}$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
