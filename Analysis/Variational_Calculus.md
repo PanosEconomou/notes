@@ -27,7 +27,6 @@ This is also true for spinor fields for example. Using a similar argument, we ca
 Banach spaces have some cool properties already. For example the existence of a norm can help us define differentiation without a rigid smooth structure on them. Here is how to do it.
 
 **<u>Definition:</u>** Let $V,W$ be Banach spaces, and $U\subset V$ be an open subset. Then a function $f : U \to W$ is **Frechet differentiable** at $x \in U$ if there exists a bounded linear operator $A: V\to W$ such that
-
 $$
 \lim_{||h||_V \to 0} \frac{\left|\left|f(x+h)-f(x) - Ah\right|\right|_W}{||h||_V} = 0.
 $$
@@ -48,7 +47,7 @@ $$
 
 Here is the cool fact.
 
-**<u>Theorem:</u>** Let $X$ be a set and $B$ a Banach space. Then the set of all functions $B^X$ is a Banach space under point-wise addition and scalar multiplication and the supremum norm.
+**<u>Theorem:</u>** Let $X$ be a set and $B$ a Banach space. Then the set of all functions $B^X$ is a Banach space under point-wise addition and scalar multiplication, and the supremum norm.
 
 I love this! Not only did we bundle together all the spaces that we map to in physics, but also all the useful functions in physics belong to the same category of spaces. Therefore we only need to care about defining variational constructions in Banach spaces and we are done!
 
@@ -73,7 +72,6 @@ There is no special property of functionals that makes them distinct from functi
 The well defined concept on functional derivatives is the functional differential, more so than the functional derivative itself. Here is how we define it. 
 
 **<u>Definition:</u>** let $A,B$ be a Banach spaces, and $F:A\to B$ be a function. The **functional differential** of $F$ at $a\in A$ is the linear map $\delta F[a] : A\to B$ such that for any $\phi \in A$
-
 $$
 \delta F[a](\phi) = \lim_{\epsilon \to 0} \frac{F(a + \epsilon \phi) - F(a)}{\epsilon} = \frac{d}{d\epsilon}F(a + \epsilon \phi).
 $$
@@ -83,7 +81,6 @@ We notice that if the Frechet derivative is defined for $F \in B^A$ then, $\delt
 Technically this is all we need in order to define functional derivatives, but lets first see some examples.
 
 **<u>Example:</u>** Let $M$ be a Lorentzian manifold and consider the Banach space $B \coloneqq C^\infty_0(M)$ of compactly supported functionas on $M$. Then we can consider real functionals on $B$, ie. $F: B\to \mathbb R$. We know that if $F$ is continuous then it is a distribution (see [distributions](./Distributions.md)). Let $F$ be of the form such that for any $f \in B$
-
 $$
 F(f) = \int_M \ast L\cdot f = \int_M L(x) f(x) dx,
 $$
@@ -95,7 +92,6 @@ $$
 $$
 
 **<u>Notation and Physics:</u>** In physics we often want something of the form $\frac{\delta F}{\delta f}$ that satisfies chain and product rule in order to call it a derivative. We can identify such an object in the following way. The functional derivative of $F$ by $f$ of a regular distribution $F$ is the function $\frac{\delta F}{\delta f}$ such that
-
 $$
 \delta F[f](g) = \int_M \ast \frac{\delta F}{\delta f} \cdot  g,
 $$
@@ -104,7 +100,45 @@ for any $g \in B$. Now we are almost done and we can show some cool properties t
 
 
 
+## Examples in Physics
 
+Most of the applications of variation calculus appear in physics. Let's see how to define some of the most common objects.
+
+**<u>Definition:</u>** Let $(M,\Sigma,\mu)$ be some measure space with Lebesgue measure $\mu$, $B$ a Banach space and $\mathcal{L}:B\to \mathbb{R}$. Then an **action functional** is a function $S:B^M \to \mathbb{R}$ given for any $\gamma : M\to B$ by
+$$
+S(\gamma) = \int_M \mathcal{L \circ \gamma}\,  d\mu,
+$$
+ where we have used the Lebesgue integral. Additionally, $\mathcal{L}$ is called the **Lagrangian**. 
+
+Here is some setup for using this formalism.
+
+**<u>Proposition:</u>** Given a smooth manifold $M$ the set of sections $\Gamma^\infty(T^\ast M\otimes T^\ast M)$ is a Banach space.
+
+***Proof:*** The set of such sections is the set where all the metrics live, so to effectively turn it into a Banach space, we need to find a norm on the following bundle $T^\ast M \otimes T^\ast M$. We define a norm on there in the form of a bundle metric, simply by taking a section of that bundle (such that it is symmetric, nondegenerate, and so on). 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}	
+$$
+Now we can define an action functional on that manifold as such.
+
+**<u>Proposition:</u>** Given a smooth Manifold $M$ and a Lagrangian $\mathcal{L}:T^\ast M\otimes T^\ast M \to \mathbb{R}$ one can define the following action $S: \Gamma^\infty_\text{Sym}\left(T^\ast M \otimes T^\ast M  \right) \to \mathbb{R}$ for every $g \in \Gamma^\infty_\text{Sym}\left(T^\ast M \otimes T^\ast M  \right)$ 
+$$
+S(g) = \int_M \ast_g L\circ g.
+$$
+***Proof:*** We have shown that $S$ is a map of Banach spaces, and we know that smooth integration on a manifold defines a Lebesgue measure. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+ Now we are finally ready to define the stress energy tensor. 
+
+**<u>Theorem:</u>** *(The definition of the stress energy tensor)* The functional differential of the action $S: \Gamma^\infty_\text{Sym}\left(T^\ast M \otimes T^\ast M  \right) \to \mathbb{R}$ above at $g\in \Gamma^\infty_\text{Sym}\left(T^\ast M \otimes T^\ast M  \right)$ can be expressed for all $\delta g \in \Gamma^\infty_\text{Sym}\left(T^\ast M \otimes T^\ast M  \right)$ as
+$$
+\delta S[g](\delta g) = \int_M \ast_g \iota_T \delta g,
+$$
+ where $T \in \Gamma^\infty_\text{Sym}\left(T M \otimes T M  \right)$ is a **stress energy tensor** (defined [here](../Projects/CFT/Free_Fields.md#Lagrangian-formalism)), and $\iota_T\delta g$ is the contraction of $\delta g$ by $T$ in components given by
+$$
+\iota_T\delta g = T_{\mu\nu}\delta g^{\mu\nu}.
+$$
+ 
 
 
 

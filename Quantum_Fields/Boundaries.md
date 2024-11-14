@@ -61,7 +61,7 @@ The intuition behind conformal equivalence is that two manifolds are conformally
 
 ***Proof:*** The transformation $R : \mathbb C\to \mathbb C$ given by $z\mapsto -e^{-i\arg \tau}z$ is a conformal transformation as a rotation of the complex plane. The same thing is true for scalings $D :\mathbb C\to \mathbb C $ where $z\mapsto \frac{1}{||\tau||} z$. We note that the transformation $z\mapsto -\frac{1}{z}$ is the composition of the two so it is conformal. 
 
-Now take a look at he follwing commutative diagram.
+Now take a look at he following commutative diagram.
 $$
 \begin{CD}
 \mathbb C @>f>> \mathbb C\\
@@ -69,7 +69,7 @@ $$
 \mathbb C/{\mathbb Z^2} @>>\tilde f> \mathbb C/{\mathbb Z^2}
 \end{CD}
 $$
-We have a conformal map $f$ such ttaht $q_{-\frac{1}{\tau}} \circ f$ respects the identifications of $q_\tau$. As a result the composition decends to the quotient. In other words there exists a unique map $\tilde f :  \mathbb C/\mathbb Z^2\to \mathbb C/\mathbb Z^2$ such that 
+We have a conformal map $f$ such ttaht $q_{-\frac{1}{\tau}} \circ f$ respects the identifications of $q_\tau$. As a result the composition descends to the quotient. In other words there exists a unique map $\tilde f :  \mathbb C/\mathbb Z^2\to \mathbb C/\mathbb Z^2$ such that 
 $$
 \tilde f\circ q_\tau = q_{-\frac{1}{\tau}} \circ f.
 $$
@@ -221,7 +221,7 @@ $$
 
 ## In the Partition Function of a CFT
 
-So what about conformal transformations? T
+So what about conformal transformations? 
 
 
 
