@@ -489,7 +489,31 @@ These are much easier to think intuitively about. Let's see some examples
 
 **<u>Example:</u>** *(Pointed Sets)* Let $\ast \in \text{Set}$ be the singleton and consider the category of sets below $\ast$. Any map $f:\ast \to s$ where $s \in \text{Set}$ is some set effectively picks an element $f\ast \in s$, so the elements are fully defined by a pointed sets, aka $ \langle p,S \rangle$ where $p\in S$ and $S\in \text{Set}$. The arrows are basepoint preserving maps. In other words, any arrow $f:\langle p,X \rangle \to \langle q,Y \rangle$ has the property that $f(p\ast) = q\ast$ by the diagram above, or in the usual notation where $p = p\ast$ we get $f(p) = q$.
 
-**<u>Example:</u>** *(Abelian pointed groups)* In a similar way we can consider $(\mathbb{Z} \downarrow \text{Ab})$ where any map $f:\mathbb{Z} \to G$ where $G \in \text{Ab}$ is some other Abelian group  
+**<u>Example:</u>** *(Abelian pointed groups)* In a similar way we can consider $(\mathbb{Z} \downarrow \text{Ab})$ where any map $f:\mathbb{Z} \to G$ where $G \in \text{Ab}$ is some other Abelian group defines an element of the Abelian groups under $\mathbb{Z}$. This homomorphism is completely defined by some $g\in G$ such that $f(1) = g$. So each element of the comma category is defined by $\langle g,G \rangle$ where $g\in G \in \text{Ab}$. So $(\mathbb{Z}\downarrow \text{Ab})$ contains pointed Abelian groups. The morphisms are going to be base point preserving maps. 
+
+
+
+Here is another common example of a comma category.
+
+**<u>Definition:</u>** Let $A$ be a category and $a\in A$ an object, then the category of **objects over $a$**  is the category $(A\downarrow a)$ which is the comma category $(S\downarrow T)$ where $T:\boldsymbol 1 \to A$ is the functor such that $T\ast = a$ and $S$ is the identity functor of $A$.
+
+**<u>Corollary:</u>** An alternative way to describe $(A\downarrow a)$ is as the category with objects $\langle b,f \rangle$ where $f:b\to a$ is an arrow in $A$ and arrows $h:\langle b,f \rangle \to \langle c,g \rangle$ defined by arrows $h:b\to c$ in $A$ according the following commutation diagram
+$$
+\begin{align*}
+\langle f,b \rangle = \vcenter{\xymatrix{
+a\ar[d]_f \\
+b 
+}} 
+&&
+h:\langle f,b \rangle \to \langle g,c \rangle = \vcenter{\xymatrix{
+ b\ar[rr]^h\ar[dr]_f & & c\ar[dl]^{g}\\
+ & a &
+}}.
+\end{align*}
+$$
+We could play with similar examples, but let's take a break before that. To talk about universals, limits, and colimits. 
+
+`
 
 
 
