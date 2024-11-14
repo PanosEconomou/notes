@@ -16,7 +16,7 @@ We begin by introducing an algebraic structure that contains all the properties 
 
 **<u>Definition:</u>** A **Banach space** is a complete normed vector space. In other words it is a pair $(B,||\cdot||)$ that consists of a vector space $B$ and a positive definite, subadditive, absolutely homogeneous map $||\cdot || : B\to \mathbb R$, such that every Cauchy sequence in $B$ has a converging subsequence in $B$ under the topology induced by the norm. 
 
-In less fancy words this is a vector space with a distance such that if you follow any converging sequence you won't accidentally fall out of the vector space. These spaces are the setting of so much of calculus. In fact most of the times in physics we work with functions that map a manifold to a Banach space. 
+In less fancy words this is a vector space with a distance such that if you follow any converging sequence you won't accidentally fall out of the vector space. These spaces are the setting of so much of calculus. In fact most of the times in physics we work wigivrn th functions that map a manifold to a Banach space. 
 
 **<u>Example:</u>** *(Physics Fields interpreted as maps to Banach Spaces)* A complex scalar field is, formally, a section of the complex line bundle $L$ over some Lorentzian manifold $M$. By picking a global section of $L$ we can identify every complex scalar field with a map of the form $M\to \mathbb C$. Since $\mathbb C$ is vector isomorphic to $\mathbb R^2$, then $\mathbb C$ with the Eucledian norm is a Banach space. Therefore all complex scalar fields are functions to a Banach space.
 
