@@ -367,6 +367,20 @@ The central object that encodes our physics is the stress energy tensor of the t
 
 
 
+## Physical Motivation
+
+So far these constructions have been introduced without any motivation, so let's introduce the usefulness of the stress tensor as an object in our CFT using some physical motivation and [variational calculus](../Analysis/Variational_Calculus.md). We will also derive the ward identities to justify their almost axiomatic presentation above. 
+
+As we have shown in an [example](../Analysis/Variational_Calculus.md#Examples-in-Physics), a stress tensor $T$ on $\mathbb{R}^2$ can be obtained by the variation of some action $S: \Gamma^\infty_{\text{Sym}}\left( T^\ast \mathbb{R}^2 \otimes T^\ast \mathbb{R}^2 \right) \to \mathbb{R}$ via 
+$$
+\delta S[g](\delta g) = \int_{\mathbb{R}^2} \ast_g \iota_T\delta g,
+$$
+where $g,\delta g$ are some metrics on $\mathbb{R}^2$ and $\iota_T\delta g$ is the contraction of $\delta g$ by the stress tensor $T$. We have already shown that this is symmetric, but we can show that in the case of a conformal transformation this is also traceless. 
+
+Let's see what it means to take the variation of the metric itself! In particular, consider some conformal map $f:\mathbb{R}^2\to \mathbb{R}^2$. We can find how the Conformal group acts.
+
+
+
 ## Virasorization of our Hilbert Space
 
 We derived this object because it will give us the symmetries of our theory. Let’s do some groundwork
@@ -386,7 +400,6 @@ The integral here is well defined since $T$ is a local distribution which means 
 HELL YEAH! We found it! We have found our symmetry algebra. Now we can do something else that is cool, we can reconstruct the stress tensor
 
 **<u>Corollary:</u>** *(Stress Tensor Reconstruction)* It follows that given these two representations the stress tensor components can be obtained by
-
 $$
 \begin{align*}
 T(z) = \sum_{n\in \mathbb{Z}} L_{n}z^{-n-2}

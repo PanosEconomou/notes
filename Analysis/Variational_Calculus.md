@@ -80,7 +80,7 @@ We notice that if the Frechet derivative is defined for $F \in B^A$ then, $\delt
 
 Technically this is all we need in order to define functional derivatives, but lets first see some examples.
 
-**<u>Example:</u>** Let $M$ be a Lorentzian manifold and consider the Banach space $B \coloneqq C^\infty_0(M)$ of compactly supported functionas on $M$. Then we can consider real functionals on $B$, ie. $F: B\to \mathbb R$. We know that if $F$ is continuous then it is a distribution (see [distributions](./Distributions.md)). Let $F$ be of the form such that for any $f \in B$
+**<u>Example:</u>** Let $M$ be a Lorentzian manifold and consider the Banach space $B \coloneqq C^\infty_0(M)$ of compactly supported functions on $M$. Then we can consider real functionals on $B$, ie. $F: B\to \mathbb R$. We know that if $F$ is continuous then it is a distribution (see [distributions](./Distributions.md)). Let $F$ be of the form such that for any $f \in B$
 $$
 F(f) = \int_M \ast L\cdot f = \int_M L(x) f(x) dx,
 $$
@@ -138,7 +138,6 @@ $$
 $$
 \iota_T\delta g = T_{\mu\nu}\delta g^{\mu\nu}.
 $$
- 
 
 
 

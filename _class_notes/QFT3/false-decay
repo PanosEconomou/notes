@@ -48,7 +48,27 @@ we obtain a full analytic solution to be
 $$
 \phi = \frac{\mu}{\sqrt{\lambda}} + h \left[\frac{\mu}{2} (\rho - \bar \rho)  \right],
 $$
-where the size is $\mu^{-1}$. 
+where the size is $\mu^{-1}$.  We can calculate the $B = S_E(\text{interior}) = -\frac{\pi^2}{2}\bar \rho^4\epsilon$. What we will find eventually is that $\rho \propto \sqrt{x^2 -t^2} $ which means that we will start creating them at a quadratic rate. 
+
+
+
+## With Gravity
+
+We can interpret the false vacuum decay as gravitational transitions between AdS, Minkowski, and dS. The equations of motion where we added one scalar field can be given under the following assumption
+$$
+g = d\zeta^2 + \rho^2(\zeta)d\Omega^2
+$$
+by
+$$
+\ddot \phi + 3H\dot \phi = \frac{d V}{d \phi},
+$$
+where
+$$
+H^2 = \frac{8\pi G_N}{3} E + \frac{1}{a^2}.
+$$
+
+
+
 
 
 

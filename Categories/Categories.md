@@ -511,7 +511,7 @@ h:\langle f,b \rangle \to \langle g,c \rangle = \vcenter{\xymatrix{
 }}.
 \end{align*}
 $$
-We could play with similar examples, but let's take a break before that. To talk about universals, limits, and colimits. 
+We could play with similar examples, but let's take a break before that. To talk about universals, limits, and colimits. :q!@#$%^*&*
 
 
 
