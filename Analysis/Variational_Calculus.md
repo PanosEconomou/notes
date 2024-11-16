@@ -100,6 +100,8 @@ for any $g \in B$. Now we are almost done and we can show some cool properties t
 
 
 
+
+
 ## Examples in Physics
 
 Most of the applications of variation calculus appear in physics. Let's see how to define some of the most common objects.
