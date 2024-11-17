@@ -118,10 +118,10 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
                 variants={variants}
             />
 
-            <motion.h1
+            {/* <motion.h1
                 className="title"
                 variants={titleVariants}
-            ><NavLink to="/">Notebook</NavLink></motion.h1>
+            ><NavLink to="/">Notebook</NavLink></motion.h1> */}
 
             <Navigation stickTo={stickTo} setCursorVariant={setCursorVariant} />
         </motion.nav >
