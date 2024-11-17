@@ -56,6 +56,7 @@ export default function Navigation({ stickTo, setCursorVariant }) {
 
     useEffect(() => {
         fetchFiles();
+        console.log(files)
     }, []);
 
     const renderMenu = (obj, path = '', depth = 2) => {

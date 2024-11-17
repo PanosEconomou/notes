@@ -2,12 +2,17 @@ import './cursor.css'
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useGlobalProps } from './GlobalProps';
 
 export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
-    const size = {
-        x: useRef(30),
-        y: useRef(30),
-    }
+    
+    const {size, mouse, springMouse } = useGlobalProps();
+    
+    // const size = {
+    //     x: useRef(30),
+    //     y: useRef(30),
+    // }
+
     const ref = useRef(null);
     const stuck = useRef('over');
     const fraction = 1.1
@@ -22,15 +27,15 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
         y: useSpring(scale.x, { stiffness: 800, damping: 20, mass: 1 }),
     }
 
-    const mouse = {
-        x: useMotionValue(window.innerWidth / 2),
-        y: useMotionValue(-size.y.current),
-    }
+    // const mouse = {
+    //     x: useMotionValue(window.innerWidth / 2),
+    //     y: useMotionValue(-size.y.current),
+    // }
 
-    const springMouse = {
-        x: useSpring(mouse.x, { stiffness: 500, damping: 25, mass: 0.5 }),
-        y: useSpring(mouse.y, { stiffness: 500, damping: 25, mass: 0.5 }),
-    }
+    // const springMouse = {
+    //     x: useSpring(mouse.x, { stiffness: 500, damping: 25, mass: 0.5 }),
+    //     y: useSpring(mouse.y, { stiffness: 500, damping: 25, mass: 0.5 }),
+    // }
 
     const [, setRenderTrigger] = useState(0);
 
@@ -51,7 +56,7 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             }
 
             mouse.x.set(center.x - (fraction * stickTo.current?.width || size.x.current) / 2 + displacement.x * motionRatio);
-            mouse.y.set(center.y - (fraction * stickTo.current?.height || size.y.current) * ( (stuck.current === 'under') ? -0.5 : 0.5 ) + displacement.y * motionRatio);
+            mouse.y.set(center.y - (fraction * stickTo.current?.height || size.y.current) * ((stuck.current === 'under') ? -0.5 : 0.5) + displacement.y * motionRatio);
 
             forceRerender();
 
@@ -120,7 +125,7 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             opacity: 0,
             transition: {
                 duration: 0.1,
-              },
+            },
         },
         default: {
             opacity: 1,
@@ -128,7 +133,7 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             height: size.y.current,
             transition: {
                 duration: 0.03,
-              },
+            },
 
         },
         highlight: {
@@ -162,7 +167,7 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             borderRadius: '1px',
             transition: {
                 duration: 0.1,
-              },
+            },
         }
     }
 
