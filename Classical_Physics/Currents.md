@@ -14,7 +14,7 @@ Let's begin with a definition of a conserved current.
 
 ## Quick Setup 
 
-The setup of Lagrangian field theory on smooth manifolds (this can be generalized, but I don't know how to work on the more general setting) is as follows. We consider $(M,g)$ a Riemannian manifold, and $\pi : E\to M$ be some vector bundle over $M$. Then we get a map $S:\Gamma(E) \to \mathbb{R}$ which is an action on $M$, given for any $\phi \in \Gamma^\infty(E)$ by
+The setup of Lagrangian field theory on smooth manifolds (this can be generalized, but I don't know how to work on the more general setting) is as follows. We consider $(M,g)$ a Lorentzian manifold, and $\pi : E\to M$ be some vector bundle over $M$. Then we get a map $S:\Gamma(E) \to \mathbb{R}$ which is an action on $M$, given for any $\phi \in \Gamma^\infty(E)$ by
 $$
 S(\phi) = \int_M \ast \mathcal{L}(\phi),
 $$
@@ -59,9 +59,9 @@ $$
 
 ## Timelike Foliations
 
-Given such a manifold $M$ we often assume that there exists a global free and proper action of $\mathbb R$ on $M$ called time evolution. This has the following interesting property.
+Given such a manifold $M$ we often assume that there exists a global free and proper (timelike if the manifold is pseudo-Riemannian) action of $\mathbb R$ on $M$ called time evolution. This has the following interesting property.
 
-**<u>Corollary:</u>** *(Existence of timelike slices)* $M$ is isomorphic to $\Sigma \times \mathbb{R}$ where $\Sigma \coloneqq M/{\mathbb{R}}$, the quotient under time evolution. The subset $\Sigma_{t} = \Sigma\times \{t\}$ is called a **timelike slice**.
+**<u>Corollary:</u>** *(Existence of timelike slices)* $M$ is isomorphic to $\Sigma \times \mathbb{R}$ where $\Sigma \coloneqq M/{\mathbb{R}}$, the quotient under time evolution. The subset $\Sigma_{t} = \Sigma\times \{t\}$ is called a **timelike slice**, and it has dimension $n-1$. 
 
 ***Proof:*** Since time evolution is a Lie group action that is free and proper, this result is a corollary of the quotient manifold theorem. This is further explored [here](../Projects/CFT/Free_Fields.md#Wick-Rotation). 
 
@@ -109,17 +109,15 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
-
 ## Conserved Charges
 
 Now that we have the formalism of obtaining conserved currents under our belt, we can create another construction which is called a conserved charge.
 
-**<u>Definition:</u>** Given a Noether current $J:\mathfrak{g}\times \Gamma(E) \to \Omega^{n-1}(M)$ associated with a Lie algebra representation of a Lie algebra $\mathfrak{g}$ on $\Gamma(E)$  a **conserved charge** is a map $Q:\mathfrak{g}\times \Gamma(E) \to \mathbb{R}$ given by 
+**<u>Definition:</u>** Given a Noether current $J:\mathfrak{g}\times \Gamma(E) \to \Omega^{n-1}(M)$ associated with a Lie algebra representation of a Lie algebra $\mathfrak{g}$ on $\Gamma(E)$  a **conserved charge** is a map $Q:\mathfrak{g}\times \Gamma(E) \to C^\infty(\mathbb{R})$ given for any $\phi \in \Gamma(E)$ and $X\in \mathfrak{g}$ the function
 $$
-
+Q_X(\phi) = \int_{\Sigma_{\bullet}} J_X(\phi),
 $$
-
+where $\Sigma_{\bullet}$ is the function that assigns to each $t\in \mathbb{R}$ the timelike slice $\Sigma_t \subset M$. 
 
 
 
