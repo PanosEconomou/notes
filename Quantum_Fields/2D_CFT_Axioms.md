@@ -375,9 +375,7 @@ As we have shown in an [example](../Analysis/Variational_Calculus.md#Examples-in
 $$
 \delta S[g](\delta g) = \int_{\mathbb{R}^2} \ast_g \iota_T\delta g,
 $$
-where $g,\delta g$ are some metrics on $\mathbb{R}^2$ and $\iota_T\delta g$ is the contraction of $\delta g$ by the stress tensor $T$. We have already shown that this is symmetric, but we can show that in the case of a conformal transformation this is also traceless. 
-
-Let's see what it means to take the variation of the metric itself! In particular, consider some conformal map $f:\mathbb{R}^2\to \mathbb{R}^2$. We can find how the Conformal group acts.
+where $g,\delta g$ are some metrics on $\mathbb{R}^2$ and $\iota_T\delta g$ is the contraction of $\delta g$ by the stress tensor $T$. We will go over two derivations for why the variation can be given in terms of the stress tensor. One will be completely classical using phase spaces, and the other will be completely quantum using path integrals. Then we will show the equivalence between the path integral conserved current and the quantized Noether current. 
 
 
 
