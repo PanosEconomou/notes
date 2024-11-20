@@ -51,13 +51,11 @@ Symmetries of the Lagrangian can lead to cool concepts such as conserved current
 Last thing we need to define is a conserved charge.
 
 **<u>Definition:</u>** Let $J \in \mathcal \Omega^{n-1}(M)$ be a conserved current on an $n$ dimensional manifold $M$ and $\Sigma$ be a codimension one smooth foliation of $M$ (i.e. $\Sigma_t \subset M$ is an $n-1$ dimensional submanifold of $M$ with canonical inclusion map $\iota_t$ for all $t \in I \subset \mathbb R$). Then a **conserved charge** on the foliation is a map $Q_J : I \to \mathbb R$ such that
-
 $$
 t \in I \subset \mathbb R \mapsto Q_J(t) = \int_{\Sigma_t} \iota_t^\ast J.
 $$
 
 **<u>Corollary:</u>** A conserved charge $Q_J$ is such that
-
 $$
 \frac{d Q_J}{dt} =  0.
 $$
@@ -65,7 +63,6 @@ $$
 There is a nice way we can find conserved currents using local symmetries. In particular consider this really famous Theorem. 
 
 **<u>Theorem:</u>** *(Noether's Theorem)* Let $G$ be a Lie group with a smooth action $\rho: G \to \text{Aut}(M)$ on some Manifold $M$ with Lagrangian $\mathcal L$ such that for any $g \in G$ the Lagrangian is invariant, i.e.
-
 $$
 \rho(g)^\ast \mathcal L = \mathcal L
 $$
