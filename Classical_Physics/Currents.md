@@ -67,6 +67,18 @@ Given such a manifold $M$ we often assume that there exists a global free and pr
 
  
 
+## The Shell
+
+In physics we often say that something is true *on shell*. This intuitively means that we did our calculations with fields that are solutions to the Euler Lagrange equation. Here is a rigorous definition of this.
+
+**<u>Definition:</u>** Consider the map $E$ that carries out the assignment $\phi \mapsto E_\phi$ of a field to the Euler Lagrange equations as defined above. The **shell** is the set
+$$
+S = \text{ker\,}E \subset \Gamma^\infty(E).
+$$
+Now, consider the embedding $\iota:S \to \Gamma^\infty(E)$. We say that an algebraic structure is **on shell** if it is pulled back by $\iota$. 
+
+
+
 Now we have all the formalism we need to explore Noether's theorem!
 
 ## Noether's Theorem
@@ -93,7 +105,7 @@ If $\phi$ is on shell (aka a solution of the field equations) we have that $E_\p
 $$
 0 = \int_M dJ_\phi(\delta_X\phi),
 $$
-which implies that $J_\phi(\delta_X\phi)$ is a conserved current! In particular, the Noether current associated to this Lie group action is the map
+which implies that $J_\phi(\delta_X\phi)$ is a conserved current on shell! In particular, the Noether current associated to this Lie group action is the map
 $$
 \begin{align*}
 J_X: \Gamma(E) &\to \Omega^{n-1}(M)\\
@@ -115,7 +127,7 @@ Here is a cool theorem though.
 
 ***Proof:***  I don't know yet which one hehe.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 
