@@ -14,7 +14,13 @@ Let’s do some quick motivation by introducing Taylor series in a completely ne
 $$
 f\sim_k g \iff f^{(n)}(x) = g^{(n)}(x),\ 0\leq n \leq k.
 $$
-Notice that if we partition 
+Notice that now at each point $x\in \mathbb{R}$ we can associate a vector space of equivalence classes of $k$-jets. The reason why this would be a vector space is that every equivalence class is completely parameterized by $k$ real numbers, the coefficients in the Taylor series of the representative. In other words, there is a 1-1 and onto correspondance with $k$-jets and the following polynomials
+$$
+p_k(x) = \sum_{n=0}^k \frac{p_n}{n!}x^n \leftrightarrow [p(x)] = (p_0,p_1,\cdots, p_k).
+$$
+The natural next stepping point is to construct the $\infty$-jets, which is the equivalence relation where all the derivatives are equal which corresponds to the smooth functions with identical taylor series at a point. The interesting thing, is that if we put this vector space over each point, by picking a section of that, we would have chosen a value for all the derivatives of a function in a way that looks sort of independent of each other!
+
+This should be reminiscent of how in Lagrangian mechanics we treat the field and its derivatives are independent variables, and eventually in phase space, we treat the fields and the derivatives as such too. 
 
 # Constructions
 
