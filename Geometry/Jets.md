@@ -20,10 +20,63 @@ p_k(x) = \sum_{n=0}^k \frac{p_n}{n!}x^n \leftrightarrow [p(x)] = (p_0,p_1,\cdots
 $$
 The natural next stepping point is to construct the $\infty$-jets, which is the equivalence relation where all the derivatives are equal which corresponds to the smooth functions with identical taylor series at a point. The interesting thing, is that if we put this vector space over each point, by picking a section of that, we would have chosen a value for all the derivatives of a function in a way that looks sort of independent of each other!
 
-This should be reminiscent of how in Lagrangian mechanics we treat the field and its derivatives are independent variables, and eventually in phase space, we treat the fields and the derivatives as such too. 
+This should be reminiscent of how in Lagrangian mechanics we treat the field and its derivatives are independent variables, and eventually in phase space, we treat the position and momenta as such as well. 
 
 # Constructions
 
-We begin with the basic jet constructions on vector bundles. For more bundly stuff check [this](./Bundles.md) out. To define Jet bundles we will first introduce the $r$-jet as an equivalence relation of sections, and then we will define the r-jet of some section as an
+We begin with the basic jet constructions on vector bundles. For more bundly stuff check [this](./Bundles.md) out. 
 
-**<u>Defintion:</u>** Consider a fibre bundle $\pi:E \to M$, then for every $p \in M$
+
+
+## Jet Equivalences
+
+To define Jet bundles we will first introduce the $r$-jet as an equivalence relation of sections, and then we will define the r-jet of some section as an
+
+**<u>Defintion:</u>** Consider a fibre bundle $\pi:E \to M$, then for every $p \in M$ let $\Gamma_p(E)$ be the **set of all local smooth sections** of $E$ defined at $p$. Then two such sections $\phi,\chi \in \Gamma_p(E)$ are $k$**-jet equivalent** at $p$ if all their partial derivatices up to orde $k$ are equal. In other words
+$$
+\phi \sim_k\chi \iff \frac{\partial^{|I|} \phi}{\partial x^I} = \frac{\partial^{|I|} \chi}{\partial x^I}, \ 0\leq |I| \leq k,
+$$
+where $I$ is some multiindex. The equivalence class of $\phi \in \Gamma_p(E)$ is called a $k$**-jet** and it is denoted by $j_p^k\phi \coloneqq [\phi]$. The set of all such equivalence classes for each point is the **set of** $k$**-jets** at $p\in M$ denoted by $J_p^k(E) = J_p^kE$. We denote the **set of all** $k$**-jets** as 
+$$
+J^kE \coloneqq \{j_p^k\phi\mid \phi \in \Gamma_p(E),\ p\in M\}.
+$$
+
+
+And there we have the definition of a jet. The interesting thing is that this is in direct analogy to the motivation we carried out where the jets were essentially the Taylor series. 
+
+
+
+## Bundle Structure
+
+The other thing we need to show is that the set of $k$-jets is a bundle. This is not obvious so let’s give it some love for once and then never again. 
+
+**<u></u>**
+
+
+
+# Contact Structure
+
+
+
+## Cartan Distribution
+
+
+
+## Contact Forms
+
+
+
+## Variational Bicomplex
+
+[Look up](https://ncatlab.org/nlab/show/variational+bicomplex#BicomplexDefinition)
+
+
+
+
+
+
+
+
+
+
+
