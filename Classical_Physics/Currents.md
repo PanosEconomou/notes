@@ -179,7 +179,15 @@ where $E \in C^\infty(J^\infty E)$ and $\theta \in \Omega^{n-1,1}(J^\infty E)$ w
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
-The key object in hamiltonian field theory is this $\theta$ form over there. 
+The key object in Hamiltonian field theory is this $\theta$ form over there. We will use it to construct the symplectic form on the phase space and then BOOM we have a Lie bracket! To do this, we somehow need to integrate the $n-1$ horizontal degrees of freedom. Here is how.
+
+**<u>Proposition:</u>** Given a form $\omega =\Omega^{a,b}(E)$ on some bundle $\pi: E\to M$ where the grading is given by the orthogonal distributions $HE \otimes VE \cong TE$ one can obtain  the integrated form $\bar \omega \in \Omega^{0,b}(E)$ given for any vertical vector fields $Y_1,\dots,Y_b \in \mathfrak{X}(VE)$ by 
+$$
+\bar \omega(Y_1,Y_2,\dots, V_b) = \int_M \iota_{Y_1,Y_2,\cdots, Y_b}\omega.
+$$
+
+
+
 
 
 
