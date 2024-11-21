@@ -2,9 +2,11 @@
 
 We have found what [momentum](./Momentum.md) is, now it is time to find out what a conserved current is. We will start doing this classically, first with Lagrangian field theory, then using Hamiltonian field theory, and then using Path Integration in quantum field theory.
 
+
+
 [toc]
 
-# Classical Field Theory
+# In Classical Field Theory
 
 Let's begin with a definition of a conserved current.
 
@@ -65,9 +67,9 @@ Given such a manifold $M$ we often assume that there exists a global free and pr
 
 ***Proof:*** Since time evolution is a Lie group action that is free and proper, this result is a corollary of the quotient manifold theorem. This is further explored [here](../Projects/CFT/Free_Fields.md#Wick-Rotation). 
 
- 
+  
 
-## The Shell
+## The Shell 
 
 In physics we often say that something is true *on shell*. This intuitively means that we did our calculations with fields that are solutions to the Euler Lagrange equation. Here is a rigorous definition of this.
 
@@ -149,9 +151,23 @@ $$
 $$
 where we used stokes theorem in the second step. 
 
-We will see that the conserved charges $Q_X$ form a representation of $\mathfrak{g}$ in a very specific way. 
+We will see later that the conserved charges $Q_X$ form a representation of some central extension $\mathfrak{g}$ in a very specific way. But in order to do this we need Hamiltonian field theory.
 
-**<u>Theorem:</u>** 
+
+
+# In Hamiltonian Field Theory
+
+This is perhaps a more illuminating framework to discuss why the currents and charges are useful objects! This will also help us motivate generalized symmetries in some sense.
+
+## Quick Setup
+
+The place where physics happens in Hamiltonian field theory is the **phase space**. In its most covariant formulation it is **the shell**, i.e the set of classical solutions to the equations of motion, which is defined in exactly the same way as it was above in classical Lagrangian field theory.
+
+**<u>Definition:</u>** The **phase space** $\Pi$ for a field theory on $\pi:E\to M$ over some Lorentzian manifold $(M,g)$ with Lagrangian $\mathcal{L}$ is the shell of that Lagrangian, with canonical embedding map $\iota : \Pi \to \Gamma(E)$.
+
+Often such a space can be parameterized by a symplectic manifold. For example in classical mechanics, where the underlying manifold is $\mathbb{R}$, and the fields are sections of an $M$ bundle over $\mathbb{R}$, there is a bijection $T^\ast M \cong \Pi$. We will explore this in more detail. However, when such a parameterization is possible, we often refer to the symplectic manifold as the phase space and $\Pi$ as the covariant phase space. 
+
+To figure out the symplectic structure let's start with an example in field theory.
 
 
 
