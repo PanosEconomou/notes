@@ -169,6 +169,18 @@ Often such a space can be parameterized by a symplectic manifold. For example in
 
 To figure out the symplectic structure let's start with an example in field theory.
 
+**<u>Corollary:</u>** *(Fundamental Variational Formula)* Let $\mathcal{L} \in \Omega^{n,0}(J^\infty E)$ be a Lagrangian, and assume that we are working on some coordinate chart $(U^\infty, x^i, \phi^i, \phi^i_I)$ Then we have that
+$$
+\delta \mathcal{L} = E\delta \phi - d\theta
+$$
+where $E \in C^\infty(J^\infty E)$ and $\theta \in \Omega^{n-1,1}(J^\infty E)$ where $\delta, d$ are the vertical and horizontal differentials respectively. 
+
+***Proof:*** This is what we proved before but in the more formal language of Jet bundles.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+The key object in hamiltonian field theory is this $\theta$ form over there. 
+
 
 
  
