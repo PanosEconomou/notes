@@ -14,7 +14,7 @@ Let's begin with a definition of a conserved current.
 
 
 
-## Quick Setup 
+## Lagrangian Setup 
 
 The setup of Lagrangian field theory on smooth manifolds (this can be generalized, but I don't know how to work on the more general setting) is as follows. We consider $(M,g)$ a Lorentzian manifold, and $\pi : E\to M$ be some vector bundle over $M$. Then we get a map $S:\Gamma(E) \to \mathbb{R}$ which is an action on $M$, given for any $\phi \in \Gamma^\infty(E)$ by
 $$
@@ -159,13 +159,13 @@ We will see later that the conserved charges $Q_X$ form a representation of some
 
 This is perhaps a more illuminating framework to discuss why the currents and charges are useful objects! This will also help us motivate generalized symmetries in some sense.
 
-## Quick Setup
+## Hamiltonian Setup
 
 The place where physics happens in Hamiltonian field theory is the **phase space**. In its most covariant formulation it is **the shell**, i.e the set of classical solutions to the equations of motion, which is defined in exactly the same way as it was above in classical Lagrangian field theory.
 
-**<u>Definition:</u>** The **phase space** $\Pi$ for a field theory on $\pi:E\to M$ over some Lorentzian manifold $(M,g)$ with Lagrangian $\mathcal{L}$ is the shell of that Lagrangian, with canonical embedding map $\iota : \Pi \to \Gamma(E)$.
+**<u>Definition:</u>** The **phase space** $\Pi$ for a field theory on $\pi:E\to M$ over some Lorentzian manifold $(M,g)$ with Lagrangian $\mathcal{L}\in \Omega^{n,0}(J^\infty E)$ is the shell of that Lagrangian, with canonical embedding map $\iota : \Pi \to \Gamma(E)$.
 
-Often such a space can be parameterized by a symplectic manifold. For example in classical mechanics, where the underlying manifold is $\mathbb{R}$, and the fields are sections of an $M$ bundle over $\mathbb{R}$, there is a bijection $T^\ast M \cong \Pi$. We will explore this in more detail. However, when such a parameterization is possible, we often refer to the symplectic manifold as the phase space and $\Pi$ as the covariant phase space. 
+Often such a space can be parameterized by a symplectic manifold. For example in classical mechanics, where the underlying manifold is $\mathbb{R}$, and the fields are sections of an $M$ bundle over $\mathbb{R}$, there is a diffeomorphism $T^\ast M \cong \Pi$. We will explore this in more detail. However, when such a parameterization is possible, we often refer to the symplectic manifold as the phase space and $\Pi$ as the covariant phase space. 
 
 To figure out the symplectic structure let's start with an example in field theory.
 
@@ -181,9 +181,9 @@ $$
 $$
 The key object in Hamiltonian field theory is this $\theta$ form over there. We will use it to construct the symplectic form on the phase space and then BOOM we have a Lie bracket! To do this, we somehow need to integrate the $n-1$ horizontal degrees of freedom. Here is how.
 
-**<u>Proposition:</u>** Given a form $\omega =\Omega^{a,b}(E)$ on some bundle $\pi: E\to M$ where the grading is given by the orthogonal distributions $HE \otimes VE \cong TE$ one can obtain  the integrated form $\bar \omega \in \Omega^{0,b}(E)$ given for any vertical vector fields $Y_1,\dots,Y_b \in \mathfrak{X}(VE)$ by 
+**<u>Theorem:</u>** *(Transgression Definition)* An $n$ form $\omega \in \Omega^n(M)$ over a smooth manifold $M$, and a closed submanifold $\Sigma$ of dimension $k\leq n$ induce a $n-k$ form on the mapping space $M^\Sigma$. The form is known as the **transgression** of $\omega$ with respect to $\Sigma$ and it is given for any smooth function $f:\Sigma \to M$ by
 $$
-\bar \omega(Y_1,Y_2,\dots, V_b) = \int_M \iota_{Y_1,Y_2,\cdots, Y_b}\omega.
+\tau_\Sigma\omega_{f} \coloneqq \int_\Sigma f^\ast \omega.
 $$
 
 
@@ -191,7 +191,6 @@ $$
 
 
 
- 
 
 
 
@@ -204,5 +203,3 @@ $$
 
 
 
-
- 
