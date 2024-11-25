@@ -295,7 +295,7 @@ This by the way is the origin of the statement that formally quantum fields are 
 
 
 
-**<u>Theorem:</u>** *(Conserved Charges are Symmetry Generators)* Let $X\in \mathfrak{g}$ be an element of the Lie algebra that has some representation on $\Gamma(E)$, and $Q_X : \Gamma(E) \to \mathbb{R}$ be the associated conserved charge. Then for the field $\Phi_x^\alpha : \Gamma(E) \to \mathbb{R}$ such that for for any $\phi \in \Gamma(E)$ 
+**<u>Theorem:</u>** *(Conserved Charges are Symmetry Generators)* Let $X\in \mathfrak{g}$ be an element of a Lie algebra that has some representation on $\Gamma(E)$, and $Q_X : \Gamma(E) \to \mathbb{R}$ be the associated conserved charge. Then for the field $\Phi_x^\alpha : \Gamma(E) \to \mathbb{R}$ such that for for any $\phi \in \Gamma(E)$ 
 $$
 \Phi_x^\alpha(\phi) = \phi_x^\alpha,
 $$
