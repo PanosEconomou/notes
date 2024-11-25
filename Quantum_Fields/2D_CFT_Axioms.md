@@ -157,12 +157,11 @@ Nice. What that means in practice is that these transformations are coordinate t
 
 ## Conformal Transformations in $\mathbb{C}$
 
-When $M = \mathbb{C}$  we can write the Eucledian metric as $g = dz\, d\bar{z}$. The following is an amazing result about conformal field theories in two dimensions.
+When $M = \mathbb{C}$  we can write the Euclidean metric as $g = dz\, d\bar{z}$. The following is an amazing result about conformal field theories in two dimensions.
 
 **<u>Theorem:</u>** The conformal transformations in $\mathbb{C}$ are exactly the analytic ones.
 
 ***Proof:*** Let $f: \mathbb{C} \to \mathbb{C}$ be any map. Then we can check the pullback of the metric under $f$ where we should have
-
 $$
 \begin{align*}
 f^\ast g &= f^\ast dz\, d\bar{z}\\

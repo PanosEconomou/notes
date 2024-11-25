@@ -219,11 +219,35 @@ $$
 $$
 
 
-## In the Partition Function of a CFT
 
-So what about conformal transformations? 
+# Conformal Boundaries
 
+The reason we did all this was to be able to describe what's called the modular partition function of a CFT. We will see at a different point how are those things actually related to one another, but for now, let's try and restrict our attention on boundaries. 
 
+## Conformal Boundary Condition
+
+Let's consider a CFT on the closed upper half plane $\overline{\mathbb{H}} \subset \mathbb{C}$. Now we have a boundary at the real axis, and that is somewhat confusing in terms of our symmetry. Clearly doing conformal transformations we would move the boundary around. 
+
+Therefore, we have to refine what we mean by conformal invariance. The easiest way to think about it would be to restrict our attention to transformations that leave the boundary alone. In other words we want to consider conformal transformations $f:\overline{\mathbb{H}}\to \overline{\mathbb{H}}$ such that
+$$
+f^\ast g = \Omega^2 g,
+$$
+where $g$ is the metric on $\overline{\mathbb{H}}$ and such that $f(z,\bar z) = \overline {f(z,\bar z)}$ whenever $z = \bar z$. This restricts the representations of the Virasoro algebra we have in our theory.
+
+In particular, we have shown that the full set of conformal transformations in $\mathbb{C}$ is given by the holomorphic and antiholomorphic maps on $\mathbb{C}$. Here is how we can find the restriction on which antiholomorphic transformations we have.
+
+**<u>Theorem:</u>** *(Analytic Continuation)* If $f$ is an analytic function on an open subset $U\subset \mathbb{C}$ and $V \supset U$ is another open subset of $\mathbb{C}$ containing $U$ then there is a unique analytic function $F:V\to \mathbb{C}$ such that
+$$
+F(x) = f(x), \ \forall x\in U.
+$$
+In this particular case, consider an analytic function $f:\overline{\mathbb{H}} \to \mathbb{C}$ such that $f(z) = \overline{f(z)}$ whenever $z = \bar z$, and the function
+$$
+F(z) = \begin{cases}
+f(z) & z \in \overline{\mathbb{H}}\\
+\bar f(\bar z) & z \in \mathbb{C} \setminus \overline{\mathbb{H}} 
+\end{cases}.
+$$
+Then $F: \mathbb{C} \to \mathbb{C}$ is analytic, and satisfies that $F(z) = \overline{F(z)}$ when $\bar z = z$. 
 
 
 
