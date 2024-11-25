@@ -181,11 +181,26 @@ $$
 $$
 The key object in Hamiltonian field theory is this $\theta$ form over there. We will use it to construct the symplectic form on the phase space and then BOOM we have a Lie bracket! To do this, we somehow need to integrate the $n-1$ horizontal degrees of freedom. Here is how.
 
-**<u>Theorem:</u>** *(Transgression Definition)* An $n$ form $\omega \in \Omega^n(M)$ over a smooth manifold $M$, and a closed submanifold $\Sigma$ of dimension $k\leq n$ induce a $n-k$ form on the mapping space $M^\Sigma$. The form is known as the **transgression** of $\omega$ with respect to $\Sigma$ and it is given for any smooth function $f:\Sigma \to M$ by
-$$
-\tau_\Sigma\omega_{f} \coloneqq \int_\Sigma f^\ast \omega.
-$$
+**<u>Theorem:</u>** *(Transgression Definition)* An $n$ form $\omega \in \Omega^n(M)$ over a smooth manifold $M$, and a closed submanifold $\Sigma$ of dimension $k\leq n$ induce a $n-k$ form on the mapping space $M^\Sigma$. 
 
+We first need to know what we mean by a form on $M^\Sigma$. We do this with what's called "smooth families." But instead of doing it in all generality, let's do it for Jet bundles in particular. 
+
+**<u>Definition:</u>** Given a vector bundle $\pi:E\to M$, a **smooth family of sections**  parameterized by a Euclidean space $U$ is a smooth function
+$$
+\begin{align*}
+\Phi : U\times \Sigma &\to E\\
+(u,p) &\mapsto \Phi_{u}(p),
+\end{align*} 
+$$
+such that $\Phi_u \in \Gamma(E)$ is a smooth section of $E$.
+
+This is a small set of smooth sections inside there, that can help us do computations on additional smooth structures. In fact, we are ready to find that form. 
+
+**<u>Definition:</u>** Given a vector bundle $\pi : E\to M$, a submanifold $\Sigma \subset M$, and a form $\omega \in \Omega^{\text{dim\,}\Sigma, k}(J^\infty E)$, its **transgression** with respect to $\Sigma$ is a $k$ form on $\Gamma(E)$ given for any smooth family $\Phi:U\times \Sigma \to E$ by
+$$
+\left.\tau_\Sigma\omega\right|_\Phi \coloneqq \int_\Sigma (j^\infty\Phi)^\ast \omega \in \Omega^k(U),
+$$
+where $|_\Phi$ denotes the restriction of the form on the sections parameterized by the smooth family $\Phi$.
 
 
 
