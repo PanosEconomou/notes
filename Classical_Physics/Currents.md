@@ -171,9 +171,9 @@ To figure out the symplectic structure let's start with an example in field theo
 
 **<u>Corollary:</u>** *(Fundamental Variational Formula)* Let $\mathcal{L} \in \Omega^{n,0}(J^\infty E)$ be a Lagrangian, and assume that we are working on some coordinate chart $(U^\infty, x^i, \phi^i, \phi^i_I)$ Then we have that
 $$
-\delta \mathcal{L} = E\delta \phi - d\theta
+\delta \mathcal{L} = E\wedge \delta \phi - d\theta
 $$
-where $E \in C^\infty(J^\infty E)$ and $\theta \in \Omega^{n-1,1}(J^\infty E)$ where $\delta, d$ are the vertical and horizontal differentials respectively. 
+where $E \in \Omega^{n,0}(J^\infty E)$ and $\theta \in \Omega^{n-1,1}(J^\infty E)$ where $\delta, d$ are the vertical and horizontal differentials respectively. 
 
 ***Proof:*** This is what we proved before but in the more formal language of Jet bundles.
 $$
@@ -201,6 +201,34 @@ $$
 \left.\tau_\Sigma\omega\right|_\Phi \coloneqq \int_\Sigma (j^\infty\Phi)^\ast \omega \in \Omega^k(U),
 $$
 where $|_\Phi$ denotes the restriction of the form on the sections parameterized by the smooth family $\Phi$.
+
+Now we are finally ready to tackle extracting the symplectic form, the conserved currents and so on. 
+
+
+
+## Currents on Phase Space
+
+As we have seen before, currents are functions of the fields that are horizontally closed on shell. In particular, let's see how we can formulate everything in the language of covariant phase spaces.
+
+As we have seen, any Lagrangian $\mathcal{L}\in \Omega^{n,0}(J^\infty E)$ has a variation (vertical differential) where in local coordinates $(x^i,\phi^\alpha,\phi^\alpha_I)$ it is given by  
+$$
+\delta \mathcal{L} = E_\alpha\wedge \delta\phi^\alpha - d\theta,
+$$
+where $\theta \in \Omega^{n-1,1}(J^\infty E)$ is the most magical construction the world has ever seen (aka the presymplectic potential). The cool thing, is that on the shell $S \coloneqq \bigcap_{\alpha}\ker E^\alpha \subset \Gamma(E)$ we have that $\delta \mathcal{L} = -d\theta$. 
+
+To describe currents, we need some kind of representation. Consider a Lie group $G$ with a group action $\rho:G\to \text{Aut}(\Gamma(E))$. Through prolongation this can be expanded to the shell. 
+
+**<u>Definition:</u>** A Lagrangian $\mathcal{L} \in \Omega^{n,0}(J^\infty E)$ is **invariant** under the action $\rho:G\to \text{Aut}(\Gamma(E))$ if for all $\phi \in \Gamma(E)$ and all $g \in G$ 
+$$
+\int_M \mathcal{L}_{j^\infty g\phi} = \int_M \mathcal{L}_{\phi}.
+$$
+This is exactly the statement of action invariance we made above in Lagrangian field theory, but now it is phrased in terms of forms in the Jet bundles and their prolongations. 
+
+
+
+
+
+
 
 
 
