@@ -202,7 +202,33 @@ $$
 $$
 where $|_\Phi$ denotes the restriction of the form on the sections parameterized by the smooth family $\Phi$.
 
-Now we are finally ready to tackle extracting the symplectic form, the conserved currents and so on. 
+The interesting thing is that in the absence of gauge fields the form $\tau_\Sigma \omega$ is symplectic! So in other words, we can calculate Hamiltonian vector fields and by extension Lie brackets in a very nice way. 
+
+**<u>Definition:</u>** A **Hamiltonian vector field** of some smooth function $f\in C^\infty(\Pi)$ is a vector field $X_f \in \mathfrak{X}(\Pi)$ such that
+$$
+\iota_{X_f} \omega = df,
+$$
+where $\omega$ is the transgression of the symplectic form above.
+
+
+
+The last thing we want to do is to talk about vector fields and differential forms on $\Gamma(E)$ because it is an infinite dimensional smooth set. BUT! It's a Banach space! So our definitions of variational derivatives are compatible. In particular consider the following propositions.
+
+**<u>Proposition:</u>** For any section $\phi \in \Gamma(E)$, the tangent space at that point is isomorphic to the set of sections, namely  
+$$
+T_\phi \Gamma(E) \cong \Gamma(E).
+$$
+***Proof:*** Consider that the tangent vectors can be obtained by germs of curves with the same derivatives.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+**<u>Proposition:</u>** The differential on $\Gamma(E)$ is the [variational differential](../Analysis/Variational_Calculus.md#Functional-Differential). 
+
+***Proof:*** Show that it satisfies the definitions using the previous proposition.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+We are ready to play with currents!
 
 
 
@@ -220,9 +246,64 @@ To describe currents, we need some kind of representation. Consider a Lie group 
 
 **<u>Definition:</u>** A Lagrangian $\mathcal{L} \in \Omega^{n,0}(J^\infty E)$ is **invariant** under the action $\rho:G\to \text{Aut}(\Gamma(E))$ if for all $\phi \in \Gamma(E)$ and all $g \in G$ 
 $$
-\int_M \mathcal{L}_{j^\infty g\phi} = \int_M \mathcal{L}_{\phi}.
+\int_M \mathcal{L}_{j^\infty g\phi} = \int_M \mathcal{L}_{j^\infty \phi}.
 $$
-This is exactly the statement of action invariance we made above in Lagrangian field theory, but now it is phrased in terms of forms in the Jet bundles and their prolongations. 
+This is exactly the statement of action invariance we made above in Lagrangian field theory, but  it is now phrased in terms of forms in the Jet bundle and their prolongations. In particular, consider $g = e^{X}$ where $X \in \mathfrak{g}$. Now we have that $\rho (g) = e^{\rho_\ast X}$ where now $e$ is the exponential map in $\Gamma(E)$. 
+
+Therefore we can see that if $\pi:E \to M$ is a vector bundle
+$$
+\rho(e^X)\phi = \phi + \rho_\ast X \phi + \cdots,
+$$
+ by the expansion of the exponential map. Therefore, $\rho_\ast X \eqqcolon \tilde X$ is a vertical vector field on $E$ such that $\delta \phi (\tilde X) = \tilde X \phi$. This induces a vector field $\bar X \in \mathfrak{X}(J^\infty E)$ such that 
+$$
+\delta u^i_{j^\infty \phi}(\bar X) = u^i(j^\infty \tilde X \phi).
+$$
+In other words we would have that
+$$
+\bar X = \tilde  X^\alpha \frac{\partial }{\partial u^\alpha} + \tilde X^\alpha_I\frac{\partial }{\partial u^\alpha_I},
+$$
+
+is the associated vertical vector field on the jet bundle. Now we are finally ready to see how to define conserved currents. 
+
+**<u>Definition:</u>** A **conserved current** corresponding to some Lie algebra element $X\in \mathfrak{g}$ is given by
+$$
+J_X = \iota_{\bar X} \theta \in \Omega^{n-1}(J^\infty E).
+$$
+Which is pretty nifty as a construction. We will not reprove or restate all the results about Noether's theorem, yet what is worth mentioning is about charges.
+
+
+
+## Charges in Covariant Phase space
+
+**<u>Definition:</u>** Given a codimension 1 surface $\Sigma \subset M$, the **associated conserved charge** of $X\in \mathfrak{g}$ on $\Sigma$ is the transgression of the conserved current over $\Sigma$
+$$
+Q_X(\phi) = \int_\Sigma (j^\infty \phi)^\ast J_{X}.
+$$
+**<u>Corollary:</u>** A conserved charge is a smooth function over the covariant phase space $Q_X:\Pi \to \mathbb{R}$. 
+
+With this definition we can start playing with Hamiltonian vector fields and so on. All we need is a symplectic form.
+
+
+
+## Symmetry Generators
+
+It is time for our first big result! We will use the painful formalism developed here to discover that the conserved charges generate the symmetry action on the fields, and that their algebra is a central extension of the corresponding Lie algebra! We do this by finally deriving what a field is in Hamiltonian field theory. 
+
+**<u>Definition:</u>** A **field** $\Phi :\Gamma(E) \to \mathbb{R}$ is a distribution [(in the analysis sense)](../Analysis/Distributions.md), namely a continuous linear map of sections to real numbers. A field is called **local** if its singular support is finite. 
+
+This by the way is the origin of the statement that formally quantum fields are operator valued distributions over spacetime. We will see how that intuition arises with this notation soon. But for now we want to prove the following proposition.
+
+
+
+**<u>Theorem:</u>** *(Conserved Charges are Symmetry Generators)* Let $X\in \mathfrak{g}$ be an element of the Lie algebra that has some representation on $\Gamma(E)$, and $Q_X : \Gamma(E) \to \mathbb{R}$ be the associated conserved charge. Then for the field $\Phi_x^\alpha : \Gamma(E) \to \mathbb{R}$ such that for for any $\phi \in \Gamma(E)$ 
+$$
+\Phi_x^\alpha(\phi) = \phi_x^\alpha,
+$$
+the following identity holds
+$$
+\delta_X\phi(x) = (X_{Q_X} \Phi_x)(\phi) = \{Q_X,\Phi_x\}(\phi),
+$$
+for all $\phi \in \Pi$.
 
 
 
@@ -230,9 +311,7 @@ This is exactly the statement of action invariance we made above in Lagrangian f
 
 
 
-
-
-
+ 
 
 
 
