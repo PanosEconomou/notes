@@ -61,7 +61,6 @@ This is a really nice definition. $D$ is still a vector space so we can talk abo
 There is one more point of subtlety, we want to talk about operators that are self adjoint, and the way that we defined them is a bit iffy, so let’s write it down.
 
 **<u>Definition:</u>** An operator $(A^*,D^*)$ on a quantum Hilbert space $\mathbb{H}$ is the **adjoint** of a densely defined operator $(A,D)$ if
-
 $$
 \begin{gather*}
 D^* = \{f \in \mathbb{H} \mid \exists h \in \mathbb{H} \text{ s.t. } \forall g\in D\  \langle h,g\rangle=\langle f,A g\rangle\}\\
@@ -84,7 +83,6 @@ The central object of quantum mechanics is not really the value of the field its
 **<u>Definition:</u>** An **operator valued distribution** on an open subset $U \subset M$ of a (pseudo-) Riemannian manifold $M$ is a continuous linear map $u \in \mathcal D'(U,\mathbb H)$ of the form $u : \mathcal D(U) \to \mathcal O(\mathbb H)$, where $\mathcal D(U)$ is the space of compactly supported test functions on $U$ defined [here](../Analysis/Distributions.md). 
 
 **<u>Definition:</u>** A **field operator** or a **quantum field** is a local operator valued distribution on some manifold $M$, i.e. a linear map
-
 $$
 \Phi:\mathcal{D}(M) \to \mathcal{O}(\mathbb{H})
 $$
@@ -179,7 +177,7 @@ $$
 \end{align*}
 $$
 
-Therefore, either $\frac{\partial f}{\partial z} = 0$ or $\frac{\partial f}{\partial \bar z} = 0$. If both are zero then the metric vanishes, so it’s not good. Both of these conditions are restatements of the cauchy criterion, therefore $f$ is analytic. As a result, without loss of generaility we can assume $\frac{\partial f}{\partial \bar{z}} = 0 $. Therefore we have that
+Therefore, either $\frac{\partial f}{\partial z} = 0$ or $\frac{\partial f}{\partial \bar z} = 0$. If both are zero then the metric vanishes, so it’s not good. Both of these conditions are restatements of the Cauchy criterion, therefore $f$ is analytic. As a result, without loss of generaility we can assume $\frac{\partial f}{\partial \bar{z}} = 0 $. Therefore we have that
 
 $$
 f^\ast g  = \left|\frac{df}{dz}\right|^2 dz\, d\bar z
