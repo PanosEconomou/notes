@@ -382,13 +382,33 @@ $$
 $$
 Q_X \coloneqq \int_\Sigma J_X = J_X(1_\Sigma),
 $$
-which is an operator in the Hilbert space. 
+which is an operator in the Hilbert space. Now we define the transformed version of a field operator as 
+$$
+\phi' = e^{iQ_X} \phi e^{-iQ_X}.
+$$
+
+
+One interesting result is the following.
+
+**<u>Theorem:</u>** The variation of a field $\phi$ under the symmetry relation $X \in \mathfrak{g}$ is given by 
+$$
+\delta_X\phi = [Q_X,\phi]
+$$
+
+
+This was honestly so much easier than the classical stuff! The important conceptual note here is that a local quantum field theory axiomatically requires an energy-momentum tensor to be defined in order to proceed. In other words, in the most fundamental theory we have, we need to specify the generator of spacetime transformations for it to make sense. 
+
+Here is another picture of this. Consider a theory on the Riemann sphere (only so that I can draw it). In the sphere, there is a Hilbert space associated with each spacelike slice (Cauchy slice) for some local field theory, in a similar construction to the symplectic reduction of the covariant phase space.  
+
+![unitary-evolution](_Currents.assets/unitary-evolution.svg)
+
+The stress tensor, which is defined as initial data, is telling us how to interpret the spacetime transformation of one slice $\Sigma$ to another under a spacetime transformation $f:\mathbb{C}\to \mathbb{C}$ at the level of hte attached Hilbert spaces. This is also true for other spacetime transformations, but not as clear looking as this. 
 
 
 
+## Ward Identities
 
-
-
+Now we are ready to see the true power of the quantum field theoretic symmetry language. Since the variation is given by the conserved charges, we should be able to use them and the fact that $J$ vanishes on shell to obtain cool stuff. 
 
  
 
