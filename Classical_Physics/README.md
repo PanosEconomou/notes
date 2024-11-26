@@ -6,5 +6,6 @@
 
 <!-- optional markdown-notes-tree directory description ends here -->
 
+- [Conserved Currents](Currents.md)
 - [Momentum](Momentum.md)
 - [Quantum Mechanics](Quantum_Entry.md)
