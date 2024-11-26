@@ -392,7 +392,7 @@ One interesting result is the following.
 
 **<u>Theorem:</u>** The variation of a field $\phi$ under the symmetry relation $X \in \mathfrak{g}$ is given by 
 $$
-\delta_X\phi = [Q_X,\phi]
+-i\delta_X\phi = [Q_X,\phi]
 $$
 
 
