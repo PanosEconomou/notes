@@ -307,6 +307,85 @@ for all $\phi \in \Pi$.
 
 
 
+However, the cooler theorem that we have here is the following result.
+
+**<u>Theorem:</u>** *(Definition of Current Algebras)* Given an element of the Lie algebra $X \in \mathfrak{g}$ and an adjoint invariant Hamiltonian action on $\Pi \subset \Gamma(E)$, the map that assigns the conserved charges $Q_X$ to each Lie algebra generator element is a momentum map of the Hamiltonian action of the fields, and it satisfies that for every $X,Y\in \mathfrak{g}$ 
+$$
+\{Q_X,Q_Y\} = \mathbf{d} (\iota_{\bar X} \iota_{\bar Y} \Theta) + Q_{[X,Y]},
+$$
+where $\Theta$ is the transgression Cartan form $\theta$ of the corresponding Lagrangian.
+
+This is really cool! Not only does it tell us that the conserved charges are generators of symmetries of the covariant phase space, but also that the conserved charges (and by extension the conserved currents) form a representation of a central extension of the corresponding Lie algebra! The reason why the extension is central is because the Cartan form commutes with everything in this language. 
+
+
+
+# In (local) Quantum Field Theory
+
+In quantum field theory things are much simpler. Especially when we consider it from an axiomatic point of view. In any **local quantum field theory** the defining data of the theory include a prescription to obtain the currents from spacetime symmetries. This data is the energy-momentum tensor of the theory, which so far we have been just calling it $\theta$, but that form contains exactly the same information as the stress tensor. 
+
+In quantum field theory, we have a collection of fields that define the tensor, but since the QFT is the most fundamental object we can consider we can simply change define it a priori.
+
+> **Note:** Motivating examples for the structure of a stress energy tensor come from second quantization, path integral quantization, and deformation quantization. The latter is closer to the spirit of these notes, but if I have to consider the metaplectic correction of the set if sections as a smooth bundle I will cry. So we will assume that we are starting with an a priori defined tensor. 
+
+For the definitions of quantum fields as local operators one can look [here](../Quantum_Fields/2D_CFT_Axioms.md#Field-Operators). 
+
+## Local QFT Setting
+
+In a local quantum field theory, we have a separable Hilbert space $\mathbb{H}$ with a Hermitian inner product that we usually just reference as "the Hilbert space." We usually define operators on dense subsets of this Hilbert space. 
+
+**<u>Definition:</u>** An **operator**, or **densely defined operator** on a quantum Hilbert space $\mathbb{H}$ is a pair $(D,A)$ where $D\subset \mathbb{H}$ is a dense subset of $\mathcal{H}$ and $A: D \to \mathbb{H}$. We often abuse notation and drop the domain of the operator. An operator $(D^\dagger,A^\dagger)$ on is the **adjoint** of $(D,A)$ iff
+$$
+\begin{gather*}
+D^\dagger = \{f \in \mathbb{H} \mid \exists h \in \mathbb{H} \text{ s.t. } \forall g\in D\  \langle h,g\rangle=\langle f,A g\rangle\}\\
+\langle A^\dagger f, g \rangle = \langle f,A g \rangle\ \ \  \forall f\in D^\dagger, g\in D,
+\end{gather*}
+$$
+where the definition essentially boils down to $D^\dagger$ being big enough to contain the dual states and $A^\dagger$ being able to be moved around in the inner product $\langle \cdot, \cdot \rangle$. The **set of all densely defined operators** on $\mathbb{H}$ is denoted by $\mathcal{O}(\mathbb{H})$. 
+
+The namesake of a quantum *field* theory is its fields. Just like in classical Hamiltonian field theory, the fields, where distributions on the set of sections, here the fields are operator valued distributions defined as follows.
+
+**<u>Definition:</u>** An **operator valued distribution** on an open subset $U \subset M$ of a (pseudo-) Riemannian manifold $M$ is a continuous linear map $u \in \mathcal D'(U,\mathbb H)$ of the form $u : \mathcal D(U) \to \mathcal O(\mathbb H)$, where $\mathcal D(U)$ is the space of compactly supported test functions on $U$ defined [here](../Analysis/Distributions.md). 
+
+**<u>Definition:</u>** A **field operator** or a **quantum field** is a local operator valued distribution on some manifold $M$, i.e. a linear map
+$$
+\Phi:\mathcal{D}(M) \to \mathcal{O}(\mathbb{H})
+$$
+
+such that there exists a dense subspace $D\subset \mathbb{H}$ where
+
+1. For all $f\in \mathcal{D}(M)$ we have that $D\subset D_{\Phi(f)}$.
+2. The induced map $\mathcal{D}(M) \to \text{End}(D), f\mapsto \left.\Phi(f)\right|_D$ is linear. 
+3. For all $v\in D$ and $w \in \mathbb{H}$ the map $f \mapsto \langle w,\Phi(f)(v)\rangle$ is a distribution on $M$. 
+4. $\text{sing\,supp\,} \Phi$ is a discrete set of measure $0$ on $M$.
+
+The **set of all field operators** is denoted as $\mathbb{\Phi}(M,\mathbb{H})$ or just $\mathbb{\Phi}$ when the setting is understood. A field operator is **local** if its singular support is discrete. Additionally, in physics a field is called **slightly non-local** if its singular support has measure zero in $M$. Finally, a field is **non-local** if its singular support is a submanifold of $M$ with nonzero measure in $M$. 
+
+Additionally, in a *local* quantum field theory, there exist an energy-momentum tensor which is defined as the following quantum field. 
+
+**<u>Definition:</u>** An **energy-momentum tensor** or **stress-energy tensor** is an operator valued tensor distribution 
+$$
+T:\mathcal{D} (T^\ast M\otimes T^\ast M) \to \mathcal{O}(\mathbb{H})
+$$
+that is symmetric and divergence free. In conformal field theory we take $T$ to be traceless as well.
+
+
+
+## Conserved Currents and Charges
+
+The interesting thing is that we use the energy momentum tensor to define the action on the fields. In particular we have the following definitions.
+
+**<u>Definition:</u>** Consider the representation a lie algebra $\mathfrak{g}$ on the base space $M$ that maps the lie algebra to the fundamental vector fields. Then a **conserved current** corresponding to a Lie algebra element $X\in \mathfrak{g}$ is an operator valued n-1 form given by 
+$$
+J_X = \ast \iota_{\tilde X} T,
+$$
+ where $\tilde X \in \mathfrak{X}(M)$ is the representation of $X \in \mathfrak{g}$ on $M$. Then a **conserved charge** is the integral over a codimension 1 surface $\Sigma \subset M$ 
+$$
+Q_X \coloneqq \int_\Sigma J_X = J_X(1_\Sigma),
+$$
+which is an operator in the Hilbert space. 
+
+
+
 
 
 
