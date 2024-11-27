@@ -244,8 +244,8 @@ In this particular case, consider an analytic function $f:\overline{\mathbb{H}} 
 $$
 F(z) = \begin{cases}
 f(z) & z \in \overline{\mathbb{H}}\\
-\bar f(\bar z) & z \in \mathbb{C} \setminus \overline{\mathbb{H}} 
-\end{cases}.
+\bar f(\bar z) & z \in \mathbb{C} \setminus \overline{\mathbb{H}}.
+\end{cases}
 $$
 Then $F: \mathbb{C} \to \mathbb{C}$ is analytic, and satisfies that $F(z) = \overline{F(z)}$ when $\bar z = z$. 
 
