@@ -107,7 +107,7 @@ $$
 $$
 where $e$ is the canonical exponential map between the tangent space and the manifold. The field $\delta \phi$ is known as the **shift field.**
 
-**<u>Sidenote:</u>** Notice that the vertical tangent space $VE=\ker \pi_\ast$ of any vector bundle $E$ is isomorphic to $E$ that is because for any point, p, the fiber $V_pE \cong TE_{\pi(p)} \cong E_{\pi(p)}$. Therefore the exponential map gives us an isomorphism so we can interpret the shift field $\delta \phi$ as a regular field. 
+**<u>Side-note:</u>** Notice that the vertical tangent space $VE=\ker \pi_\ast$ of any vector bundle $E$ is isomorphic to $E$ that is because for any point, p, the fiber $V_pE \cong TE_{\pi(p)} \cong E_{\pi(p)}$. Therefore the exponential map gives us an isomorphism so we can interpret the shift field $\delta \phi$ as a regular field. 
 
 **<u>Definition:</u>** If $X \in \mathfrak g$ is an element of the Lie algebra of $G$ that maps to $0 \in \tilde {\mathfrak g}$ in the Lie algebra of $G/G_{\phi_0}$ for some vacuum $\phi_0$ then it is called **broken.**
 
