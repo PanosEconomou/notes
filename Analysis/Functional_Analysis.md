@@ -16,7 +16,7 @@ Let’s start by studying measures. In order to do this, we need something to me
 2. $\Sigma$ is closed under complementation (i.e. $A\in \Sigma \implies A^c\in \Sigma$)
 3. $\Sigma$ is closed under countable unions (i.e. $\{A_k\} \subset \Sigma \implies \bigcup_k A_k \in \Sigma$)
 
-***Corollary:*** This implues that $\emptyset \in \Sigma$ and that $\Sigma$ is closed under countable intersections too! Therefore, the smallest $\sigma$-algebra one can add on any set $S$ is $\Sigma = \{\emptyset, S\}$.
+***Corollary:*** This implies that $\emptyset \in \Sigma$ and that $\Sigma$ is closed under countable intersections too! Therefore, the smallest $\sigma$-algebra one can add on any set $S$ is $\Sigma = \{\emptyset, S\}$.
 
 **<u>Definition:</u>** Given $\Sigma$, a $\sigma$-algebra of $S$ the pair $(S,\Sigma)$ is called a <u>measurable space</u>
 
