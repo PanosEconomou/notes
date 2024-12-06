@@ -23,7 +23,7 @@ The definition of the other components is [here](../Analysis/Functional_Analysis
 
 The physics of the ensemble are all inside $\mu$. Usually it depends on the Hamiltonian in a cute way, or the chemical potential, temperature, and so on. These are the parameters in the set $S$. Usually $S$ is something like $\mathbb{R}$ representing time, where we get a different measure for every point in time. Other times $S$ can be the set of all temperatures or chemical potentials or both. Let's see how that works.
 
-## Example: Quantum Mechanical Canonical Ensemble
+## Quantum Mechanical Canonical Ensemble
 
 It is actually worth to go through this as an example because it will force us to think about interesting topics such as the spectral theorem and so on, plus it will be a useful motivating intuition for our subsequent definitions.
 
@@ -33,39 +33,66 @@ $$
 $$
 In any physical theory one doesn't just get the Fock space by itself, but also gets an algebra of possibly bounded self adjoint operators $\mathcal{A}$, or observables, that contains familiar physics concepts such as the Hamiltonian $H$, the number operator $N$, etc. Honestly there is a generalization for algebras of unbounded operators but I don't know it, and I don't need to. It exists. 
 
-Given all that, we need to convert $\mathbb{F}$ into a measure space by introducing a sigma algebra. There is no obvious way to it, a priori, BUT we can cheat by using the algebra of observables $\mathcal{A}$ because anyway anything physical will be related to it. The reason for that is that every self adjoint operator can define a sigma algebra in a subset of $\mathbb{F}$. 
+Given all that, we need to convert $\mathbb{F}$ into a measure space by introducing a sigma algebra. We are lucky because there is a free sigma algebra in the projective Hilbert space given to us by the Born rule! 
 
-Let's see how that works. 
-
-The next thing we need is the definition of a 
-
-**<u>Definition:</u>** 
-
-
-
-
-
-
-
-
-
-
-
-To do this we need some tools that will help us to work with bounded Hermitian operators. The first tool is the *spectrum.* The spectrum is a generalization of the set of eigenvalues of an operator. This makes sense to consider from a physics standpoint, because all the physics is are contained in the set of eigenvalues of such Hermitian operators. 
-
-**<u>Definition:</u>** Let $A:\mathbb{H}\to \mathbb{H}$ be a bounded linear self adjoint (Hermitian) operator on a complex Hilbert space $\mathbb{H}$. A complex number $\lambda \in \mathbb{C}$ is in the **spectrum of** $A$, denoted by $\sigma(A)$, if the inverse map of $A - \lambda I$ is not linear and bounded. Compactly we have
+**<u>Definition:</u>** The **projective Hilbert space** $P(\mathbb{H})$ is the set of all rays of a Hilbert space $\mathbb{H}$, namely
 $$
-\sigma(A) \coloneqq \{\lambda \in \mathbb{C}\mid (A-\lambda I)^{-1} \text{ not bounded linear} \}.
+P(\mathbb{H}) = \{[\psi] \subset \mathbb{H}\setminus \{0\} \mid \phi \sim \psi  \iff \exists \lambda \in \mathbb{C} \text{ s.t. } \psi = \lambda \phi\}.
 $$
-Notice that if $\lambda$ is an eigenvalue, the inverse is not even defined, so all the eigenvalues live in the spectrum of $A$.
+**<u>Corollary:</u>** The projective Hilbert space is isomorphic to the set of all projection operators to the lines in $\mathbb{H}$.
 
 
 
+The projective space has a natural Khaler manifold structure with metric induced by the inner product in $\mathbb{H}$. Here is how.
 
+**<u>Theorem:</u>** Consider a complex Hilbert space $\mathbb{H}$ with the canonical metric induced by its hermitian form
+$$
+g = dz^\mu\otimes dz_\mu,
+$$
+where $z^\mu$ are projection coordinates. Then $P(\mathbb{H})$ can be identified as the quotient of the unit sphere $S^{\mathbb{H}} \subset \mathbb{H}$ on the Hilbert space, and the induced metric, known as the **Fubini metric**, makes it a Khaler manifold.
 
+This is way too complicated for what it is. It just means that the probability norm we are using for the born rule defines a metric on the projective space and more importantly a volume form there, including a measure. 
 
+**<u>Example:</u>** Let $\psi, \phi \in \mathbb{H}$, then their geodesic distance in $R(\mathbb{H})$ induced by the Fubini metric is given by
+$$
+\gamma(\psi,\phi) = \arccos \frac{|\langle \psi,\phi \rangle|}{\langle \psi,\psi \rangle\langle \phi,\phi \rangle}.
+$$
+This can be thought of as their angle in the projective space which belongs in $[0,\pi/2]$. 
 
+We actually don't care to measure $\mathbb{F}$ we only really care on measuring $P(\mathbb{F})$ which we can do with the Fubini metric. However, there is one super awesome theorem that can define the measures so much simpler. Here it is.
 
+**<u>Theorem:</u>** *(Gleason's Theorem)* I probability measure is a Fubini probability measure $\mu$ on $P(\mathbb{H})$ iff there exists a unique positive semidefinite linear map $\rho:\mathbb{H}\to \mathbb{H}$ on $\mathbb{H}$ with unit trace $\text{Tr}\rho =1$ such that the measures density is given by the map
+$$
+\begin{align*}
+p:P(\mathbb{H}) &\to [0,1]\\
+\Pi &\mapsto \text{Tr\,}\rho \Pi,
+\end{align*}
+$$
+where $\Pi : \mathbb{H} \to \mathbb{H}$ is an element of $P(\mathbb{H})$ thought of as a projection operator to a line in $\mathbb{H}$. 
+
+Note that the integral of the Fubini form on $P(\mathbb{H})$ is normalized to 1 for this to work.
+
+> **Intuition:** In physics we call $\rho$ a **density matrix**. The above theorem can be rephrased to any density matrix defines a distribution over the projective space. 
+>
+> In particular, the configurations in quantum mechanics are really only the elements projective space of the Hilbert space. This is the rigorous form of the statement: "Physical states are equivalent up to a phase." As a result, the density states are essentially a probability distribution over the set of such configurations. 
+>
+> In a more quantum mechanical language a density matrix can be thought of as the probability distribution that a quantum system would collapse to a specific state after observation. For example, the density matrix $\ketbra{0}$ in a spin-$\frac{1}{2}$ system is a probability distribution over all the possible quantum states that after observation the system would collapse to the $\ket{0}$ state. 
+>
+> This is similar to classical statistical mechanics, where the density of states is a distribution over the classical configurations.
+
+So now we can add measures using density matrices which is honestly pretty cool! We are ready to define an ensemble.
+
+**<u>Definition:</u>** Consider a quantum system with Hilbert space $\mathbb{H}$, a Hermitian map $H:\mathbb{F}\to \mathbb{F}$ (i.e. the Hamiltonian), a Hermitian map $N:\mathbb{F} \to \mathbb{F}$ such that for any $\psi \in \mathbb{H}^{\otimes n}$ $N\psi = n\psi$ (i.e. the number operator), and a positive semidefinite Hermitian map $\rho:\mathbb{F} \to \mathbb{F}$ (i.e. a density matrix). The **quantum mechanical grand canonical ensemble** is an ensemble $(P(\mathbb{F}), \Sigma, \mu)$ where $(P(\mathbb{F}),\Sigma)$ is the Fubini measure space on the projective space, and $\mu_{\rho}: \mathbb{R}^2 \times \Sigma \to [0,1]$ is a collection of measures given by
+$$
+(\beta,\mu, A) \mapsto \mu_{\rho}(\beta,\mu,A) = \frac{1}{Z(\beta,\mu)}\int_{A} \ast \text{Tr}\left(\rho e^{-\beta H + \mu N}\Pi_{\bullet}\right),
+$$
+where $\ast$ is the Hodge star on $P(\mathbb{F})$ with the Fubini metric and $Z : \mathbb{R}^2 \to \mathbb{R}$ is a normalization factor called the **partition function** and given by
+$$
+Z(\beta,\mu) = \int_{P(\mathbb{F})} \ast \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right) = \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right),
+$$
+where the last equality is given by the spectral theorem. 
+
+And here we have it! A fully fledged ensemble! Probably not the best first example for this, but this can serve as a blueprint for the later definitions.
 
 
 
