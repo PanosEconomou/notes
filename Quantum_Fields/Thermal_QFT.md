@@ -118,22 +118,19 @@ Now assume that the reservoir is *much bigger* than our system. This really mean
 $$
 E_R = E_T - H,
 $$
-where $H$ is the Hamiltonian of our system. The issue is that the system is **not in equilibrium** unless $H=0$. Therefore our thermodynamics only work for that regime. Here is where the large assumption comes in. Assume that $\epsilon = H/E_T$ is small. Additionally, we have that at any point 
+where $H$ is the Hamiltonian of our system. The issue is that the system is **not in equilibrium** unless $H=0$. Therefore our thermodynamics only work for that regime. Here is where the large assumption comes in. The picture below is the intuition of what it means for the two energies to be close. The bottom blob is the surface in the macroscopic configuration space where the total energy is $E_R$, while the other surface is the one with the Hamiltonian.
+
+![macroscopic-phase-space](_Thermal_QFT.assets/macroscopic-phase-space.svg)
+
+What the condition means is that these surfaces are physicall close in the configuration space. In other words, for every path $\gamma$ from the bottom surface to the top, defined by some evolution of the Hamiltonian any observable $O$ can be written as
+$$
+O\circ \gamma(\epsilon) = O_R + \frac{\partial O}{\partial \epsilon} \epsilon + \mathcal{O}(\epsilon^2),
+$$
+where $\epsilon$ is some small unitless parameter. In addition to that, we have that at any point in the configuration space
 $$
 TdS_R = \mu dN_R + dE_R.
 $$
-Assuming that we follow a path where 
-
-
-
-Then we have that
-$$
-S_R(E_R) = S_R(E_T - H) = S_R((1-\epsilon)E_T) = S_R(E_T) + \epsilon \left.\frac{\partial S_R}{\partial E}\right|_{E_T} + \mathcal{O}(\epsilon^2)
-$$
-
-
-
-
+Therefore we can now calculate the difference in entropy. 
 
 
 
