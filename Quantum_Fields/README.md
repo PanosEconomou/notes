@@ -14,5 +14,6 @@ Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 - [Renormalization Group](Renormalization_Group.md)
 - [Spinors](Spinors.md)
 - [Symmetry Braking](Symmetry_Breaking.md)
+- [Warm Quantum Fields](Thermal_QFT.md)
 - [Vertex Operator Algebras](Vertex_Operator_Algebras.md)
 - [Virasoro Algebra](Virasoro_Algebra.md)
