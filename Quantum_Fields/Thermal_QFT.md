@@ -17,11 +17,11 @@ The playing field of statistical physics is ensembles which is a term that comes
 
 The definition of an Ensemble is useless because it is too general, but here it is but that's too abstract to make sense.
 
-**<u>Definition:</u>** An **ensemble** $(\Gamma,\Sigma,\mu)$ is a measurable space $\Gamma$ with sigma algebra $\Sigma$ and a map $\mu:S\times \Sigma \to [0,1]$, where $S$ is some set and for any $s\in S$  $\mu_s = \mu(s,\cdot)$ is a measure on $(\Gamma,\Sigma)$. 
+**<u>Definition:</u>** An **ensemble** $(\Gamma,\Sigma,\mu)$ is a measurable space $\Gamma$ with sigma algebra $\Sigma$ and a map $\lambda:S\times \Sigma \to [0,1]$, where $S$ is some set and for any $s\in S$  $\lambda_s = \lambda(s,\cdot)$ is a measure on $(\Gamma,\Sigma)$. 
 
-The definition of the other components is [here](../Analysis/Functional_Analysis.md) and honestly it isn't even that relevant. An ensemble is basically a space $\Gamma$ that contains all the configurations of the constituents of the system and a probability measure $\mu$ slapped on top of that such that we can tell how likely some configurations are versus others. 
+The definition of the other components is [here](../Analysis/Functional_Analysis.md) and honestly it isn't even that relevant. An ensemble is basically a space $\Gamma$ that contains all the configurations of the constituents of the system and a probability measure $\lambda$ slapped on top of that such that we can tell how likely some configurations are versus others. 
 
-The physics of the ensemble are all inside $\mu$. Usually it depends on the Hamiltonian in a cute way, or the chemical potential, temperature, and so on. These are the parameters in the set $S$. Usually $S$ is something like $\mathbb{R}$ representing time, where we get a different measure for every point in time. Other times $S$ can be the set of all temperatures or chemical potentials or both. Let's see how that works.
+The physics of the ensemble are all inside $\lambda$. Usually it depends on the Hamiltonian in a cute way, or the chemical potential, temperature, and so on. These are the parameters in the set $S$. Usually $S$ is something like $\mathbb{R}$ representing time, where we get a different measure for every point in time. Other times $S$ can be the set of all temperatures or chemical potentials or both. Let's see how that works.
 
 ## Quantum Mechanical Canonical Ensemble
 
@@ -82,19 +82,65 @@ Note that the integral of the Fubini form on $P(\mathbb{H})$ is normalized to 1 
 
 So now we can add measures using density matrices which is honestly pretty cool! We are ready to define an ensemble.
 
-**<u>Definition:</u>** Consider a quantum system with Hilbert space $\mathbb{H}$, a Hermitian map $H:\mathbb{F}\to \mathbb{F}$ (i.e. the Hamiltonian), a Hermitian map $N:\mathbb{F} \to \mathbb{F}$ such that for any $\psi \in \mathbb{H}^{\otimes n}$ $N\psi = n\psi$ (i.e. the number operator), and a positive semidefinite Hermitian map $\rho:\mathbb{F} \to \mathbb{F}$ (i.e. a density matrix). The **quantum mechanical grand canonical ensemble** is an ensemble $(P(\mathbb{F}), \Sigma, \mu)$ where $(P(\mathbb{F}),\Sigma)$ is the Fubini measure space on the projective space, and $\mu_{\rho}: \mathbb{R}^2 \times \Sigma \to [0,1]$ is a collection of measures given by
+**<u>Definition:</u>** Consider a quantum system with Hilbert space $\mathbb{H}$, a Hermitian map $H:\mathbb{F}\to \mathbb{F}$ (i.e. the Hamiltonian), and a Hermitian map $N:\mathbb{F} \to \mathbb{F}$ such that for any $\psi \in \mathbb{H}^{\otimes n}$ $N\psi = n\psi$ (i.e. the number operator). The **quantum mechanical grand canonical ensemble** is an ensemble $(P(\mathbb{F}), \Sigma, \mu)$ where $(P(\mathbb{F}),\Sigma)$ is the Fubini measure space on the projective space, and $\lambda: \mathbb{R}^2 \times \Sigma \to [0,1]$ is a collection of measures given by
 $$
-(\beta,\mu, A) \mapsto \mu_{\rho}(\beta,\mu,A) = \frac{1}{Z(\beta,\mu)}\int_{A} \ast \text{Tr}\left(\rho e^{-\beta H + \mu N}\Pi_{\bullet}\right),
+(\beta,\mu, A) \mapsto \lambda_{\beta,\mu}(A) = \frac{1}{Z(\beta,\mu)}\int_{A} \ast \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right),
 $$
 where $\ast$ is the Hodge star on $P(\mathbb{F})$ with the Fubini metric and $Z : \mathbb{R}^2 \to \mathbb{R}$ is a normalization factor called the **partition function** and given by
 $$
-Z(\beta,\mu) = \int_{P(\mathbb{F})} \ast \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right) = \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right),
+Z(\beta,\mu) = \lambda_{\beta,\mu}(P(\mathbb{F}))= \int_{P(\mathbb{F})} \ast \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right) = \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right),
 $$
 where the last equality is given by the spectral theorem. 
 
-And here we have it! A fully fledged ensemble! Probably not the best first example for this, but this can serve as a blueprint for the later definitions.
+And here we have it! A fully fledged ensemble! Probably not the best first example for this, but this can serve as a blueprint for the later definitions. 
+
+## Physical Motivation
+
+Notice that the grand canonical ensemble is the ensemble given by the density matrix
+$$
+\rho = \frac{e^{-\beta H + \mu N}}{Z}.
+$$
+Let's go over the physical motivation for this. The grand canonical ensemble is supposed to describe a system where there are a bunch of particles at some fixed temperature that is connected to a reservoir such that adding or removing particles expends a fixed amount of energy. The total energy remains constant though. Let's motivate each condition separately. 
+
+Such a system thermodynamically has to obey the first law of thermodynamics which in this case is written by
+$$
+dE = TdS - \mu dN,
+$$
+where we define the number of microscopic states that correspond to a particular macroscopic state to be
+$$
+\Omega = e^{S},
+$$
+where $S$ is the entropy which is some function over the macroscopic configuration space. The probability is going to be proportional to $\Omega$ since it indicates the number of available states to our system with given macroscopic variables. Now consider the system attached to a big reservoir. This corresponds to taking the (categorical tensor) product of the two configuration spaces, so the total number of states $\Omega_T$ is going to be $\Omega_S \cdot \Omega_R$, i.e. the product of the available states of our system $S$ and the reservoir $R$. This implies that
+$$
+\Omega_T = \Omega_S\Omega_R \iff e^{S_T} =  e^{S_S + S_R} \iff S_T = S_S + S_R.
+$$
+Now assume that the reservoir is *much bigger* than our system. This really means that if we change its state variables the reservoir won't budge. To be more precise, we focus on the Reservoir. It is a system whose total energy is given by
+$$
+E_R = E_T - H,
+$$
+where $H$ is the Hamiltonian of our system. The issue is that the system is **not in equilibrium** unless $H=0$. Therefore our thermodynamics only work for that regime. Here is where the large assumption comes in. Assume that $\epsilon = H/E_T$ is small. Additionally, we have that at any point 
+$$
+TdS_R = \mu dN_R + dE_R.
+$$
+Assuming that we follow a path where 
 
 
+
+Then we have that
+$$
+S_R(E_R) = S_R(E_T - H) = S_R((1-\epsilon)E_T) = S_R(E_T) + \epsilon \left.\frac{\partial S_R}{\partial E}\right|_{E_T} + \mathcal{O}(\epsilon^2)
+$$
+
+
+
+
+
+
+
+
+## Partition Function
+
+Almost by accident we got introduced to the partition function in the definition of the grand canonical ensemble above as this normalization constant. It very often happens to be a smooth function and it can give us information about all thermodynamic observables by taking appropriate derivatives of it. In some sense, one has an Ensemble simply by knowing the partition function. 
 
 
 
