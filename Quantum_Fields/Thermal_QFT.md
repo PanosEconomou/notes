@@ -6,6 +6,8 @@ These notes rely on:
 
 1. [Kapusta - Finite temperature field theory](https://library.oapen.org/bitstream/handle/20.500.12657/64016/1/9781009401968.pdf)
 2. [Ramond - Field Theory](https://archive.org/details/fieldtheorymoder0000ramo_c7r4)
+3. [Donoghue - The analytic continuation of distributions](https://www.sciencedirect.com/science/article/pii/S0079816908618899?via%3Dihub)
+4. [Peskin - Introduction to Quantum Field Theory]()
 
 
 
@@ -17,7 +19,7 @@ The playing field of statistical physics is ensembles which is a term that comes
 
 The definition of an Ensemble is useless because it is too general, but here it is but that's too abstract to make sense.
 
-**<u>Definition:</u>** An **ensemble** $(\Gamma,\Sigma,\mu)$ is a measurable space $\Gamma$ with sigma algebra $\Sigma$ and a map $\lambda:S\times \Sigma \to [0,1]$, where $S$ is some set and for any $s\in S$  $\lambda_s = \lambda(s,\cdot)$ is a measure on $(\Gamma,\Sigma)$. 
+**<u>Definition:</u>** An **ensemble** $(\Gamma,\Sigma,\lambda,S)$ is a measurable space $\Gamma$ with sigma algebra $\Sigma$ and a map $\lambda:S\times \Sigma \to [0,1]$, where $S$ is some set and for any $s\in S$  $\lambda_s = \lambda(s,\cdot)$ is a measure on $(\Gamma,\Sigma)$. 
 
 The definition of the other components is [here](../Analysis/Functional_Analysis.md) and honestly it isn't even that relevant. An ensemble is basically a space $\Gamma$ that contains all the configurations of the constituents of the system and a probability measure $\lambda$ slapped on top of that such that we can tell how likely some configurations are versus others. 
 
@@ -88,7 +90,7 @@ $$
 $$
 where $\ast$ is the Hodge star on $P(\mathbb{F})$ with the Fubini metric and $Z : \mathbb{R}^2 \to \mathbb{R}$ is a normalization factor called the **partition function** and given by
 $$
-Z(\beta,\mu) = \lambda_{\beta,\mu}(P(\mathbb{F}))= \int_{P(\mathbb{F})} \ast \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right) = \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right),
+Z(\beta,\mu) = \int_{P(\mathbb{F})} \ast \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right) = \text{Tr}\left(e^{-\beta H + \mu N}\Pi_{\bullet}\right),
 $$
 where the last equality is given by the spectral theorem. 
 
@@ -122,7 +124,7 @@ where $H$ is the Hamiltonian of our system. The issue is that the system is **no
 
 ![macroscopic-phase-space](_Thermal_QFT.assets/macroscopic-phase-space.svg)
 
-What the condition means is that these surfaces are physicall close in the configuration space. In other words, for every path $\gamma$ from the bottom surface to the top, defined by some evolution of the Hamiltonian any observable $O$ can be written as
+What the condition means is that these surfaces are physically close in the configuration space. In other words, for every path $\gamma$ from the bottom surface to the top, defined by some evolution of the Hamiltonian any observable $O$ can be written as
 $$
 O\circ \gamma(\epsilon) = O_R + \frac{\partial O}{\partial \epsilon} \epsilon + \mathcal{O}(\epsilon^2),
 $$
@@ -130,7 +132,11 @@ where $\epsilon$ is some small unitless parameter. In addition to that, we have 
 $$
 TdS_R = \mu dN_R + dE_R.
 $$
-Therefore we can now calculate the difference in entropy. 
+Therefore we can now calculate the difference in entropy. This directly leads to the weighting factor we have introduced above.
+
+
+
+
 
 
 
@@ -139,6 +145,72 @@ Therefore we can now calculate the difference in entropy.
 
 Almost by accident we got introduced to the partition function in the definition of the grand canonical ensemble above as this normalization constant. It very often happens to be a smooth function and it can give us information about all thermodynamic observables by taking appropriate derivatives of it. In some sense, one has an Ensemble simply by knowing the partition function. 
 
+To see how that is true we will first define the *average of observables* in our thermodynamical system. 
+
+**<u>Definition:</u>** Let $(\Gamma,\Sigma,\lambda,S)$ be an ensemble and $f:\Gamma \to X$ be a map from the configuration space to some Banach space $X$. Then the **ensemble average** of $f$ is a map $\langle f \rangle : S\to X$ given for any $s\in S$ by
+$$
+\langle f \rangle(s) = \int_{\Gamma} f d(\lambda(s)).
+$$
+where the integral is the *Bochner integral* (generalization of Lebesgue integral for Banach spaces).
+
+With this we can see that the partition function is very close to the ensemble average. In particular the partition function helps us define a probability measure using a volume integral. 
+
+**<u>Proposition:</u>** Let $\mu$ be a measure on $(\Gamma,\Sigma)$ then the measure $\lambda : \Sigma \to \bar{\mathbb{R}}$ defined for all $A \in \Sigma$ by
+$$
+\lambda(A) = \frac{\mu(A)}{Z},
+$$
+where $Z = \mu(\Gamma)$ is the partition function, is a probability measure.
+
+***Proof:*** Clearly $\lambda(\Gamma) = \frac{\mu(\Gamma)}{\mu(\Gamma)} = 1$ for finite $Z$. The proof also extends to the other case using appropriate limits.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+So in some sense, the partition function can help us relate one measure as a function of another, but it can also help us obtain ensemble averages. Specifically check out this example.
+
+**<u>Example:</u>** *(Cool stuff on manifolds)* Let $\Gamma$ be an orientable Riemannian manifold and consider it as a measure space using integration of top forms. Now we can define a collection of measures $\mu : S \to C^\infty(\Gamma)$ parameterized by another manifold $S$. Given such a collection of measures, one can define a partition function $Z:S\to \mathbb{R}$ obtained for any $s\in S$ by
+$$
+Z(s) = \int_{\Gamma} \ast \mu(s).
+$$
+Then one can define the collections of probability measures $\lambda: S \to C^\infty(\Gamma,I)$ by $\lambda = \mu / Z$. Then we have that for any vector $X_s \in T_sS$ for some $s\in S$
+$$
+\left\langle \frac{X\mu}{\mu} \right\rangle = X\log Z.
+$$
+The proof for this is through the following calculation
+$$
+X\log Z = \frac{XZ}{Z} = \frac{1}{Z} \int_{\Gamma} \ast X\mu =\int_{\Gamma} \frac{X\mu}{\mu} \ast \frac{\mu}{Z} = \int_{\Gamma}\frac{X\mu}{\mu} \lambda.
+$$
+This is a pretty powerful fact, because usually in thermodynamics $S$ is some set of thermodynamic parameters $\mu$ is an exponential function that includes all of our interested quantities like the Hamiltonian, number of particles, etc.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Given such a successful construct we would like to use it in our path integral formalism.
 
 
- 
+
+# Partition Function in QFT
+
+As we have seen in the previous section a partition function doesn't exist without a reference to a measure. In quantum field theory the configuration space is a projective space of a Fock space that is comprised out of all the field operators. There we have introduced a measure called *the path integral* that allows us to integrate over everything and assign probabilities to each state just like in the quantum mechanical grand canonical ensemble we saw in the previous example. We want to find the partition function with respect to that measure in such a way that it encodes the idea of temperature. 
+
+
+
+## Aside on Complexification
+
+Let's begin by considering what is the condition under which one can continue a real valued distribution to a complex analytic function in some sense. Let's first define the object that would make sense in this context.
+
+**<u>Definition:</u>** Let $U\subset \mathbb{C}$ and $\Omega \subset \mathbb{R}$ then an **analytic distribution valued function** is a map $T:U \to \mathcal{D}^\ast(\Omega)$ such that for any $\phi \in \mathcal{D}(\Omega)$ the complex valued function $T(\phi) : U\to \mathbb{C}$ is analytic. 
+
+Recall that $\mathcal{D}(\Omega)$ contains test functions of the form $\phi:\Omega \to \mathbb{C}$. The relevant theorem is as follows.
+
+**<u>Theorem:</u>** Let $V \subset \mathbb{C}$ be an open subset of the complex plane such that $U\subset V$ is a proper subset. Additionally, consider an analytic distribution valued function $T:U\to D^\ast(\Omega)$ for some measure space $\Omega$. Then there exists a unique analytic valued function $T':V\to D^\ast(\Omega)$ such that for any test function $\phi \in D(\Omega)$ and point $z \in U$
+$$
+T_z(\phi) = T'_z(\phi),
+$$
+if and only if for all such test functions $T(\phi):U\to \Omega$ can be analytically continued to $V$.
+
+This result is what facilitates Wick rotation in field theory. The fields are such distribution valued functions usually with discrete singular support. 
+
+
+
+## Transition Amplitudes
+
+In Quantum field theory we want to calculate things like the amplitude that a state, after time evolution, will become 
