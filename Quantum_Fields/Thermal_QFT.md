@@ -187,7 +187,7 @@ Given such a successful construct we would like to use it in our path integral f
 
 
 
-# Partition Function in QFT
+# Partition Functions in QFT
 
 As we have seen in the previous section a partition function doesn't exist without a reference to a measure. In quantum field theory the configuration space is a projective space of a Fock space that is comprised out of all the field operators. There we have introduced a measure called *the path integral* that allows us to integrate over everything and assign probabilities to each state just like in the quantum mechanical grand canonical ensemble we saw in the previous example. We want to find the partition function with respect to that measure in such a way that it encodes the idea of temperature. 
 
@@ -231,7 +231,7 @@ where $\iota_t : \Sigma_t \to M$ is the inclusion map of the corresponding time 
 
 
 
-## Free Theory Partition Functions
+## Free Theory Partition Functions (Intuition)
 
 These path integrals are really only well defined in free theories. So let's try  to do one derivation and then we can move on to the interacting ones.
 
@@ -241,7 +241,7 @@ Z = \text{Tr\,} e^{-\beta H},
 $$
  where $\beta \in \mathbb{R}$ is some real number related to the temperature. We could create a field theoretic equivalent of this statement by calculating the trace in the basis of eigenstates of the field operators. Without loss of generality we will do this for a single field since theories with multiple fields can be written as single field theories. 
 
-Specifically, we would have 
+Specifically, we would have (up to an overall factor that we divide out in all calculations)
 $$
 Z = \int d\alpha \bra{\alpha} e^{-\beta H} \ket{\alpha},
 $$
@@ -257,7 +257,98 @@ In this picture we have a circle with perimeter $\beta$ parameterized by arc-len
 $$
 Z = \int \mathcal{D}\phi \, e^{\int_{S^1} L_E(\phi)},
 $$
-where the integral is taken over all the fields in this new compactified configuration. 
+where the integral is taken over all the fields in this new compactified configuration. With this motivation we are ready to rigorously treat the free field theoretic partition function.
 
 
 
+## Free Bosonic Theory Partition Functions
+
+We want to consider a free bosonic theory and calculate its partition function. To do this we assume that underlying spacetime is some Riemannian manifold $M = \mathbb{R}^{n-1} \times S^1$ and the fields are sections of a vector bundle $\pi: E \to M$ with rank $k$, equipped with a Euclidean (or Hermitian) bundle metric, that has a cute connection $\nabla : \mathfrak{X}(M)\times \Gamma(E) \to \Gamma(E)$ so that the fields can move nicely. The Euclidean Lagrangian $\mathcal{L}_E: \Gamma(E)\to \Omega^n(M)$ is then given for any fields $\phi \in \Gamma(E)$ by
+$$
+\mathcal{L}_E(\phi) = \frac{1}{2} d_\nabla \phi\wedge \ast d_\nabla\phi - \ast m^2 \langle \phi,\phi \rangle,
+$$
+where the wedge product incorporates the bundle metric on the fibers of $E$. Now we can define the action $S:\Gamma(E) \to \mathbb{R}$ as 
+$$
+S(\phi) = \int_M \mathcal{L}_E(\phi).
+$$
+We also pick a metric on $M$ such that the volume of the circle is $\beta \in \mathbb{R}$. Using integration by parts we can write the action as
+$$
+S(\phi) = -\frac{1}{2}\int_M \ast \langle \phi,(-\ast d_\nabla \ast d_\nabla +m^2) \phi \rangle = -\frac{1}{2}\langle \phi,D\phi  \rangle_{L^2},
+$$
+where $D$ is a linear differential operator on $\Gamma(E)$ and the second inner product is the inner product in $L^2(E)$. Therefore the partition function can be written as
+$$
+Z = \int \mathcal{D}\phi\, e^{-\frac{1}{2}\langle \phi,D\phi  \rangle_{L^2}} \propto (\text{det\,} D)^{-\frac{1}{2}},
+$$
+where we have used some functional integration techniques from Peskin. To evaluate this determinant we need to find the eigenvalues of $D$. Luckily since our space is quite flat it would be possible to do this let's express $\phi$ in Fourier modes.
+
+**<u>Lemma:</u>** Let $\phi:S^1 \to V$ be a smooth function to a finite dimensional vector space $V$ over $\mathbb{R}$. Then there exist $\{\phi_n\}_{n\in \mathbb{Z}} \subset V$ and $\{\omega_n\}_{n\in \mathbb{Z}}\subset \mathbb{R}$ such that for any $t\in S^1$
+$$
+\phi(t) = \sum_{n \in \mathbb{Z}} \phi_n e^{i2\pi n t}.
+$$
+Now we are ready to do this! Now, however, we have a different metric in our circle such that the integration measure yields
+$$
+\int_{S^1} d\tau = \beta,
+$$
+instead of $2\pi$. Using this different metric, the expansion of any field now reads
+$$
+\phi(t) = \beta^{\frac{1}{2}}\sum_{n\in \mathbb{Z}} \phi_n e^{i\omega_n t},
+$$
+where $\omega_n = \frac{2\pi n }{\beta}$.
+
+This has the following interesting consequence.
+
+**<u>Corollary:</u>** Any field $\phi \in L^2(E)$ can be written for any point $(x,\tau) \in M$ as
+$$
+\phi(x,\tau) = \beta^{\frac{1}{2}} \sum_{n\in \mathbb{Z}}\int_{\mathbb{R}^{n-1}} d^{n-1}p\, e^{ip\cdot x +i\omega_n\tau} \phi_n(p).
+$$
+Notice that $\phi_{-n}(-p) = \phi^\ast_n(p)$ in order for $\phi$ to be real valued. If the connection on $E$ is trivial, $\phi_n(p) = \phi_n^m(p) e_m$ where $\nabla e_m = 0$.
+
+The really interesting thing is that we are rarely interested in the partition function itself, but rather in its log and its derivatives. Therefore we only need to calculate the log of the determinant of $D$ which is its trace! From now on we will assume that the connection on $E$ is flat. It also works for non flat connections, but we would have to sum these eigenvalues, etc. which is getting too much for this example. 
+
+**<u>Proposition:</u>** The logarithm of the partition function is given by
+$$
+\log Z = -\frac{1}{2} \text{Tr\,} \log D.
+$$
+up to some real number $A \in \mathbb{R}$.
+
+***Proof:*** We use the fact that $\text{det\,} e^A = e^{\text{Tr\,} A}$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+The trace is much easier to calculate than the determinant, especially since we have found a basis for all the fields given by 
+$$
+\{e^{ix\cdot p +i\omega_n \tau}e_m \mid n\in \mathbb{Z}, p\in \mathbb{R}^3, 1\leq m \leq k\},
+$$
+where $\{e_m\}_1^k \subset V$ is the standard basis of the fiber. But more importantly this is not just a basis, it is an **eigenbasis**! So much luck and love came out of this choice. Here is why. 
+
+**<u>Corollary:</u>** The trace of $\log D$ is given by
+$$
+\text{Tr\,} \log D = \sum_n \int_{\mathbb{R}^{n-1}} d^{n-1}p \log \left[ \beta^2\left(\omega_n^2 + \omega(p)^2\right) \right],
+$$
+where $\omega(p) = \sqrt{p^2 + m^2}$. 
+
+***Proof:*** First let's see what happens when we calculate
+$$
+\begin{align*}
+D e^{ix\cdot p + i \omega_n\tau}e_m 
+&= \beta^2\left(- \frac{\partial^2 }{\partial \tau^2} - \Delta + m^2\right)e^{ix\cdot p + i \omega_n\tau}e_m \\
+&= \beta^2  \left( \omega_n^2 + p^2 +m^2 \right)e^{ix\cdot p + i \omega_n\tau}e_m.
+\end{align*}
+$$
+if we define $\omega = \sqrt{p^2 +m^2}$ as usual, the eigenvalues are
+$$
+\lambda_n(p) = \beta^2 \left[ \omega_n^2 + \omega(p)^2 \right].
+$$
+The reason why this is nice is that for an eigenvector $\phi$ of a linear operator $A = e^{\log A}$ we have that
+$$
+A\phi = \lambda \phi = e^{\log \lambda} \phi = e^{\log A} \phi.  
+$$
+Therefore the trace of the log, its going to be the sum of the eigenvalues which is given by
+$$
+\Tr \log D = k\sum_{n\in \mathbb{Z}}\int_{\mathbb{R}^{n-1}}  d^{n-1} p \, \log \lambda_n(p).
+$$
+With this we have proven the statement.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Ok, but while this calculation was satisfying it is still not interpretable in a nice way. In particular, we would like to get some thermodynamics out of this about the particles of the theory in some ensemble. 
