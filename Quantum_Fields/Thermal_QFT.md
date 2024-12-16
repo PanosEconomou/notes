@@ -7,7 +7,7 @@ These notes rely on:
 1. [Kapusta - Finite temperature field theory](https://library.oapen.org/bitstream/handle/20.500.12657/64016/1/9781009401968.pdf)
 2. [Ramond - Field Theory](https://archive.org/details/fieldtheorymoder0000ramo_c7r4)
 3. [Donoghue - The analytic continuation of distributions](https://www.sciencedirect.com/science/article/pii/S0079816908618899?via%3Dihub)
-4. [Peskin - Introduction to Quantum Field Theory]()
+4. [Peskin - Introduction to Quantum Field Theory](http://home.ustc.edu.cn/~gengb/200923/Peskin,%20An%20Introduction%20to%20Quantum%20Field%20Theory.pdf)
 
 
 
@@ -112,7 +112,7 @@ where we define the number of microscopic states that correspond to a particular
 $$
 \Omega = e^{S},
 $$
-where $S$ is the entropy which is some function over the macroscopic configuration space. The probability is going to be proportional to $\Omega$ since it indicates the number of available states to our system with given macroscopic variables. Now consider the system attached to a big reservoir. This corresponds to taking the (categorical tensor) product of the two configuration spaces, so the total number of states $\Omega_T$ is going to be $\Omega_S \cdot \Omega_R$, i.e. the product of the available states of our system $S$ and the reservoir $R$. This implies that
+by where $S$ is the entropy which is some function over the macroscopic configuration space. The probability is going to be proportional to $\Omega$ since it indicates the number of available states to our system with given macroscopic variables. Now consider the system attached to a big reservoir. This corresponds to taking the (categorical tensor) product of the two configuration spaces, so the total number of states $\Omega_T$ is going to be $\Omega_S \cdot \Omega_R$, i.e. the product of the available states of our system $S$ and the reservoir $R$. This implies that
 $$
 \Omega_T = \Omega_S\Omega_R \iff e^{S_T} =  e^{S_S + S_R} \iff S_T = S_S + S_R.
 $$
@@ -213,4 +213,51 @@ This result is what facilitates Wick rotation in field theory. The fields are su
 
 ## Transition Amplitudes
 
-In Quantum field theory we want to calculate things like the amplitude that a state, after time evolution, will become 
+In Quantum field theory we want to calculate things like the amplitude that a state, after time evolution, will evolve to a different state. These are called transition amplitudes and can be calculated with the path integral prescription that we briefly describe here. 
+
+To make this more precise consider the eigenstates of the field operator $\phi(x,0)$ defined by
+$$
+\phi(x,0) \ket{\alpha} = \alpha(x) \ket{\alpha}, 
+$$
+where $\alpha$ is some section of the appropriately chosen time slice. Following a lattice limiting procedure one can derive that the amplitude between two field eigenstates is given by
+$$
+\bra{\alpha} e^{-iHt} \ket{\beta} = \int_{\Omega_{\alpha\beta}} \mathcal{D} \phi\,^{i\int_0^t L(\phi)dt }
+$$
+where the domain $\Omega_{\alpha\beta}$ is populated by the functions with appropriate boundary conditions like so
+$$
+\Omega_{\alpha\beta} \coloneqq \{\phi \in \Gamma^\infty(E) \mid \iota^\ast_0\phi = \beta, \iota^\ast_t\phi = \alpha\},
+$$
+where $\iota_t : \Sigma_t \to M$ is the inclusion map of the corresponding time slice. The partition function looks extremely similar to this! So let's try it.
+
+
+
+## Free Theory Partition Functions
+
+These path integrals are really only well defined in free theories. So let's try  to do one derivation and then we can move on to the interacting ones.
+
+We have seen from the previous example of the quantum mechanical phase space that the appropriate partition function is given by
+$$
+Z = \text{Tr\,} e^{-\beta H},
+$$
+ where $\beta \in \mathbb{R}$ is some real number related to the temperature. We could create a field theoretic equivalent of this statement by calculating the trace in the basis of eigenstates of the field operators. Without loss of generality we will do this for a single field since theories with multiple fields can be written as single field theories. 
+
+Specifically, we would have 
+$$
+Z = \int d\alpha \bra{\alpha} e^{-\beta H} \ket{\alpha},
+$$
+where the integration is carried out over all field configurations. The cool thing is that we are already familiar with such constructions because we can Wick rotate. In other words, we analytically continue our fields to the complex plane such that plugging in $\tau =it$ in the fields is a sensible thing to do. Once we do so, the action changes because we are integrating over the imaginary axis instead. Specifically, we obtain
+$$
+Z=\int d\alpha \int_{\Omega_{\alpha\alpha}} e^{\int_0^\beta L_E d\tau}.
+$$
+ Now is where things get suuuuper cool. What we have here is that we are integrating the domain $\Omega_{\alpha\alpha}$ over all configurations $\alpha$. One such element of $\Omega_{\alpha\alpha}$ is one that starts at $\tau = 0$ at $\alpha$ and ends at $\alpha$  at $\tau = \beta$. Therefore this is sort of like a field on a circle. Here is a picture.
+
+![Compactification-picture](_Thermal_QFT.assets/Compactification-picture.svg)
+
+In this picture we have a circle with perimeter $\beta$ parameterized by arc-length $\tau$ on top of which two fields satisfying the boundary conditions are depicted in blue. As a result we can notice that integrating over all the possible $\alpha$ we are summing over all the possible field configurations on this circle without double counting (since each set of fields differs at at least one point). Therefore the partition function for equilibrium temperature $\beta$ can be equivalently written as this trace over a field theory on a circle with perimeter $\beta$.  This yields,
+$$
+Z = \int \mathcal{D}\phi \, e^{\int_{S^1} L_E(\phi)},
+$$
+where the integral is taken over all the fields in this new compactified configuration. 
+
+
+
