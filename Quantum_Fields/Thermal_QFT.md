@@ -293,7 +293,7 @@ instead of $2\pi$. Using this different metric, the expansion of any field now r
 $$
 \phi(t) = \beta^{\frac{1}{2}}\sum_{n\in \mathbb{Z}} \phi_n e^{i\omega_n t},
 $$
-where $\omega_n = \frac{2\pi n }{\beta}$.
+where $\omega_n = \frac{2\pi n }{\beta}$. We usually call these frequencies **Matsubara frequencies**.
 
 This has the following interesting consequence.
 
@@ -323,7 +323,7 @@ where $\{e_m\}_1^k \subset V$ is the standard basis of the fiber. But more impor
 
 **<u>Corollary:</u>** The trace of $\log D$ is given by
 $$
-\text{Tr\,} \log D = \sum_n \int_{\mathbb{R}^{n-1}} d^{n-1}p \log \left[ \beta^2\left(\omega_n^2 + \omega(p)^2\right) \right],
+\text{Tr\,} \log D = \sum_{n \in \mathbb{Z}} \int_{\mathbb{R}^{n-1}} d^{n-1}p \log \left[ \beta^2\left(\omega_n^2 + \omega(p)^2\right) \right],
 $$
 where $\omega(p) = \sqrt{p^2 + m^2}$. 
 
@@ -351,4 +351,65 @@ With this we have proven the statement.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
-Ok, but while this calculation was satisfying it is still not interpretable in a nice way. In particular, we would like to get some thermodynamics out of this about the particles of the theory in some ensemble. 
+Ok, but while this calculation was satisfying it is still not interpretable in a nice way. In particular, we would like to get some thermodynamics out of this about the particles of the theory in some ensemble. So let's start noticing some things. 
+
+**<u>Lemma:</u>** The following identity holds
+$$
+S(x) \coloneqq \sum_{n \in \mathbb{Z}} \frac{1}{n^2 + x^2} = \frac{\pi \coth \pi x}{x}.
+$$
+***Proof:*** Consider the identity
+$$
+f(x) = \frac{\sinh \pi x}{\pi x} = \prod_{n=1}^\infty \left( 1 + \frac{x^2}{n^2} \right).
+$$
+Then we can take
+$$
+\log f = \sum_{n=1}^\infty \log \left( 1 + \frac{x^2}{n^2} \right).
+$$
+By differentiating we deduce that
+$$
+\frac{f'}{f} = 2x \sum_{n=1}^\infty \frac{1}{n^2 + x^2} = 2x \left( \frac{1}{2}S(x) - \frac{1}{2x^2} \right).
+$$
+On the other hand
+$$
+\frac{f'}{f} = \pi \coth \pi x - \frac{1}{x}.
+$$
+Equating we obtain the identity. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+In addition to this silly proposition we also need to remember that the partition function is the same up to a constant factor (i.e. independent of $\beta$). From now on we will denote that equivalence $\sim$. Therefore we can write the partition function is equivalent to
+$$
+\log Z \sim -\frac{k}{2}\sum_{n\in \mathbb{Z}}\int_{\mathbb{R}^{n-1}}  d^{n-1} p \,\log (n^2 + \alpha^2) \sim  -\frac{k}{2}\sum_{n\in \mathbb{Z}}\int_{\mathbb{R}^{n-1}}  d^{n-1} p \int_{1}^\alpha \frac{d\xi^2}{n^2 + \xi^2},
+$$
+where $\alpha = \frac{\beta \omega}{2\pi}$. Notice that inside this integral we encountered the sum of the previous lemma. Therefore the partition function is equivalent to
+$$
+\log Z \sim -\pi k\int_{\mathbb{R}^{n-1}}  d^{n-1} p \int_{1}^\alpha d\xi\, \coth\pi \xi \sim  -k \int_{\mathbb{R}^{n-1}}  d^{n-1} p \log \left|\sinh \frac{\beta \omega}{2}\right|.
+$$
+ where we have been dropping terms independent of $\beta$ along the way. This is a cool result because we can reinterpret it to
+$$
+\log Z \sim  \int_{\mathbb{R}^{n-1}}  d^{n-1} p\, \left[ -\frac{k\beta \omega}{2} -k \log (1-e^{-\beta \omega})\right].
+$$
+which is the partition function for Bose Einstein! Yey. This includes the energy of the vacuum so we can subtract it because by definition we pick the vacuum to be at $0$ energy. But still.
+
+
+
+## Theories with Interactions
+
+Now that we have some calculations under our belt, it is time to play around with theories where interactions can happen. Such theories have action 
+$$
+S = S_{0} + S_I,
+$$
+where $S_0$ is the action of some free theory, and $S_I$ is the action that contains only interaction terms in the fields. Therefore we can write down the partition function as
+$$
+Z = \int \mathcal{D}\phi \, e^{S_0 + S_I} = \int \mathcal{D}\phi\, e^{S_0}\sum_{n=0}^\infty \frac{S_I^n}{n!}.
+$$
+Since we are not interested in the partition function itself, but its logarithm we can write
+$$
+\log Z = \log \left[  \int \mathcal{D}\phi\, e^{S_0}\right] + \log \left[ 1 + \sum_{n=0}^\infty\frac{1}{n!}\cfrac{\int \mathcal{D}\phi\, e^{S_0} S_I^n}{\int \mathcal{D}\phi\, e^{S_0}} \right] = \log Z_0 + \log Z_I,
+$$
+where $Z_0$ is the partition function of the free theory, and $Z_I$ will be the correction due to interactions. The reason for expressing it this way, is because the quantity inside the sum is what we actually know what to compute, which is computing the interaction terms in the background. For that we can use diagrams. We will explore this in detail in the following example.
+
+
+
+# $\phi^4$ Renormalization
+
