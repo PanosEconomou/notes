@@ -5,9 +5,10 @@ What happens when there is more than a couple of particles in space? We will use
 These notes rely on:
 
 1. [Kapusta - Finite temperature field theory](https://library.oapen.org/bitstream/handle/20.500.12657/64016/1/9781009401968.pdf)
-2. [Ramond - Field Theory](https://archive.org/details/fieldtheorymoder0000ramo_c7r4)
-3. [Donoghue - The analytic continuation of distributions](https://www.sciencedirect.com/science/article/pii/S0079816908618899?via%3Dihub)
-4. [Peskin - Introduction to Quantum Field Theory](http://home.ustc.edu.cn/~gengb/200923/Peskin,%20An%20Introduction%20to%20Quantum%20Field%20Theory.pdf)
+2. [Bellac - Thermal Field Theory](https://www.cambridge.org/core/books/thermal-field-theory/327ADC94F9AF342A6355EA65F1E6991A)
+3. [Ramond - Field Theory](https://archive.org/details/fieldtheorymoder0000ramo_c7r4)
+4. [Donoghue - The analytic continuation of distributions](https://www.sciencedirect.com/science/article/pii/S0079816908618899?via%3Dihub)
+5. [Peskin - Introduction to Quantum Field Theory](http://home.ustc.edu.cn/~gengb/200923/Peskin,%20An%20Introduction%20to%20Quantum%20Field%20Theory.pdf)
 
 
 
@@ -411,5 +412,89 @@ where $Z_0$ is the partition function of the free theory, and $Z_I$ will be the 
 
 
 
-# $\phi^4$ Renormalization
+## The Generating Functional
 
+We often use the partition function as a generating functional for the correlators, so it would make sense for us to do it here too. Here is how to extend that definition.
+$$
+Z(\beta,J) = \int \mathcal{D}\phi \, e^{\int_{\bar M} \mathcal{L}_E(\phi) + J\phi} = Z(\beta,0) e^{\frac{1}{2}\int_{\bar M^2} G J\times J}
+$$
+where $\bar M \cong \mathbb{R}^{n-1}\times S^1$ is the Euclidean space with compactified time and $G$ is the Matsubara propagator. Notice that $Z(\beta,0)$ is the partition function we have found before. Using this tool we can derive generalizations of Wick's theorem and time ordered correlators for the finite temperature expectation values of observables given by the Born rule. 
+
+The Matsubara propagator satisfies the equation
+$$
+DG = \delta,
+$$
+where $D$ is the differential operator that we have found before.
+
+
+
+## First order corrections to the propagator
+
+It is clear that one can obtain the propagator using the generating functional above. Now we can calculate its first order correction in the coupling, using Wick's theorem.
+
+The 2-point correlation function is given by
+$$
+\langle \phi(x)\phi(y) \rangle = \frac{\int \mathcal{D}\phi\, \phi(x)\phi(y)e^{\int_{\bar M} \mathcal{L}_E(\phi)}}{\int \mathcal{D}\phi\,e^{\int_{\bar M} \mathcal{L}_E(\phi)}} = \left.\frac{\delta^2 \log Z}{\delta J(y)\delta J(x)}\right|_{J=0}.
+$$
+To first order we can approximate this using perturbation theory on a well defined potential term.  However, we often want to calculate such expressions in momentum space (in order to define things like polarization etc.). This results in ugly expressions involving sums over all the Matsubara frequencies so we would really like to figure out a way to do this in "real-time." 
+
+
+
+# Real Time Formulation
+
+For real time we have found all our expressions in the compactification of the Euclidean space that we got access to through Wick rotation. What we want to try now is to motivate how the formalism exists back in the Minkowski space. We will start by motivating this through the definition of Feynman rules.
+
+## Feynman Rules for $T\neq 0$
+
+Consider a Lagrangian with interaction term $V(\phi)$. Therefore the generating functional can be written as
+$$
+\begin{align*}
+Z(\beta, J) \propto e^{-\int_{\bar M} V\left( \frac{\delta }{\delta J} \right)} e^{\frac{1}{2}\int_{\bar M^2} G J\times J}.
+\end{align*} 
+$$
+This is exactly the same generating functional as the one we had for $0$ temperature with two exceptions. The first is that the propagator is now the Matsubara propagator on the compactified Euclidean space $\bar M$, and the second is that we are integrating over the compactified Euclidean space.  Yet, we can symbolically derive Feynman rules without any difference for the procedure at $T=0$. The differences are
+
+1. The integration measure in momentum space becomes proportional to
+   $$
+   T \sum_{n\in \mathbb{Z}} \int_{\mathbb{R}^k} \frac{d^kp}{(2\pi)^k}.
+   $$
+
+2. And the vertex lines get delta functions on the momenta and positions which implements "momentum conservation" but with different normalization.
+
+
+
+## Complex Time ordering
+
+One could now notice that the measure in momentum space could be written (with some appropriate meromorphic functions) as a integral over an carefully chosen contour over the full (not compactified) space. Therefore we could use that to move to the real time picture via introducing a consistent notion of Time ordering. 
+
+**<u>Definition:</u>** A **thermal Green's function** ordered on a contour $C:\mathbb{R} \to \mathbb{C}$ parameterized in a monotonically increasing way is a distribution $G_C$ given by 
+$$
+G_C(x_1,x_2,\cdots, x_k) = \langle T_C\phi(x_1) \phi(x_2)\cdots \phi(x_k) \rangle_{\beta},
+$$
+where $T_C$ is the **$C$-ordering operation** defined as follows. 
+$$
+T_CA(x)B(x') = \theta(C^{-1}(t) - C^{-1}(t')) A(x) B(x') + \theta(C^{-1}(t') - C^{-1}(t)) B(x') A(x),
+$$
+where $\theta : \mathbb{R}\to [0,1]$ is the Heaviside step function. For a complete definition, given a countable set of operators $\mathcal{A} = \{A_i(x_i)\}_{i\in I}$ indexed by a partially ordered set $I$ there exists a permutation $\sigma : I\to I$ such that for $i,j\in I$ then
+$$
+C^{-1}(t_i) \geq C^{-1}(t_j) \implies \sigma(i) \geq \sigma(j).
+$$
+The the $C$**-ordered product** of the operators in $\mathcal{A}$ is 
+$$
+T_C \mathcal{A}(x_i) = \prod_{i\in I} A_{\sigma(i)}(x_{\sigma(i)}).
+$$
+
+
+The thermalness of the propagator depends on the path we choose we will soon find conditions on what this path should be, but for now let's try and see what implications does this have on the propagators.
+
+
+
+## Thermal Generating Functional
+
+We have already seen what the generating functional should look like in imaginary time, now we want to find a generating functional for the $C$-ordered correlation functions.  
+
+
+
+
+
+ 
