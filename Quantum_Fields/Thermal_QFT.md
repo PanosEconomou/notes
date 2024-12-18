@@ -10,6 +10,8 @@ These notes rely on:
 4. [Donoghue - The analytic continuation of distributions](https://www.sciencedirect.com/science/article/pii/S0079816908618899?via%3Dihub)
 5. [Peskin - Introduction to Quantum Field Theory](http://home.ustc.edu.cn/~gengb/200923/Peskin,%20An%20Introduction%20to%20Quantum%20Field%20Theory.pdf)
 6. [Tong - QED](https://www.damtp.cam.ac.uk/user/tong/qft/six.pdf)
+7. [Weldon - Covariant Calculations in Finite Temperature Field Theory](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.26.1394)
+8. [Ahmed - Vacuum Polarization at Finite Temperature in QED](https://www.sciencedirect.com/science/article/pii/000349169190066H)
 
 
 
@@ -563,9 +565,57 @@ $$
 \rho(k) =2\pi \epsilon(k_0) \delta(k^2 -m^2).
 $$
 
-## Choosing the Path
+## Contours for the Real Time Partition Function
 
-In order to consider all possible 
+One of the weird results is that the real time propagator is not the analytic continuation of the imaginary time (Matsubara) propagator. Here is how to calculate what it actually should be.
+
+What we will derive is that we need to double the degrees of freedom of our theory in order to obtain the real time propagator. To do this we will find the path $\gamma$ that corresponds to the thermal temperature.
+
+Essentially the 'thermal' condition is the thing that we derived earlier. A field is thermal if it is $i\beta$ periodic in time. Taking the path integral with respect to such fields will naturally give the trace of $e^{-\beta H}$. We did this already and calculated that the periodic wick rotated fields are such fields. This required us to calculate all our observables in imaginary time, but the natural question to ask is if it is possible to calculate our observables in real time. 
+
+Let's go back to the partition function which we calculated by the trace
+$$
+Z = \text{Tr\,}e^{-\beta H} =  \int d\alpha \bra{\alpha} e^{-\beta H} \ket{\alpha}.
+$$
+What we secretly did here is that we said that the integral over the field in "real time" that appears in the action, is the same as the integral over the fields in "imaginary time" because the action is not expected to have any singularities in the contour below.
+
+![Wick-Contour](_Thermal_QFT.assets/Wick-Contour.svg)
+
+So what we said was that as long as no singularities are present on the two quadrants, the total action on a field analytically continued to that contour will be zero. Therefore we can split the action into contributions from the field on the real part (which is the action that we have started with) and contributions from the imaginary part, which is the action we are using in the "imaginary time" formalism. Then we applied the boundary condition by the trace to obtain functions that are defined on the following contour.
+
+![Wick-Contour-Compactified](_Thermal_QFT.assets/Wick-Contour-Compactified.svg)
+
+In this picture we have drawn the semicircular part of the contour that we take to be asymptotically far away with green. This is to illustrate that the action of fields defined on this contour vanishes as the contour is taken asymptotically far away.
+
+Ok, but so far we haven't actually introduced an equivalent thermal field that lives on the real line! To do this, we can introduce the following contour on the complex plane and then compactify, i.e. add the trace boundary condition, to see what's up.
+
+|                      Real Time Contour                       |                Compactified Real Time Contour                |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![Real-time-Wick-Contour](_Thermal_QFT.assets/Real-time-Wick-Contour.svg) | ![Real-time-Wick-Contour-Compactified](_Thermal_QFT.assets/Real-time-Wick-Contour-Compactified.svg) |
+
+In the compactified picture I removed the lines that were drawn in Green before because this would have been too frustrating to visualize. Here is how we construct the new contour. We pick a time $t_0 \in \mathbb{R}$. Then we move by $T > 0$. Then go down by $-i\beta$, the left by $T$, and finally start the previous Wick contour but at $t_0 - i\beta$ instead of $0$. Now the action ends up having multiple contributions from fields living on each part of the contour. The claim (which is true for most insertions in the path integral) is that the contributions to the action by the blue and green imaginary time fields exactly cancel when one takes the path integral. 
+
+While this cancellation doesn't always happen there are ways to take limits of this contour such that it does. One such limit, for example, would be to move the two parallel red parts arbitrarily close to each other. Yet after such cancellation what we are left with is the contributions to the action by two fields that live on the red parts! This is awesome!
+
+By definition if there are no singularities enclosed, the contributions by fields on the two contours should not vanish, but the price we paid is that we have introduced two copies of the system. Therefore the real time, thermal action doubles the degrees of freedom of our theory in order to calculate the partition function by "integrating in" a copy of the system. 
+
+
+
+## Relating to the Propagators
+
+The effective result of this, is that the thermodynamic corrections will yield mixing terms in the propagator between the two fields. This sucks a little, but often we can diagonalize the two fields to obtain the real time propagators. 
+
+If we consider $\gamma_1$, $\gamma_2$ to be the parallel red lines on the picture above we can define $J_i\coloneqq J\circ \gamma_i$ for $i=1,2$. Which gives us the two fields that we are interested in. Putting everything together, we can write down a generating functional with the following property
+$$
+Z(J_1,J_2) = Z(0,0) \exp\left[ -\frac{1}{2} \int_{\mathbb{R}^4}dx \int_{\mathbb{R}^4}dy\, J_a(x) G_{ab}^F(x-y)J_b(y) \right],
+$$
+where $G_{ab}^F$ is the free propagator in the new thermal theory with the double degrees of freedom which is defined by
+$$
+G^F = \begin{pmatrix} 
+D^F(\gamma_1(t)-\gamma_1(t')) & D^F(\gamma_1(t)-\gamma_2(t'))\\ D^F(\gamma_2(t) - \gamma_1(t')) & D^F(\gamma_2(t) - \gamma_2(t')),
+\end{pmatrix}
+$$
+where $D^F$ is the free theory propagator that we already know. 
 
 
 
@@ -662,7 +712,49 @@ for Grassmann fields $\eta, \bar \eta$, where the integral is the Berezin integr
 
 These are the Ghost fields! By integrating them in to our partition function we guarantee that the gauge is fixed, and we no longer have to worry about miscounting degrees of freedom or whatever. Let's see this in practice.  
 
+Working in the Feynman axial gauge we have that
+$$
+F = A(\partial_3),
+$$
+carrying out the calculation we have that the effective Lagrangian after the introduction of the Ghost fermions $C,\bar C$ is given by
+$$
+\mathcal{L}_{\text{eff}} = -\frac{1}{2}F\wedge \ast F + \ast \bar C\partial_3 C = \ast \left(-\frac{1}{4} F^{\mu\nu}F_{\mu\nu} + \bar C \partial_3 C\right).
+$$
+ Up to a total derivative $d\omega$ this Lagrangian can be written as
+$$
+\mathcal{L}_\text{eff} = -\frac{1}{2} A\wedge DA + \bar C \wedge \ast \part_3 C + d\omega.
+$$
+where $D = d\ast d$. Therefore, we can calculate directly the partition function using the path integral to be
+$$
+Z = \left(\text{det\,} D\right)^{-\frac{1}{2}} \text{det\,} \partial_3.
+$$
+Therefore the free energy is given by
+$$
+\log Z = \text{Tr\,}\left[-\frac{1}{2}\log D + \log \part_3 \right].
+$$
+picking the same basis that we have found before for the compactified space we can diagonalize and with a bunch of effort derive
+$$
+\log Z = \text{Tr\,}\left[ -\frac{1}{2}\log \left( \beta^6p_3^2 \left( \omega_n^2 + p^2 \right) \right)+\log \beta p_3  \right].
+$$
+Now for the other gauge, we have that $F(A) = d\ast A$ so the effective Lagrangian is (up to a total derivative $d\omega$)
+$$
+\mathcal{L}_{\text{eff}} = -\frac{1}{2}F\wedge \ast F -\frac{1}{2} d\ast A\wedge \ast (d\ast A) + d\bar C\wedge \ast dC = \frac{1}{2}A\wedge \ast D'A + \bar C \wedge d\ast d C,
+$$
+where $D'= d\ast d \ast$. Therefore we have that the partition function is given by
+$$
+Z = (\det D')^{-\frac{1}{2}} \det (d\ast d),
+$$
+which results to 
+$$
+\log Z = \text{Tr\,} \left[ - 4\left( \frac{1}{2}\right) \log\left( \beta^2(\omega_n + p^2) \right) + \log (\beta^2(\omega_n + p^2))\right].
+$$
+We can see that the two partition functions are equal! And that is because the ghosts thermalize at nonzero temperature enough to cancel the degrees of freedom obtained from the nonphysical gauge freedom.
 
+
+
+## Photon Self Energy at Finite Temperature
+
+Let's do some QED. In particular it would be interesting to figure out how 
 
 
 
