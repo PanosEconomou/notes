@@ -630,7 +630,37 @@ The mistakes comes in the fact that while all the operator statements are true t
 
 ## Rescuing the Free Energy with Ghosts
 
+We introduce Fedeev-Popov ghosts to properly quantize the electric field in a covariant way. Without delving too much in the formalism we will introduce the following identity.
 
+**<u>Theorem:</u>** Let $F: A \to A$ be an endomorphism of a Banach space. The the following identity holds in the path integral over $A$.
+$$
+\int_A \mathcal{D}\alpha\, \delta(F(\alpha)) \text{det\,}J_F = 1,
+$$
+where $J_F$ is the Jacobian of $F$ which we precisely define later.
+
+In physics we often call $F$ the gauge fixing function because we design it in such a way such that its kernel contains only the fields in a specific gauge.
+
+**<u>Definition:</u>** Given a gauge fixing function $F$ the $M_4$ Yang Mills partition function can be written as
+$$
+Z = \int \mathcal{D}^4A \, \delta(F(A))\text{det\,}J_F\, e^{S_E}.
+$$
+Where $S_E$ is the Euclidean effective action that includes the gauge fixing term $\frac{1}{\rho}d\ast A \wedge \ast d\ast A$. 
+
+Usually the determinant of the Jacobian is quite a pain to calculate in practice, however there is a lemma that can help us make it easier. To derive it we need a precise definition of the Jacobian.
+
+**<u>Definition:</u>** The Jacobian of a gauge fixing function F is the variational differential with respect to the action of a lie algebra element of the gauge group. In particular let $\omega \in \mathfrak{g}$ be a lie algebra element, then the Jacobian is given by
+$$
+\det J_F(A) = \text{det\,} \left[ \delta_{\omega(y)} F(A(x)) \right] = \text{det\,} \left[ \frac{\partial F^a}{\partial A^c_\mu(x)} D_\mu^{cb}(x) \delta(x-y)\right],
+$$
+where $D$ is the covariant derivative. 
+
+**<u>Lemma:</u>** The following identity holds
+$$
+\det J_F(A) = \int \mathcal{D}\eta \mathcal{D}\bar \eta\, e^{\int_{\bar M} \bar \eta^a \frac{\partial F^a}{\partial A^c_\mu(x)} D_\mu^{cb}(x) \eta^b},
+$$
+for Grassmann fields $\eta, \bar \eta$, where the integral is the Berezin integral. 
+
+These are the Ghost fields! By integrating them in to our partition function we guarantee that the gauge is fixed, and we no longer have to worry about miscounting degrees of freedom or whatever. Let's see this in practice.  
 
 
 
