@@ -9,6 +9,7 @@ These notes rely on:
 3. [Ramond - Field Theory](https://archive.org/details/fieldtheorymoder0000ramo_c7r4)
 4. [Donoghue - The analytic continuation of distributions](https://www.sciencedirect.com/science/article/pii/S0079816908618899?via%3Dihub)
 5. [Peskin - Introduction to Quantum Field Theory](http://home.ustc.edu.cn/~gengb/200923/Peskin,%20An%20Introduction%20to%20Quantum%20Field%20Theory.pdf)
+6. [Tong - QED](https://www.damtp.cam.ac.uk/user/tong/qft/six.pdf)
 
 
 
@@ -418,7 +419,7 @@ We often use the partition function as a generating functional for the correlato
 $$
 Z(\beta,J) = \int \mathcal{D}\phi \, e^{\int_{\bar M} \mathcal{L}_E(\phi) + J\phi} = Z(\beta,0) e^{\frac{1}{2}\int_{\bar M^2} G J\times J}
 $$
-where $\bar M \cong \mathbb{R}^{n-1}\times S^1$ is the Euclidean space with compactified time and $G$ is the Matsubara propagator. Notice that $Z(\beta,0)$ is the partition function we have found before. Using this tool we can derive generalizations of Wick's theorem and time ordered correlators for the finite temperature expectation values of observables given by the Born rule. 
+where $\bar M \cong \mathbb{R}^{n-1}\times S^1$ is the Euclidean space with compactified time an\phi(x')d $G$ is the Matsubara propagator. Notice that $Z(\beta,0)$ is the partition function we have found before. Using this tool we can derive generalizations of Wick's theorem and time ordered correlators for the finite temperature expectation values of observables given by the Born rule. 
 
 The Matsubara propagator satisfies the equation
 $$
@@ -467,21 +468,21 @@ This is exactly the same generating functional as the one we had for $0$ tempera
 
 One could now notice that the measure in momentum space could be written (with some appropriate meromorphic functions) as a integral over an carefully chosen contour over the full (not compactified) space. Therefore we could use that to move to the real time picture via introducing a consistent notion of Time ordering. 
 
-**<u>Definition:</u>** A **thermal Green's function** ordered on a contour $C:\mathbb{R} \to \mathbb{C}$ parameterized in a monotonically increasing way is a distribution $G_C$ given by 
+**<u>Definition:</u>** A **thermal Green's function** ordered on a contour $\gamma:\mathbb{R} \to \mathbb{C}$ parameterized in a monotonically increasing way is a distribution $G_\gamma$ given by 
 $$
-G_C(x_1,x_2,\cdots, x_k) = \langle T_C\phi(x_1) \phi(x_2)\cdots \phi(x_k) \rangle_{\beta},
+G_\gamma(x_1,x_2,\cdots, x_k) = \langle T_\gamma\phi(x_1) \phi(x_2)\cdots \phi(x_k) \rangle_{\beta},
 $$
-where $T_C$ is the **$C$-ordering operation** defined as follows. 
+where $T_\gamma$ is the **$\gamma$-ordering operation** defined as follows. 
 $$
-T_CA(x)B(x') = \theta(C^{-1}(t) - C^{-1}(t')) A(x) B(x') + \theta(C^{-1}(t') - C^{-1}(t)) B(x') A(x),
+T_\gamma A(x)B(x') = \theta(\gamma^{-1}(t) - \gamma^{-1}(t')) A_\gamma(x) B_\gamma(x') + \theta(\gamma^{-1}(t') - \gamma^{-1}(t)) B_\gamma(x') A_\gamma(x),
 $$
-where $\theta : \mathbb{R}\to [0,1]$ is the Heaviside step function. For a complete definition, given a countable set of operators $\mathcal{A} = \{A_i(x_i)\}_{i\in I}$ indexed by a partially ordered set $I$ there exists a permutation $\sigma : I\to I$ such that for $i,j\in I$ then
+where $\theta : \mathbb{R}\to [0,1]$ is the Heaviside step function, and the notation $A_\gamma(x) = A(\gamma(t),x^i)$ stands for the analytic continuation of $A$ along $\gamma$. For a complete definition, given a countable set of operators $\mathcal{A} = \{A_i(x_i)\}_{i\in I}$ indexed by a partially ordered set $I$ there exists a permutation $\sigma : I\to I$ such that for $i,j\in I$ then
 $$
-C^{-1}(t_i) \geq C^{-1}(t_j) \implies \sigma(i) \geq \sigma(j).
+\gamma^{-1}(t_i) \geq \gamma^{-1}(t_j) \implies \sigma(i) \geq \sigma(j).
 $$
-The the $C$**-ordered product** of the operators in $\mathcal{A}$ is 
+The the $\gamma$**-ordered product** of the operators in $\mathcal{A}$ is 
 $$
-T_C \mathcal{A}(x_i) = \prod_{i\in I} A_{\sigma(i)}(x_{\sigma(i)}).
+T_\gamma \mathcal{A}(x_i) = \prod_{i\in I} A_{\sigma(i)}(x_{\sigma(i)}).
 $$
 
 
@@ -489,9 +490,149 @@ The thermalness of the propagator depends on the path we choose we will soon fin
 
 
 
-## Thermal Generating Functional
+## Propagators
 
-We have already seen what the generating functional should look like in imaginary time, now we want to find a generating functional for the $C$-ordered correlation functions.  
+Not any curve $\gamma$ would correspond to our intuition of *thermal*, but we can naively see that if it does when we wick rotate the fields we are considering must fall inside $[0,\beta]$ therefore it suffices to consider curves such that $\Im \gamma(t) \in [-\beta,0]$ (since $\tau = i t$). Therefore the curves are actually segments in this domain. 
+
+Therefore we can consider curves of the form $\gamma : [-T,T] \to \mathbb{C}$ where $T\in \mathbb{R}$ is some time that we will later take to infinity. 
+
+Additionally we want the 2-point functions to be defined by
+$$
+G_\gamma(x,x') = \langle T_\gamma \phi(x)\phi(x') \rangle_\beta = \theta_\gamma(t-t')\langle \phi_\gamma(x)\phi_\gamma(x') \rangle_\beta + \theta_\gamma(t'-t)\langle \phi_\gamma(x')\phi_\gamma(x) \rangle_\beta,
+$$
+where $\theta_\gamma \coloneqq \theta \circ \gamma^{-1}$. The interesting thing is though that we can actually calculate these correlations in the Matsubara formalism to derive the following property. 
+
+**<u>Theorem:</u>** The following is true regarding the 2-point thermal correlation function
+$$
+\langle \phi(x)\phi(x') \rangle_\beta = \langle \phi(x') \phi(x + i\beta) \rangle_\beta,
+$$
+where the addition is understood to apply at the time component, i.e. $x+i\beta = (x_0+i\beta,x_i)$.
+
+***Proof:*** To show this we need to expand things slightly, namely
+$$
+\begin{align*}
+\langle \phi(x') \phi(x + i\beta) \rangle_\beta 
+&= \frac{1}{Z} \text{Tr\,} \left[e^{-\beta H} \phi(x') e^{-\beta H}\phi(x) e^{\beta H}\right]\\
+&= \frac{1}{Z} \text{Tr\,} \left[e^{-\beta H}\phi(x)\phi(x') \right]\\
+&= \langle \phi(x)\phi(x') \rangle_\beta.
+\end{align*} 
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+By the way, this implies the need for periodic boundary conditions on the time axis but in a slightly more general way that applies to the real time formalism also. Now we are ready to continue with our derivation of the propagators. 
+
+Consider the Fourier transform of the correlation function
+$$
+D^{>}_\beta(x-x') \coloneqq \langle \phi(x)\phi(x') \rangle_\beta \eqqcolon D_\beta^{<}(x'-x).
+$$
+The Fourier transforms (using translation invariance) have the property that 
+$$
+D^<_\beta(-k_0,\vec k) = D^>_\beta(-k_0,\vec k) = e^{-\beta k_0} D^>_\beta(k_0,\vec k).
+$$
+This results in the fact that we can write the propagator as
+$$
+\begin{align*}
+D^>_\beta(k) = (1-f(k_0))\rho(k) && D^<_\beta(k) = f(k_0)\rho(k)
+\end{align*}
+$$
+where 
+$$
+f(x) = \frac{1}{e^{\beta x} -1},
+$$
+and $\rho$ is some undetermined envelope function called the **spectral function**. 
+
+**<u>Proposition:</u>** The following identity holds
+$$
+f(x) + f(-x) = -1.
+$$
+Therefore the propagator can finally be written like so. 
+
+**<u>Lemma:</u>** The thermal propagator on path $\gamma$ can be written as
+$$
+G_\gamma(x-x') = \int_{\mathbb{R}^4}\frac{d^4k}{(2\pi)^4}[\theta_\gamma(t-t') + f(k_0)]\rho(k).
+$$
+***Proof:*** This is done by writing the propagator in terms of $D^{>,<}_\beta$ and then using the following proposition. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This is an awesome result because it simplifies so many things! For example, we can derive the free propagator by taking
+$$
+\rho(k) =2\pi \epsilon(k_0) \delta(k^2 -m^2).
+$$
+
+## Choosing the Path
+
+In order to consider all possible 
+
+
+
+# Finite Temperature Gauge Theory
+
+The whole point of this introduction was to introduce finite temperature Gauge theories. The reason is that gauge fixing at finite temperatures is less trivial than it was at $T=0$. Let's see why through a calculation of black body radiation. 
+
+
+
+## Incorrect Free Energy
+
+Since we didn't need ghosts for quantizing Abelian Yang Mills let's try and do this thermally and see if it this is still valid. Essentially all we needed to do was to quantize a gauge theory by picking a gauge.
+
+Let's do everything in the Feynman where we have picked this
+$$
+d\ast A = 0.
+$$
+and we impose the equations of motion coming from the Lagrangian
+$$
+\mathcal{L}(A) = -\frac{1}{2} F\wedge \ast F - \frac{1}{2}(d\ast A)\wedge (d\ast A).
+$$
+Now we can mode expand $A$ and the equivalent momentum $\pi$ to
+$$
+\begin{align*}
+A_\mu(x) &= \int \frac{d^3k}{(2\pi)^3} \frac{1}{\sqrt{2\omega_{\mathbf{k}}}} \sum_{\lambda=0}^3 \left[ \epsilon_\mu^{(\lambda)}(\mathbf{k}) \, a_{\mathbf{k}}^{(\lambda)} e^{-i k \cdot x} + \epsilon_\mu^{(\lambda)}(\mathbf{k})^* \, a_{\mathbf{k}}^{(\lambda)\dagger} e^{i k \cdot x} \right]\\
+\pi_\mu(x) &= -i \int \frac{d^3k}{(2\pi)^3} \sqrt{\frac{\omega_{\mathbf{k}}}{2}} \sum_{\lambda=0}^3 \left[ \epsilon_\mu^{(\lambda)}(\mathbf{k}) \, a_{\mathbf{k}}^{(\lambda)} e^{-i k \cdot x} - \epsilon_\mu^{(\lambda)}(\mathbf{k})^* \, a_{\mathbf{k}}^{(\lambda)\dagger} e^{i k \cdot x} \right].
+\end{align*}
+$$
+where there are 4 polarization vectors. Notice that the constraint equation,
+$$
+\bra{\psi} d\ast A \ket{\phi} = 0
+$$
+for any physical states $\ket{\phi},\ket{\psi}$, does not constrain the polarizations in this case.
+
+However, if we do the same thing in some physical gauge like 
+$$
+A(X) = 0
+$$
+for some vector field $X$ we would obtain something else. Let's pick $X = \frac{\partial }{\partial t}$ to go to Coulomb gauge where the field operators and their momenta are given by
+$$
+\begin{align*}
+A_i(x) &= \int \frac{d^3k}{(2\pi)^3} \frac{1}{\sqrt{2\omega_{\mathbf{k}}}} \sum_{\lambda=1}^2 \left[ \mathbf{\epsilon}_i^{(\lambda)}(\mathbf{k}) \, a_{\mathbf{k}}^{(\lambda)} e^{-i k \cdot x} + \mathbf{\epsilon}_i^{(\lambda)}(\mathbf{k})^* \, a_{\mathbf{k}}^{(\lambda)\dagger} e^{i k \cdot x} \right]\\
+\pi_i(x) &= -i \int \frac{d^3k}{(2\pi)^3} \sqrt{\frac{\omega_{\mathbf{k}}}{2}} \sum_{\lambda=1}^2 \left[ \epsilon_i^{(\lambda)}(\mathbf{k}) \, a_{\mathbf{k}}^{(\lambda)} e^{-i k \cdot x} - \epsilon_i^{(\lambda)}(\mathbf{k})^* \, a_{\mathbf{k}}^{(\lambda)\dagger} e^{i k \cdot x} \right].
+
+\end{align*} 
+$$
+where we can see that the polarization vectors are only two!
+
+While this doesn't matter at $T=0$ when calculating the partition function with one quantization scheme vs the other we will get twice as much free energy! 
+
+Specifically the free energy is given by
+$$
+F = -\frac{1}{\beta} \log Z = -\frac{1}{\beta} \log \text{Tr\,} e^{-\beta H}.
+$$
+In principle we can write the Hamiltonian as the sum of identical single mode Hamiltonians which will result (by permutation and re-parameterization symmetry of the trace) to an overall power on the partition function. In terms of the free energy, which gives directly the black body spectrum, that becomes a factor in front.
+
+One theory has 2 polarizations while the other has 4! Where is the mistake?
+
+The mistakes comes in the fact that while all the operator statements are true the Hilbert spaces we are taking the trace over are different. In most cases in QED we don't actually calculate such traces therefore this never becomes an issue. However, we already know how to fix this issue! The answer is to introduce Ghosts!
+
+
+
+## Rescuing the Free Energy with Ghosts
+
+
+
+
 
 
 
