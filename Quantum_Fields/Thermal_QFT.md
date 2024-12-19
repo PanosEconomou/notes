@@ -612,10 +612,30 @@ $$
 where $G_{ab}^F$ is the free propagator in the new thermal theory with the double degrees of freedom which is defined by
 $$
 G^F = \begin{pmatrix} 
-D^F(\gamma_1(t)-\gamma_1(t')) & D^F(\gamma_1(t)-\gamma_2(t'))\\ D^F(\gamma_2(t) - \gamma_1(t')) & D^F(\gamma_2(t) - \gamma_2(t')),
-\end{pmatrix}
+D^F(\gamma_1(t)-\gamma_1(t')) & D^F(\gamma_1(t)-\gamma_2(t'))\\ D^F(\gamma_2(t) - \gamma_1(t')) & D^F(\gamma_2(t) - \gamma_2(t'))
+\end{pmatrix},
 $$
-where $D^F$ is the free theory propagator that we already know. 
+where $D^F$ is the free theory propagator that we already know. It is often possible to diagonalize this matrix and what we will get in momentum space is
+$$
+G^F(k) = U^{-1}(k)\begin{pmatrix} 
+D^F(k) & 0\\ 0 & D^{F\ast}(k)
+\end{pmatrix}U(k),
+$$
+where the orthogonal matrix $U$ is given by
+$$
+U(k) = \begin{pmatrix}\sqrt{1 + f(|k_0|)} & \sqrt{f(|k_0|)} \\ \sqrt{f(|k_0|)} &\sqrt{1 + f(|k_0|)}\end{pmatrix},
+$$
+where we derived $f(x)$ before as the Bose-Einstein distribution. This process is very similar to introducing Ghost fields. We in fact call the secondary fields Ghosts. 
+
+
+
+## Self Energy
+
+The self energy can be calculated with its usual definition in momentum space
+$$
+G^{-1} - {G^{F}}^{-1} = i\Pi,
+$$
+but now this is a more complicated matrix equation. Nevertheless, using the diagonalization matrix $U$ we can get results that show that $\Pi$ is also diagonal. Yet there is a further simplification one can make, by relating the propagator components to each other assuming thermal equilibrium. 
 
 
 
@@ -754,7 +774,54 @@ We can see that the two partition functions are equal! And that is because the g
 
 ## Photon Self Energy at Finite Temperature
 
-Let's do some QED. In particular it would be interesting to figure out how 
+Let's do some QED. The first thing we haven't addressed so far was the introduction of the chemical potential. As we know from general statistical mechanics, for any conserved charge we can thermally control it in a grand canonical ensemble by introducing an associated chemical potential $\mu$. 
+
+Let's do this for the $U(1)$ fermion charge in QED. The conserved current is given for any $X \in \mathfrak{X}(M)$ by
+$$
+J(X) = \langle \psi,X\cdot\psi \rangle,
+$$
+where $\cdot$ is the Clifford multiplication. In components this is given by 
+$$
+J_\mu = \langle \psi,\gamma_\mu \psi \rangle = \bar \psi \gamma_\mu \psi.
+$$
+Therefore the partition function is now 
+$$
+Z = \text{Tr\,} e^{-\beta H + \mu Q_J}.
+$$
+This really implies that we have changed the Lagrangian of QED to be (in Feynman Gauge)
+$$
+\mathcal{L}_{\text{eff}}(A,\psi,C,\bar C) = -\frac{1}{2} F\wedge\ast F -\frac{1}{2} \delta A\wedge \ast \delta A + d\bar C \wedge \ast dC + \ast \langle \psi,(i\centernot{D} - m + \mu \gamma^0) \psi \rangle.
+$$
+Here we have incorporated the Gauge fixing term, ghosts, and the fermions $\psi$ with their chemical potential on the charge, and minimal coupling inside $\centernot D$ that is given by $-e\bar\psi \centernot A \psi$. 
+
+Once we have the propagators we can actually calculate the polarization by following the standard prescription. Use symmetry arguments (Ward identities, transverse and so on) to constrain the tensorial structure, and then BRST (or what's left or it in the Abelian case) to constrain the rest of the parameters. 
+
+So we need the propagators. Luckily we can calculate them with the prescription mentioned above through their regular values. We get
+$$
+\begin{align*}
+D_{\mu\nu}^F(k) &= -g_{\mu\nu}\left(\mathcal{P}\frac{i}{k^2} + 2\pi \delta(k^2)f_-(|k_0|)\right)\\
+S^F(p) &= (\centernot p + m) \left[\mathcal{P} \frac{i}{p^2 - m^2} - 2\pi \delta(p^2 -m^2)[\theta(p_0) f_+(p_0+\mu) + \theta(-p_0) f_+(p_0-\mu)]  \right].
+\end{align*} 
+$$
+The interesting thing is that the propagators simply pick up an extra term that corresponds to the distributions $f_\pm$ depending on fermion or boson respectively. 
+
+Following the prescription of determining the vacuum polarization we can use symmetry to constrain its tensorial structure like so
+$$
+\Pi^{\mu\nu} = \Pi_{\text{vac}}^{\mu\nu} + \Pi_T P^{\mu\nu}_T + \Pi_L P^{\mu\nu}_L
+$$
+where the $P_{T,L}$ are projection matrices to the transverse and longitudinal modes. What that means in practice here is that
+$$
+\begin{align*}
+P^2 = P && P_L P_T = 0 \\ P_L(p)p = p && P_T(p)p = 0
+\end{align*}
+$$
+so we can express the probabilities for transverse and longitudinal momentum modes. After calculating the actual value and getting the zero modes we finally see that 
+
+
+
+
+
+  
 
 
 
