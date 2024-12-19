@@ -817,6 +817,26 @@ P^2 = P && P_L P_T = 0 \\ P_L(p)p = p && P_T(p)p = 0
 $$
 so we can express the probabilities for transverse and longitudinal momentum modes. After calculating the actual value and getting the zero modes we finally see that 
 
+After calculating these propagators we get the following limits
+$$
+\begin{align*}
+\lim_{p\to0} \Pi_L(p) = 0 && \lim_{p\to 0}\Pi_T(p) = m_\gamma^2(\beta,\mu),
+\end{align*}
+$$
+where $m_\gamma$ is the effective mass of the photon that at high temperatures has the following limit
+$$
+\lim_{\beta m \to 0}m_\gamma^2(\beta,0) = \frac{e^2T^2}{6}.
+$$
+This result implies screening of the electromagnetic interactions with screening length proportional to $\beta^2$, which is super interesting. 
+
+
+
+## Spontaneous Illegal Interactions
+
+Having the photon polarization we can calculate s-matrix elements for things that would otherwise vanish. In particular we can have spontaneous pair production! Which I think is pretty awesome. 
+
+
+
 
 
 
