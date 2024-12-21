@@ -799,9 +799,9 @@ Once we have the propagators we can actually calculate the polarization by follo
 So we need the propagators. Luckily we can calculate them with the prescription mentioned above through their regular values. We get
 $$
 \begin{align*}
-D_{\mu\nu}^F(k) &= -g_{\mu\nu}\left(\mathcal{P}\frac{i}{k^2} + 2\pi \delta(k^2)f_-(|k_0|)\right)\\
-S^F(p) &= (\centernot p + m) \left[\mathcal{P} \frac{i}{p^2 - m^2} - 2\pi \delta(p^2 -m^2)[\theta(p_0) f_+(p_0+\mu) + \theta(-p_0) f_+(p_0-\mu)]  \right].
-\end{align*} 
+D_{\mu\nu}^F(k) &= -g_{\mu\nu}\left(\frac{i}{k^2 + i\epsilon} + 2\pi \delta(k^2)f_-(|k_0|)\right)\\
+S^F(p) &= (\centernot p + m) \left[\frac{i}{p^2 - m^2 + i\epsilon} - 2\pi \delta(p^2 -m^2)[\theta(p_0) f_+(p_0+\mu) + \theta(-p_0) f_+(p_0-\mu)]  \right].
+\end{align*}
 $$
 The interesting thing is that the propagators simply pick up an extra term that corresponds to the distributions $f_\pm$ depending on fermion or boson respectively. 
 
