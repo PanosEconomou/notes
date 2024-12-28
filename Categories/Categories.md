@@ -65,7 +65,7 @@ f \circ g = f =g.
 $$
 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 **<u>Example:</u>** *(Metacategory of Sets)* The simplest example of such a structure is the **metacategory of sets** where the objects are all sets, and the arrows are all functions with the usual identity functions for the identity operation and usual composition rules. 
