@@ -15,8 +15,8 @@ export const GlobalPropsProvider = ({ children }) => {
     }
 
     const springMouse = {
-        x: useSpring(mouse.x, { stiffness: 500, damping: 25, mass: 0.5 }),
-        y: useSpring(mouse.y, { stiffness: 500, damping: 25, mass: 0.5 }),
+        x: useSpring(mouse.x, { stiffness: 500, damping: 20, mass: 0.1 }),
+        y: useSpring(mouse.y, { stiffness: 500, damping: 20, mass: 0.1 }),
     }
 
     return (
