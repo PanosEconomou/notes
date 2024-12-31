@@ -42,7 +42,7 @@ With additive stuff it makes sense to define kernels and co-kernels.
 
 
 
-# Abelian Categories
+## Abelian Categories
 
 With that we can define an Abelian category, which is an abstraction or *categorification* of an Abelian group. 
 
@@ -74,5 +74,71 @@ Finally, what we want is a direct sum structure. The direct sum of vector spaces
 
 Now we can show that this category is $\mathbb{K}$-linear. We only really need to define scalar multiplication on the hom sets, which we can do pointwise. So this is done too!
 
-Finally, to show that it is an Abelian category we can use it as a motivating example to understand the canonical decomposition. 
+Finally, to show that it is an Abelian category we can use it as a motivating example to understand the canonical decomposition. In particular given any arrow $f:V\to W$ we have that its kernel is defined as it's zero set together with its inclusion map as a vector subspace.   It is clear that this is unique up to isomorphism, however, it is less clear that the cokernel is unique up to isomorphism. 
+
+We can think of the cokernel as the subspace of $W$ that remains "untouched" by $f$. In linear algebra language this would be the quotient of the co-domain by the image. In fact we can see how the canonical decomposition of $f$ is a restatement of this relationship in a slightly more abstract language. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+***Note:*** What we see by the defining relationship of an Abelian category the mathematical realization of something that we already knew and wanted to play with in linear algebra. It seemed that each linear map can be thought of as a map that squishes the domain into the image, and then places the image into the co-domain. What's left on the squishing is the kernel, and what's unused in the co-domain is the cokernel. In fact this is the characteristic property of Abelian categories. 
+
+**<u>Example:</u>** A vector space is also a $\mathbb{K}$-linear Abelian category in an almost contrived way. There is only one Hom-set, and that is a vector space. The addition structure is compatible with composition because it is the composition. So it works in an almost by definition way. However, what is nice to realize is that topics we will soon talk about, such as decomposability in direct sums, are going to be obvious in the example of a categorical vector space, but will still hold on the level of the category of vector spaces too.  
+
+Here are some more rapid fire definitions because we will use them later.
+
+**<u>Definition:</u>** Let $\mathcal{C}$ be an Abelian category, then a **subobject** of an object $V \in \mathcal{C}$ is an object $U \in \mathcal{C}$ with a monic arrow (monomorphism)  $\iota: U\to V$ (i.e. $\text{ker\,} \iota = 0$). A **quotient object** of $V$ is an object $W \in \mathcal{C}$ with an epi arrow (epimorphism) $q:V\to W$ (i.e. $\text{coker\,}q = 0$). Finally, a subquotient object of $Y$ is a quotient object of a subobject of $Y$. 
+
+Using this notation we can define quotient object given subobjects. In particular given a subobject $W$ of $V$ with monomorphism $f$, we define the **quotient object** $V/W$ as the cokernel of $f:W\to V$. 
+
+
+
+# Decompositions and Sequences
+
+Honestly with all these definitions out of the way it would be nice to introduce some basic properties. For example, we can take direct sums of categories. 
+
+**<u>Definition:</u>** Let $\mathscr{C}$ be a family of additive categories, then **their direct sum**
+$$
+\mathcal {C} = \bigoplus_{C\in \mathscr{C}} C,
+$$
+is the additive category whose objects are direct sums from each category, i.e. 
+$$
+X = \bigoplus_{C \in \mathscr{C}} X_C, \ \ X_C \in C,
+$$
+such that all $X_C \neq 0$, with the homsets similarly defined. An Abelian category is **indecomposable** if it is not equivalent to a direct sum of two nonzero categories. 
+
+Additionally, we have sequences!
+
+**<u>Definition:</u>** A sequence of arrows $\{f_i\}_{i\in I}$ 
+$$
+\cdots X_{i-1} \xrightarrow {f_{i-1}} X_{i} \xrightarrow {f_i} X_{i+1} \cdots 
+$$
+in an Abelian category is called **exact** in degree $i$ if $\text{Im\,}f_{i-1} = \text{Ker\,} f_i$, and **exact** if it is exact in all degrees. Additionally an exact sequence of the form
+$$
+0 \to X \to Y \to Z \to 0
+$$
+is called a **short exact sequence**.
+
+**<u>Proposition:</u>** In a short exact sequence, $X$ is a subobject of $Y$ and $Z \cong Y/X$ is the corresponding quotient. 
+
+***Proof:*** The arrow $X \to Y$ is monic since its kernel is the image of the zero arrow, therefore $X$ is a subobject. The quotient $Y/X$ is the cokernel of the monic arrow of $X$, however, we know that the image of $Y\to Z$ is the kernel of the zero arrow, therefore it is also zero, which implies $Y\to Z$ is epi and $Z$ is a quotient object. To show that it is the corresponding one we use the canonical decomposition. We notice that the image of $X$ will fall to $0$ under composition in $Z$. Therefore the arrow $Z$ is the cokernel of $X\to Y$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+
+# Jordan Holder Theorem
+
+There is an interesting concept of 'length' we can assign to objects in Abelian categories. This is what we end up working with when we talk about simple and semisimple objects. 
+
+**<u>Definition:</u>** A nonzero object $X \in \mathcal{C}$ of an Abelian category $\mathcal{C}$ is called **simple** iff $0$ and $X$ are its only subobjects (I mean we could call it prime hehe). An object $X \in \mathcal{C}$ is called **semisimple** if it is a direct sum of simple objects. The category $\mathcal{C}$ is called **semisimple** if every object is semisimple. 
+
+**<u>Lemma:</u>** *(Schur's Lemma)* Let $X,Y$ be two simple objects in $\mathcal{C}$. Then any nonzero arrow $f:X\to Y$ is an isomorphism. If $X,Y$ are nor isomorphic then $\text{Hom}_{\mathcal{C}}(X,Y) = 0$ and $\text{Hom}_{\mathcal{C}}(X,X)$ is a division algebra. 
+
+**<u>Example:</u>** 1 dimensional vector spaces are simple objects in the Abelian category of finite dimensional vector spaces. They're all isomorphic. 
+
+
+
+
+
+
 
