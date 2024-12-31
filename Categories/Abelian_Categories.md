@@ -28,4 +28,4 @@ In addition a functor $F:\mathcal{A} \to \mathcal{B}$ between two additive categ
 $$
 \text{Hom}_{\mathcal{A}}(X,Y) \to \text{Hom}_{\mathcal{B}}(F(X),F(Y)),\ \forall X,Y\in \mathcal{C}
 $$
-are group homomorphisms. The functor is called $\mathbb{K}$**-linear** if these maps are also $\mathbb{K}$**-linear**. For any additive functor $F:\mathcal{A} \to \mathcal{B}$ there exists a natural isomorphism $F(X)\oplus F(Y) \xrightarrow \sim F(X\oplus Y)$ .
+are group homomorphisms. The functor is called $\mathbb{K}$**-linear** if these maps are also $\mathbb{K}$**-linear**. For any additive functor $F:\mathcal{A} \to \mathcal{B}$ there exists a natural isomorphism $F(X)\oplus F(Y) \xrightarrow \sim F(X\oplus Y)$ . 
