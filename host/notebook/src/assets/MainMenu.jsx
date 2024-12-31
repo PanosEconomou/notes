@@ -107,7 +107,8 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
             initial={false}
             animate={isOpen}
             onClick={(event) => {
-				if (event.target.id === 'container'){
+				console.log(event.target.id,event.target.tagName)
+				if (event.target.id === 'container' || event.target.tagName === 'A'){
               		setIsOpen('closed');
 				}
             }}
