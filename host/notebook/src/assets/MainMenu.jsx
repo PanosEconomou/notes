@@ -106,8 +106,10 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
             ref={container}
             initial={false}
             animate={isOpen}
-            onClick={() => {
-                setIsOpen('closed');
+            onClick={(event) => {
+				if (event.target.id === 'container'){
+              		setIsOpen('closed');
+				}
             }}
             style={{
                 pointerEvents: (isOpen === "open") ? "auto" : "none"
