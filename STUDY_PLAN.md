@@ -15,7 +15,7 @@ Category theory with the goal of buildding up a rigorous understanding of fusion
 - [x] [2 weeks] Welcome to Category Theory **(ML ch. 1-4)**
   - [x] Basic Constructions: (Meta-) categories, Functors, Natural transformations, Classification of Arrows.
   - [x] Categorical Structures: Duality, Products, Functor categories, Comma categories.
-  - [ ] Proof Constructions: Limits, Colimits, Sequences.
+  - [x] Proof Constructions: Universals, Limits, Colimits, Sequences.
 - [ ] [1.5 week] Categoryficaiton **(EGNO ch. 1-3)**
   - [ ] [2-3 days] Abelian Categories **(EGNO ch. 1)**: Additivive and Abelian categories, Exact sequences, Jordan-Hölder theorem, Delingue tensor product, Group cohomology.
   - [ ] [1 week] Monoidal Categories and Rings **(EGNO ch. 2 & 3)**: Unit objects, Monoidal functors, Mac Lane strictness theorem, Coherence theorem, Rigid categories, Frobeneus-Perron theorem, Graded based rings, Complexification.
