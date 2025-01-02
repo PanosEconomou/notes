@@ -185,6 +185,36 @@ where $\mathcal{Y}$ is the collection of simple objects.
 
 
 
+# Delingue Tensor Product
+
+Tensor products aren’t always nicely defined. Here we will go over places that the traditional construction of the tensor product of finite dimensional vector spaces breaks, and then define a kind of resolution.
+
+## Locally Finite Abelian Categories
+
+There is no clear way to take the tensor product of two infinite dimensional vector spaces. Even though there exist ways to do so in Hilbert and Banach spaces, the generalization seems obscure. One of the relevant properties that Hilbert and Banach spaces share that allow for this is local finiteness. Let’s explore this in the concept of Abelian categories.
+
+**<u>Definition:</u>** A $\mathbb{K}$-linear Abelian category $\mathcal{C}$ is **locally finite** or **Artinian** if all the Hom spaces are finite dimensional vector spaces, and every object has finite length.
+
+Clearly the Category of all Hilbert spaces is not locally finite, however, locally finite categories categorify locally finite spaces. Usually one denotes $\mathcal{O}(\mathcal{C})$ the set of isomorphism classes of a simple objects of a locally finite category $\mathcal{C}$.
+
+There are interesting results for locally finite categories. The following proposition says that there are no nontrivial arrows between simple non-isomorphic objects.
+
+**<u>Proposition:</u>** Let $X,Y$ be simple and non-isomorphic objects in a locally finite category. Then $\text{Hom}_{\mathcal{C}}(X,Y) = \{0\}$.
+
+***Proof:*** Let $f:X\to Y$ be a nonzero arrow of these two objects, then by schur’s lemma it should be an isomorphism, which is a contradiction. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+
+
+
+
+
+
+
+
 
 
 
