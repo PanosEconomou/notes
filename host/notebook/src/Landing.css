@@ -107,8 +107,8 @@ body {
     }
 
     .buttonText:hover {
-        padding: 50px 70px 50px 70px;
-        transform: translateY(-40px);
+        padding: 80px 110px 80px 110px;
+        transform: translateY(-65px);
     }
 
     a {

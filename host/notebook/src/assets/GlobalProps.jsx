@@ -4,9 +4,11 @@ import { useMotionValue, useSpring } from 'framer-motion';
 const GlobalPropsContext = createContext();
 
 export const GlobalPropsProvider = ({ children }) => {
+    const DEFAULT_SIZE = 20
+
     const size = {
-        x: useRef(30),
-        y: useRef(30),
+        x: useRef(DEFAULT_SIZE),
+        y: useRef(DEFAULT_SIZE),
     }
 
     const mouse = {
@@ -20,7 +22,7 @@ export const GlobalPropsProvider = ({ children }) => {
     }
 
     return (
-        <GlobalPropsContext.Provider value={{ size, mouse, springMouse }}>
+        <GlobalPropsContext.Provider value={{ size, mouse, springMouse, DEFAULT_SIZE }}>
             {children}
         </GlobalPropsContext.Provider>
     );

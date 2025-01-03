@@ -6,7 +6,7 @@ import { useGlobalProps } from './GlobalProps';
 
 export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
     
-    const {size, mouse, springMouse } = useGlobalProps();
+    const {size, mouse, springMouse, DEFAULT_SIZE } = useGlobalProps();
     
     // const size = {
     //     x: useRef(30),
@@ -95,8 +95,8 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             size.y.current = 0;
             break;
         case 'default':
-            size.x.current = 30;
-            size.y.current = 30;
+            size.x.current = DEFAULT_SIZE;
+            size.y.current = DEFAULT_SIZE;
             break;
         case 'highlight':
             size.x.current = 120;
@@ -114,8 +114,8 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             stuck.current = 'over';
             break;
         default:
-            size.x.current = 30;
-            size.y.current = 30;
+            size.x.current = DEFAULT_SIZE;
+            size.y.current = DEFAULT_SIZE;
     }
 
     const variants = {
@@ -145,7 +145,7 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             opacity: 1,
             width: fraction * stickTo.current?.width || size.x.current,
             height: fraction * stickTo.current?.height || size.y.current,
-            borderRadius: `${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
+            borderRadius: `${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`,
         },
         stuckLink: {
             opacity: 1,
@@ -153,6 +153,9 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             height: fraction * stickTo.current?.height || size.y.current,
             borderRadius: '1px',//`${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
             // backgroundColor: 'rgba(255, 99, 71, 0.5)'
+            transition: {
+                duration: 0.2,
+            },
         },
         bar: {
             opacity: 1,
