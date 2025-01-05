@@ -122,8 +122,24 @@ is called a **short exact sequence**.
 
 ***Proof:*** The arrow $X \to Y$ is monic since its kernel is the image of the zero arrow, therefore $X$ is a subobject. The quotient $Y/X$ is the cokernel of the monic arrow of $X$, however, we know that the image of $Y\to Z$ is the kernel of the zero arrow, therefore it is also zero, which implies $Y\to Z$ is epi and $Z$ is a quotient object. To show that it is the corresponding one we use the canonical decomposition. We notice that the image of $X$ will fall to $0$ under composition in $Z$. Therefore the arrow $Z$ is the cokernel of $X\to Y$. 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
+
+**<u>Definition:</u>** Let $\mathcal{C},\mathcal{D}$ be Abelian categories. An additive functor $F:\mathcal{C}\to\mathcal{D}$ is **right exact** if for any short exact sequence 
+$$
+0\to X\to Y \to Z\to 0
+$$
+in $\mathcal{C}$ the sequence
+$$
+F(X) \to F(Y) \to F(Z) \to 0
+$$
+is exact in $\mathcal{D}$. Similarly it is called **left exact** if the sequence
+$$
+0\to F(X) \to F(Y) \to F(Z)
+$$
+is exact in $\mathcal{D}$. Finally, if it is both left and right exact, it is called **exact**.
+
+
 
 # Jordan Holder Theorem
 
@@ -205,6 +221,27 @@ There are interesting results for locally finite categories. The following propo
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+
+## The Product
+
+**<u>Definition:</u>** Let $\mathcal{C}, \mathcal{D}$ be locally finite Abelian $\mathbb{K}$-linear categories. Then their **Delingue tensor product** $\mathcal{C}\boxtimes \mathcal{D}$ is an Abelian $\mathbb{K}$-linear category which is a universal element for the functor assigning to every $\mathbb{K}$-linear Abelian category $\mathcal{A}$ the category of right exact functors $\mathcal{C}\times \mathcal{D} \to \mathcal{A}$.
+
+This can be expressed equivalently in the following proposition.
+
+**<u>Proposition:</u>** Given any two locally finite Abelian $\mathbb{K}$-linear categories, there exists a functor $\boxtimes : \mathcal{C}\times \mathcal{D} \to \mathcal{C}\boxtimes \mathcal{D}$ with object function
+$$
+(X,Y) \mapsto X\boxtimes Y,
+$$
+which is exact in both variables and satisfies universality, namely for any right exact functor $F: \mathcal{C} \times \mathcal{ D} \to \mathcal{A}$ there exists a unique right exact functor $\bar F : \mathcal{C}\boxtimes \mathcal{D} \to \mathcal{A}$ such that $\bar F \circ \boxtimes = F$.
+
+
+
+
+
+
+
+
+
 
 
 
