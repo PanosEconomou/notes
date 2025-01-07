@@ -97,6 +97,26 @@ Consider the assumption that all observables from now to infinty form a subalgeb
 
 
 
+## Quantum Spacetimes (7/1)
+
+The entanglement $\iff$ geometry relation in AdS/CFT is realized through tensor networks. This is the reason behind the program of studying Holographic tensor networks. A strategy to construct tensor networks that realize a nonperturbative AdS/CFT dictionary is the following. 
+
+The paper is [here](https://arxiv.org/pdf/2404.00877).
+
+This works in AdS3/CFT2. We produce a special distcretization of a 2D CFT path-integral. Such a trangulation leads to a natural description of a path integral in 2D and 3D, leading to fun things like an Einstein-Hilbert action and so on. This is realized in BCFT. We trinagulate everything with triangles that obey a special BCFT. Then use these triangles to glue up all the space. 
+
+The issue is the corners. Several triangles share corners. These produce topological holes in the space. What we do to fix it, is we protect TDLs such that they can cross the holes as if they don’t exist. This way we have an effective theory that looks identical to the one without the holes. The process that does this is called applying “Shrinkable Boundary Condition.”
+
+Each of these triangles can be treated as a tensor network with infinte number of decendents. Given a triangulation we can extract a bulk triangulations. The way that the bulk triarngulation works is because each triangule in the CFT is characterized by OPE coefficients that happen to have the exact relations with each other as tiling tetrahedra. 
+
+Carrying out this proceedure one can obtain a 3D gravitational path integral that is triangulation independent, which encodes the modular invariance of the 2D CFT, while the global symmetries of the CFT appear as gauge symmetries in the bulk. 
+
+The big punchline of this study is that there is a duality between quantum gravity and RG flow of virasoro preserving lines. 
+
+
+
+
+
 
 
 
