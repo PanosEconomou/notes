@@ -15,6 +15,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
 - [**Categories**](Categories)
     - [Abelian Categories](Categories/Abelian_Categories.md)
     - [Category Theory](Categories/Categories.md)
+    - [Monoidal Categories](Categories/Monoidal_Categories.md)
 - [**Quanta**](Classical_Physics)
     - [Conserved Currents](Classical_Physics/Currents.md)
     - [Momentum](Classical_Physics/Momentum.md)
