@@ -55,7 +55,7 @@ export default function MenuSection({ children, i = 2, text = 'A category', blur
     })
 
     const bg = useMotionTemplate`radial-gradient(96.61% 106.15% at ${innerMousePos.x}px ${innerMousePos.y}px, rgba(194, 223, 243, 0.60) 0%, rgba(252, 252, 252, 0.24) 100%)`
-    // const bg = useMotionTemplate`radial-gradient(96.61% 106.15% at ${innerMousePos.x}px ${innerMousePos.y}px, rgba(243, 200, 217, 0.60) 0%, rgba(252, 252, 252, 0.24) 100%)`
+    // rgba(194, 223, 243, 0.60)
 
     return (
         <motion.div
