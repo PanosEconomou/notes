@@ -8,4 +8,4 @@ Now things are getting interesting! We are ready to start exploring things in mo
 
 # Definitions
 
-As every proper set of notes in category theory we start with a set of definitions. The intuition. 
+As every proper set of notes in category theory we start with a set of definitions. The intuition
