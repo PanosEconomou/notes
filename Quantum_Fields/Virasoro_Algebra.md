@@ -114,12 +114,14 @@ $$
 This is conducive to talking about the vaccuum state of the Hilbert space. That is because we can use the Virasoro algebra to get to any state of our conformal theory. 
 
 **<u>Definition:</u>** A lie algebra representation $\rho : \text{Vir} \to \text{End}_\mathbb{C}V$ to a complex vector space $V$ is called a **highest weight representation** if there are complex numbers $h,c \in \mathbb{C}$ and a cyclic vector $v \in V$ such that
+$$
+\begin{align*}
+\rho(Z)v&=cv\\
+\rho(L_0) v &= hv\\
+\rho(L_n) v &= 0 \ \forall n \geq 1 \\
+\end{align*} 
+$$
 
-$$
-\rho(Z)v=cv\\
-\rho(L_0) v = hv\\
-\rho(L_n) v = 0 \ \forall n \geq 1 \\
-$$
 
 If further $h>0$ the representation is called a **positive energy representation.** The vector space $V$ equipped with a highest weight representation is called a **Virasoro Module.** Additionally, $c$​ is referred to as the **central charge.** 
 
