@@ -29,6 +29,15 @@ This is not done yet, but still.
 
 
 
+## Minimal Models
+
+A small review of minimal models primarily designed to give a bit of tangible CFT calculation practice. This is mostly from [Di-Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9) and [Schottenloher](https://link.springer.com/book/10.1007/978-3-540-68628-6).
+
+- [x] [3 weeks] Virasoro Algebra and Representations **(S ch. 4-6)**
+- [ ] [1 week] Minimal Models **(DF ch. 7,8)**
+
+
+
 ## Representation Theory & CFT
 
 Studying semisimple lie algebras and their representations with applications to Conformal Field Theory. This will follow [Di Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9) and some other textbooks I will find once I start reading it. 
