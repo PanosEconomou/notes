@@ -36,7 +36,6 @@
 
     main {
         max-width: 1200px;
-        min-width: 1000px;
         width: 60vw;
         /* height: 90vh; */
         margin: auto;
@@ -45,6 +44,12 @@
         /* border: 1px solid black; */
         /* overflow: hidden; */
     }
+
+	@media (max-width: 1000px) {
+		main {
+			width: 90vw;
+		}
+	}
 
     h1,
     .h1,
