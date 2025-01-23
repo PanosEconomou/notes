@@ -7,8 +7,11 @@
     height: 100vh;
     width: 100vw;
     /* overflow-x: scroll; */
-    overflow-y: scroll;
-
+	overflow-y: hidden;
+    
+	&:hover {
+		overflow-y: scroll;
+	}
     .title {
         font-family: "Space Grotesk";
         position: absolute;

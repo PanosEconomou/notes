@@ -39,8 +39,9 @@
         width: 60vw;
         /* height: 90vh; */
         margin: auto;
-        padding: 5vh;
+        padding: 0vh;
         padding-bottom: 5vh;
+		padding-top: 5vh;
         /* border: 1px solid black; */
         /* overflow: hidden; */
     }
