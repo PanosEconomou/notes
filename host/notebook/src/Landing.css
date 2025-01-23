@@ -48,7 +48,7 @@ body {
         align-items: center;
         overflow: hidden;
     }
-
+ 	
     section {
         display: flex;
         align-items: center;
@@ -57,6 +57,28 @@ body {
         margin: auto;
         /* border: 1px solid black; */
     }
+
+	@media (max-width: 1000px) {
+		main {
+			width: 95vw;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		section {
+			margin: 3vh;
+			justify-content: center;
+		}
+
+		#welcome {
+			padding: 0;
+		}
+
+		#welcome h2, h1 {
+			text-align: center;
+		}
+	}	
+
 
     #path-dashed {
         stroke-dasharray: 200;
