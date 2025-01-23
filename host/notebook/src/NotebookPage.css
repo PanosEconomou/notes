@@ -662,6 +662,6 @@
 .buttonTextVert:hover {
     transition-delay: 50ms;
     padding: 150px 150px 150px 150px;
-    transform: translateX(-111px);
+    transform: translateX(-126px);
     /* border: 1px solid black; */
 }

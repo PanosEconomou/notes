@@ -315,6 +315,7 @@ export default function NotebookPage({ }) {
           </motion.div>
         </Magnetic>
       </PageButton>
+
       <div id="notebookPage" >
         <main>
           <motion.div className='progressBar' style={{ scaleY: scaleY }} />
