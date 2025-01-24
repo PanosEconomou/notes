@@ -38,22 +38,22 @@ A small review of minimal models primarily designed to give a bit of tangible CF
 
 ## Representation Theory & CFT
 
-Studying semisimple lie algebras and their representations with applications to Conformal Field Theory. This will follow [Di Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9) and some other textbooks I will find once I start reading it. 
+Studying semisimple lie algebras and their representations with applications to Conformal Field Theory. This will follow [Di Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9) for Semisimple Lie Algebras and will contain an introduction by [Hamilton](https://link.springer.com/book/10.1007/978-3-319-68439-0) for the general definitions. 
 
 - [ ] [1 week] Lie Groups and Algebras **(H ch. 1)**
   - [ ] Definitions, Common Examples, Lie Group Homomorphisms, Lie Algebras (H: ch. 1.1 - 1.4)
-    - [ ] Problems: 1.9.1, 1.9.2, 1.9.3, 1.9.6
+    - [ ] **Problems:** 1.9.1, 1.9.2, 1.9.3, 1.9.6
   - [ ] Lie algebras form lie groups (H: ch 1.5 - 1.7)
-    - [ ] Problems: 1.9.9, 1.9.10, 1.9.11, 1.9.13, 1.9.17, 1.9.19, 1.9.25
+    - [ ] **Problems:** 1.9.9, 1.9.10, 1.9.11, 1.9.13, 1.9.17, 1.9.19, 1.9.25
   - [ ] Cartan's Theorem (H: ch. 1.8)
 
-- [ ] [2 weeks] Hello world Representation of Lie Gralgebras (H: ch. 2)
+- [ ] [2 weeks] Hello world Representation of Lie Gralgebras **(H: ch. 2)**
   - [ ] Definitions, Branching Rules, Adjoint Representation (H: ch. 2.1)
-    - [ ] 2.7.2, 2.7.3, 2.7.3
+    - [ ] **Problems:** 2.7.2, 2.7.3, 2.7.3
   - [ ] Killing Forms, Metrics, Ad-Invariant Products (H: ch. 2.2, 2.3, 2.5)
-    - [ ] 2.7.5, 2.7.7, 2.7.11, 2.7.13, 2.7.14
+    - [ ] **Problems:** 2.7.5, 2.7.7, 2.7.11, 2.7.13, 2.7.14
   - [ ] Semisimple, Compact Lie Algebras (H: ch. 2.4)
-    - [ ] 2.7.10
+    - [ ] **Problems:** 2.7.10
   - [ ] *Homotopy Groups of Lie Groups (H: ch. 2.7)
 
 
