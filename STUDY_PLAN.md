@@ -65,6 +65,6 @@ Studying semisimple lie algebras and their representations with applications to 
   - [x] Learn Characters
   - [x] Baby Fusion rules
   - [x] Practice Null Vectors
-  - [ ] Find Ising as a Virasoro module
+  - [x] Find Ising as a Virasoro module
   - [ ] Fully describe and motivate the Ising using TDLs
   - [ ] Finally apply stupid $\mathbb{Z}_2$.
