@@ -78,7 +78,6 @@ In [here](./Conformal_Group.md#Central-Extensions) we have shown how the quantiz
 **<u>Theorem:</u>** The central extension of the Witt algebra $W$ by $\mathbb{C}$ exists and is unique up to group isomorphism.
 
 **<u>Defintion:</u>** The **Virasoro Algebra** $\text{Vir}$ is the central extension of the Witt algebra $W$ by $\mathbb{C}$, given by
-
 $$
 \text{Vir} \coloneqq W\oplus \mathbb{C} Z
 $$
@@ -211,7 +210,7 @@ Now we can use this expectation value concept to define a Hermitian norm on the 
 **<u>Definition:</u>** Given a Verma Module $M(c,h)$ its canonical hermitian form $H : M(c,h)^2 \to \mathbb C$ is given by
 
 $$
-H(v_{n_1\cdots n_k},v_{m_1\cdots m_l}) = \langle \rho(L_{-n_1}) \cdots \rho(L_{-n_k}) v_{m_1\cdots m_l} \rangle
+H(v_{n_1\cdots n_k},v_{m_1\cdots m_l}) = \langle \rho(L_{n_1}) \cdots \rho(L_{n_k}) v_{m_1\cdots m_l} \rangle
 $$
 
 where $v_{n_1\cdots n_k} = L_{-n_1} \cdots L_{-n_k} v_0$ is the basis of $M(c,h)$ with respect to the decomposition $M(c,h) = \bigoplus_{n\in \mathbb N}V_n$.
