@@ -12,16 +12,27 @@
 	&:hover {
 		overflow-y: scroll;
 	}
-    .title {
-        font-family: "Space Grotesk";
+	
+	.titleContainer {
+	 	border-radius: 20px;
+        border: 1px solid rgba(206, 206, 206, 0.40);
+        backdrop-filter: blur(10px);
+		background: rgba(252, 252, 252, 0.40);
         position: absolute;
         top: 10vh;
-        left: 80px;
+        left: calc(50vw - 150px);
+		width: 300px;
+		text-align: center;
+		padding: 5px;
+	}
+
+    .title {
+        font-family: "Space Grotesk";
         font-size: 2rem;
-        width: 200px;
-        border-bottom: 2px solid black;
-        font-variation-settings: "wght" 500;
+        /*border-bottom: 2px solid black;
+        font-variation-settings: "wght" 500;*/
         transition-duration: 0.2s;
+		align-content: center;
 
         &:hover {
             font-variation-settings: "wght" 700;
@@ -63,8 +74,8 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        padding-top: 100px;
         padding: 50px;
+        /* padding-top: calc(10vh + 50px);*/
     }
 
 

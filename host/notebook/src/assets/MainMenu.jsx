@@ -101,6 +101,9 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
         }
     }
 
+
+	// const bg = useMotionTemplate`radial-gradient(96.61% 106.15% at ${innerMousePos.x}px ${innerMousePos.y}px, rgba(194, 223, 243, 0.60) 0%, rgba(252, 252, 252, 0.24) 100%)`
+
     return (
         <motion.nav id="mainMenu"
             ref={container}
@@ -121,10 +124,21 @@ export default function MainMenu({ isOpen = 'closed', setIsOpen, stickTo, setCur
                 variants={variants}
             />
 
-            {/* <motion.h1
-                className="title"
-                variants={titleVariants}
-            ><NavLink to="/">Notebook</NavLink></motion.h1> */}
+		{/*<motion.div
+				className={"titleContainer"}
+				whileHover={{
+					scale: 1.1,
+					opacity: 0.8,
+				}}
+				variants={titleVariants}
+			>
+				<motion.h1
+					className="title"
+					variants={titleVariants}
+				>
+					<NavLink to="/">Notebook</NavLink>
+				</motion.h1> 
+			</motion.div> */}
 
             <Navigation stickTo={stickTo} setCursorVariant={setCursorVariant} />
         </motion.nav >
