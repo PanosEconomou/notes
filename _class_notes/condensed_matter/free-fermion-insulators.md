@@ -54,9 +54,29 @@ We can actually rewrite the Hamiltonian in a more palatable form as
 $$
 H = c^\dagger H_k c,
 $$
-where $c_{k} = \binom{c_{Ak}}{c_{Bk}}$, and $H_k = d_k\cdot \vec \sigma$, where $d_k$ is some vector. We can ascribe a topological invariant to this problem to be the winding number of $d(k)$ around the origin in the $k$ plane (since $d_z = 0$). 
+where $c_{k} = \binom{c_{Ak}}{c_{Bk}}$, and $H_k = d_k\cdot \vec \sigma$, where $d_k$ is some vector. We can ascribe a topological invariant to this problem to be the winding number of $d(k)$ around the origin in the $k$ plane (since $d_z = 0$). We can construct this invariant more explicitly soon. 
 
- 
+Now the interesting part is that $d_z = 0$ which implies that $\{H_k,\sigma_z\} = 0$ which means that we have found an $S$-type symmetry (sublattice symmetry). 
+
+ The different winding number of the vector $d$ is a cool property because it defines the existence of a zero mode for the theory (We can see this using 1d qm).
+
+# Berry Connection
+
+The berry phase can be given as the integral of a 1-form (or 2-form using Stoke's theorem). That one form is a connection one-form and it is called the Berry connection. In other words, the Berry connection defines a particular parallel transport for our eigenstates via time evolution. 
+
+**<u>Definition:</u>** Let $M$ be some manifold 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
