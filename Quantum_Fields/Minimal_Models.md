@@ -18,4 +18,15 @@ Let's be more specific. As we have already seen [here](../Quantum_Fields/Virasor
 
 **<u>Corollary:</u>** $M/\text{ker\,}H$ is an irreducible Virasoro module. 
 
-What is interesting about singular vectors? Primarily that they constrain the correlation functions. 
+What is interesting about singular vectors? Primarily that they constrain the correlation functions further than conformal symmetry.  Constraining correlation functions implies the famous fusion rules as we will see now.
+
+
+
+
+
+
+
+
+
+
+

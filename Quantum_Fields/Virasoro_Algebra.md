@@ -235,30 +235,59 @@ $$
 H(v_n,v_n) = 2nh +\frac{c}{12}n(n^2-1)
 $$
 
-Now we are ready to define the the Kac detarminant. 
+Now we are ready to define the the Kac determinant. 
+
+***Proof:*** We use the commutation relation and notice that
+$$
+H(v_n,v_n) \coloneqq \langle L_n L_{-n}v_0 \rangle = \langle [L_n,L_{-n}]v_0 \rangle = 2nh + \frac{c}{12}n(n^2-1). 
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+***Proof of Corollary:*** Using the above proposition we see that if $c <0$ or there is a high enough $n$ to make $H(v_n,v_{-n}) < 0$, and if $h<0$ then $H(v_1,v_{-1}) < 0$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
 
 **<u>Definition:</u>** Let $\mathcal B = \{b_1,\cdots,b_k\}$ be a basis for $V_n$. Then the **Kac determinant** is the determinant of the Gram Matrix $A_n$ of the basis $\mathcal B$ given by 
-
 $$
 \det A_n = \det \left(H(b_i,b_j)\right)_{ij}
 $$
 
 What we can see is that if all the Gram matrices are positive definite, then so is $H$. The highest weight representation associated with the Verma module $M(c,h)$ will be unitary if $H$ is in addition positive definite or positive semidefinite. So if we could calculate the determinant as a function of $c,h$ then everything would be awesome! As luck would have it, someone did!
 
-**<u>Theorem:</u>** Let $c,h \in\mathbb R$ the Kac determinant is given by 
-
+**<u>Theorem:</u>** (Kac's Theorem) Let $c,h \in\mathbb R$ the determinant of the Gram Matrix at level $n$ is given by 
 $$
 \det A_n = K_n \prod_{\substack{p,q\in \mathbb N\\pq \leq n}} (h - h_{p,q}(c))^{\dim V_{n-pq}},
 $$
 
-where $K_n \geq 0 $ is some constant and 
-
+where $K_n >0$ is the number given by
+$$
+K_n = \prod_{\substack{p,q\in \mathbb{N}\\pq \leq n}}\left[ \left( 2p \right)^q q! \right]^{P(n-pq) - P(n-pq-p)},
+$$
+where $P(k)$ is the number of integer partitions of $k$ and $h_{p,q}(c)$ is a number given by
 $$
 h_{p,q}(c) = \frac{1}{48}\left[(13-c)(p^2 + q^2) + \sqrt{(c-1)(c-25)} (p^2-q^2) - 24pq - 2+2c\right]
 $$
 
-
 What we see is that if $h$ is greater or equal to $h_{p,q}$ for all such $p,q$ then the Kac determinant is going to be positive semidefinite. As a result, requiring unitarity (almost) fixes the values of $h$ as a function of $c$! This is a really cool result in the classification of CFTs.
+
+
+
+**<u>Proposition:</u>** Another way to write $h_{p,q}$ is by introducing the following quantities
+$$
+\begin{align*}
+h_{p,q} &= h_0 + \frac{1}{4}(p\alpha_+ +q \alpha_-)^2\\
+h_0 &= \frac{c-1}{24}\\
+\alpha_{\pm} &= \frac{\sqrt{1-c} \pm \sqrt{25-c}}{\sqrt{24}}.
+\end{align*}
+$$
+This description appears (in a slightly more refined form) in the derivation of *fusion rules.* 
+
+
 
 
 
