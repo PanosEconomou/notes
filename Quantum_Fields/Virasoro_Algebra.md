@@ -95,16 +95,15 @@ fun fact, the $\frac{1}{12}$ factor comes from the analytic continuation of the 
 
 In CFT we will always encounter representations of the Virasoro Algebra in different spaces. This section will study cool representations as well as properties of the vector spaces the representations are on. Let’s start with unitary representations.
 
-**<u>Definition:</u>**  A lie algebra representation $\rho : \text{Vir} \to \text{End}_\mathbb{C}V$ to a complex vector space $V$ is called **unitary** if there exists a hermitian form $H=\langle \cdot, \cdot \rangle : V\times V \to \mathbb{C}$ such that for any $v,w\in V$ 
+**<u>Definition:</u>**  A lie algebra representation $\rho : \text{Vir} \to \text{End}_\mathbb{C}V$ to a complex vector space $V$ is called **unitary** if there exists a positive sem-definite Hermitian form $H=\langle \cdot, \cdot \rangle : V\times V \to \mathbb{C}$ such that for any $v,w\in V$ 
 $$
 \langle \rho(L_n) v,w\rangle = \langle v, \rho(L_{-n}) w\rangle\\
 \langle \rho(Z) v,w\rangle = \langle v, \rho(Z) w\rangle\\
 $$
 
-Ok cool, the thing we notice is that under a unitary representation the adjoint of $L_n$ is $L_{-n}$. Let’s see some more useful concepts. One of the most useful concepts is cyclic vectors. 
+(A cool way to think of unitarity of a representation at a higher level of abstraction is one that preserves an involution for a $*$-algebra.) Ok cool, the thing we notice is that under a unitary representation the adjoint of $L_n$ is $L_{-n}$. Let’s see some more useful concepts. One of the most useful concepts is cyclic vectors. 
 
 **<u>Definition:</u>** Given a lie algebra representation $\rho : \text{Vir} \to \text{End}_\mathbb{C}V$ to a complex vector space $V$, a vector $v\in V$ is called **cyclic** if 
-
 $$
 V = \text{span}\{ \rho(X_1) \rho(X_2) \cdots \rho(X_m) v \mid X_i\in \text{Vir}, m\in \mathbb{N} \}
 $$
@@ -286,6 +285,41 @@ h_0 &= \frac{c-1}{24}\\
 \end{align*}
 $$
 This description appears (in a slightly more refined form) in the derivation of *fusion rules.* 
+
+
+
+## Unitary Representations
+
+As we have already seen, the existence of unitary representations is identical to the existence of a positive semi-definite Hermitian form. Now with Kac's theorem we can find when our Hermitian form follows such rules.
+
+Essentially we want no negative eigenvalues on $H$. Therefore, we can use the following theorem.
+
+**<u>Theorem:</u>** *(Classification of Unitary representations)* Let $M(c,h)$ be a Verma module. Then the representation is unitary iff 
+
+1. $c\geq 1$ and $h\geq 0$ or
+
+2. For some integer $m\geq 2$ there exist $p,q \in \mathbb{N}$ where $1 \leq q < p < m$ such that 
+   $$
+   \begin{align*}
+   c&= 1 - \frac{6}{m(m+1)}\\
+   h &= \frac{\left[ (m+1)q - mp \right]^2-1}{4m(m+1)}.
+   \end{align*}
+   $$
+
+3. 
+
+This condition might seem terribly arbitrary, but it has its origin in enumerating a discrete set of intersections for when plotting $h_{p,q}(c)$. The intersections of these diagrams host unitary representations.
+
+***Proof:*** We can see that if for some $r,s \in \mathbb{N}$ $h=h_{r,s}$ then by Kac's theorem the determinant of the Gram matrix will disappear at high enough levels. Namely if $pq < rs$, then
+$$
+\begin{align*}
+h_{r,s}- h_{p,q} 
+&= (r\alpha_{+} + s\alpha_{-})^2 - (p\alpha_{+} + q\alpha_-)^2\\
+&= \left[(r+p)\alpha_{+} + (s+q)\alpha_{-} \right] \left[(r-p)\alpha_{+} + (s-q)\alpha_{-} \right]\\
+&= 
+\end{align*}
+$$
+
 
 
 
