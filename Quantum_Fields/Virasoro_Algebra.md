@@ -314,7 +314,6 @@ This condition might seem terribly arbitrary, but it has its origin in enumerati
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
- 
 
 
 
