@@ -66,5 +66,8 @@ Studying semisimple lie algebras and their representations with applications to 
   - [x] Baby Fusion rules
   - [x] Practice Null Vectors
   - [x] Find Ising as a Virasoro module
-  - [ ] Fully describe and motivate the Ising using TDLs
+  - [x] Rational Modules
+  - [x] Irreducible Rational Modules
+  - [x] Define Minimal Models
+  - [ ] Fully describe and motivate Ising sectors using TDLs
   - [ ] Finally apply stupid $\mathbb{Z}_2$.

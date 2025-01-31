@@ -1,6 +1,6 @@
 # Minimal Models
 
-We go over some examples of commonly encountered minimal models in 2D CFT as well as common calculations for them.
+We go over some examples of commonly encountered minimal models in 2D CFT as well as common calculations for them. These are taken from [Schottenloher](https://link.springer.com/book/10.1007/978-3-540-68628-6) and [Di Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9).
 
 [toc]
 
@@ -12,7 +12,7 @@ Remember indecomposable is being able to find two proper subresentations whose d
 
 
 
-# Construction
+# Useful Tools
 
 ## Singular Vectors
 
@@ -118,6 +118,28 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
+## Irreducible Rational Highest Weight Representations
+
+We can be more precise about this classification. Since we can classify the singular submodules, we can classify how to remove them in order to obtain a description of the irreducible rational highest weight representations.
+
+>  **Note:** Since we are interested in studying minimal models, what we will see is that for a given pair of coprime naturals $r,s \in \mathbb{N}$ the only distinct conformal weights $h_{p,q}$ that will appear are the ones where $1 \leq p < r$ and $1 \leq q < s$. That restriction comes from fusion which we haven't seen yet, but we will prove later.
+
+**<u>Proposition:</u>** Given a rational Verma module $M(c,h_{p,q})$ with $c,h_{p,q}$ given by $r,s \in \mathbb{N}$ and $1 \leq p < r$, $1 \leq q < s$, where $H: M^2 \to \mathbb{C}$ is the canonical Hermitian form, we have that 
+$$
+\text{ker\,}H = \text{span\,} \left[M(c,h_{r+p,s-q}) \cup M(c,h_{p,2s-q})\right],
+$$
+where we identify $M(c,h_{r+p,s-q})$ and $M(c,h_{p,2s-q})$ with their canonical inclusions in $M(c,h_{p,q})$.
+
+***Proof:*** We have already shown that the two modules above are singular submodules of $M(c,h_{p,q})$. We just need to show that any other submodules are contained in them. But I don't want to write this, this can definitely be shown by induction on Kac's formula, or maybe a nifty trick that I am unaware of. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Unfortunately, the quotient is not entirely straightforward to calculate because the intersection between the singular submodules is not empty! Schematically, if we quotient by one, we have inadvertently quotiented by part of the other.
+
+ 
+
+
+
 ## Characters for Rational Modules
 
 One useful tool in characterizing a Virasoro module is it's *character*. This is simply a generating function for the dimension each level, i.e. taking the appropriate number of derivatives gives us the number of independent vectors at that level. 
@@ -138,17 +160,58 @@ $$
 $$
 ***Proof:*** Since $\chi$ is smooth, it has a Taylor series, each term of which is constrained by the definition.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
-
-
-
+[tbc, but honestly Di Francesco has a table]
 
 ## Fusion
 
 What is interesting about singular vectors? Primarily that they constrain the correlation functions further than conformal symmetry. Constraining correlation functions implies the famous fusion rules as we will see now
 
 **<u>Theorem:</u>** 
+
+
+
+
+
+# Definitions
+
+We are finally ready to define a Minimal model!
+
+**<u>Definition:</u>** A conformal field theory is a **minimal model** iff its associated Hilbert space can be written as a direct sum of irreducible tensor products of holomorphic and antiholomorphic Virasoro modules that is closed under fusion. 
+
+This has a very interesting property.
+
+**<u>Proposition:</u>** In a minimal model the following are true
+
+1. There are finitely many conformal primaries.
+2. All the Virasoro modules that appear in its decomposition are rational.
+
+**<u>Corollary:</u>** For every minimal model there exist a unique pair of coprime naturals $r,s \in \mathbb{N}$ such that 
+$$
+\begin{align*}
+c &= 1 - 6\frac{(r-s)^2}{rs},\ r>s
+\end{align*}
+$$
+and every Virasoro module in the decomposition has conformal weight
+$$
+h = \frac{(sp - rq)^2 - (r-s)^2}{4rs},
+$$
+for some integers $p,q \in \mathbb{Z}$ such that $0<p<r$ and $0<q<s$.
+
+> **Note:** For that reason we use the notation $\mathcal{M}(r,s)$ to refer to the corresponding minimal model.
+
+***Proof:*** (2) Every CFT must be closed under fusion. This puts constraints into which highest weight representations can appear. If the representation is rational then there are finitely many conformal weights available through fusion, since at higher and higher Kac indices the conformal weights repeat. If the representation is irrational, highest weights do not repeat, and therefore closure under fusion would include infinitely many of them. 
+
+(1) Via the state-field correspondence, a conformal primary is associated to a cyclic vector in a Virasoro submodule of the theory. Since there are finitely many of them, there are finitely many cyclic vectors. Additionally, since we have the description in terms of irreducible representations we can't find a different decomposition into Virasoro modules with more terms.
+
+(Corollary) By (2) the representations are rational. Therefore the central charge (which is shared by all of them otherwise it wouldn't be a cft) defines the two coprime indices. Representations of conformal weights with Kac indices greater than those are either prohibited by fusion or by periodicity. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+ 
+
+
 
 
 
