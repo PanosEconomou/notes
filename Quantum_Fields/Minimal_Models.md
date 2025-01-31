@@ -207,9 +207,8 @@ for some integers $p,q \in \mathbb{Z}$ such that $0<p<r$ and $0<q<s$.
 
 (Corollary) By (2) the representations are rational. Therefore the central charge (which is shared by all of them otherwise it wouldn't be a cft) defines the two coprime indices. Representations of conformal weights with Kac indices greater than those are either prohibited by fusion or by periodicity. 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
- 
 
 
 
