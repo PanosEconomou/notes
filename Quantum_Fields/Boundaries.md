@@ -220,6 +220,10 @@ $$
 
 
 
+## Partition Functions
+
+
+
 # Conformal Boundaries
 
 The reason we did all this was to be able to describe what's called the modular partition function of a CFT. We will see at a different point how are those things actually related to one another, but for now, let's try and restrict our attention on boundaries. 

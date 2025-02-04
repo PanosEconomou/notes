@@ -63,7 +63,7 @@ Studying semisimple lie algebras and their representations with applications to 
 - [ ] Figure out the $\mathbb{Z}_2$ matrix representations of the symmetries in the three twisted sectors of 2D Ising model.
   - [x] Practice Verma Modules
   - [x] Learn Characters
-  - [x] `Baby Fusion rules
+  - [x] Baby Fusion rules
   - [x] Practice Null Vectors
   - [x] Find Ising as a Virasoro module
   - [x] Rational Modules
