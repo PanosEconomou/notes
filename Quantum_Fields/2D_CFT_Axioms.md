@@ -619,7 +619,7 @@ When I read this, I was screaming to my computer that $[\Phi]$ is not a subspace
 
 **<u>Theorem:</u>** *(Field Operator, State Correspondence)* If the asymptotic states span and the descendants (i.e. $V_\nu$ for every $\nu$) span a dense subset $V \subset \mathbb{H}$  of the quantum Hilbert space, then for any $x \in V$ there exists a unique field $\Phi \in \mathbb{\Phi}$ such that $x = \lim_{z\to 0}\Phi(z) \Omega$. 
 
-The corollary is that for any conformal family we can find a corresponding subspace in the hilbert space with the same properties. So esssentially, with this step we have managed to partition our quantum Hilbert space (or at least a dense subset of it) in verma modules! 
+The corollary is that for any conformal family we can find a corresponding subspace in the Hilbert space with the same properties. So essentially, with this step we have managed to partition our quantum Hilbert space (or at least a dense subset of it) in Verma modules! 
 
 **<u>Corollary:</u>** For some field operator $\Phi$ the Verma module $[\Phi]$ is isomorphic to $V_\nu \subset \mathbb{H}$ for $\nu = \lim_{z\to 0}\Phi(z) \Omega$. And thus $V_\nu$ is a Verma module with conformal parameters $(c,h)$.
 
@@ -641,11 +641,31 @@ For more operators we do it for all possible contractions.
 
 
 
+# Aside on why Virasoro
 
+It would be interesting to try and justify why the Virasoro algebra is the algebra that appears in the Hilbert space, even though the Lie algebra of the conformal group is the Witt algebra. In other words: Why the f\*\* is there a central charge?
 
+Usually the answer to this is: something something take OPE of $T$ with itself and boom, here is a central charge. And while this is correct, it is not very illuminating. So here is a more abstract presentation of the same fact. 
 
+**<u>Observation:</u>** Any observable symmetry of a quantum system is a symmetry of its projective space. 
 
+This is important. In the Hilbert space there is some ambiguity (i.e. the overall phase) to define the possible quantum states. So if the representation of a group changes that exclusively changes that phase then that representation is trivial in the projective space. In other words, it will not change one state to another, so an experimentalist would not see it. Therefore, in a conformal field theory, the symmetry that we do, in fact, observe is the conformal symmetry, but on the projective space. So an experimentalist would see conformal invariance as a result. 
 
+One question is, if some group (or Lie algebra) has a representation of the projective space, does that imply that there exists another (aka a lift) on the corresponding Hilbert space? The answer is not in general! Not every possible representation can be lifted into a Hilbert space. However, we can do the next best thing.
+
+**<u>Theorem:</u>** Given a representation $T:G \to U(\mathbb{P})$ of a Lie group to the projective space $\mathbb{P}$, there exists a representation $\tilde G \to U(\mathbb{H})$ of its $U(1)$ proper central extension $\tilde G$  to the Hilbert space $\mathbb{H}$ such that the following diagram commutes
+$$
+\vcenter{
+\xymatrix{
+1\ar[r] & U(1)\ar[r]\ar[d]^{\text{Id}} & \tilde G\ar[r]\ar[d]^T & G\ar[r]\ar[d]^S & 1\\
+& U(1)\ar[r] & U(\mathbb{H})\ar[r]^{\delta} & U(\mathbb{P})
+}},
+$$
+where $\delta:U(\mathbb{H})\to U(\mathbb{P})$ is the lifted projective quotient map.
+
+In other words, while it might not be possible to lift the representation to a representation of the same group, it is always possible to lift it to a central extension! That new element is the anomaly that is introduced in the Hilbert space and it characterizes the projective representation somehow. 
+
+To find weather this is possible we study the homology of the Group or algebra we are working with induced by the representation. This might be too abstract, but actually it isn't. Some day I will complete these notes saying how studying these homology groups is equivalent to studying the CFT on a cylinder, which is absolutely fascinating.   
 
 
 
