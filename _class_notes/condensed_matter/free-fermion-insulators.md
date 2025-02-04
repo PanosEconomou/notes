@@ -18,7 +18,7 @@ Let's define them more precisely. Namely notice that $T,C$ are anti-unitary symm
 
 **<u>Definition:</u>** 
 
-**<u>Defnition:</u>** **Time reversal** for a unitary operator $U : \mathcal{H} \to \mathcal{H}$ is the antilinear map $\bar U$ such that $\bar U^\dagger H \bar U = H$. **Chiral symmetry** is such that $\bar U H \bar U = -H$, and **Sublattice** is $UHU = -H$.
+**<u>Definition:</u>** **Time reversal** for a unitary operator $U : \mathcal{H} \to \mathcal{H}$ is the antilinear map $\bar U$ such that $\bar U^\dagger H \bar U = H$. **Chiral symmetry** is such that $\bar U H \bar U = -H$, and **Sublattice** is $UHU = -H$.
 
 Important properties of these are that $T^2 = U\bar U = \pm 1$ and so on. 
 
@@ -64,16 +64,47 @@ Now the interesting part is that $d_z = 0$ which implies that $\{H_k,\sigma_z\} 
 
 The berry phase can be given as the integral of a 1-form (or 2-form using Stoke's theorem). That one form is a connection one-form and it is called the Berry connection. In other words, the Berry connection defines a particular parallel transport for our eigenstates via time evolution. 
 
-**<u>Definition:</u>** Let $M$ be some manifold 
+**<u>Definition:</u>** Let $M$ be some manifold. Then a **variable Hamiltonian** is a map $H:M\to \text{Herm\,}\mathcal{H}$ to the Hermitian operators of some Hilbert space. 
+
+**<u>Proposition:</u>** Given a principal $\R$ bundle $P$ over $M$ and the representation $\rho: P\to \text{Aut\,}\mathcal{H}$ given by $(\epsilon,p)\mapsto e^{-i\epsilon H(p)}$ defined by a variable Hamiltonian over $M$, we can construct the associated vector bundle $E=P\times_\rho \mathcal{H}$ with an induced connection one form $A$ by the action of $P$. 
+
+**<u>Definition:</u>**  The induced connection $A$ is called the **Berry connection**. The holonomy of $\nabla^{A}$ is known as the **Berry phase**.
+
+**<u>Corollary:</u>** Given a local gauge, the Berry phase is a topological invariant.
+
+**<u>Proposition:</u>** Regardless of gauge, the Berry phase mod $2\pi$ is a topological (diffeological) invariant.
+
+In most cases it is easy to calculate this given a path $\gamma:\mathbb{R}\supset I\to M$. Especially when we are interested in holonomy we are studying loops of the form $\gamma : S^1 \to M$. 
+
+**<u>Example:</u>** Let $M$ be locally parameterized by its embedding in some $\mathbb{R}^m$ in a neighborhood $U \subset M$ of $p \in U$. Then a local form of the Berry connection is given by
+$$
+A = i\langle v_n,e^{iH}\partial_k e^{-iH}v_n  \rangle dx^k \otimes v_n,
+$$
+where $v_n$ is an orthonormal eigenbasis for $\mathcal{H}$ of $H(p)$. Therefore given a loop $l:S^1 \to U\subset M$ we can write the Berry phase $\gamma \in \mathcal{H}$ as
+$$
+\gamma = \int_{l} A.
+$$
+Now assume that $l = \partial S$ for some $S \subset U$. Then the Berry phase is given by
+$$
+\gamma = \int_S dA.
+$$
+By the Bianchi identity we have that the curvature of the berry connection  (known as **Berry Curvature**) is given by
+$$
+F=dA.
+$$
+After some algebra we will see that
+$$
+F = \sum_{m\neq n} \frac{\langle v_n,e^{iH} dH e^{-iH}v_m\rangle \wedge \langle v_m,e^{iH} dH e^{-iH} v_n\rangle}{(E_n - E_m)^2},
+$$
+where $E_k \in \mathbb{R}$ are the eigenvalues of $H(p)$.
 
 
 
-
-
-
-
-
-
+**<u>Example:</u>** *(Single Fermion in a Magnetic Field)* Consider $M = S^2$ and the variable Hamiltonian $H:S^2\to \text{Herm\,}\mathbb{C}^2$ given by $r\mapsto r\cdot \sigma$. Here we are parameterizing the sphere by a conformal embedding embedding in $\mathbb{R}^3$. One can calculate Berry curvature to be 
+$$
+F =(v_+ - v_-) \otimes \frac{\ast dr}{2r^3}
+$$
+ where $H(r)v_\pm = \pm v_\pm$. This is pretty cool because of the cohomology of $S^2$! In other words there must be a discontinuity on the $A$ since a closed form in $S^2$ is not exact. $H^0(S^2) = \mathbb{R}$ and $H^2(S^2) = \mathbb{R}$. The rest are $\emptyset$.
 
 
 
