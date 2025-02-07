@@ -222,7 +222,54 @@ $$
 
 ## Partition Functions
 
-Consider a c
+What we will show here, is that a partition function for a conformal field theory gives us information about the structure of the Virasoro level decomposition of the Hilbert space of the CFT! To do this, however, we would have to be able to define it using a path integral somehow, which is not possible for compact domains. This is where tori come to play. 
+
+Given a parameter $\tau \in \mathbb{H}$ the flat torus we will get under the torus equivalence will have $\tau$ as the "time" coordinate.
+
+Therefore the Hamiltonian of the theory defined on the torus would be the Virasoro generator of translations along $\tau$, which is given by
+$$
+H_{\tau} = -iH\, \Im \tau -  P \, \Re \tau ,
+$$
+where $H = L_0 + \bar L_0 - \frac{c}{12}$ is the generator of translations in the imaginary direction of the conformal cylinder, and $P = L_0 - \bar L_0$ is the generator of translations on the real direction on the conformal cylinder. *The reason for the $-i$ in front of the Hamiltonian is because we have performed a Wick rotation, therefore we are actually evolving by an amount* $t=-i\text{Im\,}\tau$. 
+
+**<u>Definition:</u>** For a given automorphism $A : \mathcal{H} \to \mathcal{H}$ of some Hilbert space $\mathcal{H}$, its **partition function** $Z_A \in \mathbb{R}$ is defined as the trace
+$$
+Z_A = \Tr e^{-iA}.
+$$
+The physical definition for this quantity as the partition function comes from finite temperature field theory, and can be found [here](../Quantum_Fields/Thermal_QFT.md#Free-Theory-Partition-Functions-\(Intuition\)). The cool result is that partition functions in the torus are related to the structure of the level decomposition of the Hilbert space of the theory. We will show this in steps. 
+
+**<u>Lemma:</u>** The **modular partition function**, i.e. the map $Z:\mathbb{H} \to \mathbb{R}$ given by
+$$
+Z(\tau) = \Tr e^{-iH_\tau},
+$$
+is given by
+$$
+Z(\tau) = \text{Tr\,} q^{L_0 - \frac{c}{24}}\bar q^{\bar L_0 - \frac{c}{24}},
+$$
+where $q = e^{i \tau}$.
+
+***Proof:*** We can perform the algebra
+$$
+\begin{align*}
+Z(\tau) 
+&= \text{Tr\,} \exp \left[ -\frac{\tau-\bar \tau}{2i}\left(L_0 + \bar L_0 - \frac{c}{12}\right) + \frac{\tau+\bar \tau}{2} i(L_0 - \bar L_0) \right]\\
+&= \text{Tr\,} \exp i \left[ \tau \left(L_0 - \frac{c}{24}\right) - \bar \tau \left( \bar L_0 - \frac{c}{24} \right)\right]\\
+&= \text{Tr\,} \exp \left[ i\tau \left(L_0 - \frac{c}{24}\right)\right] \exp \left[- \bar \tau \left( \bar L_0 - \frac{c}{24} \right)\right]\\
+&= \text{Tr\,} q^{L_0 - \frac{c}{24}}\bar q^{\bar L_0 - \frac{c}{24}}.
+\end{align*}
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+The interesting result of this, however, is that these look so much like [characters](../Quantum_Fields/Minimal_Models.md#Characters-for-Rational-Modules)! In fact, we will see that modular invariance of the partition function will help us calculate the operator algebra for minimal models by solving for characters.
+
+
+
+
+
+
 
 
 
