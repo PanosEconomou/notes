@@ -220,6 +220,79 @@ $$
 
 
 
+## From the Sphere to the Cylinder to the Torus
+
+Conformal Field theories are usually defined on a sphere $\bar{\mathbb{C}}$ which is the one point compactification of $\mathbb{R}^2$. Modular conformal theories however, are the ones that can be expressed as living on the torus. Here we describe unambiguously what the series of mappings are, and how these induce different representations of the Virasoro algebra on the Hilbert space.
+
+Using the stress tensor we have defined an important representation $\rho: \text{Vir} \to \text{End}(\mathcal{H})$ of the Virasoro Algebra on the Hilbert space $\mathcal{H}$ of our CFT. One key observation is that if we change our base space from $\bar{\mathbb{C}}$ to something else, we would have to push the stress tensor forward. Then the new stress tensor will induce a different representation of the Virasoro algebra for our CFT. 
+
+Let's see this in practice  
+
+**<u>Proposition:</u>** The map $f: \mathbb{C} \to \bar{\mathbb{C}}$ defined by
+$$
+f(z) = e^{z}
+$$
+is conformal. 
+
+***Proof:*** It is analytic.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This transformation maps the punctured plane to the conformal sphere. We will use this to construct a quotient map to the cylinder. But first, let's see how the stress tensor changes when we pull it back by that map.  
+
+**<u>Lemma:</u>** The pullback of the stress tensor $T=T(z)dz\otimes dz + \bar T(\bar z) d\bar z \otimes d\bar z$ under any conformal map $f:\bar{\mathbb{C}} \to \bar{\mathbb{C}}$ is given by
+$$
+f^\ast T = \left[\left(\frac{df}{dz}\right)^{2} T\circ f + \frac{c}{12}\{f;z\}\right]dz\otimes dz +  \left[ \left(\frac{d\bar f}{d\bar z}\right)^2 \bar T\circ f + \frac{c}{12}\{\bar f;\bar z\}\right] d\bar z\otimes d\bar z,
+$$
+where $\{f;z\}$ is the Scwartzian derivative given by
+$$
+\{f;z\} = \frac{f'''(z)}{f'(z)} - \frac{3}{2} \left( \frac{f''(z)}{f'(z)} \right)^2.
+$$
+
+
+***Proof:*** This expression is not obvious. The first term of each component is what we expect the pullback to be classically (which is derived the standard way). The presence of the conformal anomaly in the second term is because in the process of taking the pullback we inevitably encounter  the OPE with the stress tensor itself. There are more steps here, but I am not sure I can calculate them.
+
+Mathematically, we can think of it like so. The stress-tensor (the operator) transforms under the induced representation of the Virasoro algebra on the Hilbert space, while the classical stress-tensor (the tensor field) transforms under the Witt algebra.  Therefore, the appearance of the central charge in the transformation law not unexpected. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Knowing how the stress tensor transforms under a conformal transformation $f$, we can induce the new representation of the Virasoro algebra on the Hilbert space that corresponds to the conformal field theory that "lives" in the domain of the transformation $f$. The way we do so is by defining $T' = f^\ast T$ and the new representation by 
+$$
+\begin{align*}
+\rho_f(L_n) \coloneqq \frac{1}{2\pi i}\int_{C} f^\ast \left(z^{n+1} T\right)
+\end{align*}
+$$
+where $C \subset \mathbb{C}$ is a closed curve that encloses the origin and no other singularities of $T$. Here is an example using the transformation we defined in the previous proposition.
+
+**<u>Proposition:</u>** Under $f(z) = e^{z}$ we have that the holomorphic part of the stress tensor is given by
+$$
+T'(z) = e^{2z} T(e^{z}) - \frac{c}{24}
+$$
+***Proof:*** Plug in $f'=f$ into the formula of the previous lemma.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Similarly we can get the antiholomorphic part. This has the following corollary.
+
+**<u>Corollary:</u>** The Dilation operator $H = \rho(L_0 + \bar L_0)$ and momentum operator $P = \rho(L_0 - \bar L_0)$ are pulled back under $f$ to be
+$$
+\begin{align*}
+H_f &= \rho_f(L_0 + \bar L_0) =\rho(L_0 + \bar L_0) - \frac{c}{12} = H-\frac{c}{12}\\
+P_f &= \rho_f(L_0 - \bar L_0) =\rho(L_0 - \bar L_0) = P.
+\end{align*} 
+$$
+
+
+This is all that our Lie algebra representation knows about transformations. Here is an example.
+
+**<u>Example:</u>** Consider translations by $\tau \in \mathbb{C}$ of our new theory obtained by pullback under $f(z) = e^{iz}$. 
+
+
+
+
+
+
+
 ## Partition Functions
 
 What we will show here, is that a partition function for a conformal field theory gives us information about the structure of the Virasoro level decomposition of the Hilbert space of the CFT! To do this, however, we would have to be able to define it using a path integral somehow, which is not possible for compact domains. This is where tori come to play. 
@@ -264,8 +337,6 @@ $$
 $$
 
 The interesting result of this, however, is that these look so much like [characters](../Quantum_Fields/Minimal_Models.md#Characters-for-Rational-Modules)! In fact, we will see that modular invariance of the partition function will help us calculate the operator algebra for minimal models by solving for characters.
-
-
 
 
 

@@ -174,11 +174,11 @@ What is interesting about singular vectors? Primarily that they constrain the co
 
 
 
-# Definitions
+# Definition
 
 We are finally ready to define a Minimal model!
 
-**<u>Definition:</u>** A conformal field theory is a **minimal model** iff its associated Hilbert space can be written as a direct sum of irreducible tensor products of holomorphic and antiholomorphic Virasoro modules that is closed under fusion. 
+**<u>Definition:</u>** A conformal field theory is a **minimal model** iff its associated Hilbert space can be written as a direct sum of finitely many irreducible tensor products of holomorphic and antiholomorphic Virasoro modules that is closed under fusion.
 
 This has a very interesting property.
 
@@ -205,10 +205,34 @@ for some integers $p,q \in \mathbb{Z}$ such that $0<p<r$ and $0<q<s$.
 
 (1) Via the state-field correspondence, a conformal primary is associated to a cyclic vector in a Virasoro submodule of the theory. Since there are finitely many of them, there are finitely many cyclic vectors. Additionally, since we have the description in terms of irreducible representations we can't find a different decomposition into Virasoro modules with more terms.
 
-(Corollary) By (2) the representations are rational. Therefore the central charge (which is shared by all of them otherwise it wouldn't be a cft) defines the two coprime indices. Representations of conformal weights with Kac indices greater than those are either prohibited by fusion or by periodicity. 
+(Corollary) By (2) the representations are rational. Therefore the central charge (which is shared by all of them otherwise it wouldn't be a cft) defines the two coprime indices. Representations of conformal weights with Kac indices greater than those are either prohibited by fusion or by periodicity.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+
+**<u>Corollary:</u>** All minimal models have $c<1$.
+
+
+
+## Direct Sum Decomposition into Primaries
+
+Another way of expressing Minimal models is through the decomposition into irreducible highest weight Virasoro modules $W(c,h)$ (that we define [here](../Quantum_Fields/Virasoro_Algebra.md#Reducing-Representations)).
+
+**<u>Proposition:</u>** The Hilbert space of a minimal model with central charge $c$ can be written as 
+$$
+\mathcal{H} = \bigoplus_{h,\bar h} M_{h,\bar h} W(c,h)\otimes W(c,\bar h),
+$$
+where $M_{h,\bar h} \in \mathbb{N}$ is the number of copies of the module $W(c,h)\otimes W(c,\bar h)$, i.e. 
+$$
+2W(c,h)\otimes W(c,\bar h) \coloneqq [W(c,h)\otimes W(c,\bar h)] \oplus [W(c,h)\otimes W(c,\bar h)],
+$$
+and $W(c,h)$ is the reduced Verma module $M(c,h)$ given by quotienting the singular subrepresentations. 
+
+***Note:*** The multiplicities $M_{h,h}$ of each module are given by fusion. However, as we will see soon, we can calculate them (or at least constrain them) from modular invariance by constraining the partition function. 
+
+
+
+
 
 
 
