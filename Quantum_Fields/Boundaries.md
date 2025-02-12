@@ -282,8 +282,39 @@ P_f &= \rho_f(L_0 - \bar L_0) =\rho(L_0 - \bar L_0) = P.
 \end{align*} 
 $$
 
-
 This is all that our Lie algebra representation knows about transformations. Here is an example.
+
+***Proof:*** The related vector field to dilation in the conformal sphere (minus the poles) is given by 
+$$
+X_{H} = -z \frac{\partial }{\partial z} - \bar z \frac{\partial }{\partial \bar z }.
+$$
+Notice that we can pull this back to $\mathbb{C}\setminus \{0\}$ at least locally since $e^{iz}$ is a diffeomorphism $f:\mathbb{R}\times (0,2\pi)\subset \mathbb{C} \to\mathbb{C}\setminus\{0\}$. So the pushforward of $f$ is a linear isomorphism of tangent spaces. As a result, using $w$ to denote the coordinate of $(0,2\pi) \times \mathbb{R}$ and $z$ for the coordinate of $\mathbb{C}\setminus\{0\}$ as is conventional we have that
+$$
+\begin{align*}
+f_\ast \frac{\partial }{\partial w} = ie^{iw} \frac{\partial }{\partial z} = iz \frac{\partial }{\partial z} && f_\ast \frac{\partial }{\partial \bar w} = -ie^{\bar w} \frac{\partial }{\partial \bar z} = -i\bar z \frac{\partial }{\partial \bar z}.
+\end{align*}
+$$
+Therefore we can see that the pullback of $X_H$ is
+$$
+X_{H_{f}} = \left( f_{\ast} \right)^{-1} X_H = i\frac{\partial }{\partial w} - i\frac{\partial }{\partial \bar w } = -\frac{\partial }{\partial y},
+$$
+or otherwise known as the translation vector field along the imaginary axis (in the opposite direction). Similarly, for the momentum operator, the related vector field on the sphere is given by
+$$
+X_P = -z \frac{\partial }{\partial z} + \bar z \frac{\partial }{\partial \bar z },
+$$
+ hence its pullback is
+$$
+X_{P_{f}} = \left( f_\ast \right)^{-1}X_P = i\frac{\partial }{\partial w} + i\frac{\partial }{\partial \bar w} = i \frac{\partial }{\partial x}.
+$$
+Now that we have pulled back our vector fields, we can finally obtain the pullback Virasoro generators by contracting with the pullback of the stress tensor and then integrating along a "spacelike" slice.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+
+
+ 
 
 **<u>Example:</u>** Consider translations by $\tau \in \mathbb{C}$ of our new theory obtained by pullback under $f(z) = e^{iz}$. 
 
