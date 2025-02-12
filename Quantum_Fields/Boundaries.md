@@ -334,7 +334,7 @@ Therefore the Hamiltonian of the theory defined on the torus would be the Viraso
 $$
 H_{\tau} = -iH\, \Im \tau -  P \, \Re \tau ,
 $$
-where $H = L_0 + \bar L_0 - \frac{c}{12}$ is the generator of translations in the imaginary direction of the conformal cylinder, and $P = L_0 - \bar L_0$ is the generator of translations on the real direction on the conformal cylinder. *The reason for the $-i$ in front of the Hamiltonian is because we have performed a Wick rotation, therefore we are actually evolving by an amount* $t=-i\text{Im\,}\tau$. 
+where $H = L_0 + \bar L_0 - \frac{c}{12}$ is the generator of translations in the imaginary direction of the conformal cylinder, and $P = L_0 - \bar L_0$ is the generator of translations on the real direction on the conformal cylinder. *The reason for the $-i$ in front of the Hamiltonian is because we have performed the transformation to the cylinder $z = e^{iw}$ we are actually evolving by an amount* $t=-i\text{Im\,}\tau$. 
 
 **<u>Definition:</u>** For a given automorphism $A : \mathcal{H} \to \mathcal{H}$ of some Hilbert space $\mathcal{H}$, its **partition function** $Z_A \in \mathbb{R}$ is defined as the trace
 $$
@@ -364,14 +364,10 @@ Z(\tau)
 $$
 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 The interesting result of this, however, is that these look so much like [characters](../Quantum_Fields/Minimal_Models.md#Characters-for-Rational-Modules)! In fact, we will see that modular invariance of the partition function will help us calculate the operator algebra for minimal models by solving for characters.
-
-
-
-
 
 
 
