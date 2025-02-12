@@ -106,12 +106,43 @@ F =(v_+ - v_-) \otimes \frac{\ast dr}{2r^3}
 $$
  where $H(r)v_\pm = \pm v_\pm$. This is pretty cool because of the cohomology of $S^2$! In other words there must be a discontinuity on the $A$ since a closed form in $S^2$ is not exact. $H^0(S^2) = \mathbb{R}$ and $H^2(S^2) = \mathbb{R}$. The rest are $\emptyset$.
 
+# Integer Quantum Hall Effect
+
+We have seen that classically, the resistance as a function of the magnetic field under the setup is linear with gradient being the charge density of the superconductor. However, quantum mechanically this depends on the Landau levels of this. Let's explore that.
+
+## Coordinate transformation.
+
+Consider the following Hamiltonian for the electron in the conductor. 
+$$
+H  = \frac{1}{2}\left[p_x^2 + \left(p_{y} - ieA\right)^2 \right],
+$$
+where $A$ is the magnetic potential $A = \hat y Bx$. Therefore we can do the natural coordinate transformation to obtain new momenta (notice that we are just adding the connection to the magnetic field). Let's solve for stationary state $\psi \in L^2(\mathbb{R}^2)$ such that
+$$
+H\psi = E \psi.
+$$
+We find that
+$$
+\psi = e^{iky} f(x),
+$$
+form a basis as long as $f(x)$ satisfies 
+$$
+Hf = Ef \iff -\frac{\partial^2 \psi}{\partial x^2} + \left(x - k\right)^2 \psi = E \psi,
+$$
+up to some constants. 
 
 
 
+## Degeneracy
 
+Therefore solutions to these are Hermite polynomials! The energy levels are
+$$
+E_n = n + \frac{1}{2},
+$$
+with the amazing property that they are ultra-degenerate. We can play with compact boundary conditions for the conductor and what we find is that the degeneracy of the energy levels is proportional to the area. We get this by saying that the center of the probability distribution should be inside the material.
 
+That's why it makes sense to define a quantity that is the proportionality constant to the degeneracy and the area. This is $n_B$ and we call this the degeneracy per unit area. Since all the electrons are polarized along the magnetic field, we can put only one in each energy state. So given the number of electrons and the degeneracy we can find the energy of the conductor. 
 
+We can also derive that the degeneracy also depends linearly on $\sqrt B$. Therefore as a function of $B$ the energy increases stepwise!   
 
 
 
