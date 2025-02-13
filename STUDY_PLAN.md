@@ -54,7 +54,7 @@ Studying semisimple lie algebras and their representations with applications to 
     - [ ] **Problems:** 2.7.5, 2.7.7, 2.7.11, 2.7.13, 2.7.14
   - [ ] Semisimple, Compact Lie Algebras (H: ch. 2.4)
     - [ ] **Problems:** 2.7.10
-  - [ ] *Homotopy Groups of Lie Groups (H: ch. 2.7)
+  - [ ] Homotopy Groups of Lie Groups (H: ch. 2.7)
 
 
 
@@ -70,5 +70,6 @@ Studying semisimple lie algebras and their representations with applications to 
   - [x] Irreducible Rational Modules
   - [x] Define Minimal Models
   - [x] Derive the Fusion rules and correct Di Francesco
-  - [ ] Fully describe and motivate Ising sectors using TDLs
-  - [ ] Finally apply stupid $\mathbb{Z}_2$.
+  - [x] Fully describe and motivate Ising sectors using TDLs
+  - [ ] Do some examples to play with TDLs
+  - [x] Finally apply stupid $\mathbb{Z}_2$.
