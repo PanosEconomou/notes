@@ -8,7 +8,7 @@ We go over some examples of commonly encountered minimal models in 2D CFT as wel
 
 As we have seen in [here](../Quantum_Fields/Virasoro_Algebra.md), a representation $\rho: \text{Vir} \to \text{End}(V)$  of the highest weight representation of a Virasoro Algebra is called a **Virasoro module.** If, in addition, the elements of the form $\rho(L_{-n_1})\rho(L_{-n_2})\cdots\rho(L_{-n_k}) v$ form a basis, where $v$ is the vacuum vector of $V$, then $V$ is called a **Verma module**. What is interesting is that Verma modules are indecomposable, but not (in general) irreducible!
 
-Remember indecomposable is being able to find two proper subresentations whose direct sum is isomorphic to the full Verma module not just as a vector space, but also as a representation. While irreducible, is simply being able to find a proper subrepresentation. One can take the vector space quotient but it isn't necessary  that the resulting thing will be naturally isomorphic **as a module** to the vector space decomposition by the quotient.
+Remember indecomposable is being able to find two proper subreprsentations whose direct sum is isomorphic to the full Verma module not just as a vector space, but also as a representation. While irreducible, is simply being able to find a proper subrepresentation. One can take the vector space quotient but it isn't necessary  that the resulting thing will be naturally isomorphic **as a module** to the vector space decomposition by the quotient.
 
 
 
@@ -229,8 +229,6 @@ $$
 and $W(c,h)$ is the reduced Verma module $M(c,h)$ given by quotienting the singular subrepresentations. 
 
 ***Note:*** The multiplicities $M_{h,h}$ of each module are given by fusion. However, as we will see soon, we can calculate them (or at least constrain them) from modular invariance by constraining the partition function. 
-
-
 
 
 
