@@ -313,7 +313,16 @@ Taking all of them together we find that $M = \mathbb{I}$.
 
 This is fantastic! The only thing that is left is to find out the fusion rules. To do so, we will use singular vectors.
 
-As we have explored before the Verma module $M(\frac{1}{2},0)$ has a null vector at level $1$. There is only one linearly independent vector there, which is $\rho(L_{-1}) v_0$. This gives the following equation on the the three point correlation functions.
+As we have explored before the Verma module $M(\frac{1}{2},0)$ has a null vector at level $1$. There is only one linearly independent vector there, which is $\rho(L_{-1}) v_0$. For $M(\frac{1}{2},\frac{1}{16})$ and $M(\frac{1}{2},\frac{1}{2})$ there is a singular vector at level $2$. Using these to constrain the 3-point correlation functions we obtain the following Fusion rules. 
+$$
+\begin{align*}
+W_0 \odot W &= W\\
+W_{\frac{1}{16}} \odot W_{\frac{1}{16}}  &= W_0 \oplus W_{\frac{1}{2}}\\
+W_{\frac{1}{16}} \odot W_{\frac{1}{2}} &= W_{\frac{1}{16}}\\
+W_{\frac{1}{2}} \odot W_{\frac{1}{2}} &= W_0.
+\end{align*} 
+$$
+Where $W_\alpha =W(\frac{1}{2},\alpha)$. This creates a fusion ring with a basis $B = \{W_0,W_{\frac{1}{16}},W_{\frac{1}{2}}\}$ under fusion and direct sums. By the way, this is called the **Ising fusion ring**. We will see that the defects of the Ising model also form the same fusion ring. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
@@ -322,7 +331,7 @@ $$
 
 We have a way, using modular invariance, to over-constrain the multiplicity of the highest weight modules that can appear in our theory. We also have a way, using unitarity and Kac's theorem, to find out which irreducible highest weight modules can appear. What we are left to constrain is how to obtain fusion rules. 
 
-We already have a way to do so using highest weight vectors, as we saw in the previous example. 
+We already have a way to do so using highest weight vectors, as we saw in the previous example. But what I skipped there is 2 days of tedious calculations. It is not simple to obtain them using singular vectors directly, especially for more complicated models. So let's try to develop a new methodology. 
 
 
 
