@@ -17,9 +17,11 @@ Category theory with the goal of building up a rigorous understanding of fusion 
 - [ ] [1.5 week] Categoryficaiton **(EGNO ch. 1-3)**
   - [x] [2-3 days] Abelian Categories **(EGNO ch. 1)**: Additivive and Abelian categories, Exact sequences, Jordan-Hölder theorem, Delingue tensor product, Group cohomology.
   - [ ] [1 week] Monoidal Categories and Rings **(EGNO ch. 2 & 3)**: Unit objects, Monoidal functors, Mac Lane strictness theorem, Coherence theorem, Rigid categories, Frobeneus-Perron theorem, Graded based rings, Complexification.
-- [ ] [2.5 weeks] Tensor Categories **(EGNO ch. 4-7)**
+- [ ] [3 weeks] Tensor Categories **(EGNO ch. 3-7)**
+  - [x] [2 days] Useful Rings **(EGNO ch. 3)**: $\mathbb{Z}_+$ rings, fusion rings, multifusion rings. 
   - [ ] [1.5 week] Constructions **(EGNO ch. 4)**: (Multi-) tensor categories, Grothendieck ring, Semisimplicity and products, Quantum traces, Chevalley property, Groupoids, Adjoint subcategories.
   - [ ] [1 week] Hopf Algebras and their Representations **(EGNO ch. 5)**
+  
 
 
 
@@ -60,7 +62,7 @@ Studying semisimple lie algebras and their representations with applications to 
 
 ## Minimini Problem
 
-- [ ] Figure out the $\mathbb{Z}_2$ matrix representations of the symmetries in the three twisted sectors of 2D Ising model.
+- [x] Figure out the $\mathbb{Z}_2$ matrix representations of the symmetries in the three twisted sectors of 2D Ising model.
   - [x] Practice Verma Modules
   - [x] Learn Characters
   - [x] Baby Fusion rules
@@ -71,5 +73,5 @@ Studying semisimple lie algebras and their representations with applications to 
   - [x] Define Minimal Models
   - [x] Derive the Fusion rules and correct Di Francesco
   - [x] Fully describe and motivate Ising sectors using TDLs
-  - [ ] Do some examples to play with TDLs
+  - [x] Do some examples to play with TDLs
   - [x] Finally apply stupid $\mathbb{Z}_2$.
