@@ -8,4 +8,5 @@
 
 - [Abelian Categories](Abelian_Categories.md)
 - [Category Theory](Categories.md)
+- [Fusion](Fusion.md)
 - [Monoidal Categories](Monoidal_Categories.md)

@@ -10,6 +10,7 @@ Formal Quantum Field Theory including CFT preliminaries and Wightman QFT
 - [Axiomatic QFT](Axiomatic_QFT.md)
 - [Conformal Boundaries](Boundaries.md)
 - [Conformal Group](Conformal_Group.md)
+- [Minimal Models](Minimal_Models.md)
 - [Path Integrals](Path_Integrals.md)
 - [Renormalization Group](Renormalization_Group.md)
 - [Spinors](Spinors.md)
