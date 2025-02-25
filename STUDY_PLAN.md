@@ -35,6 +35,7 @@ A small review of minimal models primarily designed to give a bit of tangible CF
 
 - [x] [3 weeks] Virasoro Algebra and Representations **(S ch. 4-6)**
 - [x] [1 week] Minimal Models **(DF ch. 7,8)**
+- [ ] [3 days] Learn Gauging of Discrete Symmetries using defects **(Yifan TASI L4)**. 
 
 
 
