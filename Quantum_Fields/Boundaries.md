@@ -408,7 +408,7 @@ This is very nice condition! In essence, our symmetry was reduced by half by imp
 $$
 \frac{\partial }{\partial y} = -i\left(\frac{\partial }{\partial z} - \frac{\partial }{\partial \bar z}\right) = i \left( l_{-1} - \bar l_{-1} \right),
 $$
-on the real axis, where $l,\bar l$ are the representations of the generators of the $\text{Witt}$ algebra as defined in the conformal sphere in a regular cft.  Since the stress tensor $T = Tdz^2 + \bar T d\bar z^2$ induces a representation of the new algebra on the fields (through the conserved currents), the representation of $\frac{\partial }{\partial y}$ must vanish on the boundary. 
+on the real axis, where $l,\bar l$ are the representations of the generators of the $\text{Witt}$ algebra as defined in the conformal sphere in a regular cft.  Since the stress tensor $T = Tdz^2 + \bar T d\bar z^2$ induces a representation of the new algebra on the fields (through the conserved currents), the representation of $\frac{\partial }{\partial y}$ must vanish on the boundary. Otherwise we would have that our theory has an extra conserved current that just the ones that can be obtained by conformal symmetry which we identified.
 
 *Notice that this statement is equivalent to saying that no energy flows along the boundary since any conserved current associated with the perpendicular direction to the boundary must vanish.*
 
