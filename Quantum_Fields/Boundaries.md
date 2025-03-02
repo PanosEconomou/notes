@@ -314,7 +314,7 @@ $$
 
 
 
- 
+
 
 **<u>Example:</u>** Consider translations by $\tau \in \mathbb{C}$ of our new theory obtained by pullback under $f(z) = e^{iz}$. 
 
@@ -383,38 +383,48 @@ Therefore, we have to refine what we mean by conformal invariance. The easiest w
 $$
 f^\ast g = \Omega^2 g,
 $$
-where $g$ is the metric on $\overline{\mathbb{H}}$ and such that $f(z,\bar z) = \overline {f(z,\bar z)}$ whenever $z = \bar z$. This restricts the representations of the Virasoro algebra we have in our theory.
+where $g$ is the metric on $\overline{\mathbb{H}}$ and such that $f(z,\bar z) = \overline {f(z,\bar z)}$ whenever $z = \bar z$. This restricts the representations of the Virasoro algebra we have in our theory. 
 
-In particular, we have shown that the full set of conformal transformations in $\mathbb{C}$ is given by the holomorphic and antiholomorphic maps on $\mathbb{C}$. Here is how we can find the restriction on which antiholomorphic transformations we have.
+**<u>Theorem:</u>** The local conformal transformations that preserve the real axis on $\overline{\mathbb{H}}$ form a representation of the $\text{Witt}$ algebra. 
 
-**<u>Theorem:</u>** *(Analytic Continuation)* If $f$ is an analytic function on an open subset $U\subset \mathbb{C}$ and $V \supset U$ is another open subset of $\mathbb{C}$ containing $U$ then there is a unique analytic function $F:V\to \mathbb{C}$ such that
+***Proof:*** We know that conformal transformations are either holomorphic or antiholomorphic functions. Therefore they must form a representation of $\text{Witt}\oplus \text{Witt}$ as we have shown before. Now without loss of generality assume that a local conformal transformation is given by the Laurent expansion
 $$
-F(x) = f(x), \ \forall x\in U.
+f(z) = f_n z^{n+1}.
 $$
-In this particular case, consider an analytic function $f:\overline{\mathbb{H}} \to \mathbb{C}$ such that $f(z) = \overline{f(z)}$ whenever $z = \bar z$, and the function
+Since for all $x \in \mathbb{R}$ we must have that $f(x) = \bar f(x)$ then it is true that $f_n = \bar f_n \implies f_n\in \mathbb{R}$. A similar argument applies to the antiholomorphic coefficients. Since $\text{Witt}$ is a complex Lie algebra, this amounts to picking the real part of the Lie algebra for the holomorphic and the imaginary for the anti holomorphic functions. As a result, the full algebra is
 $$
-F(z) = \begin{cases}
-f(z) & z \in \overline{\mathbb{H}}\\
-\bar f(\bar z) & z \in \mathbb{C} \setminus \overline{\mathbb{H}}.
-\end{cases}
+\text{Witt}^+ \oplus \text{Witt}^+ \cong \text{Witt}.
 $$
-Then $F: \mathbb{C} \to \mathbb{C}$ is analytic, and satisfies that $F(z) = \overline{F(z)}$ when $\bar z = z$. 
 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
+This is very nice condition! In essence, our symmetry was reduced by half by imposing that the boundary stays put. Here is a more physical interpretation.
 
-> Look up [**modular forms**](https://en.wikipedia.org/wiki/Modular_form)
+**<u>Corollary:</u>** $T(x) = \bar T(x)$ for any $x \in \mathbb{R}$.
 
+***Proof:*** Conformal invariance under the new $\text{Witt}$ (instead of itself squared) algebra implies that since the coefficients for each conformal transformation must be real. Therefore, we would never be able to create a transformation with flow along
+$$
+\frac{\partial }{\partial y} = -i\left(\frac{\partial }{\partial z} - \frac{\partial }{\partial \bar z}\right) = i \left( l_{-1} - \bar l_{-1} \right),
+$$
+on the real axis, where $l,\bar l$ are the representations of the generators of the $\text{Witt}$ algebra as defined in the conformal sphere in a regular cft.  Since the stress tensor $T = Tdz^2 + \bar T d\bar z^2$ induces a representation of the new algebra on the fields (through the conserved currents), the representation of $\frac{\partial }{\partial y}$ must vanish on the boundary. 
 
+*Notice that this statement is equivalent to saying that no energy flows along the boundary since any conserved current associated with the perpendicular direction to the boundary must vanish.*
 
+We can now do some algebra to show
+$$
+T\left( \frac{\partial }{\partial y} \right) = iTdz -i\bar T d\bar z.
+$$
+Taking the pullback to the real line $x+iy \mapsto x$ we have that
+$$
+i\left(T(x) - \bar T(x)\right)dx = 0 \implies  T(x) = \bar T(x).
+$$
+It is possible to make a more careful statement through decomposing the representation of the original CFT. That would involve thinking of the projective representation of the Witt Algebra, induced by the conserved charges, as a subrepresentation of the real part of $\text{Witt} \oplus \text{Witt}$ under some injection $\iota: \text{Witt}^+ \oplus \text{Witt}^+ \to \text{Witt} \oplus \text{Witt}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
-
-
-
-# Twists
-
-Let's look at a particular example to explore some consequences of twisting boundary conditions.
-
-## Free Complex Scalar Field on a Cylinder
 
 
 
