@@ -425,10 +425,19 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
 
+## Boundary Fields
 
 
 
+## Boundary States
 
+
+
+# Conformal Defects
+
+We haven't presented this yet, but the whole point of studying boundaries is so that we can find the possible conformal defects we can add to our theory. There is an identification we can make between the possible boundary states we can add on the boundary theory, and the conformal defects we can add on the unfolded one. 
+
+## Interpreting Boundary States as Conformal Defects
 
 
 
