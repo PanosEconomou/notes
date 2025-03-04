@@ -249,10 +249,9 @@ $$
 \{f;z\} = \frac{f'''(z)}{f'(z)} - \frac{3}{2} \left( \frac{f''(z)}{f'(z)} \right)^2.
 $$
 
+***Proof:*** This expression is not obvious. The first term of each component is what we expect the pullback to be classically (which is derived the standard way). The presence of the conformal anomaly in the second term is because in the process of taking the pullback we inevitably encounter the OPE with the stress tensor itself. There are more steps here, but I am not sure I can calculate them.
 
-***Proof:*** This expression is not obvious. The first term of each component is what we expect the pullback to be classically (which is derived the standard way). The presence of the conformal anomaly in the second term is because in the process of taking the pullback we inevitably encounter  the OPE with the stress tensor itself. There are more steps here, but I am not sure I can calculate them.
-
-Mathematically, we can think of it like so. The stress-tensor (the operator) transforms under the induced representation of the Virasoro algebra on the Hilbert space, while the classical stress-tensor (the tensor field) transforms under the Witt algebra.  Therefore, the appearance of the central charge in the transformation law not unexpected. 
+Mathematically, we can think of it like so. The stress-tensor (the operator) transforms under the induced representation of the Virasoro algebra on the Hilbert space, while the classical stress-tensor (the tensor field) transforms under the Witt algebra.  Therefore, the appearance of the central charge in the transformation law is not unexpected. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
@@ -313,14 +312,7 @@ $$
 
 
 
-
-
-
 **<u>Example:</u>** Consider translations by $\tau \in \mathbb{C}$ of our new theory obtained by pullback under $f(z) = e^{iz}$. 
-
-
-
-
 
 
 
@@ -425,13 +417,25 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-## Boundary Fields
+## Intuition Behind Boundary States
 
+What we want to motivate here is that for each **boundary condition** we can find a **boundary state** that implements it. To understand this statement, let's give intuition and consistency conditions behind the definition of Boundaries. 
 
+The effect of a boundary condition is to assign the value of a field on the boundary of the manifold it lives in. Therefore in some sense we can thing of a boundary condition as a map of the form $\text{Fields} \to \mathbb{C}$. Yet from the operator state correspondence a boundary condition can be thought of as a structure preserving map $\mathcal{H} \to \mathbb{C}$ where $\mathcal{H}$ is the Hilbert space of the theory. Therefore, we can see that a boundary state is an element of $\mathcal{H}^\vee$ the dual space of $\mathcal{H}$. States in $\mathcal{H}$, or series thereof, can define elements of the dual space. Such series are called **boundary states**.
+
+Without any further exploration this idea is useless. However we know that using the OPE one can define an "algebra" of fields for a given conformal theory. In particular that algebra is a **fusion category** $F$ that we have various ways of obtaining.  Therefore, not any state can be a boundary state, it must be a sort of *homomorphism* of $F$. That actually restricts what kind of states we must have, and also provides a way for us to introduce further consistency conditions. 
 
 
 
 ## Boundary States
+
+Let's do that more precisely here. The idea is that any boundary we insert should be invariant under the symmetries we want to keep. In particular in the beginning of this section we saw how that implies that for a boundary on the real line to be conformal $T(x) = \bar T(x)$ for $x\in \mathbb{R}$. 
+
+It is not obvious how we will interpret this as a condition in terms of a state. To do this 
+
+**<u>Proposition:</u>** 
+
+
 
 
 
