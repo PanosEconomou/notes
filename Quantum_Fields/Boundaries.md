@@ -422,10 +422,12 @@ i\left(T(x) - \bar T(x)\right)dx = 0 \implies  T(x) = \bar T(x).
 $$
 It is possible to make a more careful statement through decomposing the representation of the original CFT. That would involve thinking of the projective representation of the Witt Algebra, induced by the conserved charges, as a subrepresentation of the real part of $\text{Witt} \oplus \text{Witt}$ under some injection $\iota: \text{Witt}^+ \oplus \text{Witt}^+ \to \text{Witt} \oplus \text{Witt}$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 ## Boundary Fields
+
+
 
 
 
