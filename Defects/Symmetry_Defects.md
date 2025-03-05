@@ -26,6 +26,8 @@ A QFT is the mechanism by which we convert this data to this correlation functio
 
 While this is a terrible definition, and we will give a more precise one soon, the first part of these notes is to recast our understanding of local operators into something that can be extended. Then we will use symmetry operators as a motivation of such nonlocal defects, and then start stretching the concept until it breaks.
 
+> ***Note:*** Here we motivate defect operators using symmetry operators, but it is important to understand that defect operators have applications far beyond symmetry. The purpose of this though is to show why defects are natural objects to use when describing symmetries.
+
 # Invitation
 
 A QFT comes with a spacetime manifold $M$. When probing the value of some field $\psi : M \to \mathbb{C}$ (almost all fields we probe can be casted into such functions) at a point $x \in M$ we call that a **field operator insertion** of the quantum field operator $\psi(x)$. But clearly we can insert more things.
@@ -90,13 +92,21 @@ Let's go back to the correlation function picture. We have found a relation betw
 
 What that really means is that correlation functions will be the same if we insert $U(\Sigma)$ or $U(\Sigma')$ for some, appropriately, deformed surface $\Sigma'$ (i.e. without crossing any other insertions).
 
-We also learned what happens if a field operator lies on $\Sigma$, as well as what happens when two such defects collide. Now the question is what happens if $\Sigma$ encloses a defect?
-
-
+We also learned what happens if a field operator lies on $\Sigma$, as well as what happens when two such defects collide. Now the question is what happens if $\Sigma$ encloses a defect? We can draw some pictures to show that if $\Sigma$ is some embedding of a codimension 1 sphere on $M$ that encloses $x \in M$ then
+$$
+U(\Sigma) \phi(x) = R_g \phi(x).
+$$
+Here is a series of pictures that playfully justify this.
 
 
 
 ## Open Manifolds?
+
+So far we have been recasting things that we already know, but here is the first way that thinking of defects in this way we can extend our intuition. In particular this notation makes it natural to consider what happens in the case where $\Sigma$ is no longer a boundary-less manifold, aka an open manifold. Let's call its boundary $\gamma = \partial \Sigma$. 
+
+Let's first understand what should happen on the boundary. 
+
+
 
 
 
