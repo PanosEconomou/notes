@@ -9,6 +9,7 @@
 - [**CFT**](CFT)
     - [Free Conformal Field Theories](CFT/Free_Fields.md)
     - [Ising Model](CFT/Ising_Model.md)
+    - [Conformal Defects in Tricritical Ising](CFT/Tricritical_Ising.md)
 - [**Dissipative_QFT**](Dissipative_QFT)
     - [Dissipation Currents](Dissipative_QFT/Dissipation_Currents.md)
 - [**Topological_Paths**](Topological_Paths)
