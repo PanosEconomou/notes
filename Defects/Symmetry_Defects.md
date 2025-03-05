@@ -6,7 +6,9 @@ These are stolen from
 
 1.  [**Generalized Symmetries and their Gauging**](https://youtu.be/tj7JrjbclWA)
 2. [**Generalized Global Symmetries**](https://arxiv.org/pdf/1412.5148)
-3. [**Global Symmetries**](https://www.youtube.com/watch?v=GZvs-ae4YRA)
+3. [**Codimension-2 Defects and Higher Symmetries**](https://arxiv.org/pdf/2208.07367)
+4. [**Path Integrals and Opeartors in QFT**](http://www.hartmanhep.net/topics2015/4-pathintegrals.pdf) 
+5. [**Global Symmetries**](https://www.youtube.com/watch?v=GZvs-ae4YRA)
 
 [toc]
 
@@ -26,7 +28,7 @@ While this is a terrible definition, and we will give a more precise one soon, t
 
 # Invitation
 
-A QFT comes with a spactime which is a manifold we call $M$. When probing the value of some field $\psi : M \to \mathbb{C}$ (almost all fields we probe can be casted into such functions) at a point $x \in M$ we call that an **operator insertion** of the quantum field $\psi(x)$. 
+A QFT comes with a spactime which is a manifold we call $M$. When probing the value of some field $\psi : M \to \mathbb{C}$ (almost all fields we probe can be casted into such functions) at a point $x \in M$ we call that a **field operator insertion** of the quantum field $\psi(x)$. 
 
 The effect of an operator insertion effect on the spacetime configuration can even be appreciated with a path integral! In particular the path integral 
 
