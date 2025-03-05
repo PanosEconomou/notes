@@ -21,6 +21,9 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Conserved Currents](Classical_Physics/Currents.md)
     - [Momentum](Classical_Physics/Momentum.md)
     - [Quantum Mechanics](Classical_Physics/Quantum_Entry.md)
+- [**Defects**](Defects)
+    - [Topological Line Defects](Defects/Line_Defects.md)
+    - [Symmetries as Defects](Defects/Symmetry_Defects.md)
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.
     - [Fibre Bundles](Geometry/Bundles.md)
@@ -135,6 +138,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [**CFT**](Projects/CFT)
         - [Free Conformal Field Theories](Projects/CFT/Free_Fields.md)
         - [Ising Model](Projects/CFT/Ising_Model.md)
+        - [Conformal Defects in Tricritical Ising](Projects/CFT/Tricritical_Ising.md)
     - [**Dissipative_QFT**](Projects/Dissipative_QFT)
         - [Dissipation Currents](Projects/Dissipative_QFT/Dissipation_Currents.md)
     - [**Topological_Paths**](Projects/Topological_Paths)
