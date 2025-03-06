@@ -21,6 +21,8 @@ $$
 $$
 The data that we put is a couple of probes in spacetime $M$. One is for the value of field $\phi$ at point $x \in M$ and the other is for the value of field $\psi$ at point $y \in M$. Implicit in this notation, and often in most cases, are the boundary conditions we set on the fields.
 
+![](_Symmetry_Defects.assets/qft-map.svg)
+
 A QFT is the mechanism by which we convert this data to this correlation function. Recently there is this [growing idea](https://www.youtube.com/watch?v=GZvs-ae4YRA) (2015, aka the year I learned Newton’s laws) that QFT hard to understand partly because we restrict the building blocks for the data we can have to point-like probes like the *field operators* $\phi(x)$. Sure we encounter nonlocal operators, such as the symmetry operators that we talk about here, but we usually treat them as composite objects that a theory *can have* but not as objects that are essential in building it. This leads to our first intuitive definition:
 
 > The (possibly nonlocal) algebraic data fed into a QFT are called **defects**.
@@ -61,6 +63,8 @@ Due to $Q$ being a symmetry charge it is conserved (aka independent of the spati
 
 In path integral quantization we construct states on space-like slices using path integration from our asymptotic boundary with some prescribed boundary conditions. Going over all possible boundary conditions we can construct a set of states $\mathbb{H}_\Sigma$ associated with a codimension-1 spacelike slice $\Sigma$.
 
+![Split In Defect](_Symmetry_Defects.assets/split.svg)
+
 Specifically, given a spacelike slice $\Sigma$ and some boundary conditions in the past, a state $\Psi \in \mathbb{H}_\Sigma$ is a function of field configurations $\left.\phi\right|_\Sigma$ restricted on $\Sigma$ like so
 $$
 \Psi(\left.\phi\right|_\Sigma) = \int_{\left.\psi\right|_\Sigma = \left.\phi\right|_\Sigma} \mathcal{D}\psi\, e^{iS(\psi)},
@@ -75,7 +79,9 @@ We now have states that are defined on $\Sigma$ for our theory. Now we want to p
 $$
 U_g(\Sigma) = \sum_{\psi} \ketbra{g\cdot \psi}{\psi},
 $$
-where the sum runs over all admissible boundary conditions of our theory. In generalized symmetry we refer to this as the **cut and twist** procedure. 
+where the sum runs over all admissible boundary conditions of our theory. We refer to this as the **cut and twist** procedure. Here is a picture.
+
+![Cut and Twist](_Symmetry_Defects.assets/twist.svg)
 
 In summary, we cut our spacetime on $\Sigma$ found the Hilbert space $\mathbb{H}_\Sigma$ on that slice, and then proceeded by transforming all the states according to the symmetry transformations. 
 
@@ -307,12 +313,6 @@ $$
 \langle \sigma(x_1) \sigma(x_2) \cdots \sigma(x_k) \rangle = 0.
 $$
 ***Proof:*** Yes you could show this by calculating the stress tensor and plugging it in to the conformal Ward identity formula. But what's the fun in that! Here is a picture.
-
-
-
-
-
-
 
 
 
