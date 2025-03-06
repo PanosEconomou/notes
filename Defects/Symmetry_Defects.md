@@ -107,7 +107,7 @@ U(\Sigma) \phi(x) = R_g \phi(x).
 $$
 Here is a series of pictures that playfully justify this.
 
-
+![Fusion of Symmetry Defects](_Symmetry_Defects.assets/fusion-symmetry.svg)
 
 **<u>Disclaimer:</u>** What we did here was to perform an **F-move**. Schematically what we did was to pass the defect through a point by pinching it. In this case we could justify that pinching the defect behaves like so in the path integral picture, but soon we will generalize what type of pinching we can have. For now it suffices to say that when a symmetry defect operators fuses with its orientation reversal we get the identity defect. In reality we need some more work to show this in general.   
 
