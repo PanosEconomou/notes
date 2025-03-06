@@ -103,6 +103,8 @@ Here is a series of pictures that playfully justify this.
 
 
 
+**<u>Disclaimer:</u>** What we did here was to perform an **F-move**. Schematically what we did was to pass the defect through a point by pinching it. In this case we could justify that pinching the defect behaves like so in the path integral picture, but soon we will generalize what type of pinching we can have. For now it suffices to say that when a symmetry defect operators fuses with its orientation reversal we get the identity defect. In reality we need some more work to show this in general.   
+
 ## Open Manifolds?
 
 So far we have been recasting things that we already know, but here is the first way that thinking of defects in this way we can extend our intuition. In particular this notation makes it natural to consider what happens in the case where $\Sigma$ is no longer a boundary-less manifold, aka an open manifold. Let's call its boundary $\gamma = \partial \Sigma$. 
@@ -188,27 +190,117 @@ These consistency conditions, however, are enough to illustrate an amazing fact 
 
 ***Proof sketch:*** We can sketch a proof for this by simply using this topological invariance condition we have outlined before. Here is the picture. 
 
+## Example (Maxwell)
+
+Let's do a hello world example in Maxwell. We have a $U(1)$ Yang-Mills theory in $n$ dimensional Minkowski space $M$. The Lagrangian is given by
+$$
+\mathcal{L}(A) = F\wedge \ast F = dA \wedge \ast dA,
+$$
+for some $A \in \Omega^1(M)$ a one form on $M$ called the gauge field. The field strength is $F = dA$ and it is a 2-form, additionally it is closed since $dF = ddA = 0$ by the Bianchi identity on $M$. Therefore $F$ can be thought of as a conserved higher form current, as a result there must be a $n-2-1=n-3$-form symmetry defined by a family of operators on closed $2$-dimensional surfaces $\Sigma$ in $M$ by
+$$
+U_{\alpha}(\Sigma) = e^{i\alpha \int_\Sigma F},
+$$
+where $\alpha \in \mathbb{R}$. By multiplying them we see that these operators form a representation of $U(1)$, where $U_\alpha$ is the representation of $g = e^{i\alpha} \in U(1)$. **This is known as the Magnetic d-3 form symmetry.** 
+
+Extremely similarly we can see that $\ast F$ is also conserved due to the equation of motion $d\ast F = 0$. So it can also serve as a generalized $n-(n-2)-1 = 1$-form symmetry where its operators are defined on closed $n-2$-dimensional surfaces $\Sigma$ as
+$$
+V_\alpha(\Sigma) = e^{i\alpha \int_\Sigma \ast F}.
+$$
+Similarly the $V_\alpha$ operators form a representation of $U(1)$. This is known as the **electric 1-form symmetry**.
+
+With some work we can see that the operators that are charged under the electric 1-form symmetry are Wilson lines associated with lines $L$ given by
+$$
+W_q(L) = e^{2\pi iq \int_L A},
+$$
+for some $q \in \mathbb{Z}$ which we call the **charge** of the Wilson line. This really is a probe for the electric field for an immovable (by the electromagnetic field) particle of electric charge $q$ with worldline $L$. Let's see why this operator is charged under the electric symmetry. 
+
+With the insertion of a Wilson line, the action in the path integral is modified and therefore we obtain the modified equations of motion that become
+$$
+d\ast F\  W_q(L) = q \delta^{n-1}(L) W_q(L).
+$$
+ We can integrate this over a closed $n-1$ surface with boundary a (closed) surface $\Sigma$ such that the line crosses its interior only, and the exponentiate to obtain
+$$
+V_\alpha(\Sigma) W_q(L) = e^{iq\alpha} W_q(L) V_\alpha(\Sigma).
+$$
+So what have we shown? We have shown that the charge of the Wilson line under the electric symmetry is $q$. Or in other words we have shown **Gaus' Law!** Here is a picture at $n=3$. 
 
 
-# Example
 
-
+We can do the same thing with the magnetic symmetry though the charged objects are 't Hooft operators (or monopole operators) which are codimension 3 in spacetime. 
 
 
 
 # Symmetries Beyond Groups
 
+There is another way to generalize symmetries and that is instead of relaxing the **dimension** of the submanifold that our symmetry operator (i.e. our defect) is supported on, we can generalize the way that the defects combine, or *fuse*, with each other. 
+
+The previous axiom was that they must fuse according to the rules they are forming a representation of. Namely
+$$
+U_g(\Sigma) U_h(\Sigma) = U_{gh}(\Sigma).
+$$
+Relaxing this, essentially means that the rules by which defects fuse together do not form a group. For example, there might not be inverses for a defect, or other crazy things. In fact here is a picture of what fusion of defects looks like in general vs special case where the fusion rules are group like. 
+
+
+
+If we want to be slightly more formal we say that the structure that the symmetry defects are a representation of is no longer a Group, but is some kind of abstraction that allows us to not have inverses for example. That abstraction is called a **fusion ring**. 
+
+We won't go into formal details talking about fusion rings and fusion categories, but the idea is that when people in Generalized symmetry talks bring up about fusion rings what they really refer to is the algebraic structure that generalizes the notion of a group of symmetries.  This might sound a bit abstract so let's give a motivating example
+
+
+
+## 2D Ising Conformal Field Theory
+
+We will consider the 2D Ising model in the continuum limit at a temperature right before its phase transition. Without going into the details to actually derive this, the classical Ising model can be thought of as a Conformal Field Theory on the Riemann sphere where every field configuration can be obtained by performing infinitesimal conformal transformations on 3 fields. These are.
+
+1. $\mathbb{1}$: The **identity** operator
+2. $\sigma$: The **spin** operator. The operator that probes the spin at a particular point
+3. $\varepsilon$: The **energy** operator. The operator that probes the energy at a particular point. 
+
+There is a lot of non-trvialities around this identification, but for the sake of moving on and not getting hung up on these details, the identification goes like this
+$$
+\begin{pmatrix}\text{2D Classical}\\\text{Ising Model}\end{pmatrix} \leftrightarrow \begin{pmatrix}\text{1D Quantum}\\\text{Ising Chain}\end{pmatrix} \leftrightarrow \begin{pmatrix}\text{2D Free Fermion}\\\text{Continuum CFT}\end{pmatrix}.
+$$
+So the observables of the 2D Classical Ising model can be mapped to observables in the 1D Quantum Ising chain, and at the continuum we get the 2D CFT of a free fermion, who's observables we map to the spin and energy operator and so on. We call that the Ising CFT. All of these are details are beyond the scope of this motivating example, so let's move on. 
+
+Doing this process we already found the possible $0$-form or point like operators for our theory. From our discussion we expect that corresponding symmetry operators would be line defects (i.e. defects supported on $n-1=2-1=1$ dimensional submanifolds) that we can move around without changing the theory as long as we don't cross any operator insertions. 
+
+However, since our theory is a CFT, this means that all the correlation functions we can build must be invariant under conformal transformations. So not every line operator that is topological that we can write down would be a valid operator for this theory. In other words we might find operators that produce correlation functions that under conformal transformations are not invariant.
+
+Turns out that constraint is suuuper sufficient in this case. In fact, it turns out that all possible topological line defects one can write down can be generated using three! Here they are.
+
+1. $\mathbb{1}$: The **identity defect**. It commutes with everything and does nothing when inserted in the CFT.
+2. $\eta$ The **spin flip defect**. It implements the $\mathbb{Z}_2$ global symmetry of the Ising model where the energy is the same if we flip all the spins.
+3. $\mathcal{N}$: The **duality defect**. It implements the Kramers-Wannier duality, which is a special property of the classical Ising model that it is equivalent to the model defined on the dual lattice. 
+
+I didn't derive why we get these! In fact it shouldn't be obvious about any point of our construction. But have faith that we can find these by searching what defect operators satisfy conformal symmetry.
+
+These defects have the following *fusion rules*.
+
+**<u>Proposition:</u>** Let $U$ be any topological line defect and $L$ be a closed 1-dimensional submanifold in $\mathbb{C}$. Then we have the following fusion rules for the defects above.
+
+1.  $\mathbb{1}(L) U(L) = U(L)$
+2. $\eta(L)\eta(L) = \mathbb{1}(L)$
+3. $\mathcal{N}(L) \eta(L) = \mathcal{N}(L)$
+4. $\mathcal{N}(L)\mathcal{N}(L) = \mathbb{1}(L) + \eta(L)$
+
+By the way here it is in pictures.
+
+From these rules we see clearly that $\eta(L)$ is a representation of $\mathbb{Z}_2$. Additionally, we see that $N$ is not the representation of some group! Why? In order to see it clearly let's see how these defects act on the fields of our CFT. Again, we don't prove this, this is part of the defining data on the defects (even though we could in principle use consistency conditions to derive these).
+
+**<u>Proposition:</u>** Consider an embedding of $S^1$ on $\C$ that encloses a point $x \in \mathbb{C}$. Then the following identities hold.
+
+1. $\eta(S^1) \sigma(x) = -\sigma(x) \eta(S^1)$
+2. $\eta(S^1) \eta(x) = \eta(x) \eta(S^1)$
+3. $N(S^1)\eta(x) = \sqrt{2} \eta(x)N(S^1)$
+4. $N(S^1)\sigma(x) = 0$
+
+ Now check out the 4th identity! HELL NO THIS CAN'T BE INVERTIBLE! Otherwise there would be an inverse defect that would take $0$ and give you $\sigma(x)$ at a particular point. Not a thing. Yet this is a valid defect operator to write down that is just as topological as the other stuff we have seen with group like symmetries. So by relaxing our multiplication laws, or fusion rules, we have gotten a natural extension of what a symmetry could be. 
+
 
 
 ## Defects give Ward Identities
 
+Why is this useful? Well if you know the defects you can get the ward identities. We often do this the other way around but this is one example where we could 
 
 
-## Non-invertible Symmetry
-
-
-
-
-
-# Gauging Using Defects 
 
