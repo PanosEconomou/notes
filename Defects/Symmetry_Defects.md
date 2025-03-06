@@ -300,7 +300,19 @@ From these rules we see clearly that $\eta(L)$ is a representation of $\mathbb{Z
 
 ## Defects give Ward Identities
 
-Why is this useful? Well if you know the defects you can get the ward identities. We often do this the other way around but this is one example where we could 
+Why is this useful? Well if you know the defects you can get the ward identities. We often do this the other way around but this is one example where we can see a familiar application of them.
+
+**<u>Proposition:</u>** In the Ising CFT the following Ward identity holds for odd $k\in \mathbb{N}$
+$$
+\langle \sigma(x_1) \sigma(x_2) \cdots \sigma(x_k) \rangle = 0.
+$$
+***Proof:*** Yes you could show this by calculating the stress tensor and plugging it in to the conformal Ward identity formula. But what's the fun in that! Here is a picture.
+
+
+
+
+
+
 
 
 
