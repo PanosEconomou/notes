@@ -107,13 +107,92 @@ Here is a series of pictures that playfully justify this.
 
 So far we have been recasting things that we already know, but here is the first way that thinking of defects in this way we can extend our intuition. In particular this notation makes it natural to consider what happens in the case where $\Sigma$ is no longer a boundary-less manifold, aka an open manifold. Let's call its boundary $\gamma = \partial \Sigma$. 
 
-Let's first understand what should happen on the boundary. 
-
 The most crucial point is to realize that when we want to define a $U$ defect related to an open surface $\Sigma$ our construction does not yield a unique operator.  
 
 
 
-## Symmetries beyond Points
+# Symmetries beyond Points
+
+There are two ways to generalize symmetries. One is to generalize the type of object that the symmetry operator acts on. So far the symmetries we have discussed where operators that acted on points-like probes, i.e. local fields. However, now we introduced these Defect operators that are significantly different than point-like probes. There must be symmetry transformations for them too! This leads to the concept of **p-form** symmetries.
+
+To study them we will now highlight the lessons we've learned from studying symmetries of point-like operators using defects. 
+
+## What we Learned from Path Integrals
+
+Here is a quick summary of what we learned.
+
+1. An operator that appears in a correlation function is associated with a submanifold of the theory. The dimension of that submanifold is the dimension of the operator.
+2. We can implement symmetry transformations by cutting and gluing the spacetime along a defect.
+3. Symmetry operators act the same in a correlation function even after certain deformations of their manifold, making them in some sense *topological*.
+4. Defect operators can fuse with each other to produce other operators in a way that resembles group multiplication. 
+5. The orientation of the submanifold matters.
+6. A symmetry operator can act on field operators by enclosing them in some way.
+7. There is some ambiguity in defining defect operators on open submanifolds. 
+
+Now with this list of observations to guide our intuition we can turn this on its head and think of symmetries defined by the existence of defect operators that are axiomatized to satisfy the consistency conditions of our theory as well as these observations.
+
+## Generalized Group Symmetry
+
+Here we can finally introduce the terminology **p-form** symmetry that is used very often in the Generalized Symmetry community. The symmetries we are familiar with are called $0$-form symmetries because they objects that transform under them (aka the charged objects under the symmetry) are fields. Fields are functions which in differential geometry speak are known as $0$-forms.
+
+If we want to generalize such that the charge object is a defect operator associated with some submanifold $\Sigma$ of dimension $p$, one way to construct it is to integrate something over the manifold. Like this
+$$
+\mathcal{O}(\Sigma) = \int_\Sigma f(x) d^px.
+$$
+ The mathematical object $f(x)d^px$ is called a $p$-form which is where the name $p$-form symmetry comes from. But ok, how do we implement $p$-form symmetries?
+
+$0$-form symmetry operators acted on local field operators $\psi(x)$ (or $0$-form operators) by enclosing them in a sphere of dimension $n-0-1$, where $n$ is the spacetime dimension. The natural way to enclose a $p$-form operator, i.e. an operator supported on a $p$-dimensional manifold, is by a sphere of dimension $n-p-1$. This motivates the first generalization of these observations on $0$-form symmetries.
+
+> **<u>Necessary Condition 1:</u>** A $p$-form symmetry operator is an $n-p-1$ dimensional defect $U_g$ associated with some group element $g$ that acts on $p$ dimensional defects $V$ like so
+> $$
+> U(S^{n-p-1})V(C) = g \cdot V\ V(C),
+> $$
+> where $S^{n-p-1}$ is the embedding of a sphere in spacetime $M$ such that the $p$ dimensional submanifold $C$ crosses its interior once and not its boundary, and $g\cdot V$ denotes the action by the representation of $g$ that facilitates the symmetry.  
+
+This sounds quite pretentious, but the picture is super simple. 
+
+This has an interesting corollary on the generalization of the **equal time commutator**.
+
+**<u>Corollary:</u>** Assume that $S^{n-p-1}$ is an embedding of an $n-p-1$ dimensional sphere in spacetime $M$ and $C$ is a $p$ dimensional submanifold on $M$ that intersects with the embedded sphere $k$ times. Then if $U_g$ is a $p$-form symmetry operator associated to a group element $g$, and $V$ is $p$-dimensional defect we have that
+$$
+U_g(S^{n-p-1}) V(C) = (g\cdot V)^{k} V(C) U_g(S^{n-p-1}).
+$$
+
+
+Cool! Now let's see other necessary conditions. Another thing we noticed was that for symmetry operators associated with a group, they must be able to be combined in a way that respects group multiplication.
+
+> **<u>Necessary Condition 2:</u>** Let $U_g$ and $U_h$ be $p$-form symmetry operators associated with elements $g,h \in G$ of some symmetry group $G$. Then if $\Sigma$ is an $n-p-1$ dimensional oriented submanifold we have that
+> $$
+> U_g(\Sigma) U_h(\Sigma) = U_{gh}(\Sigma).
+> $$
+> Additionally, if $\bar \Sigma$ is the orientation reversal of $\Sigma$ we have that
+> $$
+> U_{g^{-1}}(\Sigma) = U_g(\bar \Sigma).
+> $$
+
+That helps us facilitate some way of *fusing* operators together. The final thing we observed was that the symmetry operator was invariant under deformations of the associated surface unless it crossed a defect! This leads to the third necessary condition.
+
+> **<u>Necessary Condition 3:</u>** A $p$-form symmetry operator $U(\Sigma)$ associated with a closed manifold $\Sigma$ is invariant under homologous transformations of $\Sigma$ in spacetime with other defects removed.  
+
+The idea behind *homologous transformations* is that $U(\Sigma) = U(\Sigma')$ if you can deform $\Sigma$ to $\Sigma'$ continuously inside $M$ after having removed the manifolds associated with other operator insertions. 
+
+These are by no means enough necessary conditions to define $p$-form symmetry operators. We need them to satisfy consistency conditions such as well defined correlation functions, locality when they're inserted and so on. In these notes we assume that we have found the right consistency conditions without specifying them explicitly, and we will rather mention when we use them in practice. 
+
+
+
+## Abelianness
+
+These consistency conditions, however, are enough to illustrate an amazing fact about higher form symmetries that are associated to groups. 
+
+**<u>Theorem:</u>** If a collection of $p$-form symmetries forms a group, that group is Abelian.
+
+***Proof sketch:*** We can sketch a proof for this by simply using this topological invariance condition we have outlined before. Here is the picture. 
+
+
+
+# Example
+
+
 
 
 
