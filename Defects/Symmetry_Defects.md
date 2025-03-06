@@ -21,7 +21,7 @@ $$
 $$
 The data that we put is a couple of probes in spacetime $M$. One is for the value of field $\phi$ at point $x \in M$ and the other is for the value of field $\psi$ at point $y \in M$. Implicit in this notation, and often in most cases, are the boundary conditions we set on the fields.
 
-![](_Symmetry_Defects.assets/qft-map.svg)
+![QFT as Correlation function builder](_Symmetry_Defects.assets/qft-map.svg)
 
 A QFT is the mechanism by which we convert this data to this correlation function. Recently there is this [growing idea](https://www.youtube.com/watch?v=GZvs-ae4YRA) (2015, aka the year I learned Newton’s laws) that QFT hard to understand partly because we restrict the building blocks for the data we can have to point-like probes like the *field operators* $\phi(x)$. Sure we encounter nonlocal operators, such as the symmetry operators that we talk about here, but we usually treat them as composite objects that a theory *can have* but not as objects that are essential in building it. This leads to our first intuitive definition:
 
