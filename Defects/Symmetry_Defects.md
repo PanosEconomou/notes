@@ -109,7 +109,9 @@ Here is a series of pictures that playfully justify this.
 
 ![Fusion of Symmetry Defects](_Symmetry_Defects.assets/fusion-symmetry.svg)
 
-**<u>Disclaimer:</u>** What we did here was to perform an **F-move**. Schematically what we did was to pass the defect through a point by pinching it. In this case we could justify that pinching the defect behaves like so in the path integral picture, but soon we will generalize what type of pinching we can have. For now it suffices to say that when a symmetry defect operators fuses with its orientation reversal we get the identity defect. In reality we need some more work to show this in general.   
+**<u>Disclaimer:</u>** What we did here was to perform an **F-move**. Schematically what we did was to pass the defect through a point by pinching it. In this case we could justify that pinching the defect behaves like so in the path integral picture, but soon we will generalize what type of pinching we can have. For now it suffices to say that when a symmetry defect operators fuses with its orientation reversal we get the identity defect. In reality we need some more work to show this in general.
+
+
 
 ## Open Manifolds?
 
@@ -153,11 +155,13 @@ $0$-form symmetry operators acted on local field operators $\psi(x)$ (or $0$-for
 
 > **<u>Necessary Condition 1:</u>** A $p$-form symmetry operator is an $n-p-1$ dimensional defect $U_g$ associated with some group element $g$ that acts on $p$ dimensional defects $V$ like so
 > $$
-> U(S^{n-p-1})V(C) = g \cdot V\ V(C),
+> U(S^{n-p-1})V(C) = g \cdot V(C),
 > $$
 > where $S^{n-p-1}$ is the embedding of a sphere in spacetime $M$ such that the $p$ dimensional submanifold $C$ crosses its interior once and not its boundary, and $g\cdot V$ denotes the action by the representation of $g$ that facilitates the symmetry.  
 
 This sounds quite pretentious, but the picture is super simple. 
+
+![Defect Action](_Symmetry_Defects.assets/defect-action.svg)
 
 This has an interesting corollary on the generalization of the **equal time commutator**.
 
@@ -183,6 +187,8 @@ That helps us facilitate some way of *fusing* operators together. The final thin
 > **<u>Necessary Condition 3:</u>** A $p$-form symmetry operator $U(\Sigma)$ associated with a closed manifold $\Sigma$ is invariant under homologous transformations of $\Sigma$ in spacetime with other defects removed.  
 
 The idea behind *homologous transformations* is that $U(\Sigma) = U(\Sigma')$ if you can deform $\Sigma$ to $\Sigma'$ continuously inside $M$ after having removed the manifolds associated with other operator insertions. 
+
+![Isotopy Invariance](_Symmetry_Defects.assets/isotopy.svg)
 
 These are by no means enough necessary conditions to define $p$-form symmetry operators. We need them to satisfy consistency conditions such as well defined correlation functions, locality when they're inserted and so on. In these notes we assume that we have found the right consistency conditions without specifying them explicitly, and we will rather mention when we use them in practice. 
 
