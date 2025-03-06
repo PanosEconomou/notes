@@ -5,10 +5,11 @@ This is a motivation for defining defects and their role in symmetry. The idea i
 These are stolen from
 
 1.  [**Generalized Symmetries and their Gauging**](https://youtu.be/tj7JrjbclWA)
-2. [**Generalized Global Symmetries**](https://arxiv.org/pdf/1412.5148)
-3. [**Codimension-2 Defects and Higher Symmetries**](https://arxiv.org/pdf/2208.07367)
-4. [**Path Integrals and Opeartors in QFT**](http://www.hartmanhep.net/topics2015/4-pathintegrals.pdf) 
-5. [**Global Symmetries**](https://www.youtube.com/watch?v=GZvs-ae4YRA)
+2.  [**Generalized Global Symmetries**](https://arxiv.org/pdf/1412.5148)
+3.  [**Lectures on Generalized Symmetries**](https://arxiv.org/pdf/2307.07547)
+4.  [**Codimension-2 Defects and Higher Symmetries**](https://arxiv.org/pdf/2208.07367)
+5.  [**Path Integrals and Operators in QFT**](http://www.hartmanhep.net/topics2015/4-pathintegrals.pdf) 
+6.  [**Global Symmetries**](https://www.youtube.com/watch?v=GZvs-ae4YRA)
 
 [toc]
 
@@ -49,6 +50,8 @@ $$
 U_g(\Sigma) U_{h}(\Sigma) = U_{gh}(\Sigma),
 $$
 for all $g,h \in G$. 
+
+One fun thing to notice that reversing the orientation of $\Sigma$ to obtain $\bar \Sigma$ we get that $Q(\Sigma) = - Q(\bar \Sigma)$, therefore we have that $U_{g^{-1}}(\Sigma) = U_{g}(\bar \Sigma)$. Which is cute.
 
 Due to $Q$ being a symmetry charge it is conserved (aka independent of the spatial slice $\Sigma$ ) this construction makes the dependence of the surface unclear. Here is another construction of the operator $U(\Sigma)$ that makes the dependence on $\Sigma$ more explicit, and it is more illustrative of how to think of $U(\Sigma)$ as a *defect*.
 
@@ -106,9 +109,11 @@ So far we have been recasting things that we already know, but here is the first
 
 Let's first understand what should happen on the boundary. 
 
+The most crucial point is to realize that when we want to define a $U$ defect related to an open surface $\Sigma$ our construction does not yield a unique operator.  
 
 
 
+## Symmetries beyond Points
 
 
 
@@ -116,10 +121,15 @@ Let's first understand what should happen on the boundary.
 
 
 
+## Defects give Ward Identities
 
+
+
+## Non-invertible Symmetry
 
 
 
 
 
 # Gauging Using Defects 
+
