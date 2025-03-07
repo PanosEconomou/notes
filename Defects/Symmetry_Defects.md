@@ -216,13 +216,13 @@ for some $A \in \Omega^1(M)$ a one form on $M$ called the gauge field. The field
 $$
 U_{\alpha}(\Sigma) = e^{i\alpha \int_\Sigma F},
 $$
-where $\alpha \in \mathbb{R}$. By multiplying them we see that these operators form a representation of $U(1)$, where $U_\alpha$ is the representation of $g = e^{i\alpha} \in U(1)$. **This is known as the Magnetic d-3 form symmetry.** 
+where $\alpha \in \mathbb{R}$. By multiplying them we see that these operators form a representation of $U(1)$, where $U_\alpha$ is the representation of $g = e^{i\alpha} \in U(1)$. **This is known as the Magnetic n-3 form symmetry.** 
 
 Extremely similarly we can see that $\ast F$ is also conserved due to the equation of motion $d\ast F = 0$. So it can also serve as a generalized $n-(n-2)-1 = 1$-form symmetry where its operators are defined on closed $n-2$-dimensional surfaces $\Sigma$ as
 $$
 V_\alpha(\Sigma) = e^{i\alpha \int_\Sigma \ast F}.
 $$
-Similarly the $V_\alpha$ operators form a representation of $U(1)$. This is known as the **electric 1-form symmetry**.
+Similarly the $V_\alpha$ operators form a representation of $U(1)$. This is known as the **Electric 1-form symmetry**.
 
 With some work we can see that the operators that are charged under the electric 1-form symmetry are Wilson lines associated with lines $L$ given by
 $$
@@ -285,7 +285,7 @@ However, since our theory is a CFT, this means that all the correlation function
 Turns out that constraint is suuuper sufficient in this case. In fact, it turns out that all possible topological line defects one can write down can be generated using three! Here they are.
 
 1. $\mathbb{1}$: The **identity defect**. It commutes with everything and does nothing when inserted in the CFT.
-2. $\eta$ The **spin flip defect**. It implements the $\mathbb{Z}_2$ global symmetry of the Ising model where the energy is the same if we flip all the spins.
+2. $\eta$: The **spin flip defect**. It implements the $\mathbb{Z}_2$ global symmetry of the Ising model where the energy is the same if we flip all the spins.
 3. $\mathcal{N}$: The **duality defect**. It implements the Kramers-Wannier duality, which is a special property of the classical Ising model that it is equivalent to the model defined on the dual lattice. 
 
 I didn't derive why we get these! In fact it shouldn't be obvious about any point of our construction. But have faith that we can find these by searching what defect operators satisfy conformal symmetry.
