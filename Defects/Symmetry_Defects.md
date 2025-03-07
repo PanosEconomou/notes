@@ -326,11 +326,17 @@ $$
 $$
 ***Proof:*** Yes you could show this by calculating the stress tensor and plugging it in to the conformal Ward identity formula. But what's the fun in that! Here is a picture.
 
+![Ward Identity on odd spins](_Symmetry_Defects.assets/ward-ising.svg)
 
 
 
 
 
+# Why Study Defects Anyway?
+
+This is really cool, but throughout this discussion we didn't actually show any reason why using defects gives us unique insight on physics. Here is a very short exploration of why. What we did was to generalize symmetries of our theory. In particular, we managed to expand our notion of *symmetries of a physical system*. 
+
+Usually when we study a system we do weird stuff. We find dual systems, we do RG flow, and more. Usually the way we find these is by realizing that symmetries of a system must be conserved. In our case, the fusion category of our system is conserved, which provides more information than merely the traditional 0-form symmetries. For example, the fact that our Fusion categories are conserved under RG flows gives us nonperturbative constraints for things like the IR behavior, or even identifying if two IR descriptions are equivalent, and more! 
 
 
 
