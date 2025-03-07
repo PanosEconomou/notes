@@ -299,18 +299,20 @@ These defects have the following *fusion rules*.
 3. $\mathcal{N}(L) \eta(L) = \mathcal{N}(L)$
 4. $\mathcal{N}(L)\mathcal{N}(L) = \mathbb{1}(L) + \eta(L)$
 
-By the way here it is in pictures.
-
 From these rules we see clearly that $\eta(L)$ is a representation of $\mathbb{Z}_2$. Additionally, we see that $N$ is not the representation of some group! Why? In order to see it clearly let's see how these defects act on the fields of our CFT. Again, we don't prove this, this is part of the defining data on the defects (even though we could in principle use consistency conditions to derive these).
 
 **<u>Proposition:</u>** Consider an embedding of $S^1$ on $\C$ that encloses a point $x \in \mathbb{C}$. Then the following identities hold.
 
 1. $\eta(S^1) \sigma(x) = -\sigma(x) \eta(S^1)$
-2. $\eta(S^1) \eta(x) = \eta(x) \eta(S^1)$
-3. $N(S^1)\eta(x) = \sqrt{2} \eta(x)N(S^1)$
-4. $N(S^1)\sigma(x) = 0$
+2. $\eta(S^1) \varepsilon(x) = \varepsilon(x) \eta(S^1)$
+3. $\mathcal{N}(S^1)\varepsilon(x) = \sqrt{2} \varepsilon(x)\mathcal{N}(S^1)$
+4. $\mathcal{N}(S^1)\sigma(x) = 0$
 
- Now check out the 4th identity! HELL NO THIS CAN'T BE INVERTIBLE! Otherwise there would be an inverse defect that would take $0$ and give you $\sigma(x)$ at a particular point. Not a thing. Yet this is a valid defect operator to write down that is just as topological as the other stuff we have seen with group like symmetries. So by relaxing our multiplication laws, or fusion rules, we have gotten a natural extension of what a symmetry could be. 
+Here is a picture of the two weirdest of them.
+
+![Some of the Ising Defects Fusion Rules](_Symmetry_Defects.assets/ising-rules.svg)
+
+Now check out the 4th identity! HELL NO THIS CAN'T BE INVERTIBLE! Otherwise there would be an inverse defect that would take $0$ and give you $\sigma(x)$ at a particular point. Not a thing. Yet this is a valid defect operator to write down that is just as topological as the other stuff we have seen with group like symmetries. So by relaxing our multiplication laws, or fusion rules, we have gotten a natural extension of what a symmetry could be. 
 
 
 
@@ -323,6 +325,14 @@ $$
 \langle \sigma(x_1) \sigma(x_2) \cdots \sigma(x_k) \rangle = 0.
 $$
 ***Proof:*** Yes you could show this by calculating the stress tensor and plugging it in to the conformal Ward identity formula. But what's the fun in that! Here is a picture.
+
+
+
+
+
+
+
+
 
 
 
