@@ -202,6 +202,10 @@ These consistency conditions, however, are enough to illustrate an amazing fact 
 
 ***Proof sketch:*** We can sketch a proof for this by simply using this topological invariance condition we have outlined before. Here is the picture. 
 
+![Higher p-form Symmetries are Abelian](_Symmetry_Defects.assets/abelian-symmetry.svg)
+
+
+
 ## Example (Maxwell)
 
 Let's do a hello world example in Maxwell. We have a $U(1)$ Yang-Mills theory in $n$ dimensional Minkowski space $M$. The Lagrangian is given by
@@ -234,9 +238,9 @@ $$
 $$
 V_\alpha(\Sigma) W_q(L) = e^{iq\alpha} W_q(L) V_\alpha(\Sigma).
 $$
-So what have we shown? We have shown that the charge of the Wilson line under the electric symmetry is $q$. Or in other words we have shown **Gaus' Law!** Here is a picture at $n=3$. 
+So what have we shown? We have shown that the charge of the Wilson line under the electric symmetry is $q$. Or in other words we have shown **Gauss' Law!** Here is a picture at $n=3$. 
 
-
+![Application of Electric 1-form Symmetry](_Symmetry_Defects.assets/electric-1-form.svg)
 
 We can do the same thing with the magnetic symmetry though the charged objects are 't Hooft operators (or monopole operators) which are codimension 3 in spacetime. 
 
@@ -252,7 +256,7 @@ U_g(\Sigma) U_h(\Sigma) = U_{gh}(\Sigma).
 $$
 Relaxing this, essentially means that the rules by which defects fuse together do not form a group. For example, there might not be inverses for a defect, or other crazy things. In fact here is a picture of what fusion of defects looks like in general vs special case where the fusion rules are group like. 
 
-
+![General Fusion Rules vs Grouplike](_Symmetry_Defects.assets/fusion-rules.svg)
 
 If we want to be slightly more formal we say that the structure that the symmetry defects are a representation of is no longer a Group, but is some kind of abstraction that allows us to not have inverses for example. That abstraction is called a **fusion ring**. 
 
