@@ -41,7 +41,7 @@ A = g_\theta^{-1}\delta_\Sigma\, d\Sigma,
 $$
 up to a sign that I can't really figure out at the moment. So in some sense the insertion of a defect on a closed surface $\Sigma$ corresponds to the coupling with this singular gauge field $A$!
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 This realization is super cool! The idea of twisting the space is equivalent to inserting a singular gauge field. Let's summarize this in the following lemma. Let's introduce some notions first.
 
@@ -71,7 +71,7 @@ $$
 
 ***Proof:*** It vanishes away from $\Sigma$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 
@@ -102,10 +102,33 @@ This means that we can start thinking of open defects as defects that end in oth
 
 
 
+## So what is a Gauge Theory?
+
+Now in order to understand gauging we need to understand what is a gauge theory. A QFT is called a **gauge theory** if it is invariant under gauge transformations. The coupling of gauge fields introduced by defects can be thought of as facilitating gauge transformations. Therefore a theory with a gauged symmetry is somehow invariant under insertions of the associated symmetry defects. 
+
+We can imagine this as obtaining the correlation function by averaging over all correlation functions with all possible symmetry defect insertions. However, as we will see, because of the fusion of defects, and their topological nature, most of the terms in this average cancel out. 
+
 # Gauging Invertible Symmetries
 
-Let's start by the example of Gauging the $\mathbb{Z}_2$ defect. This is known as the orbifold procedure. This is a two step procedure.  
+Before we introduce gauging more rigorously, let's study a motivating example. Throughout this we will use the fact that gauging corresponds to averaging over correlation functions with all possible symmetry defect insertions. The example we will study is that of Gauging the $\mathbb{Z}_2$ defect in a 2D CFT that is local, unitary, on a compact manifold, and has a unique vacuum. 
+
+The procedure we will follow is known as the **orbifold procedure**. The equivalent classical spacetime picture is that if we have a discrete global symmetry that we want to gauge, it would be enough to consider as the target space of our fields the orbifold created by quotienting under the $G$ action. However, because in CFT we are missing the bundle picture it will not be immediately obvious what we are quotienting. 
 
 ## Orbifold
 
- We want to construct a map between *consistent QFTs,* that takes the un-gaged CFT to a gauged CFT. This map is called the **orbifold** and we will carefully define what consistent means in this context. In essence this boils down to locality, unitarity, compactness, and unique ground state, being quantities that are preserved under this map. So let's be more careful. 
+We want to construct a map between *consistent QFTs,* that takes the un-gaged CFT to a gauged CFT. This map is called the **orbifold** and we will carefully define what consistent means in this context. In essence this boils down to locality, unitarity, compactness, and unique ground state, being quantities that are preserved under this map. So let's be more careful.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
