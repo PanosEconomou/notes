@@ -50,10 +50,12 @@ that satisfy the following axioms
    $$
    \begin{align*}
    1_b \circ f = f && g\circ 1_b = g.
-   \end{align*} 
+   \end{align*}
    $$
+   
+3. 
 
-**<u>Notation:</u>** We often call the arrows of a metacategory **morphisms**. 
+**<u>Notation:</u>** We often call the arrows of a metacategory **morphisms**.
 
 One of the first interesting consequences of the arrows in a metacategory is that the identity arrows are unique.
 

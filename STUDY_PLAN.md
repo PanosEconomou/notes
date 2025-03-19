@@ -66,6 +66,16 @@ Studying semisimple lie algebras and their representations with applications to 
 
 
 
+## Tricritical Ising
+
+- [ ] Study the **Ising** as a coset CFT and find the conformal boundaries using its representations. 
+- [ ] Same same for 3 states Potts model.
+- [ ] Extrapolate on how to do this for $SU(2)_8/U(1)$.
+
+You just need to study representation theory of $SU(2)$ from **Di Francesco**.  
+
+
+
 ## Minimini Problem
 
 - [x] Figure out the $\mathbb{Z}_2$ matrix representations of the symmetries in the three twisted sectors of 2D Ising model.
