@@ -27,6 +27,10 @@ Category theory with the goal of building up a rigorous understanding of fusion 
 
 This is not done yet, but still.
 
+## Affine Lie Algebra Representation Theory
+
+Welp it had to be done at some point. These use [Di-Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9) as a table of contents. The main idea is to understand Simple and Affine lie algebras well enough to study WZW and coset CFTs effectively.
+
 
 
 ## Minimal Models
@@ -36,7 +40,7 @@ A small review of minimal models primarily designed to give a bit of tangible CF
 - [x] [3 weeks] Virasoro Algebra and Representations **(S ch. 4-6)**
 - [x] [1 week] Minimal Models **(DF ch. 7,8)**
 - [ ] [1 day] Boundary States **(Makabe ch. 2, Cardy BCFT)**
-- [ ] [3 days] Learn Gauging of Discrete Symmetries using defects **(Yifan TASI L4)**. 
+- [x] [3 days] Learn Gauging of Discrete Symmetries using defects **(Yifan TASI L1-4)**.
 
 
 
