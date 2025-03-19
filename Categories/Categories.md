@@ -215,7 +215,7 @@ Finally, there are some cool results using subcategories.
 
 Now that we know enough about functors it is time to use them! In here we will use it to describe "natural objects." It is often in math that we say that some map "naturally extends" to some other map, or some construction induces some other. We are now ready to make this precise in terms of categories.
 
-**<u>Definition:</u>** Let $A$,  $B$ be categories and $F,G : A\to B$ be functors. A **natural transformation** or **functor morphism** often denoted as $\tau: F\to^{\ast} T$ is a map that assigns to each object $a \in A$ an arrow $\tau_a = \tau c : Fc\to Gc$ such that for every arrow $f:a\to a' \in A$, where $a' \in A$  is some other object of $A$, the following diagram commutes
+**<u>Definition:</u>** Let $A$,  $B$ be categories and $F,G : A\to B$ be functors. A **natural transformation** or **functor morphism** often denoted as $\tau: F\to^{\ast} G$ is a map that assigns to each object $a \in A$ an arrow $\tau_a = \tau a : Fa\to Ga$ such that for every arrow $f:a\to a' \in A$, where $a' \in A$  is some other object of $A$, the following diagram commutes
 $$
 \begin{CD}
 a  @.     Fa  @>\tau a>> Ga\\
@@ -347,7 +347,6 @@ Natural and well defined in terms of sets, so we can extend it to categories.
 $$
 \langle f,g \rangle \circ \langle f',g' \rangle = \langle f\circ f',g\circ g' \rangle.
 $$
-
 
 **<u>Proposition:</u>** Given two categories $A,B$ and their product $A\times B$ there ate two canonical functors $\pi_A : A\times B \to A$ and $\pi_B : A\times B \to B$ called the **projection functors**. Such that for any object $\langle a,b \rangle \in A\times B$ and any arrow $\langle f,g \rangle \in A\times B$ they act by
 $$
@@ -487,7 +486,7 @@ h:\langle f,b \rangle \to \langle g,c \rangle = \vcenter{\xymatrix{
 $$
 These are much easier to think intuitively about. Let's see some examples
 
-**<u>Example:</u>** *(Pointed Sets)* Let $\ast \in \text{Set}$ be the singleton and consider the category of sets below $\ast$. Any map $f:\ast \to s$ where $s \in \text{Set}$ is some set effectively picks an element $f\ast \in s$, so the elements are fully defined by a pointed sets, aka $ \langle p,S \rangle$ where $p\in S$ and $S\in \text{Set}$. The arrows are basepoint preserving maps. In other words, any arrow $f:\langle p,X \rangle \to \langle q,Y \rangle$ has the property that $f(p\ast) = q\ast$ by the diagram above, or in the usual notation where $p = p\ast$ we get $f(p) = q$.
+**<u>Example:</u>** *(Pointed Sets)* Let $\ast \in \text{Set}$ be the singleton and consider the category of sets below $\ast$. Any map $f:\ast \to s$ where $s \in \text{Set}$ is some set effectively picks an element $f\ast \in s$, so the elements are fully defined by a pointed sets, aka $ \langle p,S \rangle$ where $p\in S$ and $S\in \text{Set}$. The arrows are base point preserving maps. In other words, any arrow $f:\langle p,X \rangle \to \langle q,Y \rangle$ has the property that $f(p\ast) = q\ast$ by the diagram above, or in the usual notation where $p = p\ast$ we get $f(p) = q$.
 
 **<u>Example:</u>** *(Abelian pointed groups)* In a similar way we can consider $(\mathbb{Z} \downarrow \text{Ab})$ where any map $f:\mathbb{Z} \to G$ where $G \in \text{Ab}$ is some other Abelian group defines an element of the Abelian groups under $\mathbb{Z}$. This homomorphism is completely defined by some $g\in G$ such that $f(1) = g$. So each element of the comma category is defined by $\langle g,G \rangle$ where $g\in G \in \text{Ab}$. So $(\mathbb{Z}\downarrow \text{Ab})$ contains pointed Abelian groups. The morphisms are going to be base point preserving maps. 
 
@@ -519,13 +518,13 @@ We could play with similar examples, but let's take a break before that. To talk
 
 # Universals
 
-Universals is the formal description of constructions that appear all the time in mathematics and seem connected, and yet are often too different to apply in different categories. This is too abstract to be a useful description we will make it precice by introducting the formal definition and getting the intuition from there. 
+Universals is the formal description of constructions that appear all the time in mathematics and seem connected, and yet are often too different to apply in different categories. This is too abstract to be a useful description we will make it precise by introducing the formal definition and getting the intuition from there. 
 
 ## Definition and Examples
 
-**<u>Definition:</u>** Let $F:D\to C$ be a functor and $c \in C$ be an object. A **universal arrow from** $c$ **to** $F$ is a pair $\langle r,u \rangle$ that consists of an object $r\in D$ and an arrow $u:C\to Fr$ such that for every pair $\langle d,f \rangle$ where $d\in D$ is an object and $f:c\to Fd$ is an arrow of $C$ there is a unique arrow $f’:r\to d$ of $D$ such that $Ff' \circ u = f$.
+**<u>Definition:</u>** Let $F:D\to C$ be a functor and $c \in C$ be an object. A **universal arrow from** $c$ **to** $F$ is a pair $\langle r,u \rangle$ that consists of an object $r\in D$ and an arrow $u:c\to Fr$ such that for every pair $\langle d,f \rangle$ where $d\in D$ is an object and $f:c\to Fd$ is an arrow of $C$ there is a unique arrow $f’:r\to d$ of $D$ such that $Ff' \circ u = f$.
 
-Less confusingly, a universal arrow is such that for every arrow $f$ to $F$ factors uniquely via the univeral arrow such that the following diagram commutes
+Less confusingly, a universal arrow $u$ is such that for every arrow $f$ to $F$ factors uniquely via the univeral arrow such that the following diagram commutes
 $$
 \vcenter{\xymatrix{
 c\ar@{=}[d]\ar[r]^u & Fr\ar@{.>}[d]^{Ff'} & r\ar@{.>}[d]^{f'}\\
@@ -534,7 +533,7 @@ c\ar[r]^f & Fd & d
 $$
 Yeah no, this was more confusing. Let’s list some examples. 
 
-**<u>Example:</u>** *(Bases of Vector Spaces)* Consider the category of all vector spaces over a field $\mathbb{K}$, denoted by $\text{Vec}(\mathbb{K})$ with arrows the linear transformation. Now consider the forgetful functor $U:\text{Vec}(\mathbb{K}) \to \text{Set}$ that takes the vector space to its corresponding set. Now for any set $X \in \text{Set}$ we can find a vector space $V_X$ that has the elements of $X$ as a basis. 
+**<u>Example:</u>** *(Bases of Vector Spaces)* Consider the category of all vector spaces over a field $\mathbb{K}$, denoted by $\text{Vec}(\mathbb{K})$ with arrows the linear transformations. Now consider the forgetful functor $U:\text{Vec}(\mathbb{K}) \to \text{Set}$ that takes the vector space to its corresponding set. Now for any set $X \in \text{Set}$ we can find a vector space $V_X$ that has the elements of $X$ as a basis. 
 
 Now consider the function that takes an $x \in X$ to its corresponding vector in $V_X$. This is the arrow $j:X \to UV_X$. Now each arrow $X\to UW$ for any other vector space $W\in \text{Vec}(\mathbb{K})$ can be written via a linear transformation of the form $f':V_X \to W$, where the basis vectors of $V_X$ are mapped in $W$ to the corresponding elements of $X$ in $UW$. In other words we have that
 $$
@@ -552,7 +551,7 @@ Ok I guess this was slightly contrived.  We can view universality from an object
 
 **<u>Definition:</u>** Let $D$ a category and $F:D\to \text{Set}$ be a functor. A **universal element** of the functor $F$ is a pair $\langle r,e \rangle$ consisting of an object $r \in D$ and an element $e \in Fr$ such that for every pair $\langle d,x \rangle$ where $d \in D$ and $x \in Fd$ there exists a unique arrow $f:r\to d$ such that $(Ff)(e) =x$.
 
-**<u>Example:</u>** *(Equivalence relations)* Consider an equivalence relation $\sim$ on a set $S \in \text{Set}$, the corresponding quotient $S/{\sim}$, and the projection $p:S\to S/{\sim}$ that sends the elements to their equivalence classes. We know that if a function $F:S\to Y$ respects the equivalence relation, it decends to the quotient like so
+**<u>Example:</u>** *(Equivalence relations)* Consider an equivalence relation $\sim$ on a set $S \in \text{Set}$, the corresponding quotient $S/{\sim}$, and the projection $p:S\to S/{\sim}$ that sends the elements to their equivalence classes. We know that if a function $F:S\to Y$ respects the equivalence relation, it descends to the quotient like so
 $$
 \vcenter{
 \xymatrix{
@@ -561,9 +560,9 @@ S/{\sim}\ar@{.>}[r]_{\bar f} & Y
 }
 }.
 $$
-Notice that we drew almost the same diagram as the one in (20)! The only thing missing is the chunk on the side because we haven’t defined our equivalence relation for all sets. However, using universal elements, we can define $\langle S/{\sim},p \rangle$ as a universal element of the functor $F:\text{Set} \to \text{Set}$ that takes a set $Y$ and assigns a set that is comprized of all the functions $f:S\to Y$ that respect the equivalence (i.e. $x\sim y \implies f(x) = f(y)$).
+Notice that we drew almost the same diagram as the one in (20)! The only thing missing is the chunk on the side because we haven’t defined our equivalence relation for all sets. However, using universal elements, we can define $\langle S/{\sim},p \rangle$ as a universal element of the functor $F:\text{Set} \to \text{Set}$ that takes a set $Y$ and assigns a set that is comprised of all the functions $f:S\to Y$ that respect the equivalence (i.e. $x\sim y \implies f(x) = f(y)$).
 
-**<u>Example:</u>** *(Tensor Products)* Let $V,W$ be two finite dimensional vector spaces over a field $\mathbb{K}$ and consider the function $F$ that assigns to each vector space $U$ the set of all bilieanr functions $V\times W \to U$. This is the object function of a functor $F: \text{Vec}(\mathbb{K})\to \text{Set}$. Notice that the tensor product $V\otimes W$ along with the map $\otimes : V\times W \to V\otimes W$ is a universal element for the functor $F$. 
+**<u>Example:</u>** *(Tensor Products)* Let $V,W$ be two finite dimensional vector spaces over a field $\mathbb{K}$ and consider the function $F$ that assigns to each vector space $U$ the set of all bilinear functions $V\times W \to U$. This is the object function of a functor $F: \text{Vec}(\mathbb{K})\to \text{Set}$. Notice that the tensor product $V\otimes W$ along with the map $\otimes : V\times W \to V\otimes W$ is a universal element for the functor $F$. 
 
 In other words, if we are able to define the functor $F$ we are able to define the tensor product as the universal element of it.
 
@@ -587,32 +586,32 @@ Coproducts are very common constructions that we have seen before. Here are some
 
 
 
-The coproduct is, intuitively, a construction that allows for some kind of preservation of both structures “as is.” Another interesting example is one of a preorder. Given a preorder $P$ and two objects $a,b \in P$ the least upper bound $a\smallsmile b$  of both, if it exists, is a coproduction of $a,b$. As we can see it separately preserves the order structure of both $a$ and $b$. Let’s see the formal definition. 
+The coproduct is, intuitively, a construction that allows for some kind of preservation of both structures “as is.” Another interesting example is one of a preorder. Given a preorder $P$ and two objects $a,b \in P$ the least upper bound $a\smallsmile b$  of both, if it exists, is a coproduct of $a,b$. As we can see it separately preserves the order structure of both $a$ and $b$. Let’s see the formal definition. 
 
 **<u>Definition:</u>** Given any category $C$, the **diagonal functor** $\Delta : C \to C\times C$ has the object function $c\mapsto \langle c,c \rangle$ and the arrow function $f \mapsto \langle f,f \rangle$. 
 
 Why? Because we will need it right now. 
 
-**<u>Definition:</u>** Given a category $C$, a universal arrow from an object $\langle a,b \rangle \in C\times C$ of the diagonal functor is called a **coproduct diagram.** It consists of an oject $c \in C$ and an arrow $\langle a,b \rangle\to \Delta c = \langle c,c \rangle$  or equivalently a pair of arrows $i:a\to c$ and $j:b\to c$. . Then $c = a \coprod b$ is called the **coproduct object** and the corpoduct diagram is
+**<u>Definition:</u>** Given a category $C$, a universal arrow from an object $\langle a,b \rangle \in C\times C$ of the diagonal functor is called a **coproduct diagram.** It consists of an object $c \in C$ and an arrow $\langle a,b \rangle\to \Delta c = \langle c,c \rangle$  or equivalently a pair of arrows $i:a\to c$ and $j:b\to c$. . Then $c = a \coprod b$ is called the **coproduct object** and the coproduct diagram is
 $$
 a \xrightarrow i a\coprod b \xleftarrow j b.
 $$
 
 
-The secret to the coproduct structure comes when considering the universal property. Since  the coproduction diagram is universal, for any object $d \in C$ and any arrow $\langle f,g \rangle : \langle a,b \rangle \to \Delta d = \langle d,d \rangle $ there exists a unique arrow $h$ such that the following diagram commutes
+The secret to the coproduct structure comes when considering the universal property. Since  the coproduct diagram is universal, for any object $d \in C$ and any arrow $\langle f,g \rangle : \langle a,b \rangle \to \Delta d = \langle d,d \rangle $ there exists a unique arrow $h$ such that the following diagram commutes
 $$
 \vcenter{\xymatrix{
 a\ar[r]^i\ar[dr]_f & a\coprod b\ar@{.>}[d]^h & b\ar[l]_j\ar[dl]^g\\
 & d
 }}.
 $$
-The universality property is that maps “decend” to the coproduction through the corresponding injections of the objects in their coproduct. As a result, we have that the coproduct necessarily preserves the structure of the two objects, which is neat. 
+The universality property is that maps “descend” to the coproduct through the corresponding injections of the objects in their coproduct. As a result, we have that the coproduct necessarily preserves the structure of the two objects, which is neat. 
 
 
 
 ## Colimits
 
-The construction of the coproduction generalizes further! A coproduct is only an example of a colimit. Here we will breifly introduce more just for fun before we provide the big definition.
+The construction of the coproduct generalizes further! A coproduct is only an example of a colimit. Here we will briefly introduce more just for fun before we provide the big definition.
 
 **<u>Definition:</u>** Let $C$ be a category that contains a null object $0 \in C$ such that for any two objects $b,c \in C$ there is a zero arrow $0:b\to 0 \to c$. Then the **cokernel** of $f:a\to b$ is an arrow $u:b\to e$ such that $u\circ f = 0:a\to c$ and for any $h:b\to d$ such that $h\circ f = 0$ then $h = h' \circ u$ for a unique arrow $h':c\to d$. In picture words
 $$
@@ -621,7 +620,7 @@ a\ar[r]^f & b\ar[r]^u\ar[dr]_h & c\ar@{.>}[d]^{h'} & u\circ f =0\\
 	& 	& d & h\circ f = 0.
 }
 $$
-This is smelling very universal already, by the decending property of $h$ through the cokernel $c$. 
+This is smelling very universal already, by the descending property of $h$ through the cokernel $c$. 
 
 **<u>Example:</u>** *(Abelian Cokernels)* In the category of Abelian groups $\text{Ab}$ with arrows the group homomorphisms the cokernel of $f:A \to B \in \text{Ab}$ is the projection $B\to B/\text{Im\,}f$, the quotient group formed by the image of $f$. 
 
@@ -633,9 +632,9 @@ Another example of a colimit (that we introduce before the formal definition of 
 
 I will not draw this diagram, because the infinite, or $X$-fold coproduct is exactly the same as before. Similarly we can define copowers.
 
-**<u>Definition:</u>** if $a = \{a_x = a \in C \mid x\in X\} \in C^X$ is an object comprized with the same factors $a_x$, then we call the coproduct of $a$, the **copower** of $a$. This is usually denoted as $X\cdot a$. 
+**<u>Definition:</u>** if $a = \{a_x = a \in C \mid x\in X\} \in C^X$ is an object comprised with the same factors $a_x$, then we call the coproduct of $a$, the **copower** of $a$. This is usually denoted as $X\cdot a$. 
 
-Now we are ready to explore the colimit in its ful generality. 
+Now we are ready to explore the colimit in its full generality. 
 
 **<u>Definition:</u>** Given categories $C,J$, the **diagonal functor**.
 $$
@@ -643,7 +642,7 @@ $$
 $$
 sends each object $c \in C$ to the constant functor $\Delta c : J \to C$ that assigns $c\in C$ to each $i\in J$ and $1_c : c\to c$ to each arrow in $J$. Additionally, for any arrow $f:c\to c'$ in $C$, $\Delta f$ is the natural transformation $\Delta f : \Delta c \to^\ast \Delta c'$ which assigns $f$ at each object $i \in J$.
 
-With the daigonal functor we can finally express colimits.
+With the diagonal functor we can finally express colimits.
 
 **<u>Definition:</u>** A **colimit diagram** or **direct limit diagram** is a universal arrow $\langle r,u \rangle$ from $F:J\to C \in C^J$ to $\Delta$. This consists of an object $r \in C$ written as $r = \varinjlim F$ called the **colimit** and a natural transformation $u:F\to^\ast \Delta r$. The natural transformation $u$ is a universal among natural transformations $\tau:F \to^\ast \Delta c$. 
 
