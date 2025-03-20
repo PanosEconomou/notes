@@ -84,11 +84,96 @@ c = \frac{3k}{k+2} - 1.
 $$
 
 
+
+# Gauging Tricritical Ising
+
+We want to study the folded Tricritical Ising $\text{TIsing}$ model which is the cft we denote $\text{TIsing}^2$. This CFT has chiral algebra $\mathcal{A} = \text{Vir}^2$ and it is a rational CFT with central charge $c = 7/5$. 
+
+## Identifying a $\mathbb{Z}_2$ 
+
+We want to perform discrete Gauging by $\mathbb{Z}_2$. We can write the operator algebra of $\text{TIsing}^2$ in $\text{Vir}^2 \times \overline{\text{Vir}^2}$ irreducible representations as
+$$
+\mathbb{H} = \bigoplus_{i,j=1}^6 (W_i\otimes \overline W_j) \otimes (\overline W_i\otimes W_j),
+$$
+where $W_i$ are the 6 irreducible Virasoro Modules that appear in the Tricritical Ising minimal model. We can show, but I won't, that each irreducible representation in $\text{TIsing}^2$ is given by 
+$$
+W_{ij} = W_i \otimes \overline W_{j},
+$$
+and there are $21$ of them. 
+
+**<u>Proposition:</u>** Consider the $\mathcal{A}$-equivariant linear map
+$$
+\begin{align}
+\sigma : \mathbb{H} &\to \mathbb{H}\\
+\sigma(v_{ij}\otimes \bar v_{ij}) &\mapsto v_{ji} \otimes \bar v_{ji},
+\end{align}
+$$
+where $v_{ij} \in W_{ij}$ is the highest weight vector in $W_{ij}$. Then $\sigma$ together with $\mathbb{1}_{\mathbb{H}}$ forms a representation of $\mathbb{Z}_2$ on $\text{Aut\,}\mathbb{H}$. 
+
+***Proof:***  $\sigma^2 = \mathbb{1}_{\mathbb{H}}$. Then the representation is mapping the corresponding elements of $\mathbb{Z}_2$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Corollary:</u>** $\sigma$ is a global symmetry in $\text{TIsing}^2$.
+
+***Proof:*** Notice that the Hamiltonian of this theory is given by $H = L_0 + L_0'$. Additionally $\sigma$ is permutation matrix so it is hermitian. Therefore we have that
+$$
+\begin{align*}
+\sigma^\dagger H \sigma 
+&= \sigma (L_0 + L_0') \sigma\\
+&= \sigma^2 (L_0 + L_0')\\
+&= H,
+\end{align*}
+$$
+where in the next to last step we have used equivariance of $\sigma$, i.e. $[\sigma,L_n] = 0 $ and $\sigma^2 = 1$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+So we have a tasty $\mathbb{Z}_2$ global symmetry to gauge under! Wohooo!
+
+
+
+## Gauging
+
+I mean, the exact map between the ungauged and gauged theories is hard to write down. However, we don't *really* need it. We can calculate the modular partition function of the gauged theory like so.
+
+**<u>Lemma:</u>** Let $W_{ij}^n$ denote the level $n$ subspace of the irreducible representation $W_{ij}$ of $\text{Vir}^2$. Then 
+$$
+\text{Tr}_{W_{ij}^n}\ \sigma = \delta_{ij} \dim W_{ii}^n.
+$$
+***Proof:*** A basis for the chiral subspace of level $n$ is given by some operators acting on the vacuum vector $v_{ij} \in W_{ij}$. Therefore for every $v \in W_{ij}^n$ there exists some $L \in \text{Vir}^2$ such that $v = Lv_{ij}$. Since $\sigma$ is $\text{Vir}^2$ equivariant we have that 
+$$
+\langle v,\sigma v \rangle = \langle v,L \sigma v_{ij} \rangle = \langle L^\dagger v,v_{ji} \rangle,
+$$
+which is an inner product between a vector $L^\dagger v \in W_{ij}$ and a vector $v_{ji} \in W_{ji}$ which is an orthogonal subspace when $i\neq j$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This can let us calculate the partition function like so!
+
+**<u>Corollary:</u>** The partition function of with one spacelike insertion of a $\sigma$ TDL is given by
+$$
+Z_{\sigma} = \text{Tr\,} \sigma e^{\tau H} = \sum_{i=1}^6 \abs{\chi_{ii}(q)}^2, 
+$$
+where $\chi_{ij}$ is the character of $W_{ij}$.
+
+***Proof:*** This is an application of the previous lemma when taking the trace with respect to the irreducible representations of $\mathcal{H}$ and the level basis of each.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This is pretty nifty because we didn't even have to use modular invariance to figure this out! We can now simply use $S$ and $T$ transformations as long as modular covariance of $Z_\sigma$ to obtain the full partition function of the gauged theory. 
+
+  
+
+
+
  # What are we looking for?
 
 The latest forecast says that we should be looking for combinations of Ishibashi states in the coset cft such that they remain invariant under $\text{Ising}\boxtimes \text{Fib}$. 
 
 Since the coset cft is rational there are as many independent Ishibashi states as there are primaries. We can then find the action of Ising in the span of Ishibashi states. The conformal boundary conditions that are invariant under Ising, would be the Cardy states that fall in the intersection of the eigenspaces with eigenvalue 1 of all the Ising operators. 
+
+Gauging relates the two theories. So in some sense there is a map between the ungauged theory and the gauged one that would map the characters of the ungauged theory to the ones of the gauged theory. Then the boundary states that also form a nim rep of the ungauged theory are what we are looking for.   
 
 ## What do I need to figure out?
 
