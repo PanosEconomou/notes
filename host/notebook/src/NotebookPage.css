@@ -465,9 +465,13 @@
     }
 
     .math-inline {
-        font-size: 0.88em;
+        font-size: 1.15em;
     }
 
+	.math-display {
+		font-size: 1.25em;
+	}
+	
     .md-tag {
         color: inherit;
     }
