@@ -88,7 +88,7 @@ $$
 
 The latest forecast says that we should be looking for combinations of Ishibashi states in the coset cft such that they remain invariant under $\text{Ising}\boxtimes \text{Fib}$. 
 
-
+Since the coset cft is rational there are as many independent Ishibashi states as there are primaries. We can then find the action of Ising in the span of Ishibashi states. The conformal boundary conditions that are invariant under Ising, would be the Cardy states that fall in the intersection of the eigenspaces with eigenvalue 1 of all the Ising operators. 
 
 ## What do I need to figure out?
 
