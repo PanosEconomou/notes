@@ -163,11 +163,23 @@ $$
 $$
 This is pretty nifty because we didn't even have to use modular invariance to figure this out! We can now simply use $S$ and $T$ transformations as long as modular covariance of $Z_\sigma$ to obtain the full partition function of the gauged theory. 
 
-  
+
 
 # A map between Representations
 
-We need to work out the map between the characters of the gauged and ungauged theory.
+We need to work out the map between the characters of the gauged and ungauged theory. We can do this by studying the characters.
+
+## Decomposition of Gauged Theory
+
+What we want to do is to take the representations $\tilde W_i$ of the Gauged Algebra $\tilde{\mathcal{A}}$ and write them as direct sums of representations $W_{i}$ of the ungaged chiral algebra $\mathcal{A}$. Namely we should find how
+$$
+\tilde W_i = \bigoplus_{j\in I_i} A_{i}^{j} W_{j},
+$$
+where $A_{i}^j$ are a bunch of integers. Therefore we can see that the characters $\tilde \chi_i$ of the gauged theory can be written in terms of the characters $\chi_i$ of the ungaged theory like so
+$$
+\tilde \chi_i = A_{i}^{j} \chi_j.  
+$$
+Which is fantastic! In other words we can cheat and figure out the map $A$ between the characters by inspecting the expansions of $\chi_i$ and $\tilde \chi_i$.
 
 
 
