@@ -85,6 +85,12 @@ $$
 
 
 
+## The Coset Model
+
+  The quotient we are taking in this theory is $\frac{\mathfrak{su}(2)_8}{\mathfrak{u}(1)}$
+
+
+
 # Gauging Tricritical Ising
 
 We want to study the folded Tricritical Ising $\text{TIsing}$ model which is the cft we denote $\text{TIsing}^2$. This CFT has chiral algebra $\mathcal{A} = \text{Vir}^2$ and it is a rational CFT with central charge $c = 7/5$. 
