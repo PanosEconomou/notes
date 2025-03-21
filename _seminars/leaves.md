@@ -22,3 +22,11 @@ The idea is to break up the delta function in some regularization over $\text{Ad
 $$
 L(z_i,\bar z_i) = \frac{z_{12}^4}{z_{12}z_{23} \cdots z_{n1}} \int_{\text{AdS}_3}d^3\hat x\, \prod_{j=1}^n \frac{C(\bar h_j)}{(p_j \cdot \hat x + i\epsilon)}.
 $$
+
+## Leaf CFT
+
+The idea here is to create a CFT that yields these $L$'s as correlation functions. The CFT is going to have a Liouville sector and a free fermion sector. The free sector produces the first prefactor, and the Louville sector the second. 
+
+For the fermionic sector we can construct currents for $SO(n)$. So basically we have an $\mathfrak{so}(n)$ WZW model at level 1 (I think). Then we take $N\to \infty$ in order to  obtain correlation functions for the first part. 
+
+The other half is Liouville. That is a CFT that has a Lagrangian with one scalar field that defines a metric on a sphere.  
