@@ -165,7 +165,15 @@ This is pretty nifty because we didn't even have to use modular invariance to fi
 
   
 
+# A map between Representations
 
+We need to work out the map between the characters of the gauged and ungauged theory.
+
+
+
+## Pullback Ishibashi states
+
+With this map we then pullback the Ishibashi states from the gauged theory and then recheck the Cardy states to see which ones preserve modular covariance of the annulus partition function of the ungauged theory. 
 
  # What are we looking for?
 
