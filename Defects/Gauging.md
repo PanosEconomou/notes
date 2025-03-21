@@ -49,7 +49,7 @@ This realization is super cool! The idea of twisting the space is equivalent to 
 
 **<u>Lemma:</u>** *(Singular Connection Lemma)* Let $\Sigma \subset M$ be a codimension-1 closed orientable submanifold, such that its interior is $M^-$ and its exterior is $M^+$. Then consider a null gauge $\sigma \in \Gamma(P_U)$ on some $U\subset M$ and the physical gauge transformation $\tau:M \to G$ defined by
 $$
-\tau_{g}(x) = \begin{cases}e & x \in M^+ \\ g^{-1}  & x \in M^-\end{cases},
+\tau_{g}(x) = \begin{cases}1 & x \in M^+ \\ g^{-1}  & x \in M^-\end{cases},
 $$
 where $g\in G$ is some element of $G$. Then the corresponding local gauge field $A \in \Omega^1(U,\mathfrak{g})$ is given by
 $$
