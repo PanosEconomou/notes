@@ -147,19 +147,19 @@ $$
 $$
 which is an inner product between a vector $L^\dagger v \in W_{ij}$ and a vector $v_{ji} \in W_{ji}$ which is an orthogonal subspace when $i\neq j$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 This can let us calculate the partition function like so!
 
 **<u>Corollary:</u>** The partition function of with one spacelike insertion of a $\sigma$ TDL is given by
 $$
-Z_{\sigma} = \text{Tr\,} \sigma e^{\tau H} = \sum_{i=1}^6 \abs{\chi_{ii}(q)}^2, 
+Z_{\sigma} = \text{Tr\,} \sigma e^{\tau H} = \sum_{i=1}^6 \abs{\chi_{ii}(q)}^2,
 $$
 where $\chi_{ij}$ is the character of $W_{ij}$.
 
 ***Proof:*** This is an application of the previous lemma when taking the trace with respect to the irreducible representations of $\mathcal{H}$ and the level basis of each.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 This is pretty nifty because we didn't even have to use modular invariance to figure this out! We can now simply use $S$ and $T$ transformations as long as modular covariance of $Z_\sigma$ to obtain the full partition function of the gauged theory. 
 
@@ -171,7 +171,7 @@ We need to work out the map between the characters of the gauged and ungauged th
 
 
 
-## Pullback Ishibashi states
+## Pullback of Ishibashi states
 
 With this map we then pullback the Ishibashi states from the gauged theory and then recheck the Cardy states to see which ones preserve modular covariance of the annulus partition function of the ungauged theory. 
 
