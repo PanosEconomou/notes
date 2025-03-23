@@ -83,11 +83,29 @@ $$
 c = \frac{3k}{k+2} - 1.
 $$
 
+The other result is that each representation can be further decomposed into $U(1)$ representations like so
+$$
+V_l = \bigoplus_{m=-l}^l V_{l,m},
+$$
+where these are highest weight representations with conformal weight $h = \frac{m^2}{k}$.
+
 
 
 ## The Coset Model
 
-  The quotient we are taking in this theory is $\frac{\mathfrak{su}(2)_8}{\mathfrak{u}(1)}$
+The quotient we are taking in this theory is $\frac{\mathfrak{su}(2)_8}{\mathfrak{u}(1)}$ which basically implies that we have the following identifications for the irreducible representations.
+$$
+V_{l,m} \sim V_{\frac{k}{2} - l, m+\frac{k}{2}} \sim V_{\frac{k}{2} - l, m-\frac{k}{2}},
+$$
+if they exist. So with this identification we have the final decomposition for the coset model in primaries. So let's find the characters. Actually I don't need to do that, here they are.
+$$
+\chi_{lm}=
+$$
+
+
+
+
+
 
 
 
