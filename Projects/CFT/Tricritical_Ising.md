@@ -104,7 +104,7 @@ $$
 
 where $\eta(q)$ is given by the ratio of the generalized theta function
 $$
-\Theta_m(q) = \sum_{n\in \mathbb{Z}}q^{8(n+m/16)^2},
+\Theta_m(q) = \sum_{n\in \mathbb{Z}}q^{8(n+m/8)^2},
 $$
 to the the $\mathfrak{u}(1)_8$ characters $K_m$ at level $8$ as
 $$
