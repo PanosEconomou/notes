@@ -99,12 +99,26 @@ V_{l,m} \sim V_{\frac{k}{2} - l, m+\frac{k}{2}} \sim V_{\frac{k}{2} - l, m-\frac
 $$
 if they exist. So with this identification we have the final decomposition for the coset model in primaries. So let's find the characters. Actually I don't need to do that, here they are.
 $$
-\chi_{lm}=
+\chi_{lm}= \eta(q)c^l_m(q),
 $$
 
-
-
-
+where $\eta(q)$ is given by the ratio of the generalized theta function
+$$
+\Theta_m(q) = \sum_{n\in \mathbb{Z}}q^{8(n+m/16)^2},
+$$
+to the the $\mathfrak{u}(1)_8$ characters $K_m$ at level $8$ as
+$$
+\eta(q) = \frac{\Theta_m(q)}{K_m(q)} = q^{\frac{1}{24}} \phi(q) = q^{\frac{1}{24}} \prod_{n=1}^\infty (1-q)^n.
+$$
+One can show that $\eta$ is the Dedekind function. Also $c^l_m$ is the normalized string function given by
+$$
+c^l_m(q)= q^{h_l - h_m -\frac{1}{10}} \sigma_m^l(q),
+$$
+where 
+$$
+\sigma_m^l(q) = \sum_{n=0}^\infty \text{mult}_l(m-n\delta)q^n,
+$$
+is the actual string function, i.e. the generating function of the multiplicities along Weyl orbits. 
 
 
 
