@@ -221,8 +221,7 @@ Gauging relates the two theories. So in some sense there is a map between the un
 
 ## What do I need to figure out?
 
-1. Is the map that assigns conformal boundaries to conformal defects 1-1 and onto?
-2. When we say that a defect is conformal in what sense does this mean that it is invariant under the symmetry fusion ring? 
+1. When we say that a defect is conformal in what sense does this mean that it is invariant under the symmetry fusion ring? - It means that each boundary satisfies the conformal boundary condition and a collection of them defines a nim rep of the fusion ring of the symmetry.
 
 
 
