@@ -1,6 +1,11 @@
 # Conformal Boundaries
 
-What happens when we try to do a 2D CFT on a manifold that has a Boundary? In these notes we describe what are boundary states, as well as conformal and topological defects that our theory can have.
+What happens when we try to do a 2D CFT on a manifold that has a Boundary? In these notes we describe what are boundary states, as well as conformal and topological defects that our theory can have. Most of these are stolen from
+
+1. [Di Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9)
+2. [Conformal Defects in 2D CFT](https://kclpure.kcl.ac.uk/ws/portalfiles/portal/105923299/2018_Makabe_Isao_0802395_ethesis.pdf)
+3. [Boundary Conformal Field Theory](https://arxiv.org/abs/hep-th/0411189)
+4. [Boundary Conformal Field Theory and D-branes](https://people.phys.ethz.ch/~mrg/CFT/Budapest.pdf)
 
 [toc]
 
@@ -493,11 +498,51 @@ So any conformal boundary preserves the Virasoro algebra, but if we introduce so
 
 ## Boundary States
 
-It is not obvious how we will interpret a boundary condition in terms of a state. To do this we need to think about how 
+It is not obvious how we will interpret a boundary condition in terms of a state. To do this we need to map the upper half plane to the sphere with the unit disk removed. Now using radial quantization around any circle that contains the unit disk we can interpret the boundary as a state that lives in the completion of the bulk Hilbert space. This is a boundary state.
 
-**<u>Proposition:</u>** 
+Let's consider the map carefully. A boundary in the upper half plane really is a time-like boundary in our theory, so when we move to the sphere we have effectively swapped the space and time coordinates. This will be useful in a second, however, what we can see is that any conformal boundary state $\psi \in \mathcal{\bar H}$, where $\mathcal{\bar H}$ denotes the appropriate completion of the Hilbert space which we will precisely define in a second, must satisfy
+$$
+\left( L_n - \bar L_{-n} \right) \psi = 0.
+$$
+If we want the boundary to preserve a bigger chiral algebra, we expect that in addition it should satisfy
+$$
+\left( W_n - (-1)^{h} \Omega \bar W_n \right) \psi = 0,
+$$
+where $W_n$ are the modes of a chiral quantum field with conformal weight $h$ that generates the chiral algebra, and $\Omega$ is some chiral algebra automorphism that leaves the modes of $T$ invariant. That automorphism is determined from the boundary conditions and is often taken to be identity.
 
 
+
+## Ishibashi States
+
+So far we have no tools to calculate the boundary states, other than brute force solving the consistency conditions we defined above. This is where we can start being a bit more practical. We will look for trivial solutions of the above equations and then try to find the linear combinations of which satisfy the rest of the consistency conditions of our QFT. These states are called Ishibashi states. 
+
+To make things easier we will formally define ishibashi states in a rational setting, and $\Omega = \mathbb{1}$.
+
+**<u>Lemma:</u>** *(Ishibashi states)* Consider a conformal field theory with chiral and anti-chiral algebra $\mathcal{A}$ then for each irreducible highest weight representation $W$ of $\mathcal{A}$ that appears in the CFT's Hilbert space the following power series is invariant under $A$
+$$
+\psi_W = \sum_{v \in B_W} v\otimes \bar v,
+$$
+  where $B_W$ is the level basis of $W$.
+
+***Proof:*** We can verify this directly by plugging in to the above equations.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+The much more interesting corollary is that each chiral preserving boundary condition can be written as a superposition of boundary states.
+
+**<u>Corollary:</u>** Every conformal boundary condition $\alpha \in \mathcal{\bar H}$ that preserves $\mathcal{A}$ can be written as a superposition of ishibashi states
+$$
+\alpha = \alpha^i \psi_i,
+$$
+where the index $i$ runs through all the irreducible representations of $\mathcal{A} \otimes \mathcal{A}$ that appear in the theory.
+
+
+
+## Cardy Constraints
+
+The nice and super amazing cool thing we can talk about is Cardy constraints. This is the powerful tool that allows us to actually find these chiral preserving conformal boundary states. Notice that these are not all the boundary states (unless the chiral algebra we use is actually Virasoro). But this is still good enough.
+
+Cardy constraints are basically a form of modular invariance but on the annulus instead of the torus. We will map the cft with the boundary to one on the annulus, then we will calculate the partition function in the presence of the boundary states and then use the fact that it must be modular invariant to obtain pretty heavy constraints on what the boundary states could look like. 
 
 
 
