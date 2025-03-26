@@ -154,18 +154,18 @@ $$
 $$
 **<u>Corollary:</u>** $\sigma$ is a global symmetry in $\text{TIsing}^2$.
 
-***Proof:*** Notice that the Hamiltonian of this theory is given by $H = L_0 + L_0'$. Additionally $\sigma$ is permutation matrix so it is hermitian. Therefore we have that
+***Proof:*** Notice that the Laurent modes of this theory are given by $L_n = L_n + L_n'$. Additionally $\sigma$ is permutation matrix so it is hermitian. Therefore we have that
 $$
 \begin{align*}
-\sigma^\dagger H \sigma 
-&= \sigma (L_0 + L_0') \sigma\\
-&= \sigma^2 (L_0 + L_0')\\
-&= H,
+\sigma^\dagger L_n \sigma 
+&= \sigma (L_n + L_n') \sigma\\
+&= \sigma^2 (L_n + L_n')\\
+&= L_n,
 \end{align*}
 $$
 where in the next to last step we have used equivariance of $\sigma$, i.e. $[\sigma,L_n] = 0 $ and $\sigma^2 = 1$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 So we have a tasty $\mathbb{Z}_2$ global symmetry to gauge under! Wohooo!
 
