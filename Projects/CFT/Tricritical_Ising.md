@@ -137,7 +137,7 @@ where $W_i$ are the 6 irreducible Virasoro Modules that appear in the Tricritica
 $$
 W_{ij} = W_i \otimes \overline W_{j},
 $$
-and there are $21$ of them. 
+and there are $36$ of them. 
 
 **<u>Proposition:</u>** Consider the $\mathcal{A}$-equivariant linear map
 $$
