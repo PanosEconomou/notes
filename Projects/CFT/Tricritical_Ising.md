@@ -108,7 +108,7 @@ $$
 $$
 to the the $\mathfrak{u}(1)_8$ characters $K_m$ at level $8$ as
 $$
-\eta(q) = \frac{\Theta_m(q)}{K_m(q)} = q^{\frac{1}{24}} \phi(q) = q^{\frac{1}{24}} \prod_{n=1}^\infty (1-q)^n.
+\eta(q) = \frac{\Theta_m(q)}{K_m(q)} = q^{\frac{1}{24}} \phi(q) = q^{\frac{1}{24}} \prod_{n=1}^\infty (1-q^n).
 $$
 One can show that $\eta$ is the Dedekind function. Also $c^l_m$ is the normalized string function given by
 $$
