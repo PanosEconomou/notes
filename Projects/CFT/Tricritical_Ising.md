@@ -139,7 +139,7 @@ W_{ij} = W_i \otimes \overline W_{j},
 $$
 and there are $36$ of them. 
 
-**<u>Proposition:</u>** Consider the $\mathcal{A}$-equivariant linear map
+**<u>Proposition:</u>** Consider the $\text{Vir}$-equivariant linear map
 $$
 \begin{align}
 \sigma : \mathbb{H} &\to \mathbb{H}\\
@@ -154,12 +154,12 @@ $$
 $$
 **<u>Corollary:</u>** $\sigma$ is a global symmetry in $\text{TIsing}^2$.
 
-***Proof:*** Notice that the Laurent modes of this theory are given by $L_n = L_n + L_n'$. Additionally $\sigma$ is permutation matrix so it is hermitian. Therefore we have that
+***Proof:*** Notice that the Laurent modes of this theory are given by $L_n = L_n^1 + L_n^2$. Additionally $\sigma$ is permutation transformation so it is hermitian. Therefore we have that
 $$
 \begin{align*}
 \sigma^\dagger L_n \sigma 
-&= \sigma (L_n + L_n') \sigma\\
-&= \sigma^2 (L_n + L_n')\\
+&= \sigma (L_n^1 + L_n^2) \sigma\\
+&= \sigma^2 (L_n^1 + L_n^2)\\
 &= L_n,
 \end{align*}
 $$
@@ -175,25 +175,46 @@ So we have a tasty $\mathbb{Z}_2$ global symmetry to gauge under! Wohooo!
 
 I mean, the exact map between the ungauged and gauged theories is hard to write down. However, we don't *really* need it. We can calculate the modular partition function of the gauged theory like so.
 
-**<u>Lemma:</u>** Let $W_{ij}^n$ denote the level $n$ subspace of the irreducible representation $W_{ij}$ of $\text{Vir}^2$. Then 
+**<u>Lemma:</u>** Let $W_{ij}$ denote an irreducible representation of $\text{Vir}^2$ in the $\text{TIsing}^2$ CFT, and $\chi_i(q)$ be the character associated with an irreducible representation $V_i$ of $\text{Vir}$ in the $\text{TIsing}$ CFT. Then 
 $$
-\text{Tr}_{W_{ij}^n}\ \sigma = \delta_{ij} \dim W_{ii}^n.
+\text{Tr}_{W_{ij}}\ \sigma q^H = \delta_{ij} \chi(q^2).
 $$
-***Proof:*** A basis for the chiral subspace of level $n$ is given by some operators acting on the vacuum vector $v_{ij} \in W_{ij}$. Therefore for every $v \in W_{ij}^n$ there exists some $L \in \text{Vir}^2$ such that $v = Lv_{ij}$. Since $\sigma$ is $\text{Vir}^2$ equivariant we have that 
+***Proof:*** Notice that $\{W_n,\sigma\} = 0$ where $W_n = L_n^1 - L_n^2$ are the remaining generators of $\text{Vir}^2$. Then We have that there is an orthonormal basis $B_{ij}$ of $W_{ij}$ where every element $v \in B_{ij}$ can be given as
 $$
-\langle v,\sigma v \rangle = \langle v,L \sigma v_{ij} \rangle = \langle L^\dagger v,v_{ji} \rangle,
+v = L_v W_v v_{ij},
 $$
-which is an inner product between a vector $L^\dagger v \in W_{ij}$ and a vector $v_{ji} \in W_{ji}$ which is an orthogonal subspace when $i\neq j$.
+where $v_{ij} \in W_{ij}$ is the highest weight vector of $W_{ij}$ and $L_v,W_v$ are strings comprised of multiplying $L_n,W_n$ operators. Assume that there are $m_v \in \mathbb{Z}_+$ $W_n$ operators in the string $W$. Then we have that
+$$
+\sigma v = (-1)^{m_v} L_vW_vv_{ji}.
+$$
+Now also notice that $W_n v_{ii} = 0$ for any $i,n$. Putting these together we have that
+$$
+\begin{align*}
+\text{Tr}_{W_{ij}} \sigma q^H 
+&= \sum_{v \in B_{ij}} \langle v,\sigma q^H v \rangle\\
+&= \sum_{v \in B_{ij}} \langle v,\sigma W_v q^HL_v v_{ij} \rangle\\
+&= \sum_{v \in B_{ij}} (-1)^{m_v}q^{h_i + h_j -\frac{c}{24} + n_v} \langle L_{v}^\dagger W_{v}^\dagger v,v_{ji} \rangle,
+\end{align*}
+$$
+where in the last step $n_v$ is the Virasoro level of $v \in B_{ij}$ and $h_i,h_j$ are the conformal weights of Tricritical Ising. Most interestingly notice that the vectors $L_v^\dagger W_v^\dagger W_v L_v v_{ij} = v_{ij}$ and $v_{ji}$ are orthogonal unless $i=j$. Using these two facts we can rewrite this as
+$$
+\text{Tr}_{W_{ij}} \sigma q^H = \sum_{v \in B_{ij}}(-1)^{m_{v}} \delta_{ij} q^{2h_i -\frac{c}{24} +n_v}.
+$$
+The last thing to notice is that for each $v \in B_{ii}$ $m_v = 0$, as well as that the central charge of the $\text{TIsing}^2$ CFT $c$ is double the one of $\text{TIsing}$. Therefore we finally have that 
+$$
+\text{Tr}_{W_{ij}} = \delta_{ij} \sum_{v \in B_{ii}} q^{2h_i + n_v -\frac{c}{24}} = \delta_{ij} \chi_i(q^2)
+$$
+
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 This can let us calculate the partition function like so!
 
-**<u>Corollary:</u>** The partition function of with one spacelike insertion of a $\sigma$ TDL is given by
+**<u>Corollary:</u>** The partition function with one spacelike insertion of a $\sigma$ TDL is given by
 $$
-Z_{\sigma} = \text{Tr\,} \sigma e^{\tau H} = \sum_{i=1}^6 \abs{\chi_{ii}(q)}^2,
+Z_{\sigma}(q) = \text{Tr\,} \sigma q^{H} = \sum_{i=1}^6 \abs{\chi_{i}(q^2)}^2 = Z_I(q^2),
 $$
-where $\chi_{ij}$ is the character of $W_{ij}$.
+where $Z_I(q)$ is the partition function of the untwisted Tricritical Ising CFT.
 
 ***Proof:*** This is an application of the previous lemma when taking the trace with respect to the irreducible representations of $\mathcal{H}$ and the level basis of each.
 $$
