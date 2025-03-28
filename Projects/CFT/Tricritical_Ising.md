@@ -177,7 +177,7 @@ I mean, the exact map between the ungauged and gauged theories is hard to write 
 
 **<u>Lemma:</u>** Let $W_{ij}$ denote an irreducible representation of $\text{Vir}^2$ in the $\text{TIsing}^2$ CFT, and $\chi_i(q)$ be the character associated with an irreducible representation $V_i$ of $\text{Vir}$ in the $\text{TIsing}$ CFT. Then 
 $$
-\text{Tr}_{W_{ij}}\ \sigma q^H = \delta_{ij} \chi(q^2).
+\text{Tr}_{W_{ij}}\ \sigma q^H = \delta_{ij} \chi_i(q^2).
 $$
 ***Proof:*** Notice that $\{W_n,\sigma\} = 0$ where $W_n = L_n^1 - L_n^2$ are the remaining generators of $\text{Vir}^2$. Then We have that there is an orthonormal basis $B_{ij}$ of $W_{ij}$ where every element $v \in B_{ij}$ can be given as
 $$
