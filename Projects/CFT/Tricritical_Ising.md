@@ -177,8 +177,10 @@ I mean, the exact map between the ungauged and gauged theories is hard to write 
 
 **<u>Lemma:</u>** Let $W_{ij}$ denote an irreducible representation of $\text{Vir}^2$ in the $\text{TIsing}^2$ CFT, and $\chi_i(q)$ be the character associated with an irreducible representation $V_i$ of $\text{Vir}$ in the $\text{TIsing}$ CFT. Then 
 $$
-\text{Tr}_{W_{ij}}\ \sigma q^H = \delta_{ij} \chi_i(q^2).
+\text{Tr}_{W_{ij}}\ \sigma q^H = \delta_{ij} \chi_i(q^2),
 $$
+where $H = L_0 - \frac{c}{24}$, $q \in \mathbb{C}$.
+
 ***Proof:*** Notice that $\{W_n,\sigma\} = 0$ where $W_n = L_n^1 - L_n^2$ are the remaining generators of $\text{Vir}^2$. Then We have that there is an orthonormal basis $B_{ij}$ of $W_{ij}$ where every element $v \in B_{ij}$ can be given as
 $$
 v = L_v W_v v_{ij},
@@ -187,7 +189,7 @@ where $v_{ij} \in W_{ij}$ is the highest weight vector of $W_{ij}$ and $L_v,W_v$
 $$
 \sigma v = (-1)^{m_v} L_vW_vv_{ji}.
 $$
-Now also notice that $W_n v_{ii} = 0$ for any $i,n$. Putting these together we have that
+Putting these together we have that
 $$
 \begin{align*}
 \text{Tr}_{W_{ij}} \sigma q^H 
@@ -196,31 +198,89 @@ $$
 &= \sum_{v \in B_{ij}} (-1)^{m_v}q^{h_i + h_j -\frac{c}{24} + n_v} \langle L_{v}^\dagger W_{v}^\dagger v,v_{ji} \rangle,
 \end{align*}
 $$
-where in the last step $n_v$ is the Virasoro level of $v \in B_{ij}$ and $h_i,h_j$ are the conformal weights of Tricritical Ising. Most interestingly notice that the vectors $L_v^\dagger W_v^\dagger W_v L_v v_{ij} = v_{ij}$ and $v_{ji}$ are orthogonal unless $i=j$. Using these two facts we can rewrite this as
+where in the last step $n_v$ is the Virasoro level of $v \in B_{ij}$ and $h_i,h_j$ are the conformal weights of Tricritical Ising. Most interestingly notice that the vectors $L_v^\dagger W_v^\dagger W_v L_v v_{ij} \propto v_{ij}$ and $v_{ji}$ are orthogonal unless $i=j$. Using these two facts we can rewrite this as
 $$
-\text{Tr}_{W_{ij}} \sigma q^H = \sum_{v \in B_{ij}}(-1)^{m_{v}} \delta_{ij} q^{2h_i -\frac{c}{24} +n_v}.
+\text{Tr}_{W_{ij}} \sigma q^H = \delta_{ij}\sum_{v \in B_{ii}}(-1)^{m_{v}} q^{2h_i -\frac{c}{24} +n_v} = \delta_{ij} \Tr_{W_{ii}} \sigma q^H.
 $$
-The last thing to notice is that for each $v \in B_{ii}$ $m_v = 0$, as well as that the central charge of the $\text{TIsing}^2$ CFT $c$ is double the one of $\text{TIsing}$. Therefore we finally have that 
+We are almost there, but we now need to calculate this trace over $W_{ii}=W_{i} \otimes \overline{W}_i$. To do this, we know that 
 $$
-\text{Tr}_{W_{ij}} = \delta_{ij} \sum_{v \in B_{ii}} q^{2h_i + n_v -\frac{c}{24}} = \delta_{ij} \chi_i(q^2)
+W_i = \bigoplus_{n=0}^\infty W_i^n,
+$$
+where $W_i^n$ is the eigenspace of $L_0^1$ with eigenvalue $h_i + n$. Therefore we can perform a similar decomposition into such eigenspaces of $L_0 = L_0^1 + L_0^2$ in $W_{ii}$ by noticing that for $v \in W_i^n$ and $w \in \overline{W}_i^m$ then $L_0 v\otimes w = (2h_i + n +m)v\otimes w$. This leads to the following decomposition
+$$
+W_{ii} = \bigoplus_{n=0}^\infty \left( \bigoplus_{m=0}^n W_i^m \otimes \overline{W}^{n-m}_i \right).
+$$
+With this we can write the trace as
+$$
+\text{Tr}_{W_{ii}} \sigma q^H = \sum_{n=0}^\infty q^{2h_i +n - \frac{c}{24}}\sum_{m=0}^n\Tr_{W_i^m\otimes \overline{W}_i^{n-m}}\sigma .
+$$
+Calculating $\Tr_{W_i^m\otimes \overline{W}_i^{n-m}}\sigma$ might seem daunting but there is a trick. First notice that if $n-m = m$ and $B_i^m = \{v_i^j\}_{j=0}^{\dim W_i^m}$ is a basis for $W_i^m$, then 
+$$
+\begin{align*}
+\Tr_{W_i^m\otimes \overline{W}_i^{m}}\sigma 
+&= \sum_{jk = 0}^{\dim W_i^m} \langle v_i^j\otimes \bar v_i^k,\sigma v_i^j\otimes \bar v_i^k \rangle\\
+&= \sum_{jk = 0}^{\dim W_i^m} \langle v_i^j\otimes \bar v_i^k, v_i^k\otimes \bar v_i^j \rangle\\
+&= \sum_{jk = 0}^{\dim W_i^m} \delta_{kj}\\
+&= \dim W_i^m.
+\end{align*}
+$$
+But if $n -m \neq m$ we have that
+$$
+\begin{align*}
+\Tr_{W_i^m\otimes \overline{W}_i^{n-m}}\sigma 
+&= \sum_{j = 0}^{\dim W_i^m}\sum_{k = 0}^{\dim W_i^{n-m}} \langle v_i^j\otimes \bar v_i^k,\sigma v_i^j\otimes \bar v_i^k \rangle\\
+&= \sum_{jk = 0}^{\dim W_i^m} \langle v_i^j\otimes \bar v_i^k, v_i^k\otimes \bar v_i^j \rangle\\
+&= \sum_{jk = 0}^{\dim W_i^m} 0\\
+&= 0.
+\end{align*}
+$$
+Therefore we conclude that
+$$
+\Tr_{W_i^m\otimes \overline{W}_i^{n-m}} = \delta_{n-m,m} \dim W_i^m.
+$$
+Doing some rewriting of our original sum ($n\mapsto 2n$) we obtain
+$$
+\begin{align*}
+\text{Tr}_{W_{ii}} \sigma q^H 
+&= \sum_{n=0}^\infty q^{2h_i +2n - \frac{c}{24}}\sum_{m=0}^{2n}\Tr_{W_i^m\otimes \overline{W}_i^{2n-m}}\sigma\\
+&= \sum_{n=0}^\infty q^{2h_i +2n - \frac{c}{24}}\sum_{m=0}^{2n}\delta_{2n-m,m} \text{dim} W_i^m\\
+&= \sum_{n=0}^\infty q^{2h_i +2n - \frac{c}{24}} \text{dim} W_i^n\\
+&= \chi_i(q^2),
+\end{align*}
+$$
+where in the last step we notice that $c$ for $\text{TIsing}^2$ is twice the central charge for $\text{TIsing}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
 $$
 
-$$
-\begin{equation}\tag*{$\Box$}\end{equation}
-$$
-This can let us calculate the partition function like so!
+
+
 
 **<u>Corollary:</u>** The partition function with one spacelike insertion of a $\sigma$ TDL is given by
 $$
-Z_{\sigma}(q) = \text{Tr\,} \sigma q^{H} = \sum_{i=1}^6 \abs{\chi_{i}(q^2)}^2 = Z_I(q^2),
+Z_{\sigma}(q) = \text{Tr\,} \sigma q^{H} = \sum_{i=1}^6 \abs{\chi_{i}(q^2)}^2 = Z(q^2),
 $$
-where $Z_I(q)$ is the partition function of the untwisted Tricritical Ising CFT.
+where $Z(q)$ is the partition function of the untwisted Tricritical Ising CFT.
 
 ***Proof:*** This is an application of the previous lemma when taking the trace with respect to the irreducible representations of $\mathcal{H}$ and the level basis of each.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
-This is pretty nifty because we didn't even have to use modular invariance to figure this out! We can now simply use $S$ and $T$ transformations as long as modular covariance of $Z_\sigma$ to obtain the full partition function of the gauged theory. 
+This is pretty nifty because we didn't even have to use modular invariance to figure this out! We can now simply use $S$ and $T$ transformations as long as modular covariance of $Z_\sigma$ to obtain the full partition function of the gauged theory. Therefore we can get the gauged partition function by modular transformations of $Z_\sigma$.
+
+**<u>Lemma:</u>** Under the exchange $\mathbb{Z}_2$ symmetry we have introduced the gauged partition function is given by 
+$$
+Z_{\mathbb{Z}_2}(q) = \frac{1}{2} \left[ Z(q)^2 + Z(q^2) + Z(\sqrt{q}) + Z(-\sqrt{q}) \right],
+$$
+where $Z(q)$ is the partition function of the Tricirical Ising Model. 
+
+***Proof:*** We can see this through applying modular transformations in $Z_\sigma(q) = Z(q^2)$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+
+ 
 
 
 
