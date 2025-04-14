@@ -250,12 +250,8 @@ $$
 $$
 where in the last step we notice that $c$ for $\text{TIsing}^2$ is twice the central charge for $\text{TIsing}$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
-
-
-
-
 **<u>Corollary:</u>** The partition function with one spacelike insertion of a $\sigma$ TDL is given by
 $$
 Z_{\sigma}(q) = \text{Tr\,} \sigma q^{H} = \sum_{i=1}^6 \abs{\chi_{i}(q^2)}^2 = Z(q^2),
@@ -272,14 +268,12 @@ This is pretty nifty because we didn't even have to use modular invariance to fi
 $$
 Z_{\mathbb{Z}_2}(q) = \frac{1}{2} \left[ Z(q)^2 + Z(q^2) + Z(\sqrt{q}) + Z(-\sqrt{q}) \right],
 $$
-where $Z(q)$ is the partition function of the Tricirical Ising Model. 
+where $Z(q)$ is the partition function of the Tricritical Ising Model. 
 
 ***Proof:*** We can see this through applying modular transformations in $Z_\sigma(q) = Z(q^2)$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
-
-
  
 
 
