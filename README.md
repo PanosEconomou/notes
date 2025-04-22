@@ -22,6 +22,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Momentum](Classical_Physics/Momentum.md)
     - [Quantum Mechanics](Classical_Physics/Quantum_Entry.md)
 - [**Defects**](Defects)
+    - [Gauging Discrete Symmetries](Defects/Gauging.md)
     - [Topological Line Defects](Defects/Line_Defects.md)
     - [Symmetries as Defects](Defects/Symmetry_Defects.md)
 - [**Geometry**](Geometry)  
