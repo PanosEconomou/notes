@@ -122,21 +122,100 @@ There is a particularly nice way to understand these roots in the adjoint repres
 $$
 \begin{align*}
 \text{ad}:\mathfrak{g} &\to \text{Aut}(\mathfrak{g})\\
-X&\mapsto \text{ad}(X) = [X,\cdot].
+X&\mapsto \text{ad}_X = [X,\cdot].
 \end{align*}
 $$
-**<u>Proposition:</u>** The nonzero eigenvalues of $\text{ad}(H)$ for any $H$ in the commuting part of the Cartan-Weyl basis of $\mathfrak{h}$ are given by $\alpha_{\bull}(H)$.
+**<u>Proposition:</u>** The nonzero eigenvalues of $\text{ad}_H$ for any $H$ in the commuting part of the Cartan-Weyl basis of $\mathfrak{h}$ are given by $\alpha_{\bull}(H)$.
 
 ***Proof:*** The Cartan-Weyl basis is, by construction, an eigenbasis for any $H$ since for any $E$
 $$
-\text{ad}(H)E = [H,E] = \alpha_E(H) E.
+\text{ad}_HE = [H,E] = \alpha_E(H) E.
 $$
 Therefore $\alpha_E(H)$ is an eigenvalue of $H$.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
+ Notice how we can completely define each $E$ using a set of roots $\alpha_E$. In other words there is a one-one and onto map between the roots and the remaining generators $E$ of the algebra. So in some sense, that we will make precise later, fixing the roots and the Cartan subalgebra defines our simple Lie algebra!
+
+So we can perhaps refer to the generator with corresponding root $\alpha$ as $E^\alpha$ or even just $\alpha$ instead. These are also common notations. 
+
+
+
+### Commutation Relations
+
+One last thing that is worth highlighting for calculation purposes is the following commutation relations of the Cartan-Weyl basis
+
+**<u>Proposition:</u>** Let $\mathfrak{g}$ be a simple Lie algebra and consider the Cartan-Weyl basis, $H,H' \in \mathfrak{h}$ be generators of the Cartan subalgebra and  $E,E' \in \mathfrak{g} \setminus \mathfrak{h}$ be generators of the remaining algebra with $\alpha,\alpha' \in \mathfrak{h}^\ast$ the corresponding roots. Then the following identities are true.
+
+1. $[H,H'] = 0$
+2. $[H,E] = \alpha(H) E$,
+3. If $\alpha +\alpha' = 0$ then $[E,E'] = \frac{2 \alpha \cdot H}{\langle \alpha,\alpha \rangle}$, where $\alpha \cdot H = \sum_{i=0}^{\text{dim\,}\mathfrak{h}} \alpha^i H ^i$.
+4. If $\alpha + \alpha'$ is also a root corresponding to generator $\bar E$ then there exists a $\lambda \in \mathbb{C}$ such that $[E,E'] = \lambda \bar E$.
+5. If $\alpha + \alpha'$ is none of the above, then $[E,E'] = 0$.
+
+
+
+## Killing Form
+
+Since we have a representation of the algebra onto itself, it would be nice to find an "inner product" on the Lie algebra that is invariant under the action of itself. Just like we have orthogonal transformations and we find the Euclidean inner product that is invariant under them. 
+
+Notice that since the Lie algebras we are considering are all complex they carry a Hermitian inner product. So talking about lengths and stuff is always possible. However finding an $\text{ad}$ invariant inner product isn't. So we have to relax something. 
+
+Turns out that if we want something to be linear symmetric and invariant under Lie algebra automorphisms in a simple Lie algebra we don't really have many choices. 
+
+**<u>Theorem:</u>** Let $\mathfrak{g}$ be a simple Lie algebra. Then any invariant symmetric bilinear form $K : \mathfrak{g}\times \mathfrak{g} \to \mathbb{C}$ is given by
+$$
+K = \lambda \text{tr} (\text{ad}_X \circ \text{ad}_Y)
+$$
+where $\lambda \in \mathbb{C}$ is any number.
+
+By the way, invariance of a bilinear form means that for any Lie algebra automorphism $f:\mathfrak{g}\to \mathfrak{g}$
+$$
+K(f(X),f(Y)) = K(X,Y),
+$$
+ for any $X,Y \in \mathfrak{g}$.
+
+***Proof:*** First we need to clarify how the trace $\text{tr}$ of a linear endomorphism $f$ is defined. What we do is pick a basis $\mathcal{J}$ and then we note that for any $J \in \mathcal{J}$ 
+$$
+f(J) = \sum_{k\in \mathcal{J}}f_{JK} K,
+$$
+for some $f_{JK} \in \mathbb{C}$. Then
+$$
+\text{tr\,} f= \sum_{j\in \mathcal{J}} f_{JJ}.
+$$
+This is known as the Euclidean trace, which implies that, as we will soon see, there are other type of traces with respect to different isomorphisms between the vector space and its dual. Now for the actual proof consider $B: \mathfrak{g}\times \mathfrak{g} \to \mathbb{C}$ be a symmetric invariant bilinear form. Then consider a linear map $B: \mathfrak{g} \to \mathfrak{g}^\ast$ defined by for any $X\in \mathfrak{g}$ by $B(X) = B(X,\cdot)$. 
+
+Since for any $X \in \mathfrak{g}$ the representation $\text{ad}_X$  is a Lie algebra automorphism we have that
+$$
+B\circ \text{ad}_X = \text{ad}^\ast_X \circ B,
+$$
+where $\text{ad}^\ast: \mathfrak{g} \to \text{Aut}(\mathfrak{g}^\ast)$ is the dual representation given for any $X \in \mathfrak{g}$ and $\omega \in \mathfrak{g}^\ast$ by
+$$
+\text{ad}^\ast_X(\omega) = - \omega \circ \text{ad}_X.
+$$
+Notice that for matrix representations this is simply the statement
+$$
+\text{ad}^\ast_X(\omega) = -\text{ad}_X^\dagger.
+$$
+As a result, $B$ is an intertwiner between the adjoint representation and its dual. However, by Schur's lemma since $\mathfrak{g}$ is simple, then $\text{hom}(\mathfrak{g},\mathfrak{g}) = \mathbb{C}$. So for any two such maps $B,C$ there exists $\lambda \in \mathbb{C}$ such that $B = \lambda C$.
+
+So now all we need to show is that $\text{tr} (\text{ad}_X \circ \text{ad}_Y)$ is invariant under automorphisms. Consider an automorphism $f \in \text{Aut(g)}$ and any map $h : \mathfrak{g} \to \mathfrak{g}$ then we have that $\text{tr}(f\circ h \circ f^{-1}) = \text{tr}(h)$ by the properties of trace. Additionally for any $X,Y \in \mathfrak{g}$
+$$
+\text{ad}_{f(X)} Y = [f(X),Y] = f([X,f^{-1}(Y)]) = f (\text{ad}_X f^{-1}Y ),
+$$
+or in other words $\text{ad}_{f(X)} = f \circ \text{ad}_{X} \circ f^{-1}$, which kind of justifies the relation between the adjoint representation and conjugation. Anyway, plugging this to the trace we see that it is invariant.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+ This is fantastic! The best we can do is this form $\text{tr} (\text{ad}_X \circ \text{ad}_Y)$. So might as well give it a name. 
+
+**<u>Definition:</u>** The **Killing form** is a symmetric bilinear form $K$ on $\mathfrak{g}$ given for each $X,Y \in \mathfrak{g}$ by
+$$
+K(X,Y) = \text{tr} (\text{ad}_X \circ \text{ad}_Y).
+$$
  
 
 
 
- 
+
+
