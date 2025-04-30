@@ -62,6 +62,8 @@ In other words left invariant vector fields are ones that are obtained by left t
 
 So in the most fundamental sense. Lie algebras originate from describing the flow of multiplication of a Lie group. This is how they find so many applications in physics. 
 
+**<u>Example:</u>** Given a vector space $V$, which is also a Lie group, its Lie algebra is the vector space itself with the bracket $[X,Y] = 0$ for any $X,Y \in V$. However, there is a much more interesting Lie algebra we can assign to $V$ which is its Endomorphism algebra $\text{End}(V)$ that contains all the linear endomorphisms (all the matrices in the finite dimensional case) with Lie bracket the matrix commutator.
+
 
 
 # Simple Lie Algebras
@@ -213,9 +215,122 @@ $$
 $$
 K(X,Y) = \text{tr} (\text{ad}_X \circ \text{ad}_Y).
 $$
- 
+ Later we will introduce the Killing form normalized with a different factor so for now we will keep the notation abstract as $K$.
+
+**<u>Lemma:</u>** The Killing form is nondegenerate on a simple Lie algebra.
+
+***Proof:*** Notice that $\text{ker\,}K$ is an ideal of $\mathfrak{g}$. That is because if there exists some $X \in \text{ker\,}K$ then for all $Y \in \mathfrak{g}$ we have that $[X,Y]$ is in the ideal because for any $Z \in \mathfrak{g}$
+$$
+K([X,Y],Z) = K(X,[Y,Z]) = 0,
+$$
+since $X$ is in the kernel. However we know that $\mathfrak{g}$ is simple so the kernel is either $0$ or $\mathfrak{g}$. Since the kernel is commuting it can't be $\mathfrak{g}$ in general.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Since the Killing form is nondegenerate we can finally define an orthonormal basis for the Lie algebra which is fantastic! We can also use it to define an isomorphism between $\mathfrak{g}$ and $\mathfrak{g}^\ast$ just like we do using any nondegenerate bilinear form of a vector space.
+
+A couple of interesting uses of the Killing form are here.
+
+**<u>Lemma:</u>** The Cartan subalgebra is orthogonal to the rest with respect to the Killing form.
+
+***Proof:*** We can pick a generator $E$ in the rest of the algebra and show that for all $H,H'$ generators of the Cartan subalgebra 
+$$
+0 = K(\text{ad}_{H'} H, E) = -\alpha_E(H') K(H,E).
+$$
+Which implies $K(H,E) = 0$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Proposition:</u>** Given a simple Lie algebra $\mathfrak{g}$ over $\mathbb{C}$ and a root $\alpha \in \mathfrak{h}^\ast$, then $-\alpha \in \mathfrak{h}^\ast$ is also a root.
+
+***Proof:*** Let $E, E'$ be Cartan-Weyl generators with associated roots $\alpha, \alpha'$. Then consider any element of the basis of the Cartan subalgebra $H$. Therefore we have
+$$
+\alpha(H)K(E,E') = K(\text{ad}_H E, E') = -K(E,\text{ad}_HE') = -\alpha'(H)K(E,E') \implies (\alpha + \alpha') K(E,E') = 0.
+$$
+This means that either $\alpha = - \alpha'$ or $K(E,E') = 0$. If we assume that $-\alpha$ is not a root then $K(E,\cdot) = 0$  for all elements in the Cartan-Weyl basis (we used the previous lemma where E is perpendicular to the Cartan subalgebra). Therefore $K$ is degenerate. Since we know it is nondegenerate we have that $-\alpha$ must be a root.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+## Weights
+
+Now it is time to play with the representations of the simple Lie algebras. In our attempt to classify them we will generalize the idea we introduced as roots. But let's start simple.
+
+**<u>Definition:</u>** Given a Lie algebra $\mathfrak{g}$ a **Lie algebra representation** of $\mathfrak{g}$ on a vector space $V$ is a Lie algebra homomorphism $\rho: \mathfrak{g} \to \text{End}(V)$. In other words for any $X,Y \in \mathfrak{g}$ 
+$$
+[\rho(X),\rho(Y)] = \rho([X,Y]).
+$$
+We often abuse notation and call the representation $V$, in which case we refer to the $\mathfrak{g}$ module defined by the representation $\rho$. Sometimes we even use the notation $V_\rho$. The representation is **unitary** if $V$ is a complex vector space with a positive semidefinite Hermitian form where representations of generators with opposite roots are Hermitian conjugates of each other. 
+
+**<u>Example:</u>** The adjoint representation of the Lie algebra to itself is (or can always be made) unitary.
+
+**<u>Lemma:</u>** Let $\mathfrak{g}$ be a simple Lie algebra and $\mathfrak{h}$ be its Cartan subalgebra. Then for every representation $V$ of $\mathfrak{g}$ there exists a basis that simultaneously diagonalizes the Cartan basis. 
+
+***Proof:*** Since elements in the Cartan subalgebra commute so do their representations. Therefore they are simultaneously diagonalizable.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Definition:</u>** Given a representation $\rho : \mathfrak{g}\to \text{End}(V)$ of a Lie algebra $\mathfrak{g}$ and $\psi \in V$ be a simultaneous eigenvector of the representation of the generators of the Cartan subalgebra $\mathfrak{h}$. Then a **weight** is an element $\lambda \in \mathfrak{h}^\ast$ such that for any generator $H \in \mathfrak{h}$ 
+$$
+\rho(H) \psi = \lambda(H) \psi.
+$$
+
+
+Notice that the roots are the weights of the Adjoint representation. This basis is quite nice because it has the following property.
+
+**<u>Proposition:</u>** Given a representation $\rho : \mathfrak{g}\to \text{End}(V)$ of a Lie algebra $\mathfrak{g}$, let $\psi \in V$ be an eigenvector with weight $\lambda \in \mathfrak{h}^\ast$, $H$ an element of the Cartan basis, and $E$ a Cartan-Weyl basis element with root $\alpha \in \mathfrak{h}^\ast$. Then $\rho(E) \psi$ is an eigenvector of $\rho(H)$ with root $\alpha + \lambda$.
+
+***Proof:*** This follows from the commutation relation between $H$ and $E$.
+$$
+\rho(H)\rho(E) \psi = \rho(E) \rho(H) \psi  + \rho([H,E]) \psi  = (\lambda + \alpha) \rho(E)\psi.
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+So we have found a expression for Ladder operators! This is super fun. This leads us to generalize a lot of our intuition from the angular momentum representations. Also to keep notation clear, we will now work in terms of modules where essentially given a representation $\rho: \mathfrak{g} \to \text{End}(V)$ we have defined a product $\mathfrak{g} \times V \to V$ using the representation. So we will no longer write $\rho$ explicitly.
+
+**<u>Theorem:</u>** Let $V$ be a finite dimensional unitary representation of a simple Lie algebra $\mathfrak{g}$, $E \in \mathfrak{g}$ a generator with root $\alpha$, and $\psi \in V$ a basis element with weight $\lambda$. Then there exist integers $m,n \in \mathbb{N}$ such that $E^{m}\psi = (E^{\dagger})^n\psi = 0$.
+
+***Proof:*** We first notice that the vectors $E^p\psi$ and $E^q\psi$ for integers $p\neq q$ are orthogonal by considering any $H \in \mathfrak{h}$
+$$
+(p\alpha(H) + \lambda(H)) \langle E^p\psi,E^q\psi \rangle= \langle HE^p\psi,E^q\psi \rangle = \langle E^a\psi,HE^b\psi \rangle= (q\alpha(H) +  \lambda(H)) \langle E^a\psi,E^b\psi \rangle.
+$$
+Therefore we have that
+$$
+(p-q)\alpha(H) \langle E^a\psi,E^b\psi \rangle = 0.
+$$
+Since $\alpha(H)$ cannot be zero for all Cartan generators and $p\neq q$ we have the the two vectors are orthogonal. As a result, we can create a sequence of orthogonal vectors of the form $\{E^k \psi\}_{k=1}^m$. However since $V$ is finite dimensional such a sequence must have at most $\dim V$ elements. Therefore it must be that there exists an $m \in \mathbb{N}$ such that $E^m \psi = 0$. The proof for the conjugate is identical.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+One more interesting thing is that the above theorem imposes a cool result for the weights.
+
+**<u>Corollary:</u>** let $\alpha$ be a root of $\mathfrak{g}$ and $\lambda$ be a weight in a finite dimensional unitary representation of $\mathfrak{g}$. Then for any $H$ in the basis of the Cartan subalgebra of $\mathfrak{g}$ there exists an integer $k \in \mathbb{Z}$ such that
+$$
+\lambda(H) = \frac{k}{2} \alpha(H).
+$$
+Or in other words
+$$
+\frac{2 (\lambda,\alpha)}{(\alpha, \alpha)} \in \mathbb{Z},
+$$
+where $(\cdot,\cdot): \mathfrak{h}^\ast \times \mathfrak{h}^\ast \to \mathbb{C}$ is the inner product in the dual space induced by the killing form on $\mathfrak{g}$.
+
+***Proof:*** The proof relies on the fact that in any finite dimensional unitary representation $V$ of $\mathfrak{g}$ given any Cartan generator $H$ and any other generator $E$ with root $\alpha \in \mathfrak{h}^\ast$ the set $\{H,E,E^\dagger\}$ forms a representation of $\mathfrak{su}(2)$ by taking any vector $\psi \in V$ with weight $\lambda \in \mathfrak{h}^\ast$.  
 
 
 
+That representation will contain a state with maximum and minimum z-component of angular momentum. So there exist a $p\in \mathbb{N}$ such that $E^p\psi$ is (without loss of generality) the maximum vector with eigenvalue $j$ and and integer $q \in \mathbb{N}$ such that $(E^\dagger)^q \psi$ has the minimum eigenvalue $-j$ where $j$ is half integer. So we can write
+$$
+\begin{align*}
+j = \lambda(H) + p\alpha(H) && -j=\lambda(H) - q\alpha(H).
+\end{align*}
+$$
+Summing the two proves the theorem.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
+Notice that this corollary applies to the adjoint representation as well! So we can constrain the relations between the roots of a Lie algebra.
