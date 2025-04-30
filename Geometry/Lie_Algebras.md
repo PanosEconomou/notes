@@ -74,9 +74,68 @@ We start by studying simple Lie algebras. The word *simple* here is a category t
 
 Notice that this means that there is no proper ideal (which is a quotient object in the category of Lie algebras).
 
+## Cartan Basis
+
+One useful way to classify simple Lie algebras is by classifying how "commuting" they are. Here is what we mean more precisely.
+
+**<u>Definition:</u>** Given a simple Lie algebra $\mathfrak{g}$, its **Cartan subalgebra** $\mathfrak{h}$ is the maximal subalgebra of $\mathfrak{g}$ such that 
+$$
+[\mathfrak{h},\mathfrak{h}] = \{0\}.
+$$
+Essentially the Cartan subalgebra is the algebra formed using the maximum number of commuting generators. The question remains for what we can do with the rest of the generators.
+
+**<u>Proposition:</u>** Let $\mathfrak{g}$ be a Lie algebra over a closed field (from now on we will use $\mathbb{C}$) and $\mathfrak{h}$ be its Cartan subalgebra with a basis $\mathcal{H}= \{H^i\}_{i=0}^{\text{dim\,}\mathfrak{h}}$. Then there exists a basis $\mathcal{E}$ of $\mathfrak{g}$ such that $\mathcal{H} \subset \mathcal{E}$ where given $H \in \mathcal{H}$ 
+$$
+[H,E] = \alpha_E(H) E,
+$$
+for all $E \in \mathcal{E} \setminus \mathcal{H}$, where $\alpha_E \in \mathfrak{h}^\ast$, the dual space of $\mathfrak{h}$. This is known as the **Cartan-Weyl basis**.
+
+***Proof:***  This looks similar to the construction of ladder operators. The way to show this is the following. Pick any basis $\mathcal{J}$ such that $\mathcal{H} \subset J$ then we know that for any $H\in \mathcal{H}$ and $J \in \mathcal{J} \setminus \mathcal{H}$
+$$
+[H,J] = \sum_{K \in \mathcal{J}} f_{H,J}^K K = \sum_{K \in \mathcal{J}\setminus \mathcal{H}} f_{H,J}^K K + \sum_{K \in \mathcal{H}} f_{H,J}^K K.
+$$
+Then we can pick $E$ to be
+$$
+E_J = J - \sum_{H,K \in \mathcal{H}} f_{H,J}^K K.
+$$
+ What we did is that we subtracted the part of $J$ that was in $\mathfrak{h}$. Therefore the new basis formed by $\mathcal{H} \cup \{E_J\}_{J \in \mathcal{J}\setminus \mathcal{H}}$ is still a basis. Using a similar reasoning we can then diagonalize to obtain 
+$$
+[H,E] = \alpha_{H,E} E,
+$$
+where $\alpha_{H,E} \in \mathbb{C}$. Since this gives a complex number for each $H$ in a linear way we can define $\alpha_E \in \mathfrak{h^\ast}$ as 
+$$
+\alpha_E(H) = \alpha_{H,E},
+$$
+for any $H \in \mathcal{H}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+We call $\alpha_E \in \mathfrak{h}^\ast$ a **root** of $\mathcal{g}$.
 
 
 
+### Adjoint Representation 
+
+There is a particularly nice way to understand these roots in the adjoint representation. 
+
+**<u>Definition:</u>** Given a Lie algebra $\mathfrak{g}$ its **adjoint representation** is the representation of the Lie algebra onto itself defined by
+$$
+\begin{align*}
+\text{ad}:\mathfrak{g} &\to \text{Aut}(\mathfrak{g})\\
+X&\mapsto \text{ad}(X) = [X,\cdot].
+\end{align*}
+$$
+**<u>Proposition:</u>** The nonzero eigenvalues of $\text{ad}(H)$ for any $H$ in the commuting part of the Cartan-Weyl basis of $\mathfrak{h}$ are given by $\alpha_{\bull}(H)$.
+
+***Proof:*** The Cartan-Weyl basis is, by construction, an eigenbasis for any $H$ since for any $E$
+$$
+\text{ad}(H)E = [H,E] = \alpha_E(H) E.
+$$
+Therefore $\alpha_E(H)$ is an eigenvalue of $H$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+ 
 
 
 
