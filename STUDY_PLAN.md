@@ -48,10 +48,10 @@ A small review of minimal models primarily designed to give a bit of tangible CF
 
 Studying semisimple lie algebras and their representations with applications to Conformal Field Theory. This will follow [Di Francesco](https://link.springer.com/book/10.1007/978-1-4612-2256-9) for Semisimple Lie Algebras and will contain an introduction by [Hamilton](https://link.springer.com/book/10.1007/978-3-319-68439-0) for the general definitions. 
 
-- [ ] [1 week] Lie Groups and Algebras **(H ch. 1)**
-  - [ ] Definitions, Common Examples, Lie Group Homomorphisms, Lie Algebras (H: ch. 1.1 - 1.4)
+- [x] [1 week] Lie Groups and Algebras **(H ch. 1)**
+  - [x] Definitions, Common Examples, Lie Group Homomorphisms, Lie Algebras (H: ch. 1.1 - 1.4)
     - [ ] **Problems:** 1.9.1, 1.9.2, 1.9.3, 1.9.6
-  - [ ] Lie algebras form lie groups (H: ch 1.5 - 1.7)
+  - [x] Lie algebras form lie groups (H: ch 1.5 - 1.7)
     - [ ] **Problems:** 1.9.9, 1.9.10, 1.9.11, 1.9.13, 1.9.17, 1.9.19, 1.9.25
   - [ ] Cartan's Theorem (H: ch. 1.8)
 
@@ -68,11 +68,10 @@ Studying semisimple lie algebras and their representations with applications to 
 
 ## Tricritical Ising
 
-- [ ] Study the **Ising** as a coset CFT and find the conformal boundaries using its representations. 
-- [ ] Same same for 3 states Potts model.
-- [ ] Extrapolate on how to do this for $SU(2)_8/U(1)$.
-
-You just need to study representation theory of $SU(2)$ from **Di Francesco**.  
+- [x] Study the **Ising** as a coset CFT and find the conformal boundaries using its representations. 
+- [x] Same same for 3 states Potts model.
+- [x] Extrapolate on how to do this for $SU(2)_8/U(1)$.
+- [x] You just need to study representation theory of $SU(2)$ from **Di Francesco**.  
 
 
 
