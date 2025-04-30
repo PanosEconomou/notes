@@ -6,5 +6,6 @@
 
 <!-- optional markdown-notes-tree directory description ends here -->
 
+- [Gauging Discrete Symmetries](Gauging.md)
 - [Topological Line Defects](Line_Defects.md)
 - [Symmetries as Defects](Symmetry_Defects.md)
