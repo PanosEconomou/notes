@@ -465,11 +465,11 @@
     }
 
     .math-inline {
-        font-size: 1.15em;
+        font-size: 1em;
     }
 
 	.math-display {
-		font-size: 1.25em;
+		font-size: 1em;
 	}
 	
     .md-tag {
