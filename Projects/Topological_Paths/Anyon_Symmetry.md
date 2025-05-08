@@ -12,7 +12,9 @@ Anyons are special types of particles (some even call them quasiparticles) that 
 
 ## Invitation: Toric Code
 
-The toric code lives on a lattice. On each edge of the lattice we place a qubit. A qubit is simply a quantum system that lives on $\mathcal{H} = \mathbb{C}^2$. So we place one of these at every point on the lattice and then we can start thinking about Operators.  
+The toric code lives on a lattice. On each edge of the lattice we place a qubit. A qubit is simply a quantum system that lives on $\mathcal{H} = \mathbb{C}^2$. So we place one of these at every point on the lattice and then we can start thinking about operators. 
+
+
 
 ## Fusion
 

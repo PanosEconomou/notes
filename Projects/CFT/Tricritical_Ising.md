@@ -274,7 +274,7 @@ where $Z(q)$ is the partition function of the Tricritical Ising Model.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
- 
+
 
 
 
@@ -306,13 +306,9 @@ The latest forecast says that we should be looking for combinations of Ishibashi
 
 Since the coset cft is rational there are as many independent Ishibashi states as there are primaries. We can then find the action of Ising in the span of Ishibashi states. The conformal boundary conditions that are invariant under Ising, would be the Cardy states that fall in the intersection of the eigenspaces with eigenvalue 1 of all the Ising operators. 
 
-Gauging relates the two theories. So in some sense there is a map between the ungauged theory and the gauged one that would map the characters of the ungauged theory to the ones of the gauged theory. Then the boundary states that also form a nim rep of the ungauged theory are what we are looking for.   
+Gauging relates the two theories. So in some sense there is a map between the ungauged theory and the gauged one that would map the characters of the ungauged theory to the ones of the gauged theory. Then the boundary states that also form a nim rep of the ungauged theory are what we are looking for.
 
-## What do I need to figure out?
-
-1. When we say that a defect is conformal in what sense does this mean that it is invariant under the symmetry fusion ring? - It means that each boundary satisfies the conformal boundary condition and a collection of them defines a nim rep of the fusion ring of the symmetry.
-
-
+Now we can derive cool consistency conditions. Using modular covariance under the insertion of the gauging mesh in the presence of a boundary.
 
 
 
