@@ -282,23 +282,11 @@ $$
 
 We need to work out the map between the characters of the gauged and ungauged theory. We can do this by studying the characters.
 
-## Decomposition of Gauged Theory
+## Twisted Sector Characters
 
-What we want to do is to take the representations $\tilde W_i$ of the Gauged Algebra $\tilde{\mathcal{A}}$ and write them as direct sums of representations $W_{i}$ of the ungaged chiral algebra $\mathcal{A}$. Namely we should find how
-$$
-\tilde W_i = \bigoplus_{j\in I_i} A_{i}^{j} W_{j},
-$$
-where $A_{i}^j$ are a bunch of integers. Therefore we can see that the characters $\tilde \chi_i$ of the gauged theory can be written in terms of the characters $\chi_i$ of the ungaged theory like so
-$$
-\tilde \chi_i = A_{i}^{j} \chi_j.  
-$$
-Which is fantastic! In other words we can cheat and figure out the map $A$ between the characters by inspecting the expansions of $\chi_i$ and $\tilde \chi_i$.
+In principle we should be able to write everything as sums of twisted Ishibashi states, so we want to calculate the twisted Hilbert space in some sense. The issue is that the folding symmetry is evil. So let's try to find it.
 
-
-
-## Pullback of Ishibashi states
-
-With this map we then pullback the Ishibashi states from the gauged theory and then recheck the Cardy states to see which ones preserve modular covariance of the annulus partition function of the ungauged theory. 
+ 
 
  # What are we looking for?
 
