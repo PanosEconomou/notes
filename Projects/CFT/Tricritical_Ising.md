@@ -236,7 +236,7 @@ $$
 $$
 Therefore we conclude that
 $$
-\Tr_{W_i^m\otimes \overline{W}_i^{n-m}} = \delta_{n-m,m} \dim W_i^m.
+\Tr_{W_i^m\otimes \overline{W}_i^{n-m}} \sigma = \delta_{n-m,m} \dim W_i^m.
 $$
 Doing some rewriting of our original sum ($n\mapsto 2n$) we obtain
 $$
