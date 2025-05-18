@@ -137,7 +137,7 @@ Therefore $\alpha_E(H)$ is an eigenvalue of $H$.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
- Notice how we can completely define each $E$ using a set of roots $\alpha_E$. In other words there is a one-one and onto map between the roots and the remaining generators $E$ of the algebra. So in some sense, that we will make precise later, fixing the roots and the Cartan subalgebra defines our simple Lie algebra!
+Notice how we can completely define each $E$ using a set of roots $\alpha_E$. In other words there is a one-one and onto map between the roots and the remaining generators $E$ of the algebra. So in some sense, that we will make precise later, fixing the roots and the Cartan subalgebra defines our simple Lie algebra!
 
 So we can perhaps refer to the generator with corresponding root $\alpha$ as $E^\alpha$ or even just $\alpha$ instead. These are also common notations. 
 
@@ -278,7 +278,7 @@ $$
 
 Notice that the roots are the weights of the Adjoint representation. This basis is quite nice because it has the following property.
 
-**<u>Proposition:</u>** Given a representation $\rho : \mathfrak{g}\to \text{End}(V)$ of a Lie algebra $\mathfrak{g}$, let $\psi \in V$ be an eigenvector with weight $\lambda \in \mathfrak{h}^\ast$, $H$ an element of the Cartan basis, and $E$ a Cartan-Weyl basis element with root $\alpha \in \mathfrak{h}^\ast$. Then $\rho(E) \psi$ is an eigenvector of $\rho(H)$ with root $\alpha + \lambda$.
+**<u>Proposition:</u>** Given a representation $\rho : \mathfrak{g}\to \text{End}(V)$ of a Lie algebra $\mathfrak{g}$, let $\psi \in V$ be an eigenvector with weight $\lambda \in \mathfrak{h}^\ast$, $H$ an element of the Cartan basis, and $E$ a Cartan-Weyl basis element with root $\alpha \in \mathfrak{h}^\ast$. Then $\rho(E) \psi$ is an eigenvector of $\rho(H)$ with weight $\alpha + \lambda$.
 
 ***Proof:*** This follows from the commutation relation between $H$ and $E$.
 $$
@@ -286,7 +286,7 @@ $$
 $$
 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
 So we have found a expression for Ladder operators! This is super fun. This leads us to generalize a lot of our intuition from the angular momentum representations. Also to keep notation clear, we will now work in terms of modules where essentially given a representation $\rho: \mathfrak{g} \to \text{End}(V)$ we have defined a product $\mathfrak{g} \times V \to V$ using the representation. So we will no longer write $\rho$ explicitly.
@@ -309,17 +309,11 @@ One more interesting thing is that the above theorem imposes a cool result for t
 
 **<u>Corollary:</u>** let $\alpha$ be a root of $\mathfrak{g}$ and $\lambda$ be a weight in a finite dimensional unitary representation of $\mathfrak{g}$. Then for any $H$ in the basis of the Cartan subalgebra of $\mathfrak{g}$ there exists an integer $k \in \mathbb{Z}$ such that
 $$
-\lambda(H) = \frac{k}{2} \alpha(H).
-$$
-Or in other words
-$$
 \frac{2 (\lambda,\alpha)}{(\alpha, \alpha)} \in \mathbb{Z},
 $$
 where $(\cdot,\cdot): \mathfrak{h}^\ast \times \mathfrak{h}^\ast \to \mathbb{C}$ is the inner product in the dual space induced by the killing form on $\mathfrak{g}$.
 
-***Proof:*** The proof relies on the fact that in any finite dimensional unitary representation $V$ of $\mathfrak{g}$ given any Cartan generator $H$ and any other generator $E$ with root $\alpha \in \mathfrak{h}^\ast$ the set $\{H,E,E^\dagger\}$ forms a representation of $\mathfrak{su}(2)$ by taking any vector $\psi \in V$ with weight $\lambda \in \mathfrak{h}^\ast$.  
-
-
+***Proof:*** The proof relies on the fact that in any finite dimensional unitary representation $V$ of $\mathfrak{g}$ given any generator $E \notin \mathfrak{h}$ with root  $\alpha \in \mathfrak{h}^\ast$ and $H \coloneqq \frac{1}{2}[E,E^\dagger]$, the set $\{H,E,E^\dagger\}$ forms a representation of $\mathfrak{su}(2)$ by taking any vector $\psi \in V$ with weight $\lambda \in \mathfrak{h}^\ast$.  
 
 That representation will contain a state with maximum and minimum z-component of angular momentum. So there exist a $p\in \mathbb{N}$ such that $E^p\psi$ is (without loss of generality) the maximum vector with eigenvalue $j$ and and integer $q \in \mathbb{N}$ such that $(E^\dagger)^q \psi$ has the minimum eigenvalue $-j$ where $j$ is half integer. So we can write
 $$
@@ -332,5 +326,159 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
+Notice that this corollary applies to the adjoint representation as well! So we can constrain the relations between the roots of a Lie algebra. 
 
-Notice that this corollary applies to the adjoint representation as well! So we can constrain the relations between the roots of a Lie algebra.
+**<u>Lemma:</u>** If $\alpha, \beta$ are roots, then 
+$$
+\beta - \frac{2(\beta, \alpha)}{(\alpha,\alpha)} \alpha,
+$$
+ is a also a root. 
+
+***Proof:*** Consider the adjoint representation of the Lie algebra, and construct a subrepresentation of $\mathfrak{su}(2)$ as we did above using a generator with root $\beta$ as the highest weight vector. Then, we know that since $\beta(H) - q \alpha(H)$ is a weight, then so is
+$$
+\beta(H) - (q-p) \alpha(H) = \beta(H) - \frac{2(\beta,\alpha)}{(\alpha,\alpha)} \alpha(H).
+$$
+ However, this is true for enough $H$ to form a basis for $\mathfrak{h}^\ast$. Therefore we have shown the claim. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Here is a super interesting application.
+
+**<u>Corollary</u>**: Let $\alpha\neq \pm\beta$ be weights of a simple Lie algebra. Then they are not parallel.
+
+***Proof:*** By the previous corollary if they were parallel they could only be parallel by a half integer since 
+$$
+2 \frac{(\beta,\alpha)}{(\alpha,\alpha)} \in \mathbb{Z}.
+$$
+Let $\beta = \lambda \alpha$ therefore we have that both $\frac{2}{\lambda}$ and $2\lambda$ must be integers. This implies that $\lambda \in\{\pm \frac{1}{2},\pm 1,\pm 2\}$. We have assumed that $\lambda \neq \pm 1$ so without loss of generality we can pick $\lambda = \pm 2$.  Now let $E_\alpha,E_\beta$ be the corresponding generators. We have that
+$$
+[E_{\pm \alpha},E_{\pm \alpha}] \propto E_\beta,
+$$
+since $\alpha + \alpha = \mp \beta$. However we know that $[E_{\pm \alpha},E_{\pm \alpha}] = 0$ because of antisymmetry. Therefore there is no such generator $E_\beta$ which implies that $\beta$ is not a root.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+ 
+
+
+
+## Simple Roots
+
+Let's dive in more into the characterization of roots and their properties by using them to construct a basis for the dual space of the Cartan subalgebra $\mathfrak{h}$ of a Lie algebra $\mathfrak{g}$.
+
+**<u>Lemma:</u>** Given a set $\Delta \subset \mathfrak{h}^\ast$ of roots of a simple Lie algebra $\mathfrak{g}$ there always exists a subset $\Delta_+ \subset \Delta$ such as $\Delta = \Delta_+ \cup -\Delta_+$.
+
+***Proof:*** We know that $0$ can't be a root, because if it was the associated basis element would be in the Cartan subalgebra. We also know that for each root $\alpha \in \Delta$ we have that $-\alpha \in \Delta$. Therefore we form $\Delta_+$ such that for any $\alpha \in \Delta_+$ the element $-\alpha$ is not there.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+While this doesn't seem that cool, here is a cool thing.
+
+**<u>Proposition:</u>** A Euclidean inner product on $\mathfrak{h}^\ast$ defines such a subset $\Delta_+$ for a set of roots $\Delta$. 
+
+***Proof:*** To construct it pick any $\alpha \in \mathfrak{h}^\ast$ such that $\langle \alpha,\beta \rangle \neq 0$ for any root $\beta \in \Delta$. Then take
+$$
+\Delta_+ = \{ \beta \in \Delta \mid \langle \alpha,\beta \rangle > 0\}.
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+***Note:*** We always have such a Euclidean inner product since $\mathfrak{h}^\ast$ is a finite dimensional complex vector space.
+
+We call such a set $\Delta_+$ a set of **positive roots**. An interesting thing to notice is that while we will always be able to have positive roots, we have multiple choices for them. All of the choices will contain precisely half the available roots and as we will see, we consider them equivalent since each set will either contain either $-\alpha$ or $\alpha$ for any root. So from now on, without loss of generality we will assume that we have fixed a set of positive roots. Also we call $\Delta_- \coloneqq - \Delta_+$.
+
+The reason why we introduced them is the following.
+
+**<u>Lemma:</u>** The number of positive roots in a simple Lie algebra is always greater than the dimension of the Cartan subalgebra. 
+
+***Proof:*** Assume the converse. Assume that the Cartan-Weyl generator with root $\alpha$ is $E_\alpha$ and the set of positive roots is $\Delta_+$. Then consider a subset $\mathcal{L}$ of the Cartan-Weyl basis $\mathcal{J}$ that contains all $E_\alpha$ for every $\alpha \in \Delta$ and every element of the Cartan subalgebra given by
+$$
+[E_{\alpha},E_{-\alpha}]  = \frac{2 \alpha \cdot H}{\langle \alpha, \alpha\rangle} \in \mathfrak{h}.
+$$
+That is a subset of the Cartan Weyl basis such that $[\mathcal{L},\mathcal{J}] \subset \text{span\,}\mathcal{L}$. Which implies that the algebra is not simple. Therefore $|\Delta_+|$ must always be greater or equal to $\text{dim\,}\mathfrak{h}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+This means that there might be a chance that we would be able to find a basis for $\mathfrak{h}^\ast$ made out of positive roots! As we will see, we will always be able to do that. Let's try to show this.
+
+**<u>Definition:</u>** A positive root $\alpha \in \Delta^+$is **simple** if there exist no two positive roots $\beta,\gamma \in \Delta^+$ such that $\alpha = \beta + \gamma$.
+
+**<u>Corollary:</u>** Any positive root is a sum of simple roots.
+
+***Proof:*** If it is simple we are done, if it is not, it is a sum of two positive roots. And so on until we reach a sum of simple roots.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Lemma:</u>** If for any two positive roots $(\alpha,\beta) > 0 $ then $\alpha - \beta$ is a root. 
+
+***Proof:*** We notice that by trigonometry in the case where $(\alpha,\beta) > 0$ it must hold that 
+$$
+\alpha - 2\frac{(\alpha,\beta)}{(\beta,\beta)} \beta = - \beta + 2 \frac{(\alpha,\beta)}{(\alpha,\alpha)} \alpha.
+$$
+This implies that
+$$
+2\frac{(\alpha,\beta)}{(\beta,\beta)} = 2 \frac{(\alpha,\beta)}{(\alpha,\alpha)} = 1.
+$$
+Therefore $\alpha - \beta $ is a root.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+I'm cooking lemme prove another lemma and then we will work.
+
+**<u>Lemma:</u>** Any two distinct simple roots have $(\alpha,\beta) \leq 0$.
+
+***Proof:*** If the roots are positive, then $\alpha - \beta$ or $\beta - \alpha$ would be a positive root. However, all positive roots are given by positive sums of simple roots, therefore $\pm(\alpha - \beta)$ are not positive which is a contradiction since one of them has to be. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+ Finally we are ready for the super amazingly cool theorem about simple roots.
+
+**<u>Theorem:</u>** The simple roots are a basis for $\mathfrak{h}^\ast$ for any simple Lie algebra.
+
+***Proof:***  We first show that they span $\mathfrak{h}^\ast$. They do so because they span all positive roots, and all positive roots span $\mathfrak{h}^\ast$. Then we need to show that they are linearly independent. If they were linearly dependent then we could find coefficients $a_i \in \mathbb{R}$ such that
+$$
+a_is^i =0,
+$$
+where $s^i$ are the simple roots. Now let's split the coefficients into positive and negative ones to obtain two vectors $\alpha = b_i s^i$, where $b_i$ are the positive coefficients, and $\beta = -c_is^i$ which are the negative coefficients. We know that $\alpha - \beta = 0 \implies (\alpha,\beta) > 0$.
+
+However we have that 
+$$
+(\alpha,\beta) = -b_i c_j (s^i,s^j) \leq 0,
+$$
+since each coefficient is positive and $(s^i,s^j)$ has to be non-positive. So the simple roots are a linearly independent spanning set.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This is an incredibly powerful result in the classification of simple Lie algebras! We can now use simple roots as a basis for our Cartan Algebra, along with the fact that there are as many simple roots as there are Cartan generators. 
+
+
+
+## Cartan Matrix and Coroots
+
+Another really useful construction are the coroots, which are essentially the dual description of the roots. There is a very pretty lattice picture that comes with this, but we won't introduce it until we talk about the Weyl group.
+
+**<u>Definition:</u>** Given a root $\alpha \in \Delta$ for some simple Lie algebra $\mathfrak{g}$ the **dual root** or **coroot** $\alpha^\vee \in \mathfrak{h}^\ast$ is given by 
+$$
+\alpha^\vee \coloneqq \frac{2 \alpha}{(\alpha,\alpha)}.
+$$
+Using this we can define the Cartan matrix which will be a very useful tool.
+
+**<u>Definition:</u>** The **Cartan Matrix** of a simple Lie algebra with simple roots $\{a_i\}_{i=0}^{\text{dim\,}\mathfrak{h}^\ast}$ is the change of basis transformation between the roots and the dual roots. In other words it is the matrix with coefficients
+$$
+A_{ij} = (a_i,a_j^\vee).
+$$
+Let's discover some of its properties.
+
+**<u>Proposition:</u>** The Cartan matrix is an integer matrix with diagonal elements equal to $2$ and nondiagonal elements in $\{0,-1\}$.
+
+***Proof:***  I mean we have shown a million times why that inner product must be integers. For the diagonal we literally plug it in. For the rest, we need to use our previous lemmas. First of all by the triangle inequality
+$$
+A_{ij}A_{ji} < 4.
+$$
+We also know that $(a_i,a_j) \leq 0$. Therefore if $A_{ij} \leq -2$ then $A_{ij}A_{ji} \geq 4$. As a result, $-1 \leq A_{ij} \leq 0$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Now we will show that we can have, at most 2 different lengths for the roots.
