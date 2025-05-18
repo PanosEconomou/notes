@@ -361,6 +361,14 @@ $$
 
 
 
+## Weyl Group
+
+Playing with the reflections $s_\alpha : \mathfrak{h}^\ast \to \mathfrak{h}^\ast$ associated with a root $\alpha \in \Delta$ we have stumbled upon a group! That is the group of reflections associated with roots where the generators are $s_\alpha$ and the group operation composition. This is called the Weyl group.
+
+**<u>Proposition:</u>** Let $W$ be the Weyl group associated with a root system $\Delta$ with simple roots $S \subset \Delta$. Then $\Delta = WS$ under the defining group action of $W$ on $\mathfrak{h}^\ast$.
+
+
+
 
 ## Simple Roots
 
