@@ -165,7 +165,7 @@ Notice that since the Lie algebras we are considering are all complex they carry
 
 Turns out that if we want something to be linear symmetric and invariant under Lie algebra automorphisms in a simple Lie algebra we don't really have many choices. 
 
-**<u>Theorem:</u>** Let $\mathfrak{g}$ be a simple Lie algebra. Then any invariant symmetric bilinear form $K : \mathfrak{g}\times \mathfrak{g} \to \mathbb{C}$ is given by
+**<u>Theorem:</u>** Let $\mathfrak{g}$ be a simple Lie algebra. Then any Lie algebra automorphism invariant symmetric bilinear form $K : \mathfrak{g}\times \mathfrak{g} \to \mathbb{C}$ is given by
 $$
 K = \lambda \text{tr} (\text{ad}_X \circ \text{ad}_Y)
 $$
@@ -358,7 +358,7 @@ since $\alpha + \alpha = \mp \beta$. However we know that $[E_{\pm \alpha},E_{\p
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
- 
+
 
 
 
@@ -455,7 +455,7 @@ This is an incredibly powerful result in the classification of simple Lie algebr
 
 
 
-## Cartan Matrix and Coroots
+### Cartan Matrix and Coroots
 
 Another really useful construction are the coroots, which are essentially the dual description of the roots. There is a very pretty lattice picture that comes with this, but we won't introduce it until we talk about the Weyl group.
 
@@ -481,4 +481,141 @@ We also know that $(a_i,a_j) \leq 0$. Therefore if $A_{ij} \leq -2$ then $A_{ij}
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
-Now we will show that we can have, at most 2 different lengths for the roots.
+Now we will show even fancier ways to describe the roots.
+
+**<u>Theorem:</u>** Let $\alpha, \beta \in \mathfrak{h}^\ast$ be roots of a simple Lie algebra. Then if $(\alpha,\beta)\neq 0$ the ratio of their lengths satisfies
+$$
+\frac{(\alpha,\alpha)}{(\beta,\beta)} \in \{1,2,3\},
+$$
+ where without loss of generality $\alpha$ is longer than $\beta$.
+
+***Proof:*** We know that by the triangle inequality
+$$
+(\alpha,\beta)^2 < (\alpha,\alpha)(\beta,\beta).
+$$
+We can rearrange this to obtain that for some integers $k,m \in \mathbb{Z}^\ast$ (recall that the expressions must be integers from our previous lemma)
+$$
+\begin{align*}
+k &= \frac{2|(\alpha,\beta)|}{(\alpha,\alpha)} < \frac{2 (\beta,\beta)}{|(\alpha,\beta)|}\\
+m &= \frac{2|(\alpha,\beta)|}{(\beta,\beta)} < \frac{2 (\alpha,\alpha)}{|(\alpha,\beta)|}
+\end{align*}
+$$
+Therefore we conclude that $mk<4$. 
+$$
+\frac{(\alpha,\alpha)}{(\beta,\beta)} = \frac{m}{k},
+$$
+assuming that $\alpha$ is larger than beta the only solutions are $(m,k) \in \{(1,1),(2,1),(3,1)\}$, which proves the claim.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This is amazing! In fact this restricts the structure of the roots of the Lie algebra so much. We can do even better. We will show that for a given simple Lie algebra there can be, at most, two different length ratios.
+
+**<u>Corollary:</u>** Given a simple Lie algebra the ratio of the lengths of any two roots can have, at most, 2 different values. 
+
+***Proof:*** Assume that there are two roots $\alpha,\beta \in \mathfrak{h}^\ast$ with length ratio $2$ and two roots $\beta,\gamma$ with length ratio $3$. Then we have that
+$$
+\frac{(\alpha,\alpha)}{(\gamma,\gamma)}=\dfrac{\frac{(\alpha,\alpha)}{(\beta,\beta)}}{\frac{(\beta,\beta)}{(\gamma,\gamma)}} = \frac{2}{3},
+$$
+which is not a valid length ratio according to the previous theorem. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This is amazing because it will lead us directly to an elegant classification of simple Lie algebras using their roots that extends far beyond Lie algebras. They are called Dynkin Diagrams but no spoilers yet. 
+
+
+
+### An Inner Product in $\mathfrak{h}^\ast$ 
+
+This time we have been using the Hermitian inner product in $\mathfrak{h}^\ast$ but we only said that it is "induced by the Killing form." Let's close that loophole so that I can sleep at night. 
+
+We have derived before that in a simple Lie algebra the Killing form is nondegenerate. Therefore, as a map from Lie algebra to its dual it is a Lie algebra isomorphism.
+
+**<u>Definition:</u>** The dual Cartan algebra $\mathfrak{h}^\ast$ of a simple Lie algebra $\mathfrak{g}$ is a complex Lie algebra. The **real subalgebra** $\mathfrak{h}^\ast_\mathbb{R}$ is a real Lie algebra such that
+$$
+\mathfrak{h}^\ast \cong \mathbb{C}\otimes \mathfrak{h}^\ast_\mathbb{R}.
+$$
+This is a bit pedantic, but a lot of our proofs were based on the fact that $(\cdot,\cdot)$ is a Euclidean inner product. However, it is not. Since the Killing form is, in general, not definite then there is no reason to expect that the induced inner product would be positive definite. However, we are in luck, because its restriction on $\mathfrak{h}^\ast_\mathbb{R}$ is! And not only that, but also we can always find an $\mathfrak{h}^\ast_\mathbb{R}$ such that our roots live there. 
+
+**<u>Lemma:</u>** The roots of a simple Lie algebra live in $\mathfrak{h}^\ast_\mathbb{R}$.
+
+***Proof:*** We can construct $\mathfrak{h}_\mathbb{R}^\ast$ by taking the real span of a basis for the complex vector space, and then complexifying it. But wouldn't you know it? Not only the simple roots are a basis for the complex vector space, but the rest of the roots are in its real span! So we can define $\mathfrak{h}_\mathbb{R}^\ast = \text{span}_\mathbb{R}\, \Delta$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Now we are ready to play a bit more and construct things even further. 
+
+**<u>Proposition:</u>** The Killing form defines a symmetric nondegenerate definite bilinear form on $\mathfrak{h}^\ast_\mathbb{R}$ that is Lie algebra automorphism invariant.
+
+***Proof Sketch:*** We first define the symmetric nondegenerate bilinear form  $(\cdot,\cdot):\mathfrak{h}^\ast\times \mathfrak{h}^\ast \to \mathbb{C}$ for any $\alpha,\beta \in \mathfrak{h}^\ast$ by
+$$
+(\alpha,\beta) = K(K^{-1}(\alpha),K^{-1}(\beta)),
+$$
+where $K^{-1}:\mathfrak{h}^\ast \to \mathfrak{h}$ is he inverse map between the Cartan subalgebra to its dual. As a result this is already symmetric, nondegenerate, bilinear, and Lie algebra automorphism invariant by the properties of $K$. However, we also crave definiteness. We restrict to the real subalgebra as of the Cartan algebra defined above, and multiply by $i$ if the output is a complex number. Then the new bilinear form is definite.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Now the last thing we are missing is a normalization. And here is where the famous Coxeter numbers come in. 
+
+**<u>Definition:</u>** Given a simple Lie algebra, any root $\theta \in \mathfrak{h}^\ast$ can be written as integer sums of the simple roots 
+$$
+\theta = m_i\alpha^i,
+$$
+ where $m_i \in \mathbb{Z}$. Then $\theta$ is the **highest root** if $\sum_{i} m_i$ is maximum. Namely we call $m_i$ **marks** and the coefficients in the dual basis (coroot basis) 
+$$
+m_i^\vee = \frac{(\alpha_i,\alpha_i)}{2} m_i,
+$$
+are called **comarks**. Then the **Coxeter number** and **dual Coxeter number** are defined by
+$$
+\begin{align*}
+g = 1 + \sum_{i}m_i && g^\vee = 1 + \sum_{i}m_i^\vee.
+\end{align*} 
+$$
+We will from now on normalize the Killing form like so
+$$
+K(X,Y) = \frac{1}{2g^\vee} \text{tr}(\text{ad}_X \circ \text{ad}_Y).
+$$
+This normalizes our induced inner product nicely without changing anything. 
+
+
+
+## Reconstructing the Simple Lie Algebra from its Roots 
+
+Now we are finally ready to show the next amazing result, which is what we have all been waiting for in order to start the classification. Let's create a basis for our Simple Lie algebra given its roots. For a simple root $\alpha \in \mathfrak{h}^\ast$ we define the following element of the Cartan subalgebra $\mathfrak{h}$
+$$
+h^\alpha = K^{-1}(\alpha^\vee).
+$$
+Then we define $e^\alpha,f^\alpha$ as the generators with roots $\pm \alpha$ respectively. These follow the corresponding commutation relations
+$$
+\begin{align*}
+[h^{\alpha},h^{\beta}] &= 0\\
+[h^\alpha,e^\beta] &= A_{\alpha\beta} e^\beta\\
+[h^\alpha,f^\beta] &= -A_{\alpha\beta} e^\beta\\
+[e^\alpha,f^\beta] &= \delta_{\alpha\beta} h^\beta.
+\end{align*}
+$$
+where $A$ is the Cartan matrix. But you will say: "Wait! There must be more ladder operators!" You would be right. We obtain the remaining ones from **Serre Relations** that end up being very useful in proving stuff
+$$
+\begin{align*}
+(ad_{e^\alpha})^{1-A_{\alpha\beta}}e^\beta = 0 && (ad_{f^\alpha})^{1-A_{\alpha\beta}}f^\beta = 0.
+\end{align*}
+$$
+
+
+## Dynkin Diagrams
+
+Finally the next step in our classification journey. What we have shown so far is that knowing the simple roots and the Cartan Matrix we can reconstruct the simple Lie algebra. We can put all this information in diagrams that can help us quickly codify them. 
+
+> **<u>The rule:</u>** Given the simple roots of a Lie algebra, as well as the Cartan matrix we obtain a graph by assigning a simple root to each node where nodes with the same length are the same color (we only need two types of nodes). Then we connect nodes $\alpha,\beta$ with $A_{\alpha \beta}^2 = (\alpha,\beta) \in \{0,1,2,3\}$ lines. 
+
+That's it! From that we can obtain the algebra! For example the Dynkin diagram for $\mathfrak{su}(2)$ is a single dot.
+
+There are four families of diagrams associated to simple Lie algebras, as well as 5 exceptional cases (lol). Here is a table
+
+|   **Dynkin Label**    |  Matrix Group Label   |
+| :-------------------: | :-------------------: |
+|         $A_n$         | $\mathfrak{su}(n+1)$  |
+|         $B_n$         | $\mathfrak{so}(2n+1)$ |
+|         $C_n$         |  $\mathfrak{sp}(2n)$  |
+|         $D_n$         |  $\mathfrak{so}(2n)$  |
+| $E_6,E_7,E_8,F_4,G_2$ |          --           |
+
