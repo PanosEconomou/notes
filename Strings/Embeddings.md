@@ -135,5 +135,61 @@ Lines are easy, however 2D surfaces are hard. Yet, every time we imagine a 2D su
 
 ## Complex Structure
 
+We have shown in the [conformal field theory notes](../Quantum_Fields/2D_CFT_Axioms.md#Conformal-Transformations) the following theorem.
+
+**<u>Theorem:</u>** Any 2-dimensional Riemannian Manifold $(M,g)$ is conformally flat, i.e. for any $p \in M$ the metric restricted a chart $U \ni p$ is given by
+$$
+\left. g\right|_U =\Omega\eta,
+$$
+where $\Omega \in C^\infty(U,\mathbb{R}^+)$ and $\eta$ is the flat Euclidean metric on $U$.
+
+***Proof:*** To show this we will find a set of local coordinates such that this is true. Assume a general metric given by
+$$
+g = g_{xx} dx^2 + 2g_{xy} dx\cdot dy + g_{yy} dy^2.
+$$
+Notice that if $g_{xx} = 0$ then $g_{x,y}\neq 0$ to preserve non-degeneracy, then we have $g=(2g_{xy}dx + g_{yy}dy)\cdot dy$ which is conformally flat. The remaining choices are when $g_{xx}\neq 0$. Then, we can factorize the 2nd order polynomial to obtain
+$$
+g = \left(\sqrt{g_{xx}} dx + \frac{g_{xy} + \sqrt{\Delta}}{\sqrt{g_{xx}}} dy  \right)\left(\sqrt{g_{xx}} dx + \frac{g_{xy} - \sqrt{\Delta}}{\sqrt{g_{xx}}} dy  \right),
+$$
+where $\Delta = g_{xy}^2 - g_{xx}g_{yy}$. However we know that whatever is in the parentheses is a 1-form. Therefore it must be written as $f_{\pm} du^{\pm}$, where $f_{\pm} \in C^\infty(U,\mathbb{C}^\ast)$ and $du^{\pm} \in T^\ast U^{\mathbb{C}}$are some non vanishing smooth functions on the chart. As a result, we have that
+$$
+g = f_{+} f_{-} du^+ \cdot du^{-}.
+$$
+Notice that the only complex part is in $\sqrt{\Delta}$ so that implies that $du^+ = \overline {du^-}$ and similarly $f_+ = \bar f_-$. Now we define the functions $\xi^1,\xi^2 \in C^\infty(U,\mathbb{R})$ such that
+$$
+du^\pm = d\xi^1 \pm id\xi^2.
+$$
+Then the metric can be written as 
+$$
+g = ||f_{+}||^2(d\xi^1 \cdot d\xi^1 + d\xi^2 \cdot d\xi^2),
+$$
+which is the metric written in a new chart but in conformal coordinates. These coordinates, btw, are called **isothermal.** 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Corollary:</u>** In a Riemann surface there is always a chart $(U,z,\bar z)$ where the metric can be written as
+$$
+g = e^{2\sigma} dz \cdot d\bar z,
+$$
+for some $\sigma \in C^\infty(U)$.
+
+***Proof:*** Pick $z = \xi^1 + i \xi^2$ and $2\sigma = \log f_{+}f_-$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+These are super useful coordinates to play with in such surfaces.
+
+**<u>Definition:</u>** Consider a **conformal transformation** $f : M \to M$ of a Riemann surface (i.e. $\bar \partial f =0$). Then we know that for any holomorphic tensor $T \in \Gamma(TM^{\otimes p}\otimes T^\ast M^{\otimes q})^+$ we have that
+$$
+f^\ast T = \left(\frac{\partial f}{\partial z}\right)^n T,
+$$
+then the number $n$ is the **helicity of** $T$.
+
+
+
+## Parallel Transport
+
+Since we always have a conformally flat metric it would be nice to play around and find the possible parallel transports we can add to the Riemann surfaces. 
+
 
 
