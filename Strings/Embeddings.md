@@ -42,9 +42,9 @@ $$
 $$
 an embedding can actually stretch the line and its length will change! Often in physics we define the physical path between two points as the embedding of the segment that extremizes its length. Here is how we define this.
 
-**<u>Definition:</u>** Given a Lorentzian manifold $(M,G)$, and an embedding $\gamma: I \to M$ the **free length action** of $\gamma$ is given by
+**<u>Definition:</u>** Given a Lorentzian manifold $(M,G)$, and an embedding $X: I \to M$ the **free length action** of $\gamma$ is given by
 $$
-S(\gamma) \coloneqq \int_{I} \omega_{\gamma^\ast G},
+S(X) \coloneqq \int_{I} \omega_{X^\ast G},
 $$
 where $\omega_g$ is the volume form on the line with respect to the metric $G$.
 
@@ -56,13 +56,13 @@ This is not necessarily a problem, since we know that things like photons have w
 
 To solve this problem we can play the following game. Instead of minimizing the length we might want to minimize this.
 
-**<u>Definition:</u>** Given a manifold $(M,G)$ and an embedding $\gamma:I\to M$ with an einbein $e$, the **free action** of $\gamma$ with mass $m\in \mathbb{R}_{\geq 0}$ is given by
+**<u>Definition:</u>** Given a manifold $(M,G)$ and an embedding $X:I\to M$ with an einbein $e$, the **free action** of $X$ with mass $m\in \mathbb{R}_{\geq 0}$ is given by
 $$
-S(\gamma,e) \coloneqq \frac{1}{2} \int_I \ast (\gamma^\ast G\left( \hat e,\hat e \right) - m^2),
+S(\gamma,e) \coloneqq \frac{1}{2} \int_I \ast \text{tr}_{e}(X^\ast G - m^2) = \frac{1}{2} \int_I \ast (X^\ast G\left( \hat e,\hat e \right) - m^2),
 $$
-where $\hat e \in \Gamma(TI)$ is the vector field dual to the einbein such that $e(\hat e) = 1$.
+where $\hat e \in \Gamma(TI)$ is the vector field dual to the einbein such that $e(\hat e) = 1$, and $\text{tr}_e$ is the trace with respect to the metric $g = e\otimes e$.
 
-At first glance this seems esoteric as hell, but by noticing $G(\hat e,\hat e) = v^2$, the velocity of the particle, we can see that the expression is the Legendre transform of Einstein's energy $E = m^2 +p^2$. This allows us to take into account paths with zero mass more effectively.
+At first glance this seems esoteric as hell, but by noticing $X^\ast G(\hat e,\hat e) = v^2$, the velocity of the particle, we can see that the expression is the Legendre transform of Einstein's energy $E = m^2 +p^2$. This allows us to take into account paths with zero mass more effectively.
 
 The reason why is because we are minimizing for both the length of the line we are embedding as well as the Lagrangian. This way if the paths have no length (which is true for the case $m=0$) we can still find an extremum by changing the length of the line.
 
@@ -76,11 +76,11 @@ This is exactly what we expect so we are in good hands. In some trvivialization 
 $$
 f(\tau) = \sqrt{-\frac{G(v,v)}{m^2}},
 $$
-where $v = \gamma_\ast \frac{d}{d\tau}$ is the momentum of the path under the einbein $d\tau$ (that momentum is called the 4-velocity of the path). In the case where $m=0$ we have that the choice of einbein is irrelevant so we choose one that makes the length of $I$ to be $1$. 
+where $v = X_\ast \frac{d}{d\tau}$ is the momentum of the path under the einbein $d\tau$ (that momentum is called the 4-velocity of the path). In the case where $m=0$ we have that the choice of einbein is irrelevant so we choose one that makes the length of $I$ to be $1$. 
 
-**<u>Corollary:</u>** At an extremum $(\gamma,e)$, the free action for $m\neq 0$ is
+**<u>Corollary:</u>** At an extremum $(X,e)$, the free action for $m\neq 0$ is
 $$
-S(\gamma,e) = -m^2L,
+S(X,e) = -m^2L,
 $$
 where $L$ is the length of the path given by
 $$
@@ -88,7 +88,7 @@ L \coloneqq \int_I e = \int_0^1 \sqrt{-\frac{G(v,v)}{m^2}} d\tau,
 $$
 where $\tau$ is the identity trivialization of $I$. At the extremum for $m=0$ we have that 
 $$
-S(\gamma,e) = 0.
+S(X,e) = 0.
 $$
 ***Proof:*** Just plug in the results above.
 $$
@@ -99,26 +99,26 @@ $$
 
 Let's do some quick quantum mechanics and obtain the propagator for restricting the endpoints of the embedding. The propagator in quantum mechanics in the path integral prescription is given by
 $$
-G(x,y) = \langle \psi_y,\psi_x \rangle = \frac{1}{Z} \int_{\partial \gamma = \{x,y\}} \mathcal{D}e \mathcal{D}\gamma \exp[-iS(\gamma,e)],
+G(x,y) = \langle \psi_y,\psi_x \rangle = \frac{1}{Z} \int_{\partial X = \{x,y\}} \mathcal{D}e \mathcal{D}X \exp[-iS(X,e)],
 $$
-where $Z$ denotes a normalization prescription. This is schematic and honestly not very useful for our purposes because as we will see $\int \mathcal{D}e\, \exp[-iS(\gamma,e)]$ diverges so we will need some way around this.
+where $Z$ denotes a normalization prescription. This is schematic and honestly not very useful for our purposes because as we will see $\int \mathcal{D}e\, \exp[-iS(X,e)]$ diverges so we will need some way around this.
 
 In order to get around this is to realize the the only real effect of $e$ is to change the length of the segment, and by integrating over $\gamma$ we will effectively take all the $e$ into account. So we can define the identity trivialization $\tau$ and define $e = L \tau$ for some $L>0$. Now the path integral can be written as
 $$
-G(x,y) = \langle \psi_y,\psi_x \rangle = \frac{1}{Z} \int_{0}^\infty dL\int_{\partial \gamma = \{x,y\}} \mathcal{D}\gamma \exp[-iS(\gamma,Ld\tau)].
+G(x,y) = \langle \psi_y,\psi_x \rangle = \frac{1}{Z} \int_{0}^\infty dL\int_{\partial X = \{x,y\}} \mathcal{D}\gamma \exp[-iS(X,Ld\tau)].
 $$
-**<u>Lemma:</u>** If $\tau:I\to [0,1]$ is the identity trivialization we have that for any $L>0$ and any embedding $\gamma: I \to M$ 
+**<u>Lemma:</u>** If $\tau:I\to [0,1]$ is the identity trivialization we have that for any $L>0$ and any embedding $X: I \to M$ 
 $$
-S_m(\gamma,Ld\tau) = \frac{1}{L}S_{Lm}(\gamma,d\tau),
+S_m(X,Ld\tau) = \frac{1}{L}S_{Lm}(X,d\tau),
 $$
  where we have made the dependence on the mass $m>0$ explicit in the subscript.
 
-Next step in our calculation is Wick rotating on $M$. This involved analytically continuing the variable with negative length of the Lorentzian manifold. Doing so, we convert the Lorentzian metric $G$ to a metric $\tilde G$ defined on a trivialization of $M$ that contains $\gamma$ such that $\tilde G$ is Riemannian.
+Next step in our calculation is Wick rotating on $M$. This involved analytically continuing the variable with negative length of the Lorentzian manifold. Doing so, we convert the Lorentzian metric $G$ to a metric $\tilde G$ defined on a trivialization of $M$ that contains $X$ such that $\tilde G$ is Riemannian.
 
 We now obtain a Euclidean path integral that we know how to evaluate
 $$
 \begin{align*}
-G(x,y) = \frac{1}{Z} \int_0^\infty dL \int_{\gamma(0) = x}^{\gamma(1) = y} \exp\left[-\frac{1}{2L} \int_0^1 \left(\tilde G(v,v) +L^2m^2\right)d\tau\right]
+G(x,y) = \frac{1}{Z} \int_0^\infty dL \int_{X(0) = x}^{X(1) = y} \exp\left[-\frac{1}{2L} \int_0^1 \left(\tilde G(v,v) +L^2m^2\right)d\tau\right]
 \end{align*}.
 $$
 The mass integral is simply an exponential so we absorb it in $Z$. Doing the gruntwork for $M = \mathbb{R}^D$ we find
@@ -193,3 +193,71 @@ Since we always have a conformally flat metric it would be nice to play around a
 
 
 
+# Embedding Riemann Surfaces
+
+Cross sections of Riemann surfaces embedded in $\mathbb{R}^{k+2}$ are lines, or as we call them here, strings. So it would make sense that the spacetime picture of any "string configuration" is an embedding of an oriented 2D surface. If it is compact (which we really want to assume) then that would a Riemann surface. Let's study an action for them.
+
+Following the lines along which we have played with before, we can define one action to be the area of the embedding which would end up being problematic to minimize in a Lorentzian manifold. That action, btw, has a name and it is called the Nambu-Goto action. So let's skip that and continue right ahead to the "energy version" of the action.
+
+**<u>Definition:</u>** Let $(M,G)$ be a Lorentzian manifold of dimension greater than $2$, and consider an embedding $X: \Sigma \to M$ of a Riemann surface $(\Sigma,\gamma)$. Then the **Polyakov action** of the Embedding of $\Sigma$ with metric $\gamma$ is given by
+$$
+S(X,\gamma) = -\frac{T}{2} \int_\Sigma \ast \text{tr}_{\gamma}X^\ast G,
+$$
+where $T>0$ is a constant known as the **string tension**. We conventionally define the **Regge slope** as
+$$
+\alpha'= \frac{1}{2\pi T}.
+$$
+Notice that this extremely similar what we have seen before. For the line, the momentum was $v^2=  X^\ast G(e,e) = \tr_{e\otimes e} X^\ast G $. Here it is exactly the same thing but this time we have kept the vielbein implicit. This is actually a universal construction for the momentum in physics and field theory in general. So this action is nothing but the momentum squared.
+
+
+
+## Symmetries of the Polyakov Action
+
+Let's find them. Apart from reparameterization invariance (i.e. our action doesn't depend on the choice of chart) The action is invariant under the metric preserving diffeomorphisms of $(M,G)$. 
+
+**<u>Proposition:</u>** The Polyakov action is invariant under metric preserving diffeomorphisms of the target space.
+
+***Proof:*** Consider the embedding $X: \Sigma \to M$ and the metric preserving diffeomorphism $f: M \to M$ such that $f^\ast G = G$. Then we have that
+$$
+(f\circ X)^\ast G = X^\ast f^\ast G = X^\ast G \implies S(f\circ X,\gamma) = S(X).
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+This is pretty nice in $M = \mathbb{R}^D$ with the Minkowski metric, where the set of metric preserving diffeomorphisms is the Poincare transformations. There are more transformations!
+
+**<u>Proposition:</u>** The Polyakov action is invariant under Weyl transformations of $\Sigma$. That is given a transformation of the form $f:\Sigma \to \Sigma$ such that $f^\ast \gamma = \Omega^2 \gamma$ for some function $\Omega \in C^\infty(\Sigma, \mathbb{R}^+)$.
+
+***Proof:*** We can calculate directly
+$$
+S(X,f^\ast \gamma) = \int_\Sigma \ast_{f^\ast \gamma} \text{tr}_{f^\ast \gamma} X^\ast G.
+$$
+Notice that $\ast_{f^\ast \gamma} = \ast_{\Omega^2 \gamma} = \Omega^2\ast_{\gamma}.$  This is because that in two dimensions $\det a M = a^2 \det M$ for any matrix $M$. The next thing is that
+$$
+\text{tr}_{\gamma} dx\otimes dy = \gamma^{-1}(dx,dy) \implies \tr_{\Omega^2 \gamma} = \Omega^{-2} \text{tr}_\gamma.
+$$
+Therefore we have that
+$$
+\ast_{f^\ast \gamma} \text{tr}_{f^\ast \gamma} = \ast_\gamma \text{tr}_\gamma.
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+This makes a lot of sense, because in this case the action depends on the volume of the embedding and not the volume of $\Sigma$. So scaling up $\Sigma$ with a Weyl transformation is something like a Gauge freedom kind of thing.
+
+
+## Further Interaction Terms
+
+Ok but what about interaction terms? Mass term? Something! In the worldline picture the Lagrangian was 
+$$
+\mathcal{L}(X,\gamma) = \text{tr}_{\gamma} (X^\ast G - m^2),
+$$
+yet, here there is no $m^2$. What gives? 
+
+**<u>Proposition:</u>** The critical points of $\mathcal{L}(X,\gamma) = \tr_{\gamma}(X^\ast G - 1)$ occur at $\gamma = 0$.
+
+***Proof:*** To show this we take the variation with respect to $\gamma$ in local coordinates. 
