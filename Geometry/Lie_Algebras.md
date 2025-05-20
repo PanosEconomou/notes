@@ -368,8 +368,6 @@ Playing with the reflections $s_\alpha : \mathfrak{h}^\ast \to \mathfrak{h}^\ast
 **<u>Proposition:</u>** Let $W$ be the Weyl group associated with a root system $\Delta$ with simple roots $S \subset \Delta$. Then $\Delta = WS$ under the defining group action of $W$ on $\mathfrak{h}^\ast$.
 
 
-
-
 ## Simple Roots
 
 Let's dive in more into the characterization of roots and their properties by using them to construct a basis for the dual space of the Cartan subalgebra $\mathfrak{h}$ of a Lie algebra $\mathfrak{g}$.
