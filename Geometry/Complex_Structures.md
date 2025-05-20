@@ -508,6 +508,56 @@ If such a function exists for $M$ then it is called a **global Kahler potential*
 
 **<u>Example:</u>** *(Riemann Surfaces)* Any orientable complex manifold with complex dimension $1$ is Kahler. Since it is orientable we can find a Riemannian metric on it. Its Kahler form has to be closed because it is a real 2-form in a real 2-dimensional manifold. Such compact manifolds are called Riemann surfaces.
 
+Here are other facts about Kahler manifolds.
+
+**<u>Proposition:</u>** The Kahler metric is torsion free.
+
+***Proof:*** The Hermitian connection of the Kahler manifold is also a Levi Civita connection for the Kahler metric which is by definition torsion free.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Definition:</u>** A compact Kahler manifold with vanishing first Chern class (i.e. the Ricci Form is exact) is called a **Calabi-Yau manifold**.
+
+These type of manifolds are very famous in String theory, but for now we will just mention them in this context.
+
+Instead let's shift gears slightly and talk about the Holonomy of Kahler manifolds. These are easier holonomy groups to calculate yet are super important. Let's do a super fast review of holonomy real quick.
+
+**<u>Definition:</u>** Consider a vector bundle $E$ over a smooth manifold $M$ with a connection $\nabla: \mathfrak{X}(M) \times \Gamma(E) \to \Gamma(E)$. Then consider an embedding of an interval $\gamma : I \to M$ such that $\gamma(0) = x,\gamma(1) = y$. Then the **parallel transport of** $\xi \in E_x$ under $\nabla$ is a vector field $X \in \mathfrak{X}(U_\gamma)$, (where $U_\gamma \subset M$ is a neighborhood of $\gamma(I)$) such that $X_x = \xi$ and
+$$
+\nabla_{\gamma_\ast \frac{d }{d t}} X = 0.
+$$
+Often we say that the parallel transport of $\xi \in E_{\gamma(0)}$ is the vector $P^\nabla_\gamma(\xi) \coloneqq X_{y}$.
+
+To parallel transport along a loop  we simply break the loop in half. 
+
+**<u>Definition:</u>** Let $\xi \in E_x$ for some $x \in M$ and consider an embedding $\gamma:S^1 \to M$ with base point $x$. Then we can split the path $\gamma = \gamma_1 + \gamma_2$ where $\gamma_i : I \to \gamma(S^1)$ and parallel transport along these to obtain
+$$
+P_\gamma^\nabla(\xi) = P_{\gamma_2}^\nabla \circ P_{\gamma_1}^\nabla(\xi).
+$$
+**<u>Lemma:</u>** The parallel transport is independent of the decomposition of the loop.
+
+Now we have something interesting.
+
+**<u>Lemma:</u>** Given a loop $\gamma \in M$ based at $p \in M$ we have that the set
+$$
+\text{Hol}_p(\nabla) = \{P_\gamma \in \text{Aut}(E_p) \mid \gamma:S^1 \to M, \gamma(0) = p\}
+$$
+is a subgroup of $\text{Aut}(E_p)$. This is called the **holonomy group of** $\nabla$ **based at** $p \in M$.
+
+In terms of Kahler manifolds, we have the following cool fact.
+
+**<u>Proposition:</u>** In a Kahler manifold, the holonomy about any $p \in M$ of the Levi Civita connection is a subgroup of $U(\dim_{\mathbb{C}} M)$.
+
+***Proof:*** Every transformation there is in $\text{GL}(\text{dim}_{\mathbb{\mathbb{C}}}M,\mathbb{C})$ because the parallel transports are linear transformations. However, we know that each of these transformations leaves the subspaces $T_pM^\pm $ invariant (since $\nabla J = 0$). In addition since $\nabla$ is compatible with the metric the metric is invariant under the parallel transport. Therefore the parallel transport preserves the induced hermitian metric on $T_pM$ so it must be in $U(T_pM)$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Theorem:</u>** If $M$ is a Calabi-Yau manifold the holonomy group is inside $\text{SU}(\dim_{\mathbb{C}}M)$.
+
+
+
+
+
 
 
 
