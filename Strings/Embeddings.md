@@ -403,7 +403,35 @@ The interaction term there has the interesting consequence to be invariant up to
 
 # String Path Integral
 
-We can't just go ahead and sum everything because, as we have shown above there is a massive gauge group which is $\text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$.
+We can't just go ahead and sum everything because, as we have shown above there is a massive gauge group which is $\text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$. To actually proceed we will use the Fmous Faddeev-Popov proceedure. 
+
+**<u>Definition:</u>** Let $(\Sigma,\gamma), (\Sigma,\gamma')$ be Riemann surfaces and $(M,G)$ a Pseudo-Riemannian manifold where $X,X':\Sigma \to M$ are corresponding embeddings. Then we say that the **string configuration** $(X,\gamma)$ is **gauge equivalent** to $(X',\gamma')$ if there exist a map of Riemannian manfolds $f:(\Sigma,\gamma) \to (\Sigma,\gamma')$ where $f \in \text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$ such that $f^\ast X = X'$. In other words 
+$$
+\begin{align*}
+(X,\gamma) \sim (X',\gamma') \iff X'= f^\ast X && \gamma' = \Omega^2 f^{-1\ast} \gamma,
+\end{align*}
+$$
+for some Diffeomorphism $f:\Sigma \to \Sigma$, and $\Omega \in C^\infty(\Sigma,\mathbb{R}^+)$. The set of $\sim$ equivalence classes is called the **gauge slice**.
+
+What we would like to do is to find a way to some over all possible combinations of string configurations after taking the quotient under gauge equivalnce. To be more precise let’s follow Nakahara.
+
+## Gauge Fixing
+
+Let $E(\Sigma, M)\coloneqq \{X:\Sigma \to M | X \text{ embedding}\}$ be the set of all embeddings of the Riemann surface $\Sigma$ to $M$, and $\mathcal{M}(\Sigma)$ the set of all metrics that can be put on $\Sigma$. The set of all string configurations is given by $E\times \mathcal{M}$ where the arguments have been ommitted. Now consider the gauge group $G = \text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$ and the gauge equivalence. We want to put a measure on $E\times M / G$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
