@@ -209,11 +209,88 @@ $$
 $$
 Notice that this extremely similar what we have seen before. For the line, the momentum was $v^2=  X^\ast G(e,e) = \tr_{e\otimes e} X^\ast G $. Here it is exactly the same thing but this time we have kept the vielbein implicit. This is actually a universal construction for the momentum in physics and field theory in general. So this action is nothing but the momentum squared.
 
+Now we can also calculate the stress tensor
+
+**<u>Proposition:</u>** The **stress tensor of the Polyakov Action** is $T_P \in \Gamma(T^\ast \Sigma\otimes T^\ast \Sigma)$ and is given by
+$$
+T_P = X^\ast G - \frac{1}{2} \gamma \text{tr}_\gamma X^\ast G.
+$$
+Notice that this definition is up to convention. In physics we usually multiply this by a real number which is $l^{-2} > 0$, the inverse string length.
+
+To show this we need some lemmas.
+
+**<u>Lemma:</u>** Let $A: \mathbb{R}\to \mathbb{R}$ and $\gamma_{\epsilon}:\mathbb{R} \to \Gamma (T^\ast M\otimes T^\ast M)$ a family of metrics over $\Sigma$. Then
+$$
+d\ast_{\gamma_{\epsilon}} A = -\frac{1}{2} \text{Tr\,} (\gamma_{\epsilon}\circ  d\gamma_{\epsilon}^{-1}) \ast_{\gamma_{\epsilon}} A + \ast_{\gamma_{\epsilon}} dA,
+$$
+where $\Tr$ is the Euclidean trace.
+
+***Proof:*** This is done by calculation and using Jacobi's formula
+$$
+d \det X = -\det X \,\text{Tr\,}(XdX^{-1})
+$$
+and the fact that $\ast_{\gamma}A = \sqrt{-\det \gamma} A \omega$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+**<u>Lemma:</u>** Let $X$ be a tensor on $\Sigma$ and $\gamma_{\epsilon}$ as before. Then 
+$$
+d \tr_{\gamma_{\epsilon}} X = \tr_{\gamma_{\epsilon}}\left(\gamma_{\epsilon} d\gamma_{\epsilon}^{-1} X \right).
+$$
+***Proof:*** This is done by realizing $\tr_{\gamma} X = \Tr \gamma^{-1}\circ X$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Finally, we are to calculate our stress tensor.
+
+***Proof of Proposition:*** The stress tensor is defined by taking the variation with respect to the inverse of the metric. In other words, we go to the action and define the metric as
+$$
+\gamma_{\epsilon}^{-1} = \gamma^{-1} +\epsilon \eta,
+$$
+for some compactly supported symmetric (0,2) tensor $\eta$ and $\epsilon \in \mathbb{R}$. Then we can calculate
+$$
+T_P(\eta) \coloneqq \Tr T_P \eta \sim \ast_{\gamma}\left.\frac{d}{d\epsilon}\right|_0 \mathcal{L}(X,\gamma_{\epsilon}),
+$$
+where the $\sim$ is equivalence up to an exact tensor $(0,2)$ tensor. By using the previous two lemmas along the fact that $d\gamma_{\epsilon}^{-1} = \eta$ we have that
+$$
+\begin{align*}
+\left.\frac{d}{d\epsilon}\right|_0 \mathcal{L}(X,\gamma_{\epsilon})
+&= \ast_{\gamma} \Tr \eta \left[ X^\ast G - \frac{1}{2} \gamma \text{tr}_\gamma X^\ast G  \right].
+\end{align*}
+$$
+As a result, we have that $T_P$ is given by the term in the bracket (since $\ast ^2_{\gamma} = 1$ from our 2D Lorentzian signature).
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
 
 ## Symmetries of the Polyakov Action
 
-Let's find them. Apart from reparameterization invariance (i.e. our action doesn't depend on the choice of chart) The action is invariant under the metric preserving diffeomorphisms of $(M,G)$. 
+Let's find them. Apart from reparameterization invariance (i.e. our action doesn't depend on the choice of chart) The action is invariant under the metric preserving diffeomorphisms of $(M,G)$. Let's show some useful lemmas.
+
+**<u>Lemma:</u>** Let $f: \Sigma \to \Sigma$ be a diffeomorphism, $\gamma$ a pseudo-Riemannian metric on $\Sigma$ and $\omega_\gamma$ the corresponding volume form. Then
+
+1. $\omega_{f^{\ast} \gamma} = f^\ast \omega_{\gamma}$
+2. $\text{tr}_{f^\ast \gamma} X = \tr_{\gamma} f^{-1\ast}X$, for some tensor $X$.
+
+***Proof:*** For the first one we know from calculus that
+$$
+f^\ast \omega = |\text{det\,}J_f| \omega,
+$$
+where $J_f$ is the Jacobian. We also know that $\omega_{\gamma} = \sqrt{|g|} \omega_{\eta}$, where $\eta$ is a flat metric. Now we see that
+$$
+\det f^\ast g = \det g\circ (f_\ast \otimes f_\ast) = \det g\ \det (f_\ast \otimes f_\ast) = \det g\ (\det J_f)^2.
+$$
+which proves the first part. For the second we have that
+$$
+\tr_{f^\ast \gamma} X = \tr_{\eta} (f^\ast \gamma)^{-1}\circ X = \tr_{\eta} \gamma^{-1}(f^\ast)^{-1}X = \tr_{\gamma} f^{-1\ast} X. 
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+
 
 **<u>Proposition:</u>** The Polyakov action is invariant under metric preserving diffeomorphisms of the target space.
 
@@ -228,17 +305,40 @@ $$
 
 This is pretty nice in $M = \mathbb{R}^D$ with the Minkowski metric, where the set of metric preserving diffeomorphisms is the Poincare transformations. There are more transformations!
 
+**<u>Proposition:</u>** The Polyakov action is invariant under diffeomorphisms $f: \Sigma \to \Sigma$, i.e.
+$$
+S(f^\ast X, f^{-1\ast }\gamma) = S(X,\gamma).
+$$
+***Proof:*** This is the physical way of writing a diffeomorphism where in pseuodo-Riemannian manifold notation this is
+$$
+f = f\times 1: (\Sigma,\gamma) \to (\Sigma, f^{-1\ast}\gamma).
+$$
+This is a way to *lift* a diffeomorphism from the category of smooth manifolds to the category of pseudo-Riemannian manifolds. I think this is called a **passive** transformation, while an **active** one is of the form $(\Sigma, \gamma) \to (\Sigma, \gamma)$. *I might be mixing them up though.* That said, what we actually want is  
+
+Anyway, here is the proof by using the lemma at the top of this section
+$$
+\begin{align*}
+S(f^\ast X,f^{-1\ast}\gamma) 
+&= \int_{f(\Sigma)} \ast_{f^{-1\ast}\gamma} \tr_{f^{-1\ast}\gamma} \gamma^\ast X^\ast G\\
+&= \int_{\Sigma} f^\ast f^{-1\ast} \ast_{\gamma} \tr_{\gamma} f^\ast f^{-1\ast} X^\ast G\\
+&= \int_{\Sigma} \ast_{\gamma} \tr_{\gamma} X^\ast G\\
+&= S(X,\gamma).
+\end{align*}
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+
 **<u>Proposition:</u>** The Polyakov action is invariant under Weyl transformations of $\Sigma$. That is given a transformation of the form $f:\Sigma \to \Sigma$ such that $f^\ast \gamma = \Omega^2 \gamma$ for some function $\Omega \in C^\infty(\Sigma, \mathbb{R}^+)$.
 
 ***Proof:*** We can calculate directly
 $$
 S(X,f^\ast \gamma) = \int_\Sigma \ast_{f^\ast \gamma} \text{tr}_{f^\ast \gamma} X^\ast G.
 $$
-Notice that $\ast_{f^\ast \gamma} = \ast_{\Omega^2 \gamma} = \Omega^2\ast_{\gamma}.$  This is because that in two dimensions $\det a M = a^2 \det M$ for any matrix $M$. The next thing is that
-$$
-\text{tr}_{\gamma} dx\otimes dy = \gamma^{-1}(dx,dy) \implies \tr_{\Omega^2 \gamma} = \Omega^{-2} \text{tr}_\gamma.
-$$
-Therefore we have that
+Notice that $\ast_{f^\ast \gamma} = \ast_{\Omega^2 \gamma} = \Omega^2\ast_{\gamma}.$ Therefore we have that
 $$
 \ast_{f^\ast \gamma} \text{tr}_{f^\ast \gamma} = \ast_\gamma \text{tr}_\gamma.
 $$
@@ -247,17 +347,63 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-This makes a lot of sense, because in this case the action depends on the volume of the embedding and not the volume of $\Sigma$. So scaling up $\Sigma$ with a Weyl transformation is something like a Gauge freedom kind of thing.
+This makes a lot of sense, because in this case the action depends on the volume of the embedding and not the volume of $\Sigma$. So scaling up $\Sigma$ with a Weyl transformation is something like a Gauge freedom kind of thing. Here is a way to sum up this result.
+
+**<u>Theorem:</u>** The Polyakov action has $\text{Diff}(\Sigma)\ltimes \text{Weyl}(\Sigma)$ as a gauge group. 
 
 
 ## Further Interaction Terms
 
 Ok but what about interaction terms? Mass term? Something! In the worldline picture the Lagrangian was 
 $$
-\mathcal{L}(X,\gamma) = \text{tr}_{\gamma} (X^\ast G - m^2),
+\mathcal{L}(X,\gamma) = \ast_{\gamma}\text{tr}_{\gamma} (X^\ast G - m^2),
 $$
 yet, here there is no $m^2$. What gives? 
 
 **<u>Proposition:</u>** The critical points of $\mathcal{L}(X,\gamma) = \tr_{\gamma}(X^\ast G - 1)$ occur at $\gamma = 0$.
 
-***Proof:*** To show this we take the variation with respect to $\gamma$ in local coordinates. 
+***Proof:*** Consider the modified stress tensor in this scenario. The extra term is $-\ast_{\gamma}2 $ which, using the lemmas derived above would contribute to the new stress tensor $T$ like so
+$$
+T = T_P + \gamma.
+$$
+That is interesting is that $T_P$ is Weyl invariant. In other words, we have that
+$$
+\Omega^2 \gamma \tr_{\Omega^2 \gamma} X^\ast G = \gamma \tr_{\gamma} X^\ast G \implies T_P(\Omega^2 \gamma) = T_P(\gamma).
+$$
+However since $T=0$ is an equation of motion, we find that if $(X,\gamma)$ is a critical point then for any $\Omega \in C^\infty(\Sigma, \mathbb{R}^+)$
+$$
+\Omega^2 \gamma = \gamma \implies \gamma = 0.
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+This is a super interesting observation. We can rephrase it to say that in the presence of a "mass term" the dynamics of the world-sheet are trivial! As a result, we will start by not considering such interaction terms.
+
+What about other interaction terms? The other thing that we are interested in is to use the Ricci scalar curvature. 
+
+**<u>Theorem:</u>** *(Gauss Bonnet Theorem)* In a 2-dimensional Riemannian manifold $(\Sigma,\gamma)$ of genus $g$ with Levi-Civita connection $\nabla$ and Ricci form $\hat R$ the following identity is true
+$$
+\int_{\Sigma} \ast \tr_{\gamma}\hat R = 4\pi \chi(\Sigma) = 8\pi (1 - g),
+$$
+ where $\chi(\Sigma)$ is the Euler characteristic of $\Sigma$.
+
+With this we can introduce an interesting interaction term on the Polyakov action. 
+
+**<u>Definition:</u>** Given a pseudo-Riemannian manifold $(M,G)$, a Riemann surface $(\Sigma,\gamma)$, and an embedding $X:\Sigma \to M$, the **interacting Polyakov action** of $(X,\gamma)$ is given by
+$$
+S_{I}(X,\gamma) \coloneqq \frac{T}{2}\int_{\Sigma} \ast \tr_{\gamma} \left( X^\ast G +  \frac{\lambda}{2\pi T} \hat R\right).
+$$
+where $T,\lambda \in \mathbb{R}^\ast$.
+
+The interaction term there has the interesting consequence to be invariant up to homotopy. This will have very useful results in defining a path integral! In fact let's do it!
+
+
+
+# String Path Integral
+
+We can't just go ahead and sum everything because, as we have shown above 
+
+
+
