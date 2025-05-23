@@ -403,7 +403,7 @@ The interaction term there has the interesting consequence to be invariant up to
 
 # String Path Integral
 
-We can't just go ahead and sum everything because, as we have shown above 
+We can't just go ahead and sum everything because, as we have shown above there is a massive gauge group which is $\text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$.
 
 
 
