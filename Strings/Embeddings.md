@@ -401,24 +401,133 @@ The interaction term there has the interesting consequence to be invariant up to
 
 
 
-# String Path Integral
+# String Quantization
 
-We can't just go ahead and sum everything because, as we have shown above there is a massive gauge group which is $\text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$. To actually proceed we will use the Fmous Faddeev-Popov proceedure. 
+We can't just go ahead and sum everything because, as we have shown above there is a massive gauge group which is $\text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$. To actually proceed we will use the famous Faddeev-Popov procedure. 
 
-**<u>Definition:</u>** Let $(\Sigma,\gamma), (\Sigma,\gamma')$ be Riemann surfaces and $(M,G)$ a Pseudo-Riemannian manifold where $X,X':\Sigma \to M$ are corresponding embeddings. Then we say that the **string configuration** $(X,\gamma)$ is **gauge equivalent** to $(X',\gamma')$ if there exist a map of Riemannian manfolds $f:(\Sigma,\gamma) \to (\Sigma,\gamma')$ where $f \in \text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$ such that $f^\ast X = X'$. In other words 
+**<u>Definition:</u>** Let $(\Sigma,\gamma), (\Sigma,\gamma')$ be Riemann surfaces and $(M,G)$ a Pseudo-Riemannian manifold where $X,X':\Sigma \to M$ are corresponding embeddings. Then we say that the **string configuration** $(X,\gamma)$ is **gauge equivalent** to $(X',\gamma')$ if there exist a map of Riemannian manifolds $f:(\Sigma,\gamma) \to (\Sigma,\gamma')$ where $f \in \text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$ such that $f^\ast X = X'$. In other words 
 $$
 \begin{align*}
 (X,\gamma) \sim (X',\gamma') \iff X'= f^\ast X && \gamma' = \Omega^2 f^{-1\ast} \gamma,
 \end{align*}
 $$
-for some Diffeomorphism $f:\Sigma \to \Sigma$, and $\Omega \in C^\infty(\Sigma,\mathbb{R}^+)$. The set of $\sim$ equivalence classes is called the **gauge slice**.
+for some diffeomorphism $f:\Sigma \to \Sigma$, and $\Omega \in C^\infty(\Sigma,\mathbb{R}^+)$. The set of $\sim$ equivalence classes is called the **gauge slice**.
 
-What we would like to do is to find a way to some over all possible combinations of string configurations after taking the quotient under gauge equivalnce. To be more precise let’s follow Nakahara.
+What we would like to do is to find a way to some over all possible combinations of string configurations after taking the quotient under gauge equivalence. To be more precise let’s follow Nakahara.
 
 ## Gauge Fixing
 
-Let $E(\Sigma, M)\coloneqq \{X:\Sigma \to M | X \text{ embedding}\}$ be the set of all embeddings of the Riemann surface $\Sigma$ to $M$, and $\mathcal{M}(\Sigma)$ the set of all metrics that can be put on $\Sigma$. The set of all string configurations is given by $E\times \mathcal{M}$ where the arguments have been ommitted. Now consider the gauge group $G = \text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$ and the gauge equivalence. We want to put a measure on $E\times M / G$.
+Let $E(\Sigma, M)\coloneqq \{X:\Sigma \to M | X \text{ embedding}\}$ be the set of all embeddings of the Riemann surface $\Sigma$ to $M$, and $\mathcal{M}(\Sigma)$ the set of all metrics that can be put on $\Sigma$. The set of all string configurations is given by $E\times \mathcal{M}$ where the arguments have been omitted. Now consider the gauge group $G = \text{Diff}(\Sigma) \ltimes \text{Weyl}(\Sigma)$ and the gauge equivalence. We want to put a measure on $E\times M / G$.
 
+To gauge fix we could dive into the beautiful world of moduli spaces and TM spaces, but unfortunately this is saved for another day :<.
+
+Instead we will "gauge fix" by explicitly parameterizing a gauge slice, i.e. a set of representatives of $\sim$ equivalence classes. To get a flavor let's try to do so for Riemannian manifolds that have genus 0. these are things like a cylinder, a plane, etc. At this stage we will also allow them to have boundaries.
+
+**<u>Theorem:</u>** For any manifold $M$ along with a top form $\omega \in \Omega^{\dim M}(M)$ there is a countable collection of disjoint precompact charts $\mathcal{U}=\{(U_i,\phi_i)\}_{i\in I}$ such that $\phi_i^\ast \omega$ is continuous on $\overline{\phi_i(U_i)}$ and $\bigcup_{U\in \mathcal{U}} \overline{U} = M$.
+
+***Proof:*** Any manifold is second countable. Therefore there is a countable open subcover for every cover. As a result, lets pick a precompact atlas such that the pullback under every chart of $\omega$ is continuous. We can always do that since $\omega$ is smooth by definition. Then take the countable open subatlas and remove the intersections. We have our partition. We can use that partition to integrate forms over our manifold.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+We have also shown that all 2-dimensional manifolds are locally conformal. Therefore we can find such a partition of our manifold where the metric appears conformal on each chart! However, in the action we will eventually have to sum over all such terms. One thing that is interesting to notice is that each of these precompact charts are globally conformal manifolds in the 2-D case. So it suffices to gauge fix for globally conformal manifolds and then generalize.
+
+**<u>Definition:</u>** Let $(\Sigma,\gamma)$ be a globally conformal Riemann surface. Then we say that $(\Sigma,\gamma)$ is in **conformal gauge** if $\gamma = \eta$, the flat metric on $\Sigma$. Therefore the **Polyakov action in conformal gauge** for a globally conformal manifold $\Sigma$ and an embedding $X:\Sigma \to M$ where $(M,G)$ is a Pseudo-Riemannian manifold is given by
+$$
+S(X) = -\frac{T}{2}\int_{\Sigma} \ast \tr_{\eta}X^\ast G = T\int_{\Sigma} G_{\mu\nu}\part X^\mu \wedge \bar \partial X^\nu,
+$$
+where $\partial,\bar \partial$ are the Dolbeualt operators on $\Sigma$.
+
+This is particularly nice, especially when $G$ is the flat metric on $M$. Notice that there are more gauge degrees of freedom here. In particular what we have done by setting the conformal gauge is to parameterize representatives of the equivalence classes of $E\times \mathcal{M}/\text{Weyl}(M)$ but not diffeomorphisms. We will deal with this later. For now let's explore what this really means here.
+
+**<u>Proposition:</u>** The Polyakov stress tensor in the conformal gauge when the target space is $(\mathbb{R}^d,G)$ is given by
+$$
+T_c(X) = T_P(X,\eta) = X^\ast G - \frac{\eta}{2} \tr_{\eta} X^\ast G
+$$
+and has the properties that
+
+1. $\tr_{\eta} T = 0$
+
+2. $T_c = T + \bar T $ where
+   $$
+   T = \frac{1}{2}\langle \partial X \otimes \partial X \rangle_{G} = \frac{1}{2} G_{\mu\nu} \partial X^\mu \otimes \partial X^\nu.
+   $$
+
+3. 
+
+Notice that these expressions only hold in $M = \mathbb{R}^n$. But they are quite fantastic! 
+
+***Proof:*** For the first one, notice that $T_c(X) = \hat T - \frac{\eta}{\tr_{\eta} \eta}\tr_{\eta}\hat T$ where $\hat T = X^\ast G$ so taking the trace yields zero immediately. In addition notice that must be symmetric, so terms that contain $dz\otimes d\bar z$ must be zero. Then we can rearrange it to read like $2$ with direct calculation by plugging in $\eta = dz\cdot d \bar z$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+ This stress tensor is amazing, because it is the stress tensor of a conformal field theory! This is explored in much detail in [Free Fields](../Projects/CFT/Free_Fields.md).
+
+
+
+## Appearance of Witt Algebra
+
+The diffeomorphism algebra that is remaining is precisely the conformal transformations. Let's explore some classical aspects of strings for two very specific embeddings. Here are their definitions.
+
+**<u>Definition:</u>** A global conformally conformal Riemann surface $(\Sigma,\gamma)$ is a **closed string** iff it is diffeomorphic to $(I\times S^1,\eta)$ and it is an **open string** iff it is diffeomorphic to $(I\times I,\eta)$. 
+
+***Note:*** Often we might extend our definition of closed and open strings for $I \in \{[0,1],\mathbb{R}^+,\mathbb{R}\}$.
+
+The way to deal with open vs closed strings is to impose boundary conditions an immersion $X : I\times I \to M$. Imposing periodic boundary conditions $X$ is the lift of an embedding $I\times S^1 \to M$, while imposing Neumann boundary conditions on $X$ we have an embedding of $I\times I \to M$. Neumann boundary conditions, mean $\left.X_\ast\right|_{T\{0\}\times I} = 0$, or less formally, no inflow in time. 
+
+With that let's try to write down and solve the equations of motion.
+
+**<u>Proposition:</u>** The Polyakov equations of motion for open and closed strings are given by
+$$
+\partial \bar \partial X^\mu = 0,
+$$
+for an immersion $X:I\times I \to \mathbb{R}^d$ with the corresponding boundary conditions.
+
+***Proof:*** We can obtain the equations of motion by varying the Polyakov action with respect to $X$. We have that
+$$
+\left.\frac{d}{d\epsilon}\right|_0 \mathcal{L}(X+\epsilon Y,\eta) = G_{\mu\nu} dX^\mu \wedge \ast dY^\nu = -Y^\nu d\ast G_{\mu\nu} dX^\mu + d(\ast G_{\mu\nu} Y ^\nu dX^\mu).
+$$
+Notice that if we assume $\left.Y\right|_{\partial \Sigma} = 0$ then the second term vanishes in the action because of stokes theorem. So we obtain that the equations of motion are
+$$
+d\ast G_{\mu\nu}dX^\mu = 0.
+$$
+In the case where $M$ is Minkowski space we have that this becomes $ 0 =d\ast d X^\mu = 2 \partial \bar \partial X^\mu $.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+**<u>Proposition:</u>** The general solution for the homogeneous 2-dimensional wave equation is given by 
+$$
+X^\mu(\tau,\sigma) = X_L^\mu(\tau-\sigma) + X_R^\mu(\tau+\sigma).
+$$
+This is directly a proof from PDE. However, there is a much more interesting observation.
+
+**<u>Lemma:</u>** $\partial X^\mu$ is holomorphic and $\bar \partial X^\mu$ is antiholomorphic.
+
+***Proof:*** $\partial \bar \partial X^\mu = \bar \partial \partial X^\mu  = 0$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This result means that we can expand these in Laurent modes. Namely we can write
+$$
+\begin{align*}
+\partial X^\mu = l_s \sum_{n\in \mathbb{Z}} a_n^\mu z^n dz && \bar \partial X^\mu = l_s \sum_{n\in \mathbb{Z}} \hat a_n^\mu \bar z^n d\bar z.
+\end{align*}
+$$
+Therefore we can write the stress tensor as
+$$
+T = \frac{1}{2}G_{\mu\nu}\partial X^\mu \otimes  \partial X^\nu = \frac{1}{2}\sum_{n,m \in \mathbb{Z}} G_{\mu\nu} a_n^\mu  a_m^\nu z^{n+m} dz \otimes d z.
+$$
+So we can define $l_{-n-2} \coloneqq \frac{1}{2}\sum_{m \in \mathbb{Z}} G(a_m,a_{n-m}) = \frac{1}{2}\sum_{m \in \mathbb{Z}} G_{\mu\nu} a_m^\mu a_{n-m}^\mu$ and rewrite the stress tensor as
+$$
+T = \sum_{n\in \mathbb{Z}} l_n z^{-n-2} dz\otimes dz.
+$$
+**<u>Proposition:</u>** The modes of $T$ form a representation of the Witt algebra. i.e.
+$$
+[l_n,l_m] = i(n-m)l_{n+m}.
+$$
+***Proof:*** This is calculated using their related vector fields.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
 
 
