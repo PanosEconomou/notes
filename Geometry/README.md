@@ -12,6 +12,7 @@ Key intuition or formal definitions of Differential Geometry Concepts because I 
 - [Forms](Forms.md)
 - [Differential Geometry](Geometry.md)
 - [Jets](Jets.md)
+- [Lie Algebras](Lie_Algebras.md)
 - [Lie Crap](Lie_Crap.md)
 - [Metrics and Integration](Metrics.md)
 - [Representation Theory](Representations.md)
