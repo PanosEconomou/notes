@@ -173,7 +173,7 @@ So we have a tasty $\mathbb{Z}_2$ global symmetry to gauge under! Wohooo!
 
 
 
-## Gauging
+## Gauging $\mathbb{Z}^2$
 
 I mean, the exact map between the ungauged and gauged theories is hard to write down. However, we don't *really* need it. We can calculate the modular partition function of the gauged theory like so.
 
@@ -277,7 +277,7 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-## Identifying Another $\mathbb{Z}_2$
+## Identifying another $\mathbb{Z}_2$
 
 We know that the fusion ring of $\text{TIsing}^2$ has to contain the tensor product of the $\text{TIsing}$ fusion rings. Each of which contains a copy of $\mathbb{Z}_2$, so we can find multiple other $\mathbb{Z}_2$ symmetry groups in the folded theory. One that is of interest is the one obtained by the identity and the tensor product of the Ising spin flip operators $\eta$ from each one. Specifically, the representation $\rho_{\eta}$ of $\mathbb{Z}_2 =\{1,-1\}$ such that 
 $$
@@ -333,35 +333,35 @@ Let's use the following notation for the torus partition functions.
 
 With this notation we can make things work. Here is a proposition.
 
-**<u>Proposition:</u>** The following identities between twisted partition functions hold where $a \in \{1, \eta,\sigma, \eta\sigma\}$.
+**<u>Proposition:</u>** The following identities between twisted partition functions hold where $a,b \in \{1, \eta,\sigma, \eta\sigma\}$, $Z$ is the $\text{TIsing}$ partition function, $\hat Z$ is the $\text{TIsing}^2$ partition function, and $S,T$ are the modular generators.
 
-1. $\hat Z_{\sigma,1}(q) = Z_{1,1}(q^2)$.
-2. $\hat Z_{\eta \sigma, a}(q) = \hat Z_{\sigma,a}(q)$.
+1. $S\cdot \hat Z_{a,b}(q) = \hat Z_{b,a}(q)$.
+2. $T \cdot \hat Z_{a,b} = \hat Z_{a,ab}(q)$.
+3. $\hat Z_{\sigma,1}(q) = Z_{1,1}(q^2)$.
+4. $\hat Z_{\eta \sigma, a}(q) = \hat Z_{\sigma,a}(q)$.
+5. $\hat Z_{\eta,1}(q) = Z_{\eta,1}(q)^2$.
+6. $\hat Z_{1,1}(q) = Z_{1,1}(q)^2$.
 
+***Proof:*** We successively apply the properties we derived before. The non-trivialities are worked out there.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Now we are ready to calculate the gauged partition function under $\mathbb{Z}_2^2$.
 
-
+**<u>Theorem:</u>** The gauged partition function of $\text{TIsing}^2$ under the representation $\rho$ with trivial discrete torsion is given by
+$$
+\tilde Z(q) = Z_{1,1}(q)^2 + \frac{1 + S + TS}{2}\cdot \left[Z_{1,1}(q^2) + Z_{\eta,1}(q^2) + \frac{1}{2} Z_{\eta,1}(q)^2\right].
+$$
+***Proof:*** We write out the 16 combinations, and then apply the identities of the previous proposition.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
 
 
 # A map between Representations
 
-We need to work out the map between the characters of the gauged and ungauged theory. We can do this by studying the characters.
 
-## Twisted Sector Characters
-
-In principle we should be able to write everything as sums of twisted Ishibashi states, so we want to calculate the twisted Hilbert space in some sense. The issue is that the folding symmetry is evil. So let's try to find it.
-
- 
-
- # What are we looking for?
-
-The latest forecast says that we should be looking for combinations of Ishibashi states in the coset cft such that they remain invariant under $\text{Ising}\boxtimes \text{Fib}$. 
-
-Since the coset cft is rational there are as many independent Ishibashi states as there are primaries. We can then find the action of Ising in the span of Ishibashi states. The conformal boundary conditions that are invariant under Ising, would be the Cardy states that fall in the intersection of the eigenspaces with eigenvalue 1 of all the Ising operators. 
-
-Gauging relates the two theories. So in some sense there is a map between the ungauged theory and the gauged one that would map the characters of the ungauged theory to the ones of the gauged theory. Then the boundary states that also form a nim rep of the ungauged theory are what we are looking for.
-
-Now we can derive cool consistency conditions. Using modular covariance under the insertion of the gauging mesh in the presence of a boundary.
 
 
 
