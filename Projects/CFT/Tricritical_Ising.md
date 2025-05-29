@@ -335,8 +335,8 @@ With this notation we can make things work. Here is a proposition.
 
 **<u>Proposition:</u>** The following identities between twisted partition functions hold where $a \in \{1, \eta,\sigma, \eta\sigma\}$.
 
-1. $Z_{\eta \sigma,a}$ 
-2. 
+1. $\hat Z_{\sigma,1}(q) = Z_{1,1}(q^2)$.
+2. $\hat Z_{\eta \sigma, a}(q) = \hat Z_{\sigma,a}(q)$.
 
 
 
