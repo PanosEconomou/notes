@@ -152,6 +152,8 @@ where $v_{ij} \in W_{ij}$ is the highest weight vector in $W_{ij}$. Then $\sigma
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+So we have defined a representation $\rho_{\sigma} : \mathbb{Z}_2 \to \text{Aut}(\mathbb{H})$, which we will call the **exchange representation**.
+
 **<u>Corollary:</u>** $\sigma$ is a global symmetry in $\text{TIsing}^2$.
 
 ***Proof:*** Notice that the Laurent modes of this theory are given by $L_n = L_n^1 + L_n^2$. Additionally $\sigma$ is permutation transformation so it is hermitian. Therefore we have that
@@ -274,6 +276,62 @@ where $Z(q)$ is the partition function of the Tricritical Ising Model.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+
+## Identifying Another $\mathbb{Z}_2$
+
+We know that the fusion ring of $\text{TIsing}^2$ has to contain the tensor product of the $\text{TIsing}$ fusion rings. Each of which contains a copy of $\mathbb{Z}_2$, so we can find multiple other $\mathbb{Z}_2$ symmetry groups in the folded theory. One that is of interest is the one obtained by the identity and the tensor product of the Ising spin flip operators $\eta$ from each one. Specifically, the representation $\rho_{\eta}$ of $\mathbb{Z}_2 =\{1,-1\}$ such that 
+$$
+\rho_{\eta}(1) = \eta \boxtimes \eta.
+$$
+We can call this representation the **spin flip representation**.
+
+More to the point we can gauge $\mathbb{Z}^2_2$ by constructing the representation $\rho \coloneqq \Delta \circ \rho_{\sigma}\times \rho_{\eta} : \mathbb{Z}_2^2 \to \text{Aut}(\mathbb{H})$, where $\Delta: \text{Aut}(\mathbb{H})^2 \to \text{Aut}(\mathbb{H})$ is the multiplication map of $\text{Aut}(\mathbb{H})$. Before we proceed with gauging let's prove some cool properties.
+
+**<u>Lemma:</u>** Let $W_{ij}=V_i\otimes V_j$ denote an irreducible module of $\text{Vir}^2$, $\eta \coloneqq \rho_{\eta}(1)$, $\chi_i(q)$ the modular character associated to $V_i$ an irreducible module of $\text{Vir}$, and $\eta_i$ be the $\eta$ eigenvalue of $v_i \otimes \mathbb{1}$, the highest weight vector of $V_i \otimes V_{\mathbb{1}}$. Then the following identities hold
+
+1. $\text{Tr}_{W_{ij}} \eta q^{H} = \eta_{i}\eta_{j} \chi_i(q) \chi_j(q)$.
+2. $\text{Tr}_{W_{ij}} \eta \sigma q^{H} = \delta_{ij} \chi_i(q^{2}).$
+
+***Proof:*** To show the first identity we notice both $\eta$ and $q^H$ factorize into operators of $V_i$ and $V_j$. Therefore we can write
+$$
+\text{Tr}_{W_{ij}}\eta q^H = (\text{Tr}_{V_i} \eta q^H)(\text{Tr}_{V_j} \eta q^H ),
+$$
+where we have abused some notation to denote the factors of the two operators with the same notation as their product. Then we know that $\eta$ commutes with $\text{Vir}$, therefore $\text{Tr}_{V_i} \eta q^H = \eta_i \text{Tr}q^H$. This proves the first Identity. 
+
+For the second, we know that $\eta_i \in \{\pm 1\}$. Then we can use the invariance under cyclic permutations of the trace to show that
+$$
+\text{Tr}_{W_{ij}} \eta \sigma q^{H} = \text{Tr}_{W_{ij}} \sigma q^{H} \eta = \eta_i \eta_j \text{Tr}_{W_{ij}} \sigma q^H.
+$$
+Then we use the previous proposition to evaluate this in terms of the characters to obtain
+$$
+\eta_i \eta_j \text{Tr}_{W_{ij}} \sigma q^H. = \eta_i \eta_j \delta_{ij} \chi_i(q^2) = \delta_{ij} \eta_i^2 \chi_i (q^2).
+$$
+Since $\eta_i^2 = 1$ for any $V_i$ we have proven the lemma.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+In fact here is a nice generalization of the second identity.
+
+**<u>Lemma:</u>** Let $A \in \text{Aut}(W)$ where $W$ is an irreducible $\text{Vir}^2$ module, then $\text{Tr}_W\,\eta \sigma A = \text{Tr}_W \sigma A$.
+
+***Proof:*** The proof is similar to the identity we derived before by realizing that we didn't assume anything about $q^H$ other than it leaves irreducible modules invariant.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+## Gauging $\mathbb{Z}_2^2$
+
+We now want to calculate the partition function of $\mathbb{Z}_2^2$. To do this consistently we need to take into account of discrete torsion.
+
+**<u>Theorem:</u>** The discrete torsion of $\mathbb{Z}_2^n$ is $\mathbb{Z}_n$ valued.
+
+As a result, there are two nontrivial choices of discrete torsion. What this means essentially is that there are two equivalence classes of projection operators that we can use to gauge with. For now, let us restrict our attention to the identity class, but this is a complication that we will soon need to take into account. 
+
+Let's use the following notation for the torus partition functions.
+
+
+
+
 
 
 
