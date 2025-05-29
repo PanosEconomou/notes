@@ -327,9 +327,16 @@ We now want to calculate the partition function of $\mathbb{Z}_2^2$. To do this 
 
 As a result, there are two nontrivial choices of discrete torsion. What this means essentially is that there are two equivalence classes of projection operators that we can use to gauge with. For now, let us restrict our attention to the identity class, but this is a complication that we will soon need to take into account. 
 
-Let's use the following notation for the torus partition functions.
+Let's use the following notation for the torus partition functions. 
 
+![](_Tricritical_Ising.assets/torus-twisted-pf.svg)
 
+With this notation we can make things work. Here is a proposition.
+
+**<u>Proposition:</u>** The following identities between twisted partition functions hold where $a \in \{1, \eta,\sigma, \eta\sigma\}$.
+
+1. $Z_{\eta \sigma,a}$ 
+2. 
 
 
 
