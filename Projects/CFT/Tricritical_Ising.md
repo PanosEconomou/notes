@@ -434,6 +434,14 @@ However we see that since $\tilde U$ has an even number of $W$ generators then $
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+**<u>Corollary:</u>** The module $(V\otimes V) \otimes (\overline V\otimes \overline V)$ can be written as
+$$
+(U^+ \otimes \overline{U^+}) \oplus (U^+ \otimes \overline{U^-}) \oplus (U^- \otimes \overline{U^+}) \oplus (U^- \otimes \overline{U^-}).
+$$
+***Proof:*** Expand.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 This was fun, however, this only classifies the $W_{ii}$ modules and not the $W_{ij}$. The reason why we didn't do this for the $W_{ij}$ is because unlike $W_{ii}$ the $W_{ij}$ modules are not $\sigma$ invariant. In other words $\sigma W_{ij} = W_{ji}$. So we see that if we want to rearrange into $\sigma$ invariant modules, we need to do something else.
 
 Here we need to be more careful. Remember that for the off-diagonal primaries in our CFT correspond to $\text{Vir}^2 \oplus \text{Vir}^2$ modules of the form $W_{ij} \otimes \overline W_{ij}$. Such a module is not $\sigma$ invariant either, but what is invariant is the module $W_{ij} \otimes \overline W_{ij} \oplus W_{ji} \otimes \overline W_{ji}$. The question is if we can break that into $A_2 \oplus A_2$ invariant modules. Here is how to do it.
@@ -472,14 +480,8 @@ $$
 
 ***Proof:*** We accidentally proved this by the previous construction since we have shown that all the vectors in a module isomorphic to $W_{ij}$ are $A_2$ descendants of $v_{ij}$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
-
-
-
-
-
-
 
 
 ### Twisted Hilbert space
@@ -488,19 +490,54 @@ We want to calculate the twisted sector by $\sigma$ of $\text{TIsing}^2$. Yet, w
 
 Now that we have our untwisted Hilbert space in terms of $\sigma$ invariant modules we can calculate the twisted Hilbert space using an $S$ transformation. The reason is that characters with $\sigma$ insertions are proportional to characters without since $\sigma$ commutes with the new chiral algebra $A_2$. Therefore if we $S$ transform the characters with $\sigma$ insertions we will not get characters of different modules! Let's try to see this in practice.
 
-We start by calculating the characters of the $U$ modules. We will introduce the notation that for $i\neq j$ we call $U_{ij}^\pm = U_{ij+}^\pm$ and $U_{ji}^\pm = U_{ij-}^\pm$. This way we can write the untwisted Hilbert space as
+We start by calculating the characters of the $U$ modules. We will introduce the notation that for $i=j$ we call the corresponding $A_2$ modules $U_{i}^\pm$. This way we can write the untwisted Hilbert space as
 $$
-\mathbb{H}_1 = \bigoplus_{i,j,k=\pm} U_{ij}^k \otimes \overline {U_{ij}^k}.
+\mathbb{H}_1 = \bigoplus_{\substack{i\\j,k = \pm}} U_{i}^j \otimes \overline {U_{ij}^k} \hspace{0.5em} \oplus \hspace{0.5em} \bigoplus_{i\neq j} U_{ij} \otimes \overline{U_{ij}}.
+$$
+Sheesh! We made it. Now let's calculate the characters. One interesting thing is the following proposition. 
+
+**<u>Proposition:</u>** Let $U$ be any of the $A_2$ modules that appear in the above decomposition of the untwisted Hilbert space $\mathbb{H}_1$. Then 
+$$
+\left.\sigma\right|_{U} = \sigma_U \text{Id}_{U},
+$$
+for some $\sigma_U \in \{\pm 1\}$.
+
+***Proof:*** We know that $[\sigma, A_2] = 0$ and we have constructed that for all such $U$ the highest weight vector $u$ obeys $\sigma u = \sigma_U u$ for some $\sigma_U \in \{\pm 1\}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+In fact this was the whole purpose of this decomposition. What is interesting now though is that we can calculate the characters of the individual modules. In other words to show the following corollary.
+
+***Corollary:*** $\text{Tr}_{U} \sigma q^H = \sigma_U \text{Tr}_U q^H$.
+
+This states that the characters under a $\sigma$ defect will simply be multiplied by a number. Therefore we can obtain the characters of the twisted sector by $S$ transformations. Let's first evaluate the untwisted characters.
+
+**<u>Proposition:</u>** Let $\chi_i(q)$ be the modular character that corresponds to the Virasoro module $V_i$. Then the following identities hold.
+
+1. $\hat \chi_{i\pm}(q)\coloneqq  \text{Tr}_{U_i^\pm}q^H = \frac{\chi_i(q)^2 \pm \chi_i(q^2)}{2}$.
+2. $\hat \chi_{ij}(q)\coloneqq  \text{Tr}_{U_{ij}} = \chi_i(q)\chi_j(q)$.
+
+***Proof:*** We use a bunch of our previous results. For the first one, notice that
+$$
+\begin{align*}
+\chi_i(q)^2 &= \text{Tr}_{U^+_i \oplus U_i^-} q^H = \text{Tr}_{U^+_i} q^H + \text{Tr}_{ U_i^-} q^H\\
+\chi_i(q^2) &= \text{Tr}_{U^+_i \oplus U_i^-} \sigma q^H = \text{Tr}_{U^+_i} q^H - \text{Tr}_{ U_i^-} q^H.
+\end{align*}
+$$
+Solving the system we obtain the first identity. For the second one we use the corollary which said that as Virasoro modules $W_{ij} \cong U_{ij}$. Then 
+$$
+\begin{align*}
+\text{Tr}_{U_{ij}}q^H  = \text{Tr}_{W_{ij}}q^H = \text{Tr}_{V_i \otimes V_j}q^H = \chi_i(q) \chi_j(q). 
+\end{align*}
 $$
 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+With this we can extract the $S$ transformation of the untwisted characters $\hat \chi$.
 
 
-
-
-
-**<u>Proposition:</u>** Let $U_{ij}^\pm$
-
-  
 
 
 
