@@ -2,7 +2,7 @@
 
 *Twisted Hilbert space.* “Oh just calculate the twisted Hilbert space by this defect.” “It’s just boundary conditions.” “You forgot to account for the twist fields.” “The operator at the endpoint of a TDL is a twisted field.” I swear to god after the first 10 minutes of learning defects you are bombarded with phrases like these as if talking about twisting Hilbert spaces is something you learned in Quantum 1. 
 
-Unlike most of the notes here, this chunk is meant to motivate the existence of twisted Hilbert spaces and use a constructive approach to obtain intution and familiarity. These notes are rigorous (i.e. not handwavy) but kept simple at the expense of generality. The point is to go through some constructive examples, and not to present a rigorous general framework, because what’s the point of chasing generality without a working understanding.
+Unlike most of the notes here, this chunk is meant to motivate the existence of twisted Hilbert spaces and use a constructive approach to obtain intuition and familiarity. These notes are rigorous (i.e. not handwavy) but kept simple at the expense of generality. The point is to go through some constructive examples, and not to present a rigorous general framework, because what’s the point of chasing generality without a working understanding.
 
 [toc]
 
