@@ -14,15 +14,7 @@ One of the things we so often encounter in CFT is that the fields live on a circ
 
 >  “To eliminate any infrared divergences, we compactify the space coordinate.”
 
-To that I say “wtf?” Even if one doesn’t know about infrared divergences this sounds like “we do it on a circle because a line is harder.” The more intuitive answer to why circle is much prettier and it has so much to do with what it means to be conformal. 
-
-Intuitively let’s play with a classical conformal field theory for a second. 
-
-
-
-## Space is a broken Circle
-
-
+To that I say “wtf?” Even if one doesn’t know about infrared divergences this sounds like “we do it on a circle because a line is harder.” The more intuitive answer to why circle is much prettier and it has so much to do with what it means to be conformal.
 
 
 
