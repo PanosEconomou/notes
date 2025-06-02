@@ -2,7 +2,7 @@
 
 *Twisted Hilbert space.* “Oh just calculate the twisted Hilbert space by this defect.” “It’s just boundary conditions.” “You forgot to account for the twist fields.” “The operator at the endpoint of a TDL is a twisted field.” I swear to god after the first 10 minutes of learning defects you are bombarded with phrases like these as if talking about twisting Hilbert spaces is something you learned in Quantum 1. 
 
-Unlike most of the notes here, this chunk is meant to motivate the existence of twisted Hilbert spaces and use a constructive approach to obtain intuition and familiarity. The calculations here are rigorous (i.e. not handwavy except in the frist section) but kept simple at the expense of generality. The point is to go through some constructive examples, and not to present a rigorous general framework, because there is no point chasing generality without a working understanding.
+Unlike most of the notes here, this chunk is meant to motivate the existence of twisted Hilbert spaces and use a constructive approach to obtain intuition and familiarity. The calculations here are rigorous (i.e. not handwavy except in the first section) but kept simple at the expense of generality. The point is to go through some constructive examples, and not to present a rigorous general framework, because there is no point chasing generality without a working understanding.
 
 [toc]
 
@@ -46,7 +46,7 @@ At its core a QFT is a machine that takes in a proxy of an experimental setup (t
 $$
 \text{QFT}: \text{Spacetimes} \times  \text{Probes} \to \mathbb{C}.
 $$
-We usuallt assume that any spacetime has no boundary. But often hte main idea is to split the spacetime at some spacelike slice, define a Hilbert space there, and then write the correlation functions as inner products of the states in the Hilebert space. In fact there is a general theorem (the aptly named Hilbert space reconstruction theorem) that says that if you have correlation functions satisfying things like “locality”, etc. then there is a separable Hilbert space that gives rize to them as inner products. 
+We usuallt assume that any spacetime has no boundary. But often the main idea is to split the spacetime at some spacelike slice, define a Hilbert space there, and then write the correlation functions as inner products of the states in the Hilbert space. In fact there is a general theorem (the aptly named Hilbert space reconstruction theorem) that says that if you have correlation functions satisfying things like “locality”, etc. then there is a separable Hilbert space that gives rise to them as inner products. 
 
 Under this splitting though, we can rethink our $QFT$ map. We can define the map $Z$ that roughly takes in a manifold $\Sigma$, a set of probes/data $\Psi$ on that manifold, and then it spits out a state on the Hilbert space that lives on the boundary of the manifold $\mathbb{H}(\partial \Sigma)$
 $$
@@ -56,7 +56,7 @@ All this is nice and fun in theory, but what happens in practice?
 
 Wick (I think) observed that correlation functions can be analytically continued as functions that have a complex time coordinate. Not only that, but the analytic continuation is to literally plug in a complex time coordinate for in the path integral. This is not really relevant to show here, and to even make this statement in its full generality would be too involved. For our purposes though, this observation is enough to use the Path integral to define quantum states, aka the map $Z$. Here is how.
 
-As we said our spacelike slice is $S^1$ so we want to define a Hilbert space on $S^1$. To do this, consider a 2 Dimensional manifold $\Sigma$ such that its boundary $\partial \Sigma = S^1$. Then if I give you an action, we better be able to find the laegest set of manifods that can accept it. In the case of the free boson this is relatively simple.
+As we said our spacelike slice is $S^1$ so we want to define a Hilbert space on $S^1$. To do this, consider a 2 Dimensional manifold $\Sigma$ such that its boundary $\partial \Sigma = S^1$. Then if I give you an action, we better be able to find the largest set of manifolds that can accept it. In the case of the free boson this is relatively simple.
 
 **<u>Definition:</u>** Let $(\Sigma,g)$ be a 2-dimensional Riemannian manifold and $\phi \in C^\infty(\Sigma)$ be a smooth function, then the **free scalar field Lagrangian** $\mathcal{L} : C^\infty(\Sigma) \to \Omega^2(\Sigma)$ is given by
 $$
@@ -64,7 +64,7 @@ $$
 $$
 This is pretty general and it is defined on all orientable 2D manifolds. Not only that, check this out. 
 
-**<u>Proposition:</u>** The free scalar field Lagrangian is weyl invariant. 
+**<u>Proposition:</u>** The free scalar field Lagrangian is Weyl invariant. 
 
 ***Proof:*** To show that we simply plug in a different metric $g' = e^f g$, where $f\in C^\infty(\Sigma)$. We notice that
 $$
@@ -97,11 +97,11 @@ where $\Omega(\Sigma, \psi) \coloneqq \{\phi \in \Omega(\phi) \mid \left.\phi\ri
 
 After this large digression we can finally start thinking about our vacuum state. We have said that the intuition we want for our vacuum state is an “empty state.” We also said that this should correspond to some version of maximally symmetric. Now we can start being less handwavy. 
 
-We have seen before that this would corredpond to a finding a measure $\mathcal{D}\phi$ that must be conformally invariant (since the state must be super-duper-symmetric). Unfortunately this is where our luck ends. It is **hard** to define such a measure. In a perfect world one would like to give enough conditions such as “locality, conformal invariance, convergence, etc.” and then have some version of measure theory spit out a unique $\mathcal{D}\phi$. Unfortunately, in almost all cases we can’t even have conformal invariance! We need to start using regulators, cuttofs, discretizations, or other regularization schemes that are not guaranteed to fix a unique measure. So bummer. 
+We have seen before that this would corredpond to a finding a measure $\mathcal{D}\phi$ that must be conformally invariant (since the state must be super-duper-symmetric). Unfortunately this is where our luck ends. It is **hard** to define such a measure. In a perfect world one would like to give enough conditions such as “locality, conformal invariance, convergence, etc.” and then have some version of measure theory spit out a unique $\mathcal{D}\phi$. Unfortunately, in almost all cases we can’t even have conformal invariance! We need to start using regulators, cutoffs, discretizations, or other regularization schemes that are not guaranteed to fix a unique measure. So bummer. 
 
-> That said, there are theories where the measure does in fact become so crazily constrained that we get the closest thing to a “unique vacuum measure.” We will see the example of the free fermion in the next section where we will work everything out in detail. So, for now, assume that we have a mechanism for choosing it, and in the next section we will actiually write it down. 
+> That said, there are theories where the measure does in fact become so crazily constrained that we get the closest thing to a “unique vacuum measure.” We will see the example of the free fermion in the next section where we will work everything out in detail. So, for now, assume that we have a mechanism for choosing it, and in the next section we will actually write it down. 
 
-Yet, picking a measure is only part of the story. We will assume that this measure is local, conformally covariant in the sence that it is invariant only up to terms that depend on the conformal anomaly (which we have explored [here](../Quantum_Fields/Virasoro_Algebra.md)), and well defined on the manifolds we will consider. If we impose that the vacuum is $\mathfrak{sl}(2,\mathbb{C})$ invariant, which is the Witt algebra, the one generated by rigid conformal transformations, we will see that we can create a measure where there is exactly one such state. In that case we will define that state to be
+Yet, picking a measure is only part of the story. We will assume that this measure is local, conformally covariant in the sense that it is invariant only up to terms that depend on the conformal anomaly (which we have explored [here](../Quantum_Fields/Virasoro_Algebra.md)), and well defined on the manifolds we will consider. If we impose that the vacuum is $\mathfrak{sl}(2,\mathbb{C})$ invariant, which is the Witt algebra, the one generated by rigid conformal transformations, we will see that we can create a measure where there is exactly one such state. In that case we will define that state to be
 $$
 \omega \coloneqq Z(D^2) = \int_{\Omega(D^2,\cdot)} \mathcal{D}\phi \, e^{-S(D^2,\phi)} \in \mathbb{H}(S^1).
 $$
@@ -110,6 +110,8 @@ In other words, we will intuitively use as the vacuum the state corresponding to
 
 
 ## State Operator Correspondence
+
+
 
 
 
