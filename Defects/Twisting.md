@@ -111,11 +111,49 @@ In other words, we will intuitively use as the vacuum the state corresponding to
 
 ## State Operator Correspondence
 
+Now let's assume that we have a unique vacuum $\omega$. We will use conformalness to show one of the most fantastic results which is known as the operator state correspondence. First of all, in any QFT if we know the set of operators we pick an operator $\hat \chi$ and create corresponding states by
+$$
+\chi = Z(D^2, \hat \chi) = \int_{\Omega(D^2,\chi)} \mathcal{D}\phi\, \hat \chi \cdot e^{-S(D^2,\phi)}.
+$$
+Effectively we are modifying the integration measure of the CFT by "inserting" the operator to it. In physics we call such a measure modification an operator insertion.
+
+The nontrivial result of conformal magic is that while every operator corresponds to a state, this works the other way around. Here is how we can use states to construct local operators. Let's first consider if we have a state $\chi \in \mathbb{H}(S^1)$ constructed the way we did above, how can we find the operator $\hat \chi$ we used to generate it. 
+
+One idea would be to find the operator $\hat \chi(0)$ which would be the operator that we need to multiply the vacuum state with in order to obtain the state $\chi$. In principle, one can define vacuum states for an arbitrary disk $D^2_\epsilon \subset D^2$ of radius $0<\epsilon < 1$. Because of conformal invariance we can see something cool. Since $D$ and $D_\epsilon$ are isomorphic, so are the sets of fields we can add define on top of them i.e. $\Omega(D) \cong \Omega(D_\epsilon)$. There is an isomorphism which is a conformal map $f: D_\epsilon \to D$ such that any $\phi \in \Omega(D)$ can be be mapped bijectively to $f^\ast \phi \in \Omega(D_\epsilon)$. However, notice that the action $S(D,\phi) = S(D_\epsilon, f^\ast \phi)$ is conformally invariant. So effectively the vacuum state at any radius remains unchanged on how it acts on fields of the circle.
+
+This means that we can always define a vacuum state on any disk. Now we can see the following identity form the properties of $Z$. Namely
+$$
+Z(D^2,\chi) = Z(D^2\setminus D_\epsilon^2,\chi)\, Z(D_\epsilon^2) = Z(D^2\setminus D_\epsilon^2,\chi)\, \omega.
+$$
+In this case $Z(D^2\setminus D_\epsilon^2,\chi) : \mathbb{H}(\partial D_\epsilon^2) \to \mathbb{H}(\partial D_\epsilon)$ is an operator of Hilbert spaces. What we can do, is define symbolically by taking $\hat \chi(0)$ by taking $\epsilon \to 0$. 
+$$
+\hat \chi(0) = \lim_{\epsilon \to 0} \int_{\Omega(D_\epsilon,\cdot)} \mathcal{D}\phi\, \hat \chi \cdot e^{-S(D_\epsilon,\phi)},
+$$
+so we obtain the defining identity
+$$
+\chi = \hat \chi (0)\, \omega.
+$$
+By the way, we often write this as
+$$
+\chi = \lim_{z\to 0} \hat \chi(z) \, \omega
+$$
 
 
+Using a translation operator $U(x)$ for some $x \in \mathbb{C}$ we can define the operator $\chi$ at any point like so
+$$
+\hat \chi (x) = U(x)\, \chi(0)\, U^\dagger (x).
+$$
+This exercise was almost tautological. What is fantastic in a CFT is that it is possible to play this game for a dense number of states! In other words, if we know the operators we know the states, and if we know the states we know the operators. The main ingredient we need to show this is this.
 
-
-
+**<u>Theorem:</u>** Consider the set of primary fields and descendants $\mathcal{O}$. If their asymptotic states, namely states of the form
+$$
+\psi = \lim_{z\to 0} \hat \psi(z)\, \omega,
+$$
+ where $\hat \psi \in \mathcal{O}$, generate a dense subspace $V$ in $\mathbb{H}(S^1)$, then for every state $\alpha \in V$ there exists a local operator $\hat \alpha \in \mathcal{O}$ such that
+$$
+\alpha = \lim_{z\to 0} \hat \alpha(z)\, \omega.
+$$
+This might seem tautological at first, but it is quite subtle. The subtlety lies in the fact that a random state in that dense subspace is a (possibly infinite) linear combination of descendant asymptotic states. The fact that we can take the limit out is the significant result. This is a statement about how well behaved the fields in a conformal field theory are. 
 
 # Untwisted Free Fermion
 
