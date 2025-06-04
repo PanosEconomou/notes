@@ -230,7 +230,7 @@ u\cdot v = \bar \gamma \left( u \gamma(v) u^{-1} \right).
 $$
 This form will be useful in what we want to prove later. But the point is, we can now use this group action to define the map  $\lambda: \text{spin}(2) \to \text{SO}(2)$ such that for any vector $v \in \mathbb{R}^2$
 $$
-\lambda(u) = u \cdot v = \bar \gamma \left( u \gamma(v) u^{-1} \right).
+\lambda(u) v = u \cdot v = \bar \gamma \left( u \gamma(v) u^{-1} \right).
 $$
 Let's show that The fact that this is a double cover comes directly from $(\cos 2\theta  - i\sin 2\theta\ \gamma_1 ) \, v$. Notice that since $-i\gamma_1 = R(\frac{\pi}{2})$ is the $90^\circ$ rotation and we already know that every rotation in $\mathbb{R}^2$ can be written as
 $$
@@ -266,13 +266,111 @@ We are in luck again, check out the following lemma.
 
 This means that if two Riemann surfaces have the same genus, then there exists a conformal diffeomorphism between them! This is fantastic news as long as the spin structure is invariant under conformal transformations. 
 
-**<u>Lemma:</u>** A diffeomorphism of manifolds induces a bundle isomorphism of spin structures.
+**<u>Lemma:</u>** A diffeomorphism of manifolds induces a $\text{spin}(2)$-equivariant bundle isomorphism of spin structures.
 
 This says that if we have two manifolds that are diffeomorphic and one has a spin structure, then we can define a spin structure on the diffeomorphic manifold and vice versa. So diffeomorphic manifolds admit the same spin structures. If there was a structure on one that wasn't on the other, then their diffeomorphism would induce it. 
 
 **<u>Corollary:</u>** The number of admissible spin structures on a Riemann surface only depends on the genus.
 
-WOW! AMAZING! Now let's do better than that and try to solve it.
+WOW! AMAZING! Now let's do better than that and try to solve it. There is this theorem that I will not prove because it uses some super specific characteristic classes of smooth manifolds, but it will be useful for this.
+
+**<u>Theorem:</u>** All orientable Riemannian manifolds $M$ admit a spin structure. There is a bijection between the set of isomorphism classes of spin structures and $H^1(M;\mathbb{Z}_2)$.
+
+***Proof(esque):*** The first part of the theorem is originally stated as: A manifold admits a spin structure of its second Stiefel-Whitney class vanishes, and all orientable Riemannian manifolds have that property. The second part, which is the most interesting for our purposes says that that cohomology group numbers the spin structures. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+As a brief aside to $\mathbb{Z}_2$ valued cohomology groups since there is no such thing as a $\mathbb{Z}_2$ valued form, we can't use de Rham cohomology directly. For our purposes here it suffices to say that
+$$
+H^1(M,\mathbb{Z}_2) \cong \text{Hom}(\pi_1(M),\mathbb{Z}_2).
+$$
+With this as our definition we can see something cool. 
+
+**<u>Lemma:</u>** Let $M$ be a genus $g$ compact Riemann surface. Then $H^1(M,\mathbb{Z}_2) = (\mathbb{Z}_2)^{2g}$.
+
+***Proof:*** It is well known that for such surfaces
+$$
+\pi_1(M) = \langle a_1,b_1,a_2,b_2,\cdots, a_g,b_g\mid [a_1,b_1][a_2,b_2]\cdots[a_g,b_g]\rangle.
+$$
+This is proved using the Seifert-Van Kampen theorem on the polygonal representation of $M$. Then we need to find the homomorphisms between that and $Z_2$. There trick here is to realize that
+$$
+\text{Hom}(G,\mathbb{Z}_2) = \text{Hom}(G^{\text{ab}},\mathbb{Z}_2),
+$$
+where $G^\text{ab}$ is the abelianization of the group $G$. This is true because the preimage of any homomorphism of $G\to \mathbb{Z}_2$ belongs to the Abelian part of $G$. However, the abelianization of $\pi_1(M)$ is simply $\mathbb{Z}^{2g}$ since we impose commutation relations for all pairs of $[a_i,b_i]$. Therefore we conclude that
+$$
+H^1(M,\mathbb{Z}_2) = \text{Hom}(\mathbb{Z}^{2g},\mathbb{Z}_2) = (\mathbb{Z}_2)^{2g},
+$$
+ since for every such homomorphism we need to make the choice of putting the generator to $0$ or $1$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This is nice! But we are not done, because the cylinder is not a **compact** Riemann surface! So let's try to work this out.
+
+**<u>Lemma:</u>** The disk with $g$ holes $D^2_g$ has $H^1(D_g^2,\mathbb{Z}_2) = (\mathbb{Z}_2)^g$.
+
+***Proof:*** The disk with $g$ holes is homotopic to a wedge sum of $g$ circles, therefore its fundamental group is the free group of $g$ elements, and its abelianization is $\mathbb{Z}^g$. Using the logic of the previous proof the cohomology group is then $(\mathbb{Z}_2)^g$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+So while we are expecting that a disk has trivial cohomology group, therefore only 1 available spin structure, the cylinder has 2 available spin structures! In physics we call the two **Ramond** and **Nuveu-Scwartz** boundary conditions. Let's derive them now, and see where the name boundary conditions comes from.
+
+Assume that we have a spin structure on our surface $\Sigma$. Then, we still haven't defined spinor fields. These are formally sections of associated vector bundles to the spin structure under the Dirac spinor representation. Before we even do this, here a super nice property of spin bundles.
+
+**<u>Lemma:</u>** Let $\text{spin}(\Sigma)$ be a spin structure on a Riemann surface $\Sigma$ with covering map $\Lambda: \text{spin}(\Sigma) \to \text{SO}(\Sigma)$. Then given any contractible char $U \subset \Sigma$ and an associated vielbein $e \in \Gamma(\text{SO}(\Sigma)_U)$. Then there are precisely two local sections $\epsilon_{\pm} \in \Gamma(\text{spin}(\Sigma)_U)$ such that $\Lambda \circ \epsilon_\pm = e$.
+
+***Proof:*** We can think of the vielbein $e$ as placing $U$ into $\text{SO}(\Sigma)$. Then we knoe that $\text{spin}(\Sigma)$ is the double cover, so we should be able to find $e(U)$ precisely twice in there under the covering map $\Lambda$. Each possible disconnected sheet defines a section of $\text{spin}(\Sigma)$ over $\Sigma$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This means, that if we have chosen a vielbein (a set of orthogonal local coordinate vector fields on $\Sigma$) there is precisely two gauges that we can use to describe our spinor fields that are compatible with our vielbein. Another way to read the previous lemma is that given a choice of gauge in our spin structure no only we can associate a unique vielbein to it, but also we can find it's "opposite" gauge. Let's be more specific.
+
+**<u>Definition:</u>** Given a spin structure $\text{spin}(\Sigma)$ over a Riemann surface $\Sigma$ and the dirac spinor representation $\rho: \text{spin}(2) \to \mathbb{C}^2$ a **spinor bundle** $S(\Sigma)$ is given by the associated complex vector bundle (or $\rho$-twisted bundle)
+$$
+\text{S}(\Sigma) \coloneqq \text{spin}(\Sigma) \times_{\rho} \mathbb{C}^2.
+$$
+Sections of $\text{S}(\Sigma)$ are called **spinor fields**.
+
+Notice though that in the setting that we are all these bundles are $U(1)$ bundles! So things are not as dire as we would have expected. Also remember that $\gamma$ matrices are defined with respect to a vielbein $e \in \Gamma(\text{SO}(\Sigma))$ which is equal to $\Lambda \circ \epsilon$ for some gauge $\epsilon \in \Gamma(\text{spin}(\Sigma))$. 
+
+To be more precise, let $\psi \in \Gamma(S(\Sigma))$ be a spinor field, $U\subset \Sigma$ be convex chart, and $\epsilon_{\pm}$ be gauges associated to a vielbein $e$ on $U$. Then we can write a local section in the trivialization as
+$$
+\psi = [\epsilon_{\pm},\psi_{\pm}],
+$$
+for some maps $\psi_{\pm} : U \to \mathbb{C}^2$ (which btw is what we call spinors in physics, but here we will call local spinor fields). Now let's see the Clifford multiplication. Let $v \in \text{SO}(\Sigma)$, then locally we can write it as
+$$
+v  = [e, v_e] = [\Lambda(\epsilon_{\pm}),v_e ],
+$$
+ where $v_e \in \mathbb{R}^2$. Therefore we can write the Clifford multiplication as
+$$
+v\cdot \psi = [\Lambda(\epsilon_{\pm}),v_e] \cdot [\epsilon_{\pm},\psi_{\pm}] = [\epsilon_{\pm},\gamma(v_e) \cdot \psi_{\pm}].
+$$
+It follows that $e_i \cdot \psi = [\epsilon_{\pm}, \gamma(e_i) \cdot \psi_{\pm}]$.
+
+**<u>Proposition:</u>** These maps satisfy $\psi_+ = - \psi_-$.
+
+***Proof:*** We know that $\psi_\pm$ must satisfy that for any two points $p_{\pm} \in \text{spin}(\Sigma)$ given by $\epsilon_{\pm}(x)$ for some $x \in \Sigma$ then 
+$$
+\psi(x)= [\epsilon_{\pm}(x),\psi_{\pm}(x)].
+$$
+We also know that there must be a map between $\epsilon_+(x)$ and $\epsilon_-(x)$. This can be given by an element of $g \in \text{spin}(2)$ such that $g \cdot \epsilon_{+}(x) = \epsilon_{-}(x)$. Therefore we can write 
+$$
+\psi(x) = [\epsilon_+(x),\psi_{+}(x)] = [g^{-1}\cdot \epsilon_-(x),\psi_{+}] = [\epsilon_{-}(x),g \cdot \psi_{+}(x)].
+$$
+However we know that $[\epsilon_{-}(x), \psi_-(x)] = \psi(x)$. Therefore we have that
+$$
+g\cdot \psi_+(x) = \psi_{-}(x).
+$$
+Now let's find $g$. We know that $\lambda(g) = 1$ since $\lambda$ is a homomorphism and $\Lambda\circ \epsilon_{+} = \Lambda \circ \epsilon_{-}$. So what should the preimage be? We can now use the map directly and find that $2\theta = 2\pi k$ for some $k\in \mathbb{\mathbb{Z}}$ so without loss of generality we find that $g \in \{1,-1 = e^{i \pi \gamma^2}\}$. However, since $\Lambda$ is forced to be a double cover, $\epsilon_+(x) \neq \epsilon_-(x)$ so the only possible answer is $g = -1 \in \text{spin}(2)$. Notice that this would be true for any dimension. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Ok, so what now? Well we have finally reached the point where the spinor language has been reduced to local functions over the manifold which is something we can actually work with directly without being afraid of super complicated structures. So it is time to find the two spin structures we are expecting in $S^1 \times \mathbb{R}$.
+
+
+
+
+
+
 
 
 
