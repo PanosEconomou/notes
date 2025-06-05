@@ -238,6 +238,15 @@ $$
 $$
 we are done!
 
+**<u>Corollary:</u>** Consider the following group isomorphisms $\alpha : \text{spin}(2) \to U(1)$ and $\beta : \text{SO}(2) \to U(1)$ where $\alpha(\gamma^2) = i$ and $\beta(R(\frac{\pi}{2})) = i$. Then $\bar \lambda(z) \coloneqq \beta \circ \lambda \circ \alpha^{-1} (z) = z^2$. In other words, the following diagram commutes.
+$$
+\xymatrix{
+\text{spin}(2) \ar[d]^\alpha \ar[r]^\lambda & \text{SO}(2)\ar[d]^\beta \\
+\text{U}(1)\ar[r]^{z^2} & \text{U}(1)
+}
+$$
+In other other words, $\lambda$ is the trivial double cover of $U(1)$! 
+
 
 
 ## Spin Structures in 2D
@@ -276,7 +285,13 @@ WOW! AMAZING! Now let's do better than that and try to solve it. There is this t
 
 **<u>Theorem:</u>** All orientable Riemannian manifolds $M$ admit a spin structure. There is a bijection between the set of isomorphism classes of spin structures and $H^1(M;\mathbb{Z}_2)$.
 
-***Proof(esque):*** The first part of the theorem is originally stated as: A manifold admits a spin structure of its second Stiefel-Whitney class vanishes, and all orientable Riemannian manifolds have that property. The second part, which is the most interesting for our purposes says that that cohomology group numbers the spin structures. 
+***Proof(esque):*** The first part of the theorem is originally stated as: A manifold admits a spin structure of its second Stiefel-Whitney class vanishes, and all orientable Riemannian manifolds have that property. The second part, which is the most interesting for our purposes says that that cohomology group numbers the spin structures. The way to start showing this is to realize that the spin group (being a double cover) is a central extension of $SO$ like so
+$$
+\xymatrix{
+\mathbb{Z}_2\ar[r] & \text{spin}(n)\ar[r]^\lambda & \text{SO}(n)
+}
+$$
+where the left arrow in our case maps $\mathbb{Z}_2$ to the poles of $U(1)$. This means that any two principal bundles must "differ" by a $\mathbb{Z}_2$ bundle which boils down to calculating (up to principal bundle isomorphism) what are the kind of principal $\mathbb{Z}_2$ bundles we can add on $M$, but they are classified by the number of nontrivial singular $\mathbb{Z}_2$ cycles on $M$ which is given by $H^1(M;\mathbb{Z}_2)$.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
@@ -364,15 +379,110 @@ Now let's find $g$. We know that $\lambda(g) = 1$ since $\lambda$ is a homomorph
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
-Ok, so what now? Well we have finally reached the point where the spinor language has been reduced to local functions over the manifold which is something we can actually work with directly without being afraid of super complicated structures. So it is time to find the two spin structures we are expecting in $S^1 \times \mathbb{R}$.
+Ok, so what now? Our goal is to try and find a way to systematically obtain the possible spin structures we can add on a Riemann surface. To motivate this, let's study the possible spin structures on $S^1 \times \mathbb{R}$. From our classification we are expecting two, one of which is trivial.
+
+**<u>Theorem:</u>** The two inequivalent (up to spin structure isomorphism) spin structures on $S^1 \times \mathbb{R}$ are given by $(\Lambda_{\pm}, U(1) \times(S^1 \times \mathbb{R}))$ where
+$$
+\begin{align*}
+\Lambda_{\pm} : U(1) \times(S^1 \times \mathbb{R}) &\to U(1) \times(S^1 \times \mathbb{R})\\
+\end{align*}
+$$
+are defined for any $(z,w,x) \in U(1)\times(S^1 \times \mathbb{R})$ as
+$$
+\begin{align*}
+\Lambda_+(z,w,x) = (z^2,w,x) && \Lambda_-(z,w,x) = (z^2 w,w,x).
+\end{align*}
+$$
+***Proof:*** First of all lets notice that these two are indeed spin structures. One way to prove this is to guess them and then show that under spin structure isomorphism they are inequivalent. So since we have two inequivalent ones we have found them all. Below is a more constructive proof that avoids using that fact (since we didn't actually prove it before). 
+
+**Step 1:** *(There is a unique oriented frame bundle)* We know that the spin structure is a double cover of the oriented frame bundle of the cylinder. But since we can find a global vielbein the cylinder is parallelizable which means that there frame bundle is unique. Now we know that for each such vielbein.
+
+**Step 2:** *(Any $U(1)$ principal bundle on $S^1 \times \mathbb{R}$ is trivial)* 
+
+Notice that there is a global trivialization of $\text{SO}(S^1 \times \mathbb{R})$, and since $SO(2) \cong U(1)$ this means that $\text{SO}(S^1 \times \mathbb{R}) \cong U(1) \times S^1 \times \mathbb{R}$. Since also $\text{spin}(2) \cong U(1)$ we can find a bundle isomorphism between $\text{spin}(S^1 \times \mathbb{R})$ and $\text{SO}(S^1 \times \mathbb{R})$, which means that the spin structure is trivial as a principal $U(1)$ bundle.
+
+**Step 3:** *(Spin structure map is a map from the base space to the fiber up to diffeomorphism)* 
+
+Using the axioms of the spin structure we must be able to find a map $\Lambda$ such that the following commutes
+$$
+\xymatrix{
+(U(1) \times S^1 \times \mathbb{R}) \times U(1)\ar[r]^-{1\times \alpha}\ar[d]^{\bar \Lambda \times z^2} & (U(1) \times S^1 \times \mathbb{R}) \times \text{spin}(2)\ar@{.>}[r]\ar[d]^{\bar \Lambda \times \lambda} & U(1) \times S^1 \times \mathbb{R}\ar[d]^{\bar \Lambda}\\
+(U(1)\times S^1 \times \mathbb{R}) \times U(1)\ar[r]^-{1\times \beta} & (U(1) \times S^1 \times \mathbb{R}) \times \text{SO}(2)\ar@{.>}[r] & U(1) \times S^1 \times \mathbb{R} \\
+}
+$$
+I fully acknowledge that this is overcomplicated, in 2 steps it will simplify a lot. In other words, what this diagram implies is that we the bundle double cover $\Lambda : U(1) \times S^1 \times \mathbb{R} \to U(1) \times S^1 \times \mathbb{R}$ must obey the property that for any $(z,w,x) \in U(1) \times S^1 \times \mathbb{R}$
+$$
+\Lambda(z,w,x) = z^2 \cdot \Lambda(1,w,x).
+$$
+What is nice is that the map $\Lambda$ is completely defined by its restriction on $\{1\}\times S^1 \times \mathbb{R}$. By the definition of a bundle automorphism,  there must exist a diffeomorphism $f: S^1 \times \mathbb{R} \to S^1 \times \mathbb{R}$ such that
+$$
+f\circ \text{pr}_{S^1 \times \mathbb{R}} = \text{pr}_{S^1 \times \mathbb{R}} \circ \bar \Lambda.
+$$
+So up to diffeomorphism of the base space all we are really interested in classifying are the smooth functions $g \coloneqq \text{pr}_{U(1)} \circ \bar \Lambda : S^1 \times \mathbb{R}\to U(1) $. 
+
+**Step 4:** *(Constraining using Homotopy)*
+
+Now notice that if two such maps are equivalent up to homeomorphism, then they must be equivalent up to homotopy. In other words given a diffeomorphism of the base space $f$, the maps $g\circ f$ and $g$ are homotopic. Therefore we can first classify the maps $g$ up to homotopy. But since $S^1 \times \mathbb{R}\sim S^1$ is homotopy equivalent to the circle, we have restricted the kind of maps to the maps from $S^1 \to S^1$ which we know are classified by $\mathbb{Z}$ as $\phi_k(z) = z^k$ for some $k \in \mathbb{Z}$. Now we need to restrict more to find the diffeomorphism classes. As a result any inequivalent spin structure is of the form $\Lambda_k : U(1) \times S^1 \times \mathbb{R} \to U(1) \times S^1 \times \mathbb{R}$
+$$
+\Lambda_k(z,w,x) = (z^2w^k,w,x).
+$$
+**Step 5:** *(Constraining using Dehn twists)*
+
+It might seem that we have completely constrained our spin structures, but we haven't considered all possible spin structure isomorphisms. We use a similar argument to the one above to consider bundle automorphisms. This time we find that up to diffeomorphism we only need to consider the maps
+$$
+f^n(z,w,x) = (zw^n,w,x).
+$$
+The logic is identical but now we restrict ourselves to maps of the form $S^1 \times S^1 \to S^1$ such that under composition of $\text{pr}_2$ they are identity. Notice two spin structures $\Lambda,\Lambda'$ are isomorphic if there is a principal bundle isomorphism $\phi$ such that   $\Lambda' = \Lambda \circ \phi$. Therefore since $f^n$ for some $n \in \mathbb{Z}$ is a bundle isomorphism we can use repeated Dehn twists to find equivalences between $\Lambda_k$. In other words $\Lambda_k \cong \Lambda_l$ iff $\Lambda_k = \Lambda_l \circ f^n$ for some $n\in \mathbb{Z}$. Now we can calculate
+$$
+\Lambda_l \circ f^n (z,w,x) = ((zw^n)^{2}w^l,w,x) = (z^2 w^{l + 2n},w,x).
+$$
+We have finally found our $\mathbb{Z}_2$ grading! We have that $\Lambda_{k} \cong \Lambda_{l \text{ mod } 2}$, which finally fully classifies our spin structures. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+
+**<u>Definition:</u>** The spin structure $\Lambda_+$ is known as the **Ramond boundary condition** while the spin structure $\Lambda_-$ is known as the **Nuveu-Scwartz boundary condition**.
+
+The previous theorem simply filled in the details of physics textbooks. We can restate the above result in terms of the spin holonomy on the Dirac spinor bundle.
+
+To do this recall the following definition.
+
+**<u>Definition:</u>** Given a spinor bundle $S(\Sigma)$ over a Riemann surface $\Sigma$ associated to a spin structure $\text{spin}(\Sigma)$, the **canonical spin connection** $\nabla: \Gamma S(\Sigma) \to \Omega^1(\Sigma)\otimes  \Gamma S(\Sigma)$ such that for any local section $\psi = [\epsilon,\hat \psi]$, $\nabla \psi = [\epsilon, \nabla \hat \psi]$ where
+$$
+\nabla \hat \psi = d\hat \psi + (\epsilon^\ast A_S) \cdot \hat \psi
+$$
+ where $A_S \in \Omega^1(\text{spin}(\Sigma),\mathfrak{spin}(2))$ is the spin connection defined by
+$$
+A_S = (\lambda_\ast)^{-1}\circ (\Lambda^\ast A),
+$$
+where $A$ is the Levi-Civita connection 1-form of $\Sigma$.
+
+Phew! This is a lot, but what is particularly nice on the cylinder is that it is flat, so $A = 0$ hehe. In that case, the spin connection is the literal exterior derivative, which is at least nice.
 
 
 
+**<u>Proposition:</u>** For any spinor field $\psi \in \Gamma S(S^1 \times \mathbb{R})$ and any simple nontrivial loop $\gamma$ on the cylinder we have that 
+$$
+P_\gamma \psi = \begin{cases}
+\psi & \text{in Ramond structure}\\
+-\psi & \text{in Nuveu - Schwartz structure}
+\end{cases}
+$$
+where $P_\gamma$ is the parallel transport along $\gamma$ with respect to the spin connection.
 
-
-
-
-
+***Proof:*** Let's pick $S^1\times \{0\}$ to be our simple loop $\gamma$, anyway the holonomy in invariant under the choice of loop, and consider a flat lift $e$ of $\gamma$ on the frame bundle. Then given a spin structure, we can associate a local gauge $\epsilon$ such that $\Lambda \circ \epsilon = e$. Then the parallel transport along $\gamma$ is given by
+$$
+P_{\gamma}\psi = [\epsilon(\gamma(1)), \psi_\epsilon (\gamma(0))] = [\epsilon (\gamma(0)), \epsilon(\gamma(0))\epsilon(\gamma(1))^{-1} \psi_{\epsilon}(\gamma(0))]
+$$
+Now since $e$ is a flat lift we have that in the trivialization $e\circ \gamma = \alpha \in U(1)$. Then under the Ramond structure we have that $\epsilon = \pm \sqrt{e} = \pm \sqrt{\alpha}$. Here we see that $\epsilon(\gamma(0))\epsilon(\gamma(1))^{-1} = 1$ which proves the first part. for the other one we see that $\epsilon \circ \gamma = (\alpha \gamma)^{1/2} $ for some $\alpha \in U(1)$, where $\gamma(t) = e^{2\pi i t}$. Now what we notice is that
+$$
+\epsilon(\gamma(0))\epsilon(\gamma(1))^{-1} = \lim_{t \to 1} \gamma(t)^{\frac{1}{2}} = -1.
+$$
+The fact that the section $[\epsilon, - \psi_{\epsilon}] = -\psi$ is shown using the quotient construction of the associated vector bundle, but I will not do it explicitly because COME ON! This proves the second part.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
 
