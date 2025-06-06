@@ -161,6 +161,8 @@ This might seem tautological at first, but it is quite subtle. The subtlety lies
 
 Ok enough with wishy washy stuff. Time to do a detailed, rigorous example of a nice CFT. The one for a free fermion. As we have motivated above, we want to consider a free fermion living on a circle. This introduces the first subtlety. While on a line, there is only one way to write down a fermion (principal bundles on $\mathbb{R}^n$ are all trivial) on the circle there are more! So before we even start with a quantization procedure let's first examine the classical physics of a fermion on a circle.
 
+> **Note:** This section (except the last subsection) is not strictly needed in order to understand how to obtain a Hilbert space from a path integral in general. Its purpose is to define the simplest path integral that we know of so it dives into the nuances of fermionic path integrals and spin structures. With a working knowledge of the Majorana path integral quantization in 2D this section can be skipped. It is still fun and satisfying to work out a full description of a QFT. We don't often have the luxury of working with one. 
+
 ## Spinors in 2D
 
 What we want to build up to is a path integral prescription that we are able to define on any $2$ dimensional Riemannian manifold. One subtlety that we have to consider is that there might be multiple inequivalent ways to define a spinor (and by extension a fermion) on different manifolds. We need to find a way to take them into account. 
@@ -253,6 +255,8 @@ In other other words, $\lambda$ is the trivial double cover of $U(1)$!
 
 We are not just interested in isolated spinors! We are interested in spinor fields over 2D manifolds. The whole point of doing this is noticing since the tangent space of any 2D manifold is $\mathbb{R}^2$ there is a natural action of the vector fields on the manifold to the kind of spinors we can add them. We want to create our spinor bundle such that it respects this. The way to do this is by picking a spin structure. Let's recall an abstract definition first and then we will make it progressively more tangible.
 
+### Definitions
+
 **<u>Definition:</u>** Let $\Sigma$ be a 2 dimensional Riemannian manifold. Then a **spin structure** on $\Sigma$ is a a principal $\text{spin}(2) \cong U(1)$ bundle $\pi: \text{spin}(\Sigma) \to \Sigma$ with a double cover of principal bundles $\Lambda : \text{spin}(\Sigma) \to \text{SO}(\Sigma)$, where $\bar \pi : \text{SO}(\Sigma) \to \Sigma$ is the $\text{SO}(2)$ reduction of the frame bundle of $\Sigma$ such that the following diagram commutes.
 $$
 \xymatrix{
@@ -266,6 +270,10 @@ where the dotted arrows are the principal actions of the structure groups to the
 This certainly needs unpacking. However, what it is saying is that the spin structure is a double cover of the $\text{SO}(2)$ bundle of our space such that the action of the $\text{spin}$ group is compatible with the double cover. 
 
 The first level of simplification here is that all of these objects are all $U(1)$ bundles since $\text{SO}(2) \cong \text{spin}(2) \cong \text{U}(1)$. So in some loose sense defining a spin structure is related to the question of writing down a theory of electromagnetism on $\Sigma$. However, what we are interested as of now is asking, how many different (i.e. not bundle isomorphic) bundles we can have with structure group $U(1)$ on $\Sigma$.
+
+
+
+### Counting the Spin Structures
 
 Well, if $\Sigma \subset \mathbb{R}^2$ then we know already that there is only one principal bundle we can have, because all $\mathbb{R}^n$ principal bundles are trivial. But what happens in more complicated spaces?
 
@@ -327,6 +335,10 @@ This is nice! But we are not done, because the cylinder is not a **compact** Rie
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
+
+
+### Spin Structures for a Cylinder
+
 So while we are expecting that a disk has trivial cohomology group, therefore only 1 available spin structure, the cylinder has 2 available spin structures! In physics we call the two **Ramond** and **Nuveu-Scwartz** boundary conditions. Let's derive them now, and see where the name boundary conditions comes from.
 
 Assume that we have a spin structure on our surface $\Sigma$. Then, we still haven't defined spinor fields. These are formally sections of associated vector bundles to the spin structure under the Dirac spinor representation. Before we even do this, here a super nice property of spin bundles.
@@ -416,7 +428,7 @@ $$
 $$
 What is nice is that the map $\Lambda$ is completely defined by its restriction on $\{1\}\times S^1 \times \mathbb{R}$. By the definition of a bundle automorphism,  there must exist a diffeomorphism $f: S^1 \times \mathbb{R} \to S^1 \times \mathbb{R}$ such that
 $$
-f\circ \text{pr}_{S^1 \times \mathbb{R}} = \text{pr}_{S^1 \times \mathbb{R}} \circ \bar \Lambda.
+f\circ \text{pr}_{S^1 \times \mathbb{R}} = \text{pr}_{S^1 \times \mathbb{R}} \circ \Lambda.
 $$
 So up to diffeomorphism of the base space all we are really interested in classifying are the smooth functions $g \coloneqq \text{pr}_{U(1)} \circ \bar \Lambda : S^1 \times \mathbb{R}\to U(1) $. 
 
@@ -484,13 +496,148 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
+Let's generalize a bit. What happens in arbitrary Riemann surfaces? Well what we saw was that in 2D the classification basically boiled down to uncovering two boundary conditions per non-contractible cycle. In fact this makes sense with our original statement. We said that the spin structures are classified by
+$$
+\text{H}^1(\Sigma; \mathbb{Z}_2) \cong \text{Hom}(\pi_1(\Sigma),\mathbb{Z}_2).
+$$
+When we see this we are like: wait a second! What this group classifies is all the ways you can take the noncontractible cycles of $\Sigma$ and label them with a $\pm 1$. That $\pm 1$ is the holonomy of the spin connection corresponding to that spin structure! So in essence we can rephrase our classification of spin structures to a statement about boundary conditions of the fermion fields around non-contractible cycles using the method above. 
+
 
 
 ## A Path Integral for Free Fermions
 
+Wow this was so much work, but what we have done is pretty remarkable. We have not only found a way to consistently describe all the possible ways we can have a spinor living on a Riemann surface $\Sigma$, but also found a way to parameterize them! So now the task of "summing over all possible fermion fields" which is something we have to do in our path integral is no longer as daunting. 
+
+### Majorana Spinors and Kinetic Energy
+
+The next step is to define an action. And in order to do that we need a $\text{spin}$-invariant inner product to write things like kinetic energy and whatnot. In our search to find it we find out these really cool results summed up in the following theorem.
+
+**<u>Theorem:</u>** The Dirac spinor representation $\Delta$ for $\text{spin}(2k)$ for $k\in \mathbb{N}$ admits a real structure, i.e. it admits a complex $\text{spin}(2k)$ equivariant complex antilinear map $\sigma : \Delta \to \Delta$ such that $\sigma \circ \sigma = 1$. Additionally the same representation splits into two isomorphic eigenspaces $\Delta_{\pm}$ of the chirality element $\gamma^{2k}$. 
+
+**<u>Proposition:</u>** For $k=1$ the complex structure is given by $\gamma_0 = \gamma(e_0)$ defined for any $\psi \in \mathbb{C}^2$ by
+$$
+\sigma(\psi) = \gamma_0 \psi^\ast,
+$$
+where $\psi^\ast$ is the complex conjugate of $\psi$.
+
+**<u>Proof:</u>** We know that $\gamma_0 = \gamma_0^\ast$ and $\gamma_0^2 = 1$. Also we know that $\{\gamma_0,\gamma^2\} = 0$ Since every element in $\text{spin}(2)$ is written as $\alpha + i \beta \gamma^2$ for some $\alpha + i \beta \in U(1)$ we have that $[\gamma_0,i\gamma^2] = 0$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+The proofs of the statments in the previous theorem are [here](../Quantum_Fields/Spinors.md) but honestly they are not as needed, since we are only going to do everything in the 2D spinor representation anyway. 
+
+**<u>Definition:</u>** An element $\psi \in \Delta$ is called **Majorana** if $\sigma(\psi) = \psi$ and **Weyl** if $\gamma^2 \psi = \pm \psi$. For any spinor, we call $\psi^C \coloneqq \sigma(\psi)$ its **Majorana conjugate** or **Charge conjugate**. The restriction of the Dirac spinor representation to its real (Majorana) subspace is called the **Majorana spinor representation.** 
+
+This is an interesting split. In physics we sometimes care about the physics of Dirac spinors, or of their Majorana subspaces. In particular, a very interesting CFT arises when we consider our spinor representation the Majorana spinor representation. This doesn't change anything from the discussion above as it is general enough to work with any representation of $\text{spin}(2)$. That said from now on we will restrict our attention to Majorana spinors.
+
+**<u>Definition:</u>** A **Dirac form** is a nondegenerate $\mathbb{R}$-bilinear form $\langle \cdot,\cdot \rangle : \Delta \times \Delta \to \mathbb{C}$ on a Dirac representation $\Delta$ of $\text{spin}(n)$ such that for any $c \in \mathbb{C}$, $\psi,\phi \in \Delta$ and $X \in \mathbb{R}^n$ we have that
+
+1. $\langle \psi,X\cdot \phi \rangle = \langle X \cdot \psi,\phi \rangle$
+2. $\langle \psi,\phi \rangle = \langle \phi,\psi \rangle^\ast$
+3. $\langle \psi,c\phi \rangle = c \langle \psi,\phi \rangle$.
+
+The dual space element $\psi^\dagger \coloneqq \langle \psi,\cdot \rangle$ is known as the **Dirac conjugate spinor**.
+
+A Dirac form is the closes we can get to a hermitian inner product that is $\text{spin}$ invariant. Notice that the only thing left for it to be a Hermitian form is positive definiteness, which honestly is the first thing we are ok with giving up. 
+
+**<u>Proposition:</u>** On $\mathbb{C}^2$ with the $\text{spin}(2)$ representation the only Dirac form is defined for any $\psi, \phi \in \mathbb{C}^2$ by
+$$
+\langle \psi,\phi \rangle = (\psi^\ast)^T \phi = \psi^\dagger \phi.
+$$
+***Proof:*** Property 1 of the definition implies equivariance for $\gamma$ matrices, this means that $\gamma^\dagger = \gamma$. The next thing we want is conjugate symmetry and nodegeneracy which means that $\psi^\dagger = (A \psi^\ast)^T$ for some invertible complex linear map $A$. Plugging in the first thing we find that $(\gamma \psi)^\dagger = (A\gamma^\ast \psi^\ast)^T = (A\psi^\ast)^T (A \gamma^\ast A^{-1})^T$ but also this should equal $\gamma$. From this we find that $A c \cdot 1$ for some $c \in \mathbb{C}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Fantastic! Now that we can measure the length of spinors we can finally measure their kinetic energy by defining a Lagrangian. The only step missing is to extend the Dirac form into a bundle inner product which is done canonically the way we expect so let's go ahead and write down the Lagrangian! 
+
+**<u>Definition:</u>** Let $\Sigma$ be a Riemann surface and $S(\Sigma)$ be the spinor bundle associated to a $\text{spin}(2)$ structure on $\Sigma$. Then the **massless free Dirac Lagrangian** is given by\
+$$
+\begin{align*}
+\mathcal{L}: \Gamma S(\Sigma) &\to \Omega^2(\Sigma)\\
+\psi &\mapsto \mathcal{L}(\psi) = \ast \frac{1}{2} \langle \psi, \centernot \partial \psi \rangle,
+\end{align*} 
+$$
+where $\centernot\partial$ is the **Dirac operator** given by $\centernot \partial: \Gamma S(\Sigma) \to \Gamma S(\Sigma)$ such that for any vielbein $e= \{e_1,e_2\}$ 
+$$
+\centernot \partial \psi = \delta^{ab} e_a \cdot \nabla_{e_b} \psi.
+$$
+The dirac operator is effectively a trace over a vielbein of the covariant derivative of a spinor. In local coordinates (in flat $\Sigma$) it is given by
+$$
+\centernot \partial \psi = i\gamma^\alpha d\psi(e_\alpha).
+$$
+When you're not flat you have to add some Christoffel symbols but whatever we are working on a flat signature anyway because of our previous exploration that all Riemann surfaces are conformally flat. Another thing to notice is that the Dirac operator swaps the chirality of the spinor, in other words it maps you between the Weyl subspaces.
+
+We can now define the action $S : \Gamma S(\Sigma) \to \mathbb{R}$ of a spinor field $\psi \in \Gamma S(\Sigma)$ by
+$$
+S(\Sigma, \psi) = \int_{\Sigma} \mathcal{L}(\psi).
+$$
+So what we have now is the $e^{-S(\psi)}$ part of our path integral! WOHOO! Now for the hard part, how do we put a measure on the set of spinor fields of $\Sigma$? Here is where grassmann variables come in.
+
+
+
+### Aside on Antisymmetry
+
+So far all of our fields were complex valued, however what we would like is to impose an extra condition to the operators in the quantum field theory side. We would like them to be antisymmetric. Usually we could achieve this by giving an antisymmetric structure on $\mathbb{C}^2$ where we can build our spinors with antisymmetric components that have some intrinsic wedge product instead of a scalar product. That would be a much more complicated space to find spinor representations in but there is a way we can treat antisymmetric spinors (or fermions) using the language of spinors that we have already developed. Particularly by noticing that with the exception of the Dirac form, there was no point in which we exchanged two spinor components for the antisymmetry to be apparent. 
+
+So welcome to the wonderful world of Grassmann numbers. Honestly the rigorous picture of this is quite confusing it involves somehow defining a tensor product with an algebra that contains uncountably many generators so I am a bit iffy. Going through [Quantum Fields and Strings](https://bookstore.ams.org/qft-1-2-s/) (chapter 1 lol) there is a rigorous treatment of the extension of our spinor bundle in the language of sheves.
+
+So we will use results from the cast down to a schematic language we can understand.
+
+**<u>Definition:</u>** A **commutative Grassmann algebra** or **superalgebra** $A$ is a $\mathbb{Z}_2$ graded vector space over $\mathbb{C}$ with a multiplication $A\times A \to A$ such that for any $\theta,\phi \in A$
+$$
+\theta \phi = (-1)^{|\theta| |\phi|} \phi\theta,
+$$
+where $|\theta|$ is the $\mathbb{Z}_2$ degree of $\theta \in A$. 
+
+**<u>Proposition:</u>** Let $A$ be a commutative superalgebra generated by $\Theta =\{\theta_i\}_{i\in I}$ elements of odd degree. This means that each element $z \in A$ has a unique decomposition to
+$$
+z = \sum_{I \in \mathcal{P}(\Theta)} z^I \theta_I,
+$$
+where $z^I \in \mathbb{C}$, $\theta_I = \bigwedge_{i\in I} \theta_i$, i.e. the antisymmetric product product of all the $\theta_i$, and $\mathcal{P}(\Theta)$ is the powerset of $\Theta$.
+
+Here is an interesting observation. We can think of the superalgebra generated by a set of odd generators $\Theta$ as the set of polynomials in $\mathbb{C}$ with antisymmetric generators given by $A = \mathbb{C}^{\wedge}[\Theta]$. 
+
+Therefore what we should do is to define the integral of such polynomials. Let $f \in A$ then we know that
+$$
+f = \sum_{I \in \mathcal{P}(\Theta)} f^I \theta_I.
+$$
+We will define the Berezin integral as follows.
+
+**<u>Definition:</u>** The **Berezin integral** of $f \in A$ in some commuting superalgebra generated by a set of anticommuting generators $\Theta$ is given by
+$$
+\int f\, d\Theta = f^{\Theta},
+$$
+where $f^\Theta \in \mathbb{C}$ is the term in the usual decomposition above. 
+
+This measure simply extracts the coefficient of the higest order (if it exists) in the polynomial $f$. For example
+$$
+\int 1\, d\Theta = 0.
+$$
+The nice thing about this measure is that it is very course. 
+
+One interesting class of superalgebras is $\Lambda_n$ which is given by $\mathbb{C}^\wedge [\mathbb{Z}_n]$. Then the next most interesting one is $\Lambda_\infty \coloneqq \mathbb{C}^\wedge[\mathbb{Z}]$. We are now ready to define fermion fields!
+
+**<u>Definition:</u>** Given a spinor bundle $S$, a **Fermion field** is a polynomial with antisymmetric coefficients and values in $\Gamma(S)$, fomally the set of Fermion fields is given by $\Gamma_F(S) \coloneqq \Gamma(S)^\wedge[\mathbb{Z}]$.
+
+I will be the first to admit that this is a very dodgy definition however there is a nice way of thinking about this. 
+
+> ***Note:*** The above definition has the following intution. A fermion can be mode expanded into grassmann odd generators with spinor fields as coefficients. 
+
+This is a somewhat unusual definition for fermions but we are still left with a form of antisymmetric sections after this. In QFT textbooks like Peskin there is an alternative definition of fermions as assinging each vector component at each point a grassmann generator and multiplying that with a complex number. This has the quick objection that you end up having a grassmann algebra with uncountably many generators. However, usually everything we calculate using that definition of fermion fields is done at some lattice regularization, which effectively swaps the manifold with a finite set of points, and taking the limit to infinity which gives a presecription with countably many geenerators as shown above. 
+
+We will follow an alternative approach where we will define a countable set of **modes** and integrate over that instead in our path integral. It's on its way! But at least we not only have a working way to play with antisymmetry, but we also have a way to define fermions.
+
+
+
+### The Path Integral Measure
+
+The key word of this is mode expansions. Here is the high level description of this story. We find eigenstates of $\centernot \partial$ in $\Gamma(S)$ for some spinor bundle, then we will pick one for each eigenvalue and create a set of *modes* called $M(S,\centernot \partial)$, then we will define a measure on $\Gamma_F(S)$ such that almost all fermions are in $M(S,\centernot \partial)^\wedge[\mathbb{Z}]$ and then use the berezin integral there. 
+
 
 
 ## Virasoro Primaries
+
+
 
 
 
