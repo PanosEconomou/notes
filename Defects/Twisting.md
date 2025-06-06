@@ -544,9 +544,9 @@ A Dirac form is the closes we can get to a hermitian inner product that is $\tex
 $$
 \langle \psi,\phi \rangle = (\psi^\ast)^T \phi = \psi^\dagger \phi.
 $$
-***Proof:*** Property 1 of the definition implies equivariance for $\gamma$ matrices, this means that $\gamma^\dagger = \gamma$. The next thing we want is conjugate symmetry and nodegeneracy which means that $\psi^\dagger = (A \psi^\ast)^T$ for some invertible complex linear map $A$. Plugging in the first thing we find that $(\gamma \psi)^\dagger = (A\gamma^\ast \psi^\ast)^T = (A\psi^\ast)^T (A \gamma^\ast A^{-1})^T$ but also this should equal $\gamma$. From this we find that $A c \cdot 1$ for some $c \in \mathbb{C}$.
+***Proof:*** Property 1 of the definition implies equivariance for $\gamma$ matrices, this means that $\gamma^\dagger = \gamma$. The next thing we want is conjugate symmetry and nodegeneracy which means that $\psi^\dagger = (A \psi^\ast)^T$ for some invertible complex linear map $A$. Plugging in the first thing we find that $(\gamma \psi)^\dagger = (A\gamma^\ast \psi^\ast)^T = (A\psi^\ast)^T (A \gamma^\ast A^{-1})^T$ but also this should equal $\gamma$. From this we find that $A = c$ for some $c \in \mathbb{C}$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 Fantastic! Now that we can measure the length of spinors we can finally measure their kinetic energy by defining a Lagrangian. The only step missing is to extend the Dirac form into a bundle inner product which is done canonically the way we expect so let's go ahead and write down the Lagrangian! 
 
@@ -559,7 +559,7 @@ $$
 $$
 where $\centernot\partial$ is the **Dirac operator** given by $\centernot \partial: \Gamma S(\Sigma) \to \Gamma S(\Sigma)$ such that for any vielbein $e= \{e_1,e_2\}$ 
 $$
-\centernot \partial \psi = \delta^{ab} e_a \cdot \nabla_{e_b} \psi.
+\centernot \partial \psi = g^{ab} e_a \cdot \nabla_{e_b} \psi.
 $$
 The dirac operator is effectively a trace over a vielbein of the covariant derivative of a spinor. In local coordinates (in flat $\Sigma$) it is given by
 $$
@@ -615,9 +615,9 @@ $$
 $$
 The nice thing about this measure is that it is very course. 
 
-One interesting class of superalgebras is $\Lambda_n$ which is given by $\mathbb{C}^\wedge [\mathbb{Z}_n]$. Then the next most interesting one is $\Lambda_\infty \coloneqq \mathbb{C}^\wedge[\mathbb{Z}]$. We are now ready to define fermion fields!
+One interesting class of superalgebras is $\Lambda_n$ which is given by $\mathbb{C}^\wedge [\mathbb{Z}_n]$. Then the next most interesting one is $\Lambda_\infty \coloneqq \mathbb{C}^\wedge[\mathbb{Z}]$. One more small aside, when we refer to “complex grassmann numbers”, we are reffering to the grassmann algebra with generating set $\Theta\times \bar \Theta = \Theta^2$ where there are twice as many grassmann numbers, but now we have the conjugation involution to switch between the generators.  We are now ready to define fermion fields!
 
-**<u>Definition:</u>** Given a spinor bundle $S$, a **Fermion field** is a polynomial with antisymmetric coefficients and values in $\Gamma(S)$, fomally the set of Fermion fields is given by $\Gamma_F(S) \coloneqq \Gamma(S)^\wedge[\mathbb{Z}]$.
+**<u>Definition:</u>** Given a spinor bundle $S$, a **Fermion field** is a polynomial with antisymmetric coefficients and values in $\Gamma(S)$, fomally the set of Fermion fields is given by $\Gamma_F(S) \coloneqq \Gamma(S)^\wedge[\mathbb{Z}\times \bar{ \mathbb{Z}}]$.
 
 I will be the first to admit that this is a very dodgy definition however there is a nice way of thinking about this. 
 
@@ -631,7 +631,94 @@ We will follow an alternative approach where we will define a countable set of *
 
 ### The Path Integral Measure
 
-The key word of this is mode expansions. Here is the high level description of this story. We find eigenstates of $\centernot \partial$ in $\Gamma(S)$ for some spinor bundle, then we will pick one for each eigenvalue and create a set of *modes* called $M(S,\centernot \partial)$, then we will define a measure on $\Gamma_F(S)$ such that almost all fermions are in $M(S,\centernot \partial)^\wedge[\mathbb{Z}]$ and then use the berezin integral there. 
+The key word of this is mode expansions. Here is the high level description of this story. We find a countable basis of sections in $\Gamma(S)$ for some spinor bundle and create a set of *modes* called $M(S)$, then we will define a measure on $\Gamma_F(S)$ such that almost all fermions are in $M(S)^\wedge[\mathbb{Z}]$ and then use the berezin integral there. Let’s start working out some modes.
+
+**<u>Example:</u>** *(Modes on the cylinder)* This is getting obscure so it is high time we work out an example. Let’s find the modes for spinors on the cylinder $S^1 \times \mathbb{R}$. What we will find (luckily) will be similar enough to the modes one obtains during second quantization which is at least satisfying. 
+
+We will work with Majorana spinors so let’s write down the set of majorana sections of a spinor bundle $S$ over $\Sigma = S^1 \times \mathbb{R}$ as $\Gamma^M(S)$. These are defined by
+$$
+\Gamma^M(S) \coloneqq \{\psi \in \Gamma(\Sigma) \mid \sigma(\psi) = \psi\},
+$$
+where $\sigma$ is the real structure of the spinor representation that is extended. Speficically, let’s use a set of isothermal coordinates for the complexified tangent space to define the vielbein
+$$
+e = \left( \frac{\partial }{\partial \sigma} , \frac{\partial }{\partial \tau} \right)
+$$
+where $\sigma$ is the coordinate along the circle, and also let’s assume that we have a metric such that our circumference is $2\pi$. This looks pretty already, but wait until you see how nicely we can write down the majorana spinor representations. In fact we know that $\sigma(\psi) = \gamma_0\psi^\ast = \psi$. So solving we obtain that $\psi = \binom{a}{a^\ast}$ for some $a\in \mathbb{C}$.  WOW! So let’s write out our sections in this gauge. Let $\epsilon$ be one of the lifts of $e$ to the spin structure of $S^1 \times \mathbb{R}$, then we know that for any majorana spinor field $\Psi \in \Gamma^M S(S^1 \times \mathbb{R})$ there exists a function $\psi : S^1\times \mathbb{R}\supset U \to \mathbb{C}$ such that
+$$
+\Psi = \left[\epsilon, \binom{\psi}{\psi^\ast}\right].
+$$
+This is awesome let’s goo! Now we need to specify $\epsilon$ and by extension the spin structure in order to find modes. Let’s start with the Ramond sector where the holonomy of the spin connection is trivial. To calculate $\epsilon$  we notice that under the action of $\text{SO}(S^1 \times \mathbb{R})$ the vielbein $e$ is given by $e(\sigma, \tau) = (1,\sigma, \tau) \in U(1)$. So its simplest lift is itself $\epsilon(\sigma, \tau) = (1,\sigma,\tau)$. Perfection. So we need to solve some kind of eigenvalue equation like
+$$
+\frac{\partial \psi}{\partial \sigma} - i\frac{\partial \psi}{\partial \tau} = \lambda \psi,
+$$
+for $\lambda \in \mathbb{R}$. Notice that since $\epsilon$ can be defined globally we are looking for a function $\psi: S^1 \times \mathbb{R} \to \mathbb{C}$ which implies the boundary condition that $\psi(\sigma, \cdot) = \psi(\sigma + 2\pi,\cdot)$.
+
+The way it is written right now it is begging us to take Fourier series in $\sigma$ since we have a periodic function, so let’s write 
+$$
+\psi(\sigma, \tau) = \sum_{n \in \mathbb{Z}} a_n(\tau) e^{in\sigma}
+$$
+I’m in love. However the rest is not that nice. We don’t have an equaly nice basis of fourier modes for $a_n : \mathbb{R} \to \mathbb{C}$. But we know that all these smooth functions have countable bases, for example the Hermite polynomials. Let’s pick a basis $\mathcal{B} =\{b_k\}_{k\in \mathbb{Z}}$to write 
+$$
+\psi(\sigma,\tau) = \sum_{n,m \in \mathbb{Z}} a_{nm} b_m(\tau) e^{in\sigma}
+$$
+Eh not as cool, but at least we can now write a basis of fermions by assuming that $a_{nm}$ are grassmann valued. Spefically we will define the set of **Ramond modes** to be
+$$
+M_R(S(S^1\times \mathbb{R})) \coloneqq \{\phi_n \times b_m \mid \phi_n(\sigma) = e^{in\sigma}, n \in \mathbb{Z}, b_m \in \mathcal{B}\}.
+$$
+The next question is what happens in the Noveau-Schwartz spin structure. There we are slightly less fortunate. The reson is that our spin structure doesn’t allow us to lift to a global vielbein. Namely we have the equation
+$$
+e(\sigma, \tau) = (1,\sigma, \tau) = \Lambda \circ \epsilon(\sigma, \tau) = (\hat \epsilon^2 \sigma,\sigma, \tau )
+$$
+which has solutions $\hat \epsilon = \pm \sigma^{-\frac{1}{2}}$ which isn’t a function over $S^1$. But likeeeee it’s only one point where this is discontinous in. So what if we define our functions on the double cover and then take one of the partial inverses down to the circle? This would correspond to the chart of the circle with one of the poles removed. then we can get the remaining point by switching charts. 
+
+Now having moved to the double where $\sigma \in [0,4\pi)$, we have that $\psi(\sigma,\tau) = -\psi(\sigma + 2\pi,\tau)$. This means that we can write it in modes
+$$
+\psi(\sigma,\tau) = \sum_{n,m \in \mathbb{Z}} a_{nm} b_{m}(\tau) e^{i(n+\frac{1}{2})\sigma}.
+$$
+This appears becuase this circle has twice the radius, and the holonomy constraint implies that only the odd modes appear. Taking the restriction for $\sigma \in (0,2\pi)$ we are back on the circle with the north pole removed, but this was enough to fully define our modes everywhere, since we can take the limit for the last point. Therefore the **Noveau-Schwartz** modes are
+$$
+M_{NS}(S(S^1\times \mathbb{R})) \coloneqq \{\phi_n' \times b_m \mid \phi_n'(\sigma) = e^{i(n+\frac{1}{2})\sigma}, n \in \mathbb{Z}, b_m \in \mathcal{B}\}.
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+There is a much nicer example where these are so much better defined but on the torus. For now we continue on the cylinder. 
+
+As we said earlier, given a set of modes $M(S)$ for a spin bundle $S$ we define the set of fermions as $M_F(S)=M(S)^\wedge[\mathbb{Z}\times \bar{\mathbb{Z}}]$. This has some interesting consequences. 
+
+**<u>Proposition:</u>** Let $\psi \in \Lambda =\mathbb{C}^\wedge[\Theta]$ such that $\psi = \sum_{\theta \in \Theta} \theta$ and $A:\Lambda\to \Lambda$ a linear map of generators in $\Theta$, then
+$$
+\int d\Theta\, e^{- \psi^T A \psi} \propto \text{det\,} A.
+$$
+***Proof:*** If $f = e^{-\psi^TA\psi}$, then all we need to calculate is $f^{\Theta}$. Since $A$ is a linear map of generators we have that 
+$$
+A\psi = \sum_{\theta,\phi \in \Theta} A_{\theta\phi} \phi
+$$
+for some numbers $A_{\theta\phi}$. So the numerator is of the form
+$$
+\psi^\dagger A\psi = A_{\theta \phi} \theta \phi = \sum_{\theta \in \Theta} \theta (A\theta),
+$$
+and the term we are looking for will have the form
+$$
+f^{\Theta} = \prod_{\theta \in \Theta} A\theta,
+$$
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
