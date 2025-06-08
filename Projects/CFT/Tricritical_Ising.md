@@ -541,8 +541,6 @@ With this we can extract the $S$ transformation of the untwisted characters $\ha
 
 
 
-
-
 ## Invariant Sectors
 
 Now we can try to arrange the gauged Hilbert space in terms of irreducible representations of $A_2$. We realize that the gauged Hilbert space contains the invariant untwisted and twisted sectors. Let's start by deriving the invariant untwisted sector of the theory
