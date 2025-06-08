@@ -904,7 +904,7 @@ $$
 From now on we will refer to the stress tensor components in this gauge like so 
 $$
 \begin{align*}
-T(z) = \psi \partial \psi && \bar T(\bar z) = \psi^\ast \bar \partial \psi^\ast.
+T = \psi \partial \psi && \bar T = \psi^\ast \bar \partial \psi^\ast.
 \end{align*}
 $$
 
