@@ -478,7 +478,7 @@ Phew! This is a lot, but what is particularly nice on the cylinder is that it is
 $$
 P_\gamma \psi = \begin{cases}
 \psi & \text{in Ramond structure}\\
--\psi & \text{in Nuveu - Schwartz structure}
+-\psi & \text{in Neveu - Schwartz structure}
 \end{cases}
 $$
 where $P_\gamma$ is the parallel transport along $\gamma$ with respect to the spin connection.
@@ -615,23 +615,47 @@ $$
 $$
 The nice thing about this measure is that it is very course. 
 
-One interesting class of superalgebras is $\Lambda_n$ which is given by $\mathbb{C}^\wedge [\mathbb{Z}_n]$. Then the next most interesting one is $\Lambda_\infty \coloneqq \mathbb{C}^\wedge[\mathbb{Z}]$. One more small aside, when we refer to “complex grassmann numbers”, we are reffering to the grassmann algebra with generating set $\Theta\times \bar \Theta = \Theta^2$ where there are twice as many grassmann numbers, but now we have the conjugation involution to switch between the generators.  We are now ready to define fermion fields!
+> **Intuition:** Once we think of Grassmann numbers as formal polynomials of anticommuting variables that really transforms our idea of the Berezin integral. The Berezin integral is a way to "integrate" the polynomial over all possible "values" the anticommuting variables can take, even though it doesn't strictly makes sense to assign a value to the generators.
 
-**<u>Definition:</u>** Given a spinor bundle $S$, a **Fermion field** is a polynomial with antisymmetric coefficients and values in $\Gamma(S)$, fomally the set of Fermion fields is given by $\Gamma_F(S) \coloneqq \Gamma(S)^\wedge[\mathbb{Z}\times \bar{ \mathbb{Z}}]$.
+One interesting class of superalgebras is $\Lambda_n$ which is given by $\mathbb{C}^\wedge [\mathbb{Z}_n]$. Then the next most interesting one is $\Lambda_\infty \coloneqq \mathbb{C}^\wedge[\mathbb{Z}]$. One more small aside, when we refer to “complex Grassmann numbers”, we are referring to the Grassmann algebra with generating set $\Theta\times \bar \Theta = \Theta^2$ where there are twice as many Grassmann numbers, but now we have the conjugation involution to switch between the generators. We are now ready to define fermion fields!
 
-I will be the first to admit that this is a very dodgy definition however there is a nice way of thinking about this. 
+To do this carefully we think about scalar fields. Scalar fields are usually smooth functions on our manifold. One way to represent a smooth function would be to assign a value at every point, however, what we have just observed is that it doesn't really makes sense to assign an antisymmetric value at a point. 
 
-> ***Note:*** The above definition has the following intution. A fermion can be mode expanded into grassmann odd generators with spinor fields as coefficients. 
+Yet, we can think of real functions as polynomials. Let's consider $C^\infty(M)$ for a second, i.e. the set of smooth functions on $M$. As a **Sobolev space** we know that it is separable, i.e. we can find a countable basis for its elements. Let's call that basis $\mathcal{B}\subset C^\infty(M)$. Then every point $f \in C^\infty(M)$ can be given by
+$$
+f = \sum_{b \in \mathcal{B}} f_b b,
+$$
+for $f_b \in \mathbb{R}$. So in some sense, the polynomial $F \in \mathbb{C}^\infty[\mathbb{Z}_{|\mathcal{B}|}]$ given by $F = \sum_{b\in \mathcal{B}} x_b b$ generates all the possible elements of $C^\infty(M)$ simply by plugging in real numbers for the variables $x_b$. 
 
-This is a somewhat unusual definition for fermions but we are still left with a form of antisymmetric sections after this. In QFT textbooks like Peskin there is an alternative definition of fermions as assinging each vector component at each point a grassmann generator and multiplying that with a complex number. This has the quick objection that you end up having a grassmann algebra with uncountably many generators. However, usually everything we calculate using that definition of fermion fields is done at some lattice regularization, which effectively swaps the manifold with a finite set of points, and taking the limit to infinity which gives a presecription with countably many geenerators as shown above. 
+Notice that at the end of the day, all we want to do in Quantum field theory is not to pick out a specific $f$, but rather to add a measure to all of them, and using the polynomial $F$ we have essentially parameterized all of $C^\infty(M)$. As a result, if we "integrate" $F$ over $\mathbb{R}^{|\mathcal{B}|}$ we would integrate over $C^\infty(M)$. This is amazing news for our spinor fields. 
 
-We will follow an alternative approach where we will define a countable set of **modes** and integrate over that instead in our path integral. It's on its way! But at least we not only have a working way to play with antisymmetry, but we also have a way to define fermions.
+In the same way we defined all *commuting* spinor fields by providing a polynomial that effectively parameterizes them, we can define all *anticommuting* spinor fields by providing a polynomial $\Psi$ with antisymmetric generators. That polynomial is going to be an element of a Grassmann algebra that has values in modes. Here is this statement a bit more precisely.
+
+**<u>Definition:</u>** Given a spinor bundle $S$, we say that $\Psi \in \Gamma(S)^\wedge[\mathbb{Z}]$ **parameterizes the Fermionic fields** (or antisymmetric spinor fields) if there exists a basis $\mathcal{B} = \{b_i\}_{i\in \mathbb{Z}}\subset \Gamma(S)$ of spinor fields such that $\Psi = \sum_{i \in \mathbb{Z}} b_i \theta_i$, where $\theta_i$ is the corresponding Grassmann odd generator. 
+
+It doesn't matter that we can't actually plug in values to $\Psi$ to obtain different Fermion fields, because we already have a notion to integrate over all of them using the Berezin integral. The previous definition leads to a natural follow up definition for Grassmann algebras.
+
+**<u>Definition:</u>** Given a Grassmann algebra $\Lambda$ generated by $\Theta$, an element $\psi \in \Lambda$ is called **generating** iff it contains a single monomial for each generator. If $\psi = \sum_{\theta \in \Theta}\theta$ it is called th **generating unit**. If $\Lambda = A^\wedge[\mathbb{Z}_{\text{dim\,}A}]$ for some separable algebra $A$ then the **algebra generator** with respect to a countable basis $B$ is the generating element
+$$
+\psi = \sum_{i \in \mathbb{Z}_{\text{dim}A}} b_i\,x_i,
+$$
+where $x_i$ is an antisymmetric generator of $\Lambda$.
+
+So with this definition $\Psi$ is the algebra generator of $\Gamma(S) \wedge [\mathbb{Z}]$ with respect to the basis $\mathcal{B}$. Btw the intuition of a generating element is things like the vector $v = e_1 + e_2 + \cdots +e_n$ in $\mathbb{R}^n$.
 
 
 
 ### The Path Integral Measure
 
-The key word of this is mode expansions. Here is the high level description of this story. We find a countable basis of sections in $\Gamma(S)$ for some spinor bundle and create a set of *modes* called $M(S)$, then we will define a measure on $\Gamma_F(S)$ such that almost all fermions are in $M(S)^\wedge[\mathbb{Z}]$ and then use the berezin integral there. Let’s start working out some modes.
+The key word of this is mode expansions. Here is the high level description of this story. We find a countable basis of sections in $\Gamma(S)$ for some spinor bundle and create a set of *modes* called $M(S)$,then we will find the corresponding generating polynomial for spinors and then use the Berezin integral as our path integral. Here is a definition.
+
+**<u>Definition:</u>** Let $\Sigma$ be a Riemann surface, then the **free massless Majorana Fermion path integral without insertions** $Z(\Sigma)$ is given by
+$$
+Z(\Sigma) = \sum_{S \in \mathfrak{s}(\Sigma)} \int dM(S) dM(S)^\ast \, e^{-S(\Sigma,\psi_{S})},
+$$
+where $\mathfrak{s}(\Sigma)$ is the set of spin bundles associated to the possible spin structures (up to spin bundle isomorphism), $M(S)$ is the set of **modes** for fermions in $S$, i.e. a countable basis for $\Gamma(S)$, and $\psi_S$ is the Grassmann algebra generator of $\Gamma(S)$ for the basis $M(S)$.
+
+I AM SO HAPPY RIGHT NOW! We have a way to write the path integral for the spinor theory on an arbitrary Riemann surface! Thing is this can mean many things so let's try to work it out on some small way. Let’s start working out some modes.
 
 **<u>Example:</u>** *(Modes on the cylinder)* This is getting obscure so it is high time we work out an example. Let’s find the modes for spinors on the cylinder $S^1 \times \mathbb{R}$. What we will find (luckily) will be similar enough to the modes one obtains during second quantization which is at least satisfying. 
 
@@ -639,7 +663,7 @@ We will work with Majorana spinors so let’s write down the set of majorana sec
 $$
 \Gamma^M(S) \coloneqq \{\psi \in \Gamma(\Sigma) \mid \sigma(\psi) = \psi\},
 $$
-where $\sigma$ is the real structure of the spinor representation that is extended. Speficically, let’s use a set of isothermal coordinates for the complexified tangent space to define the vielbein
+where $\sigma$ is the real structure of the spinor representation that is extended. Specifically, let’s use a set of isothermal coordinates for the complexified tangent space to define the vielbein
 $$
 e = \left( \frac{\partial }{\partial \sigma} , \frac{\partial }{\partial \tau} \right)
 $$
@@ -657,25 +681,25 @@ The way it is written right now it is begging us to take Fourier series in $\sig
 $$
 \psi(\sigma, \tau) = \sum_{n \in \mathbb{Z}} a_n(\tau) e^{in\sigma}
 $$
-I’m in love. However the rest is not that nice. We don’t have an equaly nice basis of fourier modes for $a_n : \mathbb{R} \to \mathbb{C}$. But we know that all these smooth functions have countable bases, for example the Hermite polynomials. Let’s pick a basis $\mathcal{B} =\{b_k\}_{k\in \mathbb{Z}}$to write 
+I’m in love. However the rest is not that nice. We don’t have an equally nice basis of Fourier modes for $a_n : \mathbb{R} \to \mathbb{C}$. But we know that all these smooth functions have countable bases, for example the Hermite polynomials. Let’s pick a basis $\mathcal{B} =\{b_k\}_{k\in \mathbb{Z}}$to write 
 $$
 \psi(\sigma,\tau) = \sum_{n,m \in \mathbb{Z}} a_{nm} b_m(\tau) e^{in\sigma}
 $$
-Eh not as cool, but at least we can now write a basis of fermions by assuming that $a_{nm}$ are grassmann valued. Spefically we will define the set of **Ramond modes** to be
+Eh not as cool, but at least we can now write a basis of fermions by assuming that $a_{nm}$ are Grassmann valued. Specifically we will define the set of **Ramond modes** to be
 $$
 M_R(S(S^1\times \mathbb{R})) \coloneqq \{\phi_n \times b_m \mid \phi_n(\sigma) = e^{in\sigma}, n \in \mathbb{Z}, b_m \in \mathcal{B}\}.
 $$
-The next question is what happens in the Noveau-Schwartz spin structure. There we are slightly less fortunate. The reson is that our spin structure doesn’t allow us to lift to a global vielbein. Namely we have the equation
+The next question is what happens in the Nouveau-Schwartz spin structure. There we are slightly less fortunate. The reason is that our spin structure doesn’t allow us to lift to a global vielbein. Namely we have the equation
 $$
 e(\sigma, \tau) = (1,\sigma, \tau) = \Lambda \circ \epsilon(\sigma, \tau) = (\hat \epsilon^2 \sigma,\sigma, \tau )
 $$
-which has solutions $\hat \epsilon = \pm \sigma^{-\frac{1}{2}}$ which isn’t a function over $S^1$. But likeeeee it’s only one point where this is discontinous in. So what if we define our functions on the double cover and then take one of the partial inverses down to the circle? This would correspond to the chart of the circle with one of the poles removed. then we can get the remaining point by switching charts. 
+which has solutions $\hat \epsilon = \pm \sigma^{-\frac{1}{2}}$ which isn’t a function over $S^1$. But likeeeee it’s only one point where this is discontinuous in. So what if we define our functions on the double cover and then take one of the partial inverses down to the circle? This would correspond to the chart of the circle with one of the poles removed. then we can get the remaining point by switching charts. 
 
 Now having moved to the double where $\sigma \in [0,4\pi)$, we have that $\psi(\sigma,\tau) = -\psi(\sigma + 2\pi,\tau)$. This means that we can write it in modes
 $$
 \psi(\sigma,\tau) = \sum_{n,m \in \mathbb{Z}} a_{nm} b_{m}(\tau) e^{i(n+\frac{1}{2})\sigma}.
 $$
-This appears becuase this circle has twice the radius, and the holonomy constraint implies that only the odd modes appear. Taking the restriction for $\sigma \in (0,2\pi)$ we are back on the circle with the north pole removed, but this was enough to fully define our modes everywhere, since we can take the limit for the last point. Therefore the **Noveau-Schwartz** modes are
+This appears because this circle has twice the radius, and the holonomy constraint implies that only the odd modes appear. Taking the restriction for $\sigma \in (0,2\pi)$ we are back on the circle with the north pole removed, but this was enough to fully define our modes everywhere, since we can take the limit for the last point. Therefore the **Neveau-Schwartz** modes are
 $$
 M_{NS}(S(S^1\times \mathbb{R})) \coloneqq \{\phi_n' \times b_m \mid \phi_n'(\sigma) = e^{i(n+\frac{1}{2})\sigma}, n \in \mathbb{Z}, b_m \in \mathcal{B}\}.
 $$
@@ -686,23 +710,229 @@ $$
 
 There is a much nicer example where these are so much better defined but on the torus. For now we continue on the cylinder. 
 
-As we said earlier, given a set of modes $M(S)$ for a spin bundle $S$ we define the set of fermions as $M_F(S)=M(S)^\wedge[\mathbb{Z}\times \bar{\mathbb{Z}}]$. This has some interesting consequences. 
+Now let's examine some cool consequences of the Berezin integral of the generating polynomials specifically. 
 
-**<u>Proposition:</u>** Let $\psi \in \Lambda =\mathbb{C}^\wedge[\Theta]$ such that $\psi = \sum_{\theta \in \Theta} \theta$ and $A:\Lambda\to \Lambda$ a linear map of generators in $\Theta$, then
+**<u>Proposition:</u>** Let $\psi \in \Lambda =\mathbb{C}^\wedge[\Theta]$ be a generating in $\Lambda$ and $A:\Lambda\to \Lambda$ a linear map of generators in $\Theta$, then
 $$
-\int d\Theta\, e^{- \psi^T A \psi} \propto \text{det\,} A.
+\int d\Theta d\Theta^\ast\, e^{-\psi^\dagger A\psi} = \text{det\,}||\psi||^2 A,
 $$
-***Proof:*** If $f = e^{-\psi^TA\psi}$, then all we need to calculate is $f^{\Theta}$. Since $A$ is a linear map of generators we have that 
+Where $\psi^\dagger$ is the generator with the complex conjugate coefficients but in the algebra $\mathbb{C}^\wedge[\bar \Theta]$, that we think as the complex conjugate of $\psi$. More precisely we have that $\psi^\dagger A \psi = \psi_i^\ast A_{ij} \psi_j$ where $\psi_i$ are the monomials in $\psi$.
+
+***Proof:*** First let's notice that for any linear map of generators $A$, the following identity holds  
 $$
-A\psi = \sum_{\theta,\phi \in \Theta} A_{\theta\phi} \phi
+\bigwedge_{\theta \in \Theta} A\theta = (\det A) \bigwedge_{\theta \in \Theta} \theta.
 $$
-for some numbers $A_{\theta\phi}$. So the numerator is of the form
+This is a standard property for top forms in an exterior algebra casted in this context, one can show this by unpacking the wedge product into an antisymmetric sum with Levi-Civita symbols. We know that since $\psi$ contains only monomials for each generator in $\Theta$ there must be a unitary transformation $S$ such that
 $$
-\psi^\dagger A\psi = A_{\theta \phi} \theta \phi = \sum_{\theta \in \Theta} \theta (A\theta),
+S \psi = ||\psi|| v = ||\psi||\sum_{\theta \in \Theta} \theta.
 $$
-and the term we are looking for will have the form
+Then we have that
 $$
-f^{\Theta} = \prod_{\theta \in \Theta} A\theta,
+\psi^\dagger A \psi = v^\dagger S ||\psi||^2 A S^{-1} v.
+$$
+As a result, we can calculate that for the polynomial $f = e^{\psi^\dagger A \psi}$ the term of the form $f^{\Theta \cup \bar \Theta}$ can be calculated by the expansion of the exponential as
+$$
+e^\psi = \sum_{n =0}^\infty \frac{1}{n!}\prod_{i = 1}^n \psi
+$$
+Then we can calculate the top term to be
+$$
+\frac{1}{|\Theta|!}\prod_{i \in \Theta} \psi^\dagger A \psi = \bigwedge_{\theta^\ast \in \bar \Theta}\theta^\ast \bigwedge_{\theta \in \Theta} S ||\psi||^2 A S^{-1} \theta = \det(S ||\psi||^2 A S^{-1}) \bigwedge_{\theta \in \Theta} \theta^\ast \theta = \det(||\psi||^2 A ) \bigwedge_{\theta \in \Theta} \theta^\ast \theta
+$$
+Realizing that the integral is $f^{\Theta \cup \bar \Theta} = \text{det\,}(||\psi||^2A)$ we have shown the thing.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Notice that in the above we have defined $||\psi||$ with respect to the norm of $v$. In finite dimensional vector spaces this would be $\sqrt{\frac{\langle \psi,\psi \rangle}{\langle v,v \rangle}}$, one can alternatively think of having an inner product such that $\langle v,v \rangle = 1$, this is how we generalize unitary transformations for infinite dimensional vector spaces. The reason for doing the above was to evaluate the path integral.
+
+**<u>Corollary:</u>** The path integral with no insertions for the free fermion on a Riemann surface evaluates to
+$$
+Z(\Sigma) = \sum_{S \in \mathfrak{s}(\Sigma)} \text{det}_{M(S)} \centernot \partial,
+$$
+where $\text{det}_{M(S)}$ is the determinant on a vector space with a basis the of modes $M(S)$ of a spinor bundle $S$.
+
+
+
+This is so amazing, I am so happy right now. However, this path integral only gives us numbers, in other words it can only offer a way to calculate correlation functions for closed manifolds. If we want to evaluate states we need to use the prescription we have developed in the first part of these notes. We will do this below.
+
+
+
+## Basic correlation Functions
+
+The first thing we want to calculate is the correlation functions of our spinor fields. So let's try it. Let's do this on the sphere $S^2 \cong \mathbb{C}$. This has genus $0$ so it only has the trivial spin structure which is particularly nice. What is even nicer is that if we work in a chart $U$ that doesn't have the poles we have something conformally equivalent to a cylinder with a Ramond spin structure. What we have also seen is that for the complex coordinates $z,\bar z$ we can find a gauge $\epsilon$ where a spinor field $\Psi$ is given by
+$$
+\Psi = [\epsilon, \psi e_1 + \bar \psi e_2],
+$$
+where $\psi \in C^\infty(U,\mathbb{C})$. In this notation the action is written as
+$$
+S(S^2,\Psi) = \frac{1}{2}\int_{\mathbb{C}} \left( \psi \frac{\partial \psi}{\partial \bar z} + \bar \psi \frac{\partial \bar \psi}{\partial  z} \right) dzd\bar z.
+$$
+Now what we need is a mode expansion as well as the following lemma.
+
+**<u>Lemma:</u>** Let $\psi = \sum_{\theta \in \Theta}\theta$ be the generating unit generator for a Grassmann algebra $\Lambda$ generated by $\Theta$, and $A: \Lambda \to \Lambda$ be a linear map of generators, then for any $\theta, \phi \in \Theta$
+$$
+\int d\Theta d\bar \Theta\, \theta \phi^\ast e^{-\psi^\dagger A\psi} = (A^{-1})_{\theta \phi}\,\text{det\,} A.
+$$
+***Proof:*** This is a corollary of the previous proposition. Basically, we don't get the top form out of the exponential we get the second to last one and then wedge it with $\theta \phi^\ast$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Using the formula above we can calculate the correlation function of the spinors if we write the action in the form $\psi^\dagger A \psi$. Here is how we can now cheat a bit using the above lemma. The correlation function is defined by
+$$
+\langle \psi(x)\psi(y) \rangle = \frac{Z(S^2,\psi(x)\psi(y))}{Z(S^2)},
+$$
+now we expect this to be equal to something like $(A^{-1})_{\psi(x),\psi(y)^\ast}$ having written our action appropriately. But in general it might not be true that the ratio of these two terms converges. The thing that breaks things a bit is the fact that we have used $\psi(x)$ and $\psi(y)$ in our notation. It seems as if we have used an uncountable number of degrees of freedom to define this correlation function. But here is where the generating functional comes to our rescue!
+
+**<u>Definition:</u>** The **generating functional** for a free Majorana fermion is defined for a field parameterization $\eta$
+$$
+Z[\eta] = \frac{1}{Z(S^2)} \int \mathcal{D}\psi \, e^{-S(S^2,\psi) + \int_{S^2} \ast \langle \eta,\psi \rangle}
+$$
+where $\mathcal{D}\psi = dMd\bar M$ for a set of modes over the spin bundle of $S^2$.
+
+**<u>Theorem:</u>** The generating functional of a free Majorana fermion is given by
+$$
+Z[\eta] = \exp \frac{1}{2}\int_{S^2} \ast \langle \eta,G \star \eta\rangle,
+$$
+where $\star$ is the convolution, and $G$ is the distribution over the $S^2$ such that $\centernot \partial G = \delta$.
+
+***Proof:*** Here is a sketch. We will show that the path integral measure is invariant under shifts. In other words if we add to it a Grassmann variable that we are not integrating over then the Berezin integral should remain invariant.
+
+Let $\Theta$ be a set of generators for a commutative superalgerba and $H$ be the remaining odd generators. Now let $f$ be a polynomial in $\mathbb{C}^\wedge[\Theta]$. Now consider the polynomial $f' \in \mathbb{C}^\wedge [\Theta \cup H]$ where each generator $\theta \in \Theta$ is replaced with $\theta + \eta_{\theta}$ for some $\eta_\theta \in H$ and denote $\Theta + H$ the set of shifted generators. Now notice the following:
+$$
+f^{\Theta} = (f')^{\Theta} = (f')^{\Theta + H}.
+$$
+So the Berezin integral is invariant under shifts. This is quite nice. Now notice that the thing that appears in the exponential looks like
+$$
+\begin{align*}
+-\frac{1}{2}\langle \psi,\centernot \partial \psi \rangle + \langle \psi,\eta \rangle 
+&= -\frac{1}{2}\langle \psi,\centernot \partial \psi \rangle + \langle \psi,\centernot \partial G\star \eta \rangle
+\end{align*}
+$$
+Now let $2\phi = 2\psi + G\star \eta$ and we can write
+$$
+\begin{align*}
+-\frac{1}{2}\langle \psi,\centernot \partial \psi \rangle + \langle \psi,\eta \rangle 
+&= -\frac{1}{2}\left\langle \phi,\centernot \partial \phi \right\rangle + \frac{1}{2}\langle G\star \eta,\centernot \partial G\star \eta \rangle\\
+&= S(\phi) + \frac{1}{2} \langle \eta,G\star \eta \rangle.
+\end{align*}
+$$
+Since the Berezin integral is invariant under the shift that created $\phi$ we have that
+$$
+Z[\eta] = \frac{Z(S^2)}{Z(S^2)} \exp \frac{1}{2}\int_{S^2} \ast \langle \eta,G \star \eta\rangle, = \exp \frac{1}{2}\int_{S^2} \ast \langle \eta,G \star \eta\rangle,
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+This is a nice way of regularizing our path integral. However, I did cheat a bit. The **shift invariance** of the Berezin integral was not proved for uncountably many generators. However there is a systematic way of doing it, it would just involve a lot more work. One way is to take a finite set of generators and then take the limit to infinity of the difference $\lim_{n\to \infty}f^{\Theta_n} - (f')^{\Theta_n - H_n}$. This must be zero for each finite $n$. Anyway moving on we now only need to find $G$! Once we do we have all the correlators.
+
+**<u>Lemma:</u>** For the free Majorana fermion on $S^2 \cong \mathbb{C}$ the Green's function $G$ such that
+$$
+\centernot \partial G = \delta,
+$$
+in a global gauge induced by the coordinates $z,\bar z$ is given by
+$$
+G(z,\bar z) = \frac{1}{\pi}\begin{pmatrix}0 & \bar z^{-1} \\ z^{-1} & 0\end{pmatrix}.
+$$
+***Proof:*** The proof lies on the fact that
+$$
+\frac{\partial z^{-1}}{\partial \bar z} = \pi \delta.
+$$
+To show this we take a holomorphic function $f : \mathbb{C}\to \mathbb{C}$ and integrate over a disk $D$ that contains $0$. Then we have
+$$
+\int_D \ast \frac{\partial z^{-1}}{\partial \bar z} f = \frac{i}{2}\int_{D}fdz \wedge \bar \partial z^{-1} = \frac{1}{2i}\int_{D} \bar \partial (fz^{-1}dz) = \frac{1}{2i}\int_Dd(fz^{-1}dz) = \frac{i}{2} \int_{\partial D} \frac{f}{z} dz = \pi f(0).
+$$
+for an antiholomorphic function the integral is zero. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+So we are done!
+
+**<u>Corollary:</u>** The following is true for the correlation functions 
+
+1. $\langle \psi(z,\bar z) \psi(w,\bar w) \rangle = \frac{1}{\pi}\frac{1}{z-w}$
+2. $\langle \bar \psi(z,\bar z) \bar \psi(w,\bar w) \rangle = \frac{1}{\pi}\frac{1}{\bar z-\bar w}$
+3. $\langle \psi(z,\bar z) \bar \psi(w,\bar w) \rangle = \langle \bar\psi(z,\bar z) \psi(w,\bar w) \rangle = 0$.
+
+Here we are looking at something remarkable. If we have $\psi(z) \psi(z)$, classically we expect this to vanish because of antisymmetry. However, in quantum language it seems to blow up! What this means is that there is some ambiguity in the corresponding operator. 
+
+Remember that we are never actually evaluating these at points, rather we are thinking them as distributions. To put this in the language of modes, we should be able to reconstruct each mode by integrating against whatever expression we write down for $\psi(x)$ over something like $\Sigma$. So since only integrals of $\psi$ matter we shouldn't be surprised that it might be possible that our expression for the product of two fields might not yield a finite result. We can still (very consistently) use this expression to calculate integrals of two fermions.
+
+Sometimes we want though to obtain a field at a specific point by combining two. This would lead to the following distribution.
+
+**<u>Definition:</u>** Let $A,B$ be local fields then their **normal ordered product** is given by
+$$
+{:}AB{:}\, (z) = \lim_{w\to z} \left( A(z)B(w) - \langle A(z)B(w) \rangle \right).
+$$
+In the language of operator valued distributions this has a more precise definition, but whatever, we will not waste our days and nights on this. Essentially this says that if A and B are singular when they collide remove their singularity. Notice that this doesn't mean that the normal ordered field does not have any other singularities. 
+
+
+
+
+## Virasoro Primaries
+
+We are about to see why we did this for free Majorana Fermions. The answer is going to be that there are only 3 primaries. Let's explore that. We will first calculate them, and then show that they are the only primaries. 
+
+### Vacuum
+
+We have motivated previously that the vacuum would be the state defined on a disk with no insertions. Since the disk has trivial fundamental group there is only one spin structure we can add and that is the trivial one. To calculate modes we will use that the fields must have periodic boundary conditions to obtain that our fields must be comprised of appropriate Ramond modes that we have calculated above. 
+
+However, we want to figure out what we want to calculate exactly. We could calculate the functional that one uses to obtain the state directly, but this is not useful. In fact here is a symbolic expression for it.
+$$
+\omega(f) = \int dM_fdM_f^\ast \, e^{-S(D^2,\psi_S)} = \text{det}_{M_f}\centernot \partial,
+$$
+where $M_f$ is the set of modes that match $f$ on $\partial D^2$. I mean... cool? This is sort of useless because we have nothing to compare it to! A way to treat this is to consider it as a the first state $\omega \in \mathbb{H}(S^1)$ that we have discovered so far. One interesting thing we could do is to figure out its conformal weight. Ideally we expect it to be zero. So let's try. To do it we first need our stress tensor.
+
+**<u>Lemma:</u>** Let $S(\Sigma)$ be a spin bundle over a parallelizable Riemann surface $\Sigma$. The stress tensor $T$ for a free massless Majorana spinor $\Psi \in \Gamma(S)$ is given by
+$$
+T = \langle \Psi,  (\ast v) \cdot d\Psi\rangle,
+$$
+where the volume form is $dv$.
+
+***Proof:*** We know that the Lagrangian is $\mathcal{L}(\psi) =\ast \frac{1}{2} \langle \Psi,\centernot\partial \Psi \rangle$ so what we want to figure out is how it changes under spacetime transformations. We also know that the spin connection is flat which means that
+$$
+\nabla \Psi = \nabla [\epsilon,\psi_\epsilon] = [\epsilon,d\psi_{\epsilon}] = d\Psi.
+$$
+Therefore if the volume form is $dv$ we have
+$$
+T= \langle \Psi,  (\ast v) \cdot d\Psi\rangle.
+$$
+ In isothermal coordinates $z,\bar z$ we can write the spinors as $\Psi = [\epsilon,\binom{\psi}{\psi^\ast}]$, and in that gauge the stress tensor reduces to
+$$
+T = [\epsilon, \psi \partial \psi \otimes d z + \psi^\ast \bar \partial \psi^\ast \otimes d\bar z].
+$$
+From now on we will refer to the stress tensor components in this gauge like so 
+$$
+\begin{align*}
+T(z) = \psi \partial \psi && \bar T(\bar z) = \psi^\ast \bar \partial \psi^\ast.
+\end{align*}
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+We can generalize this stress tensor for any field by plugging in $\psi$ the spinor generating polynomial. Now we are ready to show that we have the vacuum of the theory.
+
+**<u>Theorem:</u>** The conformal weight of $\omega \in \mathbb{H}(S^1)$ is $(0,0)$.
+
+***Proof:*** We need a way to write down $L_0$ and $\bar L_0$, the easiest way is to do this with modes. We want a set of Ramond modes for the disk. Let's consider the basis
+$$
+M_R(S(D^2)) \coloneqq \left\{b_{nm} = \sqrt{\frac{\pi}{m+n-1}}z^n \bar z^m \ \middle| \ n,m \in \mathbb{Z}_{\geq 0}\right\},
+$$
+ The basis has the property that
+$$
+\begin{align*}
+\partial b_{nm} = nb_{n-1,m} dz && \bar \partial b_{nm} = mb_{n,m-1}d\bar z,
+\end{align*}
+$$
+and 
+$$
+\int_{D^2} b_{nm} b_{pq}^\ast = \delta_{np}\delta_{mq}.
+$$
+So now we can calculate the modes of $T$ by plugging in the Fermion field generator $\psi = \theta^{nm} b_{nm}$, where $\theta^{nm}$ are Grassmann odd generators.
+$$
+H = \frac{1}{2\pi i} \int_{S^1} (zT dz +\bar z \bar Td\bar z) = \frac{1}{2\pi i} \int_{S^1}
 $$
 
 
@@ -711,18 +941,6 @@ $$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-## Virasoro Primaries
 
 
 
