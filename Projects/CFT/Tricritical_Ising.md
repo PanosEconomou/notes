@@ -483,18 +483,11 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
-### Twisted Hilbert space
-
-We want to calculate the twisted sector by $\sigma$ of $\text{TIsing}^2$. Yet, we really only care about the subspace of the twisted sector that is invariant under $\sigma$ since we only want to find which twisted modules appear in the gauged theory. So if we ignore something, there is a good reason for it. Yet it will be clear in context if we do ignore anything.
-
-Now that we have our untwisted Hilbert space in terms of $\sigma$ invariant modules we can calculate the twisted Hilbert space using an $S$ transformation. The reason is that characters with $\sigma$ insertions are proportional to characters without since $\sigma$ commutes with the new chiral algebra $A_2$. Therefore if we $S$ transform the characters with $\sigma$ insertions we will not get characters of different modules! Let's try to see this in practice.
-
-We start by calculating the characters of the $U$ modules. We will introduce the notation that for $i=j$ we call the corresponding $A_2$ modules $U_{i}^\pm$. This way we can write the untwisted Hilbert space as
+Let's calculate the characters of the $U$ modules. We will introduce the notation that for $i=j$ we call the corresponding $A_2$ modules $U_{i}^\pm$. This way we can write the untwisted Hilbert space as
 $$
 \mathbb{H}_1 = \bigoplus_{\substack{i\\j,k = \pm}} U_{i}^j \otimes \overline {U_{ij}^k} \hspace{0.5em} \oplus \hspace{0.5em} \bigoplus_{i\neq j} U_{ij} \otimes \overline{U_{ij}}.
 $$
-Sheesh! We made it. Now let's calculate the characters. One interesting thing is the following proposition. 
+Sheesh! We made it. Now let's calculate the characters. One extremely useful tool is packaged in this proposition.
 
 **<u>Proposition:</u>** Let $U$ be any of the $A_2$ modules that appear in the above decomposition of the untwisted Hilbert space $\mathbb{H}_1$. Then 
 $$
@@ -502,7 +495,7 @@ $$
 $$
 for some $\sigma_U \in \{\pm 1\}$.
 
-***Proof:*** We know that $[\sigma, A_2] = 0$ and we have constructed that for all such $U$ the highest weight vector $u$ obeys $\sigma u = \sigma_U u$ for some $\sigma_U \in \{\pm 1\}$.
+***Proof:*** We know that $[\sigma, A_2] = 0$ and we have constructed that for all such $U$ the highest weight vector $u$ obeys $\sigma u = \sigma_U u$ for some $\sigma_U \in \{\pm 1\}$. This is a direct application of Schur's lemma.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
@@ -535,7 +528,19 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-With this we can extract the $S$ transformation of the untwisted characters $\hat \chi$.
+
+
+### Twisted Hilbert space
+
+We want to calculate the twisted sector by $\sigma$ of $\text{TIsing}^2$. Yet, we really only care about the subspace of the twisted sector that is invariant under $\sigma$ since we only want to find which twisted modules appear in the gauged theory. So if we ignore something, there is a good reason for it. Yet it will be clear in context if we do ignore anything.
+
+Calculating the Hilbert space of the $\sigma$ twisted Hilbert is a challenge, because there isn't an obvious way to use the original representation theory of Virasoro to obtain the new representations of $A_2$ that would appear under twisting with $\sigma$. However, we are kind of lucky because of the interpretation $\sigma$ as a defect line has on $\text{TIsing}^2$. Here is the idea.
+
+The chiral algebra of our theory $A = \text{Vir}\oplus \text{Vir}$ is split into two parts $A_2$ which is the maximally invariant subalgebra, and the rest $A_2' = A/A_2$. Now if $A$ was invariant under $\sigma$ then our twisted sector would not contain any new chiral modules. They might be arranged differently (assuming identity is unique they would have to be), but we wouldn't see any new chiral weights or anything.
+
+The situation changes here. Our original theory can be written in terms of $A_2$ modules as we have already seen. When 
+
+. The question is what is the representation of $A_2'$ on the twisted sector.
 
 
 
