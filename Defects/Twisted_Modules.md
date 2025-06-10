@@ -152,7 +152,6 @@ So let's focus our attention to inducing that algebra first. In order to make ou
 
 
 
-> **Note to self:** Since state operator correspondence says that you can obtain the Hilbert space by acting on the Vacuum module, so in principle we only need to twist the Vacuum module and then use the same systematic approach to see what kind of opearators we get (VERY ROUGHLY BUT CHECK).
 
 
 
@@ -176,3 +175,5 @@ So let's focus our attention to inducing that algebra first. In order to make ou
 
 
 
+
+What 
