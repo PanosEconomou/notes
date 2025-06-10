@@ -1,6 +1,10 @@
 # Twisted Representation Theory
 
-In [Twisting Adventure](../Defects/Twisting.md) we have explored how to construct the "twisted Hilbert space" of a free fermion using a path integral with varying Boundary conditions for the monodromy of the fields around a circle. Here we generalize the discussion about twisted Hilbert spaces ever so slightly devoid of the context of physics (i.e. we won't use path integrals) in order to obtain intuition for systems where the path integral is not well defined and see some extremely useful generalizations for calculations in physics.
+In [Twisting Adventure](../Defects/Twisting.md) we have explored how to construct the "twisted Hilbert space" of a free fermion using a path integral with varying Boundary conditions for the monodromy of the fields around a circle. Here we generalize the discussion about twisted Hilbert spaces ever so slightly devoid of the context of physics (i.e. we won't use path integrals) in order to obtain intuition for systems where the path integral is not well defined and see some extremely useful generalizations for calculations in physics. These notes are partly based on:
+
+1. [Modular Invariance and Generalized Moonshine](https://arxiv.org/pdf/q-alg/9703016)
+2. [Vertex Operator Algebras and ther Representations](https://link.springer.com/book/10.1007/978-0-8176-8186-9)
+3. [Di Francesco](https://scispace.com/papers/conformal-field-theory-2hk5z9kf7o)
 
 [toc]
 
@@ -14,7 +18,7 @@ While we won't use physics to derive the results it would be foolish not to use 
 
 Here are some definitions to get us oriented.
 
-**<u>Definition:</u>** Let $A$ be a Lie algebra. A CFT is called **rational with respect to** $A$ if the Hilbert space as an $A\oplus A$ module has a finite sum decomposition into irreducible highest weight $A\oplus A$ modules. We call each highest weight vector of the irreducible representations an $A$ **primary**, and the rest of the vectors in the modules **descendants**.  In addition if the Hilbert space is an $A\oplus A$ module, then $A$ is known as a **chiral algebra** and the CFT is called **full**. Finally a full CFT that is rational with respect to $\text{Vir}$ is called **minimal**. 
+**<u>Definition:</u>** Let $A$ be a Lie algebra. A CFT is called **rational with respect to** $A$ if the Hilbert space as an $A\oplus A$ module has a finite sum decomposition into irreducible highest weight $A\oplus A$ modules. We call each highest weight vector of the irreducible representations an $A$ **primary**, and the rest of the vectors in the modules **descendants**.  In addition if the Hilbert space is an $A\oplus A$ module, then $A$ is known as a **chiral algebra** and the CFT is called **full**. Finally a full CFT that is rational with respect to $\text{Vir}$ is called **minimal**. If $A$ is the chiral algebra of a CFT and there is no other chiral algebra where $A$ is included, then it's called **maximal**.
 
 Here by CFT we will mean a full CFT unless otherwise specified since I don't even know how to think about the twisted Hilbert space of a weirder thing. 
 
@@ -132,7 +136,35 @@ This is an equivalent restatement, but it allows us to generalize the definition
 
 # Extension to Modules
 
-In the previous example we considered covariance as the requirement for the extension of the group representation. Now we will do this 
+In the previous example we considered equivariance as the requirement for the extension of the group representation. This is very similar to the case in the twisted Hilbert space.
+
+## Inducing a Different Chiral Algebra
+
+We have heuristically explored how in the case where the chiral algebra $A$ is equivariant with respect to the representation of $g \in G$ that we want to twist our theory with, the Hilbert space will remain an $A$ module. Therefore consider the maximal chiral algebra $A$ of our theory. Then in general there will be an invariant chiral subalgebra $A^G$ which will remain untouched by twisting, but in general there is no reason why we should expect $A$ to survive gauging. 
+
+In fact we are in a similar situation as above. We have an algebra $A$ with a subalgebra $A^G$ and a module of $A^G$ and using that, we want to induce a module that is invariant under.... Under what? We were so close, but that new module can't be required to be invariant under the full $A$. If it were then A would be in $A^G$. Yet, that new algebra must also be invariant under the action of $g$ and contain $A^G$.
+
+As a result, we want to induce another algebra! Once we induce that algebra, the twisted Hilbert space will be one of its modules. And since that new algebra must be quite big, its representation theory would probably be more constrained. 
+
+So let's focus our attention to inducing that algebra first. In order to make our idea more concrete let's restrict our attention to a specific situation.
+
+**<u>Theorem:</u>** 
+
+
+
+> **Note to self:** Since state operator correspondence says that you can obtain the Hilbert space by acting on the Vacuum module, so in principle we only need to twist the Vacuum module and then use the same systematic approach to see what kind of opearators we get (VERY ROUGHLY BUT CHECK).
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
