@@ -132,7 +132,7 @@ This is an equivalent restatement, but it allows us to generalize the definition
 
 # Extension to Modules
 
-In the previous example we considered covariance as the requirement for the extension of the group representation. And while this is perfectly possible, there is no reason that this is the only possible condition.
+In the previous example we considered covariance as the requirement for the extension of the group representation. Now we will do this 
 
 
 
