@@ -25,6 +25,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
     - [Gauging Discrete Symmetries](Defects/Gauging.md)
     - [Topological Line Defects](Defects/Line_Defects.md)
     - [Symmetries as Defects](Defects/Symmetry_Defects.md)
+    - [Twisted Representation Theory](Defects/Twisted_Modules.md)
     - [Twisting Adventure](Defects/Twisting.md)
 - [**Geometry**](Geometry)  
     Key intuition or formal definitions of Differential Geometry Concepts because I forget.

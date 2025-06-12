@@ -647,7 +647,13 @@ So with this definition $\Psi$ is the algebra generator of $\Gamma(S) \wedge [\m
 
 ### The Path Integral Measure
 
-The key word of this is mode expansions. Here is the high level description of this story. We find a countable basis of sections in $\Gamma(S)$ for some spinor bundle and create a set of *modes* called $M(S)$,then we will find the corresponding generating polynomial for spinors and then use the Berezin integral as our path integral. Here is a definition.
+The key word of this is mode expansions. Here is the high level description of this story. We find a countable basis of sections in $\Gamma(S)$ for some spinor bundle and create a set of *modes* called $M(S)$,then we will find the corresponding generating polynomial for spinors and then use the Berezin integral as our path integral. 
+
+> **Note for pendantic Mathematicians:** But how do you even find a set of countable modes over the smooth functions on your space? Blah blah blah! Ok this is the biggest pet peeve of mathematicians when they see path integrals. They think that the set we are trying to put a measure on is the actual set of $C^\infty(M)$ functions. Then someone says that it is $L^2(M)$ which does have a countable basis, but then proceeds to using non $L^2(M)$ functions. Here is the deal, the true answer is: We don’t care to measure either of these sets! 
+>
+> WAAAAT. Yes! What we do in fact measure is the following. Every lagrangian we write down HAS to have a kinetic term. In some sense this is a “quadratic term,” i.e. something that can be written as $\langle \phi, D\phi \rangle$ where $\phi$ is a field and $D$ is a linear map of fields. What we are interested in measuring is the domain of $D$. To give some examples, in the free Boson lagrangian $D = \Delta = \ast d\ast d$, this has a wonderful basis of eigenvalues that are bounded and whatnot. In this case of the spinor field $D = \centernot \partial$ which as as its domain pairs of analytic functions, which can be spanned using Laurent series. The true assumption that goes on in the path integral is that the domain of our kinetic energy operator is bounded. So with that out of the way, let’s actually calculate things.  
+
+Here is a definition.
 
 **<u>Definition:</u>** Let $\Sigma$ be a Riemann surface, then the **free massless Majorana Fermion path integral without insertions** $Z(\Sigma)$ is given by
 $$
