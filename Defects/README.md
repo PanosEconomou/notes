@@ -9,4 +9,5 @@
 - [Gauging Discrete Symmetries](Gauging.md)
 - [Topological Line Defects](Line_Defects.md)
 - [Symmetries as Defects](Symmetry_Defects.md)
+- [Twisted Representation Theory](Twisted_Modules.md)
 - [Twisting Adventure](Twisting.md)
