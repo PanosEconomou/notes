@@ -151,7 +151,7 @@ export default function Cursor({ cursorVariant, setCursorVariant, stickTo }) {
             opacity: 1,
             width: fraction * stickTo.current?.width || size.x.current,
             height: fraction * stickTo.current?.height || size.y.current,
-            borderRadius: '1px',//`${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
+            borderRadius: '3px',//`${Math.min(fraction * stickTo.current?.width || size.x.current, fraction * stickTo.current?.height || size.y.current)}px`
             // backgroundColor: 'rgba(255, 99, 71, 0.5)'
             transition: {
                 duration: 0.2,
