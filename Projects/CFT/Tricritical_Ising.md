@@ -129,7 +129,7 @@ We want to study the folded Tricritical Ising $\text{TIsing}$ model which is the
 
 ## Identifying a $\mathbb{Z}_2$ 
 
-We want to perform discrete Gauging by $\mathbb{Z}_2$. We can write the operator algebra of $\text{TIsing}^2$ in $\text{Vir}^2 \times \overline{\text{Vir}^2}$ irreducible representations as
+We want to perform discrete Gauging by $\mathbb{Z}_2$. We can write the operator algebra of $\text{TIsing}^2$ in $\text{Vir}^2 \otimes \overline{\text{Vir}^2}$ irreducible representations as
 $$
 \mathbb{H} = \bigoplus_{i,j=1}^6 (W_i\otimes \overline W_j) \otimes (\overline W_i\otimes W_j),
 $$
@@ -444,7 +444,7 @@ $$
 $$
 This was fun, however, this only classifies the $W_{ii}$ modules and not the $W_{ij}$. The reason why we didn't do this for the $W_{ij}$ is because unlike $W_{ii}$ the $W_{ij}$ modules are not $\sigma$ invariant. In other words $\sigma W_{ij} = W_{ji}$. So we see that if we want to rearrange into $\sigma$ invariant modules, we need to do something else.
 
-Here we need to be more careful. Remember that for the off-diagonal primaries in our CFT correspond to $\text{Vir}^2 \oplus \text{Vir}^2$ modules of the form $W_{ij} \otimes \overline W_{ij}$. Such a module is not $\sigma$ invariant either, but what is invariant is the module $W_{ij} \otimes \overline W_{ij} \oplus W_{ji} \otimes \overline W_{ji}$. The question is if we can break that into $A_2 \oplus A_2$ invariant modules. Here is how to do it.
+Here we need to be more careful. Remember that for the off-diagonal primaries in our CFT correspond to $\text{Vir}^2 \oplus \text{Vir}^2$ modules of the form $W_{ij} \otimes \overline W_{ij}$. Such a module is not $\sigma$ invariant either, but what is invariant is the module $W_{ij} \otimes \overline W_{ij} \oplus W_{ji} \otimes \overline W_{ji}$. The question is if we can break that into $A_2 \otimes A_2$ invariant modules. Here is how to do it.
 
 **<u>Proposition:</u>** Let $V_i, V_j$ be two unitary cyclic $\text{Vir}$ modules with different highest weights and $W_{ij} \coloneqq V_i \otimes V_j$. Then, there exist $A_2$ modules $U_{ij}$ and $U_{ji}$ such that
 $$
@@ -530,23 +530,31 @@ $$
 
 
 
-### Twisted Hilbert space
-
-We want to calculate the twisted sector by $\sigma$ of $\text{TIsing}^2$. Yet, we really only care about the subspace of the twisted sector that is invariant under $\sigma$ since we only want to find which twisted modules appear in the gauged theory. So if we ignore something, there is a good reason for it. Yet it will be clear in context if we do ignore anything.
+## Twisted Hilbert space
 
 Calculating the Hilbert space of the $\sigma$ twisted Hilbert is a challenge, because there isn't an obvious way to use the original representation theory of Virasoro to obtain the new representations of $A_2$ that would appear under twisting with $\sigma$. However, we are kind of lucky because of the interpretation $\sigma$ as a defect line has on $\text{TIsing}^2$. Here is the idea.
 
-The chiral algebra of our theory $A = \text{Vir}\oplus \text{Vir}$ is split into two parts $A_2$ which is the maximally invariant subalgebra, and the rest $A_2' = A/A_2$. Now if $A$ was invariant under $\sigma$ then our twisted sector would not contain any new chiral modules. They might be arranged differently (assuming identity is unique they would have to be), but we wouldn't see any new chiral weights or anything.
+The chiral algebra of our theory $A = \text{Vir}\otimes \text{Vir}$ is split into two parts $A_2$ which is the maximally invariant subalgebra, and the rest $A_2' = A/A_2$. Now if all of $A$ was invariant under $\sigma$ then our twisted sector would not contain any new chiral modules since there are finitely many of them that are unitary at the central charge we are looking at and they all appear in the untwisted sector. They might be arranged differently (assuming identity is unique they would have to be), but we wouldn't see any new chiral weights or anything.
 
-The situation changes here. Our original theory can be written in terms of $A_2$ modules as we have already seen. When 
+The situation changes here. Our original theory can be written in terms of products of unitary $A_2$ chiral modules however that invariant subalgebra is not easy to work with. From first examination we don't even expect finitely many irreducible unitary representations, so trying to play the same game of writing all of them down and finding which ones appear would be impractical at best. 
 
-. The question is what is the representation of $A_2'$ on the twisted sector.
+The alternative approach is to calculate the "vacuum of the twisted Hilbert space" using different considerations, then find a way to induce the new VOA in the twisted sector. 
+
+### Twisted Vacuum
+
+By twisted vacuum here we mean the lowest weight state in the twisted Hilbert space. In principle, we should be able to obtain any other twisted primary by an operator state correspondence with the twisted vacuum. So let's try to find some identifying features of that lowest weight state.
+
+We know that the Hamiltonian on the cylinder of $\text{TIsing}^2$ is going to be $H = L_0 +\bar L_0 - \frac{c}{6}$ where $c = 7/12$ is the central charge of $\text{TIsing}$. 
 
 
 
 
 
-## Invariant Sectors
+
+
+
+
+## Projecting to Invariant Sectors
 
 Now we can try to arrange the gauged Hilbert space in terms of irreducible representations of $A_2$. We realize that the gauged Hilbert space contains the invariant untwisted and twisted sectors. Let's start by deriving the invariant untwisted sector of the theory
 
