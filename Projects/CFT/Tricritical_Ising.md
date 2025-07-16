@@ -173,7 +173,7 @@ So we have a tasty $\mathbb{Z}_2$ global symmetry to gauge under! Wohooo!
 
 
 
-## Gauging $\mathbb{Z}^2$
+## Gauging $\mathbb{Z}_2$
 
 I mean, the exact map between the ungauged and gauged theories is hard to write down. However, we don't *really* need it. We can calculate the modular partition function of the gauged theory like so.
 
