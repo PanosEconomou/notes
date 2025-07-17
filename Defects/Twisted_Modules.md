@@ -24,17 +24,17 @@ Here by CFT we will mean a full CFT unless otherwise specified since I don't eve
 
 **<u>Proposition:</u>** Every CFT has $\text{Vir}$ as a chiral algebra.
 
-***Proof:*** At the very least a CFT must have a stress tensor whose modes (by definition) are a representation of $\text{Vir}\oplus \text{Vir}$.
+***Proof:*** At the very least a CFT must have a stress tensor whose modes (by definition) are a representation of $\text{Vir}\otimes \text{Vir}$.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 Usually with our definition of the CFT we identify a bunch of "symmetry actions" on the Hilbert space which are certain automorphisms that form a representation of (usually) a group. Let's be a bit more specific.
 
-**<u>Definition:</u>** A group $G$ is a **symmetry** of a rational CFT with Hilbert space $\mathbb{H}$ if it has a representation on $\mathbb{H}$ that is equivariant with respect to the $\text{Vir}\oplus \text{Vir}$ action on $\mathbb{H}$.
+**<u>Definition:</u>** A group $G$ is a **symmetry** of a rational CFT with Hilbert space $\mathbb{H}$ if it has a representation on $\mathbb{H}$ that is equivariant with respect to the $\text{Vir}\otimes \text{Vir}$ action on $\mathbb{H}$.
 
-By the way, if we want to be pedantic, this condition is necessary but not sufficient. You can write down operators with that property that don't strictly fall under the physics definition of a symmetry. This definition uses the fact that $\mathbb{H}$ must be a $\text{Vir}\oplus \text{Vir}$ module for any CFT. Also by equivariant, we simply mean that the representations of the elements of $G$ commute with all the Virasoro generators.
+By the way, if we want to be pedantic, this condition is necessary but not sufficient. You can write down operators with that property that don't strictly fall under the physics definition of a symmetry. This definition uses the fact that $\mathbb{H}$ must be a $\text{Vir}\otimes \text{Vir}$ module for any CFT. Also by equivariant, we simply mean that the representations of the elements of $G$ commute with all the Virasoro generators.
 
-**<u>Proposition:</u>** A symmetry $G$ of a CFT acts trivially on the irreducible $\text{Vir}\oplus \text{Vir}$ representations of $\mathbb{H}$.
+**<u>Proposition:</u>** A symmetry $G$ of a CFT acts trivially on the irreducible $\text{Vir}\otimes \text{Vir}$ representations of $\mathbb{H}$.
 
 ***Proof:*** This is a direct application of Schur's lemma, where we have two equivariant representations, therefore the only action is proportional to the identity.
 $$
@@ -149,7 +149,6 @@ As a result, we want to induce another algebra! Once we induce that algebra, the
 So let's focus our attention to inducing that algebra first. In order to make our idea more concrete let's restrict our attention to a specific situation.
 
 **<u>Theorem:</u>** 
-
 
 
 
