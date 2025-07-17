@@ -140,16 +140,6 @@ In the previous example we considered equivariance as the requirement for the ex
 
 ## Inducing a Different Chiral Algebra
 
-We have heuristically explored how in the case where the chiral algebra $A$ is equivariant with respect to the representation of $g \in G$ that we want to twist our theory with, the Hilbert space will remain an $A$ module. Therefore consider the maximal chiral algebra $A$ of our theory. Then in general there will be an invariant chiral subalgebra $A^G$ which will remain untouched by twisting, but in general there is no reason why we should expect $A$ to survive gauging. 
-
-In fact we are in a similar situation as above. We have an algebra $A$ with a subalgebra $A^G$ and a module of $A^G$ and using that, we want to induce a module under.... Under what? We were so close, but that new module can't be required to be invariant under the full $A$. If it were then A would be in $A^G$. Yet, that new algebra must also be invariant under the action of $g$ and contain $A^G$.
-
-As a result, we want to induce another algebra! Once we induce that algebra, the twisted Hilbert space will be one of its modules. And since that new algebra must be quite big, its representation theory would probably be more constrained. 
-
-So let's focus our attention to inducing that algebra first. In order to make our idea more concrete let's restrict our attention to a specific situation.
-
-**<u>Theorem:</u>** 
-
 
 
 
