@@ -552,6 +552,8 @@ We know that the Hamiltonian on the cylinder of $\text{TIsing}^2$ is going to be
 
 
 
+
+
 ## Projecting to Invariant Sectors
 
 Now we can try to arrange the gauged Hilbert space in terms of irreducible representations of $A_2$. We realize that the gauged Hilbert space contains the invariant untwisted and twisted sectors. Let's start by deriving the invariant untwisted sector of the theory
