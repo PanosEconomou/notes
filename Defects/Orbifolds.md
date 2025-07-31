@@ -156,7 +156,11 @@ $$
 
 That might seem like we took one step forward and 2 steps back because summing over all lines is insanely complicated. That is until we realize that we don't need to do that. Most complicated meshes of $A$ defects that we can come up to absorb $G$ defects, will eventually all merge into pretty much just one configuration. Let's see an example in the cylinder. 
 
-This is an incredible result, and also really enlightening in actually calculating the orbifolds.
+This is an incredible result, and also really enlightening in actually calculating the orbifolds. In fact this generalizes for any finite abelian group $G$ by considering
+$$
+A = \frac{1}{|G|}\sum_{g\in G} L_g.
+$$
+
 
 
 
@@ -190,13 +194,135 @@ But with these main things done, we are ready to start calculating.
 
 # Calculating Orbifolds
 
-So far everything here is pretty general. We only used a 2D CFT as a playground to draw some pictures, but these arguments hold in most QFTs. But even though they hold, actually calculating them in a general QFT setting is a nightmare. So in this section we will do some calculations in a particular subset of CFTs known as *Rational*. For Rational CFTs we have figured out how to gauge any abelian group which is pretty nice! 
+So far everything here is pretty general. We only used a 2D CFT as a playground to draw some pictures, but these arguments hold in most QFTs. But even though they hold, actually calculating them in a general QFT setting is a nightmare. So in this section we will do some calculations in a particular subset of CFTs known as *Rational*. For Rational CFTs we have figured out how to gauge any finite abelian group which is pretty nice! 
 
 Rational CFTs include bosonic CFTs encountered in string theory, free fermions, almost all of the 2nd order phase transitions in Statistical mechanics, plus they are what pretty much everything flows to under RG so it's a wide enough class for figuring out orbifolding is not a minor thing. We will first start with a very simple example, the Ising model which has the property that it is its own orbifold. Once that is done, we will introduce aspects in the calculation of cyclic orbifolds, in other words gauging $\mathbb{Z}_n$ in any Rational CFT. We'll see how to calculate twist fields, as well as find their conformal weights and correlation functions.
 
+*This section requires some more CFT terminology like primary fields, modular invariance, S-matrix (the modular not the scattering one), and Chiral Algebras as well as some familiarity with the state operator correspondence*.
+
 ## The Ising Orbifold
 
-Here is why the Ising CFT is the easiest example to orbifold. Unlike something like a free boson, which has infinite primary fields (all the modes of the free boson), the Ising CFT has **three**, one of which is the freaking identity. 
+Here is why the Ising CFT is the easiest example to orbifold. Unlike something like a free boson, which has infinite primary fields (all the modes of the free boson), the Ising CFT has **three**, one of which is the freaking identity. They are usually called
+
+1. $1$: The **identity** operator.
+2. $\sigma$: The **spin** operator. The operator that probes the spin at a particular point.
+3. $\varepsilon$: The **energy** operator. The operator that probes the energy at a particular point, 
+
+and have conformal weights
+$$
+\begin{align*}
+h_1 = \bar h_1 = 0 && h_\sigma = \bar h_\sigma = \frac{1}{16} && h_\epsilon = \bar h_\epsilon = \frac{1}{2}.
+\end{align*} 
+$$
+Every other field in the theory is a Virasoro descendant of one of these three. In fact we often write the Hilbert space of the Ising model like this
+$$
+\mathbb{H} = \left(V_{0} \otimes \overline{V_{0}}\right) \oplus \left(V_{\frac{1}{2}} \otimes \overline{V_{\frac{1}{2}}}\right)\oplus \left(V_{\frac{1}{16}} \otimes \overline{V_{\frac{1}{16}}}\right)
+$$
+where $V_h$ corresponds to an irreducible Virasoro representation with $c=\frac{1}{2}$ and highest weight $h$, and $\overline{V_h}$ is the same Virasoro representation but for the antichiral part. If thinking in terms of Virasoro representations is unfamiliar, essentially one can think of the module
+$$
+V_h \otimes \overline{V_{h}},
+$$
+as the vector space that takes a primary $\phi$ with conformal weights $h=\bar h$ and creates the rest of the states by applying Virasoro generators to it. For example $L_{-5} L_{-3} L_{-1} \phi  \in V_h \otimes \overline{V_{h}}$. Some people refer to $V_h \otimes \overline{V_{h}}$ as a **conformal family,** or the set of **Virasoro descendants** of $\phi$, or the set of secondary fields related to $\phi$. In Ising there are only 3 primaries, so there are 3 sets of descendants.
+
+One symmetry of the Ising orbifold is the spin flip. This is a $\mathbb{Z}_2$ symmetry that is responsible for $\sigma \mapsto -\sigma$. The operator that facilitates that symmetry is called the **spin flip defect** and it is usually denoted by $\eta$ (where the reference to the line remains implicit). The spin flip defect satisfies the following relations
+$$
+\begin{align*}
+\eta 1 &= \eta\\
+\eta \sigma &= -\sigma \eta\\
+\eta \epsilon &= \epsilon \eta. 
+\end{align*}
+$$
+
+> [!TIP]
+>
+> Here is an example for how to read these relations. The relation $\eta \sigma = -\sigma \eta$ is that if we have an insertion $\sigma$ at some point in spacetime, and then we move it across the $\eta$ defect, then $\sigma$ will pick up a minus sign. In this case we see that the $\eta$ defect does nothing on all primaries except flipping the sign of $\sigma$.
+
+Here is a picture of the above relations. 
+
+### Local Operators that Survive in the Orbifold
+
+Let's try to gauge the $\mathbb{Z}_2$ furnished by the spin flip defect $\eta$. Our projection defect $A$ is now given by
+$$
+A = \frac{1}{2} \left( 1  + \eta \right).
+$$
+The first step we have to do is to see which operators from the original Hilbert space would survive. These are the invariant operators under the $\mathbb{Z}_2$ action, which are therefore $1$ and $\epsilon$, or to be more precise, the only modules that will appear in the orbifold are
+$$
+\left(V_{0} \otimes \overline{V_{0}}\right) \oplus \left(V_{\frac{1}{2}} \otimes \overline{V_{\frac{1}{2}}}\right).
+$$
+However, as we said before, operators that were nonlocal in Ising, might become local in the orbifold! So we need to somehow find all the nonlocal operators in the Ising model with monodromy $\eta$. In other words we need to find any operator that has a branch cut that acts like $\eta$ on local fields.
+
+
+
+### Nonlocal Operators that Turn Local in the Orbifold
+
+This is not easy to do in general. However, in the Ising model (and all other minimal models), modular covariance of the theory fully restricts the kind of defects one has available. So let's take a momentary detour to see how.
+
+State operator correspondence is a thing in CFT, which means that if you know the Hilbert space at some slice, you can reconstruct the operators used to create these states. So we will shift our attention to look for the Hilbert space at some spatial circle instead. Let's go on the sphere, and consider what would it mean to add one of these nonlocal defect operators that have endpoints. 
+
+Consider an $\eta$ defect line that starts at the origin and goes radially outwards to infinity. Since the line starts at the origin there must be one of those special nonlocal operators with monodromy $\eta$ attached to it. If we were able to somehow find the Hilbert space in some circle, we would know all the possible operators that could have been placed at the end of the defect located at the origin! That is because by operator-state correspondence insertion of the operator at the origin creates a unique state. 
+
+This is where modular covariance comes in. One of the most amazingly powerful results of CFT, is that in a modular invariant theory, one can consistently define it in any Riemann surface and the Hilbert space remains the same! As a result, we can pinch the poles of the sphere together, and add it on our torus. On its face this might not seem to help us calculate the Hilbert space, but we remember modular covariance. On the torus, the S-transformation exchanges the two cycles. So we can use the S transformation to map between the defect placed on one cycle vs the other. Doing so help us tremendously, because we actually know how to calculate the Hilbert space with the defect inserted in the other cycle. Once we do that, we simply S transform that, and we obtain the Hilbert space with the defect inserted along the original cycle! This requires a lot of pictures to make sense, so here they are.
+
+
+
+Using pain and some things beyond the scope of these notes, one can calculate that the modular transformation of the original Hilbert space in the presence of the $\eta$ vector is given by
+$$
+\mathbb{H}_{\eta} = \left( V_{\frac{1}{2}} \otimes \overline{V_{0}} \right) \oplus \left( V_{0} \otimes \overline{V_{\frac{1}{2}}} \right) \oplus \left( V_{\frac{1}{16}} \otimes \overline{V_{\frac{1}{16}}} \right).
+$$
+We usually call the Hilbert space $\mathbb{H}_\eta$ that contains the states created by defect insertions the **Twisted Hilbert space** or the **Twisted Sector**, and the operators with the lowest conformal weight (the closest thing there to a vacuum operator) the **Twist Fields**, or twisted vacuums (vacua?). Now, all of these operators will appear local under $A$ insertions, because $A$ will absorb their tail! The only question is to figure out which ones don't also get annihilated by crossing an $A$ defect. In other words, which ones are invariant under the action of $\mathbb{Z}_2$.
+
+Figuring out the action of $\mathbb{Z}_2$ on the twisted fields is not obvious. Yet, modular invariance can save us again! Here is a picture of what happens when we enclose one of the twisted fields with an $\eta$ defect (notice that twisted fields refer to any field we can put at the endpoint of $\eta$, whereas twist fields is specifically the one(s) with the lowest conformal weight).
+
+
+
+It looks like we twisted (like an actual grab and rotate twist not a theoretical twisted operator twist) the sphere around the poles, which would correspond to the $T$ transformation on the torus! So to find out how the defect $\eta$ acts on the states of the torus, we need to just $T$ transform the twisted Hilbert space! The phases the different modules acquire after the $T$ transform would be the action of the $\eta$ defect on the corresponding primary twisted operators. Here is a picture.
+
+
+
+Finally using the $T$ transformation, we obtain that the only invariant subspace when we place an $\eta$ insertion is $V_{\frac{1}{16}} \otimes \overline{V_{\frac{1}{16}}}$. So we can finally combine whatever we get from the twisted Hilbert space with what we got from the untwisted to obtain
+$$
+\mathbb{H}_{\text{orb}} = \left(V_{0} \otimes \overline{V_{0}}\right) \oplus \left(V_{\frac{1}{2}} \otimes \overline{V_{\frac{1}{2}}}\right) \oplus \left( V_{\frac{1}{16}} \otimes \overline{V_{\frac{1}{16}}} \right) = \mathbb{H}
+$$
+which is **equal to the unorbifolded Ising Model**! This is not something that happens in general, this example of CFT and defect, was chosen specifically so we observe that. If we were to try to gauge a different symmetry of the Ising model we wouldn't get back the same thing. But this leads to an interesting concept.
+
+
+
+## Gauge Duality
+
+Oftentimes people refer to gauging in a CFT as some form of duality. However, in face value, it seems like gauging would remove information from the theory, since we took a global symmetry and made it local, effectively projecting out states (or fields) that were not invariant under the global symmetry. However, we caught a glimpse of how we both lose information, by projecting out, but also gain information, by including things from the twisted sectors.
+
+> In some sense, gauging simply rearranges the content of our theory. It doesn't remove any information.
+
+Since we didn't lose any information overall, we could in principle undo gauging. A general fact is that if we take a theory and gauge some group $G$, then there must exist a different group $G'$ that we can gauge in the gauged theory such that we return back to the original one.
+
+It is in this sense that people refer to gauging as a duality. It can help us map between different theories with the same "content." This is really fascinating, but these notes are way too long already and I need to calculate things about cyclic orbifolds. There is a reference at the top.
+
+
+
+# Cyclic Orbifolds
+
+While symmetries of minimal models are fun to gauge, they are not as universally used as cyclic orbifolds. These have great applications in the calculation of Renyi entropies as well as other areas of QFT like classifying RG flows, and more. Let's start though by thinking of them as their own thing first. 
+
+## Roadmap
+
+Calculating  an orbifold really means finding its operator content. If we have that, then we can calculate correlation functions, partition functions, and whatnot. Let's take a second to review how we did it in the Ising case, and point out what we need to take care of now.
+
+1. We start with a rational CFT with Hilbert space $\mathbb{H}$ on a circle. Rational means that it has at most a finite number of primary fields with respect to the algebra of conserved currents (i.e. the current algebra) of the theory. If that doesn't ring a bell, it is not important right now, one can still think of Ising as an example, which is a special type of rational CFT.
+
+2. We then take $q \in \mathbb{N}$ copies of the theory. This really means that the Hilbert space of the new theory is $\mathbb{H}^{\otimes q}$. We call that the **folded theory** because we "folded" it $q$ times. 
+3. We define a permutation symmetry for our copies. In other words, one symmetry of the fold theory is to permute the copies of the original theory. Correlation functions wouldn't even know about it. The symmetry group is $\mathbb{Z}_n$ (or $S_n$, but in this case we can calculate everything in the $\mathbb{Z}_n$ orbifold instead)
+4. Find out the defects that correspond to $\mathbb{Z}_n$.
+5. To find the operator content, project out the states that are not invariant under $\mathbb{Z}_n$ from the original Hilbert space.
+6. Find out what the twisted Hilbert spaces that correspond to each $\mathbb{Z}_n$ defect, and project out the states that are not invariant under $\mathbb{Z}_n$.
+7. Combine all of these together into the Orbifold Hilbert space. 
+
+
+
+
+
+
+
+
 
 
 
