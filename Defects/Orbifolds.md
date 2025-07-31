@@ -78,9 +78,49 @@ Both of these observations motivate us to more carefully examine gauge fields, a
 
 # Gauging Discrete Groups using Defects
 
-Topological defects serve as the perfect mirror image 
+A topological defect is so closely related to a coupling of a gauge field to a QFT (some people say that it straight up is that). In our case, it is the perfect alternative alternative viewpoint of the same thing to help us reframe how we think about gauging. A quick review of topological defects for symmetry purposes can be found [here](../Defects/Symmetry_Defects.md). For the purposes of these notes, we will only use the intuition of the first section in that reference. 
+
+## 10s Review of Symmetry Defects
+
+Defects can help us make precise the idea of a *Symmetry Operator* in a QFT. Imagine you have a global symmetry $G$ that acts on a QFT that lives on a spacetime $M$. For simplicity let's consider a 2 dimensional conformal field theory. One thing you might want to calculate, is correlation functions that involve insertions of a couple quantum fields $\phi,\psi$ at some points $x,y \in M$. Something like this
+$$
+F(x,y) = \langle \phi(x)\psi(y) \rangle.
+$$
+You know though, that since $G$ is a global symmetry gourp, its elements $g\in G$ have the property that 
+$$
+F(x,y) = \langle g\cdot \phi(x)\ g\cdot \psi(y) \rangle,
+$$
+where $g\cdot \phi$ denotes the field $\phi$ after being transformed by the action of $g$. Ok so that's not really useful to calculate because tranforming the fields did nothing. But what about this?
+$$
+F' = \langle \phi(x) g\cdot \psi(y) \rangle.
+$$
+In general we shouldn't expect that $F' = F$ because we didn't transform both fields, we only transformed one. 
+
+> This can be thought of as applying the global symmetry in a region $R$ that contains $y$ but not $x$. This way only insertions at $y$ will be transformed by the global symmetry. There is no reason to think that that messed up non global application of the $G$ action would still be a symmetry of the theory.
+
+This leads to an interesting question. Is there an operator associated with this half-implementation of the symmetry associated to $g\in G$ restricted in the region $R$? In other words we're looking for an operator $U_{g,R}$ such that
+$$
+U_{g,R} \psi(y) = g\cdot \psi(y) U_{g,R}.
+$$
+The realization that is key to help us understand that object better is that since $g \in G$ is a global symmetry, the correlation functions would stay the same if $U_{g,R}$ transformed all insertions inside $R$ or all insertions outside it in $M\setminus R$. The only difference between the two cases is a global application of $g^{-1} \in G$ which doesn't affect correlation functions. Therefore the only real data of interest in the Region $R$ is weather an insertion crossed its boundary, which is a **line** (in 2 Dimensions).
+
+This is what people mean when they say, that a global symmetry operator is a codimension 1 topological defect. In this case, if we call $L = \partial R$ the boundary of $R$, then we can associate an operator $U_g(L)$ to it in such a way that when field insertions cross it, they pick up the action by $g$. In other words
+$$
+U_g(L) \psi(y) = g\cdot \psi(y) U_g(L).
+$$
+We call $U_g(L)$ a topological defect line or topological defect operator, though sometimes people would straight up denote it as $g$ when $L$ is clear from context.
+
+One last interesting point, is that if we fix the point $y$, we can freely, but still continuously, deform $L$. As long as it doesn't cross any other operator insertions, the correlation function would not even know! It is in this sense, that the operator $U_g(L)$ is topological. It is called a defect because it has this singular action concentrated in the line $L$. 
+
+> It is worth reflecting on what we created. The topological defect line $U_g(L)$ seems to do to our fields what a gauge field would do. It applies the global action of $g$ in a random region in spacetime enclosed by $L$!
 
 
+
+## Summing Over Networks of Defects
+
+The last box gets us so close to defining orbifolds. Using the idea that applying a global symmetry in some random region enclosed by $L$ is the same as inserting a topological defect line at $L$ we can rephrase what we mean by a gauge theory.
+
+A gauge theory in this language is one where anything we can calculate remains the same, if we insert an arbitrary topological defect line associated to a global symmetry $g \in G$.
 
 
 
