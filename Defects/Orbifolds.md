@@ -164,7 +164,9 @@ $$
 $$
  which is so dangerously close to averaging over all possible defect configurations that correspond to $G$. Just by inserting any $A$ along any line we have summed over the elements of the group. But in principle to average over all possible defect configurations, we need to sum over all lines too. 
 
-That might seem like we took one step forward and 2 steps back because summing over all lines is insanely complicated. That is until we realize that we don't need to do that. Most complicated meshes of $A$ defects that we can come up to absorb $G$ defects, will eventually all merge into pretty much just one configuration. Let's see an example in the cylinder. 
+That might seem like we took one step forward and 2 steps back because summing over all lines is insanely complicated. That is until we realize that we don't need to do that. Most complicated meshes of $A$ defects that we can come up to absorb $G$ defects, will eventually all merge into pretty much just one configuration. Let's see an example in the torus.
+
+ ![Mesh Simplification](_Orbifolds.assets/mesh-simplification.svg)
 
 This is an incredible result, and also really enlightening in actually calculating the orbifolds. In fact this generalizes for any finite abelian group $G$ by considering
 $$
@@ -195,6 +197,8 @@ This generalizes. The only fields (or states) that will survive gauging are the 
 This is the trickiest part of orbifold calculation. In the interlude above we explored how a defect operator can end at specific points onto which we attach something like a point-like operator but with a monodromy condition that makes it have non-local OPEs.
 
 However, in the presence of an $A$ mesh, the tail can be completely absorbed in $A$! In other words, the monodromy would stop appearing and what was previously a nonlocal field, that we wouldn't include in the field content of our ungaged theory, is now a perfectly local operator in the Gauged theory.
+
+![nonlocal-to-local](_Orbifolds.assets/nonlocal-to-local.svg)
 
 This is a blessing and a curse. It is a blessing because we have all this machinery of working with local operators so it would be nice to convert a nonlocal calculation to a local one by moving to the orbifold (which is what we do in Renyi entropies). It is a curse though because in order to even find the orbifold we need a way to take a theory and find all of its operators that could have a brunch cut in order to see which of them appear in the orbifold out of nowhere. This is not solved and can be quite involved even for relatively simple theories.
 
@@ -277,7 +281,7 @@ Consider an $\eta$ defect line that starts at the origin and goes radially outwa
 
 This is where modular covariance comes in. One of the most amazingly powerful results of CFT, is that in a modular invariant theory, one can consistently define it in any Riemann surface and the Hilbert space remains the same! As a result, we can pinch the poles of the sphere together, and add it on our torus. On its face this might not seem to help us calculate the Hilbert space, but we remember modular covariance. On the torus, the S-transformation exchanges the two cycles. So we can use the S transformation to map between the defect placed on one cycle vs the other. Doing so help us tremendously, because we actually know how to calculate the Hilbert space with the defect inserted in the other cycle. Once we do that, we simply S transform that, and we obtain the Hilbert space with the defect inserted along the original cycle! This requires a lot of pictures to make sense, so here they are.
 
-
+![S Transform for Defects](_Orbifolds.assets/s-duality.svg)
 
 Using pain and some things beyond the scope of these notes, one can calculate that the modular transformation of the original Hilbert space in the presence of the $\eta$ vector is given by
 $$
