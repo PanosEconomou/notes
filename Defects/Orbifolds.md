@@ -291,11 +291,11 @@ We usually call the Hilbert space $\mathbb{H}_\eta$ that contains the states cre
 
 Figuring out the action of $\mathbb{Z}_2$ on the twisted fields is not obvious. Yet, modular invariance can save us again! Here is a picture of what happens when we enclose one of the twisted fields with an $\eta$ defect (notice that twisted fields refer to any field we can put at the endpoint of $\eta$, whereas twist fields is specifically the one(s) with the lowest conformal weight).
 
-
+![Where does T-Duality come from?](_Orbifolds.assets/t-duality-origin.svg)
 
 It looks like we twisted (like an actual grab and rotate twist not a theoretical twisted operator twist) the sphere around the poles, which would correspond to the $T$ transformation on the torus! So to find out how the defect $\eta$ acts on the states of the torus, we need to just $T$ transform the twisted Hilbert space! The phases the different modules acquire after the $T$ transform would be the action of the $\eta$ defect on the corresponding primary twisted operators. Here is a picture.
 
-
+![T Duality](_Orbifolds.assets/t-duality.svg)
 
 Finally using the $T$ transformation, we obtain that the only invariant subspace when we place an $\eta$ insertion is $V_{\frac{1}{16}} \otimes \overline{V_{\frac{1}{16}}}$. So we can finally combine whatever we get from the twisted Hilbert space with what we got from the untwisted to obtain
 $$
