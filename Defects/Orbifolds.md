@@ -59,7 +59,7 @@ $$
 $$
 Any element in $G$ can **at most permute** $A$. While this example is trivial, this is how summing over all Gauge fields turns $G$ into a local symmetry in the Gauged theory.
 
-Anything you calculate in a gauged theory will contain sum over copies of the calculation but with all possible gauge fields you can put.  Pick a region in spacetime, and act there with $g \in G$. Then, out of all the possible gauge fields, there must be one that undoes the action of $g$ in that region. The copy of the calculation that uses that one, will be permuted with the one that had the do nothing gauge field. The one that had the do nothing gauge field, will be permutted with the gauge field that made it look like in that region there is a $g$ action and so on. The overal result after averaging over all possibilities is the same.
+Anything you calculate in a gauged theory will contain sum over copies of the calculation but with all possible gauge fields you can put.  Pick a region in spacetime, and act there with $g \in G$. Then, out of all the possible gauge fields, there must be one that undoes the action of $g$ in that region. The copy of the calculation that uses that one, will be permuted with the one that had the do nothing gauge field. The one that had the do nothing gauge field, will be permuted with the gauge field that made it look like in that region there is a $g$ action and so on. The overall result after averaging over all possibilities is the same.
 
 In practice there are a lot of things to consider when extending the above intuition to a healthily defined QFT. Often one needs to account for degeneracy in the possible $A$ fields which has the side effect of introducing ghosts, or one might find that after gauging a group the resulting theory fails to even have unitary time evolution (this could happen when gauging certain Lie groups that are not compact). Subtleties aside, when it works, that's why it works.
 
@@ -98,17 +98,21 @@ In general we shouldn't expect that $F' = F$ because we didn't transform both fi
 
 > This can be thought of as applying the global symmetry in a region $R$ that contains $y$ but not $x$. This way only insertions at $y$ will be transformed by the global symmetry. There is no reason to think that that messed up non global application of the $G$ action would still be a symmetry of the theory.
 
+
+
 This leads to an interesting question. Is there an operator associated with this half-implementation of the symmetry associated to $g\in G$ restricted in the region $R$? In other words we're looking for an operator $U_{g,R}$ such that
 $$
 U_{g,R} \psi(y) = g\cdot \psi(y) U_{g,R}.
 $$
-The realization that is key to help us understand that object better is that since $g \in G$ is a global symmetry, the correlation functions would stay the same if $U_{g,R}$ transformed all insertions inside $R$ or all insertions outside it in $M\setminus R$. The only difference between the two cases is a global application of $g^{-1} \in G$ which doesn't affect correlation functions. Therefore the only real data of interest in the Region $R$ is weather an insertion crossed its boundary, which is a **line** (in 2 Dimensions).
+The realization that is key to help us understand that object better is that since $g \in G$ is a global symmetry, the correlation functions would stay the same if $U_{g,R}$ transformed all insertions inside $R$ or all insertions outside it in $M{\setminus} R$. The only difference between the two cases is a global application of $g^{-1} \in G$ which doesn't affect correlation functions. Therefore the only real data of interest in the Region $R$ is weather an insertion crossed its boundary, which is a **line** (in 2 Dimensions).
 
 This is what people mean when they say, that a global symmetry operator is a codimension 1 topological defect. In this case, if we call $L = \partial R$ the boundary of $R$, then we can associate an operator $U_g(L)$ to it in such a way that when field insertions cross it, they pick up the action by $g$. In other words
 $$
 U_g(L) \psi(y) = g\cdot \psi(y) U_g(L).
 $$
 We call $U_g(L)$ a topological defect line or topological defect operator, though sometimes people would straight up denote it as $L_g$ or even $g$ when $L$ is clear from context.
+
+![defect added](_Orbifolds.assets/defect_added.svg)
 
 One last interesting point, is that if we fix the point $y$, we can freely, but still continuously, deform $L$. As long as it doesn't cross any other operator insertions, the correlation function would not even know! It is in this sense, that the operator $U_g(L)$ is topological. It is called a defect because it has this singular action concentrated in the line $L$. 
 
@@ -123,6 +127,8 @@ So far we have considered defect operators that are associated with boundaries o
 It is not unreasonable to conceive such an operator. In fact, we already know a lot about hot it behaves. If we insert it in a calculation of a correlation function, then when other insertions cross the line, they still feel the action of the group. The line (with the exception of the end points) is still topological even if the endpoints must remain fixed.
 
 The real confusion is what happens at the endpoints. Since the Line is singular as hell, the endpoint of it will also be something akin to a singular point. At this moment it is important for us to realize, that we in fact know how to treat singular point insertions in QFT. We call them local operators. Field operators, like $\phi(x)$, are this kind of objects. In some sense, the end of a defect has a lot in common with a field operator. One needs a point to completely define it, and one should expect that correlation functions change as you change the point. The only difference is that if you take a true point-like (or local) operator and do a full circle around the endpoint you would inevitably cross the defect picking up an action of $g$. 
+
+![open_defect](_Orbifolds.assets/open_defect.svg)
 
 So how can we think of the endpoints of the defects? We can think of them as point-like operators but with the particular monodromy (or branch cut) defined by the defect line. 
 
@@ -142,7 +148,11 @@ A gauge theory in this language is a QFT where anything we can calculate remains
 
 Two defects corresponding to two group elements $g,h \in G$ have the property that when the lines they are associated to merge to a single defect corresponding to the group element $gh \in G$. Here is a picture that explains it.
 
+![grouplike_fusion](_Orbifolds.assets/grouplike_fusion.svg)
+
 So what if we could find a defect $A$, that remains invariant under under fusion? If so we could create a mesh of $A$ defects, put it on our theory, and then every time we insert a defect line, we can deform it until it gets absorbed by $A$. This way it would be as if nothing had ever happened. Here is a picture.
+
+![proejction-defect](_Orbifolds.assets/proejction-defect.svg)
 
 But what should that $A$ be? We have already encountered it! Let's say we have a global symmetry $G =\mathbb{Z}_2 \times \mathbb{Z}_2 = \{1,a,b,ab\}$, where the action of the symmetry group is defined for any $g \in G$ using defects $L_g$ on a line $L$ in the 2D CFT example we have been working with. Then check out this defect
 $$
@@ -238,6 +248,10 @@ $$
 > Here is an example for how to read these relations. The relation $\eta \sigma = -\sigma \eta$ is that if we have an insertion $\sigma$ at some point in spacetime, and then we move it across the $\eta$ defect, then $\sigma$ will pick up a minus sign. In this case we see that the $\eta$ defect does nothing on all primaries except flipping the sign of $\sigma$.
 
 Here is a picture of the above relations. 
+
+![ising-rules](_Orbifolds.assets/ising-rules.svg)
+
+
 
 ### Local Operators that Survive in the Orbifold
 

@@ -24,6 +24,7 @@ Incomplete, hard to understand notes on various subjects that at some point I ne
 - [**Defects**](Defects)
     - [Gauging Discrete Symmetries](Defects/Gauging.md)
     - [Topological Line Defects](Defects/Line_Defects.md)
+    - [Orbifolds](Defects/Orbifolds.md)
     - [Symmetries as Defects](Defects/Symmetry_Defects.md)
     - [Twisted Representation Theory](Defects/Twisted_Modules.md)
     - [Twisting Adventure](Defects/Twisting.md)
