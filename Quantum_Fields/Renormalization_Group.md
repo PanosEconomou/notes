@@ -1,52 +1,41 @@
 # Renormalization Group
 
-Time to understand wtf the renormalization group is. This follows Peskin and Gross’ chapter in Quantum Fields and Strings. We will start with understanding the Renormalization group in the Wilsonian prescription and then move on to define $\beta$ functions. 
+Time to understand wtf the renormalization group is. This follows Peskin and Gross’ chapter in Quantum Fields and Strings as well as Cardy's scaling and renormalization in Statistical systems. We begin with some seemingly irrelevant mathematical exploration of functions with fixed points, and then connect it to statistical systems. Once that is done, we will explore results in general quantum field theory.
 
 [TOC]
 
-# Wilsonian Scheme
 
-Let’s bootstrap of off a scalar field in 4D and then move on to generalize a bit more. We can start by defining an interaction of degree $k$ like so. 
 
-**<u>Definition:</u>** Given a vector space $V$, the set of Scwartz functions $\mathcal J (V)$ on $V$ and a Poincare invariant tempered distribution $K_J \in (\mathcal J(V)^k)^{\vee}$ a **homogeneous** $k$ **interaction** $J$ is given by the map
+# Core idea
 
+The renormalization group flow is what happens when physicists hear people laugh at them for "cows being spheres," or "ignoring air resistance," and think "maybe I can find a universal framework for doing this!"
+
+Starting with some description of nature, it can always be simplified (i.e. become courser) or more complicated (i.e. finer). The renormalization group, or renormalization group flow, is the (bad) name physicists have given to the set of techniques that allow them to systematically jump from a fine to a course description of a physical phenomenon.
+
+Probably the simplest universal way of removing complexity for a system, is to zoom out. You go and try to predict how fast a ball is going to fall when dropped by calculating all the possible quantum interactions between the quadjillions of atoms that comprise it. This is a maddening exercise probably best reserved for the highest forms of psychotherapy or torture. Instead what we do is we realize that the more we zoom out, the more local interactions between systems become irrelevant. So in a way their impact can be "averaged out" to obtain a theory that gives roughly the same predictions at larger scales but not so much in the original scale. 
+
+That averaging transformation that takes us to a courser theory is called the renormalization group transformation. Start with the quantum mechanical theory that describes all the electrons and protons and whatnot of the entire universe, applying the transformation once we will get the classical mechanics of a ball with maybe a rough surface that feels air resistance and whatnot. Apply it again, and then you get the classical mechanics of a point. Apply it a couple more times and you get to see the dynamics of the ball are averaged out with the dynamics of the rest of the objects in the earth, and instead you are starting to see aspects of Newtonian gravity. After more applications you will see general relativity (or at least so we think).
+
+This sounds abstract as hell, and the particular example is a physicist's wet dream. We don't actually have the starting theory for all the possible things in the universe. Yet, for theories that we do know, we can define such averaging transformations that will help us move on. Let's first examine them at their own merit, and then study them more precisely.
+
+
+
+## Thinking about Fixed Points 
+
+Though *renormalization group flow* is a misnomer, there is sense in which renormalization flow in physics is classified using groups. The idea of a flow though still remains. Let's understand how to think of flow using a much more general mechanism that related vector fields to Lie groups.
+
+> To be rigorous without using unapproachably abstract terminology we will stick to studying everything on a manifold. However, these things can be extended by relaxing assumptions in various ways that we will encounter over time. Ideally, I would like to write these notes in the language of [smooth sets](https://ncatlab.org/nlab/show/geometry+of+physics+--+smooth+sets) one day, because this is the actual rigorous way of thinking that physicists use.
+
+Consider a smooth Riemannian manifold $(M,g)$ and a map $R: M \to M$. We will say that there exists a point $K_\ast \in M$ such that $R(K_\ast) = K_\ast$, aka a fixed point of $R$. We also assume that $R^\ast$ is smooth at $K_\ast$. Let's fix some tools that can help us do calculations around $K_\ast$, namely we can fix a chart $(U,\phi)$ in which $R$ is smooth in, as well as a vielbein $e$ over $U$. 
+
+**<u>Definition:</u>** A **dual $R$ basis** $\epsilon \in \Omega(U)^{\dim M}$ to $e$ is defined such that for any $e_i$
 $$
-\begin{align*}
-J: \mathcal J(V) &\to \mathbb{C}\\
-\phi &\mapsto J(\phi) = K_J(\phi,\phi,\cdots,\phi) = \int_{V^k} K_J(x_1,x_2,\cdots,x_k) \phi(x_1)\phi(x_2)\cdots \phi(x_k)\, dx_1dx_2\cdots dx_k
-\end{align*}
+\epsilon^j(R_\ast e_i) = \delta_{ij}.
 $$
-
-where with some slight abuse of notation we called both the distribution and its associated function $K_J$. A homogeneous $k$ interaction is called **local** if $K_J$ is supported in the diagonal. It is called **quasilocal** if its fourier transform is given by
-
+Namely, these are the **left eigenvectors** of $R$. Given a vector $X \in T_{K_\ast} M$ its corresponding **scaling vector** $u_X \in T_{K_\ast}^\ast M$ is the covector defined for any $Y \in T_{K_\ast} M$ by
 $$
-\hat{K}_J = \delta \cdot \hat F,
+u_X(Y) = e_i(X) \epsilon^i(Y) = X_i \epsilon 
 $$
-
-for some smooth function $F$​. 
-
-Almost all vertex interactions are quasilocal. For example we have calculated some propagators to be
-
-$$
-\langle \phi(p_1) \phi(p_2) \phi(p_3) \phi (p_4)\rangle = \delta(p_1 +p_2+p_3+p_4) \hat f(p_1,p_2,p_3,p_4)
-$$
-
-So this is not an unusual object, but it is in a slightly unusual notation. Let’s look at a nice proposition that can help us express every interactoin perturbatively.
-
-**<u>Proposition:</u>** Let $J$ be a quasilocal interaction of degree $k\geq 1$. Then for any $j>0$ there exists a unique homogeneous differential operator with constant coefficients $D_j : \mathcal J(V^{k-1})^\vee\to \mathcal J(V^{k-1})^\vee$ of order $j$ such that for any $\phi \in \mathcal J(V)$ and any $s \geq 0$ we can write
-
-$$
-J(\phi) = \sum_{j=0}^{s-1} \int_V D_j(\phi,\phi,\cdots, \phi)(x) \phi(x) dx + J^s(\phi)
-$$
-
-where $J^s$ is a quasilocal interaction of degree $s$. 
-
-This is essentially a Taylor expansion for $J$. Which is a nice tool to have!
-
-
-
-
-
 
 
 
