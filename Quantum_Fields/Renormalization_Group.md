@@ -28,17 +28,20 @@ Though *renormalization group flow* is a misnomer, there is sense in which renor
 
 Consider a smooth Riemannian manifold $(M,g)$ and a map $R: M \to M$. We will say that there exists a point $K_\ast \in M$ such that $R(K_\ast) = K_\ast$, aka a fixed point of $R$. We also assume that $R^\ast$ is smooth at $K_\ast$. Let's fix some tools that can help us do calculations around $K_\ast$, namely we can fix a chart $(U,\phi)$ in which $R$ is smooth in, as well as a vielbein $e$ over $U$. 
 
-**<u>Definition:</u>** A **dual $R$ basis** $\epsilon \in \Omega(U)^{\dim M}$ to $e$ is defined such that for any $e_i$
+**<u>Definition:</u>** A **dual $R$ basis** $\epsilon \in \Omega(U)^{\dim M}$ is defined by
 $$
-\epsilon^j(R_\ast e_i) = \delta_{ij}.
+R^\ast \epsilon^j = \lambda^j\epsilon^j.
 $$
-Namely, these are the **left eigenvectors** of $R$. Given a vector $X \in T_{K_\ast} M$ its corresponding **scaling vector** $u_X \in T_{K_\ast}^\ast M$ is the covector defined for any $Y \in T_{K_\ast} M$ by
+where $\lambda^j \in \mathbb{C}$ is an eigenvalue of $R_\ast$. Namely, these are a basis of **left eigenvectors** of $R$. Given a vector $X \in T_{K_\ast} M$ its corresponding **scaling vector** $u_X \in T_{K_\ast}^\ast M$ is the covector defined for any $Y \in T_{K_\ast} M$ by
 $$
-u_X(Y) = e_i(X) \epsilon^i(Y) = X_i \epsilon 
+u_X(Y) = e_i(X) \epsilon^i(Y) = X_i \epsilon^i(Y).
 $$
 
+This has a couple of interesting consequences. That the scaling vectors are particularly nice to work with. 
 
+**<u>Proposition:</u>** Given such a map $R$, the dual basis and scaling vectors have the following properties.
 
+1. $R_\ast = \lambda^i \epsilon^i \otimes e_i$, or in other words $\epsilon^i \circ R_\ast = \lambda^i \epsilon^i$.
 
 
 
