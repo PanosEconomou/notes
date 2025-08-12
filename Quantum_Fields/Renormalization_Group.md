@@ -26,22 +26,44 @@ Though *renormalization group flow* is a misnomer, there is sense in which renor
 
 > To be rigorous without using unapproachably abstract terminology we will stick to studying everything on a manifold. However, these things can be extended by relaxing assumptions in various ways that we will encounter over time. Ideally, I would like to write these notes in the language of [smooth sets](https://ncatlab.org/nlab/show/geometry+of+physics+--+smooth+sets) one day, because this is the actual rigorous way of thinking that physicists use.
 
-Consider a smooth Riemannian manifold $(M,g)$ and a map $R: M \to M$. We will say that there exists a point $K_\ast \in M$ such that $R(K_\ast) = K_\ast$, aka a fixed point of $R$. We also assume that $R^\ast$ is smooth at $K_\ast$. Let's fix some tools that can help us do calculations around $K_\ast$, namely we can fix a chart $(U,\phi)$ in which $R$ is smooth in, as well as a vielbein $e$ over $U$. 
+Consider a smooth manifold $M$ and a function $R: M \to M$. We will say that there exists a point $K_\ast \in M$ such that $R(K_\ast) = K_\ast$, aka a fixed point of $R$. We also assume that $R^\ast$ is smooth at $K_\ast$. Let's fix some tools that can help us do calculations around $K_\ast$, namely we can fix a chart $(U,\phi)$ in which $R$ is smooth and invertible in, we will see the non-invertible case soon. 
 
-**<u>Definition:</u>** A **dual $R$ basis** $\epsilon \in \Omega(U)^{\dim M}$ is defined by
+**<u>Definition:</u>** A **dual $R$ basis** $\epsilon \in \Omega(U)^{\dim M}$ is defined for any $b\in \mathbb{R}$ by
 $$
-R^\ast \epsilon^j = \lambda^j\epsilon^j.
+R^\ast_b \epsilon^j = \lambda^j(b)\epsilon^j.
 $$
-where $\lambda^j \in \mathbb{C}$ is an eigenvalue of $R_\ast$. Namely, these are a basis of **left eigenvectors** of $R$. Given a vector $X \in T_{K_\ast} M$ its corresponding **scaling vector** $u_X \in T_{K_\ast}^\ast M$ is the covector defined for any $Y \in T_{K_\ast} M$ by
+where $\lambda^j \in \mathbb{C}$ is an eigenvalue of $R_\ast$. Using them we can define a bilinear form $g = \delta_{ij} \epsilon^i\otimes \epsilon^j$. Namely, these are a basis of **left eigenvectors** of $R$. Given a vector $X \in T_{K_\ast} M$ its corresponding **scaling vector** $u_X \in T_{K_\ast}^\ast M$ is the covector defined by the musical isomorphism of $g$, i.e. 
 $$
-u_X(Y) = e_i(X) \epsilon^i(Y) = X_i \epsilon^i(Y).
+u_X = \iota_X g = \delta_{ij}\epsilon^i(X) \epsilon^j.
 $$
 
-This has a couple of interesting consequences. That the scaling vectors are particularly nice to work with. 
+Using dual vectors we will examine simplifications of the transformation, but for now, what we really care about is the intuition. Roughly $X$ defines a direction and speed away from the critical point, and $u_X$ retains all this information. The difference is that unlike the components of $X$, the components of $u_X$ simply scale by an eigenvalue.
 
-**<u>Proposition:</u>** Given such a map $R$, the dual basis and scaling vectors have the following properties.
+**<u>Proposition:</u>** Given such a map $R : M\to M$ a vector $X \in T_{K_\ast}M$ then
+$$
+R^\ast u_X = \delta_{ij}\lambda^j\epsilon^i(X) \epsilon^j.
+$$
 
-1. $R_\ast = \lambda^i \epsilon^i \otimes e_i$, or in other words $\epsilon^i \circ R_\ast = \lambda^i \epsilon^i$.
+
+The renormalization group transformation $R$, however, it is not just any function. It depends on some external scaling parameter $b \in \mathbb{R}$. This is known as the **rescaling factor**. The idea is that it quantifies how large our zoom out + averaging  steps are. So in some sense we need to define a series of $R:M\to M$ maps that depend on $b$ and have certain properties. 
+
+**<u>Definition:</u>** A **renormalization group transformation** is a continuous path $R:\mathbb{R}^+ \to C^0(M,M)$ in $C^0(M,M)$ such that $R_0 = \text{Id}_M$, there exists a fixed point $K_\ast \in M$ where $R_b(K_\ast) = K_\ast$ and where $R_b$ is smooth at $K_\ast$ for all $b \in \mathbb{R}^+$, and the function $R_{-}(K)$ is smooth around $0 \in \mathbb{R}^+$ for any $K \in M$.
+
+This is basically a collection of transformations that starts with the identity, and has a fixed point that doesn't depend on the value of scaling. With that we can make some pretty cool assumptions. 
+
+**<u>Proposition:</u>** Given a renormalization group transformation $R$ the eigenvalues of $R^\ast_b$ are given by 
+$$
+\log \lambda^i(b) = y_i + \mathcal{O}(b^{2}),
+$$
+for some $y^i \in \mathbb{R}$.
+
+***Proof:*** We know that $R_0^\ast = 0$ since  $R_0 = \text{Id}_M$. We also know that $R_{b}^\ast$ must be smooth as a function of $b$ at $b=0$ for any point on the manifold. Since the matrix $R^\ast _b$ can be written in terms of (possibly complex) eigenvectors and associated eigenvalues as
+$$
+R^\ast_b =\lambda^i 
+$$
+
+
+
 
 
 
