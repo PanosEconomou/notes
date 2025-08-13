@@ -337,3 +337,34 @@ Calculating  an orbifold really means finding its operator content. If we have t
 
 
 ## The Chiral Algebra
+
+What helped us deal with the Ising orbifold was using modular covariance to constrain what the twisted Hilbert space could be for the defects we were gauging. We did this by explicitly writing down the Hilbert space of the theory in terms of irreducible representations of the symmetry algebra of the CFT. By realizing that they were finitely many made it tractable to use modular covariance, i.e. S and T transformations on a torus, to constrain what it would look like. 
+
+Where there infinitely many irreducible representations we wouldn't have been able to work out the S transformation of the characters. Unfortunately this is the case with most conformal field theories. Even well defined, i.e. local, unitary, CFTs with $c>1$ do not have Hilbert spaces that can be arranged into finitely many Virasoro irreducible unitary highest weight representations. 
+
+There is a silver lining to this, however. In a large class of them, called **rational CFTs**, It is possible to combine the infinitely many Virasoro irreducible representations into **finitely many** irreducible representations of a larger symmetry algebra known  as the **Chiral Algebra**. This is the tool that we will use in order to essentially reuse the techniques we discovered in gauging the spin flip defect in the Ising model.
+
+A rigorous attempt to define the chiral algebra using the existing Hilbert space is not illuminating. Instead, we can think of the chiral algebra as the Lie Algebra that has generators all the modes of the conserved currents in the theory. Since the stress tensor is conserved, and its modes form the Virasoro Algebra, any chiral algebra $\mathcal{A}$ in a well defined CFT will have Virasoro as a subalgebra. 
+
+However, say that there are more conserved currents in the theory. Taking a Virasoro primary and acting with the other modes can result in obtaining a field in a different Virasoro representation. Therefore an irreducible representation of the larger algebra is going to contain multiple Virasoro ones. In rational models it just so happens that it contains enough so that when the Hilbert space is written in terms of $\mathcal{A}$ irreducible representations there are finitely many.
+
+
+
+## Modular Covariance is Still a Thing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
