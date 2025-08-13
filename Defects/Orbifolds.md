@@ -333,3 +333,7 @@ Calculating  an orbifold really means finding its operator content. If we have t
 5. To find the operator content, project out the states that are not invariant under $\mathbb{Z}_n$ from the original Hilbert space.
 6. Find out what the twisted Hilbert spaces that correspond to each $\mathbb{Z}_n$ defect, and project out the states that are not invariant under $\mathbb{Z}_n$.
 7. Combine all of these together into the Orbifold Hilbert space.
+
+
+
+## The Chiral Algebra
