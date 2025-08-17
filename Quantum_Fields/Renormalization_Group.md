@@ -51,17 +51,16 @@ The renormalization group transformation $R$, however, it is not just any functi
 
 This is basically a collection of transformations that starts with the identity, and has a fixed point that doesn't depend on the value of scaling. With that we can make some pretty cool assumptions. 
 
-**<u>Proposition:</u>** Given a renormalization group transformation $R$ the eigenvalues of $R^\ast_b$ are given by 
+**<u>Proposition:</u>** Given a renormalization group transformation $R$ an eigenvalue $\lambda$ of $R^\ast_b$ satisfies 
 $$
-\log \lambda^i(b) = y_i + \mathcal{O}(b^{2}),
+\log \frac{\lambda(b)}{b} = y + \mathcal{O}(b),
 $$
-for some $y^i \in \mathbb{R}$.
+for some $y \in \mathbb{R}$.
 
 ***Proof:*** We know that $R_0^\ast = 0$ since  $R_0 = \text{Id}_M$. We also know that $R_{b}^\ast$ must be smooth as a function of $b$ at $b=0$ for any point on the manifold. Since the matrix $R^\ast _b$ can be written in terms of (possibly complex) eigenvectors and associated eigenvalues as
 $$
-R^\ast_b =\lambda^i 
+R^\ast_b =\lambda^i(b) \epsilon^i(b) \otimes \epsilon_i(b) = \lambda^i(b) \left[\epsilon^i(0)\otimes \epsilon_i(0) + \mathcal{O}(b)\right]
 $$
-
 
 
 
