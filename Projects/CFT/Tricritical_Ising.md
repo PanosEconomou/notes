@@ -466,7 +466,7 @@ $$
 $$
 So $A_2 \oplus \overline A_2 \cdot W v_{ji}$ is a submodule of $A_2 \oplus \overline A_2 \cdot v_{ij}$. Similarly we can show that $W\overline W v_{ij} \propto WW_0 \overline W\overline W_0 v_{ij}$ therefore this is also included in $A_2 \oplus \overline A_2 \cdot v_{ij}$. What we have shown is that
 $$
-W_{ij} \otimes \overline W_{ij} \oplus W_{ji} \otimes \overline W_{ji} = A_2 \oplus \overline A_2 \cdot v_{ij} \oplus A_2 \oplus \overline A_2 \cdot v_{ji}.
+W_{ij} \otimes \overline W_{ij} \oplus W_{ji} \otimes \overline W_{ji} = (A_2 \otimes \overline A_2) \cdot v_{ij} \oplus (A_2 \otimes \overline A_2) \cdot v_{ji}.
 $$
 So we can define 
 $$
