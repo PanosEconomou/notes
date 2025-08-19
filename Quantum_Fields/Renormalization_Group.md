@@ -51,19 +51,31 @@ The renormalization group transformation $R$, however, it is not just any functi
 
 This is basically a collection of transformations that starts with the identity, and has a fixed point that doesn't depend on the value of scaling. With that we can make some pretty cool assumptions. 
 
-**<u>Proposition:</u>** Given a renormalization group transformation $R$ the eigenvalues of $R^\ast_b$ are given by 
+**<u>Proposition:</u>** Given a renormalization group transformation $R$ an eigenvalue $\lambda$ of $R^\ast_b$ satisfies 
 $$
-\log \lambda^i(b) = y_i + \mathcal{O}(b^{2}),
+\frac{\log \lambda(b)}{\log b} = y + \mathcal{O}(b),
 $$
-for some $y^i \in \mathbb{R}$.
+for some $y \in \mathbb{R}$.
 
 ***Proof:*** We know that $R_0^\ast = 0$ since  $R_0 = \text{Id}_M$. We also know that $R_{b}^\ast$ must be smooth as a function of $b$ at $b=0$ for any point on the manifold. Since the matrix $R^\ast _b$ can be written in terms of (possibly complex) eigenvectors and associated eigenvalues as
 $$
-R^\ast_b =\lambda^i 
+R^\ast_b =\lambda^i(b) \epsilon^i(b) \otimes \epsilon_i(b) = \lambda^i(b) \left[\epsilon^i(0)\otimes \epsilon_i(0) + \mathcal{O}(b)\right].
 $$
 
+We also know that $\lambda^i(0) = 0$, therefore, for a point sufficiently close to $b=0$ we can write it as
+$$
+\lambda^i(b) = 0 + (\lambda^i)'(0) b + \mathcal{O}(b^2),
+$$
+which results to the expansion 
+$$
+\log \frac{\lambda(b)}{b} = \log (\lambda^i)'(0) + \mathcal{O}(b).
+$$
 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
+In some sense we want to consider RG transformations only in the case where the rest of the terms in this expansion vanish. However, we can see that locally this is an ok assumption to make. In fact we will see that these variables $y$, i.e. the first term of these expansion can be written as 
 
 
 
