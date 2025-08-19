@@ -574,6 +574,18 @@ Therefore the invariant Hilbert space of $\mathbb{H}_1$ that will be present in 
 
 
 
+## Invariance Under Ising Defects
+
+We need to evaluate the operator $O_L = 1 \otimes L - L \otimes 1$ in the cyclic orbifold, for some defect operator $L \in \text{Ising}$. To do this, we need to find the action of Ising in the twisted sectors of the folded theory. Here is a cute roadmap. 
+
+We have the S-Matrix of the orbifold
+
+
+
+
+
+
+
 
 
 
