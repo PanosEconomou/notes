@@ -534,8 +534,26 @@ $$
 
 Calculating the Hilbert space of the $\sigma$ twisted Hilbert is a challenge, because there isn't an obvious way to use the original representation theory of Virasoro to obtain the new representations of $A_0$ that would appear under twisting with $\sigma$. However, we are kind of lucky because of the interpretation $\sigma$ as a defect line has on $\text{TIsing}^2$. Here is the idea.
 
-We can create the $\sigma$ orbifold by 
+We can use operators in the unfolded theory to define operators in the twisted Hilbert space of the $\sigma$ defect in the folded one. These operators are ones with monodromy $\sigma$. Once we define such primaries, we will use a counting argument to show that these are all of them.
 
+Consider the map $f: \mathbb{C}\to \mathbb{C}$ $z \mapsto z^2$ on the sphere. This maps the sphere onto itself by folding it in some way. If someone encircles the origin once, under this map, they'd've encircled it twice. In some sense this map implements the $\sigma$ twist on our theory. It makes it so the two copies of the circle are connected with each other. Not only that, but this map is conformal. So we know how to pull operators using it. 
+
+This map has two inverses $g_{\pm} : \mathbb{C}\to \mathbb{C}$ where $z \mapsto \pm \sqrt z$. Take a primary field $\phi$ of the unfolded theory with conformal weight $h$. Then we can introduce the fields
+$$
+\tilde \phi_{\pm} = g^\ast_{\pm} \phi = \left(\frac{\pm 1}{2 \sqrt z}\right)^h \phi \circ g_{\pm}.
+$$
+These are operators one can write on the twisted Hilbert space by $\sigma$ on the folded theory. But they aren't particularly nice ones if we want to organize everything in terms of representations of $A_0$ (I'm just saying this, it shouldn't be obvious from what I wrote yet). Notice that the monodromy of these operators is given by
+$$
+\Pi_{S^1} \tilde \phi_{\pm} = e^{-2\pi i h} \tilde \phi_{\pm}.
+$$
+Also notice 
+
+Using these as building blocks we will define the following two fields. 
+$$
+\begin{align*}
+\phi_{\pm} = \tilde \phi_{+} \pm \tilde \phi_- e^{\pi i h}
+\end{align*}
+$$
 
 
 
