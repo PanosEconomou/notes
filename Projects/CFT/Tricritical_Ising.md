@@ -530,7 +530,7 @@ $$
 
 
 
-## Twisted Hilbert space
+### Twisted Hilbert space
 
 Calculating the Hilbert space of the $\sigma$ twisted Hilbert is a challenge, because there isn't an obvious way to use the original representation theory of Virasoro to obtain the new representations of $A_0$ that would appear under twisting with $\sigma$. However, we are kind of lucky because of the interpretation $\sigma$ as a defect line has on $\text{TIsing}^2$. Here is the idea.
 
@@ -538,26 +538,62 @@ We can use operators in the unfolded theory to define operators in the twisted H
 
 Consider the map $f: \mathbb{C}\to \mathbb{C}$ $z \mapsto z^2$ on the sphere. This maps the sphere onto itself by folding it in some way. If someone encircles the origin once, under this map, they'd've encircled it twice. In some sense this map implements the $\sigma$ twist on our theory. It makes it so the two copies of the circle are connected with each other. Not only that, but this map is conformal. So we know how to pull operators using it. 
 
-This map has two inverses $g_{\pm} : \mathbb{C}\to \mathbb{C}$ where $z \mapsto \pm \sqrt z$. Take a primary field $\phi$ of the unfolded theory with conformal weight $h$. Then we can introduce the fields
+This map has two inverses $g_{\pm} : \mathbb{C}\to \mathbb{C}$ where $z \mapsto \pm \sqrt z$. Take a chiral primary $\phi$ of the unfolded theory with conformal weights $h, \bar h$. Then we can introduce the fields
 $$
-\tilde \phi_{\pm} = g^\ast_{\pm} \phi = \left(\frac{\pm 1}{2 \sqrt z}\right)^h \phi \circ g_{\pm}.
+\tilde \phi_{\pm} = g^\ast_{\pm} \phi = \left(\frac{\pm 1}{2 \sqrt z}\right)^h\left(\frac{\pm 1}{2 \sqrt {\bar z}}\right)^{\bar h} \phi \circ g_{\pm}.
 $$
-These are operators one can write on the twisted Hilbert space by $\sigma$ on the folded theory. But they aren't particularly nice ones if we want to organize everything in terms of representations of $A_0$ (I'm just saying this, it shouldn't be obvious from what I wrote yet). Notice that the monodromy of these operators is given by
-$$
-\Pi_{S^1} \tilde \phi_{\pm} = e^{-2\pi i h} \tilde \phi_{\pm}.
-$$
-Also notice 
+These are operators one can write on the twisted Hilbert space by $\sigma$ on the folded theory. But they aren't particularly nice ones if we want to organize everything in terms of representations of $A_0$ (I'm just saying this, it shouldn't be obvious from what I wrote yet). One of the reasons is this proposition.
 
-Using these as building blocks we will define the following two fields. 
+**<u>Proposition:</u>** The monodromy of the pulled back primaries satisfy
+$$
+\Pi_{S^1} \tilde \phi_{\pm} = e^{-2\pi i (h-\bar h)} \tilde \phi_{\mp}.
+$$
+***Proof:*** We notice that $\Pi_{S^1} g_{\pm} = g_\mp$, and then use the fact that $\tilde \phi_{\pm} = g_{\pm}' \phi\circ g_{\pm}$ to plug in the derivative.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Using these as building blocks we will define the following two fields
 $$
 \begin{align*}
-\phi_{\pm} = \tilde \phi_{+} \pm \tilde \phi_- e^{\pi i h}
+\phi_{\pm} = \tilde \phi_{+} \pm \tilde \phi_- = \left(\frac{1}{2 \sqrt z}\right)^h \left(\frac{1}{2 \sqrt {\bar z}}\right)^{\bar h} \left[\phi \circ g_{+} + (-1)^{h-\bar h} \phi \circ g_{-}\right].
 \end{align*}
 $$
 
+**<u>Proposition:</u>** The fields $\phi_{\pm}$ have the following monodromies
+$$
+\begin{align*}
+\Pi_{S^1} \phi_\pm &= \pm e^{-2\pi i (h-\bar h)} \phi_\pm.
+\end{align*}
+$$
+***Proof:*** Plug in using the above proposition.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+The point of introducing these primaries was to build local fields in the twisted Hilbert spaces of the orbifold. What we have seen, is that $\phi_{\pm}$ certainly take values in the root covering of the sphere. Not only that, but with this expression we can calculate that these have "$\sigma$ tails" by taking OPEs with primaries that are local in the folded theory. 
 
+**<u>Lemma:</u>** Consider a primary $\psi \otimes 1$ in the folded theory, where $\psi$ is a primary in the unfolded one with conformal weights $h_\psi, \bar h_\psi$, and the fields $\phi_{\pm}$ obtained from the primary $\phi$ in the unfolded theory with conformal weights $h_{\phi}, \bar h_{\phi}$. Then the following identity holds
+$$
+\Pi_{S^1} \psi\otimes 1(z) \phi_{\pm}(0) = e^{-2\pi i (h_{\psi} -\bar h_{\psi})}1 \otimes \psi(z) \phi_{\pm}(0).
+$$
+***Proof:*** One question we need to answer before proving this is what does it mean to have operators valued in the n-fold cover. What we did to construct $\phi_{\pm}$ was to add the theory on the n-fold cover and measure $\phi$ at some point. Then we pulled it back to the base space into this operator $\phi_{\pm}$. In the base space operators like $\psi \otimes 1$ live undisturbed. The question is if we can interpret these operators in the n-fold cover. The answer is yes! $\psi \otimes 1$ is the operator that measures something like $\psi(x)1(-x)$ where $z = x^2$. So we can write that
+$$
+\langle \psi\otimes 1 (z)\phi_{\pm}(0) \rangle_{\text{TIM}^2, \mathbb{C}} = \langle \psi\otimes 1 (x^2)\phi_{\pm}(0) \rangle_{\text{TIM}^2, \mathbb{C}} = (2x)^{h_{\psi}}(2\bar x)^{\bar h_{\psi}}\langle \psi(x)\phi(0) \rangle_{\text{TIM},\mathbb{C}^2}.
+$$
+Now we can calculate the monodromy because $e^{2\pi i} z = (-x)^2$ so the actual monodromy continues as
+$$
+\Pi_{S^1}\langle \psi\otimes 1 (z)\phi_{\pm}(0) \cdots \rangle_{\text{TIM}^2, \mathbb{C}} = (-1)^{h_{\psi} - \bar h_{\psi}}(2x)^{h_{\psi}}(2\bar x)^{\bar h_{\psi}}\langle \psi(-x)\phi(0) \cdots \rangle_{\text{TIM},\mathbb{C}^2} = (-1)^{h_{\psi} - \bar h_{\psi}}\langle 1\otimes \psi (z)\phi_{\pm}(0) \cdots \rangle_{\text{TIM}^2, \mathbb{C}}
+$$
+Here the $\cdots$ represent other local field insertions, and we have used the fact that $1\otimes \psi$ under our mapping, up to conformal scaling, maps to $\psi(-x)$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+What we have found is that the fields $\phi_{\pm}$ are endpoints of the $\sigma$ defect! Now what we have left to show is that they are primary and the only possible primaries we can write down are the ones corresponding to the primaries of the unfolded theory. However this identification between the twisted Hilbert space and the n-folded cover has enough intuition to proceed further. I will, later, complete this with a rigorous proof.
 
-
+**<u>Theorem:</u>** Let $V_i$ be the irreducible highest weight Virasoro modules present in the unfolded theory. Then, to each corresponds a twisted Virasoro module $U^\sigma_i$ such that the twisted Hilbert space by $\sigma$ of the folded theory is given by
+$$
+\mathbb{H}_{\sigma} = \bigoplus_{i} U_i^\sigma \otimes \overline{U_i^\sigma}.
+$$
+Notice that since these are not regular Virasoro modules they might have different conformal weights and central charge. In fact they do. 
 
 
 
