@@ -620,6 +620,8 @@ Therefore the invariant Hilbert space of $\mathbb{H}_1$ that will be present in 
 
 
 
+# RG Flow Arguments
+
 ## Invariance Under Ising Defects
 
 We need to evaluate the operator $O_L = 1 \otimes L - L \otimes 1$ in the cyclic orbifold, for some defect operator $L \in \text{Ising}$. To do this, we need to find the action of Ising in the twisted sectors of the folded theory. Here is a cute roadmap. 
@@ -628,7 +630,9 @@ We have the S-Matrix of the orbifold
 
 
 
+## g-function under Gauging
 
+We expect the g-function of a conformal defect to change depending on the order of the group being gauged. Here is what that means precisely and why it matters. 
 
 
 
