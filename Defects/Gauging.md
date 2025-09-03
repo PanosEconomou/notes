@@ -108,19 +108,23 @@ Now in order to understand gauging we need to understand what is a gauge theory.
 
 We can imagine this as obtaining the correlation function by averaging over all correlation functions with all possible symmetry defect insertions. However, as we will see, because of the fusion of defects, and their topological nature, most of the terms in this average cancel out. 
 
-# Gauging Invertible Symmetries
+# Gauging $\mathbb{Z}_2$ in $\text{Ising}^{2}$
 
-Before we introduce gauging more rigorously, let's study a motivating example. Throughout this we will use the fact that gauging corresponds to averaging over correlation functions with all possible symmetry defect insertions. The example we will study is that of Gauging the $\mathbb{Z}_2$ defect in a 2D CFT that is local, unitary, on a compact manifold, and has a unique vacuum. 
+Let's walk through a concrete example in which we are gauging $\mathbb{Z}_2$ in the $\text{Ising}^2$ CFT. We will try to work out the details of everything and then make some general statements before we abstractly discuss Gauging.
 
-The procedure we will follow is known as the **orbifold procedure**. The equivalent classical spacetime picture is that if we have a discrete global symmetry that we want to gauge, it would be enough to consider as the target space of our fields the orbifold created by quotienting under the $G$ action. However, because in CFT we are missing the bundle picture it will not be immediately obvious what we are quotienting. 
+What we want to gauge is the $\mathbb{Z}_2$ symmetry furnished by the defect lines $1, \sigma$ where $\sigma$ exchanges the operators in the two copies of the $\text{Ising}$ CFT. The algebra object we want to Gauge is
+$$
+A = 1 \oplus \sigma,
+$$
+with the only possible multiplication map $m$ and unit $u$. Note that we adopt the conventions $m \circ m^{\dagger} = \text{Id}_A$ which implies $u\circ u^{\dagger} = \langle A \rangle\, \text{Id}_{1} = 2\, \text{Id}_{1}$. 
 
-## Orbifold
+## Finding the possible Half Gauging Interfaces
 
-We want to construct a map between *consistent QFTs,* that takes the un-gaged CFT to a gauged CFT. This map is called the **orbifold** and we will carefully define what consistent means in this context. In essence this boils down to locality, unitarity, compactness, and unique ground state, being quantities that are preserved under this map. So let's be more careful.
-
-
-
- 
+Interfaces $I$ are topological defect lines that serve as boundaries between the ungaged and gauged theories. Categorically these are $A$**-modules** since $A$ must end on them. The endpoint would be a map of the form
+$$
+\left(\rho : I \otimes A \to I\right) \in \text{Hom}(I\otimes A, I),
+$$
+which defines the multiplication map of $I$ as a right $A$-module. So to find the possible interfaces we need to find the possible right $A$-modules. An $A$ module can be invariant or variant.
 
 
 
