@@ -215,7 +215,7 @@ Now we can also calculate the stress tensor
 $$
 T_P = X^\ast G - \frac{1}{2} \gamma \text{tr}_\gamma X^\ast G.
 $$
-Notice that this definition is up to convention. In physics we usually multiply this by a real number which is $l^{-2} > 0$, the inverse string length.
+Notice that this definition is up to convention. In physics we usually multiply this by a real number which is $l^{-2} > 0$, the inverse string length. Also notice that $\tr_{\gamma} \gamma = 2$
 
 To show this we need some lemmas.
 
@@ -451,8 +451,6 @@ and has the properties that
    $$
    T = \frac{1}{2}\langle \partial X \otimes \partial X \rangle_{G} = \frac{1}{2} G_{\mu\nu} \partial X^\mu \otimes \partial X^\nu.
    $$
-
-3. 
 
 Notice that these expressions only hold in $M = \mathbb{R}^n$. But they are quite fantastic! 
 
