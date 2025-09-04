@@ -18,3 +18,42 @@ Additional constraints to the Veneziano amplitude is it's pole behavior, i.e. ex
 
 While this did not explain strong hadron interactions, it has a nice geometric interpretations. Quantizing the NG Action we found that this amplitude has the same spectrum. 
 
+
+
+# Some kind of Construction
+
+For a massless particle we can do the famous trick of minimizing the square of the length instead of the length itself. Here is the Lagrangian.
+
+**<u>Definition:</u>** Let $(M,G)$ be a Lorentzian manifold and  $X: I \to M$ an embedding of a 1-dimensional Riemannian manifold $(I,\gamma)$. Then the single free particle action is given by
+$$
+S(X,\gamma) = -\frac{m}{2} \int_{I} \ast \text{tr}_{\gamma} X^\ast G.
+$$
+This trace is given by 
+$$
+\text{tr}_{\gamma} X^\ast G = \gamma^{ij} X^\ast G(e_i,e_j),
+$$
+where $\gamma = \gamma_{ij} e^i\otimes e^j$.
+
+> **Note:** Time to get unconfused about active and passive transformations. given a diffeomorphism $f:M\to M$ such that $f^\ast \sigma = \sigma'$ we have that 
+> $$
+> d\sigma' f'(\sigma') = d\sigma f(\sigma)
+> $$
+> This implies the physics transformation pullback law
+> $$
+> \frac{d\sigma'}{d\sigma} f'(\sigma') = h(\sigma).
+> $$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

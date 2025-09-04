@@ -72,7 +72,7 @@ G(p,p) = - m^2,
 $$
 where $p$ is the momentum of the path defined by $\gamma_\ast \hat e$.
 
-This is exactly what we expect so we are in good hands. In some trvivialization of $I$ with coordinate $\tau$ we can solve for $e = f d\tau$ directly by plugging things in the equation above to obtain 
+This is exactly what we expect so we are in good hands. In some trivialization of $I$ with coordinate $\tau$ we can solve for $e = f d\tau$ directly by plugging things in the equation above to obtain 
 $$
 f(\tau) = \sqrt{-\frac{G(v,v)}{m^2}},
 $$
@@ -95,7 +95,7 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
 
-## Path Integral Propagator
+## Path Integral 
 
 Let's do some quick quantum mechanics and obtain the propagator for restricting the endpoints of the embedding. The propagator in quantum mechanics in the path integral prescription is given by
 $$
@@ -528,7 +528,6 @@ $$
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
-
 
 
 
