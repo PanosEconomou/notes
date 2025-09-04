@@ -489,8 +489,8 @@ $$
 d\ast G_{\mu\nu}dX^\mu = 0.
 $$
 In the case where $M$ is Minkowski space we have that this becomes $ 0 =d\ast d X^\mu = 2 \partial \bar \partial X^\mu $.
-$$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+$$ {z}
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 **<u>Proposition:</u>** The general solution for the homogeneous 2-dimensional wave equation is given by 
 $$
