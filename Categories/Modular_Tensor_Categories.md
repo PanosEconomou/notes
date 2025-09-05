@@ -101,9 +101,9 @@ Another adjective that we have conveniently left unaddressed is semisimplicity. 
 
 ***Proof:*** Let $f \in \text{End}(X)$, since $X$ is simple its kernel $\text{ker\,}f = (K,k)$ is such that $K \in \{0,X\} $. If $K = X$ then $f = 0$. Similarly, because $X$ is simple, $\text{Im\,}f = I$ is such that $I \in \{0,X\}$.  We know that $I=0 \iff f = 0$. Then if $I=X$ then $K=0$ which implies that $f$ is an isomorphism. Therefore, every element in $\text{End}(X)$ must be invertible except $0$. The only finite dimensional $k$-module that is every element invertible is $k$ up to isomorphism. Therefore $\text{End}(X)= k \text{Id}_X$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
-
+This is a powerful lemma, that will be at the heart of building our computational tools for topological defect calculations. 
 
 
 
