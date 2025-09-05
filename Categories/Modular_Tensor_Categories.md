@@ -20,8 +20,89 @@ The physical data encoded in the Modular Tensor Category associated with a ratio
 
 Therefore the *bulk Hilbert space* $\mathbb{H}$ of the theory can be arranged in representations of the chiral algebra $\mathcal{B}$. To be more precise we often assume that there are two such algebras, the chiral $\mathcal{B}$ and the antichiral algebra $\overline{\mathcal{B}}$ so $\mathbb{H}$ is actually arranged in representations of $\mathcal{B} \otimes \overline{\mathcal{B}}$. Since representations of the tensor product can be written in terms of tensor product of representations, we will focus for a while on representations of $\mathcal{B}$.
 
+**<u>Definition:</u>** Let $\rho_V: \mathcal{B} \to \text{Aut\,}V$, $\rho_{w}: \mathcal{B}\to \text{Aut\,}W$ be two linear representations of $\mathcal{B}$. Then an **intertwiner** $u: V\to W$ is a linear map such that for any $X \in \mathcal{B}$ the diagram
+$$
+\xymatrix{
+V \ar[r]^u\ar[d]_{\rho_V(X)}& W\ar[d]^{\rho_W(X)}\\
+V \ar[r]^u& W
+}
+$$
+commutes.
+
+## The category of $\mathcal{B}$-modules
+
+In other words it is a structure preserving map in the category of $\mathcal{B}$-modules. In fact, we can take the category of $\mathcal{B}$ modules with arrows the intertwiners. That category admits the structure of a direct sum between its elements which allows us to generate all the elements from the irreducible modules. To be more precise using the language already presented in these notes the category $\mathcal{C}$ of $\mathcal{B}$-modules is a **semisimple Abelian strict tensor category with $\mathbb{C}$ as its ring**. 
+
+These are explained in other notes, but here is a brief review of the terms. 
+
+**<u>Definition:</u>** A category $\mathcal{C}$ is **Abelian** if 
+
+1. Every $\text{Hom}$-set is an Abelian Group where the composition of arrows respects the group operation.
+
+2. There exists a **zero object** $0\in \mathcal{C}$ such that $\text{Hom}(0,0) = 0 = \text{Id}_0$ the identity of the group.
+
+3. (**Existence of Direct Sums**) For any objects $X,Y \in \mathcal{C}$ there exists an object $X\oplus Y \in \mathcal{C}$ unique up to isomorphism, and arrows $\pi_X:X\oplus Y \to X$, $\pi_Y:X\oplus Y \to Y$, $\iota_X:X\to X\oplus Y$, $\iota_Y:Y\to X\oplus Y$ such that
+   $$
+   \begin{align*}
+   \pi_{X} \circ \iota_X = \text{Id}_X && \pi_{Y} \circ \iota_Y = \text{Id}_Y
+   \end{align*}
+   $$
+
+4. For any arrow $f: X\to Y$ there exists a sequence
+   $$
+   \xymatrix{
+   & & I \ar[dr]^j & \\
+   K \ar[r]^k & X \ar[ur]^i \ar[rr]^f &  & Y \ar[r]^c & C, 
+   }
+   $$
+   such that $j\circ i = f$, $\text{ker\,}f = (K,k)$, $\text{coker\,}f = (C,c)$, $\text{ker\,}c=(I,j)$ and $\text{coker\,}k = (I,i)$. This sequence is called the **canonical decomposition of** $f$ and $I$ is called the **image** of $f$.
 
 
+
+Remember that the definition of the **kernel** for an arrow $f:X\to Y$ is the pair $(K,k)$, where $K \in \mathcal{C}$ and $k:K\to X$ such that $f\circ k = 0 \in \text{Hom}(K,Y)$, reversing the arrow's orientation we have the definition is for the cokernel. 
+
+Schematically, an abelian category is one where we can talk about direct sums, where the set of structure preserving maps are nicely behaving in some way, and we can talk about images of objects in the way that we are used to form vector spaces. To continue we need tensor products! We will incorporate the structure of [monoidal categories](../Categories/Monoidal_Categories.md) inside tensor categories to reduce the number of definitions.
+
+**<u>Definition:</u>** A **tensor category** $\mathcal{C}$ over a rink $k$ is an Abelian category such in which each $\text{Hom}$ space is a $k$-vector space and there exists a functor $\otimes: \mathcal{C}\times \mathcal{C}\to \mathcal{C}$ called the **tensor product** with a natural isomorphism $\alpha : (\cdot \otimes \cdot) \otimes \cdot \to^\ast \cdot \otimes (\cdot \otimes \cdot)$ called the **associator map**, a **unit object** $1\in \mathcal{C}$, and natural isomorphisms of the form $\lambda:1\otimes \cdot \to \cdot$  and $\rho: \cdot \otimes 1\to \cdot$  known as the **left and right unitors** such that
+
+1. **Triangle Identity**: The following diagram commutes for all $X,Y \in \mathcal{C}$
+   $$
+   \xymatrix{
+   & X\otimes Y  &\\
+   (X\otimes 1) \otimes Y \ar[ur]^{\rho_X \otimes \text{Id}_Y} \ar[rr]^{\alpha_{X,1,Y}}& & X\otimes (1 \otimes Y) \ar[ul]_{\text{Id}_{X}\otimes \lambda_Y}
+   }
+   $$
+   
+
+2. **Pentagon Identity**: The following diagram commutes for all $X,Y,Z,W \in \mathcal{C}$.
+   $$
+   \xymatrix{
+   & ((W\otimes X)\otimes Y) \otimes Z\ar[dl]_{\alpha_{W,X,Y}\otimes \text{Id}_Z}\ar[dr]^{\alpha_{W\otimes X,Y,Z}} &\\
+   (W\otimes (X\otimes Y)) \otimes Z\ar[d]^{\alpha_{W,X\otimes Y, Z}} & & (W\otimes X)\otimes (Y \otimes Z)\ar[d]_{\alpha_{W,X,Y\otimes Z}}\\
+   W\otimes ((X\otimes Y) \otimes Z)\ar[rr]^{\text{Id}_W \otimes \alpha_{X,Y,Z}} & & W\otimes (X\otimes (Y \otimes Z))
+   }
+   $$
+
+3. **Bilinearity**: The functor $\otimes$ is $k$-bilinear on morphisms, i.e. $(f+g)\otimes (h+k) = f\otimes h + f\otimes k + g\otimes h + g\otimes k$, and $0\otimes f = f\otimes 0 = 0\otimes 0$.
+
+4. **Unity**: $\text{Hom}(1,1) \eqqcolon\text{End}(1) \cong k$.
+
+These are all the niceness properties of the tensor product we require. In essence these are the axioms we want for a *nicely behaving* tensor product. But now if ever in doubt we can go back to these and prove stuff to enhance our intuition. 
+
+We have a couple more qualifiers left. The first one is strictness. The idea is that $1\otimes X = X = X\otimes 1$ this is formalized like this.
+
+**<u>Definition:</u>** A tensor category $\mathcal{C}$ is **strict** if for any object $X \in \mathcal{C}$ the left and right unitors are identity, i.e. $\lambda_X = \rho_X = \text{Id}_{X}$. It is also called **finite** if each $\text{Hom}$-space is a finite dimensional $k$-module.
+
+Another adjective that we have conveniently left unaddressed is semisimplicity. This is a niceness condition that restricts pathological cases and unlocks many nice interpretations.
+
+**<u>Definition:</u>** Let $\mathcal{C}$ be an abelian category and $X \in \mathcal{C}$ be a nonzero object, then $X$ is **simple** iff $0$ and $X$ are its only proper subobjects. 
+
+**<u>Lemma:</u>** In a finite tensor category $\mathcal{C}$ over an algebraically closed field $k$ an object $X$ is simple iff $\text{End}(X) \cong k \text{Id}_X$.
+
+***Proof:*** Let $f \in \text{End}(X)$, since $X$ is simple its kernel $\text{ker\,}f = (K,k)$ is such that $K \in \{0,X\} $. If $K = X$ then $f = 0$. Similarly, because $X$ is simple, $\text{Im\,}f = I$ is such that $I \in \{0,X\}$.  We know that $I=0 \iff f = 0$. Then if $I=X$ then $K=0$ which implies that $f$ is an isomorphism. Therefore, every element in $\text{End}(X)$ must be invertible except $0$. The only finite dimensional $k$-module that is every element invertible is $k$ up to isomorphism. Therefore $\text{End}(X)= k \text{Id}_X$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
 
 

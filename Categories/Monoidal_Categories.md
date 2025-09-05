@@ -29,9 +29,9 @@ This bijectivity property might seem an unnecessary complication in the definiti
 1. **(Pentagon Axiom)** the following diagram commutes 
    $$
    \xymatrix{
-   & ((W\otimes X)\otimes Y) \otimes Z\ar[dl]\ar[dr] &\\
-   (W\otimes (X\otimes Y)) \otimes Z\ar[d] & & (W\otimes X)\otimes (Y \otimes Z)\ar[d]\\
-   W\otimes ((X\otimes Y) \otimes Z)\ar[rr] & & W\otimes (X\otimes (Y \otimes Z))
+   & ((W\otimes X)\otimes Y) \otimes Z\ar[dl]_{\alpha_{W,X,Y}\otimes \text{Id}_Z}\ar[dr]^{\alpha_{W\otimes X,Y,Z}} &\\
+   (W\otimes (X\otimes Y)) \otimes Z\ar[d]^{\alpha_{W,X\otimes Y, Z}} & & (W\otimes X)\otimes (Y \otimes Z)\ar[d]_{\alpha_{W,X,Y\otimes Z}}\\
+   W\otimes ((X\otimes Y) \otimes Z)\ar[rr]^{\text{Id}_W \otimes \alpha_{X,Y,Z}} & & W\otimes (X\otimes (Y \otimes Z))
    }
    $$
    for all objects $W,X,Y,Z \in \mathcal{C}$ and with suitably chosen natural isomorphisms $\alpha$.  
