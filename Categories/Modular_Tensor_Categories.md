@@ -236,7 +236,7 @@ The sign in front of the identity is known as the **Frobenius-Schur indicator** 
 
 Using a ribbon category we have already imparted so many niceness conditions. Yet, the data of a Rational CFT give us even more nice stuff! The final nail in the coffin is called *modularity* and it is in some sense a finiteness condition. Here is how to think about it.
 
-
+We start with an amazing thing, the **linking S-matrix**. This object 
 
 
 
