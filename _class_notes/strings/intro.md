@@ -45,6 +45,66 @@ where $\gamma = \gamma_{ij} e^i\otimes e^j$. This action is given by some versio
 
 
 
+# Classical String Quantization
+
+We will start by considering the standard boring stupid canonical quantization where we "promote" stuff.
+
+We define position and momenta like so
+$$
+\begin{align*}
+X^\mu &&  P_{\mu} \coloneqq T\eta_{\mu\nu} X^{\nu},
+\end{align*}
+$$
+where $X:\Sigma \to M$ is the embedding of the worldsheet. These interpreted as $M$ sections on $\Sigma$ where we have stuff
+$$
+[X^\mu(\sigma),P_{\nu}(\sigma')] = i\delta^\mu_\nu \delta(\sigma - \sigma'),
+$$
+with the rest of the commutators vanishing. Remember that we are quantizing on a slice for some $\tau = 0$, that's why these are only functions of $\sigma$. Using the expansion we wrote last time we can rebase this in terms of modes, and extract their commutation properties. Doing so we find that with free boundary conditions the modes satisfy
+$$
+\begin{align*}
+[\alpha_{m}^\mu, \alpha_{n}^\nu] &= m \delta_{m+n,0} \eta^{\mu\nu}\\
+[\tilde \alpha_{m}^\mu, \tilde \alpha_{n}^\nu] &= m \delta_{m+n,0} \eta^{\mu\nu},
+\end{align*}
+$$
+and using our standard expectations for creating and annihilation operators for oscillators we can find that these are proportional to the creator and annihilation operators, i.e. 
+$$
+\left(\alpha^{\mu}_{m}\right)^\dagger = \alpha^{\mu}_{-m}.
+$$
+So far we haven't gauged fixed everything though. Pullbacks under analytic and antianalytic maps can be canceled by Weyl invariance and that still exists here trough field redefinition.
+
+Now we have a choice, when it comes to constraining the stress tensor. If we impose the vanishing of the diagonal of the stress tensor, in the thermal basis, before quantization this is called **light-cone quantization**. The other way to do this is called **covariant quantization**. This is quantize first impose constraints later, very Faddeev Popov flavored.
+
+> Turns out when you do this quantization of imposing weak vanishing of $T$ on a "physical subspace" of the Hilbert space, any condition leads to equivalent solutions for the physical subspace. 
+
+What we want to do is for two states $\phi,\psi \in \mathcal{H}_{\text{phys}}$ then
+$$
+\langle \phi, T\psi \rangle = 0.
+$$
+But when we do this, we can't get rid of the negative norm states seeping into our physical Hilbert space. We find that we can rephrase  this condition as 
+$$
+\begin{align*}
+(L_0 - a) \psi &= 0\\
+L_m \psi &= 0 \ \forall m>0.
+\end{align*}
+$$
+and if $a > 1$ we have those pesky negative states seeping into the Hilbert space. The way to do this is to write these conditions in terms of modes and then start solving. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
