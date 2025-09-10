@@ -35,7 +35,7 @@ In other words it is a structure preserving map in the category of $\mathcal{B}$
 
 In fact, we can take the category of $\mathcal{B}$ modules with arrows the intertwiners. That category admits the structure of a direct sum between its elements which allows us to generate all the elements from the irreducible modules. 
 
-## Working with nice Tensors
+## Working with nice tensors
 
 To be more precise using the language already presented in these notes the category $\mathcal{C}$ of $\mathcal{B}$-modules is a **semisimple Abelian strict tensor category with $\mathbb{C}$ as its ring**. 
 
@@ -50,7 +50,7 @@ These are explained in other notes, but here is a brief review of the terms.
 3. (**Existence of Direct Sums**) For any objects $X,Y \in \mathcal{C}$ there exists an object $X\oplus Y \in \mathcal{C}$ unique up to isomorphism, and arrows $\pi_X:X\oplus Y \to X$, $\pi_Y:X\oplus Y \to Y$, $\iota_X:X\to X\oplus Y$, $\iota_Y:Y\to X\oplus Y$ such that
    $$
    \begin{align*}
-   \pi_{X} \circ \iota_X = \text{Id}_X && \pi_{Y} \circ \iota_Y = \text{Id}_Y
+   \pi_{X} \circ \iota_X = \text{Id}_X && \pi_{Y} \circ \iota_Y = \text{Id}_Y && \iota_X \circ \pi_X + \iota_Y \circ \pi_Y = 1_{X\oplus Y}
    \end{align*}
    $$
 
@@ -114,7 +114,7 @@ This is a powerful lemma, that will be at the heart of building our computationa
 $$
 f = \sum_{r=1}^kg_{r} \circ h_{r}
 $$
-where $h_r \in \text{Hom}(V,U_r)$, $g_{r} \in \text{Hom}(U_r,W)$ where $U_r \in \mathcal{U}$.
+where $h_r \in \text{Hom}(V,U_r)$, $g_{r} \in \text{Hom}(U_r,W)$ where $U_r \in \mathcal{U}$, such a family is called **dominant**.
 
 **<u>Corollary:</u>** For any two objects $X,Y$ of a semisimple category $\mathcal{C}$
 $$
@@ -163,20 +163,20 @@ This is how we think of duality in physics in terms of evaluation maps that we d
 
 Though nicely behaving tensors do not fully encapsulate the Moore-Seiberg data. There are more things that a healthy CFT needs. Part of this data is in braiding. The physical motivation comes from studying Anyons in 2D crystals, but its beyond the scope of this. Here is how to categorify it.
 
-**<u>Definition:</u>** A a strict tensor category $\mathcal{C}$ is called **braided** if there exists a natural isomorphism $R: \cdot \otimes \cdot \to^\ast \cdot \otimes \cdot$ with components for any $X,Y\in \mathcal{C}$, $R_{X,Y} : X\otimes Y \to Y\otimes X$ such that for any $X,Y,Z \in \mathcal{C}$ the following diagrams commute.
+**<u>Definition:</u>** A a strict tensor category $\mathcal{C}$ is called **braided** if there exists a natural isomorphism $r: \cdot \otimes \cdot \to^\ast \cdot \otimes \cdot$ with components for any $X,Y\in \mathcal{C}$, $r_{X,Y} : X\otimes Y \to Y\otimes X$ such that for any $X,Y,Z \in \mathcal{C}$ the following diagrams commute.
 $$
 \xymatrix@C=5pc{
-& X\otimes (Y \otimes Z) \ar[r]^{R_{X,Y\otimes Z}} & (Y\otimes Z) \otimes X\ar[dr]^{\alpha_{Y,Z,X}} & \\
-(X\otimes Y) \otimes Z \ar[ur]^{\alpha_{X,Y,Z}} \ar[dr]^{R_{X,Y}\otimes \text{Id}_Z} & & & Y\otimes (Z\otimes X) \\
-& (Y\otimes X) \otimes Z\ar[r]^{\alpha_{Y,X,Z}} & Y\otimes (X\otimes Z) \ar[ur]^{\text{Id}_Y\otimes R_{X,Z}}
+& X\otimes (Y \otimes Z) \ar[r]^{r_{X,Y\otimes Z}} & (Y\otimes Z) \otimes X\ar[dr]^{\alpha_{Y,Z,X}} & \\
+(X\otimes Y) \otimes Z \ar[ur]^{\alpha_{X,Y,Z}} \ar[dr]^{r_{X,Y}\otimes \text{Id}_Z} & & & Y\otimes (Z\otimes X) \\
+& (Y\otimes X) \otimes Z\ar[r]^{\alpha_{Y,X,Z}} & Y\otimes (X\otimes Z) \ar[ur]^{\text{Id}_Y\otimes r_{X,Z}}
 }
 $$
 
 $$
 \xymatrix@C=5pc{
-& (X\otimes Y) \otimes Z \ar[r]^{R_{X\otimes Y, Z}} & (Y\otimes Z) \otimes X\ar[dr]^{\alpha_{Z,X,Y}^{-1}} & \\
-X\otimes (Y \otimes Z) \ar[ur]^{\alpha_{X,Y,Z}^{-1}} \ar[dr]^{\text{Id}_X \otimes R_{Y,Z}} & & & (Z\otimes X) \otimes Y \\
-& X\otimes (Z\otimes Y)\ar[r]^{\alpha_{X,Z,Y}^{-1}} & (X\otimes Z) \otimes Y \ar[ur]^{R_{X,Z}\otimes \text{Id}_Y}
+& (X\otimes Y) \otimes Z \ar[r]^{r_{X\otimes Y, Z}} & (Y\otimes Z) \otimes X\ar[dr]^{\alpha_{Z,X,Y}^{-1}} & \\
+X\otimes (Y \otimes Z) \ar[ur]^{\alpha_{X,Y,Z}^{-1}} \ar[dr]^{\text{Id}_X \otimes r_{Y,Z}} & & & (Z\otimes X) \otimes Y \\
+& X\otimes (Z\otimes Y)\ar[r]^{\alpha_{X,Z,Y}^{-1}} & (X\otimes Z) \otimes Y \ar[ur]^{r_{X,Z}\otimes \text{Id}_Y}
 }
 $$
 
@@ -186,7 +186,7 @@ When we think of these objects as diagrams they become so nice and motivated. At
 
 **<u>Definition:</u>** Let $\mathcal{C}$ be a tensor category and $\mathbb{1}:\mathcal{C}\to\mathcal{C}$ be the identity functor. Then a natural isomorphism $\theta : \mathbb{1} \to \mathbb{1}$ such that
 $$
-\theta_{X\otimes Y} = (\theta_X \otimes \theta_Y) \circ R_{Y,X} \circ R_{X,Y},
+\theta_{X\otimes Y} = (\theta_X \otimes \theta_Y) \circ r_{Y,X} \circ r_{X,Y},
 $$
 is called a **twist**. A **ribbon** is a twist such that $(\theta_X)^\ast = \theta_{X^\ast}$. A tensor category with a ribbon is called a **ribbon category**.
 
@@ -194,7 +194,7 @@ There are interesting thing happening in a ribbon category. Namely that it ident
 
 **<u>Proposition:</u>** The natural transformation with components $u_{X}:X\to X^{\ast \ast}$ give by
 $$
-u_X \coloneqq (\text{ev}_X \otimes \text{Id}_{X^{\ast\ast}}) \circ (R_{X,X^\ast} \otimes \text{Id}_{X^{\ast \ast}}) \circ (\text{Id}_X \otimes \text{coev}_{X^\ast})
+u_X \coloneqq (\text{ev}_X \otimes \text{Id}_{X^{\ast\ast}}) \circ (r_{X,X^\ast} \otimes \text{Id}_{X^{\ast \ast}}) \circ (\text{Id}_X \otimes \text{coev}_{X^\ast})
 $$
 is an isomorphism.
 
@@ -236,7 +236,57 @@ The sign in front of the identity is known as the **Frobenius-Schur indicator** 
 
 Using a ribbon category we have already imparted so many niceness conditions. Yet, the data of a Rational CFT give us even more nice stuff! The final nail in the coffin is called *modularity* and it is in some sense a finiteness condition. Here is how to think about it.
 
-We start with an amazing thing, the **linking S-matrix**. This object 
+We start with an amazing thing, the **linking S-matrix**. This object contains a bunch of data that describe our category. It is not an input per se, but it is descriptive enough to help us classify the Ribbon Categories.
+
+**<u>Definition:</u>** Let $\mathcal{C}$ be a braided category and let $X,Y \in \mathcal{C}$ be simple objects. Then the **linking s-symbol** $s_{XY}$ is defined by
+$$
+s_{Y,X} \coloneqq (\text{ev}_{X}\otimes \text{ev}_{Y^\ast}) \circ (\text{Id}_{X^\ast} \otimes r_{Y,X} \otimes \text{Id}_{Y^\ast}) \circ (\text{Id}_{X^\ast} \otimes r_{X,Y} \otimes \text{Id}_{Y^\ast}) \circ (\text{coev}_{X^\ast} \otimes \text{coev}_{Y}) \in \mathbb{C}.
+$$
+This is weird af, but the diagram is simply a linking diagram of the two lines corresponding to $X,Y$. When there are finitely many primaries the linking S symbols form a matrix known as the **linking s-Matrix**. If the linking s-matrix is nondegenerate then we can normalize it into a unitary matrix  $S$ known as the **S-matrix**.
+
+**<u>Definition:</u>** A semisimple ribbon category with a finite number of simple objects (realistically a finite number of isomorphism classes of simple objects) and a nondegenerate linking s-matrix is a **modular tensor category**.
+
+> **Pedantic Sidenote:** This definition needs some unpacking. The most complicated part is this finite number of isomorphism classes of simple objects. The idea is that a Category can have infinitely many simple objects, however, there can be only finitely many truly distinct ones. That's why we divide by isomorphism. So in principle if we pick a finite dominant family of simple objects $\mathcal{U}$ and take the dual $X^\ast$ of an object $X \in \mathcal{U}$ then there should be an object $\bar X \cong X^\ast$ that is in $\mathcal{U}$. In physics literature we often abuse notation to isomorphism classes as objects so that we don't have to deal with that explicitly.
+
+Yet, apart from this stupid thing, the really interesting part is to talk about the qualifier **modular**. That has to do directly with the non degeneracy of the linking s -matrix. 
+
+**<u>Theorem:</u>** Let $\mathcal{C}$ be a modular tensor category. Then, the S-matrix as well as the following matrix $T$ defined for every $X,Y \in \mathcal{U}$ by
+$$
+T_{X,Y} = \alpha_X \delta_{X,Y} \theta_X,
+$$
+where $\alpha_X \in \mathbb{C}$ is some appropriately chosen normalization, and $\theta_X$ is the $X$ component of the twist of $\mathcal{C}$, define a representation of the modular group.
+
+We will see later what this normalization is and we will prove this theorem in a bit.
+
+
+
+## Grothendieck Ring of $\mathcal{C}$
+
+A modular tensor category comes with a free ring! In particular the tensor product over the isomorphism classes of objects in $\mathcal{C}$ defines a commutative and associative ring over $\mathbb{Z}$ known as the **Grothendieck ring** $K_0(\mathcal{C})$ of $\mathcal{C}$. Picking a dominant set $\mathcal{U} \subset \mathcal{C}$ lets us pick a basis for this ring because of semisimplicity.  
+
+**<u>Lemma:</u>** Let $\mathcal{C}$ be a tensor category and $\mathcal{U} \subset \mathcal{C}$ a dominant family of simple objects. Then the Grothendieck ring $K_0(\mathcal{C})$ structure constants are given for any $X,Y \in \mathcal{U}$ by
+$$
+X \cdot Y = \sum_{Z \in \mathcal{U}} N_{XY}^Z Z,
+$$
+where $N_{XY}^Z = \text{dim\,}\text{Hom}(X\otimes Y,Z)$.
+
+***Proof:*** We will take this opportunity to show that $K_0(\mathcal{C})$ is a ring over $\mathbb{Z}$. We take as addition the direct sum of $\mathcal{C}$ as an abelian category, which is already associative and commutative (up to isomorphism). However, what it lacks are inverses. We can either introduce formal inverses in $K_0(\mathcal{C})$ (as in the original Grothendieck construction) or straight up give up and call it a semiring instead. The identity object under tensor product gives us a great unit, while the $0$ object of the monoid gives a great additive unit. Associativity of the tensor product is also true up to isomorphism, the isomorphisms being components of the associator map $\alpha$. Distributivity of multiplication is already in the axioms. 
+
+Now for the structure constants. We know that there is an isomorphism $f:X\otimes Y \to \bigoplus_{r \in I} U_r$, where $U_r \in \mathcal{U}$ and $I$ is some finite index set by semisimiplicity. Dominance gives us that
+$$
+f = \sum_{r\in I} g_r \circ h_r,
+$$
+where $h_r : X\otimes Y \to U_r$ and $g_r:U_r \to \bigoplus_{k \in I} U_k$ 
+
+We also know that if $U_i,U_j$ are simple with $i\neq j$ then $\text{Hom}(U_i,U_j) = 0$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+
+
+
+
+
 
 
 

@@ -18,7 +18,7 @@ Let's start with a bunch of definitions, as it is often obligatory in category t
 
 1. Every hom-set is an Abelian group such that composition of arrows respect the additive structure
 2. There exists a zero object $0\in\mathcal{C}$ such that $\text{Hom\,}_C(0,0) = 0$, the additive identity of the group, or in this case $\text{Id}_0$.
-3. *(Existence of direct sums)* For any objects $X,Y\in \mathcal{C}$ there exists an object $X\oplus Y \in \mathcal{C}$, unique up to isomorphism, and arrows $\pi_X: X\oplus Y \to X$, $\pi_Y:X\oplus Y \to Y$, $\iota_X : X \to X\oplus Y$, $\iota_Y:Y\to X\oplus Y$ such that $\pi_X \iota_X = \text{Id}_X$ and $\pi_Y\iota_Y = \text{Id}_Y$. 
+3. *(Existence of direct sums)* For any objects $X,Y\in \mathcal{C}$ there exists an object $X\oplus Y \in \mathcal{C}$, unique up to isomorphism, and arrows $\pi_X: X\oplus Y \to X$, $\pi_Y:X\oplus Y \to Y$, $\iota_X : X \to X\oplus Y$, $\iota_Y:Y\to X\oplus Y$ such that $\pi_X \iota_X = \text{Id}_X$, $\pi_Y\iota_Y = \text{Id}_Y$, and $\pi_X + \iota_Y \circ \pi_Y = 1_{X\oplus Y}$.
 
 **<u>Corollary:</u>** Every additive category $\mathcal{C}$ is equipped with a functor $\oplus : \mathcal{C}\times \mathcal{C} \to \mathcal{C}$, that we defined as the **direct product**.
 
@@ -39,6 +39,21 @@ With additive stuff it makes sense to define kernels and co-kernels.
 **<u>Definition:</u>** Let $\mathcal{C}$ be an additive category, and $f:X\to Y \in \mathcal{C}$ be  an arrow. Then the **kernel** of $f$ denoted by $\text{ker\,}f$ is an object $K \in \mathcal{C}$ together with an arrow $k:K\to X$ such that $fk = 0$. The **cokernel** (the categorical dual of the kernel) is an object $C\in \mathcal{C}$ together with an arrow $c:C\to Y$ such that $cf=0$.
 
 **<u>Proposition:</u>** If the kernel exists then for any $k':K'\to K$ such that $fk' = 0$ then there exists a unique isomorphism $l:K'\to K$ such that $kl=k'$ and dually for the cokernel. 
+
+Here is another useful proposition for an additive category.
+
+**<u>Proposition:</u>** Let $A,B,C \in \mathcal{C}$ and $\mathcal{C}$ be an additive category. Then
+$$
+\text{Hom}(A\oplus B,C) \cong \text{Hom}(A,C) \times \text{Hom}(B,C).
+$$
+***Proof:*** Take a map $f:A\oplus B \to C$. Then, we can take the map that assigns $f\mapsto (f_A\coloneqq f\pi_A,f_B\coloneqq f\pi_B)$, where $f_A \in \text{Hom}(A,C)$, and $f_B \in \text{Hom}(B,C)$. Now we can create the map that assigns $(f_A,f_B) \mapsto h \coloneqq f_A\iota_A + f_B \iota_B$. We will show that $h=f$.
+$$
+h = f\pi_A\iota_A + f\pi_B\iota_B = f(\iota_A \pi_A + \iota_B\pi_B) =f1 = f.
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
 
