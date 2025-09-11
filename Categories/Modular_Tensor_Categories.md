@@ -276,13 +276,12 @@ Now for the structure constants. We know that there is an isomorphism $f:X\otime
 $$
 f = \sum_{r\in I} g_r \circ h_r,
 $$
-where $h_r : X\otimes Y \to U_r$ and $g_r:U_r \to \bigoplus_{k \in I} U_k$ 
+where $h_r : X\otimes Y \to U_r$ and $g_r:U_r \to \bigoplus_{k \in I} U_k$. Suppose that there exists $J \subset I$ such that it is the largest index set where $U_i = U_j$ for $i,j \in J$. We can call $$
 
 We also know that if $U_i,U_j$ are simple with $i\neq j$ then $\text{Hom}(U_i,U_j) = 0$. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
-
 
 
 
