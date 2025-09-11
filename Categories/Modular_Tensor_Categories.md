@@ -240,7 +240,7 @@ We start with an amazing thing, the **linking S-matrix**. This object contains a
 
 **<u>Definition:</u>** Let $\mathcal{C}$ be a braided category and let $X,Y \in \mathcal{C}$ be simple objects. Then the **linking s-symbol** $s_{XY}$ is defined by
 $$
-s_{Y,X} \coloneqq (\text{ev}_{X}\otimes \text{ev}_{Y^\ast}) \circ (\text{Id}_{X^\ast} \otimes r_{Y,X} \otimes \text{Id}_{Y^\ast}) \circ (\text{Id}_{X^\ast} \otimes r_{X,Y} \otimes \text{Id}_{Y^\ast}) \circ (\text{coev}_{X^\ast} \otimes \text{coev}_{Y}) \in \mathbb{C}.
+s_{Y,X} \coloneqq (\text{ev}_{X}\otimes \text{ev}_{Y^\ast}) \circ (\text{Id}_{X^\ast} \otimes r_{Y,X} \otimes \text{Id}_{Y^\ast}) \circ (\text{Id}_{X^\ast} \otimes r_{X,Y} \otimes \text{Id}_{Y^\ast}) \circ (\text{coev}_{X^\ast} \otimes \text{coev}_{Y}) \eqqcolon \text{tr}(r_{YX}\circ r_{XY}) \in \mathbb{C}.
 $$
 This is weird af, but the diagram is simply a linking diagram of the two lines corresponding to $X,Y$. When there are finitely many primaries the linking S symbols form a matrix known as the **linking s-Matrix**. If the linking s-matrix is nondegenerate then we can normalize it into a unitary matrix  $S$ known as the **S-matrix**.
 
@@ -272,17 +272,45 @@ where $N_{XY}^Z = \text{dim\,}\text{Hom}(X\otimes Y,Z)$.
 
 ***Proof:*** We will take this opportunity to show that $K_0(\mathcal{C})$ is a ring over $\mathbb{Z}$. We take as addition the direct sum of $\mathcal{C}$ as an abelian category, which is already associative and commutative (up to isomorphism). However, what it lacks are inverses. We can either introduce formal inverses in $K_0(\mathcal{C})$ (as in the original Grothendieck construction) or straight up give up and call it a semiring instead. The identity object under tensor product gives us a great unit, while the $0$ object of the monoid gives a great additive unit. Associativity of the tensor product is also true up to isomorphism, the isomorphisms being components of the associator map $\alpha$. Distributivity of multiplication is already in the axioms. 
 
-Now for the structure constants. We know that there is an isomorphism $f:X\otimes Y \to \bigoplus_{r \in I} U_r$, where $U_r \in \mathcal{U}$ and $I$ is some finite index set by semisimiplicity. Dominance gives us that
+Now for the structure constants. Pick any two $X,Y \in \mathcal{U}$, then we know that by semisimplicity 
 $$
-f = \sum_{r\in I} g_r \circ h_r,
+X\otimes Y = \bigoplus_{Z\in \mathcal{U}} N_{XY}^Z Z,
 $$
-where $h_r : X\otimes Y \to U_r$ and $g_r:U_r \to \bigoplus_{k \in I} U_k$. Suppose that there exists $J \subset I$ such that it is the largest index set where $U_i = U_j$ for $i,j \in J$. We can call $$
+where $N_{XY}^Z \in \mathbb{Z}_{\geq 0}$ and the notation $3X = X\oplus X\oplus X$ and so on. In this case we can see that
+$$
+\text{Hom}(X\otimes Y, Z) \cong \bigoplus_{W \in \mathcal{U}} N_{XY}^W\text{Hom}(W,Z).
+$$
+Since $W,Z$ are simple we have that $\text{Hom}(W,Z) = \mathbb{C}$ iff $W=Z$ otherwise it is $0$. Therefore we can rearrange this to be
+$$
+s\text{Hom}(X\otimes Y,Z) \cong N_{XY}^Z \mathbb{C} \implies \text{dim\,}\text{Hom}(X\otimes Y,Z) = N_{XY}^Z.
+$$
 
-We also know that if $U_i,U_j$ are simple with $i\neq j$ then $\text{Hom}(U_i,U_j) = 0$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+## Being Careful About Orientation Reversal
+
+There is one more piece of pedantry that is usually swept under the rug in a traditional introduction of modular tensor categories in a CFT. It has to do with the fact that if we pick a dominant family $\mathcal{U}$ of simple objects in a modular tensor category the dual of any object is not necessarily in there. However there must always be an object there isomorphic to the dual in order to preserve dominance. Let's make that more precise.
+
+**<u>Proposition:</u>** Let $\mathcal{U}$ be a dominant family in a modular tensor category $\mathcal{C}$, and consider a simple object $U\in \mathcal{U}$. Then there exists $\bar U \in \mathcal{U}$ such that $\bar U \cong U^\ast$.
+
+***Proof:*** By dominance there exist an isomorphism between a direct sum of members in $\mathcal{U}$ and $U^\ast$. Since $U$ is simple then so is $U^\ast$, which means that it can only be isomorphic to a single simple object. We call that $\bar U$.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
+***Note:*** This also means that $\bar U^\ast \cong U$.
 
+**<u>Definition:</u>** Let $\mathcal{C}$ be a modular tensor category and $\mathcal{U}$ a dominant family. Then for any $U \in \mathcal{U}$ we define a **reorientation** isomorphism $\pi_U \in \text{Hom}(U,\bar U^\ast)$ such that if $U \neq \bar U$ then
+$$
+\text{ev}_{\bar U} \circ (\pi_U \otimes \text{Id}_{\bar U}) = \text{ev}_{U^\ast} \circ(\text{Id}_{U} \otimes \pi_{\bar U}).
+$$
+**<u>Corollary:</u>** There exists a unique reorientation isomorphism for each simple object in a dominant family.
+
+***Proof:*** Notice that since it is an isomorphism of simple objects, then given one of them $\pi$, any other can be expressed as $c \pi$ for some $c \in \mathbb{C}$. The identity in the definition fixes $c$ in the case of $U \neq \bar U$. In the other case, $c$ is fixed without that additional constraint.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
 
 
