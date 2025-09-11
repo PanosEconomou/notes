@@ -91,7 +91,13 @@ and if $a > 1$ we have those pesky negative states seeping into the Hilbert spac
 
 
 
+## Lightcone Quantization
 
+Now let's try to fix the stress tension condition before quantization. Will we get a different theory? Who knows? It's called lightcone quantization because the coordinates we are using are two that resize on the two components of a lightcone and the remaining spatial ones.
+
+If we follow through (Polchinski ch.1) we will find that forcing Lorenz invariance requires that the $D=26$ and $a=1$. Not only that, but this is the case where the two quantization schemes coincide! This is so cool! 
+
+Conditions we want to force are symmetry constraints. If our target space's dimension is $D$ we know that a massless representation must be a representation of $SO(D-2)$. This fixes $a$. The reason why we have 2 less dimensions is that for a massless vector operator we have a gauge fixing condition and a gauge invariance which remove 2 degrees of freedom.
 
 
 
