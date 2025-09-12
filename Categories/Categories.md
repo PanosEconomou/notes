@@ -276,7 +276,7 @@ There are multiple ways that we can think of arrows and we often encounter them 
 1. An arrow $f:a\to b$ is **invertible** if there exists an arrow $f^{-1}:b\to a$ such that $f\circ f^{-1} =1_a$ and $f^{-1}\circ f = 1_b$, then $f^{-1}$ is called an **inverse of** $f$. 
 2. The objects $a,b$ are **isomorphic** in the category $A$ if there is an invertible arrow between them. Then we write $a\cong b$. This relation is reflexive, symmetric, and transitive.
 3. An arrow $f:a\to b$ is **endo** in $A$ iff $a=b$.
-4. An arrow $f:a\to b$ is **monic** in $A$ if for any two parallel arrows $g,h:c\to a$ we have that $f\circ g = f\circ h \implies g=h$. (This is a generalization of surjective maps in sets)
+4. An arrow $f:a\to b$ is **monic** in $A$ if for any two parallel arrows $g,h:c\to a$ we have that $f\circ g = f\circ h \implies g=h$. (This is a generalization of injective maps in sets)
 5. An arrow $f:a\to b$ is **epi** in $A$ if for any two parallel arrows $g,h:a\to b$ we have that $ g\circ f = h\circ f \implies g=h$. 
 6. A **left inverse** of $h:b\to a$ of an arrow $f:a\to b$ is such that $h\circ f = 1_a$. A **right inverse** or **section** of an arrow $f:a\to b$ is an arrow $h:b\to a$ such that $f\circ h = 1_b$. 
 7. An arrow $f:a\to a$ is **idempotent** when $f^2 \coloneqq f\circ f = f$.
