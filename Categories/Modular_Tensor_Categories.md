@@ -357,6 +357,20 @@ v_{jik}^{\alpha}\circ r_{ij} \eqqcolon \sum_{\beta} R_{\alpha \beta}^{ijk} v_{ij
 $$
 
 
+# Examples
+
+Let's use the formalism to understand two of the most important and ubiquitous examples of Conformal field theories. The free boson and the $\mathfrak{sl}(2)$ WZW models. We will construct the category and all the relevant data, namely the F matrices and R matrices from the overall chiral algebra.
+
+## Free Boson
+
+Consider the theory of a free field $\phi : \mathbb{C} \to S^1$ where the radius of the circle is given by $R$. In this case, there are multiple conserved currents we can introduce. 
+
+
+
+
+
+$R^2= \frac{p}{q}$ where $p,q \in \mathbb{N}$ are coprime. Then 
+
 
 
 
