@@ -307,7 +307,7 @@ $$
 $$
 One more interesting thing is that the above theorem imposes a cool result for the weights.
 
-**<u>Corollary:</u>** let $\alpha$ be a root of $\mathfrak{g}$ and $\lambda$ be a weight in a finite dimensional unitary representation of $\mathfrak{g}$. Then for any $H$ in the basis of the Cartan subalgebra of $\mathfrak{g}$ there exists an integer $k \in \mathbb{Z}$ such that
+**<u>Corollary:</u>** let $\alpha$ be a root of $\mathfrak{g}$ and $\lambda$ be a weight in a finite dimensional unitary representation of $\mathfrak{g}$. Then for any $H$ in the basis of the Cartan subalgebra of $\mathfrak{g}$ then
 $$
 \frac{2 (\lambda,\alpha)}{(\alpha, \alpha)} \in \mathbb{Z},
 $$
