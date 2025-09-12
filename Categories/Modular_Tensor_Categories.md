@@ -307,10 +307,56 @@ $$
 $$
 **<u>Corollary:</u>** There exists a unique reorientation isomorphism for each simple object in a dominant family.
 
-***Proof:*** Notice that since it is an isomorphism of simple objects, then given one of them $\pi$, any other can be expressed as $c \pi$ for some $c \in \mathbb{C}$. The identity in the definition fixes $c$ in the case of $U \neq \bar U$. In the other case, $c$ is fixed without that additional constraint.
+***Proof:*** Notice that since it is an isomorphism of simple objects, then given one of them $\pi$, any other can be expressed as $c \pi$ for some $c \in \mathbb{C}$. The identity in the definition fixes $c$ in the case of $U \neq \bar U$. In the other case, where $U = \bar U$, we have that $\pi_U = \pi_{\bar U}$  
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
+
+## Bases
+
+While we are trying to find a basis independent way to calculate things, it would be foolish to not use it to find properties that bases should hold. This way we can see what is up to normalization and what it isn't. One way to "pick a basis" would be to pick bases for the trivalent hom spaces. 
+
+More specifically, working in a modular tensor category $\mathcal{C}$ with a fixed dominant family of simple objects $\mathcal{U}$, for any $i,j,k \in \mathcal{U}$ we can pick a basis $\{v_{ijk}^a\}_{a=1}^{\text{dim\,}\text{Hom}(i\otimes j,k)}$ and a dual basis $\{u_{kij}^a\}_{a=1}^{\text{dim\,}\text{Hom}(k,i\otimes j)}$ such that
+$$
+v_{ijk}^\alpha \circ u_{kij}^\beta = \delta^{\alpha\beta} \text{Id}_k.
+$$
+One convenient choice we can make is that for any simple $i\in \mathcal{U}$ we have that
+$$
+v_{1i\bar i} = v_{i1\bar i} = \text{Id}_{i} = u_{i1\bar i} = u_{i\bar i 1},
+$$
+where $1 \in \mathcal{U}$ is the tensor unit object of $\mathcal{C}$.
+
+**<u>Proposition:</u>** Let $i\in \mathcal{U}$ be a simple dominant object in $\mathcal{C}$. Then there exist $\lambda_i,\hat \lambda_i \in \mathbb{C}$ such that $\lambda_i \hat \lambda_i = (\text{dim\,}i)^{-1}$ and
+$$
+\begin{align*}
+v_{\bar ii1} = \lambda_i \text{ev}_{i^\ast} \circ (\pi_i\otimes 1_{i}) && u_{1\bar ii} = \hat \lambda_i  (\pi_i^{-1}\otimes 1_{i}) \circ \text{coev}_{i^\ast}.
+\end{align*}
+$$
+***Proof:*** Drawing the pictures makes this clear, however, from an algebraic point of view, the existence of these numbers is guaranteed because $\text{dim\,}\text{Hom}(i\otimes i^\ast,1)=\text{dim\,}\text{Hom}(i,i) = 1$. The normalization property is done by imposing the normalization condition
+$$
+1 = v_{\bar ii1} \circ u_{1\bar ii} = \lambda_i \hat \lambda_i \text{tr\,} \pi_i\circ \pi_i^{-1} = \lambda_i\hat\lambda_i \text{dim\,}i.
+$$
+
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+
+Even though the tensor product is strict in a modular tensor category there are still ambiguities in decomposing said spaces. For example let $i,j,k,l \in \mathcal{U}$ be simple dominant objects. Then we the space $\text{Hom}(i\otimes j\otimes k, l)$ can be decomposed in two different ways.
+$$
+i\otimes j \otimes k = (i\otimes j) \otimes k \cong \bigoplus_m N_{ij}^m m \otimes k,
+$$
+but also 
+$$
+i\otimes j \otimes k = i\otimes (j \otimes k) \cong \bigoplus_m N_{jk}^m i \otimes m.
+$$
+In terms of Hom spaces, these two must also be isomorphic, and the change of basis maps are called the $F$-Symbols.
+
+In a similar vein, we can express the braiding $r_{ij}$ in the basis we have chosen by defining the $R$-matrix for any $i,j,k \in \mathcal{U}$ as
+$$
+v_{jik}^{\alpha}\circ r_{ij} \eqqcolon \sum_{\beta} R_{\alpha \beta}^{ijk} v_{ijk}.
+$$
+
+
 
 
 
