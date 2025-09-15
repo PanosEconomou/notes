@@ -135,7 +135,7 @@ $$
 $$
 Therefore $\alpha_E(H)$ is an eigenvalue of $H$.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 Notice how we can completely define each $E$ using a set of roots $\alpha_E$. In other words there is a one-one and onto map between the roots and the remaining generators $E$ of the algebra. So in some sense, that we will make precise later, fixing the roots and the Cartan subalgebra defines our simple Lie algebra!
 
@@ -330,7 +330,7 @@ Notice that this corollary applies to the adjoint representation as well! So we 
 
 **<u>Lemma:</u>** If $\alpha, \beta$ are roots, then 
 $$
-\beta - \frac{2(\beta, \alpha)}{(\alpha,\alpha)} \alpha,
+s_{\alpha}(\beta) = \beta - \frac{2(\beta, \alpha)}{(\alpha,\alpha)} \alpha,
 $$
  is a also a root. 
 
@@ -363,8 +363,10 @@ $$
 
 ## Weyl Group
 
-Playing with the reflections $s_\alpha : \mathfrak{h}^\ast \to \mathfrak{h}^\ast$ associated with a root $\alpha \in \Delta$ we have stumbled upon a group! That is the group of reflections associated with roots where the generators are $s_\alpha$ and the group operation composition. This is called the Weyl group.
-
+Playing with the reflections $s_\alpha : \mathfrak{h}^\ast \to \mathfrak{h}^\ast$ associated with a root $\alpha \in \Delta$ we have stumbled upon a group! That is the group of reflections associated with roots where the generators are $s_\alpha$ and the group operation composition. This is called the Weyl group. Its generators are defined for any simple root $\alpha \in S$ by
+$$
+s_{\alpha}(\beta)  = \beta - (\alpha^\vee,\beta).
+$$
 **<u>Proposition:</u>** Let $W$ be the Weyl group associated with a root system $\Delta$ with simple roots $S \subset \Delta$. Then $\Delta = WS$ under the defining group action of $W$ on $\mathfrak{h}^\ast$.
 
 
@@ -611,7 +613,7 @@ $$
 
 Finally the next step in our classification journey. What we have shown so far is that knowing the simple roots and the Cartan Matrix we can reconstruct the simple Lie algebra. We can put all this information in diagrams that can help us quickly codify them. 
 
-> **<u>The rule:</u>** Given the simple roots of a Lie algebra, as well as the Cartan matrix we obtain a graph by assigning a simple root to each node where nodes with the same length are the same color (we only need two types of nodes). Then we connect nodes $\alpha,\beta$ with $A_{\alpha \beta}^2 = (\alpha,\beta) \in \{0,1,2,3\}$ lines. 
+> **<u>The rule:</u>** Given the simple roots of a Lie algebra, as well as the Cartan matrix we obtain a graph by assigning a simple root to each node where nodes with the same length are the same color (we only need two types of nodes). Then we connect nodes $\alpha,\beta$ with $A_{\alpha \beta}A_{\beta\alpha} = (\alpha,\beta) \in \{0,1,2,3\}$ lines. 
 
 That's it! From that we can obtain the algebra! For example the Dynkin diagram for $\mathfrak{su}(2)$ is a single dot.
 
