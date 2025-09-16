@@ -363,7 +363,37 @@ Let's use the formalism to understand two of the most important and ubiquitous e
 
 ## Free Boson
 
-Consider the theory of a free field $\phi : \mathbb{C} \to S^1$ where the radius of the circle is given by $R$. In this case, there are multiple conserved currents we can introduce. 
+Consider the theory of a free field $\phi \in \Gamma(E)$ where $\pi: E \to \mathbb{C}$ is an $S^1$ bundle over $\mathbb{C}$ with a connection $\nabla$ and a radius of the circle given by $R$. The Lagrangian for a free massless boson $\mathcal{L}: \Gamma(E) \to \Omega^2(\mathbb{C})$ is given by
+$$
+\mathcal{L}(\phi) \coloneqq \int_{\mathbb{C}} d\phi \wedge \ast d\phi,
+$$
+where $d$ is the induced differential, i.e. $d\phi = d_{\nabla}\phi = \nabla \phi \in \Omega^1(\mathbb{C},E)$ (these technical details don't matter because $S^1$ is a lie group with a well defined addition). There is a natural action of $U(1)$ on $\Gamma(E)$ by taking any $h \in U(1)$ and doing $\phi + h$. Using this we can derive a conserved current $J_T(\phi) = d\phi.$
+
+Notice that since we are in $\mathbb{C}$ we can actually split this current into two parts, the chiral and antichiral parts using Dulbeault operators.
+$$
+\begin{align*}
+J(\phi) \coloneqq \partial \phi && \bar J(\phi) \coloneqq \bar \partial \phi && \implies J_T = J +\bar J.
+\end{align*}
+$$
+In fact we can see that the stress tensor of the theory can be written as $T = J_T \otimes J_T$ and it can also be split into chiral and antichiral parts after making it traceless
+$$
+\begin{align*}
+T' = T - \frac{g }{2} \text{Tr\,}T = J\otimes J + \bar J \otimes \bar J.
+\end{align*} 
+$$
+(this is happening because our metric is off diagonal in complex coordinates) This is particularly nice because within $J$ we have all the details we need to define a chiral algebra $\mathcal{B}$. Notice that $J$ can be written as $J(\phi) = J(z)dz$ for some function $J(z) \in \mathbb{C}$. Therefore we can define modes by picking an embedding of $\gamma:S^1\to \mathbb{C}$ sufficiently small and centered at the origin and doing
+$$
+J_n(\phi) \coloneqq \int_{\gamma} J(\phi) z^{n}.
+$$
+What is interesting about these objects is that after quantization they obey the following commutation rules which we could show by calculating the canonical symplectic form on $\Gamma(E)$ and then quantizing. 
+$$
+[J_n,J_m] = n \delta_{n,-m}.
+$$
+
+Anyway! The point is that the algebra $\mathcal{B}$ with generators $J_n$ is the affine Lie algebra $\hat{\mathfrak{u}}(1)$.
+
+
+
 
 
 
