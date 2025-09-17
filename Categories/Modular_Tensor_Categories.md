@@ -379,7 +379,7 @@ In fact we can see that the stress tensor of the theory can be written as $T = J
 $$
 \begin{align*}
 T' = T - \frac{g }{2} \text{Tr\,}T = J\otimes J + \bar J \otimes \bar J.
-\end{align*} 
+\end{align*}
 $$
 (this is happening because our metric is off diagonal in complex coordinates) This is particularly nice because within $J$ we have all the details we need to define a chiral algebra $\mathcal{B}$. Notice that $J$ can be written as $J(\phi) = J(z)dz$ for some function $J(z) \in \mathbb{C}$. Therefore we can define modes by picking an embedding of $\gamma:S^1\to \mathbb{C}$ sufficiently small and centered at the origin and doing
 $$
@@ -396,20 +396,51 @@ Anyway! The point is that the algebra $\mathcal{B}$ with generators $J_n$ is the
 
 
 
+# Algebra Objects
+
+Algebra objects of Modular Tensor Categories play central role in physics particularly when defining boundary conditions or constructing modular invariants. 
+
+## Definition
+
+Here is an abstract presentation along with a motivation.
+
+**<u>Definition:</u>** An object $A$ of a modular tensor category $\mathcal{C}$ is an **algebra object** if there exist a **multiplication morphism** $m: A\otimes A \to A$ and a **unit** morphism $\eta:1\to A$ such that
+$$
+\begin{align*}
+m\circ(m\otimes \text{Id}_A) = m\circ (\text{Id}_A \otimes m) && m\circ (\eta \otimes \text{Id}_A) = m = m\circ (\text{Id}_A \otimes \eta).
+\end{align*}
+$$
+The first equation is the associativity of the algebra's multiplication, while the second shows the behavior of the unit.
+
+***Note:*** The reason why $A$ is called an **algebra** comes from generalizing the notion of a unital algebra in the context of vector spaces. An algebra is a vector space with a multiplication map and a unit. If we take $\mathcal{C}$ to be the category of vector spaces over a field then the two definitions coincide. 
+
+**<u>Example:</u>** Let $U \in \mathcal{C}$ be an object in a tensor category, then the object $A = U\otimes U^\ast$ together with $m = \text{Id}_U \otimes \text{ev}_U \otimes \text{Id}_{U^\ast}$ and $\eta = \text{coev}_U$ is an algebra object.
+
+The multiplication morphism can be expressed in a basis. In particular if we are in a semisimple tensor category then every algebra can be given as a sum of finitely many simple objects. We often have picked a dominant family of simple objects $\mathcal{U}$ with appropriately chosen trivalent junction vectors which we call a basis. If we canonically pick embeddings i.e. arrows $\alpha: a \to A$ as well as projectors $\bar \alpha : A \to a$ for each (copy of each) simple object $a$ that appears in the expansion of $A$ then we can write that
+$$
+\bar \gamma \circ m\circ (\alpha \otimes \beta) = \bigoplus_{\delta =  1}^{N_{ab}^c} m_{a\alpha,b\beta}^{c\gamma, \delta} v_{ab}^{c,\delta},
+$$
+where $v_{ab}^{c,\delta} : a\otimes b \to c$ is a basis element.
 
 
 
-$R^2= \frac{p}{q}$ where $p,q \in \mathbb{N}$ are coprime. Then 
+## Boundaries in a CFT 
 
+When we have a CFT with chiral algebra $\mathcal{B}$ the Hilbert space of local operators which is obtained by quantizing at a specific spacelike slice is a representation of $\mathcal{B}\otimes \mathcal{B}$. However, we have seen [here](../Quantum_Fields/Boundaries.md) that in the presence of a conformal boundary the Hilbert space we obtain when quantizing on a spacelike slice is a representation of $\mathcal{B}$ only. 
 
+Therefore, we expect this to be an element of the Modular Tensor Category $\mathcal{C}= \text{Rep}(\mathcal{B})$ we have been describing so far. We will show that that element is also an algebra with some extra special properties! Those will end up being the existence of a co-unit, but we will do this shortly. 
 
+Let the Hilbert space be $A = \bigoplus_{i\in I_A} i\in \mathcal{C}$, where $I_A$ is a collection of simple objects in $\mathcal{C}$. Consider two boundary fields $\psi(x),\phi(y)$ corresponding to simple objects $\psi,\phi \in I_A$. Then we can calculate their operator product expansion to be
+$$
+\psi(x) \phi(y) \sim \sum_{\chi \in I_{\psi\otimes\phi}} C_{\psi,\phi}^{\chi}(x-y)^{\Delta_\chi - \Delta_{\psi} - \Delta_{\phi}}\chi(y),
+$$
+where the equivalence $\sim$ is up to terms involving descendants of boundary fields associated to simple objects. Notice that since $I_A$ is a family of simple objects it might involve repetitions, so multiplicity indices are implicit. To get rid of the equivalence relation and write down the full OPE we need to define a basis for the space of couplings. We will end up constructing vertex operators. 
 
-
-
-
-
-
-
+Let's consider the following operators $V_{ab}^c(z) \in \text{Hom}(a\otimes b,c)$, we can interpret each as a map $V_{ab}^c(z):a \to \text{Hom}(b,c)$, where $z$ is some point in $\mathbb{C}$, as fields they are given by $V_{ab}^c:a\to \text{Hom}(b,c) [[z,z^{-1}]]z^{\Delta_c - \Delta_a - \Delta_b}$, where $\text{Hom}(b,c) [[z,z^{-1}]]$ is notation for the set of formal Laurent series with coefficients in $\text{Hom}(b,c)$. For each $a,b,c \in \mathcal{U}$ we can pick $N_{ab}^c$ vertex operators. What we can also pick is a basis of each $a \in I_A$ of eigenstates of $L_0$, which we will call $B_a$ and only impose that $v_a \in B_a$ where $v_a$ is the highest weight vector of $a$. One last thing is that for each of the basis vectors $v \in B$, by operator state correspondence there is an operator $\Psi_v$ that we will make use of. Now we are finally ready to fully write the OPE like so
+$$
+\psi(x)\phi(y) = \sum_{\chi \in I_{\psi\otimes \phi}} C_{\psi\phi}^\chi(x-y)^{- \Delta_{\psi} - \Delta_{\phi}} \sum_{v \in B_{\chi}} \langle v, V_{\psi \phi}^{\chi}(z=1,v_a) v_{\phi} \rangle (x-y)^{\Delta(v)} \Psi_{v}(y).
+$$
+This isn't obvious, but there is a way in which the choice $V_{ab}^c(z)$ is a natural object. We can consider a sphere with three punctures at $0,\infty,$ and $z \in \mathbb{C}$, we can call that manifold $M_z$. Our CFT $\mathcal{Z}$ assigns a state $V(z) \coloneqq \mathcal{Z}(M_z) \in A\otimes A\otimes A^\ast$ (that is because of the orientations of the three punctures) which can be further decomposed into components $V_{ab}^c(z):a\otimes b\otimes c^\ast$ where $a,b,c \in I_A$. These are the vertex operators. The choice is "natural" because we didn't make any insertions in the CFT we just found the state that connects the three Hilbert spaces. a
 
 
 
