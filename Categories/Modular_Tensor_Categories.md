@@ -438,9 +438,75 @@ where the equivalence $\sim$ is up to terms involving descendants of boundary fi
 
 Let's consider the following operators $V_{ab}^c(z) \in \text{Hom}(a\otimes b,c)$, we can interpret each as a map $V_{ab}^c(z):a \to \text{Hom}(b,c)$, where $z$ is some point in $\mathbb{C}$, as fields they are given by $V_{ab}^c:a\to \text{Hom}(b,c) [[z,z^{-1}]]z^{\Delta_c - \Delta_a - \Delta_b}$, where $\text{Hom}(b,c) [[z,z^{-1}]]$ is notation for the set of formal Laurent series with coefficients in $\text{Hom}(b,c)$. For each $a,b,c \in \mathcal{U}$ we can pick $N_{ab}^c$ vertex operators. What we can also pick is a basis of each $a \in I_A$ of eigenstates of $L_0$, which we will call $B_a$ and only impose that $v_a \in B_a$ where $v_a$ is the highest weight vector of $a$. One last thing is that for each of the basis vectors $v \in B$, by operator state correspondence there is an operator $\Psi_v$ that we will make use of. Now we are finally ready to fully write the OPE like so
 $$
-\psi(x)\phi(y) = \sum_{\chi \in I_{\psi\otimes \phi}} C_{\psi\phi}^\chi(x-y)^{- \Delta_{\psi} - \Delta_{\phi}} \sum_{v \in B_{\chi}} \langle v, V_{\psi \phi}^{\chi}(z=1,v_a) v_{\phi} \rangle (x-y)^{\Delta(v)} \Psi_{v}(y).
+\psi(x)\phi(y) = \sum_{\chi \in I_{\psi\otimes \phi}} C_{\psi\phi}^\chi(x-y)^{- \Delta_{\psi} - \Delta_{\phi}} \sum_{v \in B_{\chi}} \langle v, V_{\psi \phi}^{\chi}(z=1,v_\psi) v_{\phi} \rangle (x-y)^{\Delta(v)} \Psi_{v}(y).
 $$
-This isn't obvious, but there is a way in which the choice $V_{ab}^c(z)$ is a natural object. We can consider a sphere with three punctures at $0,\infty,$ and $z \in \mathbb{C}$, we can call that manifold $M_z$. Our CFT $\mathcal{Z}$ assigns a state $V(z) \coloneqq \mathcal{Z}(M_z) \in A\otimes A\otimes A^\ast$ (that is because of the orientations of the three punctures) which can be further decomposed into components $V_{ab}^c(z):a\otimes b\otimes c^\ast$ where $a,b,c \in I_A$. These are the vertex operators. The choice is "natural" because we didn't make any insertions in the CFT we just found the state that connects the three Hilbert spaces. a
+This isn't obvious, but there is a way in which the choice $V_{ab}^c(z)$ is a natural object. We can consider a sphere with three punctures at $0,\infty,$ and $z \in \mathbb{C}$, we can call that manifold $M_z$. Our CFT $\mathcal{Z}$ assigns a state $V(z) \coloneqq \mathcal{Z}(M_z) \in A\otimes A\otimes A^\ast$ (that is because of the orientations of the three punctures) which can be further decomposed into components $V_{ab}^c(z):a\otimes b\otimes c^\ast$ where $a,b,c \in I_A$. These are the vertex operators. The choice is "natural" because we didn't make any insertions in the CFT we just found the state that connects the three Hilbert spaces. 
+
+Using this expression on a 4-point function, we can get a constraint on the numbers $C$ in terms of the $F$ symbols of $\mathcal{C}$. These conditions are identical to the conditions for the components of the multiplication map in the basis defined by $V$. This is awesome! So we can say that $A$ is an algebra with multiplication map given by the OPE coefficients and unit the map corresponding to the identity field in the theory. Namely $A$ must contain $1$ as one of its terms, therefore the vacuum state $v \in 1$ defines an intertwiner $\eta:1 \to A$ through mapping it onto itself in $A$, so in some sense the unit is the canonical injection $\iota_1 : 1 \to A$. 
+
+Yet there is more! 
+
+**<u>Proposition:</u>**  Let $\psi(x)$ be a boundary field, then if $\Delta(\psi) \neq 0$
+$$
+\langle \psi(x) \rangle = 0.
+$$
+The cool thing though is that it might be possible for $\langle \psi(x) \rangle \neq 0$ when the conformal weight of $\psi$ vanishes! We define an intertwiner $\epsilon: A\to 1$ such that $\epsilon(v) = \langle \Psi_v(1) \rangle$. We can do some CFT to show that this map $\epsilon$ looks like a unit for an algebra but in acting in the opposite direction. We use this as motivation to nail down some nicer structures we can add to the Algebras involved in a CFT. 
+
+
+
+## Frobenius Algebra Objects
+
+We start our exploration of the additional algebra objects by understanding the role of the $\epsilon : A \to 1$ arrow we stumbled upon before. 
+
+**<u>Definition:</u>** An object $A$ in a tensor category $\mathcal{C}$ is a **coalgebra** with if there is a **coproduct** $\Delta: A \to A\otimes A$ and a **counit** $\epsilon: A \to 1$ such that
+$$
+\begin{align*}
+(\Delta \otimes \text{Id}_A) \circ \Delta = (\text{Id}_A \otimes \Delta) \circ \Delta && (\epsilon \otimes \text{Id}_A) \circ \Delta = \text{Id}_A = (\text{Id}_A \otimes \epsilon) \circ \Delta.
+\end{align*} 
+$$
+Notice that a coalgebra is simply the categorical dual of an algebra. An interesting object for us is an algebra that is also a coalgebra!
+
+**<u>Definition:</u>** An object $A$ in a tensor category $\mathcal{C}$ is a is a **Frobenius algebra** if it is both an algebra and a coalgebra such that
+$$
+(\text{Id}_A \otimes \Delta) \circ (m \otimes \text{Id}_A) = \Delta \circ m = (\Delta \otimes \text{Id}_A) \circ (\text{Id}_A \otimes m).
+$$
+$A$ is a **special algebra** if it is both an algebra and a coalgebra such that there exist number $\beta_1, \beta_A \in \mathbb{C}$ where 
+$$
+\begin{align*}
+\epsilon \circ \eta = \beta_{1} \text{Id}_1  && \Delta \circ m = \beta_A \text{Id}_A.
+\end{align*} 
+$$
+If the $\mathcal{C}$ is also sovereign, then an algebra object $A$ is **symmetric** if there exists an arrow $\epsilon: A\to 1$ such that 
+$$
+[(\epsilon \circ m)\otimes \text{Id}_{A^\ast}] \circ (\text{Id}_A \otimes \text{coev}_{A}) = [ \text{Id}_{A} \otimes(\epsilon \circ m)] \circ (\text{coev}_{A^\ast} \otimes \text{Id}_A ).
+$$
+If $\mathcal{C}$ is braided and $A$ is an algebra object, then it is also **commutative** if
+$$
+m \circ r_{A,A} = m.
+$$
+Finally, an algebra object $A$ is **haploid** if $\text{dim\,}\text{Hom}(1,A) = 1$. 
+
+Phew! That was a lot of definitions. However, it will be possible to show that the map $\epsilon(v) = \langle \Psi_v(1) \rangle$ is indeed a counit for $A$ turning $A$ into a special symmetric Frobenius algebra. Since we gave a bunch of definitions here, it is important to hint on something that will become super useful later on. In physics we care about representations of these algebras. For example we care about the category of modules of these algebras. It could happen that two different algebra objects have the same representation theory. Then we call the two algebras **Morita equivalent** and for the purposes of physics that is enough of a distinction. Turns out that niceness properties like haplodity or commutativity are not invariant under Morita equivalence. Therefore it might be possible in a lot of cases, to identify an ugly algebra to work with, but have a nicer one inside its Morita class. We will play this game a lot, and talk about Morita equivalence more precisely, but the idea is here. 
+
+Until then, here is a nice theorem.
+
+**<u>Theorem:</u>** The structure of a symmetric special Frobenius algebra is unique up to normalization, i.e. up to a number $\xi \in \mathbb{C}^\times$, and every algebra coming from a boundary condition that preserves a chiral algebra $\mathcal{B}$ can be endowed with a special Frobenius algebra structure provided that the CFT is rational, unitary, and has a unique vacuum in the bulk. 
+
+One more interesting thing to define is the equivalent of the Junction vector space in topological defects. Every algebra object $A$ in a tensor category $\mathcal{C}$ defines an algebra over $\mathbb{C}$ using by
+$$
+A_{\text{top}} \coloneqq \text{Hom}(1,A). 
+$$
+The vector space can be thought of as all the topological boundary operators, i.e. the ones with vanishing conformal weight that can be moved around without changing calculations. The induced multiplication maps and units are given by
+$$
+\begin{align*}
+m_{\text{top}}(\alpha \otimes \beta) \coloneqq m \circ (\alpha \otimes \beta) && \eta_{\text{top}}(1) = \eta.
+\end{align*}
+$$
+
+
+## Constructing More Algebras 
+
+Let's examine ways to build algebras from other algebras like tensor products 
 
 
 
