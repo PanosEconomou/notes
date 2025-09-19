@@ -394,6 +394,14 @@ Anyway! The point is that the algebra $\mathcal{B}$ with generators $J_n$ is the
 
 
 
+## Aside on TQFT
+
+A topological field theory in $3$ dimensions can be defined with the help of a modular tensor category (plus a small number of extra data). A way to interpret a modular tensor category $\mathcal{C}$ is as a method to consistently assign numbers in configurations of ribbons in a three dimensional oriented manifold $M$. Think about it, you take some (let's say compact for now so that we can visualize it) manifold like a filled torus, or $S^3$ and insert a bunch of ribbons in it. Each ribbon is labeled by an object in $\mathcal{C}$ and they can intersect in places called coupons labeled by morphisms in $\mathcal{C}$. Then one can attempt to flatten this diagram by using the braiding structures and whatnot to obtain a 2D line diagram that we can then interpret as a morphism in $\mathcal{C}$! If the ends are identity objects then any morphism can be written as $c \text{Id}_1$ for some complex number $c \in \mathbb{C}$ and therefore we use that to be the number we assign at the weird tangle mess. 
+
+The nontrivial result is that whatever way/orientation we choose when flattening something leads to the same number! 
+
+In a topological field theory, aka a theory of anyons, our whole goal is to take a bunch of ribbons and assign numbers to them! Therefore an MTC seems like a perfect structure to help us build it. Let's be precise.
+
 
 
 # Algebra Objects
@@ -506,7 +514,37 @@ $$
 
 ## Constructing More Algebras 
 
-Let's examine ways to build algebras from other algebras like tensor products 
+Let's examine ways to build algebras from other algebras like tensor products and direct sums. 
+
+**<u>Proposition:</u>** In a braided category $(A,m,\eta)$ is an algebra iff $(A,m\circ r_{AA}^{-1}, \eta)$ is an algebra. The second algebra is referred to as the **opposite algebra**. Additionally, $(A,m, \Delta, \eta, \epsilon)$ is a Frobenius algebra iff $(A,m\circ r^{-1}_{AA},r_{AA}\circ\Delta,\eta,\epsilon)$ is a Frobenius algebra.   
+
+**<u>Corollary:</u>** If $(A,m,\eta)$ is an algebra then so is $(A,m\circ r_{AA}^{n},\eta)$ for any integer $n \in \mathbb{Z}^\times$. Similarly for special symmetric Frobenius algebras. We denote these algebras by $A^{(n)}$.
+
+**<u>Proposition:</u>** The twist $\theta_A$ in a ribbon category is an intertwiner between algebras $A^{(n)}$ and $A^{(n+2)}$ since
+$$
+\begin{align*}
+\theta_A \circ \eta^{(n)} = \eta^{(n+2)} && \theta_A \circ m^{(n)} = m^{(n+2)} \circ (\theta_A \otimes \theta_A).
+\end{align*}
+$$
+**<u>Proposition:</u>** Let $(A,m_A,\eta_A)$ and $(B,m_B,\eta_B)$ be algebras. Then $(A\oplus B , m_{A\oplus B}, \eta_{A\oplus B})$ defined by
+$$
+\begin{align*}
+m_{A\oplus B} \coloneqq \iota_{A} \circ m_A \circ (\pi_A \otimes \pi_A) + \iota_{B} \circ m_B \circ (\pi_B \otimes \pi_B) && \eta_{A\oplus B} \coloneqq \iota_A \circ \eta_A + \iota_B \circ \eta_B, 
+\end{align*}
+$$
+where $\iota_X,\pi_X$ are the injection and projection of an object respectively, as also an algebra.  Similarly, $(A\otimes B,m_{A\otimes B}, \eta_{A\otimes B})$ where
+$$
+\begin{align*}
+m_{A\otimes B} \coloneqq (m_B \otimes m_B) \circ (\text{Id}_A \otimes r_{AB}^{-1}\otimes \text{Id}_B) && \eta_{A\otimes B} = \eta_A \otimes \eta_{B},
+\end{align*}
+$$
+is also an algebra.
+
+**<u>Theorem:</u>** Sums, products, and opposites are compatible with Morita equivalence.
+
+
+
+
 
 
 
