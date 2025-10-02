@@ -28,5 +28,27 @@ is in the kernel of $S$.
 
 
 
+# Strings in any Backgrounds
+
+We can still write the Polyakov action in arbitrary background manifolds $(M,G)$ like this
+$$
+S(X,\gamma) = -\frac{T}{2} \int_\Sigma \ast \text{tr}_{\gamma}X^\ast G,
+$$
+ where $X:\Sigma \to M$ is an embedding of a Riemann surface $(\Sigma,\gamma)$. But we can write other things down that integrate to a volume. For example, we can define any two form $B \in \Omega^2(M)$ and any function $\Phi:\Sigma \to \mathbb{R}$ and extend our action by
+$$
+S(X,\gamma) = \frac{T}{2} \int_\Sigma \ast \text{tr}_{\gamma}X^\ast G + iX^\ast B + \ast \Phi R_\gamma,
+$$
+where $R_\gamma$ is the Ricci scalar on $(\Sigma,\gamma)$, which will give us something proportional to the Euler characteristic. Notice that the variation of a 2-form $B$ is the total derivative of a 1-form because it needs to be closed. 
+
+Now we can check if this theory is conformally invariant in the quantum sense. So we need to quantize by expanding our fields around some point $p\in M$. We can use tangent vectors to talk about these things. So if we pick $p\in M$ we can find a basis of vectors that have integral curves as geodesics. We can write everything in that vielbein. That simplifies the action a lot. Let's write that vielbein as $\phi$.  
+
+*Why do we need Weyl invariance so much, why is Virasoro a problem? Having nonzero total central charge means ghosts and negative states?*
+
+
+
+
+
+
+
 
 
