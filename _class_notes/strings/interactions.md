@@ -44,9 +44,33 @@ Now we can check if this theory is conformally invariant in the quantum sense. S
 
 *Why do we need Weyl invariance so much, why is Virasoro a problem? Having nonzero total central charge means ghosts and negative states?*
 
+Let's talk about genus $g$ surfaces. On a torus with genus $g$ we can define holomorphic forms $\omega_i$ for $0<i\leq g$ such that 
+$$
+\int_{a_j} \omega_i = \delta_{ij}
+$$
+where $a_i$ is the $i^{\text{th}}$ a-cycle. We can calculate the matrix 
+$$
+\Omega_{ij}=\int_{bi} \omega_j
+$$
+What is this $\Omega$? Well it is $\tau$ but for higher genus! In fact this is how we defined $\tau$ in the first place. So our amplitudes are really only going to depend on $\Omega$ up to genus $2$. 
 
 
 
+# A string theory that could work  
+
+Let's set $\alpha' = 1/2 \implies T = 1/\pi$. Then we will add fermions on our theory Let's add some fermions to our theory . We can do this by adding fermions on the worldsheet along the bosons. We do that in an action 
+$$
+S = \int_{\Sigma} \ast \langle dX\wedge \ast dX  \rangle + \ast \langle  \psi, \centernot \partial \psi\rangle_{d}'.
+$$
+Turns out there is a symmetry that mixes the fermions and bosons. This is a super-symmetric transformation with two fermionic components $\epsilon_{\pm}$. This has a current
+$$
+J = \langle\psi_+ d \psi_+\rangle\otimes dz + \langle\psi_- d\psi_-\rangle \otimes d\bar z.
+$$
+We can play the same game and canonically quantize this. 
+
+
+
+ 
 
 
 
