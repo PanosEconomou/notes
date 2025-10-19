@@ -369,6 +369,10 @@ s_{\alpha}(\beta)  = \beta - (\alpha^\vee,\beta).
 $$
 **<u>Proposition:</u>** Let $W$ be the Weyl group associated with a root system $\Delta$ with simple roots $S \subset \Delta$. Then $\Delta = WS$ under the defining group action of $W$ on $\mathfrak{h}^\ast$.
 
+The Weyl group has a lot of other interesting properties, that we will use later, but the idea that we can obtain everything by Weyl transformations is a powerful one. In fact we can quotient $\mathfrak{h}^\ast$ by $W$. The equivalent regions under the action of $W$ are called **Weyl chambers** and will be useful soon. Also given a set of simple roots $S$ we can associate a generator of $W$ to each of the roots, so $S$ can be our set of Weyl generators. Therefore we can define the length of each element $l:W \to \mathbb{N}$ and the index $(-1)^l \eqqcolon \epsilon : W\to \mathbb{Z}_2$. 
+
+
+
 
 ## Simple Roots
 
@@ -395,7 +399,13 @@ $$
 
 ***Note:*** We always have such a Euclidean inner product since $\mathfrak{h}^\ast$ is a finite dimensional complex vector space.
 
-We call such a set $\Delta_+$ a set of **positive roots**. An interesting thing to notice is that while we will always be able to have positive roots, we have multiple choices for them. All of the choices will contain precisely half the available roots and as we will see, we consider them equivalent since each set will either contain either $-\alpha$ or $\alpha$ for any root. So from now on, without loss of generality we will assume that we have fixed a set of positive roots. Also we call $\Delta_- \coloneqq - \Delta_+$.
+We call such a set $\Delta_+$ a set of **positive roots**. An interesting thing to notice is that while we will always be able to have positive roots, we have multiple choices for them. All of the choices will contain precisely half the available roots and as we will see, we consider them equivalent since each set will either contain either $-\alpha$ or $\alpha$ for any root. So from now on, without loss of generality we will assume that we have fixed a set of positive roots. Also we call $\Delta_- \coloneqq - \Delta_+$. Oh! Also, we call their sum (divided by 2) the **Weyl vector**.
+
+**<u>Definition:</u>** Given a set of positive roots, the **Weyl vector** or **principal vector** $\rho \in \mathfrak{h}^\ast$ is given by
+$$
+\rho \coloneqq \frac{1}{2}\sum_{\alpha \in \Delta_{+}} \alpha.
+$$
+This vector will appear all the time, so I want to get ahead of things here. 
 
 The reason why we introduced them is the following.
 
@@ -548,7 +558,7 @@ This is a bit pedantic, but a lot of our proofs were based on the fact that $(\c
 
 ***Proof:*** We can construct $\mathfrak{h}_\mathbb{R}^\ast$ by taking the real span of a basis for the complex vector space, and then complexifying it. But wouldn't you know it? Not only the simple roots are a basis for the complex vector space, but the rest of the roots are in its real span! So we can define $\mathfrak{h}_\mathbb{R}^\ast = \text{span}_\mathbb{R}\, \Delta$. 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 Now we are ready to play a bit more and construct things even further. 
 
@@ -608,12 +618,15 @@ $$
 \end{align*}
 $$
 
+This basis is known as the **Chevalley basis**. And it is extremely helpful because it looks like ladder operators. 
+
+
 
 ## Dynkin Diagrams
 
 Finally the next step in our classification journey. What we have shown so far is that knowing the simple roots and the Cartan Matrix we can reconstruct the simple Lie algebra. We can put all this information in diagrams that can help us quickly codify them. 
 
-> **<u>The rule:</u>** Given the simple roots of a Lie algebra, as well as the Cartan matrix we obtain a graph by assigning a simple root to each node where nodes with the same length are the same color (we only need two types of nodes). Then we connect nodes $\alpha,\beta$ with $A_{\alpha \beta}A_{\beta\alpha} = (\alpha,\beta) \in \{0,1,2,3\}$ lines. 
+> **<u>The rule:</u>** Given the simple roots of a Lie algebra, as well as the Cartan matrix we obtain a graph by assigning a simple root to each node where nodes with the same length are the same color (we only need two types of nodes). Then we connect nodes $\alpha,\beta$ with $A_{\alpha \beta}A_{\beta\alpha}$ lines. 
 
 That's it! From that we can obtain the algebra! For example the Dynkin diagram for $\mathfrak{su}(2)$ is a single dot.
 
@@ -626,4 +639,76 @@ There are four families of diagrams associated to simple Lie algebras, as well a
 |         $C_n$         |  $\mathfrak{sp}(2n)$  |
 |         $D_n$         |  $\mathfrak{so}(2n)$  |
 | $E_6,E_7,E_8,F_4,G_2$ |          --           |
+
+
+
+## Fundamental Weights
+
+A fundamental weight is convenient basis for expressing the weights of a representation (as well as the roots of a simple Lie algebra) for $\mathfrak{h}^\ast$. They are defined by
+$$
+(\omega_\alpha, \beta^\vee) = \delta_{\alpha\beta},
+$$
+where $\alpha,\beta$ are simple roots. They are therefore the dual basis to the simple coroots. This identity implies something cool.
+
+**<u>Proposition:</u>** Let $S$ be a set of simple roots, and $A$ the associated Cartan matrix. We then have that for any $\alpha \in S$
+$$
+\alpha = \sum_{\beta \in S} (\alpha,\beta^\vee) \omega_{\beta}.
+$$
+***Proof:*** Let's call the sum above $\gamma$, then we have that for any $\beta \in S$ taking the inner product gives $(\gamma,\beta^\vee) = (\alpha,\beta^\vee)$. The coroots are a basis.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+We can also express weights in this basis. We call a weight with positive integer coefficients in the fundamental Weyl chamber is called **dominant.** The fundamental Weyl chamber is the quotient of $\mathfrak{h}^\ast$ by the action of the Weyl group. 
+
+## Highest Weight Representations
+
+Let's study some properties of irreducible finite dimensional unitary representations of some simple Lie algebra. The idea is to talk about a construction called the highest weight which will help us classify them. Here is a proposition.
+
+**<u>Proposition:</u>** Let $\rho:\mathfrak{g} \to \text{End\,}V$ a finite dimensional irreducible unitary representation of a simple Lie algebra $\mathfrak{g}$. Then there exists a unique vector $v \in V$ with weight $\lambda \in \mathfrak{h}^\ast$ such that $\lambda + \alpha$ is not a weight for any simple root $\alpha$. Then $\lambda$ is called the **highest weight** and $v$ the **highest weight vector**.
+
+An additional nice theorem is the following.
+
+**<u>Theorem:</u>** For any dominant weight $\lambda$ there exists a unique finite dimensional irreducible representation that has it as its highest weight.
+
+### Character Detour
+
+Knowing the highest weight vector we can obtain the rest simply by acting with lowering operators. What is more interesting is the character expressions in these representations. But let's understand what we mean by characters in group theory.
+
+**<u>Definition:</u>** Let $G$ be a group and $\rho:G\to \text{Aut\,}V$ be a complex representation. Then the character $\chi_\rho: G\to  \mathbb{C}$ of $g \in G$ is given by 
+$$
+\chi_{\rho}(g) = \text{Tr\,}\rho(g).
+$$
+We are not dealing with groups, but algebras. However, we know that the entirety of the information of a group is contained within the Cartan subalgebra on the roots. We already know that we can exponentiate a commuting Lie algebra into a group using the standard exponential construction we introduced in the beginning. With these two elements we can extend our idea of a **character** for a simple Lie algebra, like so. Therefore we can say that the character for a Lie algebra representation is given by 
+$$
+\chi_{\rho} (h) = \text{Tr\,}e^{\rho(h)},
+$$
+but we can do better and write a more explicit formula in terms of the weights. By noticing the the eigenvalues of $e^{\rho(h)}$ are $e^{\lambda(h)}$ for all the possible weights $\lambda$. Therefore the expression simplifies to
+$$
+\chi_\rho(h) = \sum_{\lambda \in \Omega_\rho} \text{mult}_\rho(\lambda) e^{\lambda(h)},
+$$
+where $\Omega_\rho$ is the set of (distinct) weights appearing in the $\rho$ representation and $\text{mult}_{\rho}$ gives the multiplicity for each weight. This leads to a definition.
+
+**<u>Definition:</u>** The character $\chi : \mathfrak{g}\to \mathbb{C}$ of a highest weight unitary representation of a Lie algebra with weights $\Omega$ is given by
+$$
+\chi \coloneqq \sum_{\lambda \in \Omega} \text{mult}(\lambda ) e^{\lambda}.
+$$
+**<u>Theorem:</u>** *(Weyl Character Formula)* The character for a unitary Lie algebra representation with highest weight $\lambda$, associated Weyl group $W$, and Weyl vector $\rho$, satisfies for all $\alpha \in \mathfrak{h}^\ast$ 
+$$
+\chi(\alpha) = \frac{D_{\lambda + \rho}(\alpha)}{D_{\rho}(\alpha)},
+$$
+where $D_\mu : \mathfrak{h}^\ast \to \mathbb{C}$ is given by
+$$
+D_{\mu}(\alpha) \coloneqq \sum_{w \in W} \epsilon(w) e^{w\mu},
+$$
+where $\epsilon$ is the sign of the element $w \in W$.
+
+This is a foundational result that we will use multiple times in calculating representations.
+
+
+
+
+
+
+
+
 
