@@ -7,7 +7,7 @@ assignees: PanosEconomou
 
 ---
 
-# Topic: 
-
-## References
+# References
 -
+
+# Notes
