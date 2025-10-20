@@ -706,6 +706,74 @@ This is a foundational result that we will use multiple times in calculating rep
 
 
 
+# Affine Lie Algebras
+
+Time to do something more interesting! We will use all the machinery that we have constructed for these simple finite dimensional Lie algebras and extend it all the way to crazier ones that appear in Quantum Field Theory! These algebras are much more infinite hehe. Let's build them.
+
+
+
+## Construction
+
+We will do this by steps. The first one is to construct something called a loop algebra. The general idea is that we take a simple Lie algebra and convert every generator to a Laurent series.
+
+**<u>Definition:</u>** Given a simple Lie algebra $\mathfrak{g}$, the **loop algebra** $L{\mathfrak{g}}$ is given by
+$$
+L{\mathfrak{g}} \coloneqq \mathfrak{g}\otimes \mathbb{C}[z,z^{-1}],
+$$
+such that for each $g,h\in \mathfrak{g}$ and $m,n \in \mathbb{Z}$ we have
+$$
+[g\otimes z^m, h\otimes z^n] \coloneqq [g,z]_{\mathfrak{g}}\otimes z^{m+n}.
+$$
+Now we have a Lie algebra with infinitely many generators. In addition we can centrally extend it because we are so cool. In reality there is only one central extension we can do. Check it out.
+
+**<u>Defintion:</u>** Let $\mathfrak{h}, \mathfrak{g}, \mathfrak{e}$ be Lie algebras such that there exists a short exact sequece
+$$
+\mathfrak{h}\xrightarrow{i} \mathfrak{e}\xrightarrow{s} \mathfrak{g},
+$$
+then $\mathfrak{e}$ is an **extension** of $\mathfrak{g}$ by $\mathfrak{h}$. If $\text{im\,}i = \text{ker\,}s \subset Z(\mathfrak{e})$ then the extension is called **central**. An central extension is **universal** if every other central extension is isomorphic. 
+
+**<u>Theorem:</u>** The central extension of $L\mathfrak{g}$ by $\mathfrak{u}(1)$ is universal.
+
+How awesome is this! Our *quantification* of the algebra is unique! Btw if we call its central element $\hat k$ we can define $\tilde{\mathfrak{g}} \coloneqq L\mathfrak{g}\oplus \mathbb{C} \hat{k} $ which has commutation relations for any $g,h \in \mathfrak{g}$ by
+$$
+[g\otimes z^m, h\otimes z^n] \coloneqq [g,z]_{\mathfrak{g}}\otimes z^{m+n} + n\hat k K(g,h) \delta_{n+m,0},
+$$
+where $K$ is the **killing form**. This might look nice, but it's all an illusion! Here is the catch. 
+
+**<u>Proposition:</u>** The Killing form of $\tilde{\mathfrak{g}}$ is degenerate.
+
+womp womp. In order to fix that, we introduce a natural derivation on the Lie algebra $L_0 : \tilde{\mathfrak{g}} \to \tilde{\mathfrak{g}}$ defined for any $g \in \mathfrak{g}, n\in Z$ by
+$$
+\begin{align*}
+L_0g\otimes t^n = -n g\otimes t^n && L_0\hat k = 0.
+\end{align*}
+$$
+We can write this in terms of the "derivative" of the Laurent series as $L_0 = - t \frac{d}{dt}$ to satisfy our intuition. With an extension by that $L_0$ we can finally create an algebra that has a nondegenerate bilinear form.
+
+**<u>Definition:</u>** Given a simple Lie algebra $\mathfrak{g}$ the **affine Lie algebra** associated to $\mathfrak{g}$ is given by
+$$
+\hat {\mathfrak{g}} \coloneqq \tilde{\mathfrak{g}} \oplus \mathbb{C}L_0 = \left(\mathfrak{g}\otimes \mathbb{C}[t,t^{-1}]\right) \oplus \mathbb{C}\hat k \oplus \mathbb{C}L_0,
+$$
+where $\hat k$ is the generator of the unique central extension of the loop algebra $L\mathfrak{g}$ and $L_0$ is the canonical derivation derived above. 
+
+## Generalization of Simple Concenpts
+
+Now comes the satisfying part. We can use the sweat and tears that we put into learning how to play with simple Lie algebras and work with affine ones instead. Here we will quickly extend the concepts that we've encountered so far to the context of affine Lie algebras. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
