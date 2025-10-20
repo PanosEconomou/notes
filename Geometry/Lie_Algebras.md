@@ -760,6 +760,65 @@ where $\hat k$ is the generator of the unique central extension of the loop alge
 
 Now comes the satisfying part. We can use the sweat and tears that we put into learning how to play with simple Lie algebras and work with affine ones instead. Here we will quickly extend the concepts that we've encountered so far to the context of affine Lie algebras. 
 
+**<u>Definition:</u>** Given a simple Lie algebra $\mathfrak{g}$, the Killing form $\hat K$ on the affine Lie algebra $\hat{\mathfrak{g}}$ is given for any $g,h \in \mathfrak{g}$, $m,n\in\mathbb{Z}$ by
+$$
+\begin{align*}
+\hat K(g\otimes t^n, h\otimes t^m) = K(g,h) \delta_{n+m,0} && \hat{K}(L_0,\hat k) = -1 && \hat K(L_0,L_0) = \hat K(L_0,g\otimes t^m) = \hat K(\hat k, g\otimes t^{m}) = 0.
+\end{align*}
+$$
+With this tool, here is a super useful consequence of the definition of the affine Lie algebra, which is probably why we spend so much time classifying simple Lie algebras.
+
+**<u>Lemma:</u>** Let $\mathfrak{g}$ be a simple Lie algebra with Cartan subalgebra $\mathfrak{h}$. The Cartan subalgebra $\hat{\mathfrak{h}}$ of $\hat{\mathfrak{g}}$ is given by
+$$
+\hat{\mathfrak{h}} = \mathfrak{h} \oplus \mathbb{C}\hat k \oplus \mathbb{C} L_0,
+$$
+and the Killing form $\hat K$ is an isomorphism $\hat{\mathfrak{h}} \to \hat{\mathfrak{h}}^\ast$ 
+
+***Proof:*** We see that in the Loop algebra a set of commuting elements is has $n + m = 0$, but for its central extension, $n = 0$ in order for the commutation relations to be free of central terms. This algebra, while abelian, is not maximal $\hat k$ and $L_0$ commute with everything there, so they must be included. Now we can see that the inclusion of any other element in the algebra will not commute with at least one of the elements. Finally, $\hat K$ when restricted to $\hat{\mathfrak{h}}$ is simply mapping $\mathfrak{h} \to \mathfrak{h}^\ast$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+Roots and weights now hold in the same way since the Cartan algebra is finite dimensional, which is suuuuuper nice and comfortable. The only real difference is what does the induced metric look like on the two extra generators of $\hat{\mathfrak{h}}$. 
+
+**<u>Proposition:</u>** Let $\hat \lambda \in \hat{\mathfrak{h}}^\ast$ and $\pi_{\mathfrak{h}}(\hat\lambda)\eqqcolon \lambda \in \mathfrak{h}$  be the canonical projection to the simple Cartan coalgebra. If $\omega = \hat K(\hat k,\cdot)$ and $\delta = \hat K(-L_0,\cdot)$ we have that for any $a,b,c,d \in \mathbb{C}$
+$$
+(a \omega + b\delta, c \omega + d\delta) = a d + bc.
+$$
+***Proof:*** This follows directly from $\hat K(-L_0, \hat k) = 1$, and the previous lemma. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Since $\hat k$ is central, the eigenvalues in its adjoint representation vanish, therefore the roots in this case are simply given by
+$$
+\hat \alpha = \alpha + n\delta,
+$$
+where $\alpha \in \mathfrak{h}^\ast$ is a root of $\mathfrak{g}$ and $n \in \mathbb{Z}$. Now the only difference is that the set of roots is not a finite root system, but rather, copied infinitely. Yet there are more roots. The ones where just $n\delta$ is a root. These are called imaginary roots since they have zero length.
+
+**<u>Proposition:</u>** If $\Delta$ is the set of roots of $\mathfrak{g}$, the roots of $\hat{\mathfrak{g}}$ are given by
+$$
+\hat \Delta = \{\alpha + n\delta  \mid n\in \mathbb{Z}, \alpha \in \Delta \}  \cup \{ n\delta \mid n\in \mathbb{Z}^\ast\}.
+$$
+The second set of roots has length zero and are called imaginary. These roots have multiplicity $\text{dim\,}\mathfrak{h}$, while the rest have multiplicity $1$.
+
+Let's now find which of these roots are simple. In essence if we pick $n=0$ the simple roots of $\mathfrak{g}$ would still generate one copy of the root system, but now we want a root that can help us travel between the copies. A terrible choice would be $\delta$ because it is imaginary, so , with hindsight we choose $\alpha_0 \coloneqq \delta -\theta$ where $\theta$ is the highest root of $\mathfrak{g}$. As a result if a set of simple roots of $\mathfrak{g}$ is $S$ and $\theta$ is the highest root, a convenient choice for simple roots for $\hat{\mathfrak{g}}$ is given by
+$$
+\hat S = S \cup \{\delta - \theta \}.
+$$
+As a result, we can extend our definition of the Cartan matrix in this setting, by defining coroots in the same way. We can also extend our definition of fundamental weights as eigenvectors of $L_0$ with vanishing eigenvalues. Specifically, for any $\alpha \in S$ the fundamental weight $\omega_\alpha$ defined by  
+$$
+\hat \omega_\alpha =  \delta(\omega_\alpha) \omega + \omega_\alpha,
+$$
+where $\delta = -\hat K (L_0,\cdot)$, and $\hat \omega_{\delta} = \omega$ which sort of implicitly defines $\delta(\hat \omega_{\delta})= 1 $.
+
+An interesting tool that we use in affine Lie algebras that doesn't exist in simple ones is the **level**.
+
+**<u>Definition:</u>** Let $\hat{\mathfrak{g}}$ be an affine Lie algebra with central element $\hat k$ and $\hat \lambda \in \hat{\mathfrak{h}}^\ast$ be a weight for some of its unitary representations. Then the **level** $k\in \mathbb{Z}$ of $\hat\lambda$ is given by
+$$
+k \coloneqq \hat \lambda(\hat k) = (\lambda, \delta).
+$$
+In addition, we define the **affine Weyl vector** $\hat \rho = \sum_{\alpha \in \hat S} \hat \omega_\alpha=g\omega + \rho$, where $g = 1 + \sum_{\alpha \in S} \delta(\omega_\alpha)$ is the **Coxeter** number of $\hat{\mathfrak{g}}$. This implies that $\rho(\hat k) = g$.
+
+Another extension we can provide is the one of the affine Weyl group, which is simply the generalization of the Weyl group in this new affine context. The definition for Weyl transformations around the real roots is exactly the same since this is a root system concept, and we still have a finite dimensional root system. The interesting consequence is that the imaginary roots remain unaffected by Weyl transformations generated using real roots. The conceptual difference here is that the number of Weyl chambers is now infinite since we have copied our root system infinitely many times in some direction. 
 
 
 
@@ -775,8 +834,4 @@ Now comes the satisfying part. We can use the sweat and tears that we put into l
 
 
 
-
-
-
-
-
+ 
