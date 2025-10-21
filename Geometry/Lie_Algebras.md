@@ -892,7 +892,7 @@ $$
 
 **<u>Theorem:</u>** There is only a finite number of non-isomorphic dominant highest weight representations of an affine Lie algebra $\rho: \hat{\mathfrak{g}} \to \text{End}(V)$ such that $\rho(\hat k) = k \in \mathbb{N}$.
 
-***Proof:*** Using the previous lemma we are effectively fixing $(\lambda, \theta) < k \in \mathbb{N}$. This in addition to dominance of $\lambda$ carves out a finite sublattice of the weight lattice of $\hat{\mathfrak{g}}$. 
+***Proof:*** Using the previous lemma we are effectively fixing $(\lambda, \theta) < k \in \mathbb{N}$. This in addition to dominance of $\lambda$ carves out a finite sub-lattice of the weight lattice of $\hat{\mathfrak{g}}$. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
