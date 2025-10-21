@@ -66,7 +66,9 @@ Turns out there is a symmetry that mixes the fermions and bosons. This is a supe
 $$
 J = \langle\psi_+ d \psi_+\rangle\otimes dz + \langle\psi_- d\psi_-\rangle \otimes d\bar z.
 $$
-We can play the same game and canonically quantize this. 
+We can play the same game and canonically quantize this. There are two spin structures one can add on the cylinder therefore we will need to include both in our Hilbert space. 
+
+What are the physical degrees of freedom? We can do lightcone quantization again, in exactly the same manner as in the bosonic case. We would find that the critical dimension this time is 10. We see  that if we are outside of $D=10$ the Lorenz generators can't become nonanomalous in any cohomology of our big Hilbert space. The procedure of gauge fixing in general is called the GSO projection, which is effectively gauging the parity operator. After doing this we can see that we have an equal number of bosons and fermion states at each sector.    
 
 
 
