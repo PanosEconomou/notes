@@ -800,15 +800,15 @@ $$
 $$
 The second set of roots has length zero and are called imaginary. These roots have multiplicity $\text{dim\,}\mathfrak{h}$, while the rest have multiplicity $1$.
 
-Let's now find which of these roots are simple. In essence if we pick $n=0$ the simple roots of $\mathfrak{g}$ would still generate one copy of the root system, but now we want a root that can help us travel between the copies. A terrible choice would be $\delta$ because it is imaginary, so , with hindsight we choose $\alpha_0 \coloneqq \delta -\theta$ where $\theta$ is the highest root of $\mathfrak{g}$. As a result if a set of simple roots of $\mathfrak{g}$ is $S$ and $\theta$ is the highest root, a convenient choice for simple roots for $\hat{\mathfrak{g}}$ is given by
+Let's now find which of these roots are simple. In essence if we pick $n=0$ the simple roots of $\mathfrak{g}$ would still generate one copy of the root system, but now we want a root that can help us travel between the copies. A terrible choice would be $\delta$ because it is imaginary, so , with hindsight we choose $\hat \alpha_0 \coloneqq \delta -\theta$ where $\theta$ is the highest root of $\mathfrak{g}$. As a result if a set of simple roots of $\mathfrak{g}$ is $S$ and $\theta$ is the highest root, a convenient choice for simple roots for $\hat{\mathfrak{g}}$ is given by
 $$
 \hat S = S \cup \{\delta - \theta \}.
 $$
 As a result, we can extend our definition of the Cartan matrix in this setting, by defining coroots in the same way. We can also extend our definition of fundamental weights as eigenvectors of $L_0$ with vanishing eigenvalues. Specifically, for any $\alpha \in S$ the fundamental weight $\omega_\alpha$ defined by  
 $$
-\hat \omega_\alpha =  \delta(\omega_\alpha) \omega + \omega_\alpha,
+\hat \omega_\alpha =  (\omega_\alpha,\theta) \omega + \omega_\alpha,
 $$
-where $\delta = -\hat K (L_0,\cdot)$, and $\hat \omega_{\delta} = \omega$ which sort of implicitly defines $\delta(\hat \omega_{\delta})= 1 $.
+where $\delta = -\hat K (L_0,\cdot)$, and $\hat \omega_{\alpha_0} = \omega$.
 
 An interesting tool that we use in affine Lie algebras that doesn't exist in simple ones is the **level**.
 
@@ -864,11 +864,47 @@ We have successfully extended marks, comarks, weights, and roots to the affine s
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
-Because of this, when talking about representations of affine Lie algebras we simply talk about the **number** $k$ which is in certain cases will be the **level** of the highest weight. Let's talk more about these cases.
+Because of this, when talking about representations of affine Lie algebras we simply talk about the **number** $k$ which is in certain cases will be the **level** of the highest weight. Let's talk more about these cases. Now it is nice to classify what kind of representations we want. Here is a nice tool
+
+**<u>Proposition:</u>** Any affine Lie algebra admits projections to $\mathfrak{su}(2)$ associated with each positive root.
+
+***Proof:*** This is simply a statement that the Chevalley basis is constructed by $\mathfrak{su}(2)$ representations under simple roots. This means that for every simple root $\hat \alpha \in \hat S$ we find $h_{\hat\alpha},e_{\hat \alpha}, f_{\hat \alpha}$ that have $\mathfrak{su}(2)$ commutation relations.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+**<u>Definition:</u>** A highest weight representation of an affine Lie algebra $\hat{\mathfrak{g}}$ is called **dominant** if for all the positive roots, the representation under the associated projection to $\mathfrak{su}(2)$ is finite. Also, it is called **integrable** if it is a finite direct sum of irreducible $\mathfrak{su}(2)$ representations as well as a direct sum of finite dimensional weight spaces. In addition it is **unitary** if it admits a covariant Hermitian inner product.
+
+We really only care about integrable representations in CFT because the weight spaces are the eigenspaces of the $L_0$ operator and that structure is super nice for us. 
+
+**<u>Lemma:</u>** In any dominant highest weight representation of an affine Lie algebra $k\in \mathbb{N}$.
+
+***Proof:*** Dominance implies that the projection of the representation to one of $\mathfrak{su}(2)$ associated to any simple root should be finite. In particular this implies that if the highest weight is $\lambda \in \hat{\mathfrak{g}}^\ast$ then $(\lambda, \hat \alpha_0) \in \mathbb{N}$. We can expand this to obtain that
+$$
+\begin{align*}
+(\lambda, \hat \alpha_0) = (\lambda, \delta) -(\lambda, \theta) = k - (\lambda, \theta) \in \mathbb{N} \implies k \in \mathbb{N},
+\end{align*}
+$$
+since $\theta \in \mathfrak{h}^\ast$ is dominant. In particular we have that $k > (\lambda,\theta)$ which is a nicer bound. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
 
 
+**<u>Theorem:</u>** There is only a finite number of non-isomorphic dominant highest weight representations of an affine Lie algebra $\rho: \hat{\mathfrak{g}} \to \text{End}(V)$ such that $\rho(\hat k) = k \in \mathbb{N}$.
 
+***Proof:*** Using the previous lemma we are effectively fixing $(\lambda, \theta) < k \in \mathbb{N}$. This in addition to dominance of $\lambda$ carves out a finite sublattice of the weight lattice of $\hat{\mathfrak{g}}$. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+ Another interesting property is the following.
 
+**<u>Proposition:</u>** Any dominant highest weight representation of an affine Lie algebra is also unitary.
+
+***Proof:*** We can write out the Chevalley basis and show that the hermitian conjugates satisfy the proper relations.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+The interesting thing here is that the hermitian form is possibly degenerate, that is there are vectors with zero norm, preventing it to be invertible in the module. In particular, Verma modules will have singular vectors that can be quotiented out to arrive to an irreducible highest weight representation. What we will be soon interested is counting the multiplicity of states with a certain weight in an irreducible representation which ends up not being a simple task at all!
 
 
 
