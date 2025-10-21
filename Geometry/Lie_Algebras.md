@@ -966,15 +966,17 @@ The issue is that unlike $W$ the associated to simple Lie algebras, $\hat W$ is 
 
 **<u>Definition:</u>** The **generalized theta function** $\Theta_{\lambda} : \hat{\mathfrak{g}}\to \mathbb{C}$ for an integrable affine Lie algebra representation with highest weight $\lambda$ at level $k$ is given by
 $$
-\Theta_{\lambda}^k \coloneqq e^{-\frac{(\lambda,\lambda)}{2k} \delta} \sum_{\alpha^\vee \in Q^\vee} e^{t_{\alpha^\vee} \lambda},
+\Theta_{\lambda} \coloneqq e^{-\frac{(\lambda,\lambda)}{2k} \delta} \sum_{\alpha^\vee \in Q^\vee} e^{t_{\alpha^\vee} \lambda},
 $$
 where $Q^\vee$ is the coroot lattice of the simple Lie algebra $\mathfrak{g}$ and $t_{\alpha^\vee} \in \hat W$ is the Weyl transformation defined by $t_{\alpha^\vee} \coloneqq s_{-\alpha + \delta} s_{\alpha}$ where $\alpha^\vee \in Q^\vee$.
+
+***Note:*** Fixing $\lambda$ fixes the level of the representation by taking $k = \lambda(\hat k)$ in an affine Lie algebra. Sometimes though, we make the level explicit on our theta functions and characters.
 
 This is particularly nice, and it can get better.
 
 **<u>Lemma:</u>** The generalized theta function can be rewritten for the case $\hat \lambda = \lambda + k \omega$ for $\lambda$ a weight in $\mathfrak{g}$ and $k\in \mathbb{N}$ as 
 $$
-\Theta_{\hat \lambda}^k = e^{k\omega} \sum_{\alpha^\vee \in Q^\vee + \frac{\lambda}{k}} e^{k\left[ \alpha^\vee - (\alpha^\vee,\alpha^\vee)\frac{\delta}{2} \right]}.
+\Theta_{\hat \lambda} = e^{k\omega} \sum_{\alpha^\vee \in Q^\vee + \frac{\lambda}{k}} e^{k\left[ \alpha^\vee - (\alpha^\vee,\alpha^\vee)\frac{\delta}{2} \right]}.
 $$
 ***Proof:*** We have used the explicit expression of the Weyl generators and resummed.
 $$
@@ -984,7 +986,7 @@ With this we have an awesome expression for the character of the representation.
 
 **<u>Theorem:</u>** The character of an integral affine Lie algebra representation of $\hat{\mathfrak{g}}_k$ with highest weight $\lambda$, where the Weyl group of $\mathfrak{g}$ is $W$ and the Weyl vector of $\hat{\mathfrak{g}}$ is $\hat \rho$ is given for any $\alpha \in \hat{\mathfrak{g}}$ by 
 $$
-\text{ch}_{\lambda}(\alpha) = e^{m_{\lambda}\delta(\alpha)} \dfrac{\sum_{w \in W} \epsilon(w) \Theta_{w(\lambda + \hat\rho)}^k(\alpha)}{\sum_{w \in W} \epsilon(w) \Theta_{w\hat\rho}^k(\alpha)},
+\text{ch}_{\lambda}(\alpha) = e^{m_{\lambda}\delta(\alpha)} \dfrac{\sum_{w \in W} \epsilon(w) \Theta_{w(\lambda + \hat\rho)}(\alpha)}{\sum_{w \in W} \epsilon(w) \Theta_{w\hat\rho}(\alpha)},
 $$
 where $\epsilon(w)$ is the sign of $w\in W$ and $m_{\lambda} \in \mathbb{R}$ is a number known as the **modular anomaly** defined by
 $$
@@ -1017,12 +1019,6 @@ $$
 for any highest weight $\hat \lambda$, where $\hat \rho$ is the affine Weyl vector, and $\epsilon(w)$ is the sign of the transformation.
 
 **<u>Corollary:</u>** If $\epsilon(w) = -1$ and $w(\hat \lambda +\hat \rho) -\hat \rho = \hat \lambda$ then $\chi_{\hat \lambda} = 0$.
-
-
-
-
-
-
 
 
 
