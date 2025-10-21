@@ -756,7 +756,7 @@ $$
 $$
 where $\hat k$ is the generator of the unique central extension of the loop algebra $L\mathfrak{g}$ and $L_0$ is the canonical derivation derived above. 
 
-## Generalization of Simple Concenpts
+## Generalization of Simple Concepts
 
 Now comes the satisfying part. We can use the sweat and tears that we put into learning how to play with simple Lie algebras and work with affine ones instead. Here we will quickly extend the concepts that we've encountered so far to the context of affine Lie algebras. 
 
@@ -894,7 +894,7 @@ $$
 
 ***Proof:*** Using the previous lemma we are effectively fixing $(\lambda, \theta) < k \in \mathbb{N}$. This in addition to dominance of $\lambda$ carves out a finite sub-lattice of the weight lattice of $\hat{\mathfrak{g}}$. 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
  Another interesting property is the following.
 
@@ -902,9 +902,131 @@ $$
 
 ***Proof:*** We can write out the Chevalley basis and show that the hermitian conjugates satisfy the proper relations.
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 The interesting thing here is that the hermitian form is possibly degenerate, that is there are vectors with zero norm, preventing it to be invertible in the module. In particular, Verma modules will have singular vectors that can be quotiented out to arrive to an irreducible highest weight representation. What we will be soon interested is counting the multiplicity of states with a certain weight in an irreducible representation which ends up not being a simple task at all!
+
+### String functions
+
+To count the multiplicity of states, a useful tool that  we introduce is the string function. The main idea is that in a highest weight representation of some affine Lie algebra associated to weight $\lambda$ there are a bunch of weights such that if we try and "move up a bit" we will obtain a weight that is not associated to any vector in our theory. In other words there is a collection of weights $\Omega^{\text{max}}_{\lambda} \subset \Omega_{\lambda}$ defined by
+$$
+\Omega_{\lambda}^{\text{max}} \coloneqq \{\mu \in \Omega_{\lambda} \mid \mu +\delta \notin \Omega_{\lambda}\}.
+$$
+Then all the weights are given by "strings" of lowering $\mu$ by $\delta$. That way we are guaranteed to not hit anything that we have hit before. Namely we can consider the string of weights $\Sigma_{\mu}^{\lambda} =\{\mu -n\delta \mid n \in \mathbb{Z}_{\geq 0}\}$. We effectively have that
+$$
+\Omega_{\lambda} \cong \bigsqcup_{\mu \in \Omega_{\lambda}^{\text{max}}} \Sigma_{\mu}^{\lambda}.
+$$
+Therefore we can define a function that counts the multiplicities for each weight along a string. This is called a string function.
+
+**<u>Definition:</u>** A **string function** associated to a string $\Sigma_{\mu}^{\lambda}$ for a representation of an affine Lie algebra with highest weight $\lambda$ is given by
+$$
+\sigma_{\mu}^{\lambda}(q) = \sum_{n = 0}^{\infty} \text{mult}_{\lambda}(\mu - n\delta) q^n.
+$$
+One nice property is that we can move around by Weyl transformations and the multiplicities would not change.
+
+**<u>Proposition:</u>** Let $w \in \hat W$ be a Weyl transformation and $\sigma_{\mu}^{\lambda}$ a string function in a representation with highest weight $\lambda$. Then 
+$$
+\sigma_{w\mu}^{\lambda} = \sigma_{\mu}^{\lambda}.
+$$
+In other words, to calculate the multiplicity of every weight in our representation we only need to calculate the string functions for Weyl inequivalent weights in $\Omega_{\lambda}^{\text{max}}$. 
+
+
+
+## Characters
+
+We have set the stage to explore the most usefully pedantic tool for understanding representations. We define the character in an identical fashion as for simple Lie algebras. 
+
+**<u>Definition:</u>** Let $\hat{\mathfrak{g}}$ be an affine Lie algebra and $\lambda$ be the highest weight vector of one of its integrable representations. Then, the character $\text{ch}_{\lambda} : \hat{\mathfrak{g}} \to \mathbb{C}$ is given by
+$$
+\text{ch}_{\lambda} \coloneqq \sum_{\mu \in \Omega_{\lambda}} \text{mult}_{\lambda}(\mu)e^{\mu}.
+$$
+Using the language of string functions we can decompose the character into sums over strings and then obtain an expression in terms of string functions like so
+
+**<u>Proposition:</u>** The character $\chi_{\lambda}$ can be expressed in terms of string functions $\sigma_{\mu}^{\lambda}$ for $\mu \in \Omega_{\lambda}^{\text{max}}$ as
+$$
+\text{ch}_{\lambda} = \sum_{\mu \in \Omega_{\lambda}^{\text{max}}} \sigma_{\mu}^{\lambda}(e^{-\delta}) e^{\mu}.
+$$
+***Proof:*** We use the previous lemma, as well as the fact that $e^{-n\delta} e^{\mu} = e^{\mu - n\delta}$ which is a form that every vector along the string can be written in.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+This is already a super useful representation, because for certain operators we have effectively $e^{\mu}(\xi) = e^{\mu(\xi)}$ we can get rid of the level, and identify the $\mu$ with dominant roots in the underlying simple Lie algebra. There is a similar expression of the character in terms of Weyl group stuff. 
+
+**<u>Theorem:</u>** *(Affine Weyl Character Formula)* The character for a highest weight integrable affine Lie algebra representation with highest weight $\lambda$, associated Weyl group $\hat W$, and Weyl vector $\hat \rho$, satisfies for all $\alpha \in \hat{\mathfrak{g}}$ 
+$$
+\text{ch}_{\lambda}(\alpha) = \frac{\hat D_{\lambda + \rho}(\alpha)}{\hat D_{\rho}(\alpha)},
+$$
+where $\hat D_\mu : \hat{\mathfrak{g}} \to \mathbb{C}$ is given by
+$$
+\hat D_{\mu}(\alpha) \coloneqq \sum_{w \in \hat W} \epsilon(w) e^{w\mu(\alpha)},
+$$
+where $\epsilon$ is the sign of the element $w \in \hat W$. 
+
+The issue is that unlike $W$ the associated to simple Lie algebras, $\hat W$ is not finite, so this formula becomes hard to interpret. Luckily there is a simplification. To understand it we need to define the generalized Theta function.
+
+**<u>Definition:</u>** The **generalized theta function** $\Theta_{\lambda} : \hat{\mathfrak{g}}\to \mathbb{C}$ for an integrable affine Lie algebra representation with highest weight $\lambda$ at level $k$ is given by
+$$
+\Theta_{\lambda}^k \coloneqq e^{-\frac{(\lambda,\lambda)}{2k} \delta} \sum_{\alpha^\vee \in Q^\vee} e^{t_{\alpha^\vee} \lambda},
+$$
+where $Q^\vee$ is the coroot lattice of the simple Lie algebra $\mathfrak{g}$ and $t_{\alpha^\vee} \in \hat W$ is the Weyl transformation defined by $t_{\alpha^\vee} \coloneqq s_{-\alpha + \delta} s_{\alpha}$ where $\alpha^\vee \in Q^\vee$.
+
+This is particularly nice, and it can get better.
+
+**<u>Lemma:</u>** The generalized theta function can be rewritten for the case $\hat \lambda = \lambda + k \omega$ for $\lambda$ a weight in $\mathfrak{g}$ and $k\in \mathbb{N}$ as 
+$$
+\Theta_{\hat \lambda}^k = e^{k\omega} \sum_{\alpha^\vee \in Q^\vee + \frac{\lambda}{k}} e^{k\left[ \alpha^\vee - (\alpha^\vee,\alpha^\vee)\frac{\delta}{2} \right]}.
+$$
+***Proof:*** We have used the explicit expression of the Weyl generators and resummed.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation} 
+$$
+With this we have an awesome expression for the character of the representation.
+
+**<u>Theorem:</u>** The character of an integral affine Lie algebra representation of $\hat{\mathfrak{g}}_k$ with highest weight $\lambda$, where the Weyl group of $\mathfrak{g}$ is $W$ and the Weyl vector of $\hat{\mathfrak{g}}$ is $\hat \rho$ is given for any $\alpha \in \hat{\mathfrak{g}}$ by 
+$$
+\text{ch}_{\lambda}(\alpha) = e^{m_{\lambda}\delta(\alpha)} \dfrac{\sum_{w \in W} \epsilon(w) \Theta_{w(\lambda + \hat\rho)}^k(\alpha)}{\sum_{w \in W} \epsilon(w) \Theta_{w\hat\rho}^k(\alpha)},
+$$
+where $\epsilon(w)$ is the sign of $w\in W$ and $m_{\lambda} \in \mathbb{R}$ is a number known as the **modular anomaly** defined by
+$$
+m_{\lambda} = \frac{|\lambda + \hat \rho|^2}{2(k+g)} - \frac{|\hat\rho|^2}{2g}.
+$$
+Knowing the modular anomaly, we often define the **normalized characters** as
+$$
+\chi_{\lambda} = e^{-m_{\lambda} \delta} \text{ch}_{\lambda}.
+$$
+We will use them extensively in the context of CFT and calculations. But before that let's see convenient places to evaluate them. We often evaluate characters and theta functions at points $\alpha = K^{-1}(\hat \xi, \cdot)$ for
+$$
+\hat \xi = -2\pi i (\zeta + \omega \tau + \delta t ),
+$$
+ where $\zeta \in \mathfrak{h}^\ast$, and $\tau, t \in \mathbb{C}$. Often we write
+$$
+\zeta = \sum_{s \in S} z_s s^\vee,
+$$
+where $S$ is the simple roots of $\mathfrak{g}$. This allows us to define $z = \sum_{s\in S} z_s \omega_s$ and write the characters in terms of $z$ and $\tau$ for $t=0$. We often denote such evaluations as $\chi_{\hat \lambda}(z,\tau)$ by slight abuse of notation. If we do some algebra we can see that if $V_{\hat \lambda}$ is the actual highest weight module then
+$$
+\chi_{\hat \lambda}(z,\tau) = q^{-m_{\lambda}}\,\text{Tr}_{V_{\hat\lambda}} e^{2\pi i \tau L_0} e^{-2\pi i \sum_{s\in S}z_i h^s},
+$$
+where $h^s$ is the representation of the Chevalley generator associated to the simple root $s \in \mathfrak{h}^\ast$ of the simple Lie algebra $\mathfrak{g}$! This is pretty nifty ngl.
+
+One super nice and useful property is the following.
+
+**<u>Lemma:</u>** Let $w \in \hat W$ be a Weyl transformation. Then we have that
+$$
+\chi_{w (\hat \lambda + \hat \rho) - \hat \rho} = \epsilon(w) \chi_{\hat \lambda},
+$$
+for any highest weight $\hat \lambda$, where $\hat \rho$ is the affine Weyl vector, and $\epsilon(w)$ is the sign of the transformation.
+
+**<u>Corollary:</u>** If $\epsilon(w) = -1$ and $w(\hat \lambda +\hat \rho) -\hat \rho = \hat \lambda$ then $\chi_{\hat \lambda} = 0$.
+
+
+
+
+
+
+
+
+
+
 
 
 
