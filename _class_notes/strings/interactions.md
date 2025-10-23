@@ -72,7 +72,11 @@ What are the physical degrees of freedom? We can do lightcone quantization again
 
 
 
- 
+ ## Writing Gauge invariant theories with spinors
+
+If we want to have an action that has a bunch of fields with spin greater than 1 we need to introduce ghosts that impose gauge fixing. So in essence we introduce more dynamical degrees of freedom such that
+
+
 
 
 
