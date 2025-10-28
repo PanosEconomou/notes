@@ -78,6 +78,18 @@ If we want to have an action that has a bunch of fields with spin greater than 1
 
 
 
+## Compactifications
+
+We can study an embedding in a space where one direction is compact. If our target space has $D$ dimensions we have assume something like $M = \mathbb{R}^{D-2,1}\times S^1$. Depending on the radius of the puny $S^1$ factor we can actually write a theory that the associated modes have a discrete spectrum. Which is awesome! It ends up looking a lot like particles. One interesting aspect of this construction is gauging things. In some sense we can change the compactification radius and the theory remains invariant by going to $R\mapsto \alpha'/R$. In fact this can be though of as gauging the discrete group $O(r,\mathbb{Z})$ where $r$ is the number of compactified dimensions. So in this case $T$-duality is simply $\mathbb{Z}_2$ gauging. 
+
+The interesting thing from T-duality is that if we start with a Neumann condition, i.e. string that should not be fixed anywhere, we find that it ends up being fixed in an arbitrary point. And you're like: wtf? How is it possible that there is a special point in string spacetime? This breaks the most fundamental assumption of relativity. The resolution could be that actually we didn't account for everything in the Neumann theory. Instead when we do the T transformation the strings are fixed into other objects called "D-branes" that are also dynamical objects, and they are just really heavy. So at the heaviest limit they disappear from the T-dual. 
+
+> How do the branes look like when we T transform back to the Neumann theory?
+
+
+
+
+
 
 
 
