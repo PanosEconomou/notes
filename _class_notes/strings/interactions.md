@@ -84,7 +84,9 @@ We can study an embedding in a space where one direction is compact. If our targ
 
 The interesting thing from T-duality is that if we start with a Neumann condition, i.e. string that should not be fixed anywhere, we find that it ends up being fixed in an arbitrary point. And you're like: wtf? How is it possible that there is a special point in string spacetime? This breaks the most fundamental assumption of relativity. The resolution could be that actually we didn't account for everything in the Neumann theory. Instead when we do the T transformation the strings are fixed into other objects called "D-branes" that are also dynamical objects, and they are just really heavy. So at the heaviest limit they disappear from the T-dual. 
 
-> How do the branes look like when we T transform back to the Neumann theory?
+
+
+
 
 
 
