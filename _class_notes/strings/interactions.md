@@ -86,6 +86,30 @@ The interesting thing from T-duality is that if we start with a Neumann conditio
 
 
 
+## T-Duality in Superstrings
+
+The corresponding duality is 
+$$
+\begin{align*}
+\psi_L \mapsto \psi_L && \psi_R \mapsto -\psi_R.
+\end{align*} 
+$$
+Let's see what's going on. Surprisingly this is very similar to some version of a GSO projection. Let's find the unitary operator $U$ in the Ramond sector that implements this transformation. We expand into modes and whatnot and then we obtain that
+$$
+U_R = (-1)^{F},
+$$
+which looks even more similar to GSO. One way we can describe this is using the zero modes. The ramond sector has 2 classes of zero modes, so we can write 
+$$
+U_R = (-1)^{\hat F} e^{i\theta} \Gamma^1 \Gamma^{11},
+$$
+where $\hat F$ is the fermion number operator for the nonzero frequencies, and $\theta$ is some phase that remains undetermined atm. The latter part is simply changing the sign of the vacuum state. So yeah. I don't know why we want to do this decomposition, but we can.
+
+Now take any ramon vacuum $v \in \mathcal{H}_R$ then there must exist an operator $S_{v}$ such that $S_v \omega = v$ where $\omega$ is the the $SL(2,\mathbb{C})$ invariant vacuum of our theory. What happens to the generators of the supersymmetry generators? Well we only need to to do $U^{-1}S_{v}$ to obtain the T dual state. However, this helps us rephrase the supersymmetry charges under T duality (BTW notice that $U^{-1} S_v= - U^\ast S_V$).  The interesting thing is that under mapping the charges, we see that the chirality changes. So a T duality maps type IIB to type IIA.
+
+Under T-duality we are effectively exchanging the space and time coordinates on the worldsheet. This maps us from open to closed string theory when in the presence of a brane. I don't really see why tbh. 
+
+ 
+
 
 
 
