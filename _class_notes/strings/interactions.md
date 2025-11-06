@@ -106,9 +106,13 @@ where $\hat F$ is the fermion number operator for the nonzero frequencies, and $
 
 Now take any ramon vacuum $v \in \mathcal{H}_R$ then there must exist an operator $S_{v}$ such that $S_v \omega = v$ where $\omega$ is the the $SL(2,\mathbb{C})$ invariant vacuum of our theory. What happens to the generators of the supersymmetry generators? Well we only need to to do $U^{-1}S_{v}$ to obtain the T dual state. However, this helps us rephrase the supersymmetry charges under T duality (BTW notice that $U^{-1} S_v= - U^\ast S_V$).  The interesting thing is that under mapping the charges, we see that the chirality changes. So a T duality maps type IIB to type IIA.
 
-Under T-duality we are effectively exchanging the space and time coordinates on the worldsheet. This maps us from open to closed string theory when in the presence of a brane. I don't really see why tbh. 
+We can introduce a transformation that interchanges the chirality of our bosons simply by flipping our coordinates. We have been doing something weird though. We are parameterizing our closed string by $\sigma \in [0,\pi]$. So we can introduce $\Omega$ which is the map $\sigma \mapsto \pi -\sigma$.
 
- 
+
+
+
+
+
 
 
 
