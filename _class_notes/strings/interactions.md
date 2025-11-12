@@ -110,7 +110,7 @@ We can introduce a transformation that interchanges the chirality of our bosons 
 
 
 
-
+Kalb Ramond terms are the B's
 
 
 
