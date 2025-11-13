@@ -112,11 +112,9 @@ We can introduce a transformation that interchanges the chirality of our bosons 
 
 Kalb Ramond terms are the B's
 
+Look at Myer's terms, these appear when we try to write the brane action for N branes on top of each other. Doing T-duality we see that we must include more terms. When we do T duality we have massless modes that need to persist. This implies the existence of new fields that have massless excitations. These could couple in weird ways to our fields that we can later pick back up. These are the fields $\Phi$.  
 
-
-
-
-
+You can calculate the DD 
 
 
 
