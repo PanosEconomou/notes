@@ -114,11 +114,9 @@ Kalb Ramond terms are the B's
 
 Look at Myer's terms, these appear when we try to write the brane action for N branes on top of each other. Doing T-duality we see that we must include more terms. When we do T duality we have massless modes that need to persist. This implies the existence of new fields that have massless excitations. These could couple in weird ways to our fields that we can later pick back up. These are the fields $\Phi$.  
 
-You can calculate the 
+Type I has N=1 so 16 supercharges, I don't remember how it originates though but that's ok. We have explored through anomaly cancellation that there must be more than 1 N=1 string theory. We can attempt to write it. This will be known as a (1,0) supersymmetric theory. 
 
-
-
-
+To compute $a$ in $L_0 - a$ You have to find the hamiltonian. You say that the the hamiltonian is $H = L_0 - a$ and then proceed to impose the equation of motion $\langle H \rangle = 0$ on the physical states, which is effectively energy conservation. You get $\pm \frac{1}{24}$ for periodic bosons and fermions and $\frac{1}{48}$ for antiperiodic.
 
 
 
