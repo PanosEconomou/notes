@@ -446,6 +446,8 @@ $$
 
 Honestly, I really wanted to skip this one, but after looking at limits and colimits, it becomes super useful. So, unfortunately we can't skip it. *I will fill out the idea later once I fully understand it,* but here is the general definition and some very common *examples*.
 
+Here is a bit of motivation. Since we have found ways to put categories into other cateogories, using functors, we could try and do the following. Take a nice category $A$ in which you like working in. Then take categories $B$ and $C$ and use functors to place them into $A$. Now what you can do is study how the "images" of $B$ and $C$ are related within $A$. The comma category has objects the arrows of $A$ between the images of objects in $B$ and $C$, and arrows the pairs of images of arrows taht relate the objects. While this last is dense and we will unpack it carefully, the main idea of a comma cateogory is there. We place two categories into a third, and study how their placement. 
+
 **<u>Definition:</u>** Consider the following categories and functors
 $$
 B\xrightarrow T A \xleftarrow S C 
