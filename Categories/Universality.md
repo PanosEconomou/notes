@@ -38,7 +38,17 @@ With this we are ready to define universals.
 
 **<u>Definition:</u>** A **universal property** of $c \in C$ is a representable functor $F$ together with a natural isomorphism $\alpha:\text{Hom}(C,\cdot) \cong F$. A **universal element** $x \in Fc$ is the element $\alpha_c(1_c) \in Fc$.
 
- 
+**<u>Example:</u>** ($G$-Torsors) A $G$**-torsor** for a group $G$ is a representable functor $E:G \to \text{Set}$. In some sense this is a group that has forgotten its identity element. A torsor for $\mathbb{R}^n$ is the affine space $\mathbb{A}^n$. Picking an origin for $\mathbb{A}^n$ defines an isomorphism with $\mathbb{R}^n$ whose universal element is the origin. 
+
+**<u>Example:</u>** *(Tensor Product)* Let $V,W$ be vector spaces over a filed $k$ and consider the functor $B:\text{Vect}_k \to \text{Set}$ which sends a vector space $U$ to the set of bilinear maps of the form $V\times W \to U$. This functor is representable and a representation defines a vector space $V\otimes_k W$ which is known as the **tensor product**. In other words, the tensor product is defined by
+$$
+\text{Hom}_{\text{Vect}_k}(V\otimes_k W,U) \cong B(U).
+$$
+In other other words, the tensor product between two vector spaces is the universal vector space equipped with a bilinear map from $V\times W$.
+
+
+
+
 
 ## Small Aside on Cohomology
 
