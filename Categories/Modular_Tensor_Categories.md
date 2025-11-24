@@ -470,7 +470,7 @@ We start our exploration of the additional algebra objects by understanding the 
 $$
 \begin{align*}
 (\Delta \otimes \text{Id}_A) \circ \Delta = (\text{Id}_A \otimes \Delta) \circ \Delta && (\epsilon \otimes \text{Id}_A) \circ \Delta = \text{Id}_A = (\text{Id}_A \otimes \epsilon) \circ \Delta.
-\end{align*} 
+\end{align*}
 $$
 Notice that a coalgebra is simply the categorical dual of an algebra. An interesting object for us is an algebra that is also a coalgebra!
 
@@ -482,7 +482,7 @@ $A$ is a **special algebra** if it is both an algebra and a coalgebra such that 
 $$
 \begin{align*}
 \epsilon \circ \eta = \beta_{1} \text{Id}_1  && \Delta \circ m = \beta_A \text{Id}_A.
-\end{align*} 
+\end{align*}
 $$
 If the $\mathcal{C}$ is also sovereign, then an algebra object $A$ is **symmetric** if there exists an arrow $\epsilon: A\to 1$ such that 
 $$
