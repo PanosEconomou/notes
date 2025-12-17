@@ -8,28 +8,12 @@ Here we use that language to talk about quantum fields
 
 ## Field Operators
 
-[Elsewehere](./Conformal_Group.md) we have discussed the notion of a *quantum Hilbert space* $\mathbb{H}$ as a seperable complex Hilbert space with Hermitian inner product.  Then we also talked about how the observable states belong to the *projective space* $\mathbb{P}(\mathbb{H})$, which we often call $\mathbb{P}$, that has a physically induced seminorm $\delta : \mathbb{P}\times \mathbb{P} \to [0,1]$ that is called the *transition probability*. We have also looked at some preliminary results surrounding these constructions, about how Lie groups with representations on $\mathbb{P}$ can be canonically extended to Lie groups with representations on $\mathbb{H}$ etc. 
+[Elsewehere](../host/notebook/public/NOTES/Quantum_Fields/Conformal_Group.md) we have discussed the notion of a _quantum Hilbert space_ $\mathbb{H}$ as a seperable complex Hilbert space with Hermitian inner product. Then we also talked about how the observable states belong to the _projective space_ $\mathbb{P}(\mathbb{H})$, which we often call $\mathbb{P}$, that has a physically induced seminorm $\delta : \mathbb{P}\times \mathbb{P} \to \[0,1]$ that is called the _transition probability_. We have also looked at some preliminary results surrounding these constructions, about how Lie groups with representations on $\mathbb{P}$ can be canonically extended to Lie groups with representations on $\mathbb{H}$ etc.
 
 Here we will extend the notion of operators by allowing them to be defined in subspaces of $\mathbb{H}$ and not the entirety of $\mathbb{H}$.
 
-**<u>Definition:</u>** An **operator** on $\mathbb{H}$ is a pair $(A,D_A)$ where $A:D_A\to \mathbb{H}$  complex linear map defined on a subsapce $D_A \subset \mathbb{H}$. We call an operator **desnsely defined** if $D_A$ is dense in $\mathbb{H}$. The **adjoint** of the operator $(A,D_A)$ is the operator $(A^\dagger,D_{A^\dagger})$ where
+**Definition:** An **operator** on $\mathbb{H}$ is a pair $(A,D\_A)$ where $A:D\_A\to \mathbb{H}$ complex linear map defined on a subsapce $D\_A \subset \mathbb{H}$. We call an operator **desnsely defined** if $D\_A$ is dense in $\mathbb{H}$. The **adjoint** of the operator $(A,D\_A)$ is the operator $(A^\dagger,D\_{A^\dagger})$ where
 
 $$
-D_{A^\dagger} \coloneqq \{u\in \mathbb{H} \mid \exists v\in \mathbb{H} \text{ s.t } \forall w\in D_A\ \langle v,w\rangle = \langle u,Aw \rangle\}\\
-\langle A^\dagger u,v\rangle = \langle u, Av\rangle \ \ \forall u\in D_{A^\dagger}, v\in D_A
+D_{A^\dagger} \coloneqq \{u\in \mathbb{H} \mid \exists v\in \mathbb{H} \text{ s.t } \forall w\in D_A\ \langle v,w\rangle = \langle u,Aw \rangle\}\\ \langle A^\dagger u,v\rangle = \langle u, Av\rangle \ \ \forall u\in D_{A^\dagger}, v\in D_A
 $$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
