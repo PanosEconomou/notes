@@ -98,6 +98,18 @@ which also satisfies $d_n \circ d_{n-1} = 0$. This sequence is known as a cochai
 
 
 
+# Limits and Colimits
+
+A diagram is a graph, it has arrows and objects and whatnot. If we agree that we conventionally hid the identity arrows the we can take the set of labels and arrows and form an **indexing category** $J$. Therefore fundamentally what a diagram does for a category $C$ is to tell you which label maps to which object and which arrow to which morphism of $C$, in such a way that relationships are preserved! So a diagram is a functor! 
+
+**<u>Definition:</u>** A **diagram** for a category $C$ indexed by a category $J$ is a functor $J\to C$.
+
+This is amazing, we can now port so much of our intuition and do rigorous proofs by drawing shapes hehe. Here is an important clarification.
+
+**<u>Definition:</u>** A **poset** category $C$ is such that for every $x,y\in C$ there exists at most one arrow $x\to y$. If the indexing category of a diagram is poset, then the diagram is called **commutative.**
+
+Now we have everything we will ever need about diagrams. Isn't this awesome?
+
 
 
 
