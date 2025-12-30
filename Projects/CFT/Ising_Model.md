@@ -1,4 +1,4 @@
-# Ising\_Model
+# Ising_Model
 
 ## Ising Model
 
@@ -6,7 +6,7 @@ This is a Conformal Field Theory “Hello World” project. Apparently the symme
 
 We begin with a classical treatment of the model to fully define some terminology (but also because it is fun) and then move on to identify how the matching with the CFT description occurs.
 
-\[toc]
+[toc]
 
 ***
 
@@ -20,21 +20,21 @@ The setup is a bunch of arrows arranged in a lattice that can interact with thei
 
 ![image-20240420013237038](../../.gitbook/assets/image-20240420013237038.png)
 
-To build a mathematical description of the model, we can first identify a suitable configuration space. Let’s start with a finite lattice 2D lattice that contains a total of $N = n^2$ particles. This can be described as $\mathbb{Z}\_n^2$, where at each point of which we have attached a spin up or down vector in $\mathbb{Z}\_2$ for the vector space. Therefore the configuration space is given by
+To build a mathematical description of the model, we can first identify a suitable configuration space. Let’s start with a finite lattice 2D lattice that contains a total of $N = n^2$ particles. This can be described as $\mathbb{Z}_n^2$, where at each point of which we have attached a spin up or down vector in $\mathbb{Z}_2$ for the vector space. Therefore the configuration space is given by
 
 $$
 C_N \coloneqq \mathbb Z_n^2 \times \mathbb Z_2.
 $$
 
-Notice that $\mathbb{Z}\_n^2$ as a graph admits the topology of a discrete donut! That is because we can connect the endpoints of the grid for each $\mathbb Z\_n$. The next ingredient we need is a Hamiltonian $H:C\_N\to \mathbb{R}$.
+Notice that $\mathbb{Z}_n^2$ as a graph admits the topology of a discrete donut! That is because we can connect the endpoints of the grid for each $\mathbb Z_n$. The next ingredient we need is a Hamiltonian $H:C_N\to \mathbb{R}$.
 
-The Hamiltonian in this case must capture the interaction of the neighboring spins. For some point $p = (s\_1,s\_2,\cdots, s\_N) \in C\_N$ we usually pick the Hamiltonian
+The Hamiltonian in this case must capture the interaction of the neighboring spins. For some point $p = (s_1,s_2,\cdots, s_N) \in C_N$ we usually pick the Hamiltonian
 
 $$
 H(p) = -\sum_{i,j} J_{ij} s_i s_j - h \sum_{i} s_i
 $$
 
-where $J$ is an $N\times N$ symmetric matrix such that $J\_{ij} = I >0$ iff $s\_i$ is neighboring $s\_j$, otherwise $J\_{ij} = 0$, and $h > 0$ represents some external magnetic field type interaction. Note that $s\_i \in {-1,1}$. Now we are ready to calculate the magnetization in the Canonical ensemble.
+where $J$ is an $N\times N$ symmetric matrix such that $J_{ij} = I >0$ iff $s_i$ is neighboring $s_j$, otherwise $J_{ij} = 0$, and $h > 0$ represents some external magnetic field type interaction. Note that $s_i \in {-1,1}$. Now we are ready to calculate the magnetization in the Canonical ensemble.
 
 ### Magnetization in the Canonical Ensemble
 
@@ -68,7 +68,7 @@ $$
 \text{Var}\left[\sum_{i=0}^N s_i\right] = \sum_{i,j=0}^n\text{Cov}(s_i,s_j) = \sum_{i,j=0}^n \langle s_is_j\rangle - \langle s_i\rangle \langle s_j\rangle
 $$
 
-The cool thing is that $s\_i,s\_j$ are uncorrelated unless $i,j$ are neighbors. Therefore we can write this a sum of the uncorrelated differences, which depends only on $|i-j|$ which hints to translation invariance, and a really cool use of CFT!
+The cool thing is that $s_i,s_j$ are uncorrelated unless $i,j$ are neighbors. Therefore we can write this a sum of the uncorrelated differences, which depends only on $|i-j|$ which hints to translation invariance, and a really cool use of CFT!
 
 We will use CFT to calculate these correlation functions.
 
@@ -108,7 +108,7 @@ The first thing that we want to show is to find the momentum map of the sphere.
 
 **Proposition:** The restriction on the sphere of the fundamental representation of $SO(3)$ on $\mathbb R^3$ is a Hamiltonian action on $S^2$ with momentum map the inclusion map $\iota:S^2\to \mathbb R^3 \cong \mathfrak {so}(3)$.
 
-_**Proof:**_ We will show that $X\_x,X\_y,X\_z$ follow the standard commutation relations of the generators of $SO(3)$.
+_**Proof:**_ We will show that $X_x,X_y,X_z$ follow the standard commutation relations of the generators of $SO(3)$.
 
 In particular we want to show that
 
@@ -156,9 +156,9 @@ with the canonical product topology and symplectic form.
 
 We want those to interact with each other, so the way we will do this is using graphs.
 
-**Definition:** Given a connected graph $G=(V,E)$, the phase space $\mathcal P\_n$ together with the graph is called an **interacting system** if there exists a bijection $V\to {\pi\_i:\mathcal P\_n \to S^2}$ to the set of canonical projections of $\mathcal P\_n$. If $G$ is a cyclic undirected graph, then the system is called **cyclic** or **nearest neighbor**.
+**Definition:** Given a connected graph $G=(V,E)$, the phase space $\mathcal P_n$ together with the graph is called an **interacting system** if there exists a bijection $V\to {\pi_i:\mathcal P_n \to S^2}$ to the set of canonical projections of $\mathcal P_n$. If $G$ is a cyclic undirected graph, then the system is called **cyclic** or **nearest neighbor**.
 
-**Proposition:** In a nearest neighbor interacting system there exists a map $J:\mathcal P\_n\to \mathcal P\_n$ such that the set of edges is given by
+**Proposition:** In a nearest neighbor interacting system there exists a map $J:\mathcal P_n\to \mathcal P_n$ such that the set of edges is given by
 
 $$
 E=\{(\pi_i,\pi_i\circ J)\mid i = 1,2,\dots, n\}.
@@ -168,25 +168,24 @@ This map is called the **adjacency map** and it is a permutation.
 
 Now, we can play with the interaction terms. We will restrict our attention to nearest neighbor interacting systems because they have an interesting relation with the quantum mechanical and field theoretic models. In particular, let's say that the spins interact with each other based on their $z$ component. What that means in practice is that the Hamiltonian has a stable extremum when the spins are aligned in the $z$ direction. We will formalize it like so:
 
-**Proposition:** Given a map $f:S^2 \to V$, where $V$ is some vector space, the map lifts to a unique map $\bar f:\mathcal P\_n \to V^n$ such that the following diagram commutes.
+**Proposition:** Given a map $f:S^2 \to V$, where $V$ is some vector space, the map lifts to a unique map $\bar f:\mathcal P_n \to V^n$ such that the following diagram commutes.
 
 $$
 \begin{CD} \mathcal P_n @>{\bar f}>> V^n\\ @A\iota_i AA @VV\pi_iV \\ S^2 @>f>> V \end{CD}
 $$
 
-_**Proof:**_ The map is $\bar f = \underbrace{f\times f\times \cdots \times f}\_{n\text{ times\}}$.
+_**Proof:**_ The map is $\bar f = \underbrace{f\times f\times \cdots \times f}_{n\text{ times}}$.
 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-**Proposition:** The map $f$ lifts to a map $J\_f:\mathcal P\_n \to V^n$ such that
-
+**Proposition:** The map $f$ lifts to a map $J_f:\mathcal P_n \to V^n$ such that
 $$
 J_f(p) = \sum_{(i,j) \in E} \iota_j\circ f\circ \pi_i(p).
 $$
 
-In the case the system is nearest neighbor, we have that $J\_f$ is given by $J\_f = f^\ast J = \bar f \circ J$.
+In the case the system is nearest neighbor, we have that $J_f$ is given by $J_f = f^\ast J = \bar f \circ J$.
 
 In other words we can introduce the following interaction term:
 
@@ -194,7 +193,7 @@ $$
 \begin{align*} H_I : \mathcal P_n &\to \mathbb R\\ p=(p_1,p_2,\cdots,p_n) &\mapsto H_I(p) \coloneqq -J^{ij}z(p_i) z(p_j), \end{align*}
 $$
 
-where $J:\mathbb R^n\to \mathbb R^n$ is a symmetric positive definite matrix called the **interaction matrix.** If $J\_{ij}\neq0$ then we say that $p\_i, p\_j$ are neighbors. The simplest such interaction matrix would be the following
+where $J:\mathbb R^n\to \mathbb R^n$ is a symmetric positive definite matrix called the **interaction matrix.** If $J_{ij}\neq0$ then we say that $p_i, p_j$ are neighbors. The simplest such interaction matrix would be the following
 
 $$
 J^{ij} = J(\delta^{i(j+1)} + \delta^{i(j-1)}+\delta^{i1}\delta^{jn}+\delta^{j1}\delta^{in}),
@@ -214,11 +213,11 @@ $$
 
 ### Construction of Hilbert Space
 
-Performing canonical quantization we see that $x\_i,y\_i,z\_i$ form representations of $\mathfrak{so}(3)$ respectively. After going through the geometric quantization procedure by polarizing on the $\theta$ coordinate we obtain a 2-dimensional Hilbert space for the single sphere which we can label by the eigenvalues of the representation of the $z$ operator.
+Performing canonical quantization we see that $x_i,y_i,z_i$ form representations of $\mathfrak{so}(3)$ respectively. After going through the geometric quantization procedure by polarizing on the $\theta$ coordinate we obtain a 2-dimensional Hilbert space for the single sphere which we can label by the eigenvalues of the representation of the $z$ operator.
 
-**Proposition:** The single particle Hilbert space $\mathcal H\_1$ is a quantum Hilbert space.
+**Proposition:** The single particle Hilbert space $\mathcal H_1$ is a quantum Hilbert space.
 
-Now we can proceed by defining operators appropriately through geometric quantization by identifying the linear operator $z : \mathcal H\_1 \to \mathcal H\_1$. That for the two pure states $\psi\_+ = \binom 1 0, \psi\_- = \binom 0 1$ it acts as follows
+Now we can proceed by defining operators appropriately through geometric quantization by identifying the linear operator $z : \mathcal H_1 \to \mathcal H_1$. That for the two pure states $\psi_+ = \binom 1 0, \psi_- = \binom 0 1$ it acts as follows
 
 $$
 \begin{align*} z \psi_+ = \psi_+ && z \psi_- = -\psi_- && \implies && z = \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}. \end{align*}
@@ -226,7 +225,7 @@ $$
 
 We can then create the $N$ particle Hilbert space by taking tensor products like so:
 
-**previousDefinition:** The $N$ **particle Hilbert space** is given by $\mathcal H\_N \coloneqq \bigotimes\_{n=1}^N \mathcal H\_1$. And the $i$th spin operator $z\_i : \mathcal H\_N \to \mathcal H\_N$ is given by
+**previousDefinition:** The $N$ **particle Hilbert space** is given by $\mathcal H_N \coloneqq \bigotimes_{n=1}^N \mathcal H_1$. And the $i$th spin operator $z_i : \mathcal H_N \to \mathcal H_N$ is given by
 
 $$
 z_i = 1\otimes 1\otimes \cdots \underbrace{\otimes\ z\ \otimes}_{i^{\text{th}}\text{ position}} \cdots \otimes 1.
@@ -234,13 +233,13 @@ $$
 
 So now we have the Hilbert space constructed and we can proceed with the Hamiltonian.
 
-**Definition:** The **Quantum $N$ particle Ising Hamiltonian** is the linear map $ H : \mathcal H\_N \to \mathcal H\_N$ given by
+**Definition:** The **Quantum $N$ particle Ising Hamiltonian** is the linear map $ H : \mathcal H_N \to \mathcal H_N$ given by
 
 $$
 H =H_1+ H_0 = -J^{ij}z_iz_j - h\sum_{i=0}^N x_i
 $$
 
-where $x\_i = \sigma\_{xi}$ is the corresponding operator to the $x\_i:\mathcal P\_n\to \mathbb R$ map, with the commutation relations that we are expecting. Notice that $\[H\_1,H\_0]\neq 0$.
+where $x_i = \sigma_{xi}$ is the corresponding operator to the $x_i:\mathcal P_n\to \mathbb R$ map, with the commutation relations that we are expecting. Notice that $\[H_1,H_0]\neq 0$.
 
 ### Quantum to Classical Correspondence
 
@@ -272,7 +271,7 @@ for some $L\in \mathbb N$, and $\Lambda, \gamma \in \mathbb R$.
 
 Having the quantum mechanical model it is time to "take the continuum limit" and obtain a quantum field theory for it. This is done through the **Jordan-Wigner transformation** that we will explore in mode detail. What we will derive, is a prescription to increase the number of spins in such a way that it limits to the CFT of a free fermion.
 
-To do so, we will define linear operators $c\_i : \mathcal H \to \mathcal H$ such that
+To do so, we will define linear operators $c_i : \mathcal H \to \mathcal H$ such that
 
 $$
 \begin{align*} \sigma_i^z = - \prod_{i<j}(1-2c_j^\dagger c_j) (c_i + c_i^\dagger) && \sigma_i^x = 1-2c_i^\dagger c_i. \end{align*}
@@ -280,8 +279,8 @@ $$
 
 **Proposition:** These operators have the following commutation relations
 
-1. ${c\_i,c\_j^\dagger}=\delta\_{ij}$
-2. ${c\_i,c\_j}={c\_i^\dagger,c\_j^\dagger} = 0$
+1. ${c_i,c_j^\dagger}=\delta_{ij}$
+2. ${c_i,c_j}={c_i^\dagger,c_j^\dagger} = 0$
 
 The cool thing is that we can now rewrite the Hamiltonian.
 
@@ -296,3 +295,19 @@ _**Proof:**_ Plug it in and cry.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+
+
+# Bosonization
+
+ A convenient tool to analyze the Ising model 
+
+
+
+
+
+
+
+
+
+
+
