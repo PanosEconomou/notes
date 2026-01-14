@@ -530,7 +530,7 @@ $$
 
 
 
-### Twisted Hilbert space
+### Twisted Hilbert space Exploration
 
 Calculating the Hilbert space of the $\sigma$ twisted Hilbert is a challenge, because there isn't an obvious way to use the original representation theory of Virasoro to obtain the new representations of $A_0$ that would appear under twisting with $\sigma$. However, we are kind of lucky because of the interpretation $\sigma$ as a defect line has on $\text{TIsing}^2$. Here is the idea.
 
@@ -538,7 +538,7 @@ We can use operators in the unfolded theory to define operators in the twisted H
 
 Consider the map $f: \mathbb{C}\to \mathbb{C}$ $z \mapsto z^2$ on the sphere. This maps the sphere onto itself by folding it in some way. If someone encircles the origin once, under this map, they'd've encircled it twice. In some sense this map implements the $\sigma$ twist on our theory. It makes it so the two copies of the circle are connected with each other. Not only that, but this map is conformal. So we know how to pull operators using it. 
 
-This map has two inverses $g_{\pm} : \mathbb{C}\to \mathbb{C}$ where $z \mapsto \pm \sqrt z$. Take a chiral primary $\phi$ of the unfolded theory with conformal weights $h, \bar h$. Then we can introduce the fields
+This map has two inverses $g_{\pm} : \mathbb{C}\to \mathbb{C}$ where $z \mapsto \pm \sqrt z$. Take a primary $\phi$ of the unfolded theory with conformal weights $h, \bar h$. Then we can introduce the fields
 $$
 \tilde \phi_{\pm} = g^\ast_{\pm} \phi = \left(\frac{\pm 1}{2 \sqrt z}\right)^h\left(\frac{\pm 1}{2 \sqrt {\bar z}}\right)^{\bar h} \phi \circ g_{\pm}.
 $$
@@ -585,7 +585,7 @@ $$
 $$
 Here the $\cdots$ represent other local field insertions, and we have used the fact that $1\otimes \psi$ under our mapping, up to conformal scaling, maps to $\psi(-x)$. 
 $$
-\begin{equation}\tag*{$\Box$}\end{equation} 
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
 What we have found is that the fields $\phi_{\pm}$ are endpoints of the $\sigma$ defect! Now what we have left to show is that they are primary and the only possible primaries we can write down are the ones corresponding to the primaries of the unfolded theory. However this identification between the twisted Hilbert space and the n-folded cover has enough intuition to proceed further. I will, later, complete this with a rigorous proof.
 
@@ -596,6 +596,10 @@ $$
 Notice that since these are not regular Virasoro modules they might have different conformal weights and central charge. In fact they do. 
 
 
+
+### Twisted Hilbert Space Decomposition
+
+In the section above we explored the twisted Hilbert space 
 
 
 
@@ -633,7 +637,6 @@ We have the S-Matrix of the orbifold
 ## g-function under Gauging
 
 We expect the g-function of a conformal defect to change depending on the order of the group being gauged. Here is what that means precisely and why it matters. 
-
 
 
 
