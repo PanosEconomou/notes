@@ -98,6 +98,20 @@ $$
 $$
 Also notice that this has conformal symmetry because is is basically a sum of free fields when expanded out. However, when calculating quantum corrections to the $\beta$ function for this action, we will obtain that it is negative! Therefore we can RG flow to a quantum conformal theory. Let's see this.
 
+**<u>Proposition:</u>** The equation of motion for $S_0$ is given by
+$$
+d \ast g^\ast \mu =0.
+$$
+***Proof:*** The quick way to see this is by fixing some faithful representation and writing the Lagrangian as 
+$$
+L = \text{tr\,} g^\ast \mu \wedge \ast g^\ast \mu.
+$$
+Now we need to be careful about how we express the variation. For any $p \in M$ we can find the chart 
+
+
+
+
+
 
 
 
