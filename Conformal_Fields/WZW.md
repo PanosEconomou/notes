@@ -78,7 +78,7 @@ where in the second equation we have used the notation $g^{-1}=L_{g^{-1}\ast}:TG
 >
 > So in matrix Lie groups the induced representation of the Lie group to the Lie algebra by left multiplication is simply left multiplication. This is particularly convenient and the source of overloading our notation with $g^{-1} = L_{g^{-1}\ast}$.
 
-***Proof:*** We do so by calculation. 
+***Proof:*** We know that $g_\ast = dg^\beta \otimes \frac{\partial }{\partial t^\beta}$, therefore we conclude that the pullback contains $\mu_{g}(\frac{\partial }{\partial t^\beta}) = L_{g^{-1}\ast}\frac{\partial }{\partial t^\beta}$.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
@@ -116,19 +116,147 @@ Also notice that this has conformal symmetry because is is basically a sum of fr
 $$
 d \ast g^\ast \mu =0.
 $$
-***Proof:*** The quick way to see this is by fixing some faithful representation and writing the Lagrangian as 
+This means that $J=g^\ast\mu$ is a conserved current. By the way we can show that another conserved current is $\tilde J = g^\ast \tilde \mu$, where $\tilde \mu_g(X) = R_{g^{-1}\ast} X$, which is the other multiplication map. We could see this entire construction as a Gauge Theory which implies that also 
 $$
-L = \text{tr\,} g^\ast \mu \wedge \ast g^\ast \mu.
+d_JJ = dJ - \frac{1}{2} J\wedge J = 0.
 $$
-Now we need to be careful about how we express the variation. For any $p \in M$ we can find the chart around $g(p)$ that we described at the end of last section. In that chart we can write $g^\ast \mu = dg^\alpha \otimes t_\alpha$ for some Lie algebra basis $t_\alpha$, therefore we find
+This implies that the holomorphic and antiholomorphic components of $J$ cannot vanish separately unless $G$ is Abelian. Therefore, quantumly, we can't treat $J$ as a current that generates a Chiral algebra. As a result, we need to modify this.
+
+
+
+## The WZW model action
+
+To modify the action above we include an extra term. Before we do so, we need some results.
+
+**<u>Lemma:</u>** If $G$ is a Lie group, then if $g:S^2 \to G$ is smooth it can be continued to the sphere's interior.
+
+***Proof:*** The reason why this is always possible is because for every Lie group $G$ all such maps are homotopic, so if the constant map can be continued to the interior, so can the other one. 
 $$
-L = dg^\alpha \wedge \ast dg^\beta\,\text{tr\,} t_\alpha t_\beta.
+\begin{equation}\tag*{$\Box$}\end{equation}
 $$
- We often pick a basis such that $\text{tr\,} t_\alpha t_\beta = \delta_{\alpha \beta}$ so we effectively write 
+Another fact is that if $g$ is such a continuation then the term 
 $$
-L = dg^\alpha \wedge \ast dg_\alpha,
+\Gamma(g) = \frac{1}{2\pi i}\int_{D^3} g^\ast \mu \wedge g^\ast \mu \wedge g^\ast \mu,
 $$
-to find the Lagrangian of a linear sigma model in that chart. As far as the variation is concerned this is relatively fine because we can vary using things 
+is invariant under homotopic extensions of $g$. The homotopy classes of such extensions are classified by $\pi_3(G) \cong \mathbb{Z}$, and with a little work we can see that evaluating the difference of $\Gamma$ on two nonhomotopic maps we find that it is in $2\pi i \mathbb{Z}$, which also justifies the normalization we chose. We are now ready to introduce the WZW action.
+
+**<u>Definition:</u>** The **WZW-model action** for a semisimple Lie group $G$ and a map $g:S^2\to G$ with a choice of extension to $D^3$ is given by
+$$
+S(g) = S_0(g) + k\Gamma(g),
+$$
+for some $k\in \mathbb{Z}$.
+
+> **Note:** The reason why we want $k \in \mathbb{Z}$ is so that in the Path integral, changes of the homotopy class of the extensions leave the Path integral measure invariant. If $k$ was not an integer we would get terms of the form $e^{2\pi ik}$ if we picked different extensions of $g$, which means that we wouldn't treat them all in the same way.  
+>
+> In practice we pick $k\in \mathbb{Z}_{\geq0}$ and $\lambda^2 = \frac{\pi}{k}$ so that we simplify the equations of motion below. If we were to pick negative $k$ the action is not positive definite, so we can't do stationary phase on the path integral.
+
+**<u>Proposition:</u>** The equations of motion of $S$ are given by
+$$
+\left( 1 + \frac{\lambda^2 k}{\pi} \right) \partial (g^{-1}\bar \partial g) + \left( 1 - \frac{\lambda^2 k}{\pi} \right) \bar \partial (g^{-1}\partial g) = 0,
+$$
+where we have used Dulbeault operators. 
+
+Therefore we have two currents now which are
+$$
+\begin{align*}
+J = -kg^\ast \bar \mu && \bar J = kg^\ast \mu,
+\end{align*}
+$$
+where $\bar \partial J = \partial \bar J = 0$ because of the equations of motion.
+
+
+
+# Algebras
+
+We have a field description of the WZW model, but, in practice, the only reason why that is useful is to derive an algebraic description of the model in order to use that in most calculations. Turns out that the structure is highly constrained and particularly nice. We will see that the resulting Conformal Field Theory is rational.
+
+## Chiral Algebra
+
+We didn't fix a representation before, so we pick the adjoint representation of the Lie Algebra, which we can always take. We can count dimensions and find that $J$ must have conformal weights $(1,0)$ in order for the action to be unitless. Let's be a bit more explicit. We can write the current as $J = J^\alpha \otimes t_\alpha$ where $t_\alpha$ are the Lie algebra generators, so we have a bunch of them now. 
+
+What we notice is that the OPE can be written as
+$$
+J^\alpha(z) J^\beta(w) \sim \sum_{n} \frac{X_n}{(z-w)^{n}},
+$$
+where $X_n$ has weight $2-n$. We know that by unitarity there must be no operators with negative conformal weight (otherwise the Virasoro representation they are in would not be unitary by Kac's theorem). With a bit of work we can conclude the following.
+
+**<u>Lemma:</u>** The OPE of the current operators in the basis where $K(t_\alpha,t_\beta) = \delta_{\alpha\beta}$ is given by
+$$
+J^\alpha(z) J^\beta(w) \sim \frac{k\delta^{\alpha \beta}}{(z-w)^2} + \frac{if^{\alpha \beta}_\gamma J^{\gamma}(w)}{z-w},
+$$
+where $f^{\alpha\beta}_{\gamma}$ are the structure constants of the Lie algebra. Similarly for the antiholomorphic part. 
+
+This nice, because we can talk about the mode algebra of each current by defining
+$$
+J^\alpha = \sum_{n\in \mathbb{Z}} J_n^\alpha z^{-n-1}.
+$$
+With this in mind, we can see that
+$$
+[J^\alpha_n,J^\beta_m] = kn\delta^{\alpha\beta} \delta_{n+m} + i f^{\alpha\beta}_\gamma J^\gamma_{n+m}.
+$$
+An algebra with such a property is called an **affine Kac-Moody algebra**. The particular property is that the zero modes $(n=m=0)$ form a copy of $\mathfrak{g}$, so we often think of this as an extension to the Lie algebra denoted by $\hat{\mathfrak{g}}_k$.
+
+
+
+## Sugawara Stress Tensor
+
+Given an algebra we can construct a Stress tensor. We do this by the **Sugawara construction** which is detailed here.
+
+The holomorphic part of the classical stress tensor is given by 
+$$
+T = \frac{1}{2k} \text{tr\,}J\wedge\ast  J = \frac{1}{2k} J^a J^a,
+$$
+in the basis where $\text{tr\,}t^at^b = \delta^{ab}$. The issue as always becomes normal ordering. To solve this we define
+$$
+(J^aJ^a)(z) = \frac{1}{2\pi i} \int_{S^1} \frac{dx}{x-z} J^a(x)J^a(z),
+$$
+where $S^1$ here is a small circle around $z$. With some calculation overhead we can see that
+$$
+(J^aJ^b)(z) J^a(w) = 2(k+h^\vee) \left( \frac{J^a(w)}{(z-w)^2} + \frac{\partial J^a(w)}{z-w} \right),
+$$
+where $h^\vee$ is the dual Coxeter number defined by
+$$
+f^{ab}_c f^{bc}_d = 2h^\vee \delta^{ad}.
+$$
+The above therefore shows that if we redefine our stress tensor to be
+$$
+T(z) = \frac{1}{2(k + h^\vee)}(J^aJ^a)(z),
+$$
+then $J^a$ are primaries with dimension $1$ as expected. Doing the $TT$ OPE we find that the central charge is
+$$
+c = \frac{k \dim \mathfrak{g}}{k + h^\vee}.
+$$
+We call that stress tensor the **Sugawara Stress Tensor**, and therefore we have seen that the enveloping algebra of every Kac-Moody algebra contains a copy of Virasoro.
+
+**<u>Proposition:</u>** The stress tensor modes are given by
+$$
+L_n = \frac{1}{2(k + h^\vee)}\sum_{m\in \mathbb{Z} } {:}J^a_mJ^a_{n-m}{:} = \frac{1}{2(k + h^\vee)}\left( \sum _{n\leq -1}J^a_nJ^a_{m-n} + \sum_{n\geq 0} J^a_{m-n}J^a_n \right).
+$$
+And the algebra satifies
+$$
+\begin{align*}
+[L_n,J^a_m] &= -mJ^a_{n+m}\\
+[L_n,L_m] &= (n-m)L_{n+m} + \frac{c}{12} n(n^2-1) \delta_{n+m,0}.
+\end{align*} 
+$$
+***Proof:*** This is a good exercise that I should do to get comfortable.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+An important convenience which is a corollary of the Sugawara construction is:
+
+**<u>Proposition:</u>** When $\mathfrak{g}$ is semisimple, then the Sugawara stress tensor is defined by $T_{\mathfrak{g}} = \sum_{\mathfrak{h}\prec \mathfrak{g}} T_\mathfrak{h}$ which implies that the central charge satisfies
+$$
+c_{\mathfrak{g}} = \sum_{\mathfrak{h} \prec \mathfrak{g}} c_{\mathfrak{h}}.
+$$
+Another cool result is that these have been classified.
+
+| $\mathfrak{g}$ | $A_n$    | $B_n$    | $C_n$    | $D_n$    | $E_6$ | $E_7$ | $E_8$ |
+| -------------- | -------- | -------- | -------- | -------- | ----- | ----- | ----- |
+| $h^\vee$       | $n+1$    | $2n-1$   | $n+1$    | $2n-2$   | $12$  | $18$  | $30$  |
+| $\text{dim}$   | $n^2+2n$ | $2n^2+n$ | $2n^2+n$ | $2n^2-n$ | $78$  | $133$ | $248$ |
+
+
 
 
 
