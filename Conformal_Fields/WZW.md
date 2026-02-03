@@ -258,13 +258,13 @@ Another cool result is that these have been classified.
 
 
 
+## Primaries and Characters
+
+Primaries are the highest weight vectors of the irreducible highest weight representations of the affine Kac-Moody algebra $\hat{\mathfrak{g}}_k$ of the Hilbert space of the theory.
 
 
 
-
-
-
-
+## Fusion Ring
 
 
 
