@@ -260,11 +260,25 @@ Another cool result is that these have been classified.
 
 ## Primaries and Characters
 
-Primaries are the highest weight vectors of the irreducible highest weight representations of the affine Kac-Moody algebra $\hat{\mathfrak{g}}_k$ of the Hilbert space of the theory.
+Primaries are the highest weight vectors of the irreducible highest weight representations of the affine Kac-Moody algebra $\hat{\mathfrak{g}}_k$ of the Hilbert space of the theory. So we need to analyze their representations.
+
+Most of this is developed [here](../Geometry/Lie_Algebras.md) but here is a telegraphic summary of the properties we are looking for. Say we have a set of simple roots $S$. Then for any $\alpha \in S$ there corresponds an Lie algebra element $E^\alpha$ such that $[H,E^\alpha] = \alpha(H)$ for any $H \in \mathfrak{h}$. Given a representation of a Lie algebra $\rho: \mathfrak{g}\to \text{End}(V)$ and a simultaneous eigenvector of all $H^\alpha$
 
 
 
 ## Fusion Ring
+
+
+
+# Examples
+
+At low $k$ WZW models are surprisingly tractable. Here are some of them in more detail.
+
+
+
+## $G_2$ Model
+
+The Lie algebra $G_2$ might seem complicated 
 
 
 
