@@ -68,6 +68,20 @@ A Lie group comes with an awesome set of local coordinates because the exponenti
 
 Assume that $t_\alpha \in \mathfrak{g}$ is a basis for our Lie algebra. Then fix a point $h$ and consider an open subset $U_h \subset \text{exp}_h T_hG$ that contains $h$. Then pick $g \in U_h$. This means, that there must be a unique $X_g \in T_nG$ such that $g = \exp_h X_g$. We also know that there is a unique Lie algebra element $\hat X_g = \mu_h X_g$ that corresponds to it! If we write $\hat X_g = g^\alpha t_\alpha$, then we have found a coordinate system based on a Lie algebra basis. Namely let's define a chart $\phi_h: U_h \to \mathbb{R}^n$ by $g\mapsto \phi_h(g) = (g^1, g^2,\cdots, g^n)$. This is an awesome coordinate system, and we will use it unless otherwise specified. Notice that always $\phi_h(h) = 0$.
 
+**<u>Lemma:</u>** Let $\Sigma$ be a manifold and $g:\Sigma \to G$ be a smooth map, then we have that $g^\ast \mu \in \Omega^1(\Sigma, \mathfrak{g})$ is given by
+$$
+g^\ast \mu = (L_{g^{-1}\ast})^\alpha_{\ \beta}\, dg^\beta \otimes t_\alpha =L_{g^{-1}\ast} g_\ast=g^{-1}g_\ast.
+$$
+where in the second equation we have used the notation $g^{-1}=L_{g^{-1}\ast}:TG\to \mathfrak{g}$ and that $g_\ast : T\Sigma \to TG$. 
+
+> **Note:** In matrix Lie groups, we can do the following thing. Pick $G$ an embedded submanifold and subgroup of $GL(n,\mathbb{k})$. Then pick an integral curve $\gamma:I\to G$ at $h\in G$ for some $X\in T_hG$. Now for any $g \in G$ we have that $L_g \circ \gamma = g\gamma(t)$. In addition, we have that $X = \gamma_\ast \frac{d }{d t}$. Therefore, $L_{g\ast}X = L_{g\ast} \gamma_\ast \frac{d }{d t} = (L_g \circ \gamma)_\ast \frac{d }{d t} = g \frac{d\gamma}{dt}$. Finally in $GL(n,\mathbb{k})$ we have the identification that $X = \frac{d\gamma}{dt}$. 
+>
+> So in matrix Lie groups the induced representation of the Lie group to the Lie algebra by left multiplication is simply left multiplication. This is particularly convenient and the source of overloading our notation with $g^{-1} = L_{g^{-1}\ast}$.
+
+***Proof:*** We do so by calculation. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 
 
 ## A wrong guess for the action
@@ -106,7 +120,15 @@ $$
 $$
 L = \text{tr\,} g^\ast \mu \wedge \ast g^\ast \mu.
 $$
-Now we need to be careful about how we express the variation. For any $p \in M$ we can find the chart 
+Now we need to be careful about how we express the variation. For any $p \in M$ we can find the chart around $g(p)$ that we described at the end of last section. In that chart we can write $g^\ast \mu = dg^\alpha \otimes t_\alpha$ for some Lie algebra basis $t_\alpha$, therefore we find
+$$
+L = dg^\alpha \wedge \ast dg^\beta\,\text{tr\,} t_\alpha t_\beta.
+$$
+ We often pick a basis such that $\text{tr\,} t_\alpha t_\beta = \delta_{\alpha \beta}$ so we effectively write 
+$$
+L = dg^\alpha \wedge \ast dg_\alpha,
+$$
+to find the Lagrangian of a linear sigma model in that chart. As far as the variation is concerned this is relatively fine because we can vary using things 
 
 
 
