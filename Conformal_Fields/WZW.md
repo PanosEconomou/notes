@@ -262,7 +262,69 @@ Another cool result is that these have been classified.
 
 Primaries are the highest weight vectors of the irreducible highest weight representations of the affine Kac-Moody algebra $\hat{\mathfrak{g}}_k$ of the Hilbert space of the theory. So we need to analyze their representations.
 
-Most of this is developed [here](../Geometry/Lie_Algebras.md) but here is a telegraphic summary of the properties we are looking for. Say we have a set of simple roots $S$. Then for any $\alpha \in S$ there corresponds an Lie algebra element $E^\alpha$ such that $[H,E^\alpha] = \alpha(H)$ for any $H \in \mathfrak{h}$. Given a representation of a Lie algebra $\rho: \mathfrak{g}\to \text{End}(V)$ and a simultaneous eigenvector $\psi$ for the Cartan subalgebra then for any $H\in \mathfrak{h}$ we have that $\rho(H) = \lambda(H) \psi$, where $\lambda \in \mathfrak{h}^\ast$ is called a weight. Then the state $E^\alpha\psi$ has weight $\lambda + \alpha$ and so on. We draw a plane in $\mathfrak{h}^\ast$ and call the roots that fall on one side of it positive. It doesn't matter which it is though. In a highest weight representation there exists a state with weight $\lambda$ such that $\lambda + \alpha$ is not a weight for any state for all positive roots $\alpha$. In an affine lie algebra, we have a copy of the roots of the base Lie algebra, at each level, plus an extra one $\delta$ that maps us between the levels and it is called an *imaginary* root.
+Most of this is developed [here](../Geometry/Lie_Algebras.md) but here is a telegraphic summary of the properties we are looking for. Say we have a set of simple roots $S$. Then for any $\alpha \in S$ there corresponds an Lie algebra element $E^\alpha$ such that $[H,E^\alpha] = \alpha(H)$ for any $H \in \mathfrak{h}$. Given a representation of a Lie algebra $\rho: \mathfrak{g}\to \text{End}(V)$ and a simultaneous eigenvector $\psi$ for the Cartan subalgebra then for any $H\in \mathfrak{h}$ we have that $\rho(H) = \lambda(H) \psi$, where $\lambda \in \mathfrak{h}^\ast$ is called a weight. Then the state $E^\alpha\psi$ has weight $\lambda + \alpha$ and so on. We draw a plane in $\mathfrak{h}^\ast$ and call the roots that fall on one side of it positive. It doesn't matter which it is though. In a highest weight representation there exists a state with weight $\lambda$ such that $\lambda + \alpha$ is not a weight for any state for all positive roots $\alpha$. In an affine Lie algebra, we have a copy of the roots of the base Lie algebra, at each level, plus an extra one $\delta = K(-\Lambda_0,\cdot)$ that maps us between the levels and it is called an *imaginary* root. 
+
+A positive root is simple, if it can't be expressed as a sum of two positive roots. The set of simple roots is a basis for $\mathfrak{h}^\ast$ and all other roots are sums (or differences) of simple roots. There is the Weyl group, which is a group of reflections on planes perpendicular to the roots that generates the set of roots and it is going to be useful shortly. One cool result, is that the entire dual Cartan algebra is split into cones known as Weyl chambers, such that the orbit of the roots in one chamber generates the rest. 
+
+Every root $\beta$ can be written in terms of simple roots as $\beta = \sum_{\alpha \in S}\beta^\alpha\alpha$. There is a particularly useful root $\theta$ which is the one where $\sum_{\alpha \in S} \theta^\alpha$ is maximum. In this case, the coefficients of $\theta$ are called the *marks*. A different normalization of the roots is called the coroots $\alpha^\vee$. This is how roots appear in the Weyl transformation. We can express the components of $\theta$ in the simple coroots and we call them comarks. In particular we have the defining relation
+$$
+\alpha^\vee =\frac{2\alpha}{(\alpha, \alpha)}.
+$$
+Another convenient basis is the one of fundamental weights. There is a natural inner product in $\mathfrak{h}^\ast$ induced by the killing from, and the dual elements of the coroots roots are the fundamental weights satisfying $(\omega^\alpha, \beta^\vee) = \delta_{\alpha,\beta}$. In an affine Lie algebra we have a special simple root $\alpha_0 = -\theta +\delta$. Finally we know that $K(-\Lambda_0,\hat k) = 1$ so we can find a weight $\omega_0 = K(\hat k,\cdot)$, this would have the property that $(\omega_0,\delta)= 1 = (\omega_0, \alpha_0^\vee)$ while $(\omega_0, \alpha^\vee) = 0$ for any $\alpha \in S\setminus\{\alpha_0\}$. 
+
+Phew! That was fast. A detailed description is the link above. One thing we can do is to list the fundamental weights. Any weight can be given as a linear combination of fundamental weights like so:
+$$
+\lambda = \sum_{\alpha \in S} \lambda_\alpha \omega_\alpha + l\delta, 
+$$
+where $l\in \mathbb{R}$. Having fixed the representation of $\hat k$ to be the level $k \in \mathbb{Z}_{\geq 0}$ we see that for any state with weight $\lambda$ it must be the case that 
+$$
+k = \lambda(\hat k) = (\lambda, \delta) = \sum_{\alpha \in S} \lambda_\alpha (\omega_\alpha,\delta).
+$$
+ But $\delta = \alpha_0 + \theta = \sum_{\alpha\in S}\theta_{\alpha}^\vee\alpha^\vee$ (where we used $\theta_{\alpha_0}^\vee= 1$) so we find
+$$
+k = \sum_{\alpha \in S}\lambda_\alpha \theta_{\alpha}^\vee,
+$$
+since the comarks are fixed by the algebra and $k$ by the representation, there aren't infinite possibilities for the weights. This implies something nice. Every affine weight $\hat \lambda$ is given by a finite weight $\lambda$ in the underlying lie algebra like so
+$$
+\hat \lambda = k\omega_0  + \lambda + l\delta.
+$$
+In a unitary representation we want an inner product such that $(J^\alpha_n)^{\dagger} = J^\alpha_{-n}$, which implies $H_n^\dagger = H_{-n}$ and $(E^\alpha_n)^{\dagger} = E^{-\alpha}_{-n}$. This way we have that for any state $\psi$ with weight $\hat \lambda$ we have
+$$
+\langle E_{-n}^\alpha\psi, E_{-n}^\alpha \psi  \rangle= \langle \psi, E_{n}^{-\alpha}E_{-n}^\alpha \psi  \rangle = \frac{2[nk-(\alpha,\lambda)]}{(\alpha,\alpha)} \langle \psi,\psi \rangle,
+$$
+which is positive if $n$ is a positive integer and if $(\alpha,\lambda) < k$ for all simple $\alpha$, which is the same constraint above. So if we know the coroots we can solve it. 
+
+Another interesting question then is what about the famous conformal weight? In other words, what is $L_0$ in this algebra. Clearly this is connected to $\Lambda_0$ which is the operator that gives the level, but the true conformal weight is lost. However, all is not lost, because we already know something interesting. From the field discussion above, the $L_0$ operator is the $0$ mode of $T$. By the Sugawara construction it is given by
+$$
+L_0 = \frac{1}{(k + h^\vee)}\left( \frac{1}{2}J_0^\alpha J_0^\alpha + \sum_{n\geq 1} J^a_{-n}J^a_n \right).
+$$
+We know that if $\psi$ is the ground state then $J_n\psi = 0$, so we find that
+$$
+L_0 = \frac{J_0^\alpha J_0^\alpha}{k+h^\vee} + \Lambda_0,
+$$
+But we also notice that this is almost the Cassimir for the underlying Lie algebra, that is because $J_0^\alpha \psi = -t^\alpha \psi$ where $t^\alpha$ is the generator of the base semisimple Lie algebra. Specifically in any simple Lie Algebra one can find Cassimir operators in the enveloping algebra (i.e. the formal power series of elements in $\mathfrak{g}$) like so. Let $B$ be a basis of the Lie algebra. Then
+$$
+Q = \sum_{a,b \in B} \frac{ab}{K(a,b)},
+$$
+where $K$ is the killing form, is the Cassimir Element. In this case we have picked $J$ that diagonalize it so we are good. In the Cartan-Weyl Basis we can rewrite this as
+$$
+Q = \sum_{H} HH + \sum_{\alpha>0} \frac{(\alpha,\alpha)}{2} (E^\alpha E^{-\alpha} + E^{-\alpha}E^{\alpha}).
+$$
+ Now on a highest weight state $\psi$ with weight $\lambda$ we see the following. 
+$$
+\begin{align*}
+Q \psi 
+&= \sum_{H}HH \psi + \sum_{\alpha > 0} \frac{(\alpha,\alpha)}{2} (E^\alpha E^{-\alpha} + E^{-\alpha}E^{\alpha})\psi\\
+&= (\lambda,\lambda) \psi + \sum_{\alpha>0} \frac{(\alpha,\alpha)}{2} ([E^\alpha,E^{-\alpha}]\psi +2E^{-\alpha}E^\alpha\psi)\\
+&= (\lambda,\lambda)\psi + \sum_{\alpha>0} (\alpha,\lambda) \psi\\
+&= (\lambda, \lambda + 2\rho) \psi,
+\end{align*}
+$$
+where we have used that $\rho = \frac{1}{2}\sum_{\alpha>0} \alpha$ and that $[E^{\alpha},E^{-\alpha}] = \frac{2}{(\alpha,\alpha)}\alpha\cdot H $. Therefore the conformal weight of a primary with finite weight $\lambda$ is
+$$
+L_0 \psi = \frac{Q}{k+h^\vee} \psi = \frac{(\lambda, \lambda + 2\rho)}{k + h^\vee}.
+$$
+
 
 
 
@@ -278,7 +340,25 @@ At low $k$ WZW models are surprisingly tractable. Here are some of them in more 
 
 ## $G_2$ Model
 
-The Lie algebra $G_2$ might seem complicated 
+The Lie algebra $G_2$ might seem complicated because it is an exceptional algebra, but it enjoys a nice **Fib** fusion ring. The coroots are $2,1$ therefore the highest weight representations at level $k$ must have finite weight $\lambda = \lambda^1\omega_1 + \lambda^2\omega_2$ satisfying
+$$
+k \geq 2\lambda^1 + \lambda^2.
+$$
+If $\lambda$ is a highest weight then all of the $\lambda^i$ must be positive integers otherwise we could subtract more. For $k=1$ we have only two possible weights are $0,\omega_2$. For $\lambda = 2$ we have $0,\omega_1, \omega_2, 2\omega_2$. So let's start with the simplest case where we only have two primaries. How can we find their conformal weights? Assume $\psi$ is the highest weight state with weight $\omega_2$. Then according to the discussion above 
+$$
+L_0 \psi = \frac{(\omega_2, \omega_2 + 2\rho)}{2(1 + h^\vee)} = \frac{1}{10} \left(\frac{2}{3} + \frac{10}{3}\right) = \frac{2}{5},
+$$
+here we've used the quadratic form matrix $F$ and the fact that $\rho = \omega_1 + \omega_2$. The other one has weight $0$ lol. Ok this is awesome! We've met our primaries.
+
+
+
+
+
+
+
+
+
+
 
 
 
