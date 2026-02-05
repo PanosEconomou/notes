@@ -258,7 +258,7 @@ Another cool result is that these have been classified.
 
 
 
-## Primaries and Characters
+## Primaries
 
 Primaries are the highest weight vectors of the irreducible highest weight representations of the affine Kac-Moody algebra $\hat{\mathfrak{g}}_k$ of the Hilbert space of the theory. So we need to analyze their representations.
 
@@ -300,7 +300,7 @@ L_0 = \frac{1}{(k + h^\vee)}\left( \frac{1}{2}J_0^\alpha J_0^\alpha + \sum_{n\ge
 $$
 We know that if $\psi$ is the ground state then $J_n\psi = 0$, so we find that
 $$
-L_0 = \frac{J_0^\alpha J_0^\alpha}{k+h^\vee} + \Lambda_0,
+L_0 = \frac{J_0^\alpha J_0^\alpha}{2(k+h^\vee)} - \Lambda_0,
 $$
 But we also notice that this is almost the Cassimir for the underlying Lie algebra, that is because $J_0^\alpha \psi = -t^\alpha \psi$ where $t^\alpha$ is the generator of the base semisimple Lie algebra. Specifically in any simple Lie Algebra one can find Cassimir operators in the enveloping algebra (i.e. the formal power series of elements in $\mathfrak{g}$) like so. Let $B$ be a basis of the Lie algebra. Then
 $$
@@ -322,13 +322,54 @@ Q \psi
 $$
 where we have used that $\rho = \frac{1}{2}\sum_{\alpha>0} \alpha$ and that $[E^{\alpha},E^{-\alpha}] = \frac{2}{(\alpha,\alpha)}\alpha\cdot H $. Therefore the conformal weight of a primary with finite weight $\lambda$ is
 $$
-L_0 \psi = \frac{Q}{k+h^\vee} \psi = \frac{(\lambda, \lambda + 2\rho)}{k + h^\vee}.
+L_0 \psi = \frac{Q}{2(k+h^\vee)} \psi = \frac{(\lambda, \lambda + 2\rho)}{2(k + h^\vee)}.
 $$
 
 
 
+## Characters
+
+The Hilbert space is organized into irreducible representations of $\hat{\mathfrak{g}}_k$. These representations are graded by the weights. In particular if you have a representation with highest weight $\lambda$ you can grade it by an element of the Cartan algebra because its representation will necessarily commute with the remaining generators (This is the same thing we are doing in quantum mechanics when we label states by independent commuting observables). Anyway, one can find a function $\chi_{\lambda}:\hat{\mathfrak{h}}_k \to \mathbb{C}$ that takes a Cartan subalgebra element and provides a generating function for the dimensions in its grading. 
+
+**<u>Definition:</u>** Given a representation of $\mathfrak{g}$ with highest weight $\lambda$, its **character** is a map $\text{ch}_{\lambda} : \mathfrak{h} \to \mathbb{C}$ given by
+$$
+\text{ch}_{\lambda} = \sum_{\mu \in \Omega_\lambda} \text{mult}(\mu) e^{\mu},
+$$
+where $\Omega_\lambda \subset \mathfrak{h}^\ast$ is the set of weights in the $\lambda$ highest weight representation (also known as the weight system of $\lambda$),  $\text{mult}(\mu)$ is the number of independent vectors in the representation with weight $\mu$, and $e^\mu : \mathfrak{h}\to \mathbb{C}$ is for any $H\in \mathfrak{h}$ such that $e^{\mu}(\mathfrak{h}) = e^{(\mu, K(H))} = e^{\mu(H)}$. 
+
+In an affine Lie algebra we define a **normalized character** since that thing above is not necessarily modular invariant. Therefore we write,
+$$
+\chi_{\lambda} = e^{-m_{\lambda} \delta} \text{ch}_{\lambda},
+$$
+where $m_\lambda \in \mathbb{R}$ is a constant known as the **modular anomaly** and it is related to the central charge of the algebra $\hat{\mathfrak{g}}_k$ as well as  the conformal weight of the representation (i.e. the Cassimir element)
+$$
+m_{\lambda} = h_\lambda - \frac{c_{\mathfrak{g}}}{24} = \frac{(\lambda, \lambda + 2\rho)}{2(k + h^\vee)} - \frac{k \dim \mathfrak{g}}{24(k + h^\vee)} = \frac{(\lambda + \rho, \lambda + \rho)}{2(k + h^\vee)} - \frac{(\rho,\rho)}{2h^\vee}.
+$$
+Often in the context of a WZW model we keep more than one charges, we define the character of a module as
+$$
+\chi_{\lambda}(\tau,z) = \chi_\lambda(-2\pi i \tau \Lambda_0 -2\pi i z_\alpha J^\alpha),
+$$
+and use it as a generating functional for the dimensions of the various graded subspaces.
+
+With this definition we can calculate a formula for the $S$ and $T$ modular matrices. In particular we can quickly see that
+$$
+T_{\lambda\mu} = e^{2\pi i \, m_{\lambda}} \delta_{\lambda\mu}.
+$$
+
 
 ## Fusion Ring
+
+The super important invariant of a CFT is its Fusion ring. Once it is decomposed into representations of the chiral algebra these representations can fuse together and then be decomposed. For simple Lie algebras this is captured by the Clebsch-Gordan decomposition, or its more general version. We call that structure a Fusion ring.
+
+In conformal Field theory this is constrained severely because of the famous Verlinde formula. For a set of irreducible representations $\mathcal{R}$ we find that for all $a,b\in \mathcal{R}$ 
+$$
+a\otimes b = \bigoplus_{c\in \mathcal{R}} N_{ab}^c c,
+$$
+for some nonnegative integers $N^{c}_{ab}$ given by
+$$
+N_{ab}^c = \sum_{d \in \mathcal{R}}\frac{S_{ad} S_{bd} S_{cd}^\ast}{S_{1d}},
+$$
+ where $S$ is the modular $S$ matrix of the theory.
 
 
 
@@ -348,7 +389,47 @@ If $\lambda$ is a highest weight then all of the $\lambda^i$ must be positive in
 $$
 L_0 \psi = \frac{(\omega_2, \omega_2 + 2\rho)}{2(1 + h^\vee)} = \frac{1}{10} \left(\frac{2}{3} + \frac{10}{3}\right) = \frac{2}{5},
 $$
-here we've used the quadratic form matrix $F$ and the fact that $\rho = \omega_1 + \omega_2$. The other one has weight $0$ lol. Ok this is awesome! We've met our primaries.
+here we've used the quadratic form matrix $F$ and the fact that $\rho = \omega_1 + \omega_2$. The other one has weight $0$ lol. Ok this is awesome! We've met our primaries. By the way the central charge of this model is given by
+$$
+c = \frac{k\,\text{dim\,}\mathfrak{g}}{k+h^\vee} = \frac{14}{5}.
+$$
+The good thing is that with so little primaries we can try to solve for the modular data by assuming unitarity and integrality. Knowing the conformal weights we know that the $T$-matrix is
+$$
+T = \begin{pmatrix}e^{\frac{7\pi i}{30}} & 0 \\0&e^{\frac{17\pi i}{30}}\end{pmatrix}.
+$$
+Now we can try to bootstrap the $S$ matrix. Integrality implies that $N_{aa}^1 = 1$ for both defects, while conformal invariance of the vacuum requires that $N_{1a}^a = 1$. Unitarity implies that the $S$ matrix is unitary and the fact that the only charge conjugate of the second primary must be itself, implies that $S^2 = 1$, so $S$ is fixed by a two numbers $a,b,\in \mathbb{R}$ and it is given by
+$$
+S = \begin{pmatrix}a & b \\b & \frac{b^2\pm 1}{a}\end{pmatrix},
+$$
+where we used the additional assumption that nothing on the first row should vanish because of Verlidne's formula. Using Verlinde's formula we find that
+$$
+\begin{align*}
+N_{11}^1 &= 1 \iff 1 = a^2 + b^2
+\end{align*}
+$$
+this already implies that there is no solution for $\det S = 1$. For $\det S = -1$ we use 
+$$
+N_{22}^2 = n \in \mathbb{Z}_{\geq 0}\iff \frac{b}{a} - \frac{a}{b} = n,
+$$
+which in combination with the other equation means that we can write the $S$ matrix as
+$$
+S = \begin{pmatrix}\cos\theta & \sin\theta \\ \sin\theta & - \cos \theta\end{pmatrix},
+$$
+with $\theta = \arccot(-\frac{n}{2})$. So the S-matrices are parameterized by whatever the value of $N_{22}^2$ is. So this is the only thing that we need from our model. Since we know $T$ we are done! We can use the condition that
+$$
+(ST)^3 = 1 \implies \cos\theta = \sqrt{\frac{2}{5+\sqrt 5}} = \frac{1}{\sqrt{2 + \phi}} \implies \sin\theta = \frac{\phi}{\sqrt{2+\phi}}.
+$$
+So the $S$ matrix in our case is
+$$
+S = \frac{1}{\sqrt{2+\phi}}\begin{pmatrix}1 & \phi \\ \phi & -1\end{pmatrix}.
+$$
+Finally we can find our famous $n$ because
+$$
+n = \phi - \frac{1}{\phi} = 1,
+$$
+so we have $\text{Fib}$ symmetry as we always wanted! I used the fact that $\phi$ is the solution to $x^2 - x - 1= 0$. THIS IS AWESOME! There is only one consistent way to add $F$ symbols to $\text{Fib}$ therefore we even have the $F$-symbols. 
+
+
 
 
 
