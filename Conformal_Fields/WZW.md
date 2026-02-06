@@ -478,7 +478,9 @@ $$
 $$
 So we have a fusion category that is cannot be modular (unfortunately). But no matter. We only wanted modularity to make the center easier. Now we might struggle a bit.
 
+### Boundaries
 
+We can check something cool with boundaries. If we have a collection of Cardy boundaries that we have obtained from the orbifolding procedure, we have their $g$ functions we can figure out their Frobenius-Perron dimensions (which are proportional to $g$) using the methodology described [here](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.161). Using this we can then search which module of the symmetry category do these representations form and see if the action of the $Z_2$ defects is trivial, i.e. $N_{\hat 1 a}^b = \delta_{a}^{b}$. If this is the case we are done! But it might be the case that this is not it. Let's try this differently.
 
 
 
