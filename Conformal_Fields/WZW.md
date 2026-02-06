@@ -417,25 +417,66 @@ S = \begin{pmatrix}\cos\theta & \sin\theta \\ \sin\theta & - \cos \theta\end{pma
 $$
 with $\theta = \arccot(-\frac{n}{2})$. So the S-matrices are parameterized by whatever the value of $N_{22}^2$ is. So this is the only thing that we need from our model. Since we know $T$ we are done! We can use the condition that
 $$
-(ST)^3 = 1 \implies \cos\theta = \sqrt{\frac{2}{5+\sqrt 5}} = \frac{1}{\sqrt{2 + \phi}} \implies \sin\theta = \frac{\phi}{\sqrt{2+\phi}}.
+(ST)^3 = 1 \implies \cos\theta = \sqrt{\frac{2}{5+\sqrt 5}} = \frac{1}{\sqrt{1 + \phi^2}} \implies \sin\theta = \frac{\phi}{\sqrt{1+\phi^2}}.
 $$
 So the $S$ matrix in our case is
 $$
-S = \frac{1}{\sqrt{2+\phi}}\begin{pmatrix}1 & \phi \\ \phi & -1\end{pmatrix}.
+S = \frac{1}{\sqrt{1+\phi^2}}\begin{pmatrix}1 & \phi \\ \phi & -1\end{pmatrix}.
 $$
 Finally we can find our famous $n$ because
 $$
 n = \phi - \frac{1}{\phi} = 1,
 $$
-so we have $\text{Fib}$ symmetry as we always wanted! I used the fact that $\phi$ is the solution to $x^2 - x - 1= 0$. THIS IS AWESOME! There is only one consistent way to add $F$ symbols to $\text{Fib}$ therefore we even have the $F$-symbols. 
+so we have $\text{Fib}$ symmetry as we always wanted! I used the fact that $\phi$ is the solution to $x^2 - x - 1= 0$. THIS IS AWESOME! There is only one consistent way to add $F$ symbols to $\text{Fib}$ therefore we even have the $F$-symbols where the nontrivial ones are
+$$
+F^{\phi}_{\phi\phi\phi} = \frac{1}{\phi}\begin{pmatrix}1 & \sqrt{\phi}\\ \sqrt{\phi} & -1\end{pmatrix}.
+$$
 
 
+## Folded $G_2$
 
+In the study of generalized symmetries and kinematics often folding is a great way to obtain new theories or study the existing one. Let's play with the kinematics of $(G_2)^2$ and try to learn something about tis symmetry category. Since $G_2$ has $\text{Fib}$ symmetry, it is clear that $(G_2)^2$ would have at least $\text{Fib}\boxtimes \text{Fib}$ symmetry, which we can read off directly from the primaries which are now tensor products of the $G_2$ primaries. However, there are more symmetries. While $G_2$ didn't have any appreciable outer automorphisms, $(G_2)^2$ does! The obvious one is the exchange one, which we will think about in detail in a second.
 
+*One interesting question we can ask is if the model $(G_2)^2$ is simply the WZW model for $G_2\oplus G_2$ the answer is yes because of the Sugawara construction of the stress tensor being simply the sum of the two stress stress tensors.*
 
+Let's study the modular tensor category $\text{Fib}\boxtimes \text{Fib}$ for a second. There are 4 objects which are products of the 2 objects of $\text{Fib}$. their fusion rules satisfy $(a\boxtimes b) \otimes (c\boxtimes d) = (a\otimes c) \boxtimes (b\otimes d)$ so all the $F$ symbols are given by 
+$$
+F^{a}_{bcd} = F^{a_1}_{b_1c_1d_1} \otimes F^{a_2}_{b_2c_2d_2},
+$$
+where $a = a_1 \boxtimes a_2$. However, what would be even more interesting is to find boundary states that close in the Symmetry Category that includes the $\mathbb{Z}_2$ outer automorphism $\sigma$ that exchanges the two copies. We denote that category $C_{\text{Fib}} \coloneqq (\text{Fib}\boxtimes\text{Fib}^{\text{rev}})\ltimes \mathbb{Z}_2$. One quick thing we can figure out is its objects and fusion rules. Its simple objects are given by pars of the form $\alpha \in C$ where $\alpha = (a\boxtimes b,g)$ where $a,b \in \text{Fib}$, and $g\in \mathbb{Z}_2$, and the fusion rules are of the form
+$$
+\begin{align*}
+(a\boxtimes b,\sigma) \otimes (c\boxtimes d,g) &= ((a\boxtimes b) \otimes (d\boxtimes c), \sigma g)\\
+(a\boxtimes b,1) \otimes (c\boxtimes d,g) &= ((a\boxtimes b) \otimes (c\boxtimes d),1 g),
+\end{align*}
+$$
+This rule stems from the action of sigma in the Hilbert space which is given by $\sigma V_a \otimes V_b \sigma = V_b \otimes V_a$, where $V_a,V_b$ are modules associated to $a,b \in \text{Fib}$. Now what we can do is to find the $F$ symbols of this category, which could be particularly nice. Here, we very quickly have our lines exploded! In particular $C_{\text{Fib}}$ has $2(\text{rank\,} \text{Fib})^2 = 8$ lines, so this becomes exponentially hard to bootstrap for other categories. Anyway we will do our best to work this out in this simple example. 
 
+Let's adopt the following notation $a\in C$ is of the form $a=(a_1\boxtimes a_2, 1)$ and $\hat a = (a_1\boxtimes a_2, \sigma)$, while $a' = \sigma \otimes a\otimes \sigma$. We notice that $\hat 1 = \sigma$ must have dimension $1$ because it is invertible so all is good. Let's try to calculate $F$ symbols in which $\sigma$ is involved in. This is also known as the $\mathbb{Z}_2$-extension of a Fusion Category we have been considering, more of which is found [here](https://arxiv.org/abs/0909.3140). That paper guarantees the existence of $F$ symbols so let's find them in this case.
 
+One thing that we notice immediately is that the $F$ symbols satisfy
+$$
+(F_{abc}^d)^{\hat x y}=(F_{abc}^d)^{y\hat x}= (F_{abc}^d)^{\hat x\hat y} = 0.
+$$
+In fact any $F$ symbol with a single $\hat x$ entry is trivially zero. That is because $\text{Hom}(a\otimes \hat b, c) = 0$ for all $a,b,c \in \text{Irr} (\text{Fib}\boxtimes \text{Fib}^{\text{rev}})$. Effectively there is one (or basically two) key $F$ symbols that we need to fix. These are
+$$
+\begin{align*}
+\beta \coloneqq \left(F_{\hat 1 aa}^{\hat a'}\right)^{a\hat a'} && \frac{1}{\gamma} \coloneqq \left(F_{aa\hat 1}^{\hat a}\right)^{a\hat a}.
+\end{align*}
+$$
+So we need some way to constrain them. The nice realization is that in the unitary gauge (which we have chosen) the (nonzero part) of the $F$ symbols must be unitary! Therefore, $\beta,\gamma$ must simply be some phases because there is only one possible fusion channel in that case. Do we have freedom to choose the phase? Yes! Our normalization doesn't specify the phase because every time $v$ appears in the consistency conditions, so does $v^\dagger$ so the basis is specified up to a phase that we can absorb! So we set $\beta = \gamma = 1$ and now we are in business. 
 
+The only genuine freedom we have is for the grouplike $F$-symbols that haven't been specified yet. Notice is that $\{1,\hat 1\}$ form the category $\mathbb{Z}_2$ so the $F$ symbols for that are simply given by a normalized cocycle $\alpha \in H^3(\mathbb{Z}_2, U(1))$. Luckily there are only two and we already know that $F^{\hat 1}_{\hat 1\hat 1\hat 1} = 1$ so it is the trivial one. Ok awesome.
+
+That fixes all of our Fusion rules, and what we are left with is to see if there is some braiding somewhere. Turns out there is none.
+
+**<u>Proposition:</u>** The Fusion category above does not admit a braiding structure.
+
+***Proof:*** A brading structure would provide a natural isomorphism with components $c_{x,y} : x\otimes y\to y\otimes x$. In that case $\hat a' \cong \hat 1 \otimes a \xrightarrow{c_{\hat 1, a}} a\otimes \hat 1 \cong \hat a$ but no such arrow exists because $\hat a \neq \hat a '$ are both simple.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+So we have a fusion category that is cannot be modular (unfortunately). But no matter. We only wanted modularity to make the center easier. Now we might struggle a bit.
 
 
 
