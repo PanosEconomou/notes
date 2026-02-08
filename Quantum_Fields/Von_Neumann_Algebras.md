@@ -151,7 +151,7 @@ $$
 
 Apart fromt the super cool thing that they build the algebra, projections are very nice, because they correspond to subspaces of $H$.
 
-**<u>Proposition:</u>** There is a $1-1$ correspondence between projection operators and closed supspaces of $H$. 
+**<u>Proposition:</u>** There is a bijection between projection operators and closed supspaces of $H$. 
 
 The main intuition here is that every subspace of $H$ that is closed has a unique projection operator $P$, defined by the inner product in $H$.
 
@@ -178,7 +178,7 @@ Here is a small example to illustrate why we used such a weird notion of finiten
 
 One more tool we need about projections is a way to talk about their dimensions. This is equivalent to asking "within the subsystem $M$ what is the dimension of the subspace $P$?" The naive way would be to take $\text{Tr\,}P$, but the example above showed that this is a terrible idea because it will have the same value no matter what $M$ is. But since we have found a partial ordering of finite projections, means that we can safely attach an integer to each in a monotonic way, which is really what a dimension function should do.
 
-**<u>Theorem:</u>** Let $M$ be a Von Neumann algebra and $\Pi \subset M$ be its projections. Then there exists a map $d:\Pi\to \bar{\mathbb{R}}_{\geq 0}$ such that for any two finite projections $P\leq Q \in \Pi$ 
+**<u>Theorem:</u>** Let $M$ be a Von Neumann algebra and $\Pi \subset M$ be its projections. Then there exists a map $d:\Pi\to \bar{\mathbb{R}}$ such that for any two finite projections $P\leq Q \in \Pi$ 
 $$
 \begin{align*}
 d(0)=0 && d(P) \leq d(Q)
