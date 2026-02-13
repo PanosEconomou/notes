@@ -46,9 +46,13 @@ X(z,\bar z) = x + ip\log z\bar z + i\sum_{n\in \mathbb{Z}} \frac{1}{n} \left( \a
 $$
 with the requirement that $\alpha_n^\ast = \alpha_{-n}$ in order for $X$ to remain real. We are almost ready to quantize this model. 
 
-## Boundary Conditions
+
+
+# Boundary Conditions
 
 One of the things that the free boson is still useful for is as a prototypical example for generalizations in modern problems. In particular it is super useful when we think about boundary conditions, so it would be nice to try and analyze that. Let's figure that out.
+
+**<u>Definition:</u>** Given an action $S: F \to \mathbb{R}$ from some Banach space $F$ a **boundary condition** is a restriction of $S$ to a subspace $\hat F \subset F$ such that the variational problem is well defined, i.e. $\delta_{\eta}S(X)$ exists for all $\eta, X \in \hat F$.
 
 A useful parameterization that comes from radial quantization is $z = e^{-iw}$, where $w = \sigma + i \tau$, where $\sigma$ is a compact spatial coordinate in $[0,l]$ for some $l>0$ usually set to $\pi$ or $2\pi$, while $\tau \in \mathbb{R}$ is the Euclidean time. Setting boundary conditions effectively amounts to setting conditions on $w$. 
 
@@ -68,7 +72,7 @@ $$
 $$
 In addition the fact that $\theta$ is real implies that $\theta_n = \theta_{-n}^{\ast}$. 
 
-### Dirichlet
+## Dirichlet
 
 Dirichlet boundary conditions (i.e. $\theta(\text{Re\,}z) = \alpha$ which implies that $\theta(\sigma = 0) = \theta(\sigma = \pi) = \alpha$) imply
 $$
@@ -96,7 +100,7 @@ So if we fix $n$ we then have a tower of oscillators that fully specify our stat
 
 
 
-### Neumann
+## Neumann
 
 We have to be more careful here when we do the variation. The reason is because we want any boundary terms that occur during the variation to vanish for the fields that we are considering. Boundary terms in this case are of the form
 $$
