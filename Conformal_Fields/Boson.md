@@ -52,9 +52,7 @@ One of the things that the free boson is still useful for is as a prototypical e
 
 A useful parameterization that comes from radial quantization is $z = e^{-iw}$, where $w = \sigma + i \tau$, where $\sigma$ is a compact spatial coordinate in $[0,l]$ for some $l>0$ usually set to $\pi$ or $2\pi$, while $\tau \in \mathbb{R}$ is the Euclidean time. Setting boundary conditions effectively amounts to setting conditions on $w$. 
 
-For example say we can pick $z= - e^{-iw} = e^{-i\sigma +\tau}$ for $\sigma \in [0,\pi]$. We often also impose that $X$ should descend into the quotient on a circle. This means that $X$ should be a periodic function such that $X\sim X + 2\pi R$ so we can write $\theta \coloneqq \frac{X}{R}$ to be the normalized free boson. 
-
-If we pick the boundary condition such that $\theta(\text{Re\,}z) = \alpha$ this implies that $\theta(\sigma = 0) = \theta(\sigma = \pi) = \alpha$. Let's work out its mode expansion in some convenient place. We know that it should also satisfy
+For example say we can pick $z= - e^{-iw} = e^{-i\sigma +\tau}$ for $\sigma \in [0,\pi]$. We often also impose that $X$ should descend into the quotient on a circle. This means that $X$ should be a periodic function such that $X\sim X + 2\pi R$ so we can write $\theta \coloneqq \frac{X}{R}$ to be the normalized free boson. Let's work out its mode expansion in some convenient place. We know that it should also satisfy
 $$
 \partial \bar \partial \theta =0\implies \theta(z,\bar z) = \theta_L(z) + \theta_R(\bar z).
 $$
@@ -68,7 +66,11 @@ which implies that
 $$
 \theta = \frac{X_{0}}{R} -i \theta_0 \log z -i \tilde \theta_0 \log \bar z + i\sum_{n\neq 0}\frac{1}{n}\left( \theta_n z^{-n} + \tilde \theta_{n} \bar z^{-n}\right)
 $$
-Dirichlet boundary conditions imply that
+In addition the fact that $\theta$ is real implies that $\theta_n = \theta_{-n}^{\ast}$. 
+
+### Dirichlet
+
+Dirichlet boundary conditions (i.e. $\theta(\text{Re\,}z) = \alpha$ which implies that $\theta(\sigma = 0) = \theta(\sigma = \pi) = \alpha$) imply
 $$
 0= \frac{\partial \theta}{\partial \tau} = \partial \theta \frac{\partial z}{\partial \tau} + \bar \partial \theta \frac{\partial \bar z}{\partial \tau} = z\partial \theta + \bar z \bar \partial \theta \implies \theta_n = - \tilde \theta_n \text{ for } n\neq 0.
 $$
@@ -78,13 +80,55 @@ $$
 $$
 Therefore the solution is given by
 $$
-\theta = \alpha -i \theta_0 \log \frac{z}{\bar z} + \sum_{n\neq 0} \frac{\theta_n}{n}(z^{-n} - \bar z^{-n}).
+\theta = \alpha -i \theta_0 \log \frac{z}{\bar z} + i\sum_{n\neq 0} \frac{\theta_n}{n}(z^{-n} - \bar z^{-n}).
 $$
-In addition the fact that $\theta$ is real implies that $\theta_n = \theta_{-n}^{\ast}$. Also notice that $\text{log\,}\frac{z}{\bar z} = 2i\sigma$. Putting $\sigma = \pi$ and imposing the same condition we get that $\theta_0 = 0$ since $\alpha = \alpha + 2\theta_0 \pi$. This is amazing by the way, because it seems that it might not be possible to write a consistent function on the UHP that has different boundary conditions on the lhs and rhs. But this is what is fixing it! Had we said that $\theta(\sigma = \pi) = \alpha + 2\beta$ for some $\beta \in \mathbb{R}$ we would've found $\theta_0 = \beta$.
+Also notice that $\text{log\,}\frac{z}{\bar z} = 2i\sigma$. Putting $\sigma = \pi$ and imposing the same condition we get that $\theta_0 = 0$ since $\alpha = \alpha + 2\theta_0 \pi$. This is amazing by the way, because it seems that it might not be possible to write a consistent function on the UHP that has different boundary conditions on the lhs and rhs. But this is what is fixing it! Had we said that $\theta(\sigma = \pi) = \alpha + 2\pi\beta$ for some $\beta \in \mathbb{R}$ we would've found $\theta_0 = \beta$.
 
-There is something we don't see from the sphere though directly. If we are to calculate the torus partition functions 
+There is one more thing though! We know that $\theta \sim \theta + 2\pi$, which means that $\theta(\sigma = 0) = \alpha + 2\pi n$, while $\theta(\sigma = \pi) = \alpha + 2\pi m$ for integers $n,m \in \mathbb{Z}$. Therefore the true general form of $\theta$ can have inequivalent windings such that 
+$$
+\theta(\sigma=0) - \theta(\sigma = \pi) = \alpha - \beta + 2\pi n,
+$$
+for the context here $\alpha = \beta$ but I wanted to write it explicitly ok? This effectively fixes $\theta(\sigma = \pi) = \alpha -2\pi m$, which implies $\theta_0 \in \mathbb{Z}$. The general form of the solution is given by
+$$
+\theta = \alpha-i n \log \frac{z}{\bar z} + i\sum_{n\neq 0} \frac{\theta_n}{n}\left( z^{-n} - \bar z^{-n} \right).
+$$
+So if we fix $n$ we then have a tower of oscillators that fully specify our states. Now let's do the Same thing for Neumann Boundary conditions. In 
 
- 
+
+
+### Neumann
+
+We have to be more careful here when we do the variation. The reason is because we want any boundary terms that occur during the variation to vanish for the fields that we are considering. Boundary terms in this case are of the form
+$$
+\mathcal{S}_B = \int_{\partial \Sigma} A
+$$
+for some $A \in \Omega^1(\Sigma)$. This means that pretty much the only things we can write down are some weird one forms
+
+This is going to be very similar with important caveats. Neumann conditions of CFT fame are given by saying
+$$
+\alpha = \frac{\partial \theta}{\partial \sigma} = \partial \theta \frac{\partial z}{\partial \sigma} + \bar \partial \theta \frac{\partial \bar z}{\partial \sigma} = -iz\partial \theta + i\bar z \partial \theta \implies \sum_{n \in \mathbb{Z}} \left(\tilde \theta_n x^n -\theta_n x^n  \right) = \alpha,
+$$
+where we plugged in $\sigma = 0$. This finally can only be solved by
+$$
+\begin{align*}
+\theta_n = \tilde \theta_n \text{ for } n\neq 0, && \tilde \theta_0 - \theta_0 = \alpha.
+\end{align*}
+$$
+If we were to plug in $\sigma = \pi$ we would find $z = -e^{-\pi i + \tau} = -x$. So we would get that 
+$$
+\sum_{n\in \mathbb{Z}} \left( \theta_n x^n  - \tilde \theta_{n} x^n\right) = \beta,
+$$
+where we to put different outflow conditions. But this would immediately imply that $\theta_0 - \tilde \theta_0 = 0$.
+
+ Therefore we can write a mode expansion as
+$$
+\theta(z,\bar z) = \frac{X_0}{R} -i \theta_0 \log z -i (\alpha +\theta_0) \log \bar z + i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^n + \tilde z^n \right).
+$$
+Now we use the compactness of $S^1$, and in particular that $\theta()$
+
+
+
+
 
 
 
