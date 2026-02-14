@@ -50,10 +50,71 @@ with the requirement that $\alpha_n^\ast = \alpha_{-n}$ in order for $X$ to rema
 
 # Boundary Conditions
 
-One of the things that the free boson is still useful for is as a prototypical example for generalizations in modern problems. In particular it is super useful when we think about boundary conditions, so it would be nice to try and analyze that. Let's figure that out.
+One of the things that the free boson is still useful for is as a prototypical example for generalizations in modern problems. In particular it is super useful when we think about boundary conditions, so it would be nice to try and analyze that. Let's figure that out. We talked about boundaries rigorously [here](../Quantum_Fields/Boundaries.md), but really the intution for our purposes here is that a **boundary condition** is a choice of fields (i.e. A subpace $\hat F$ of some Banach space of fields $F$) together with a boundary term added to the action such that the variational problem is "well defined" in the following sense.
 
-**<u>Definition:</u>** Given an action $S: F \to \mathbb{R}$ from some Banach space $F$ a **boundary condition** is a restriction of $S$ to a subspace $\hat F \subset F$ such that the variational problem is well defined, i.e. $\delta_{\eta}S(X)$ exists for all $\eta, X \in \hat F$.
+**<u>Definition:</u>** Given an action $S: \hat F \to \mathbb{R}$ from some Banach subspace $\hat F$ the **variational problem is well defined** if $\delta_{\eta}S(X)$ exists for all $X \in \hat F$ and $\eta \in T_{X}\hat F$. By the way we define the set of variations or the **tangent space** of a Banach subspace $\hat F$ at $X \in \hat F$ by
+$$
+T_X \hat F = \{ h \in \hat F \mid \exists \epsilon >0 \text{ s.t } X+th \in \hat F\ \forall |t| < \epsilon \}.
+$$
+By the way this has the result that $T_X F = F$ for a Banach space $F$. Anyway this helps us think about the variational problem a little bit more carefully. 
 
+As a result, the only possible boundary conditions that we can put in there must satisfy for any variation $\eta$ 
+$$
+\int_{\Sigma} d(\ast \eta dX) = \int_{\partial \Sigma} \ast \eta dX,
+$$
+which means that in this case the only boundary conditions must satisfy $dX = 0$ when pulled on the boundary of $\Sigma$. Let's work this out carefully.
+
+**<u>Proposition:</u>** Some conformally invariat boundary conditions for a free boson are
+$$
+\begin{align*}
+\left.\frac{\partial X}{\partial \tau}\right|_{\partial \Sigma} = 0 && \text{or} && \left.\frac{\partial X}{\partial \sigma}\right|_{\partial \Sigma} = \alpha,
+\end{align*}
+$$
+for some $\alpha \in \mathbb{R}$. 
+
+***Proof:*** Let's first consider the case where we add no boundary terms. We want to restrict our space of fields to $F$ such that $\int_{\partial \Sigma} \ast \eta dX$ vanishes for all $X \in F$ and $\eta \in T_X F$. 
+
+Consider the map $f:  \mathbb{R}\to \mathbb{C}$ given by $x \mapsto (z,\bar z) = (x,x) $. Then we see that 
+$$
+\begin{align*}
+f^\ast \ast dX 
+&= f^\ast \left( \ast \partial X +\ast \bar \partial X \right) = -if^\ast \left(  \partial X - \bar \partial  X \right) = -i \left.\frac{\partial X}{\partial z}\right|_{\partial \Sigma} dx + i \left.\frac{\partial X}{\partial \bar z}\right|_{\partial \Sigma} dx.
+\end{align*}
+$$
+In coordinates where $x = \pm e^{\tau}$ (depending on the values of $\sigma \in \{0,\pi\}$) we can use chain rule to get
+$$
+f^\ast \ast\eta dX = -ix \eta \left. \frac{\partial X}{\partial \sigma}\right|_{\partial \Sigma} dx.
+$$
+If we assume that $\frac{\partial X}{\partial \sigma} = 0$ on the boundary we recover the Neumann condition and we won't even need to restrict our set of fields further. Alternatively we are forced to say that we pick our set of fields such that all variations $\eta$ must vanish on the boundary. This implies that $X$ is forced to pick a fixed value on the boundary, otherwise we would be able to find variations that change the values on the boundary, which would necessarily not vanish there. These boundary condition are Dirichlet.
+
+Now though we are interested in Boundary terms that we can add. And there are soooo increadibly many. Because once we allow nontrivial physics on the line, we can pretty much find a way to attach any physical system there. That's why we impose the Conformal boundary condition. 
+
+In other words, any boundary term can be given by $\phi(X) \in \Omega^1(\partial \Sigma)$ to have the form
+$$
+B  = \int_{\partial \Sigma} \phi(X) = \int_{\Sigma} d\phi(X).
+$$
+While all of these preserve the equaitons of motion not all are conformal. For example, we want an operator that has scaling dimension $\Delta = 1$ so that the action is conformal under scalings. This means that $\phi$ is a marginal operator. In addition to that, we want it to be exactly marginal, that is under RG flow we don't go away, i.i.e. we want its $\beta$ function to vanish. But we could also find other non-local boundary terms that are still conformal, i.e. we just picked an isolated fixed point somewhere. 
+
+Since this needs to have dimension $1$ let's consider 
+$$
+B = \int_{\partial \Sigma} \alpha dX,
+$$
+for some $\alpha \in C^\infty (\Sigma)$. Then we can see that after doing the variation we have the following boundary contributions
+$$
+\int_{\partial \Sigma} \eta(\ast dX - d\alpha),
+$$
+where we have used stokes and that the boundary has empty boundary. Now we can play the same game. Forcing $\eta$ to vanish achieves Dirichlet so whatever, but forcing the rest to vanish is equivalent to
+$$
+f^\ast \ast dX = f^\ast d\alpha \implies -i \left.\frac{\partial X}{\partial z}\right|_{\partial \Sigma} + i \left.\frac{\partial X}{\partial \bar z}\right|_{\partial \Sigma} = \left.\frac{\partial \alpha}{\partial z}\right|_{\partial \Sigma} + \left.\frac{\partial \alpha}{\partial \bar z}\right|_{\partial \Sigma}.
+$$
+which in our favorite coordinates reads
+$$
+\left.\frac{\partial X}{\partial \sigma}\right|_{\partial \Sigma} = \left.\frac{\partial \alpha}{\partial \tau}\right|_{\partial \Sigma}.
+$$
+However, there is a subtlety here. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
 A useful parameterization that comes from radial quantization is $z = e^{-iw}$, where $w = \sigma + i \tau$, where $\sigma$ is a compact spatial coordinate in $[0,l]$ for some $l>0$ usually set to $\pi$ or $2\pi$, while $\tau \in \mathbb{R}$ is the Euclidean time. Setting boundary conditions effectively amounts to setting conditions on $w$. 
 
 For example say we can pick $z= - e^{-iw} = e^{-i\sigma +\tau}$ for $\sigma \in [0,\pi]$. We often also impose that $X$ should descend into the quotient on a circle. This means that $X$ should be a periodic function such that $X\sim X + 2\pi R$ so we can write $\theta \coloneqq \frac{X}{R}$ to be the normalized free boson. Let's work out its mode expansion in some convenient place. We know that it should also satisfy
@@ -102,13 +163,7 @@ So if we fix $n$ we then have a tower of oscillators that fully specify our stat
 
 ## Neumann
 
-We have to be more careful here when we do the variation. The reason is because we want any boundary terms that occur during the variation to vanish for the fields that we are considering. Boundary terms in this case are of the form
-$$
-\mathcal{S}_B = \int_{\partial \Sigma} A
-$$
-for some $A \in \Omega^1(\Sigma)$. This means that pretty much the only things we can write down are some weird one forms
-
-This is going to be very similar with important caveats. Neumann conditions of CFT fame are given by saying
+Neumann conditions of CFT fame are given by saying
 $$
 \alpha = \frac{\partial \theta}{\partial \sigma} = \partial \theta \frac{\partial z}{\partial \sigma} + \bar \partial \theta \frac{\partial \bar z}{\partial \sigma} = -iz\partial \theta + i\bar z \partial \theta \implies \sum_{n \in \mathbb{Z}} \left(\tilde \theta_n x^n -\theta_n x^n  \right) = \alpha,
 $$
@@ -122,12 +177,13 @@ If we were to plug in $\sigma = \pi$ we would find $z = -e^{-\pi i + \tau} = -x$
 $$
 \sum_{n\in \mathbb{Z}} \left( \theta_n x^n  - \tilde \theta_{n} x^n\right) = \beta,
 $$
-where we to put different outflow conditions. But this would immediately imply that $\theta_0 - \tilde \theta_0 = 0$.
+where we to put different outflow conditions. But this would immediately imply that $\theta_0 - \tilde \theta_0 = 0$. Therefore we can write a mode expansion as
 
- Therefore we can write a mode expansion as
 $$
 \theta(z,\bar z) = \frac{X_0}{R} -i \theta_0 \log z -i (\alpha +\theta_0) \log \bar z + i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^n + \tilde z^n \right).
 $$
+We also know that $\theta(\sigma = \pi)$ 
+
 Now we use the compactness of $S^1$, and in particular that $\theta()$
 
 
