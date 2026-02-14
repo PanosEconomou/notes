@@ -9,6 +9,78 @@ What happens when we try to do a 2D CFT on a manifold that has a Boundary? In th
 
 [toc]
 
+# What is a Boundary in a QFT?
+
+It is not obvious what a boundary is in a QFT. If I have a PDE on some manifold, I know how to add it to a manifold with boundary via standard methods. But we don't have just a PDE. The data that describe a Field Theory are "laws of physics" by which one obtains differential equations on the boundary and the bulk. When we are not being wishy washy, we specify the laws of physics, by giving some function $S$ that helps us "score" the allowed configurations of our fields on spacetime based on how "physical" they look.
+
+Given an action defined on a set of fields on a boundaryless manifold we can obtain equations of motion that these fields can have on the bulk. However, when we add a boundary the problem becomes ambiguous! There are many nontrivial physics configurations on the boundary that the action $S$ of the bulk theory doesn't know how to evaluate! So $S$ needs to change, often to account for a way to determine what boundary configuration is more physical than others. 
+
+One core principle about how we modify $S$ is that however we do so the physics of the bulk (i.e. the local equations of motion) should not change. This severly restricts the kind of modifications we can do, which is why, with perhaps some more restrictions, the problem of finding all boundary conditions can be tractable. In laymann's terms, when you put a boundary on a system, arbitrary laws of physics for how your system should behave on the boundary are likely to be incompatible with how it behaves on the bulk, therefore you want to classify what could there be.
+
+
+
+## Building Intuition with a Boson
+
+This is too wishy-washy so to develop a more concrete way to think about this, we will find an example to build some intution on the kinds of tools we need, and then generalize appropriately to write down a set of principles for figuring out the kinds of things one needs to look out for when dealing with boundaries.
+
+Let's stick for a moment with the famous example of the free boson $X:\Sigma \to \mathbb{R}$ on a compact closed surface $\Sigma$ that we can take to be 2D simply for the relation to CFTs but we won't really use that. The set of all possible fields that live there is $H^1(\Sigma)$ (i.e. the first sobolev space. Typically one would like to include things that integrate well and converge well and take derivatives well so $H^1(S)$ can be thought of as all the nice functions that I can use) which is a Banach space. 
+
+We can define a lagrangian $L: H^1(\Sigma) \to \Omega^1(\Sigma)$ by $L(X) = \frac{1}{2}dX \wedge \ast dX$ for some metric on $\Sigma$ and then write the bulk action $S: H^1(\Sigma) \to \mathbb{R}$ given by
+$$
+S(X) = \int_{\Sigma} L(X) = \frac{1}{2}\int_{\Sigma} dX\wedge \ast dX,
+$$
+where the equations of motion we obtain are of the form $d\ast dX = 0$. However, $L$ is not the unique function that defines these equations of motion. In fact any $L + dA$ for some $A:H^1(X) \to \Omega^{n-1}(\Sigma)$ can have a well defined variational problem with the same equations of motion in the bulk even if $\Sigma$ was not closed. So we, already, almost accidentally stumbled upon a way to write down rules that lead to the same equations on the bulk, but perhaps different ones on the boundary. 
+
+> An important conceptual sticking point here is that while we impose that the **equations** are the same in the bulk with and without a boundary, there is no reason to impose that the acceptable **field configurations** must be the same! In practice this means that we can change our set of fields from $H^1(\Sigma)$ to whatever subspace such that the variational problem is well defined after adding a total derivative or making some other kind of modification in the action.
+
+When we introduce a boundary on $\Sigma$ we want to modify our action to $S'$ such that it has a well defined variational problem, aka there is a set of fields in which we can restrict $S'$ to where it is Frechet Differentiable. More preciesly this means that given an action $S$ we must be able to find critical points $X \in F$ where $F$ is some set of allowed fields, by calculating $\delta S$ and then saying that $\delta_{\eta} S(X) = 0$ for all $X \in F$ and $\eta \in T_{X}F$ which is how we denote the set of "allowed variations" of $F$. We will define these more precisely in a second.
+
+To encode the fact that we don't want our bulk physics to change we will write the allowed modifications to the action as $S' = S + B$ for some $B : H^1(\partial \Sigma) \to \mathbb{R}$. This by definition can't change the equations of motion. In the case our action is local, and has a lagrangian these $B$ terms can be constructed by adding total derivatives to our Lagrangian and the applying Stoke's theorem. This section is getting too long, so let's jump into using this intuition in practice.
+
+
+
+## Generalizing
+
+Let's try and abstract some of the ideas in the free boson. Everything presented here is only meant to guide one's thinking in a more structured way. These constructions are meant to be specialized and relaxed in a particular context to be workable. But anyway here we are. 
+
+Let's talk a bit about what the fields where the action is defined in should be, but a disclaimer is that all frechet stuff that we will write down can be replaced by the intuition of "sufficiently nice spaces of fields." 
+
+**<u>Definition:</u>** A topological vector space that is locally convex, metrizable, and complete is a **Frechet space**. A normed vector space that is closed under the norm is a **Banach space**.
+
+The unpretentious way of saying this is that a Frechet space is a vector space where you can sum up infinitely many vectors and check if that thing converges, and if it does then it's in the vector space, that has some extra properties. Locally Convez means that for every open neighborhood around a point can be written as a union of balanced cones (aka sets $C$ where if $x,y \in C$ then the line segment between them $tx + (1-t)y \in C$ for $0\leq t\leq 1$, and for any $|s| = 1$ then $sx \in C$). This construction is relaxing jusssst enought the requirement that a topological vector space needs to have a norm while still allowing us to have a nice way to talk about continuous linear functionals (which is 90% of the things we define in physics. Look up [Hahn-Banach Theorem](https://en.wikipedia.org/wiki/Hahn–Banach_theorem)). Finally, metrizable simply means that one can put a metric on it in to define open sets (but unlike a Banach space the metric doesn't have to be induced a norm). 
+
+**<u>Definition:</u>** Let $F,G$ be Banach spaces and $U\subset F$  an affine subset of $F$. Then the **tangent space at** $X\in U$ is defined by
+$$
+T_XU \coloneqq \{\eta \in F \mid \exists\, \epsilon >0 \text{ s.t. } X+t\eta \in U\ \forall\, |t| < \epsilon \}.
+$$
+In addition a map $S:U\to G$ is **Frechet differentiable** at $X \in U$ if for all $\eta\in T_XF$ the following limit exists
+$$
+\delta_{\eta}S(X) \coloneqq \lim_{\epsilon \to 0} \frac{S(X + \epsilon\eta) - S(x)}{\epsilon} = \left.\frac{d}{d\epsilon}\right|_{0} S(X + \epsilon \eta).
+$$
+If $\delta S(X)$ exists for every $X \in U$ then we say that $S$ has a **well defined variational problem** and we call $S$ an **action**. If every element $X\in F$ can be written as a map $X:\Sigma \to B$ from some manifold $\Sigma$ to a Banach space $B$, then the action is **local** if it is given by
+$$
+S(X) = \int_{\Sigma} L(X),
+$$
+where $L:U\to \Omega^{\text{dim\,}\Sigma}(\Sigma)$ is smooth (i.e. all Frechet derivatives exist).
+
+Notice that $U$ doesn't have to be open, it can just be a vector or affine subspace. This encodes two important conceptual properties. We don't have to define the action on the entirety of $F$, we can simply do it on a convenient subset that we can later restrict to be the right thing. Also, restricting the subspace to $U$ restricts the admissible variations $T_XU$ of $X\in U$ which can really help to figure out boundary conditions. 
+
+From now on we will work on the following scenario. We would have some orientable manifold $\Sigma$ and we will consider fields of the form $\Sigma \to B$ that are valued on some Banach space $B$. The fields we will consider will be in some Banach space $F_{\Sigma} \subset B^\Sigma$, where $B^\Sigma$ is the set of maps $\Sigma \to B$.
+
+**<u>Lemma:</u>** Let $\Sigma$ be an orientable $n$ dimensional manifold, $B$ a banach space, and $L: F_{\Sigma} \to \Omega^{\text{top}}(\Sigma)$ the Lagrangian of some local action. Then for any submanifold $\Sigma'$ of $\Sigma$ of the same dimension, there exists a unique Lagrangian $L_{\Sigma'}:F_{\Sigma'} \to \Omega^{\text{top}}(\Sigma')$ up to a total derivative such that the two agree on functions supported on open subsets of $\Sigma'$.
+
+This construction means that if you have a Lagrangian you can induce a lagrangian on a subspace. So if you want to add a boundary, then you can have the same Lagrangian. Now we are ready to introduce the definition of a boundary. 
+
+**<u>Definition:</u>** Given a local action $S: F_{\Sigma}\to \mathbb{R}$ for some manifold $\Sigma$ with lagrnagian $L$, a **boundary** of $S$ is a local action $S': F_{\Sigma'} \to \mathbb{R}$ such that the Lagrangian is given by
+$$
+S' = \int_{\Sigma'} L_{\Sigma'} + B,
+$$
+where $B : F_{\Sigma'} \to \mathbb{R}$ is a local action supported only on functions from $\partial \Sigma'$. We call $B$ a **boundary term**, while $F'_{\Sigma}$ a **boundary condition**.
+
+
+
+
+
 # Modular Invariance
 
 Before we talk about boundaries let's try to explore some relevant properties of Conformal Field Theories that should not be broken when we add a boundary. To study modular invariance we will talk about intertwiners. These are objects that map between representations of CFTs. 
@@ -480,7 +552,7 @@ Another cool thing we can do is to see that $T'$ is primary with respect to $T$.
 $$
 \begin{equation}\tag*{$\Box$}\end{equation} 
 $$
- 
+
 
 ## Preserving Symmetry
 
