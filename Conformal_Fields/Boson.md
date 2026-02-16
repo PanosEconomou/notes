@@ -171,7 +171,7 @@ where we plugged in $\sigma = 0$. This finally can only be solved by $\theta_n =
 $$
 \theta(z,\bar z) = \frac{X_0}{R} -i\theta_0 \log z\bar z + i \sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
-But this naively seems that unlike Dirichlet boundary conditions we only have 1 Neumann condition. This makes little sense, because under $T$-duality we should exchange the two. The extra degree of freedom comes because we can keep adding a boundary term in this action of the form
+But this naively seems that unlike Dirichlet boundary conditions we only have 1 Neumann condition. This makes little sense, because under orbifolding we should exchange the two. The extra degree of freedom comes because we can keep adding a boundary term in this action of the form
 $$
 B = 2\pi g R\int_{\partial \Sigma} \alpha dX.
 $$
@@ -191,7 +191,33 @@ with some appropriate constants in front of $\alpha$ in $B$ that we won't care a
 $$
 \theta(z,\bar z) = \frac{X_0}{R} - i(\theta_0 + \alpha) \log z\bar z +i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
-now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R}$ on some states, which finally means that $\theta_0 = \frac{n - \alpha}{2\pi gR^2}$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now.
+now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R}$ on some states, which finally means that $\theta_0 = \frac{n}{2\pi gR^2} - \alpha$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now.
+
+
+
+## No Boundary
+
+As a quick way let's see something important for the compact Boson.  Using this expansion we find that
+$$
+\theta = \frac{X_{0}}{R} -i \theta_0 \log z -i \tilde \theta_0 \log \bar z + i\sum_{n\neq 0}\frac{1}{n}\left( \theta_n z^{-n} + \tilde \theta_{n} \bar z^{-n}\right)
+$$
+but if we impose that $\theta$ is a single valued function on the plane we have that
+$$
+\begin{align*}
+\theta(\sigma=2\pi, \tau = 0) - \theta(\sigma=0, \tau = 0) = 2\pi n &&\implies&& - \theta_0 + \tilde \theta_0 = n \in \mathbb{Z},
+\end{align*} 
+$$
+but also as we have seen the translation operator $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that
+$$
+\theta_0 + \tilde \theta_0 + 2\alpha = \frac{m}{2\pi g R^2}, \ m\in \mathbb{Z}.
+$$
+Finally we can repackage them as so
+$$
+\begin{align*}
+\theta_0 = \frac{m}{4\pi g R^2} - \frac{n}{2} - \alpha && \tilde \theta_0 = \frac{m}{4\pi g R^2} + \frac{n}{2} - \alpha,
+\end{align*} 
+$$
+remember the $-\alpha$ appears if we turn on a flat gauge field. If we want it to single valued we have $\alpha = 0$. This is fantastic! We have a way to describe the momenta of the free boson in general. Moreover we have found all the possible conformal weights, up to an integer, since $L_0 = \frac{1}{2} (P_0^\alpha)^2 + N$, where $N$ is some number operator whatever. So we also now know all the twisted Hilbert spaces here! WOOOOHHHHOOOOOOO! (Ok not all, but still we know a lot).
 
 
 
