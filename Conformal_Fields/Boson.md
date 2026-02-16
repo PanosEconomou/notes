@@ -64,10 +64,10 @@ $$
 $$
 which means that in this case the only boundary conditions must satisfy $dX = 0$ when pulled on the boundary of $\Sigma$. Let's work this out carefully.
 
-**<u>Proposition:</u>** Some conformally invariat boundary conditions for a free boson are
+**<u>Proposition:</u>** Some conformally invariant boundary conditions for a free boson are
 $$
 \begin{align*}
-\left.\frac{\partial X}{\partial \tau}\right|_{\partial \Sigma} = 0 && \text{or} && \left.\frac{\partial X}{\partial \sigma}\right|_{\partial \Sigma} = \alpha,
+\left.\frac{\partial X}{\partial \tau}\right|_{\partial \Sigma} = 0 && \text{or} && \left.\frac{\partial X}{\partial \sigma}\right|_{\partial \Sigma} =0,\ B = \int_{\partial \Sigma} \alpha dX.
 \end{align*}
 $$
 for some $\alpha \in \mathbb{R}$. 
@@ -93,7 +93,7 @@ In other words, any boundary term can be given by $\phi(X) \in \Omega^1(\partial
 $$
 B  = \int_{\partial \Sigma} \phi(X) = \int_{\Sigma} d\phi(X).
 $$
-While all of these preserve the equaitons of motion not all are conformal. For example, we want an operator that has scaling dimension $\Delta = 1$ so that the action is conformal under scalings. This means that $\phi$ is a marginal operator. In addition to that, we want it to be exactly marginal, that is under RG flow we don't go away, i.i.e. we want its $\beta$ function to vanish. But we could also find other non-local boundary terms that are still conformal, i.e. we just picked an isolated fixed point somewhere. 
+While all of these preserve the equations of motion not all are conformal. For example, we want an operator that has scaling dimension $\Delta = 1$ so that the action is conformal under scalings. This means that $\phi$ is a marginal operator. In addition to that, we want it to be exactly marginal, that is under RG flow we don't go away, i.i.e. we want its $\beta$ function to vanish. But we could also find other non-local boundary terms that are still conformal, i.e. we just picked an isolated fixed point somewhere. 
 
 Since this needs to have dimension $1$ let's consider 
 $$
@@ -111,7 +111,7 @@ which in our favorite coordinates reads
 $$
 \left.\frac{\partial X}{\partial \sigma}\right|_{\partial \Sigma} = \left.\frac{\partial \alpha}{\partial \tau}\right|_{\partial \Sigma}.
 $$
-However, there is a subtlety here. 
+However, there is a subtlety here. The only conformal coupling we can pick here is constant $\alpha$. This way we recover the pure Neumann boundary condition we already know and love, but with the subtlety that there is an extra phase in the Lagrangian now. We will see how this plays in a second. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
@@ -165,26 +165,33 @@ So if we fix $n$ we then have a tower of oscillators that fully specify our stat
 
 Neumann conditions of CFT fame are given by saying
 $$
-\alpha = \frac{\partial \theta}{\partial \sigma} = \partial \theta \frac{\partial z}{\partial \sigma} + \bar \partial \theta \frac{\partial \bar z}{\partial \sigma} = -iz\partial \theta + i\bar z \partial \theta \implies \sum_{n \in \mathbb{Z}} \left(\tilde \theta_n x^n -\theta_n x^n  \right) = \alpha,
+0 = \frac{\partial \theta}{\partial \sigma} = \partial \theta \frac{\partial z}{\partial \sigma} + \bar \partial \theta \frac{\partial \bar z}{\partial \sigma} = -iz\partial \theta + i\bar z \partial \theta \implies \sum_{n \in \mathbb{Z}} \left(\tilde \theta_n x^n -\theta_n x^n  \right) = 0,
 $$
-where we plugged in $\sigma = 0$. This finally can only be solved by
+where we plugged in $\sigma = 0$. This finally can only be solved by $\theta_n = \tilde \theta_n$ which implies that
 $$
-\begin{align*}
-\theta_n = \tilde \theta_n \text{ for } n\neq 0, && \tilde \theta_0 - \theta_0 = \alpha.
-\end{align*}
+\theta(z,\bar z) = \frac{X_0}{R} -i\theta_0 \log z\bar z + i \sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
-If we were to plug in $\sigma = \pi$ we would find $z = -e^{-\pi i + \tau} = -x$. So we would get that 
+But this naively seems that unlike Dirichlet boundary conditions we only have 1 Neumann condition. This makes little sense, because under $T$-duality we should exchange the two. The extra degree of freedom comes because we can keep adding a boundary term in this action of the form
 $$
-\sum_{n\in \mathbb{Z}} \left( \theta_n x^n  - \tilde \theta_{n} x^n\right) = \beta,
+B = 2\pi g R\int_{\partial \Sigma} \alpha dX.
 $$
-where we to put different outflow conditions. But this would immediately imply that $\theta_0 - \tilde \theta_0 = 0$. Therefore we can write a mode expansion as
-
+This means that we have to be a bit more careful because the canonical commutation relations have changed in the presence of this term! Let's work them out in its absence and then in its presence. The canonical position here would be 
 $$
-\theta(z,\bar z) = \frac{X_0}{R} -i \theta_0 \log z -i (\alpha +\theta_0) \log \bar z + i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^n + \tilde z^n \right).
+X_0 = \int_{\tau = 0} Xd\sigma = X_0,
 $$
-We also know that $\theta(\sigma = \pi)$ 
-
-Now we use the compactness of $S^1$, and in particular that $\theta()$
+i.e. the integration constant we introduced earlier. Meanwhile the (Lorentzian) $P_0$ is going to be
+$$
+P_0 = \frac{\partial L}{\partial \partial_{\tau}X_0} = g\pi R (\theta_0 + \tilde \theta_0) = 2\pi R g \theta_0.
+$$
+But when we add the additional term in the action we find that 
+$$
+P_0^{\alpha} = g\pi R \left( \theta_0 + \tilde \theta_0  + 2\alpha \right) = 2\pi R g(\theta_0 + \alpha),
+$$
+with some appropriate constants in front of $\alpha$ in $B$ that we won't care about because $\alpha \in \mathbb{R}$. The point is that when we include the boundary term, the Hamiltonian is shifted by $\alpha$, so in some sense, our operators $\theta_0^\alpha$ when we quantize with $B$ act in the same way as if we didn't insert it and instead acted with $\theta_0 + \alpha$. This makes a lot of since, since what we really did was to fuse a defect with the boundary associated with inserting a flat gauge field of the form $A = \alpha d\tau$ (up to constant factors). So to be precise, by $\theta_0$ we will always mean $\theta_{0}^{\alpha = 0}$ and we will add $\alpha$ explicitly when needed. Therefore we obtain that
+$$
+\theta(z,\bar z) = \frac{X_0}{R} - i(\theta_0 + \alpha) \log z\bar z +i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
+$$
+now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R}$ on some states, which finally means that $\theta_0 = \frac{n - \alpha}{2\pi gR^2}$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now.
 
 
 
