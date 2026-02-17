@@ -12,15 +12,15 @@ Let's start with the hello world description of a free boson. Let $\Sigma$ be a 
 
 We will consider two main cases of a the free boson, one is when $M = \mathbb{R}$ and the other is when $M = S^1$ which is known as the compact boson. When we have something that is other than $\mathbb{R}$, however, we have to be careful on how we define the action. For a map $X \in C^\infty(\Sigma, \mathbb{R})$ we define the action $S:C^\infty(\Sigma, M) \to \mathbb{R}$ as
 $$
-S(X) \coloneqq -\frac{g}{2} \int_{\Sigma} dX\wedge \ast dX
+S(X) \coloneqq \frac{g}{2} \int_{\Sigma} dX\wedge \ast dX
 $$
-> In string theory we call $g = \frac{1}{4\pi \alpha'}$ for some constant $\alpha'$.
+> In string theory we call $g = \frac{1}{2\pi \alpha'}$ for some constant $\alpha'$.
 
 But for the circle, this doesn't strictly make sense. Up to scaling there is a unique arclength form on circle $\omega \in \Omega^1(S^1)$ such that
 $$
 \int_{S^1} \omega = 2\pi R,
 $$
-where $R$ is the radius of the circle. Now we can take the pullback $X^\ast \omega$ and define the action as $S(X) = -\frac{g}{2}\int_\Sigma X^\ast \omega \wedge \ast X^\ast \omega$. Since the latter is clunky we will use the notation introduced above to denote the action in both cases and kinda forget about $\omega$. 
+where $R$ is the radius of the circle. Now we can take the pullback $X^\ast \omega$ and define the action as $S(X) = \frac{g}{2}\int_\Sigma X^\ast \omega \wedge \ast X^\ast \omega$. Since the latter is clunky we will use the notation introduced above to denote the action in both cases and kinda forget about $\omega$. 
 
 ## Equations of Motion
 
@@ -171,7 +171,7 @@ where we plugged in $\sigma = 0$. This finally can only be solved by $\theta_n =
 $$
 \theta(z,\bar z) = \frac{X_0}{R} -i\theta_0 \log z\bar z + i \sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
-But this naively seems that unlike Dirichlet boundary conditions we only have 1 Neumann condition. This makes little sense, because under orbifolding we should exchange the two. The extra degree of freedom comes because we can keep adding a boundary term in this action of the form
+But this naively seems that unlike Dirichlet boundary conditions we only have 1 Neumann condition. This makes little sense, because under T-duality we should exchange the two. The extra degree of freedom comes because we can keep adding a boundary term in this action of the form
 $$
 B = 2\pi g R\int_{\partial \Sigma} \alpha dX.
 $$
@@ -215,9 +215,78 @@ Finally we can repackage them as so
 $$
 \begin{align*}
 \theta_0 = \frac{m}{4\pi g R^2} - \frac{n}{2} - \alpha && \tilde \theta_0 = \frac{m}{4\pi g R^2} + \frac{n}{2} - \alpha,
-\end{align*} 
+\end{align*}
 $$
 remember the $-\alpha$ appears if we turn on a flat gauge field. If we want it to single valued we have $\alpha = 0$. This is fantastic! We have a way to describe the momenta of the free boson in general. Moreover we have found all the possible conformal weights, up to an integer, since $L_0 = \frac{1}{2} (P_0^\alpha)^2 + N$, where $N$ is some number operator whatever. So we also now know all the twisted Hilbert spaces here! WOOOOHHHHOOOOOOO! (Ok not all, but still we know a lot).
+
+# Interesting $\mathbb{Z}_2$'s
+
+One thing we could have noticed above is that if the free Boson is diagonal with respect to the $\mathfrak{u}(1)$ chiral algebra. Let's derive the conformal weights carefully. The stress tensor is defined by
+$$
+T(z) = \sum_{n\in \mathbb{Z}} L_n z^{n-2} = -2\pi g {:}\partial X \partial X{:} (z).
+$$
+To extract $L_0$ we need to carry out
+$$
+L_0 = gi \int_{S^1} {:}\partial X \partial X{:} = 2\pi g R^2\, \theta_0 ^2 + N,
+$$
+where $N$ counts integer oscillator excitations as we have seen in the past. Therefore in the theory with no boundary, the conformal weights are given by
+$$
+\begin{align*}
+h = 2\pi g \left( \frac{m}{4\pi g R} - \frac{nR}{2} \right)^2  && \bar h = 2\pi g \left( \frac{m}{4\pi g R} + \frac{nR}{2} \right)^2. 
+\end{align*}
+$$
+We can now safely work out the partition function because each representation we have available here is the same. One thing that we see is that the total scaling dimension for a primary is given by
+$$
+\Delta_{m,n} = h + \bar h =\frac{m^2}{8\pi g R^2} + \frac{\pi gR^2}{2}  n^2.
+$$
+So they are all positive and exist in a pretty lattice. But there is something more happening here. We can interpret $n,m$ as magnetic and electric charges! The way we can see this clearly is to find out what we mean by electric and magnetic in this context first.
+
+Notice that the free compact Boson has natural $U(1)$ action that shifts the origin of the circle we are embedding. Let's find its symmetry currents. The variations under such a translation are of the form $X + \epsilon$ for some constant $\epsilon$. Let's do it
+$$
+\frac{g}{2}\left.\frac{d}{d\epsilon}\right|_0\int_{\Sigma} d (X + \epsilon)\wedge \ast d(X+\epsilon) = EOM +g \int_{\partial \Sigma} \ast dX \implies J = \ast gdX = -ig (\partial X - \bar \partial X).
+$$
+Ok! We can calculate the electric charge for this current to be
+$$
+Q_e = \int_{\tau = 0} J = -gR \sum_{n\in \mathbb{Z}}\int_{S^1} \theta_n z^{-n-1}dz - \tilde \theta_n \bar z^{-n-1} d\bar z = 2\pi igR (\theta_0 + \tilde \theta_0) = \frac{m i}{R},
+$$
+One might freak out that the electric charge is not unitary, but remember that this is all done in Euclidean signature, if we wick rotate we would find $Q^{real}_e = iQ_e = m/R$ as expected. Similarly we can calculate the magnetic charge from the current $J_m=\ast J$ to be
+$$
+Q_m = \int_{\tau = 0} \ast J = -g\int_{S^1} dX = -2\pi g R n.
+$$
+Same thing here, but since $Q_m^{real} = -Q_m = 2\pi gRn$ we are still good! But yey, we have a symmetry over there. 
+
+
+
+## T-Duality
+
+The reason for doing all this business is to motivate $T$ duality which is the electric-magnetic exchange symmetry of the free boson. In other words what if we define a field $\tilde X$ such that $\tilde J_m = J_e$. Anyway we are in 2D and we can definitely do this since both are one forms. Turns out this is amazingly awesome because of what $\tilde X$ implies.
+$$
+\tilde J_m = -g \partial \tilde X -g \bar \partial \tilde X = -ig \partial X + ig \bar \partial X = J_{e} \implies \begin{cases}
+\partial \tilde X = i\partial X = -\ast \partial X\\
+\bar \partial \tilde X = -i\bar \partial X = -\ast \bar \partial X.
+\end{cases}
+$$
+ Now all we really know is this relation. But we can see that this field will have magnetic charge $\frac{m}{R}$ and electric charge $2\pi g R n i$ for integers $n,m$. The incredible realization is that this is simply the original free boson at radius
+$$
+\tilde R = \frac{1}{2\pi g R}.
+$$
+The reason we can say it so casually is that the whole Hilbert space is defined by the representation of this affine $\mathfrak{u}(1)$, and under this exchange I just told you which representation to pick, there are no more free parameters. One interesting thing is that there is a self dual radius such that
+$$
+R^\ast = \frac{1}{2\pi g R^\ast} \implies R^\ast = \frac{1}{\sqrt{2\pi g}} = \sqrt{\alpha'}.
+$$
+There are mostly two string theory normalization conventions. One is $R^\ast = \frac{1}{\sqrt 2}$ and the other is $R^\ast = \sqrt{2}$. It doesn't matter which one we pick, but think $g=1/\pi$ is particularly nice.
+
+
+
+The reason this might be interesting is because we can perform T-Duality while we have a boundary. In that case we will see that the boundary goes from Neumann to Dirichlet and vice versa. In fact it is quite straightforward to see. 
+
+
+
+
+
+
+
+
 
 
 
