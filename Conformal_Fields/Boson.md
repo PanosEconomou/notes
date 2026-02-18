@@ -219,6 +219,18 @@ $$
 $$
 remember the $-\alpha$ appears if we turn on a flat gauge field. If we want it to single valued we have $\alpha = 0$. This is fantastic! We have a way to describe the momenta of the free boson in general. Moreover we have found all the possible conformal weights, up to an integer, since $L_0 = \frac{1}{2} (P_0^\alpha)^2 + N$, where $N$ is some number operator whatever. So we also now know all the twisted Hilbert spaces here! WOOOOHHHHOOOOOOO! (Ok not all, but still we know a lot).
 
+
+
+## Boundary Entropy
+
+One way to think about boundary conditions is "boundary entropy." This is a measure of how complex the boundary looks like that serves the role of the c-function when we flow along marginal deformations on the same theory. We often call it the $g$-function. Intuitively we expect it to be monotonic as the entropy changes monotonically as we perform an RG transformation which by definition makes the boundary fuzzier and fuzzier.
+
+But these are words. How do we actually calculate this thing? We want an entropy so if we have a partition function $Z_\alpha$ associated to a boundary $\alpha$ we can define the boundary entropy $S_\alpha = \log Z_\alpha$ or some normalization of this. The most natural partition function to choose from is the disk partition function with the chosen boundary. So once we have that, we define $S_\alpha = \log g_\alpha$ which represents the finite terms in $Z_\alpha$. We call that $g_\alpha$ the g-function of the boundary. There is a nice formalism in which the precise normalization becomes unambiguous, but the idea won't change.
+
+In essence this is the inner product with the unique cft vacuum and the state that corresponds to that insertion.
+
+
+
 # Interesting $\mathbb{Z}_2$'s
 
 One thing we could have noticed above is that if the free Boson is diagonal with respect to the $\mathfrak{u}(1)$ chiral algebra. Let's derive the conformal weights carefully. The stress tensor is defined by
@@ -259,14 +271,14 @@ Same thing here, but since $Q_m^{real} = -Q_m = 2\pi gRn$ we are still good! But
 
 ## T-Duality
 
-The reason for doing all this business is to motivate $T$ duality which is the electric-magnetic exchange symmetry of the free boson. In other words what if we define a field $\tilde X$ such that $\tilde J_m = J_e$. Anyway we are in 2D and we can definitely do this since both are one forms. Turns out this is amazingly awesome because of what $\tilde X$ implies.
+The reason for doing all this business is to motivate $T$ duality which is the electric-magnetic exchange symmetry of the free boson. In other words what if we define a field $\tilde X$ such that $\tilde J_m^{real} = J_e^{real}$, where the real current is the one in Lorentzian signature. Anyway we are in 2D and we can definitely do this since both are one forms. Turns out this is amazingly awesome because of what $\tilde X$ implies.
 $$
-\tilde J_m = -g \partial \tilde X -g \bar \partial \tilde X = -ig \partial X + ig \bar \partial X = J_{e} \implies \begin{cases}
-\partial \tilde X = i\partial X = -\ast \partial X\\
-\bar \partial \tilde X = -i\bar \partial X = -\ast \bar \partial X.
+\tilde J_m^{real} = -\tilde J_m = g \partial \tilde X +g \bar \partial \tilde X = g \partial X - g \bar \partial X = iJ_{e} = J^{real}_{e} \implies \begin{cases}
+\partial \tilde X = \partial X = \ast i\partial X\\
+\bar \partial \tilde X = -\bar \partial X = \ast i\bar \partial X.
 \end{cases}
 $$
- Now all we really know is this relation. But we can see that this field will have magnetic charge $\frac{m}{R}$ and electric charge $2\pi g R n i$ for integers $n,m$. The incredible realization is that this is simply the original free boson at radius
+ Now all we really know is this relation. But we can see that this field will have magnetic charge $\frac{m}{R}$ and electric charge $2\pi g R n $ for integers $n,m$. The incredible realization is that this is simply the original free boson at radius
 $$
 \tilde R = \frac{1}{2\pi g R}.
 $$
@@ -274,13 +286,25 @@ The reason we can say it so casually is that the whole Hilbert space is defined 
 $$
 R^\ast = \frac{1}{2\pi g R^\ast} \implies R^\ast = \frac{1}{\sqrt{2\pi g}} = \sqrt{\alpha'}.
 $$
-There are mostly two string theory normalization conventions. One is $R^\ast = \frac{1}{\sqrt 2}$ and the other is $R^\ast = \sqrt{2}$. It doesn't matter which one we pick, but think $g=1/\pi$ is particularly nice.
+There are mostly two string theory normalization conventions. One is $R^\ast = \frac{1}{\sqrt 2}$ and the other is $R^\ast = \sqrt{2}$. It doesn't matter which one we pick, but think $g=1/\pi$ is particularly nice. The reason this might be interesting is because we can perform T-Duality while we have a boundary. In that case we will see that the boundary goes from Neumann to Dirichlet and vice versa. In fact it is quite straightforward to see. 
+
+If we explore $T$-duality we can write the new field further. In particular since $\partial \tilde X = \partial X \implies \frac{\partial \tilde X_L}{\partial z} dz = \frac{\partial X_L}{\partial z} dz \implies \tilde X_L = X_L$ and similarly $\tilde X_R = - X_R$. In terms of the normalized field $\theta$ we have that
+$$
+\tilde \theta = \tilde \theta_L + \tilde \theta_R = \frac{\tilde X_L}{\tilde R} + \frac{\tilde X_R}{\tilde R} =2\pi g R \left( X_L - X_R \right) = 2\pi g R^2 (\theta_L - \theta_R) = 2 R (X_L - X_R),
+$$
+where in the last step we used a nice normalization $g = \pi ^{-1}$. Anyway, the point here really is that the field $\tilde \theta$ is a perfectly good field we can write down in the Boson with radius $R$. In fact it is linearly independent from field $\theta$ and enjoys its own symmetry action. In some sense since we can rotate the left and right chiral parts independently by $U(1)$, i.e. shift the circle by a phase, then we can think that we have one $U(1)$ associated with $\theta$ and one with $\tilde \theta$ (even though our mode description might suggest otherwise). The real thing is that we have found that the free boson has a symmetry $U(1)\times U(1)$. 
+
+One last thing, is that we can write $T$-duality in this description as $\theta \mapsto \tilde \theta, \tilde \theta \mapsto \theta$, which automatically takes care of the radius thing. 
 
 
 
-The reason this might be interesting is because we can perform T-Duality while we have a boundary. In that case we will see that the boundary goes from Neumann to Dirichlet and vice versa. In fact it is quite straightforward to see. 
+## Charge Conjugation
 
+We saw that the charges under the currents $J_e$ and $J_m$ are practically integers. So doing a transformation $J_e' = -J_e$ also won't change  anything. What that would imply is that $X \mapsto -X$ under this symmetry action. This is a $\mathbb{Z}_2$ action called charge conjugation that has other super interesting consequences. First of all we have found a symmetry of the form $(U(1)\times U(1))\rtimes \mathbb{Z}_2$.
 
+One pretty nifty thing is that we can gauge this one. Before we do so though let's examine what it means intuitively. On the circle flipping the sign of the phase means that we traverse it in the opposite orientation. So charge conjugation is orientation reversal of the map that places $\Sigma$ onto $S^1$. This is far more intuitive. At its core, means that when gauging this we are considering maps that are invariant under flipping the orientation which may include ones that were not oriented to begin with.
+
+As we will see this has interesting consequences on the 
 
 
 
