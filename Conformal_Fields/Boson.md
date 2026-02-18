@@ -225,9 +225,21 @@ remember the $-\alpha$ appears if we turn on a flat gauge field. If we want it t
 
 One way to think about boundary conditions is "boundary entropy." This is a measure of how complex the boundary looks like that serves the role of the c-function when we flow along marginal deformations on the same theory. We often call it the $g$-function. Intuitively we expect it to be monotonic as the entropy changes monotonically as we perform an RG transformation which by definition makes the boundary fuzzier and fuzzier.
 
-But these are words. How do we actually calculate this thing? We want an entropy so if we have a partition function $Z_\alpha$ associated to a boundary $\alpha$ we can define the boundary entropy $S_\alpha = \log Z_\alpha$ or some normalization of this. The most natural partition function to choose from is the disk partition function with the chosen boundary. So once we have that, we define $S_\alpha = \log g_\alpha$ which represents the finite terms in $Z_\alpha$. We call that $g_\alpha$ the g-function of the boundary. There is a nice formalism in which the precise normalization becomes unambiguous, but the idea won't change.
+But these are words. How do we actually calculate this thing? We want an entropy so if we have a partition function $Z_\alpha$ associated to a boundary $\alpha$ we can define the boundary entropy $S_\alpha = \log Z_\alpha$ or some normalization of this. The most natural partition function to choose from is the disk partition function with the chosen boundary. So once we have that, we define $S_\alpha = \log g_\alpha$ which represents the finite terms in $Z_\alpha$. We call that $g_\alpha$ the g-function of the boundary. There is a nice formalism in which the precise normalization becomes unambiguous, but the idea won't change. In essence, this is the inner product with the unique cft vacuum and the state that corresponds to that insertion. 
 
-In essence this is the inner product with the unique cft vacuum and the state that corresponds to that insertion.
+The formalism behind this is the one of ishibashi states. Let's build this up real quick. As we have found earlier, primaries in this theory have conformal weights
+$$
+\begin{align*}
+h = 2\pi g \left( \frac{m}{4\pi g R} - \frac{nR}{2} \right)^2  && \bar h = 2\pi g \left( \frac{m}{4\pi g R} + \frac{nR}{2} \right)^2. 
+\end{align*}
+$$
+Since we know how to use radial quantization so much, it would be nice to use it as a tool to find what the disk partition function should look like. The issue here is that the way we have been talking about the boundaries right now has the sphere oriented kinda awkwardly. One thing we could try is to do a coordinate transformation (which will simply end up being a rigid conformal map) such that we bring it into the equator like so
+$$
+w = \frac{(1+i)z +(1-i)}{(1-i)z + (1+i)}.
+$$
+In this new coordinates the boundary sits directly on the circle we have quantized and therefore should result to a state after radial quantization. For a boundary $\alpha$ we will call the corresponding boundary state $\phi_{\alpha}$. Now there are interesting things that are happening. One interesting thing is that this transformation produces no conformal anomaly since it is rigid, therefore the Schwartzian derivative (which is designed to measure how far away you are from being a Mobius transformation) vanishes. 
+
+
 
 
 
