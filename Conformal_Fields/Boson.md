@@ -157,7 +157,7 @@ for the context here $\alpha = \beta$ but I wanted to write it explicitly ok? Th
 $$
 \theta = \alpha-i n \log \frac{z}{\bar z} + i\sum_{n\neq 0} \frac{\theta_n}{n}\left( z^{-n} - \bar z^{-n} \right).
 $$
-So if we fix $n$ we then have a tower of oscillators that fully specify our states. Now let's do the Same thing for Neumann Boundary conditions. In 
+So if we fix $n$ we then have a tower of oscillators that fully specify our states. Now let's do the Same thing for Neumann Boundary conditions. 
 
 
 
@@ -219,6 +219,28 @@ $$
 $$
 remember the $-\alpha$ appears if we turn on a flat gauge field. If we want it to single valued we have $\alpha = 0$. This is fantastic! We have a way to describe the momenta of the free boson in general. Moreover we have found all the possible conformal weights, up to an integer, since $L_0 = \frac{1}{2} (P_0^\alpha)^2 + N$, where $N$ is some number operator whatever. So we also now know all the twisted Hilbert spaces here! WOOOOHHHHOOOOOOO! (Ok not all, but still we know a lot).
 
+One thing we haven't done yet is to figure out the canonical commutation of the modes of $\theta$. We can see that
+$$
+\langle \theta(z) \theta(w) \rangle = G(z,w),
+$$
+where $G(z,w)$ is the propagator obtained from the action written as
+$$
+S = \frac{1}{2} \int_{\Sigma^2}  \ast X(x) (g\delta(x-y) \Delta) X(y) ,
+$$
+the reason why this is done this way is to do saddle point on the path integral. Therefore we have that
+$$
+g\Delta G = \delta(z-w) \implies G(z,w) = -\frac{1}{4\pi g} \log(z-w)^2.
+$$
+Therefore we that
+$$
+\partial \theta(z) \partial \theta(w) \sim -\frac{1}{4\pi g R^2 (z-w)^2}.
+$$
+So finally, 
+$$
+[\theta_n,\theta_m] = \frac{1}{4\pi g R^2 (2\pi i)^2}\int_{S^1} \int_{S^1_{w}} \frac{z^nw^m}{(z-w)^2}dwdz = \frac{n}{4\pi g R^2} \delta_{n,-m}.
+$$
+
+
 
 
 ## Boundary Entropy
@@ -235,11 +257,89 @@ h = 2\pi g \left( \frac{m}{4\pi g R} - \frac{nR}{2} \right)^2  && \bar h = 2\pi 
 $$
 Since we know how to use radial quantization so much, it would be nice to use it as a tool to find what the disk partition function should look like. The issue here is that the way we have been talking about the boundaries right now has the sphere oriented kinda awkwardly. One thing we could try is to do a coordinate transformation (which will simply end up being a rigid conformal map) such that we bring it into the equator like so
 $$
-w = \frac{(1+i)z +(1-i)}{(1-i)z + (1+i)}.
+w = \frac{z -i}{1 -iz}.
 $$
-In this new coordinates the boundary sits directly on the circle we have quantized and therefore should result to a state after radial quantization. For a boundary $\alpha$ we will call the corresponding boundary state $\phi_{\alpha}$. Now there are interesting things that are happening. One interesting thing is that this transformation produces no conformal anomaly since it is rigid, therefore the Schwartzian derivative (which is designed to measure how far away you are from being a Mobius transformation) vanishes. 
+In this new coordinates the boundary sits directly on the circle we have quantized and therefore should result to a state after radial quantization. For a boundary $\alpha$ we will call the corresponding boundary state $\phi_{\alpha}$. Now there are interesting things that are happening. One interesting thing is that this transformation produces no conformal anomaly since it is rigid, therefore the Schwartzian derivative (which is designed to measure how far away you are from being a Mobius transformation) vanishes. So the new stress tensor will be
+$$
+T'(w) = \left(\frac{dz}{dw}\right)^2 T(z) \approxeq L_n \frac{(iw+1)^{n+2}}{(w+i)^{n+6}}.
+$$
+The issue is that we can't use the Laurent expansion in the same place as $z$ because it doesn't converge in the $S^1$ we are responsible in. No matter we have an analytic expression for $T$ anyway, so we can just use it to derive a new Laurent series. There is another way to think about this business. That is using Ishibashi states.
 
+### Ishibashi States
 
+The main idea is that after we radially quantize we should see that for a boundary to be conformal $T(x) = \bar T(x)$ for $x\in \mathbb{R}$ which implies that on the state $\phi_\alpha$ corresponding to the boundary $\alpha$ it must be the case that
+$$
+\left(L_n - \bar L_{-n}\right) \phi_\alpha = 0.
+$$
+Now any twisted Hilbert space $H_\sigma$ for some TDL $\sigma$ (including the identity) has a decomposition into Virasoro modules (since $\sigma$ must commute with the Virasoro generators for it to be a TDL). Here we see something nice.
+
+**<u>Proposition:</u>** The boundary state $\phi_a$ is an intertwiner of Virasoro representations.
+
+***Proof:*** Assume that $V$ are highest weight Virasoro modules. For any $v\in V$ if $V$ is contained in $H$ we can see that $\langle v,\phi_a\rangle \in W$ where $W$ is another Virasoro module   if we use the inner product of $V$. And moreover we see that $\langle L_n v,\phi_a \rangle = \langle v, L_{-n}\phi_a \rangle = \bar L_{n} \langle v,\phi_a\rangle $, which means that it is a Virasoro equivariant map, between representations of different chiralities. In particular though, applying this for $L_0$ we see that $\phi_0$ maps a module with conformal weight $h$ to one with the same conformal weight! So it is an intertwiner.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+As a result, we have that it must be composed out of zero maps and isomorphisms of irreps. These isomorphisms are called **Ishibashi states.** In particular if $V$ is a Virasoro module such that $V\otimes \bar V$ is in the Hilbert space then there exists an anti-unitary isomorphism $U:V\to \bar V$ such that $Uv = \bar v$ where $v$ is the cyclic vector of $V$ and $\bar v$ the one of $\bar V$. We then call the ishibashi state $\psi_V$ (aka the representation of the identity map $V\to \bar V$ in the Hilbert space) the state
+$$
+\psi_V \coloneqq \sum_{u\in B(V)} u\otimes Uu,
+$$
+where $B(V)$ is an orthonormal basis of $V$. By the way this is unique up to an overall phase.
+
+**<u>Lemma:</u>** A boundary state $\phi_a$ is given by 
+$$
+\phi_a = \sum_{V \in \text{Irr}H} g^V_a \psi_V,
+$$
+where $g_a^V \in \mathbb{C}$ and $\text{Irr}H$ is the collection of Virasoro modules $V$ that appear as $V\otimes \bar V$ in the Hilbert space $H$ (Aka the diagonal primaries). 
+
+**<u>Corollary:</u>** The g-function $g_a = g_a^1$ for the identity module $1$.
+
+Now we can start thinking about these Ishibashi states. By the way if we have a boundary condition that is invariant under a bigger chiral algebra (say $U(1)\times U(1)$) we can just replace every Virasoro reference there with the algebra and we can play exactly the same game. By the way the corollary above implies that $g_a = \langle v,\phi_a\rangle$.
+
+Let's write the boundary states of our defects. 
+
+### Dirichlet
+
+There is a conceptual shift to what we've done. We want to find a state in the bulk theory that acts as our boundary. Before when we worked this out we had a theory in a different manifold where we restricted the modes and thus found the boundary changing operators on that manifold. So if we want to impose the Dirichlet boundary condition $\alpha$ we want to find a state $\phi_\alpha$ such that for $|z|=1$
+$$
+\begin{align*}
+\theta(z,\bar z) \phi_\alpha = \alpha \phi_\alpha \implies \left.\frac{\partial \theta}{\partial \sigma}\right|_{\tau = 0} \phi_\alpha = 0.
+\end{align*}
+$$
+Notice that this condition looks like the Neumann one but the boundary here is along the unit circle! Ok moving on we can proceed by realizing that this implies
+$$
+\left(-iz\frac{\partial \theta}{\partial z} + i\bar z\frac{\partial \theta}{\partial \bar z}\right)\phi_\alpha = 0 \implies (\theta_n - \tilde \theta_{-n})\phi_\alpha = 0.
+$$
+for all nonzero $n$.  This is awesome because we already know how to calculate such a state. Let's quickly work out the commutation relations of $\theta_n$. Namely we have that 
+$$
+[\theta_n,\theta_{-n}] = \frac{n}{4\pi g R^2}.
+$$
+Therefore we can use this to figure out a solution. Let $H$ be the Harmonic oscillator Hilbert space for $\theta_n$ and $\bar H$ the one for $\tilde \theta_n$. We have that the creation and annihilation operators in $H\otimes \bar H$ are given bya
+$$
+\begin{align*}
+a = \sqrt{\frac{4\pi g R^2}{n}}\theta_n && \bar a = \sqrt{\frac{4\pi g R^2}{n}}\bar \theta_n.
+\end{align*} 
+$$
+So we want to find a state such that it vanishes by $a - \bar a^\dagger$ and its conjugate. One way we could do that is by using a combination of creation and annihilation operators $f$ on the vacuum $v$ which would imply
+$$
+\begin{align*}
+[ a - \bar a^\dagger, f] v = f \bar a^\dagger v && [ a^\dagger  - \bar a^, f] v = -f  a^\dagger v.
+\end{align*}
+$$
+Now assume there exists a some function of creation and annihilation operators $X$ in the enveloping algebra such that $[a - \bar a^\dagger, X] = \bar a^\dagger$ as well as $[a^\dagger, X] = [\bar a^\dagger, X] = 0$. Then we can look for polynomials of the form $f(X)$ since they would have to satisfy
+$$
+[ a - \bar a^\dagger, f(X)] = f'(X) [ a - \bar a^\dagger, f(X)] = f'(X) \bar a^\dagger \implies f'(X) = f(X) \implies f(X) = e^{X}.
+$$
+(Notice the same $f(X)$ would satisfy the conjugate equation too). But does such an operator exist? We can pick $X = a^\dagger \bar a^\dagger$. Therefore our Dirichlet boundary state is given by
+$$
+\phi_\alpha = A\delta\left(\frac{X_0}{R}-\alpha\right)\prod_{n=1}^{\infty} \exp\left[ \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n}\right]v
+$$
+where the first part is there because we want to fix the zero mode too. The issue is that we are missing an overall normalization for this. This is a bit subtle. So here we use a cool idea. We can pick an annulus. This was the really cool insight of Cardy. 
+
+Imagine an annulus with two of these boundary states on either side (realistically we would simply evolve this thing a bit). The amplitude of this (aka the partition function) is given by
+$$
+Z^{A}_{\alpha \alpha}(q) =\langle \phi_\alpha, q^{L_0 + \bar L_0}\phi_\alpha\rangle.
+$$
+We then should be able to map from there to the upper half plane with a couple of clever conformal transformations that we will illustrate soon. The thing is, we know both what the upper half plane partition function should look like, as well as the partition function on this annulus. And since we are only doing conformal transformations the partition function should remain invariant. The point is that whatever the partition function in the upper half plane is, it will be a sum of characters, so we can use integrality to normalize this, and finally figure out what $\langle v,\phi_\alpha \rangle$ is.
 
 
 
