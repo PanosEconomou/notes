@@ -147,19 +147,21 @@ Therefore the solution is given by
 $$
 \theta = \alpha -i \theta_0 \log \frac{z}{\bar z} + i\sum_{n\neq 0} \frac{\theta_n}{n}(z^{-n} - \bar z^{-n}).
 $$
-Also notice that $\text{log\,}\frac{z}{\bar z} = 2i\sigma$. Putting $\sigma = \pi$ and imposing the same condition we get that $\theta_0 = 0$ since $\alpha = \alpha + 2\theta_0 \pi$. This is amazing by the way, because it seems that it might not be possible to write a consistent function on the UHP that has different boundary conditions on the lhs and rhs. But this is what is fixing it! Had we said that $\theta(\sigma = \pi) = \alpha + 2\pi\beta$ for some $\beta \in \mathbb{R}$ we would've found $\theta_0 = \beta$.
+Also notice that $\text{log\,}\frac{z}{\bar z} = 2i\sigma$. Putting $\sigma = \pi$ and imposing the same condition we get that $\theta_0 = 0$ since $\alpha = \alpha + 2\pi \theta_0$. This is amazing by the way, because it seems that it might not be possible to write a consistent function on the UHP that has different boundary conditions on the lhs and rhs. But this is what is fixing it! Had we said that $\theta(\sigma = \pi) = \alpha + 2\pi\beta$ for some $\beta \in \mathbb{R}$ we would've found $\theta_0 = \beta$.
 
 There is one more thing though! We know that $\theta \sim \theta + 2\pi$, which means that $\theta(\sigma = 0) = \alpha + 2\pi n$, while $\theta(\sigma = \pi) = \alpha + 2\pi m$ for integers $n,m \in \mathbb{Z}$. Therefore the true general form of $\theta$ can have inequivalent windings such that 
 $$
-\theta(\sigma=0) - \theta(\sigma = \pi) = \alpha - \beta + 2\pi n,
+\theta(\sigma=0) - \theta(\sigma = \pi) = \alpha - \beta + 2\pi n = 2\pi \theta_0,
 $$
 for the context here $\alpha = \beta$ but I wanted to write it explicitly ok? This effectively fixes $\theta(\sigma = \pi) = \alpha -2\pi m$, which implies $\theta_0 \in \mathbb{Z}$. The general form of the solution is given by
 $$
 \theta = \alpha-i n \log \frac{z}{\bar z} + i\sum_{n\neq 0} \frac{\theta_n}{n}\left( z^{-n} - \bar z^{-n} \right).
 $$
-So if we fix $n$ we then have a tower of oscillators that fully specify our states. Now let's do the Same thing for Neumann Boundary conditions. 
-
-
+So if we fix $n$ we then have a tower of oscillators that fully specify our states. Now let's do the Same thing for Neumann Boundary conditions. In particular we can ask for the conformal weights of these things. We can find them by
+$$
+L_0 = \frac{1}{2\pi i}\int_{S^1} T(z) dz = -gR^2i \int_{S^1}z^{-n-m - 2} {:}\theta_n\theta_m{:} =  2\pi gR^2 \theta_0^2 + 4\pi gR^2\sum_{n>0} \theta_{n}\theta_{-n}.
+$$
+So the conformal weights in this case are simply $2\pi gR^2 n^2$.
 
 ## Neumann
 
@@ -177,21 +179,21 @@ B = 2\pi g R\int_{\partial \Sigma} \alpha dX.
 $$
 This means that we have to be a bit more careful because the canonical commutation relations have changed in the presence of this term! Let's work them out in its absence and then in its presence. The canonical position here would be 
 $$
-X_0 = \int_{\tau = 0} Xd\sigma = X_0,
+\Theta_0 = \int_{\tau = 0} \theta d\sigma = \frac{X_0}{R},
 $$
 i.e. the integration constant we introduced earlier. Meanwhile the (Lorentzian) $P_0$ is going to be
 $$
-P_0 = \frac{\partial L}{\partial \partial_{\tau}X_0} = g\pi R (\theta_0 + \tilde \theta_0) = 2\pi R g \theta_0.
+P_0 = \frac{\partial L}{\partial \partial_{\tau}\Theta_0} = g\pi R^2 (\theta_0 + \tilde \theta_0) = 2\pi R^2 g \theta_0.
 $$
 But when we add the additional term in the action we find that 
 $$
-P_0^{\alpha} = g\pi R \left( \theta_0 + \tilde \theta_0  + 2\alpha \right) = 2\pi R g(\theta_0 + \alpha),
+P_0^{\alpha} = g\pi R^2 \left( \theta_0 + \tilde \theta_0  + 2\alpha \right) = 2\pi gR^2(\theta_0 + \alpha),
 $$
 with some appropriate constants in front of $\alpha$ in $B$ that we won't care about because $\alpha \in \mathbb{R}$. The point is that when we include the boundary term, the Hamiltonian is shifted by $\alpha$, so in some sense, our operators $\theta_0^\alpha$ when we quantize with $B$ act in the same way as if we didn't insert it and instead acted with $\theta_0 + \alpha$. This makes a lot of since, since what we really did was to fuse a defect with the boundary associated with inserting a flat gauge field of the form $A = \alpha d\tau$ (up to constant factors). So to be precise, by $\theta_0$ we will always mean $\theta_{0}^{\alpha = 0}$ and we will add $\alpha$ explicitly when needed. Therefore we obtain that
 $$
 \theta(z,\bar z) = \frac{X_0}{R} - i(\theta_0 + \alpha) \log z\bar z +i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
-now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R}$ on some states, which finally means that $\theta_0 = \frac{n}{2\pi gR^2} - \alpha$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now.
+now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R^2 (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R}$ on some states, which finally means that $\theta_0 = \frac{n}{2\pi gR^2} - \alpha$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now.
 
 
 
@@ -297,7 +299,7 @@ Now we can start thinking about these Ishibashi states. By the way if we have a 
 
 Let's write the boundary states of our defects. 
 
-### Dirichlet
+### Boundary States
 
 There is a conceptual shift to what we've done. We want to find a state in the bulk theory that acts as our boundary. Before when we worked this out we had a theory in a different manifold where we restricted the modes and thus found the boundary changing operators on that manifold. So if we want to impose the Dirichlet boundary condition $\alpha$ we want to find a state $\phi_\alpha$ such that for $|z|=1$
 $$
@@ -313,7 +315,7 @@ for all nonzero $n$.  This is awesome because we already know how to calculate s
 $$
 [\theta_n,\theta_{-n}] = \frac{n}{4\pi g R^2}.
 $$
-Therefore we can use this to figure out a solution. Let $H$ be the Harmonic oscillator Hilbert space for $\theta_n$ and $\bar H$ the one for $\tilde \theta_n$. We have that the creation and annihilation operators in $H\otimes \bar H$ are given bya
+Therefore we can use this to figure out a solution. Let $H$ be the Harmonic oscillator Hilbert space for $\theta_n$ and $\bar H$ the one for $\tilde \theta_n$. We have that the creation and annihilation operators in $H\otimes \bar H$ are given by
 $$
 \begin{align*}
 a = \sqrt{\frac{4\pi g R^2}{n}}\theta_n && \bar a = \sqrt{\frac{4\pi g R^2}{n}}\bar \theta_n.
@@ -335,11 +337,75 @@ $$
 $$
 where the first part is there because we want to fix the zero mode too. The issue is that we are missing an overall normalization for this. This is a bit subtle. So here we use a cool idea. We can pick an annulus. This was the really cool insight of Cardy. 
 
-Imagine an annulus with two of these boundary states on either side (realistically we would simply evolve this thing a bit). The amplitude of this (aka the partition function) is given by
+
+
+## Cardy Trick
+
+Imagine a finite tube with two of these boundary states on either side and height $2\pi L$. The amplitude of this (aka the partition function) is given (in Euclidean signature) by
 $$
-Z^{A}_{\alpha \alpha}(q) =\langle \phi_\alpha, q^{L_0 + \bar L_0}\phi_\alpha\rangle.
+Z_{\alpha \alpha}(L) =\langle \phi_\alpha,e^{-2\pi LH}\phi_\alpha\rangle.
 $$
-We then should be able to map from there to the upper half plane with a couple of clever conformal transformations that we will illustrate soon. The thing is, we know both what the upper half plane partition function should look like, as well as the partition function on this annulus. And since we are only doing conformal transformations the partition function should remain invariant. The point is that whatever the partition function in the upper half plane is, it will be a sum of characters, so we can use integrality to normalize this, and finally figure out what $\langle v,\phi_\alpha \rangle$ is.
+Now we should be able to map this to an annulus vial $z=e^{-iu}$ where $u = \sigma + i\tau$ the coordinates of the tube (we pick this because it maps the circle $\Im u = 0$ to the unit circle on the plane onto which we have quantized). But also map this to an upper half plane by a different trick that we will illustrate soon. The thing is, we know both what the upper half plane partition function should look like, as well as the partition function on this annulus. And since we are only doing conformal transformations the partition function should remain invariant. The point is that whatever the partition function in the upper half plane is, it will be a sum of characters, so we can use integrality to normalize this, and finally figure out what $\langle v,\phi_\alpha \rangle$ is.
+
+> **<u>Note:</u> Why do we get a trace?** Consider the amplitude $\langle \phi, A \psi\rangle$. Then we can do the following $\sum_{n}\langle \psi,e_n \rangle \langle e_n,A\phi \rangle = \text{Tr\,}A\phi\psi^\dagger$. So we pulled out the trace, but it looks a bit different. The operator $\phi\psi^\dagger$ though is not as mysterious as we might have originally thought. In a QFT, if $A=e^{-LH}$ for some Hamiltonian, we can see that what we have effectively done is calculated the path integral over some combination of states with an appropriate choice of euclidean time. But we didn't have to pick that time. We could've picked anything! So since this is a cylinder, why don't we pick as our euclidean time $2\pi - \sigma$ which runs along the circle. Doing so we would evaluate the same path integral as a trace over a Hilbert space with a different boundary condition and a different time direction. Specifically we would find
+> $$
+> \text{Tr}_{\mathbb{H}} e^{-LH} \phi\psi^\dagger = \text{Tr}_{\mathbb{H}'} e^{-2\pi H'}, 
+> $$
+> where $H'$ is the Hamiltonian with the new time coordinate and $\mathbb{H}'$ contains the boundary conditions prescribed by $\phi, \psi$.
+
+We will pick the map to the upper half plane such that along the height of the cylinder there is a line mapped onto (half of) the unit circle on the upper half plane. In this case the map 
+$$
+w = e^{\frac{\pi}{L}-\frac{u}{2L}},
+$$
+would do. On the Annulus (under the map $z=e^{-iu}$) the Hamiltonian vector field for our time evolution is given by
+$$
+X_{H} = \frac{\partial }{\partial \tau} = \frac{\partial u}{\partial \tau}\frac{\partial }{\partial u} + \frac{\partial \bar u}{\partial \tau} \frac{\partial }{\partial \bar u} = \frac{\partial }{\partial u} + \frac{\partial }{\partial \bar u},
+$$
+which implies that the Hamiltonian on the annulus is given by
+$$
+H_A = -\frac{1}{2\pi}\int_{0}^{2\pi} T_C(u) + \bar T_C(\bar u) d\sigma = \frac{1}{2\pi}\int_{0}^{2\pi} L_n e^{-inu} + \bar L_n e^{inu} - \frac{1}{12} du =  L_0 + \bar L_0 -\frac{1}{12},
+$$
+which we find because the stress tensor of the cylinder is given by $T_C(u) = -[z^2 T(z) - \frac{1}{24}]$ where $T = -g{:}\partial X \partial X{:}$ is the stress tensor on the plane. 
+
+> **Notice!** In a CFT we denote the holomorphic part of the stress tensor $T(z) = -2\pi T_{zz}(z)$ in order to get charges via contour integration. 
+
+On the other hand, on the upper half plane the stress tensor of the cylinder is given by $T_C(u) = \frac{1}{4L^2}\left[w^2T(w) - \frac{1}{24}\right]$. But now the Hamiltonian is different! The vector field for time evolution is
+$$
+X' = -2L\frac{\partial }{\partial \sigma} = -2L\frac{\partial w}{\partial \sigma}\frac{\partial }{\partial w} -2L \frac{\partial \bar w}{\partial \sigma} \frac{\partial }{\partial \bar w} = w\frac{\partial }{\partial w} + \bar w \frac{\partial }{\partial \bar w},
+$$
+which is the familiar dilation vector field which is cute. Let's now calculate whatever this new Hamiltonian in terms of the theory in the upper half plane
+$$
+H_{UHP}' =-\frac{1}{4L^2 (2\pi)}\int_{0}^{2\pi L} L_n e^{-\frac{i\tau}{2L} n} + L_{-n}e^{\frac{i\tau}{2L}n} - \frac{1}{12} d\tau = -\frac{1}{2L(2\pi L)} \int_{0}^{2\pi L} L_n e^{-\frac{i\tau n}{2L}} - \frac{1}{24} d\tau = -\frac{1}{2L}\left( L_0 - \frac{1}{24} \right).
+$$
+
+
+Now we can write our previous equations into stuff that we know! In particular we have that
+$$
+\langle \phi_{\alpha}, e^{-2\pi L (L_0 + \bar L_0 - \frac{1}{12})}\phi_\beta\rangle =  \langle \phi_{\alpha}, e^{-2\pi L H_A}\phi_\beta\rangle = \text{Tr}_{\mathbb{H}_{\alpha\beta}} e^{-2\pi H'_{UHP}} = \text{Tr}_{\mathbb{H}_{\alpha\beta}} e^{-\frac{\pi}{L} (L_0 -  \frac{1}{24})}.
+$$
+Notice that if we define a modulus $\tau = 2iL$ then we can take $q=e^{2\pi i \tau}$ and its S-transformed version $\tilde q = e^{\frac{2\pi }{i\tau}}$ and write this as
+$$
+\langle \phi_\alpha, q^{\frac{1}{2}(L_0 + \bar L_0 - \frac{c}{12})} \phi_{\beta}\rangle = \text{Tr}_{\mathbb{H}_{\alpha\beta}} \tilde q^{L_0 -  \frac{1}{24}},
+$$
+so we are one $S$ transform away from glory! In this case we know how to evaluate both of the traces with the exception that the left hand side is up to an overall constant that we will fix using this equation. 
+
+
+
+## Dirichlet g-functions
+
+We have everything ready so let's plug some stuff in. We know that the partition function of $\mathbb{H}_{\alpha\alpha}$ is spanned by the usual oscillator modes which will contribute an $\eta(-1/\tau)$ to the partition function, while the momenta are given by $\mathbb{Z}$. Now we need the conformal weights in this case are $2\pi g R^2 n^2$ for $n\in \mathbb{Z}$ so we have that 
+$$
+\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \eta(\tilde q) \sum_{n\in \mathbb{Z}} \tilde q^{2\pi gR^2 n^2}.
+$$
+
+
+
+
+
+
+
+
+
 
 
 
