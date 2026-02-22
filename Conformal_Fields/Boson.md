@@ -159,7 +159,7 @@ $$
 $$
 So if we fix $n$ we then have a tower of oscillators that fully specify our states. Now let's do the Same thing for Neumann Boundary conditions. In particular we can ask for the conformal weights of these things. We can find them by
 $$
-L_0 = \frac{1}{2\pi i}\int_{S^1} T(z) dz = -gR^2i \int_{S^1}z^{-n-m - 2} {:}\theta_n\theta_m{:} =  2\pi gR^2 \theta_0^2 + 4\pi gR^2\sum_{n>0} \theta_{n}\theta_{-n}.
+L_0 = \frac{1}{2\pi i}\int_{S^1} T(z) z dz = -gR^2i \int_{S^1}z^{-n-m-1}{:}\theta_n\theta_m{:} =  2\pi gR^2 \theta_0^2 + 4\pi gR^2\sum_{n>0} \theta_{n}\theta_{-n}.
 $$
 So the conformal weights in this case are simply $2\pi gR^2 n^2$.
 
@@ -179,7 +179,7 @@ B = 2\pi g R\int_{\partial \Sigma} \alpha dX.
 $$
 This means that we have to be a bit more careful because the canonical commutation relations have changed in the presence of this term! Let's work them out in its absence and then in its presence. The canonical position here would be 
 $$
-\Theta_0 = \int_{\tau = 0} \theta d\sigma = \frac{X_0}{R},
+\Theta_0 = \frac{1}{2\pi}\int_{\tau = 0} \theta d\sigma = \frac{X_0}{R},
 $$
 i.e. the integration constant we introduced earlier. Meanwhile the (Lorentzian) $P_0$ is going to be
 $$
@@ -193,9 +193,15 @@ with some appropriate constants in front of $\alpha$ in $B$ that we won't care a
 $$
 \theta(z,\bar z) = \frac{X_0}{R} - i(\theta_0 + \alpha) \log z\bar z +i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
-now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R^2 (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R}$ on some states, which finally means that $\theta_0 = \frac{n}{2\pi gR^2} - \alpha$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now.
-
-
+now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R^2 (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R^2 P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R^2}$ on some states, which finally means that $\theta_0 = \frac{n}{2\pi gR^2} - \alpha$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now. A nicer way to see this is to recalculate $L_0$ In this case we have that
+$$
+\partial \theta = -i \sum_{n\in \mathbb{Z}} (\theta_n + \alpha \delta_{n0})z^{-n-1} dz.
+$$
+Notice that this is exactly the same expression as we had but simply having a new $\theta_0$ since it is now shifted. Therefore we find that
+$$
+L_0 = \frac{1}{2\pi i}\int_{S^1} T(z) z dz = -gR^2i \int_{S^1}z^{-n-m-1}{:}\theta_n\theta_m{:} =  2\pi gR^2 (\theta_0 + \alpha)^2 + 4\pi gR^2\sum_{n>0} \theta_{n}\theta_{-n}.
+$$
+So now $\theta_n$ is still an integer but now we have shifts.
 
 ## No Boundary
 
@@ -333,9 +339,21 @@ $$
 $$
 (Notice the same $f(X)$ would satisfy the conjugate equation too). But does such an operator exist? We can pick $X = a^\dagger \bar a^\dagger$. Therefore our Dirichlet boundary state is given by
 $$
-\phi_\alpha = A\delta\left(\frac{X_0}{R}-\alpha\right)\prod_{n=1}^{\infty} \exp\left[ \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n}\right]v
+\phi_\alpha = A\delta\left(\Theta_0-\alpha\right)\prod_{n=1}^{\infty} \exp\left[ \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n}\right]v
 $$
-where the first part is there because we want to fix the zero mode too. The issue is that we are missing an overall normalization for this. This is a bit subtle. So here we use a cool idea. We can pick an annulus. This was the really cool insight of Cardy. 
+where the first part is there because we want to fix the zero mode too. A way we can write this is to use the commutation relations
+$$
+i =[\Theta_0,P_0] = g\pi R^2[\Theta_0, (\theta_0 + \tilde \theta_0)].
+$$
+Therefore we can write a delta function in terms of momentum eigenstates. In this case the momentum eigenstates are quantized and have the form $\psi_{m}$ such that
+$$
+P_0 \psi_{m} = \frac{m}{2\pi g R^2} \psi_m.
+$$
+As a result, we should be able to write
+$$
+\delta(\Theta_0 - \alpha) = \frac{1}{2\pi}\sum_{n \in \mathbb{Z}} e^{-in\alpha} e^{in\Theta_0},
+$$
+which will be useful in computation soon. The issue is that we are missing an overall normalization for this. This is a bit subtle. So here we use a cool idea. We can pick an annulus. This was the really cool insight of Cardy. 
 
 
 
@@ -395,8 +413,99 @@ so we are one $S$ transform away from glory! In this case we know how to evaluat
 
 We have everything ready so let's plug some stuff in. We know that the partition function of $\mathbb{H}_{\alpha\alpha}$ is spanned by the usual oscillator modes which will contribute an $\eta(-1/\tau)$ to the partition function, while the momenta are given by $\mathbb{Z}$. Now we need the conformal weights in this case are $2\pi g R^2 n^2$ for $n\in \mathbb{Z}$ so we have that 
 $$
-\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \eta(\tilde q) \sum_{n\in \mathbb{Z}} \tilde q^{2\pi gR^2 n^2}.
+\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \sum_{n\in \mathbb{Z}} \tilde q^{2\pi gR^2 n^2}.
 $$
+
+where this is some Jacobi theta function. In particular we find that since 
+$$
+\theta_3(z\mid \tau) = \sum_{m\in \mathbb{Z}}e^{\pi i \tau n^2 + 2\pi i n z},
+$$
+then the trace is 
+$$
+\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right)
+$$
+
+
+Now its time to evaluate the inner product that we so desire. We will do it in tiny steps For notational convenience let's define
+$$
+D_n = \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n} \text{ and } D = \sum_{n=1}^{\infty} D_n.
+$$
+With the number operator $N = \sum_{m=1}^{\infty} N_m$ i.e. the one such that $[N_m,\theta_{-n}^k] = kn \theta_{-n}\delta_{nm} $ for positive $n$ we find that $[N_m,D_n] = 0$ if $n\neq m$ therefore we can see that
+$$
+\begin{align*}
+e^{N}e^{D}v 
+&= \prod_{m=1}^{\infty} e^{N_m}  \prod_{n=1}^{\infty} e^{D_n}v = \prod_{n=1}^{\infty} e^{N_n} e^{D_n}v \\
+&= \prod_{n=1}^{\infty} \sum_{p=0}^{\infty}\sum_{q=0}^{\infty}\frac{1}{p!q!} N_n^q D_n^pv = \prod_{n=1}^{\infty} \sum_{p=0}^{\infty}\frac{(e^nD_n)^p}{p!} v\\
+&= \prod_{n=1}^{\infty} e^{e^n D_n} v
+\end{align*}
+$$
+So we can put these together to show
+$$
+\begin{align*}
+\langle e^Dv,e^{-2\pi L (N+\bar N)} e^D v\rangle 
+&= \langle e^Dv,\prod_{n=1}^{\infty}e^{q^{n}D_n} v\rangle\\
+&= \langle v, \prod_{n=1}^{\infty}  e^{D_n^\dagger} e^{q^nD_n} v\rangle\\
+&= \langle v, \prod_{n=1}^{\infty}\sum_{r=0}^{\infty}\sum_{s=0}^{\infty} \frac{q^{sn}}{r!s!} (D_n^\dagger)^r (D_n)^s v \rangle\\
+&= \langle v, \prod_{n=1}^{\infty}\sum_{s=0}^{\infty} \frac{q^{sn}}{(s!)^2} (\bar a^\dagger a^\dagger)^s (a\bar a)^s v \rangle\\
+&= \langle v, \prod_{n=1}^{\infty}\sum_{s=0}^{\infty} \frac{q^{sn}}{(s!)^2} s!s! v \rangle\\
+&= \prod_{n=1}^{\infty}\sum_{s=0}^{\infty} q^{sn}= \prod_{n=1}^{\infty} \frac{1}{1-q^n} = q^{\frac{1}{24}} \eta(q)^{-1}.
+\end{align*}
+$$
+Ok! We're getting there! Now we need the zero mode which can be found by evaluating the commutator $[L_0,\Theta_0]$. We know that 
+$$
+[\theta(\sigma, 0), \frac{\partial \theta}{\partial \tau}(\sigma',0)] = \frac{i}{gR^2} \delta(\sigma' - \sigma) \implies [\Theta_0, \theta_0 + \tilde \theta_0] = -\frac{1}{2\pi gR^2}.
+$$
+Assuming that $[\Theta_0, \theta_0 - \tilde \theta_0] = -$ we have that $[\Theta_0,\theta_0] = [\Theta_0,\tilde \theta_0] = -\frac{1}{4\pi g R^2}$. Now we proceed with 
+$$
+[L_0, \Theta_0] = [2\pi gR^2 \theta_0^2,\Theta_0] = \theta_0 \implies [\bar L_0,\Theta_0] = \tilde \theta_0.
+$$
+Now we calculate the zero mode to be
+$$
+\frac{1}{(2\pi)^2}\sum_{m,n \in \mathbb{Z}} e^{-i(n-m)\alpha} \langle e^{im\Theta_0}v,e^{-2\pi L(L_0 + \bar L_0)} e^{in\Theta_0} v\rangle.
+$$
+Notice that $\psi_m = e^{im\Theta_0} v$ has the property that $\theta_0 \psi_m = -\frac{im}{4\pi gR^2}\psi_m \implies L_0 \psi_m=\frac{m^2}{8\pi gR^2} \psi_m$. Also notice that since $L_0$ is Hermitian $\langle \psi_m,\psi_n \rangle = \delta_{mn}$. So we find that  the zero mode contribution is 
+$$
+\frac{1}{(2\pi)^2} \sum_{m,n \in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}} e^{-i(n-m) \alpha} \delta_{nm} = \frac{1}{(2\pi)^2} \sum_{m\in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}},
+$$
+where this is some Jacobi theta function. In particular we find that 
+$$
+\theta_3(z\mid \tau) = \sum_{m\in \mathbb{Z}}e^{\pi i \tau n^2 + 2\pi i n z}.
+$$
+So in this case the zero mode contribution looks like
+$$
+\frac{1}{4\pi^2} \theta_3 \left(0; \frac{\tau }{4\pi gR^2}  \right).
+$$
+Putting everything together we have that
+$$
+\langle \phi_\alpha, q^{\frac{1}{2}(L_0 + \bar L_0 - \frac{1}{12}) }\phi_\alpha\rangle = \frac{A^2}{4\pi^2  \eta(q)} \theta_3\left( \frac{\tau }{4\pi gR^2} \right) = \frac{1}{\eta(\tilde q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right) = \text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}}.
+$$
+But we also know that $\theta_{3}(-\frac{1}{\tau}) = \sqrt{-i\tau} \theta_3(\tau)$ so we can find that 
+$$
+\frac{A^2}{4\pi^2 \eta(q)} \sqrt{\frac{4\pi gR^2}{-i\tau}} \theta_3\left(\frac{4\pi gR^2}{-\tau}\right) = \frac{1}{\sqrt{-i\tau}\eta(q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right)
+$$
+And therefore we see that
+$$
+A = \frac{2\pi}{(4\pi g R^2)^{\frac{1}{4}}}.
+$$
+So now we are ready to find our $g$-function by simply calculating
+$$
+g_\alpha = \langle v,\phi_\alpha \rangle = A\langle v, \delta(\Theta_0 - \alpha) v\rangle = \frac{A}{2\pi} \sum_{n\in \mathbb{Z}} e^{-in\alpha} \langle v, e^{in\Theta_0} v\rangle = \frac{A}{2\pi} = (4\pi g R^2)^{-\frac{1}{4}}.
+$$
+AAAAAAAAAA! Ok cool. What is super interesting now, is that there is a special radius where $g_\alpha = 1$. In this case these Dirichlet defects have the chance to be topological defects in the unfolded theory (if it exists).
+
+
+
+## Neumann g-functions
+
+Now that we have the Dirichlet g-functions we don't actually have to change things that much for the Neumann case. In the upper half plane we have already found that the conformal weights are simply shifted by $\alpha$ due to the topological Wilson line that we have inserted. In particular the conformal weights are $h = 2\pi gR^2 (n + \alpha)^2$ for $n\in \mathbb{Z}$. Notice that since these states are all twisted the vacuum doesn't have a vanishing contribution.  So we have that
+$$
+\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \sum_{n\in \mathbb{Z}} \tilde q^{2\pi gR^2 (n+\alpha)^2}.
+$$
+ The next ingredient
+
+
+
+
 
 
 
