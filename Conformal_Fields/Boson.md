@@ -175,33 +175,39 @@ $$
 $$
 But this naively seems that unlike Dirichlet boundary conditions we only have 1 Neumann condition. This makes little sense, because under T-duality we should exchange the two. The extra degree of freedom comes because we can keep adding a boundary term in this action of the form
 $$
-B = 2\pi g R\int_{\partial \Sigma} \alpha dX.
+B = 2\pi i g R\int_{\partial \Sigma_1} \alpha dX + 2\pi i g R\int_{\partial \Sigma_2} \beta dX.
 $$
-This means that we have to be a bit more careful because the canonical commutation relations have changed in the presence of this term! Let's work them out in its absence and then in its presence. The canonical position here would be 
+where we have used $\partial \Sigma_i$ to denote the disconnected components of the boundary. The reason for the $i$ factor is that we added it on Lorentzian signature and then Wick rotated. This means that we have to be a bit more careful because the canonical commutation relations have changed in the presence of this term! Let's work them out in its absence and then in its presence. The canonical position here would be 
 $$
 \Theta_0 = \frac{1}{2\pi}\int_{\tau = 0} \theta d\sigma = \frac{X_0}{R},
 $$
 i.e. the integration constant we introduced earlier. Meanwhile the (Lorentzian) $P_0$ is going to be
 $$
-P_0 = \frac{\partial L}{\partial \partial_{\tau}\Theta_0} = g\pi R^2 (\theta_0 + \tilde \theta_0) = 2\pi R^2 g \theta_0.
+P_0 = \frac{\partial L}{\partial \partial_{t}\Theta_0} = -i\frac{\partial L}{\partial \partial \partial_\tau \Theta_0} = -2\pi gR^2 (\theta_0 + \tilde \theta_0) = -4 \pi gR^2 \theta_0.
 $$
 But when we add the additional term in the action we find that 
 $$
-P_0^{\alpha} = g\pi R^2 \left( \theta_0 + \tilde \theta_0  + 2\alpha \right) = 2\pi gR^2(\theta_0 + \alpha),
+P_0^{\alpha} = -2\pi gR^2 \left( \theta_0 + \tilde \theta_0  - \alpha - \beta \right) = -4\pi gR^2(\theta_0 - \frac{\alpha}{2} -\frac{\beta}{2}),
 $$
-with some appropriate constants in front of $\alpha$ in $B$ that we won't care about because $\alpha \in \mathbb{R}$. The point is that when we include the boundary term, the Hamiltonian is shifted by $\alpha$, so in some sense, our operators $\theta_0^\alpha$ when we quantize with $B$ act in the same way as if we didn't insert it and instead acted with $\theta_0 + \alpha$. This makes a lot of since, since what we really did was to fuse a defect with the boundary associated with inserting a flat gauge field of the form $A = \alpha d\tau$ (up to constant factors). So to be precise, by $\theta_0$ we will always mean $\theta_{0}^{\alpha = 0}$ and we will add $\alpha$ explicitly when needed. Therefore we obtain that
+with some appropriate constants in front of $\alpha$ in $B$ that we won't care about because $\alpha \in \mathbb{R}$. The point is that when we include the boundary term, the Hamiltonian is shifted by $\alpha$, so in some sense, our operators $\theta_0^\alpha$ when we quantize with $B$ act in the same way as if we didn't insert it and instead acted with $\theta_0 + \alpha$. This makes a lot of since, since what we really did was to fuse a defect with the boundary associated with inserting a flat gauge field of the form $A = \alpha d\tau$ (up to constant factors). To really show this consider the momentum quantization condition.
+
+If we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $\Theta_0$ and momentum $P_0^\alpha = -4\pi g R^2 (\theta_0 - \frac{\alpha}{2} - \frac{\beta}{2})$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}\in \mathbb{Z}$ on some states, which finally means that $\theta_0^\alpha = \frac{n}{4\pi gR^2} +\frac{\alpha}{2} + \frac{\beta}{2}$ where $\theta_0 = \frac{n}{4\pi gR^2}$, which means that the zero modes are shifted but still quantized. Therefore we have here that 
 $$
-\theta(z,\bar z) = \frac{X_0}{R} - i(\theta_0 + \alpha) \log z\bar z +i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
+\theta(z,\bar z) = \frac{X_0}{R} - i(\theta_0 + \frac{\alpha}{2} + \frac{\beta}{2}) \log z\bar z +i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
-now if we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $X_0$ and momentum $P_0^\alpha = 2\pi g R^2 (\theta_0 + \alpha)$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i R^2 P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}= \frac{n}{R^2}$ on some states, which finally means that $\theta_0 = \frac{n}{2\pi gR^2} - \alpha$, which means that the zero modes are shifted but still quantized. There is clearly a nicer normalization in hindsight that I need to adopt, but this is it for now. A nicer way to see this is to recalculate $L_0$ In this case we have that
+ A nicer way to see this is to recalculate $L_0$ In this case we have that
 $$
-\partial \theta = -i \sum_{n\in \mathbb{Z}} (\theta_n + \alpha \delta_{n0})z^{-n-1} dz.
+\partial \theta = -i \sum_{n\in \mathbb{Z}} \left(\theta_n + \frac{\alpha}{2}\delta_{n0} + \frac{\beta}{2}\delta_{n0}\right)z^{-n-1} dz.
 $$
 Notice that this is exactly the same expression as we had but simply having a new $\theta_0$ since it is now shifted. Therefore we find that
 $$
-L_0 = \frac{1}{2\pi i}\int_{S^1} T(z) z dz = -gR^2i \int_{S^1}z^{-n-m-1}{:}\theta_n\theta_m{:} =  2\pi gR^2 (\theta_0 + \alpha)^2 + 4\pi gR^2\sum_{n>0} \theta_{n}\theta_{-n}.
+L_0 = \frac{1}{2\pi i}\int_{S^1} T(z) z dz = -gR^2i \int_{S^1}z^{-n-m-1}{:}\theta_n\theta_m{:} =  2\pi gR^2 \left(\theta_0 + \frac{\alpha}{2} + \frac{\beta}{2}\right)^2 + 4\pi gR^2\sum_{n>0} \theta_{n}\theta_{-n}.
 $$
-So now $\theta_n$ is still an integer but now we have shifts.
+But now $\theta_0$ is not integer valued anymore! So the conformal weights are of the form
+$$
+h = 2\pi gR^2 \left(\frac{n}{4\pi g R^2} +\frac{\alpha}{2} + \frac{\beta}{2}\right)^2.
+$$
+Notice though that in our case we have two boundaries so if we have the same flux in both because the orientation is opposite we will find that $\alpha = -\beta$ so we would still be in the untwisted sector.
 
 ## No Boundary
 
@@ -217,12 +223,12 @@ $$
 $$
 but also as we have seen the translation operator $e^{2\pi i R P_0^{\alpha}} = 1$ which implies that
 $$
-\theta_0 + \tilde \theta_0 + 2\alpha = \frac{m}{2\pi g R^2}, \ m\in \mathbb{Z}.
+\theta_0 + \tilde \theta_0 + \alpha = \frac{m}{2\pi g R^2}, \ m\in \mathbb{Z}.
 $$
 Finally we can repackage them as so
 $$
 \begin{align*}
-\theta_0 = \frac{m}{4\pi g R^2} - \frac{n}{2} - \alpha && \tilde \theta_0 = \frac{m}{4\pi g R^2} + \frac{n}{2} - \alpha,
+\theta_0 = \frac{m}{4\pi g R^2} - \frac{n}{2} - \frac{\alpha}{2} && \tilde \theta_0 = \frac{m}{4\pi g R^2} + \frac{n}{2} - \frac{\alpha}{2},
 \end{align*}
 $$
 remember the $-\alpha$ appears if we turn on a flat gauge field. If we want it to single valued we have $\alpha = 0$. This is fantastic! We have a way to describe the momenta of the free boson in general. Moreover we have found all the possible conformal weights, up to an integer, since $L_0 = \frac{1}{2} (P_0^\alpha)^2 + N$, where $N$ is some number operator whatever. So we also now know all the twisted Hilbert spaces here! WOOOOHHHHOOOOOOO! (Ok not all, but still we know a lot).
@@ -260,7 +266,7 @@ But these are words. How do we actually calculate this thing? We want an entropy
 The formalism behind this is the one of ishibashi states. Let's build this up real quick. As we have found earlier, primaries in this theory have conformal weights
 $$
 \begin{align*}
-h = 2\pi g \left( \frac{m}{4\pi g R} - \frac{nR}{2} \right)^2  && \bar h = 2\pi g \left( \frac{m}{4\pi g R} + \frac{nR}{2} \right)^2. 
+h = 2\pi g R^2\left( \frac{m}{4\pi g R^2} - \frac{n}{2} \right)^2  && \bar h = 2\pi g R^2 \left( \frac{m}{4\pi g R^2} + \frac{n}{2} \right)^2. 
 \end{align*}
 $$
 Since we know how to use radial quantization so much, it would be nice to use it as a tool to find what the disk partition function should look like. The issue here is that the way we have been talking about the boundaries right now has the sphere oriented kinda awkwardly. One thing we could try is to do a coordinate transformation (which will simply end up being a rigid conformal map) such that we bring it into the equator like so
@@ -341,7 +347,7 @@ $$
 $$
 \phi_\alpha = A\delta\left(\Theta_0-\alpha\right)\prod_{n=1}^{\infty} \exp\left[ \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n}\right]v
 $$
-where the first part is there because we want to fix the zero mode too. A way we can write this is to use the commutation relations
+where the first part is there because we want to fix the zero mode too (Notice that $f(-X)$ satisfies the Neumann boundary condition instead). A way we can write this is to use the commutation relations
 $$
 i =[\Theta_0,P_0] = g\pi R^2[\Theta_0, (\theta_0 + \tilde \theta_0)].
 $$
@@ -353,7 +359,9 @@ As a result, we should be able to write
 $$
 \delta(\Theta_0 - \alpha) = \frac{1}{2\pi}\sum_{n \in \mathbb{Z}} e^{-in\alpha} e^{in\Theta_0},
 $$
-which will be useful in computation soon. The issue is that we are missing an overall normalization for this. This is a bit subtle. So here we use a cool idea. We can pick an annulus. This was the really cool insight of Cardy. 
+which will be useful in computation soon. The thing is that we haven't fixed the Neumann boundary condition. The reason is that we don't need to! For the 0 momentum flow we using $f(-X)$ fully specifies our state, and for the other ones we simply go to the twisted sector by one of the Wilson lines, therefore our modes would automatically satisfy the momentum condition. 
+
+The issue is that we are missing an overall normalization for this. This is a bit subtle. So here we use a cool idea. We can pick an annulus. This was the really cool insight of Cardy. 
 
 
 
@@ -497,14 +505,42 @@ AAAAAAAAAA! Ok cool. What is super interesting now, is that there is a special r
 
 ## Neumann g-functions
 
-Now that we have the Dirichlet g-functions we don't actually have to change things that much for the Neumann case. In the upper half plane we have already found that the conformal weights are simply shifted by $\alpha$ due to the topological Wilson line that we have inserted. In particular the conformal weights are $h = 2\pi gR^2 (n + \alpha)^2$ for $n\in \mathbb{Z}$. Notice that since these states are all twisted the vacuum doesn't have a vanishing contribution.  So we have that
+Now that we have the Dirichlet g-functions we don't actually have to change things that much for the Neumann case. In the upper half plane we have already found that the conformal weights are simply shifted by $\alpha$ due to the topological Wilson line that we have inserted. In particular the conformal weights are $h = 2\pi gR^2n^2$ for $n\in \mathbb{Z}$. Notice that since these states are all twisted the vacuum doesn't have a vanishing contribution.  So we have that
 $$
-\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \sum_{n\in \mathbb{Z}} \tilde q^{2\pi gR^2 (n+\alpha)^2}.
+\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \sum_{n\in \mathbb{Z}} \tilde q^{\frac{n^2}{8\pi g R^2}}.
 $$
- The next ingredient
+ The next ingredient on our list is the boundary state. The modes were derived above, therefore we have that the state should be given by
+$$
+\psi_\alpha = e^{-D} v = B\prod_{n=1}^{\infty}\exp\left[- \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n}\right] v,
+$$
+for some normalization constant $B$. However, one might ask, HEY! What happened with the zero mode? And you'd be right. In fact there is no way to have a state in the untwisted Hilbert space that has momentum other than $0$. In particular the Neumann boundary condition reads:
+$$
+\left. \frac{\partial \theta}{\partial \tau}\right|_{\tau=0} = 0,
+$$
+this is automatically satisfied by the state $\psi_\alpha$. We must be missing something. What we are missing is that there may be many field configurations that have this property. Let's examine the boundary term in this case. Plugging in $\theta$ we find that if the boundary is placed on $\tau=0$ then
+$$
+2\pi i g R^2 \alpha \int_{S^1} \left.\frac{\partial \theta}{\partial \sigma}\right|_{\tau=0} d\sigma = -4\pi^2 i g R^2 \alpha (\theta_0 - \tilde \theta_0) = 4\pi^2 i g R^2 \alpha w.
+$$
+So all this boundary term does if we place the boundary at a circle is to weight states by their winding number in the path integral. So we can build the Boundary state directly using the path integral with the boundary term inserted. Namely we will find that the "empty" state can be given as a sum of winding ground states. Namely for some boundary configuration $\hat \theta : \partial \Sigma \to S^1$ we have that the state $v$ (aka the zero mode) is given by 
+$$
+v(\hat\theta) = \sum_{w\in \mathbb{Z}}e^{4\pi^2 i g R^2 \alpha w}\int_{\theta_w |_{\partial \Sigma} = \hat \theta} \mathcal{D}\theta_w e^{-S(\theta_w)} = \sum_{w\in \mathbb{Z}}e^{4\pi^2 i g R^2 \alpha w} v_w,
+$$
+where $\theta_w$ is a field configuration with winding $w$ and $v_w$ is the lowest energy state with winding $w$, i.e. $-(\theta_0 -\tilde \theta_0)v_w = wv_w$.  
+
+Doing so fixes the rest of our problems. So let's calculate the inner product between the states in the annulus. However the oscillator part will remain identical since we really didn't change anything. 
+$$
+\langle \psi_\alpha,q^{\frac{1}{2}\left( L_0 + \bar L_0 -\frac{1}{12} \right)} \psi_\alpha\rangle= \frac{B^2}{\eta(\tau)} \sum_{w,l\in \mathbb{Z}} \langle v_l ,q^{4\pi^2 i g R^2 \alpha(w-l) + \frac{\pi g R^2}{2} w^2 }v_w\rangle = \frac{B^2}{\eta(\tau)} \sum_{w\in \mathbb{Z}} q^{\frac{\pi g R^2 w^2}{2}}.
+$$
+As a result by equating both sides we find that
+$$
+\frac{B^2}{\eta(\tau)} \theta_3\left(  \pi gR^2 \tau\right) = \frac{1}{\eta(\tilde q)} \theta_3\left( -\frac{1}{4\pi g R^2 \tau} \right)
+$$
 
 
 
+$$
+\theta_3(z\mid \tau) = \sum_{m\in \mathbb{Z}}e^{\pi i \tau n^2 + 2\pi i n z},
+$$
 
 
 
