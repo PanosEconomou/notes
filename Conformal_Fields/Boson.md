@@ -179,19 +179,19 @@ B = 2\pi i g R\int_{\partial \Sigma_1} \alpha dX + 2\pi i g R\int_{\partial \Sig
 $$
 where we have used $\partial \Sigma_i$ to denote the disconnected components of the boundary. The reason for the $i$ factor is that we added it on Lorentzian signature and then Wick rotated. This means that we have to be a bit more careful because the canonical commutation relations have changed in the presence of this term! Let's work them out in its absence and then in its presence. The canonical position here would be 
 $$
-\Theta_0 = \frac{1}{2\pi}\int_{\tau = 0} \theta d\sigma = \frac{X_0}{R},
+\Theta_0 = \frac{1}{\pi}\int_{\tau = 0} \theta d\sigma = \frac{X_0}{R},
 $$
 i.e. the integration constant we introduced earlier. Meanwhile the (Lorentzian) $P_0$ is going to be
 $$
-P_0 = \frac{\partial L}{\partial \partial_{t}\Theta_0} = -i\frac{\partial L}{\partial \partial \partial_\tau \Theta_0} = -2\pi gR^2 (\theta_0 + \tilde \theta_0) = -4 \pi gR^2 \theta_0.
+P_0 = \frac{\partial L}{\partial \partial_{t}\Theta_0} = -i\frac{\partial L}{\partial \partial \partial_\tau \Theta_0} = -\pi gR^2 (\theta_0 + \tilde \theta_0) = -2 \pi gR^2 \theta_0.
 $$
 But when we add the additional term in the action we find that 
 $$
-P_0^{\alpha} = -2\pi gR^2 \left( \theta_0 + \tilde \theta_0  - \alpha - \beta \right) = -4\pi gR^2(\theta_0 - \frac{\alpha}{2} -\frac{\beta}{2}),
+P_0^{\alpha} = -\pi gR^2 \left( \theta_0 + \tilde \theta_0  - \alpha - \beta \right) = -2\pi gR^2(\theta_0 - \frac{\alpha}{2} -\frac{\beta}{2}),
 $$
 with some appropriate constants in front of $\alpha$ in $B$ that we won't care about because $\alpha \in \mathbb{R}$. The point is that when we include the boundary term, the Hamiltonian is shifted by $\alpha$, so in some sense, our operators $\theta_0^\alpha$ when we quantize with $B$ act in the same way as if we didn't insert it and instead acted with $\theta_0 + \alpha$. This makes a lot of since, since what we really did was to fuse a defect with the boundary associated with inserting a flat gauge field of the form $A = \alpha d\tau$ (up to constant factors). To really show this consider the momentum quantization condition.
 
-If we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $\Theta_0$ and momentum $P_0^\alpha = -4\pi g R^2 (\theta_0 - \frac{\alpha}{2} - \frac{\beta}{2})$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}\in \mathbb{Z}$ on some states, which finally means that $\theta_0^\alpha = \frac{n}{4\pi gR^2} +\frac{\alpha}{2} + \frac{\beta}{2}$ where $\theta_0 = \frac{n}{4\pi gR^2}$, which means that the zero modes are shifted but still quantized. Therefore we have here that 
+If we try to quantize our Hilbert space we have a chunk first that is a free particle on a circle, with position $\Theta_0$ and momentum $P_0^\alpha = -2\pi g R^2 (\theta_0 - \frac{\alpha}{2} - \frac{\beta}{2})$. In this case we see that the momentum must be quantized since the particle is on a circle of radius $R$ thus any translation by $2\pi R$ must leave the states invariant, which means that $e^{2\pi i P_0^{\alpha}} = 1$ which implies that $P_0^{\alpha}\in \mathbb{Z}$ on some states, which finally means that $\theta_0^\alpha = \frac{n}{2\pi gR^2} +\frac{\alpha}{2} + \frac{\beta}{2}$ where $\theta_0 = \frac{n}{2\pi gR^2}$, which means that the zero modes are shifted but still quantized. Therefore we have here that 
 $$
 \theta(z,\bar z) = \frac{X_0}{R} - i(\theta_0 + \frac{\alpha}{2} + \frac{\beta}{2}) \log z\bar z +i\sum_{n\neq 0} \frac{\theta_n}{n} \left( z^{-n} + \bar z^{-n} \right).
 $$
@@ -205,7 +205,7 @@ L_0 = \frac{1}{2\pi i}\int_{S^1} T(z) z dz = -gR^2i \int_{S^1}z^{-n-m-1}{:}\thet
 $$
 But now $\theta_0$ is not integer valued anymore! So the conformal weights are of the form
 $$
-h = 2\pi gR^2 \left(\frac{n}{4\pi g R^2} +\frac{\alpha}{2} + \frac{\beta}{2}\right)^2.
+h = 2\pi gR^2 \left(\frac{n}{2\pi g R^2} +\frac{\alpha}{2} + \frac{\beta}{2}\right)^2.
 $$
 Notice though that in our case we have two boundaries so if we have the same flux in both because the orientation is opposite we will find that $\alpha = -\beta$ so we would still be in the untwisted sector.
 
@@ -505,9 +505,9 @@ AAAAAAAAAA! Ok cool. What is super interesting now, is that there is a special r
 
 ## Neumann g-functions
 
-Now that we have the Dirichlet g-functions we don't actually have to change things that much for the Neumann case. In the upper half plane we have already found that the conformal weights are simply shifted by $\alpha$ due to the topological Wilson line that we have inserted. In particular the conformal weights are $h = 2\pi gR^2n^2$ for $n\in \mathbb{Z}$. Notice that since these states are all twisted the vacuum doesn't have a vanishing contribution.  So we have that
+Now that we have the Dirichlet g-functions we don't actually have to change things that much for the Neumann case. In the upper half plane we have already found that the conformal weights are simply shifted by $\alpha$ due to the topological Wilson line that we have inserted. In particular the conformal weights are $h = \frac{n^2}{2\pi gR^2}$ for $n\in \mathbb{Z}$.  So we have that
 $$
-\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \sum_{n\in \mathbb{Z}} \tilde q^{\frac{n^2}{8\pi g R^2}}.
+\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \sum_{n\in \mathbb{Z}} \tilde q^{\frac{n^2}{2\pi g R^2}} = \frac{1}{\eta(\tilde q)}\theta_3\left( -\frac{1}{\pi g R^2 \tau} \right).
 $$
  The next ingredient on our list is the boundary state. The modes were derived above, therefore we have that the state should be given by
 $$
@@ -533,18 +533,14 @@ $$
 $$
 As a result by equating both sides we find that
 $$
-\frac{B^2}{\eta(\tau)} \theta_3\left(  \pi gR^2 \tau\right) = \frac{1}{\eta(\tilde q)} \theta_3\left( -\frac{1}{4\pi g R^2 \tau} \right)
+\frac{B^2}{\eta(\tau)} \theta_3\left(  \pi gR^2 \tau\right) = \frac{1}{\eta(\tilde q)} \theta_3\left( -\frac{1}{\pi g R^2 \tau} \right) = \frac{\sqrt{-i\tau \pi gR^2}}{\sqrt{-i\tau}\eta(q)} \theta_3(\pi g R^2 \tau)  \implies B = (\pi g R^2)^{\frac{1}{4}}
 $$
 
-
-
+So we can now solve for the Neumann g-functions by 
 $$
-\theta_3(z\mid \tau) = \sum_{m\in \mathbb{Z}}e^{\pi i \tau n^2 + 2\pi i n z},
+g_{\alpha} = \langle v_0,\psi_\alpha \rangle = (\pi gR^2)^{\frac{1}{4}}.
 $$
-
-
-
-
+YES! We are done! Notice that in the normalization where the Dirichlet defects have g-function 1, i.e. at $4\pi gR^2 = 1$ these ones have $\frac{1}{\sqrt{2}}$. 
 
 
 
