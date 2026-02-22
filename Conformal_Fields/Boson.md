@@ -183,7 +183,7 @@ $$
 $$
 i.e. the integration constant we introduced earlier. Meanwhile the (Lorentzian) $P_0$ is going to be
 $$
-P_0 = \frac{\partial L}{\partial \partial_{t}\Theta_0} = -i\frac{\partial L}{\partial \partial \partial_\tau \Theta_0} = -\pi gR^2 (\theta_0 + \tilde \theta_0) = -2 \pi gR^2 \theta_0.
+P_0 = \frac{\partial L}{\partial \partial_{t}\Theta_0} = -i\frac{\partial L}{\partial \partial_\tau \Theta_0} = -\pi gR^2 (\theta_0 + \tilde \theta_0) = -2 \pi gR^2 \theta_0.
 $$
 But when we add the additional term in the action we find that 
 $$
@@ -430,9 +430,10 @@ $$
 $$
 then the trace is 
 $$
-\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right)
+\text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right).
 $$
 
+> **<u>Note:</u>** Notice that the conformal weights we found are 4 times the chiral conformal weights of the free boson. The reason is that the boundary hilbert space is only comprised out of modes with even integer windings. We saw this when deriving everything since we imposed that the boson should be periodic at the endpoints of the boundary not after a full circle  (effectively doubling the winding).
 
 Now its time to evaluate the inner product that we so desire. We will do it in tiny steps For notational convenience let's define
 $$
@@ -509,7 +510,9 @@ Now that we have the Dirichlet g-functions we don't actually have to change thin
 $$
 \text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}} = \frac{1}{\eta(\tilde q)} \sum_{n\in \mathbb{Z}} \tilde q^{\frac{n^2}{2\pi g R^2}} = \frac{1}{\eta(\tilde q)}\theta_3\left( -\frac{1}{\pi g R^2 \tau} \right).
 $$
- The next ingredient on our list is the boundary state. The modes were derived above, therefore we have that the state should be given by
+> **<u>Note:</u>** Notice that the conformal weights we found here is also 4 times the chiral conformal weights of the free boson. The reason is the same. One way to get some intuition is to think of the free boson as a string. Putting a boundary condition is like fixing the endpoint (we will see later how Neumann is also fixing the endpoint of a "dual string"). If you fix the endpoint the string should 
+
+The next ingredient on our list is the boundary state. The modes were derived above, therefore we have that the state should be given by
 $$
 \psi_\alpha = e^{-D} v = B\prod_{n=1}^{\infty}\exp\left[- \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n}\right] v,
 $$
@@ -623,19 +626,9 @@ We saw that the charges under the currents $J_e$ and $J_m$ are practically integ
 
 One pretty nifty thing is that we can gauge this one. Before we do so though let's examine what it means intuitively. On the circle flipping the sign of the phase means that we traverse it in the opposite orientation. So charge conjugation is orientation reversal of the map that places $\Sigma$ onto $S^1$. This is far more intuitive. At its core, means that when gauging this we are considering maps that are invariant under flipping the orientation which may include ones that were not oriented to begin with.
 
-As we will see this has interesting consequences on the 
+There is a string intuition here which is that charge conjugation flips the orientation. It is also not surprising, what we are flipping is in fact, the electric (and magnetic) charge which corresponds to the transformation that rotates us on the circle, so if we flip its sign we will rotate the other way. 
 
-
-
-
-
-
-
-
-
-
-
-
+Also we have an interesting conjugation matrix that simply flips $(n,m)\mapsto (-n,-m)$. Since all the numbers appear square I'd be curious to see if you can write down a modular invariant for the free boson such that this charge conjugation thing flips only part of that. That probably is not an automorphism of the algebra.
 
 
 
