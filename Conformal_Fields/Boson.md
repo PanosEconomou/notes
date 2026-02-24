@@ -632,6 +632,100 @@ Also we have an interesting conjugation matrix that simply flips $(n,m)\mapsto (
 
 
 
+# Gauging 
+
+Charge conjugation or orientation revelrsal can be gauged. We do so in the usual two step process of including out twisted sectors and then projecting out states that are not invariant under the gauge group. Let's first have a look at the kind of configurations we will include. In particular we want configurations such that 
+$$
+\theta(\sigma + 2\pi) = -\theta(\sigma) + 2\pi k,
+$$
+for some $k\in \mathbb{Z}$. Notice however that $\theta(\sigma + 4\pi) = -\theta(\sigma + 2\pi) + 2\pi k = \theta(\sigma)$ which implies that there is no winding number as a degree of freedom for this boson! This is super interesting for our purposes since we can talk about the twisted states simply by $\theta(\sigma + 2\pi) = -\theta(\sigma)$. One way we can impose this is by modifying the parallel transport of the free boson. In other words introducing a flat gauge field  $A$ such that the corresponding connection has holonomy $-1$. In particular we find that
+$$
+d_{A} \theta = d\theta + A\theta,
+$$
+such that
+$$
+-1 = e^{\int_{\tau = t} A}  \implies A = \frac{i}{2} d\sigma.
+$$
+Now we have that the action on the twisted sector is
+$$
+S^{T} = \frac{g}{2}\int_{\Sigma} d_A X \wedge \ast d_A X,
+$$
+with equations of motion of the form
+$$
+0=d_A \ast d_A X = d_A (\ast dX + \ast XA) = d\ast dX + 2 A \wedge \ast dX + XA\wedge \ast A.
+$$
+In complex coordinates this becomes what we had before, but with the insertion of this $A$. Notice that in the sphere $A = -\frac{dz}{4z} + \frac{d\bar z}{4\bar z}$ so we see that we can modify the Dulbeault operators  to $\partial_A = \partial - \frac{dz}{4z}$ and $\bar \partial_A = \bar \partial + \frac{d\bar z}{4z}$. What this really shows intuitively is that the solutions that satisfy this are no longer holomophic. Which is to be expected because $\theta$ itself seems to be having a brunch cut in order to satsisfy that perdiodicity. Now we could proceed in two ways: (a) continue quantization directly for our new equation of motion $\partial_A \bar \partial_A \theta = 0$, or we can impose the periodicity in $\theta$ directly in terms of modes. For variety in presentation let's do the second one (enen though they are functionally the same).
+
+If we want $\theta(\sigma + 2\pi) = -\theta(\sigma)$ we can no longer use the mode expansion above. In fact we see that $\partial \theta(\sigma + 2\pi) = -\partial \theta(\sigma)$. This can be easily fixed by
+$$
+\begin{align*}
+\partial \theta = -i\sum_{n\in \mathbb{Z}} \theta_n z^{-n-1+\frac{1}{2}}dz && \bar \partial \theta = -i\sum_{n\in \mathbb{Z}} \tilde \theta_n \bar z^{-n-1-\frac{1}{2}}dz,
+\end{align*}
+$$
+Notice that these mode expansions have the right monodromy conditions. By the way many people adopt the notation where we sum $n\in\mathbb{Z}+\frac{1}{2}$ and call the new $\theta_n$ *half-modes*. This is such a nice notation because it makes the expressions in the untwisted sector really match the ones in the twisted sector. We will use this soon, but for now we have that the full, integrated field must be of the form
+$$
+\theta(z,\bar z) = \Theta + i\sum_{n\in \mathbb{Z}}  \frac{\theta_n}{n -\frac{1}{2}} z^{-n+\frac{1}{2}} + \frac{\tilde \theta_n}{n + \frac{1}{2}} z^{-n-\frac{1}{2}},
+$$
+where the question remains, what is the point $\Theta$ tunrns out there isn't that many things it can be. If we impose our boundary conditions
+$$
+\theta(\sigma = 2\pi) = \theta(\sigma = 0) + 2\pi k \implies \Theta = -\Theta + 2\pi k \implies \Theta = \pi k.
+$$
+But since $\Theta \sim \Theta + 2\pi k$ we have that $\Theta \in \{0,\pi\}$. So these are the two subsectors of the twisted sector. And more importantly notice that there is no zero mode unlike the untwisted case. This is the sence in which the twisted sector is nicer than the untwisted. In particular we can see that. A very good reason why the twisted sector is not nicer than the untwisted though is the fact that it has a degenerate vacuum that is not even conformally invariant (so by vacuum I really mean the lowest energy state here). 
+
+One way to do this is as follows. We can define a cylinder with perimeter $4\pi$ instead of $2\pi$. On that bigger cylinder we will define
+$$
+\hat X(\sigma) = 
+\begin{cases}
+X(\sigma), & \sigma \in [0,2\pi)\\
+-X(\sigma - 2\pi), & \sigma \in [2\pi,4\pi),
+\end{cases}
+$$
+where $X$ is the twisted boson. What we can see is that this field is still a free boson and it is continuous, but this time it's monodromy condition is that 
+$$
+\hat X(\sigma + 4\pi) = X(\sigma + 2\pi + 2\pi) = X(\sigma) +2\pi k = \hat X(\sigma) + 2\pi k,
+$$
+which is the untwisted boson! So we can find the stress tensor on the twisted sector by yanking it from the untwisted one. Notice that the inverse of the map is $X(\sigma) = \frac{1}{2}\left[\hat X(\sigma) - \hat X(\sigma + 2\pi)\right]$. If we use the map $w=e^{\frac{-i\sigma + \tau}{2}}$ to map to the sphere from the doubled cylinder to the sphere, as well as $z=e^{-i\sigma +\tau}$ we find that
+$$
+X(z) = \frac{1}{2}\left[\hat X(w) - \hat X(-w)\right],
+$$
+which we can then use to see that first $w = \sqrt{z}$ and more precisely that we now have a pullback. In particular notice that
+$$
+\partial X = \frac{1}{4\sqrt{z}} \left[ \partial \hat X(\sqrt{z}) +\partial \hat X\left( -\sqrt{z} \right) \right],
+$$
+which further implies that the classical stress tensor is going to be
+$$
+T(z) = -2\pi g \partial X \partial X = -\frac{2\pi g}{16z}\left[ \partial \hat X^+\partial \hat X^+ + 2 \partial \hat X^+\partial \hat X^- + \partial \hat X^-\partial \hat X^- \right].
+$$
+Now we must be a bit careful. This boson has the same coupling but twice the radius of the base space, in particular this means that 
+$$
+S(\hat X) = \frac{\hat g}{2} \int_{0}^{4\pi}d\sigma\int_{\mathbb{R}} d\tau (\partial_\tau \hat X)^2 + (\partial_\sigma \hat X)^2 = \hat g \int_{0}^{2\pi} d\sigma\int_{\mathbb{R}} d\tau (\partial_\tau  X)^2 + (\partial_\sigma  X)^2 = \frac{2\hat g}{g}S(X).
+$$
+If the two are to be the same boson we need $\hat g = \frac{g}{2}$. What this really means is that the propagator gets a different normalization
+$$
+\partial \hat X(w) \partial \hat X(w') \sim -\frac{1}{2\pi g(w-w')^2},
+$$
+which implies that the zero point function of the torus as is given by
+$$
+-2\pi g\langle \partial X(z) \partial X(z') \rangle = \frac{1}{8}\frac{1}{\sqrt{zz'}}\left[\frac{1}{(\sqrt{z}-\sqrt{z'})^2} + \frac{1}{(\sqrt{z}+\sqrt{z'})^2} \right].
+$$
+We notice that there are two singularities give that after normalizing the limit should be $\frac{1}{32z^2}$. We can now play exactly the same game and write down a stress tensor and then the corresponding $L_0$ like so
+$$
+L_0 = \frac{1}{2\pi i} \int_{S^1} z T(z) dz =  \frac{\hat L_0}{}
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
