@@ -752,7 +752,9 @@ $$
 $$
 is a valid boundary state in the orbifold, with the exception of $\alpha = 0$ and $\alpha = \pi$. The reason is that $\pi = 2\pi -\pi$ so these points are already identified, thus the states $\phi_{\pi} = \phi_{-\pi}$. This is not the only problem. The second issue (the consistency on the circle, aka Cardy's condition) breaks down. Intuitively, this inner product is going to be obtained only via states that are oriented. But in the orbifold there might be more states that set the field  to a specific value even if they don't have a fixed orientation. So if we were to be careful we would need to redo our computations. However, we already know a bunch of things. For example, it suffices to calculate Dirichlet boundary conditions since the remaining ones will be related under $T$-duality. We also know how to construct the boundary states using squeeze states, so this time it shouldn't be that big of a problem.
 
-### Twisted Ishibashi States
+
+
+## Twisted Ishibashi States
 
 Before we calculated the untwisted ishibashi states to be
 $$
@@ -779,7 +781,39 @@ The reason for the proportionality symbol is that these states need to be approp
 
 ## Orbifold g-functions
 
-To find their $g$-functions we can do so via integrality constraints using Cardy's constraint. 
+To find their $g$-functions we can do so via integrality constraints using Cardy's constraint. Let's start with the boundary states that do not include any of the twisted sector contributions. But check something out that is so cool! A nontrivial fact if you may. We have normalizied the ishibashi states such that if $\psi_V$ is the ishibahsi state associated to irreducible module $V$ we have that
+$$
+\langle \psi_V,q^{\frac{1}{2}\left( L_0 + \bar L_0 -\frac{c}{12} \right)} \psi_{V}\rangle = \chi_{V}(q).
+$$
+ Therefore for any boundary state $\phi = A\sum_{i} \phi_i \psi_i$ where $\phi_i \in \mathbb{C}$ are coefficients for the ishibashi state corresponding to the irredicuble module $i$ and $A$ is some unknown overall normalization constant. Now what happens is that the same boundary state exists in the orbifold (for some combinations) perhaps under a different normalization that is fixed by cardy's condition. In particular assume that $H_{\phi\phi} = \bigoplus_{i} n_ii$ for some collection of representations. Therefore we have 
+$$
+|A|^2\sum_{i} |\phi_i|^2 \chi_i(q) = \sum_{i} n_i\chi_i(\tilde q).
+$$
+We also know that $n_1 = 1$ because of integrality. Therefore we can see that 
+$$
+|A|^2 \sum_{i} |\phi_i|^2 S_{i1} = 1 \implies |A| =\frac{1}{\sqrt{\sum_{i} |\phi_i|^2 S_{i1}}}.
+$$
+But BUT WAIT! We don't have to calculate it! We have that $\sum_{i}S_{i1} = 1$ because the identity line must be transparent to everything and $S$ must be unitary.
+
+> **<u>Digression:</u>** Some quick digression about the $S$ matrix. It has so many ways to build some intuition for, but here is an essential one that will guide this argument. We know that as $\tau \to i\infty$ the character $\chi_i(\tau) \to q^{h-\frac{c}{24}}$. This really means that the temperature becomes low. We see then that $\frac{\chi_i(\tau)}{\chi_1(\tau)} \to \delta_{i1}$. As a a result at low energies (unsurpisingly) the contributions of the vacuum character contribute to the partition function. However, the more interesting part is that the $S$ transform can relate the low temperature limit to the high temperature one like so
+> $$
+> \frac{\chi_i\left(-\frac{1}{\tau}\right)}{\chi_1(\tau)} = S_{ij} \frac{\chi_j(\tau)}{\chi_1(\tau)} \to S_{i1},
+> $$
+> what this really means is that $S_{i1}$, physically, encodes the high temperature behavior of character $\chi_i$. That's why we use this for the quantum dimension. 
+
+Take your favorite maximal (chiral) algebra $A$ of your theory. Any Hilbert space in your theory is built by simple objects in $\text{Rep}(A)$ in various configurations. Now take any outer automorphism of $A$ and say that this is a representation of some group $G$. Then this representation lifts to $\text{Rep}(A)$. Each module $i \in \text{Rep}(A)$ forms an orbit $O_i = G\cdot i$. Assume that the orbit is stabilized by $H_i \coloneqq \{g\in G \mid gi=i\}$, which is a subgroup of $G$. Then we know that $|O_i| = |G|/|H_i|$. 
+
+Now let's think about the orbifold. Now pick a module $i$ and build its orbit. Then we know that the orbifold is going to contain a module 
+$$
+P_GO_i = \frac{1}{|G|}\sum_{g\in G} gO_i.
+$$
+By the way we call the orbit free if $|H_i| = 1$. Now one quick way is that we can figure out what $\hat S_{i0}$ is in the orbifold by taking cool limits. In particular, we know that the identity module is a fixed point of the action of the group. So $O_1$ has 1 element. However, just because the action fixes the identity module it doesn't mean that it's trivial there. In particular we have
+$$
+\hat S_{i0} = \lim_{\tau \to i\infty}\frac{\hat \chi_{i}(-1/\tau)}{\hat \chi_{1}(\tau)}.
+$$
+If the orbit is free then we can see that $\hat\chi_i = \chi_i$. Then we can relate this to the original $S$ matrix by
+
+
 
 
 
