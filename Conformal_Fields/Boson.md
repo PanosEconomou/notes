@@ -179,7 +179,7 @@ B = 2\pi i g R\int_{\partial \Sigma_1} \alpha dX + 2\pi i g R\int_{\partial \Sig
 $$
 where we have used $\partial \Sigma_i$ to denote the disconnected components of the boundary. The reason for the $i$ factor is that we added it on Lorentzian signature and then Wick rotated. This means that we have to be a bit more careful because the canonical commutation relations have changed in the presence of this term! Let's work them out in its absence and then in its presence. The canonical position here would be 
 $$
-\Theta_0 = \frac{1}{\pi}\int_{\tau = 0} \theta d\sigma = \frac{X_0}{R},
+\Theta_0 = \frac{1}{\pi}\int_{\tau = 0} \theta d\sigma = \frac{X_0}{R} \text{ and } \partial_\tau \Theta_0 = \frac{1}{\pi}\partial_\tau \int_{\tau} \Theta_0 -2i\tau \theta_0 d\sigma = -2i\theta_0.
 $$
 i.e. the integration constant we introduced earlier. Meanwhile the (Lorentzian) $P_0$ is going to be
 $$
@@ -349,15 +349,19 @@ $$
 $$
 where the first part is there because we want to fix the zero mode too (Notice that $f(-X)$ satisfies the Neumann boundary condition instead). A way we can write this is to use the commutation relations
 $$
-i =[\Theta_0,P_0] = g\pi R^2[\Theta_0, (\theta_0 + \tilde \theta_0)].
+i =[\Theta_0,P_0] = 2g\pi R^2[\Theta_0, (\theta_0 + \tilde \theta_0)].
 $$
-Therefore we can write a delta function in terms of momentum eigenstates. In this case the momentum eigenstates are quantized and have the form $\psi_{m}$ such that
+Therefore we can write a delta function in terms of momentum eigenstates. In this case the momentum eigenstates are quantized and have the form $\psi_{m} = e^{im\Theta_0}v$ such that
 $$
-P_0 \psi_{m} = \frac{m}{2\pi g R^2} \psi_m.
+P_0 \psi_{m} = m \psi_m \implies (\theta_0 + \tilde \theta_0) \psi_m = \frac{m}{2\pi g R^2} \psi_m.
 $$
-As a result, we should be able to write
+As a result, we should be able to write the state $v_\alpha$, i.e. the one such that $\Theta_0 v_\alpha = \alpha v_\alpha$ to satisfy
 $$
-\delta(\Theta_0 - \alpha) = \frac{1}{2\pi}\sum_{n \in \mathbb{Z}} e^{-in\alpha} e^{in\Theta_0},
+\langle v_\alpha, \psi_m \rangle = \langle e^{-im\Theta_0} v_\alpha,v \rangle = e^{im\alpha} \langle v_\alpha,v \rangle = \frac{e^{-i m\alpha}}{\sqrt{2\pi}},
+$$
+which directly implies 
+$$
+\delta(\Theta_0 - \alpha) = \frac{1}{\sqrt{2\pi}}\sum_{n \in \mathbb{Z}} e^{-in\alpha} e^{in\Theta_0},
 $$
 which will be useful in computation soon. The thing is that we haven't fixed the Neumann boundary condition. The reason is that we don't need to! For the 0 momentum flow we using $f(-X)$ fully specifies our state, and for the other ones we simply go to the twisted sector by one of the Wilson lines, therefore our modes would automatically satisfy the momentum condition. 
 
@@ -464,17 +468,17 @@ Ok! We're getting there! Now we need the zero mode which can be found by evaluat
 $$
 [\theta(\sigma, 0), \frac{\partial \theta}{\partial \tau}(\sigma',0)] = \frac{i}{gR^2} \delta(\sigma' - \sigma) \implies [\Theta_0, \theta_0 + \tilde \theta_0] = -\frac{1}{2\pi gR^2}.
 $$
-Assuming that $[\Theta_0, \theta_0 - \tilde \theta_0] = -$ we have that $[\Theta_0,\theta_0] = [\Theta_0,\tilde \theta_0] = -\frac{1}{4\pi g R^2}$. Now we proceed with 
+Assuming that $[\Theta_0, \theta_0 - \tilde \theta_0] = 0$ we have that $[\Theta_0,\theta_0] = [\Theta_0,\tilde \theta_0] = -\frac{1}{4\pi g R^2}$. Now we proceed with 
 $$
 [L_0, \Theta_0] = [2\pi gR^2 \theta_0^2,\Theta_0] = \theta_0 \implies [\bar L_0,\Theta_0] = \tilde \theta_0.
 $$
 Now we calculate the zero mode to be
 $$
-\frac{1}{(2\pi)^2}\sum_{m,n \in \mathbb{Z}} e^{-i(n-m)\alpha} \langle e^{im\Theta_0}v,e^{-2\pi L(L_0 + \bar L_0)} e^{in\Theta_0} v\rangle.
+\frac{1}{2\pi}\sum_{m,n \in \mathbb{Z}} e^{-i(n-m)\alpha} \langle e^{im\Theta_0}v,e^{-2\pi L(L_0 + \bar L_0)} e^{in\Theta_0} v\rangle.
 $$
 Notice that $\psi_m = e^{im\Theta_0} v$ has the property that $\theta_0 \psi_m = -\frac{im}{4\pi gR^2}\psi_m \implies L_0 \psi_m=\frac{m^2}{8\pi gR^2} \psi_m$. Also notice that since $L_0$ is Hermitian $\langle \psi_m,\psi_n \rangle = \delta_{mn}$. So we find that  the zero mode contribution is 
 $$
-\frac{1}{(2\pi)^2} \sum_{m,n \in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}} e^{-i(n-m) \alpha} \delta_{nm} = \frac{1}{(2\pi)^2} \sum_{m\in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}},
+\frac{1}{2\pi} \sum_{m,n \in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}} e^{-i(n-m) \alpha} \delta_{nm} = \frac{1}{2\pi} \sum_{m\in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}},
 $$
 where this is some Jacobi theta function. In particular we find that 
 $$
@@ -482,23 +486,23 @@ $$
 $$
 So in this case the zero mode contribution looks like
 $$
-\frac{1}{4\pi^2} \theta_3 \left(0; \frac{\tau }{4\pi gR^2}  \right).
+\frac{1}{2\pi} \theta_3 \left(0; \frac{\tau }{4\pi gR^2}  \right).
 $$
 Putting everything together we have that
 $$
-\langle \phi_\alpha, q^{\frac{1}{2}(L_0 + \bar L_0 - \frac{1}{12}) }\phi_\alpha\rangle = \frac{A^2}{4\pi^2  \eta(q)} \theta_3\left( \frac{\tau }{4\pi gR^2} \right) = \frac{1}{\eta(\tilde q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right) = \text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}}.
+\langle \phi_\alpha, q^{\frac{1}{2}(L_0 + \bar L_0 - \frac{1}{12}) }\phi_\alpha\rangle = \frac{A^2}{2\pi \eta(q)} \theta_3\left( \frac{\tau }{4\pi gR^2} \right) = \frac{1}{\eta(\tilde q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right) = \text{Tr}_{\mathbb{H}_{\alpha\alpha}} \tilde q^{L_0 - \frac{c}{24}}.
 $$
 But we also know that $\theta_{3}(-\frac{1}{\tau}) = \sqrt{-i\tau} \theta_3(\tau)$ so we can find that 
 $$
-\frac{A^2}{4\pi^2 \eta(q)} \sqrt{\frac{4\pi gR^2}{-i\tau}} \theta_3\left(\frac{4\pi gR^2}{-\tau}\right) = \frac{1}{\sqrt{-i\tau}\eta(q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right)
+\frac{A^2}{2\pi \eta(q)} \sqrt{\frac{4\pi gR^2}{-i\tau}} \theta_3\left(\frac{4\pi gR^2}{-\tau}\right) = \frac{1}{\sqrt{-i\tau}\eta(q)} \theta_{3}\left( \frac{4\pi gR^2}{-\tau} \right)
 $$
 And therefore we see that
 $$
-A = \frac{2\pi}{(4\pi g R^2)^{\frac{1}{4}}}.
+A = \frac{\sqrt{2\pi}}{(4\pi g R^2)^{\frac{1}{4}}}.
 $$
 So now we are ready to find our $g$-function by simply calculating
 $$
-g_\alpha = \langle v,\phi_\alpha \rangle = A\langle v, \delta(\Theta_0 - \alpha) v\rangle = \frac{A}{2\pi} \sum_{n\in \mathbb{Z}} e^{-in\alpha} \langle v, e^{in\Theta_0} v\rangle = \frac{A}{2\pi} = (4\pi g R^2)^{-\frac{1}{4}}.
+g_\alpha = \langle v,\phi_\alpha \rangle = A\langle v, \delta(\Theta_0 - \alpha) v\rangle = \frac{A}{\sqrt{2\pi}} \sum_{n\in \mathbb{Z}} e^{-in\alpha} \langle v, e^{in\Theta_0} v\rangle = \frac{A}{\sqrt{2\pi}} = (4\pi g R^2)^{-\frac{1}{4}}.
 $$
 AAAAAAAAAA! Ok cool. What is super interesting now, is that there is a special radius where $g_\alpha = 1$. In this case these Dirichlet defects have the chance to be topological defects in the unfolded theory (if it exists).
 
@@ -793,13 +797,17 @@ Let's actually calculate our partition functions. Say we pick a couple of Dirich
 $$
 Z_{ab}(q) = A^2\langle \phi_a, q^{\frac{1}{2}H}\phi_a\rangle + 2 A^2\langle \phi_{-a}, q^{\frac{1}{2}H}\phi_a\rangle + A^2\langle \phi_{-\alpha}, q^{\frac{1}{2}H}\phi_{-\alpha}\rangle = 2 A^2\left[Z_{0}^{R}(q) + Z_{2\alpha}^{R}(q) \right].
 $$
-where $H=L_0 + \bar L_0 - \frac{1}{12}$. Now we can immediately solve for $A$ by using integrality. If we write the $q$ expansion of this, the coefficient of the first term must be $1$. The first term comes from only the $Z_0^R$ part since the other one has a nontrivial phase attached to it. As a result we see that $A = 2^{-\frac{1}{2}}$, which implies that the $g$ function of this state is reduced by that factor giving $\hat g_a = \frac{1}{\sqrt{2}} g_a$. Since the Neumann boundaries are Dirichlet boundaries in the $T$-dual theory we have also calculated those by accident. 
+where $H=L_0 + \bar L_0 - \frac{1}{12}$. Now we can immediately solve for $A$ by using integrality. If we write the $q$ expansion of this, the coefficient of the first term must be $1$. The first term comes from only the $Z_0^R$ part since the other one has a nontrivial phase attached to it. As a result we see that $A = 2^{-\frac{1}{2}}$, which implies that the $g$ function of this state is reduced by that factor giving
+$$
+\hat g_a = \frac{1}{\sqrt{2}} \langle v, \phi_a + \phi_{-a}\rangle = \frac{g_a + g_{-a}}{\sqrt{2}}  = \sqrt{2}g_a.
+$$
+Since the Neumann boundaries are Dirichlet boundaries in the $T$-dual theory we have also calculated those by accident. 
 
 What about the special points? Well the only thing we need to calculate really is the partition function of the ishibashi states coming from the orbifold $\phi_a^{\pm}$. We employ the same tactic but now it's almost easier since there is no zero mode! Therefore we find
 $$
 \langle \phi_a^{+}, q^{\frac{1}{2}H} \phi_a^{+}\rangle = q^{\frac{1}{48}} \prod_{n=0}^{\infty}\frac{1}{1-\sqrt{q}^{n+\frac{1}{2}}} = \sqrt{\frac{\eta(\sqrt{q})}{\theta_4(\sqrt{q})}} = \sqrt{\frac{\eta(\tilde q^2)}{\theta_2(\tilde q^2)}}.
 $$
-where this time $H = L_0^\sigma + \bar L_0^{\sigma} - \frac{1}{12} = \frac{1}{2}(L_{0}+\bar L_{0}) + \frac{1}{24}$. To be clear on the vacuum state $L_0v_{0} = L_0 v_{\pi} = 0$, so this is just a sum of the number operators in the twisted sector. Ok! So we are done. I mean we can put them all together but it won't matter much. because there are a couple of interesting observations. There is a radius where $\hat g_a = 1$ 
+where this time $H = L_0^\sigma + \bar L_0^{\sigma} - \frac{1}{12} = \frac{1}{2}(L_{0}+\bar L_{0}) + \frac{1}{24}$. To be clear on the vacuum state $L_0v_{0} = L_0 v_{\pi} = 0$, so this is just a sum of the number operators in the twisted sector. Ok! So we are done. I mean we can put them all together but it won't matter much. because there are a couple of interesting observations. There is a radius where $\hat g_a = 1$ this is at $R = (4\pi g)^{-\frac{1}{2}}$ which is the $\text{Ising}^2$ CFT! I am realizing now that I have flipped which defects are the Neumann defects and which are the Dirichlet but this doesn't matter for our discussion.
 
 
 
@@ -824,8 +832,6 @@ But BUT WAIT! We don't have to calculate it! We have that $\sum_{i}S_{i1} = 1$ b
 > \frac{\chi_i\left(-\frac{1}{\tau}\right)}{\chi_1(\tau)} = S_{ij} \frac{\chi_j(\tau)}{\chi_1(\tau)} \to S_{i1},
 > $$
 > what this really means is that $S_{i1}$, physically, encodes the high temperature behavior of character $\chi_i$. That's why we use this for the quantum dimension. 
-
-
 
 
 
