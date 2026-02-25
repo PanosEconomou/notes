@@ -614,7 +614,7 @@ If we explore $T$-duality we can write the new field further. In particular sinc
 $$
 \tilde \theta = \tilde \theta_L + \tilde \theta_R = \frac{\tilde X_L}{\tilde R} + \frac{\tilde X_R}{\tilde R} =2\pi g R \left( X_L - X_R \right) = 2\pi g R^2 (\theta_L - \theta_R) = 2 R (X_L - X_R),
 $$
-where in the last step we used a nice normalization $g = \pi ^{-1}$. Anyway, the point here really is that the field $\tilde \theta$ is a perfectly good field we can write down in the Boson with radius $R$. In fact it is linearly independent from field $\theta$ and enjoys its own symmetry action. In some sense since we can rotate the left and right chiral parts independently by $U(1)$, i.e. shift the circle by a phase, then we can think that we have one $U(1)$ associated with $\theta$ and one with $\tilde \theta$ (even though our mode description might suggest otherwise). The real thing is that we have found that the free boson has a symmetry $U(1)\times U(1)$. 
+where in the last step we used a nice normalization $g = \pi ^{-1}$. Anyway, the point here really is that the field $\tilde \theta$ is a perfectly good field we can write down in the Boson with radius $R$ even though it describes a boson with radius $\tilde R$. In fact it is linearly independent from field $\theta$ and enjoys its own symmetry action. In some sense since we can rotate the left and right chiral parts independently by $U(1)$, i.e. shift the circle by a phase, then we can think that we have one $U(1)$ associated with $\theta$ and one with $\tilde \theta$ (even though our mode description might suggest otherwise). The real thing is that we have found that the free boson has a symmetry $U(1)\times U(1)$. 
 
 One last thing, is that we can write $T$-duality in this description as $\theta \mapsto \tilde \theta, \tilde \theta \mapsto \theta$, which automatically takes care of the radius thing. 
 
@@ -659,18 +659,32 @@ In complex coordinates this becomes what we had before, but with the insertion o
 If we want $\theta(\sigma + 2\pi) = -\theta(\sigma)$ we can no longer use the mode expansion above. In fact we see that $\partial \theta(\sigma + 2\pi) = -\partial \theta(\sigma)$. This can be easily fixed by
 $$
 \begin{align*}
-\partial \theta = -i\sum_{n\in \mathbb{Z}} \theta_n z^{-n-1+\frac{1}{2}}dz && \bar \partial \theta = -i\sum_{n\in \mathbb{Z}} \tilde \theta_n \bar z^{-n-1-\frac{1}{2}}dz,
+\partial \theta^{\sigma} = -i\sum_{n\in \mathbb{Z}} \theta_n^{\sigma} z^{-n-1-\frac{1}{2}}dz && \bar \partial \theta = -i\sum_{n\in \mathbb{Z}} \tilde \theta_n^{\sigma} \bar z^{-n-1-\frac{1}{2}}dz,
 \end{align*}
 $$
 Notice that these mode expansions have the right monodromy conditions. By the way many people adopt the notation where we sum $n\in\mathbb{Z}+\frac{1}{2}$ and call the new $\theta_n$ *half-modes*. This is such a nice notation because it makes the expressions in the untwisted sector really match the ones in the twisted sector. We will use this soon, but for now we have that the full, integrated field must be of the form
 $$
-\theta(z,\bar z) = \Theta + i\sum_{n\in \mathbb{Z}}  \frac{\theta_n}{n -\frac{1}{2}} z^{-n+\frac{1}{2}} + \frac{\tilde \theta_n}{n + \frac{1}{2}} z^{-n-\frac{1}{2}},
+\theta^{\sigma}(z,\bar z) = \Theta + i\sum_{n\in \mathbb{Z}}  \frac{\theta_n^{\sigma}}{n +\frac{1}{2}} z^{-n-\frac{1}{2}} + \frac{\tilde \theta_n^{\sigma}}{n + \frac{1}{2}} \bar z^{-n-\frac{1}{2}},
 $$
-where the question remains, what is the point $\Theta$ tunrns out there isn't that many things it can be. If we impose our boundary conditions
+where the question remains, what is the point $\Theta$ turns out there isn't that many things it can be. If we impose our boundary conditions
 $$
-\theta(\sigma = 2\pi) = \theta(\sigma = 0) + 2\pi k \implies \Theta = -\Theta + 2\pi k \implies \Theta = \pi k.
+\theta^{\sigma}(\sigma = 2\pi) = \theta^{\sigma}(\sigma = 0) + 2\pi k \implies \Theta = -\Theta + 2\pi k \implies \Theta = \pi k.
 $$
-But since $\Theta \sim \Theta + 2\pi k$ we have that $\Theta \in \{0,\pi\}$. So these are the two subsectors of the twisted sector. And more importantly notice that there is no zero mode unlike the untwisted case. This is the sence in which the twisted sector is nicer than the untwisted. In particular we can see that. A very good reason why the twisted sector is not nicer than the untwisted though is the fact that it has a degenerate vacuum that is not even conformally invariant (so by vacuum I really mean the lowest energy state here). 
+But since $\Theta \sim \Theta + 2\pi k$ we have that $\Theta \in \{0,\pi\}$. So these are the two subsectors of the twisted sector. And more importantly notice that there is no zero mode unlike the untwisted case. This is the sense in which the twisted sector is nicer than the untwisted. One interesting thing is that these modes commute differently.
+$$
+\begin{align*}
+[\theta_n^{\sigma},\theta_m^{\sigma}] &= \frac{1}{(2\pi i)^2}\int_{S^1} dz \int_{S^1} dw\, z^{n+\frac{1}{2} - 1} w^{m +\frac{1}{2} - 1}\partial \theta^{\sigma}(z)\partial \theta^{\sigma}(w) \\
+&= -\frac{4\pi g R^2}{(2\pi i)^2} \int_{S^1}dz \int_{S^1_z}dw \, \frac{z^{n-\frac{1}{2}}w^{m-\frac{1}{2}}(z+w)}{2\sqrt{zw} (z-w)^2} \\
+&= 4\pi gR^2\left(n-\frac{1}{2}\right) \delta_{n+m,1}.
+\end{align*}
+$$
+This looks ugly until we use the notation $n = k+\frac{1}{2}$ where $k \in \mathbb{Z} + \frac{1}{2}$. Now we can use the half integer modes $\theta_k = \theta^{\sigma}_{k+\frac{1}{2}}$ To write 
+$$
+[\theta_{n},\theta_m] = [\theta_{n+\frac{1}{2}}^{\sigma},\theta_{m+\frac{1}{2}}^{\sigma}] = 4\pi gR^2 n \delta_{n+m,0},
+$$
+which is the same commutation relation we derived in the integer modes. This is also why the notation with half-integers is super convenient.
+
+A very good reason why the twisted sector is not nicer than the untwisted though is the fact that it has a degenerate vacuum that is not even conformally invariant (so by vacuum I really mean the lowest energy state here). 
 
 One way to do this is as follows. We can define a cylinder with perimeter $4\pi$ instead of $2\pi$. On that bigger cylinder we will define
 $$
@@ -684,35 +698,88 @@ where $X$ is the twisted boson. What we can see is that this field is still a fr
 $$
 \hat X(\sigma + 4\pi) = X(\sigma + 2\pi + 2\pi) = X(\sigma) +2\pi k = \hat X(\sigma) + 2\pi k,
 $$
-which is the untwisted boson! So we can find the stress tensor on the twisted sector by yanking it from the untwisted one. Notice that the inverse of the map is $X(\sigma) = \frac{1}{2}\left[\hat X(\sigma) - \hat X(\sigma + 2\pi)\right]$. If we use the map $w=e^{\frac{-i\sigma + \tau}{2}}$ to map to the sphere from the doubled cylinder to the sphere, as well as $z=e^{-i\sigma +\tau}$ we find that
+which is the untwisted boson! So we can find the stress tensor on the twisted sector by yanking it from the untwisted one. Notice that the inverse of the map is $X(\sigma) = \frac{1}{2}\left[\hat X(\sigma) - \hat X(\sigma + 2\pi)\right]$. If we use the map $w=e^{\frac{-i\sigma + \tau}{2}}$ to map to the sphere from the doubled cylinder to the sphere,
 $$
-X(z) = \frac{1}{2}\left[\hat X(w) - \hat X(-w)\right],
+X(w) = \frac{1}{2}\left[\hat X(w) - \hat X(-w)\right],
 $$
-which we can then use to see that first $w = \sqrt{z}$ and more precisely that we now have a pullback. In particular notice that
+which we can then use to see that first $w = \sqrt{z}$ and more precisely that we now have a pullback. which further implies that the classical stress tensor is going to be
 $$
-\partial X = \frac{1}{4\sqrt{z}} \left[ \partial \hat X(\sqrt{z}) +\partial \hat X\left( -\sqrt{z} \right) \right],
+T(w) = -2\pi g \partial X \partial X = -2\pi g \frac{1}{2}\left[ \partial \hat X^+\partial \hat X^+ + 2 \partial \hat X^+\partial \hat X^- + \partial \hat X^-\partial \hat X^- \right].
 $$
-which further implies that the classical stress tensor is going to be
+Since the propagator is given by 
 $$
-T(z) = -2\pi g \partial X \partial X = -\frac{2\pi g}{16z}\left[ \partial \hat X^+\partial \hat X^+ + 2 \partial \hat X^+\partial \hat X^- + \partial \hat X^-\partial \hat X^- \right].
+\partial \hat X(w) \partial \hat X(w') \sim -\frac{1}{4\pi g(w-w')^2},
 $$
-Now we must be a bit careful. This boson has the same coupling but twice the radius of the base space, in particular this means that 
+then the singularity we want to remove is given by
 $$
-S(\hat X) = \frac{\hat g}{2} \int_{0}^{4\pi}d\sigma\int_{\mathbb{R}} d\tau (\partial_\tau \hat X)^2 + (\partial_\sigma \hat X)^2 = \hat g \int_{0}^{2\pi} d\sigma\int_{\mathbb{R}} d\tau (\partial_\tau  X)^2 + (\partial_\sigma  X)^2 = \frac{2\hat g}{g}S(X).
+-2\pi g\langle \partial X(w) \partial X(w') \rangle =\frac{1}{2(w-w')^2} + \frac{1}{2(w+w')^2}.
 $$
-If the two are to be the same boson we need $\hat g = \frac{g}{2}$. What this really means is that the propagator gets a different normalization
+As a result there is a singularity of the form $\frac{1}{8w^2}$ that we can't get rid of! So we keep it and take the pullback anyway. So in terms of free boson modes we can write
 $$
-\partial \hat X(w) \partial \hat X(w') \sim -\frac{1}{2\pi g(w-w')^2},
+T(w) = \left( L_n + \frac{\delta_{n,0}}{8}\right)w^{-n-2}
 $$
-which implies that the zero point function of the torus as is given by
+This means in particular that under the map $w= \sqrt{z}$ we have that we should add the contributions by both branches to obtain 
 $$
--2\pi g\langle \partial X(z) \partial X(z') \rangle = \frac{1}{8}\frac{1}{\sqrt{zz'}}\left[\frac{1}{(\sqrt{z}-\sqrt{z'})^2} + \frac{1}{(\sqrt{z}+\sqrt{z'})^2} \right].
+T(z) = \frac{1}{4z} \left(T(w) + T(-w)\right) = \frac{1 +(-1)^{n }}{4}  \left( L_{n} + \frac{\delta_{n,0}}{8}\right) z^{-\frac{n}{2} -2} = \left(\frac{ L_{2n}}{2} + \frac{\delta_{2n,0}}{16}\right) z^{-n-2}.
 $$
-We notice that there are two singularities give that after normalizing the limit should be $\frac{1}{32z^2}$. We can now play exactly the same game and write down a stress tensor and then the corresponding $L_0$ like so
+So we can finally derive the $L_n^{\sigma}$ in the twisted sector to be
 $$
-L_0 = \frac{1}{2\pi i} \int_{S^1} z T(z) dz =  \frac{\hat L_0}{}
+L_n^{\sigma} = \frac{L_{2n}}{2} + \frac{\delta_{n,0}}{16}.
 $$
+By the way if we use the nice notation where we take half integer stuff we find that $L_{k} = \frac{L_{2k-1}}{2} + \frac{\delta_{k,\frac{1}{2}}}{16}$. This means that what we would call $L_0^\sigma$ or simply $L_{\frac{1}{2}} = \frac{1}{2} L_0 + \frac{1}{16}$ can give us the new conformal weights of the primaries in the twisted sector which, more importantly, means that they are half the weights of the untwisted sector plus this $\frac{1}{16}$ thing. This means that our "vacuum" is not conformally invariant, since it picks up factors under scalings and whatnot. In fact $\frac{1}{16}$ is the smallest conformal weight one can write in the twisted sector, and we have seen there are two such states: one where $\Theta = \pi$ and one where it vanishes.
 
+To gauge, we simply have to project to states that are invariant under charge conjugation. The charge conjugation action does the same thing in the twisted sector so we see that $\theta_{n} \mapsto -\theta_n$ and so for $\tilde \theta_n$. So orbifold states from the twisted and untwisted sectors are going to be oscillator excitations that have even numbers of $\theta_n$ generators where $n \in \frac{1}{2}\mathbb{Z}$. For now this will be enough to start playing around.
+
+This is something interesting. Such configurations allow you to flip the orientation of the circle at any time. In other words these are maps from $\Sigma$ to the $\mathbb{Z}_2$ quotient of $S^1$ obtained by the map that takes $e^{i\theta} \mapsto -e^{i\theta}$. These maps are all well defined and they will serve our intuition well.  
+
+
+
+## Boundary states in the Orbifold
+
+It would be interesting to characterize boundary states in the orbifold the same way we did in the untwisted sector. We have seen how we can define the dual field $\tilde\theta = 2\pi g R^2 (\theta_L - \theta_R)$. One quick thing we can notice is that in the presence of a Neumann boundary parameterized by $\alpha$ with boundary state $\psi_\alpha$ we have
+$$
+\tilde \theta(\tau = 0) \psi_\alpha = [\tilde \Theta_0 - 2\pi g R^2 (\theta_0 + \tilde \theta_0)] \sum_{w\in \mathbb{Z}}e^{4\pi^2 i g R^2 \alpha w} v_w =  \sum_{w \in w} \tilde \Theta_0 e^{4\pi^2 gR^2 \alpha w} v_w.
+$$
+Since $\tilde \Theta_0$ is the "position operator" conjugate to the winding momentum, we see that the state $\psi_\alpha$ is an eigenstate of $\tilde \theta(\tau=0)$. Under an appropriate redefinition of $\alpha$ we can find it such that
+$$
+\tilde \theta(\tau=0) \psi_\alpha = \alpha \psi_\alpha.
+$$
+In other words, while Dirichlet boundary conditions set $\theta$ on the boundary, Neumann ones set $\tilde \theta$. This gives very nice intuition on the exchange of the boundaries under T-duality. 
+
+Notice that under charge conjugation the field $\theta\mapsto -\theta$ and so does $\tilde \theta$. This means, naively, that with the exception of the boundary conditions with $\alpha = 0$ the remaining boundary states are not invariant under conjugation. One thing we notice on the oscillator part of the modes is that it is an operator made out of even products of $\theta_n$, so the oscillator part would survive the orbifold projection. So the only part that us a problem is the zero mode. This means that for a boundary state (Neumann or Dirichlet) $\phi_\alpha$, the state
+$$
+\phi_{\alpha}^\sigma \coloneqq \phi_\alpha - \phi_{-\alpha},
+$$
+is a valid boundary state in the orbifold, with the exception of $\alpha = 0$ and $\alpha = \pi$. The reason is that $\pi = 2\pi -\pi$ so these points are already identified, thus the states $\phi_{\pi} = \phi_{-\pi}$. This is not the only problem. The second issue (the consistency on the circle, aka Cardy's condition) breaks down. Intuitively, this inner product is going to be obtained only via states that are oriented. But in the orbifold there might be more states that set the field  to a specific value even if they don't have a fixed orientation. So if we were to be careful we would need to redo our computations. However, we already know a bunch of things. For example, it suffices to calculate Dirichlet boundary conditions since the remaining ones will be related under $T$-duality. We also know how to construct the boundary states using squeeze states, so this time it shouldn't be that big of a problem.
+
+### Twisted Ishibashi States
+
+Before we calculated the untwisted ishibashi states to be
+$$
+\psi_{h} = \prod_{n>0}^{\infty} \exp\left[ \frac{4\pi gR^2}{n} \theta_{-n}\tilde \theta_{-n}\right]v_n,
+$$
+where $v_n$ is the primary with conformal weight $(h,\bar h) = \pi gR^2 \left( n^2,(-n)^2 \right)$. Similarly we found that the rest of the ishibashi states for the modules with $(h,\bar h) = \frac{(m^2,m^2)}{8\pi gR^2}$ are given by the same thing with a negative sign in the exponent. Similarly we can calculate the ishibashi states of the twisted sectors to have exactly the same form, but with the half integer $\theta_n$. What is particularly interesting though is that there are some differences on the state to which we apply it. 
+
+In the twisted sector there are two "vacuum" states, i.e. states that are annihilated by all positive modes. One that has $\Theta v_{0} = 0$ and one with $\Theta v_{\pi} = \pi v_{\pi}$. We can further see that there are two more states such that $\tilde \Theta$ is $0,\pi$ we can call these states $\tilde v_{0,\pi}$.
+
+We have seen that there is no zero mode here so there can't be any more Ishibashi states. So it looks like there are only 4 ishibashi states on the twisted sector! Notice these are not the Virasoro Ishibashi states these are the ones for the bigger $u(1)$ Kac-Moody. In particular there are Kac-moody descendant that are Virasoro primaries for each of these states. That is given by $u_{\alpha}\coloneqq \theta_{-\frac{1}{2}}\tilde \theta_{-\frac{1}{2}} v_{\alpha}$ for all the states $v_\alpha$. These also survive in the orbifold
+
+ Now what's important to notice is that the ishibashi states corresponding to $v_\pi$ and $v_{0}$ are also invariant under the projection since we have identified the points $\text{mod } 2\pi$. Now the question though is weather these can be used to build boundary states in the orbifold.
+
+Intuitively, if we fix $\theta$ to be $\alpha \in (0,\pi)$ at some point, we will see no twisted sector states since there aren't any eigenstates of $\Theta$ with that as an eigenvalue, so the states we wrote before satisfy Cardy's condition and are normalized. But fixing $\alpha \in \{0,\pi\}$ we can have contributions from twisted sectors. There is only 1 ishibashi state that we can add and because it belongs in a different sector we can fix its normalization using Cardy's constraints. If we label $\phi_\alpha, \psi_\alpha$ the Dirichlet and Neumann boundary states respectively in the untwisted sector, and similarly $\phi_\alpha^\sigma, \psi_\alpha^\sigma$ the 8 ishibashi states in the twisted sector with $\phi_\alpha^+$ being the one corresponding to $v_\alpha$ and so on, we have that the boundary conditions in the orbifold are
+
+| Neumann                                          |                                                              | Dirichlet                                   |                                                              |
+| ------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------- | ------------------------------------------------------------ |
+| $\hat \phi_\alpha, \ \alpha \in (0,\pi)$         | $\hat \phi_\alpha \propto \phi_\alpha + \phi_{-\alpha}$      | $\psi_\alpha, \ \alpha \in (0,\pi)$         | $\hat \psi_\alpha \propto \psi_\alpha + \psi_{-\alpha}$      |
+| $\hat \phi_\alpha^{\pm}, \ \alpha \in \{0,\pi\}$ | $\hat \phi_\alpha^{\pm} \propto  \phi_\alpha + \phi_\alpha^\pm$ | $\psi_\alpha^{\pm}, \ \alpha \in \{0,\pi\}$ | $\hat \psi_\alpha^{\pm} \propto \psi_\alpha+ \psi_\alpha^{\pm}$ |
+
+The reason for the proportionality symbol is that these states need to be appropriately normalized to satisfy Cardy's condition on the orbifold (I also feel like I should've switched the pluses and minus signs because the weight of the $+$ is less than of the minus but it's fineeeeee). 
+
+
+
+## Orbifold g-functions
+
+To find their $g$-functions we can do so via integrality constraints using Cardy's constraint. 
 
 
 
