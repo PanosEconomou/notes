@@ -502,6 +502,14 @@ g_\alpha = \langle v,\phi_\alpha \rangle = A\langle v, \delta(\Theta_0 - \alpha)
 $$
 AAAAAAAAAA! Ok cool. What is super interesting now, is that there is a special radius where $g_\alpha = 1$. In this case these Dirichlet defects have the chance to be topological defects in the unfolded theory (if it exists).
 
+For the sake of completeness, where we to have 2 different boundaries $\alpha,\beta$ we would only change the zero mode so the calculation would read
+$$
+\sum_{m,n \in \mathbb{Z}} e^{-i(n\alpha - m\beta)} \langle e^{im\Theta_0}v,e^{-2\pi L(L_0 + \bar L_0)} e^{in\Theta_0} v\rangle = \sum_{m,n \in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}} e^{-i(n\alpha -m\beta)} \delta_{nm} = \sum_{n\in \mathbb{Z}} q^{\frac{m^2}{8\pi gR^2}}e^{-in(\alpha-\beta)}.
+$$
+So the partition function would be
+$$
+Z_{\beta - \alpha}^{R}(q) \coloneqq \langle \phi_\beta,q^{\frac{1}{2}\left( L_0 + \bar L_0 - \frac{1}{12} \right)}\phi_\alpha \rangle=\frac{1}{\sqrt{4\pi g R^2} \ \eta(q)} \theta_3\left( \frac{\beta-\alpha}{2\pi} \middle| \frac{\tau}{4\pi g R^2} \right)
+$$
 
 
 ## Neumann g-functions
@@ -779,6 +787,22 @@ The reason for the proportionality symbol is that these states need to be approp
 
 
 
+## Boundary Partition Functions
+
+Let's actually calculate our partition functions. Say we pick a couple of Dirichlet conditions $\hat \phi_a = A(\phi_a + \phi_{-a})$ then their partition functions are given by
+$$
+Z_{ab}(q) = A^2\langle \phi_a, q^{\frac{1}{2}H}\phi_a\rangle + 2 A^2\langle \phi_{-a}, q^{\frac{1}{2}H}\phi_a\rangle + A^2\langle \phi_{-\alpha}, q^{\frac{1}{2}H}\phi_{-\alpha}\rangle = 2 A^2\left[Z_{0}^{R}(q) + Z_{2\alpha}^{R}(q) \right].
+$$
+where $H=L_0 + \bar L_0 - \frac{1}{12}$. Now we can immediately solve for $A$ by using integrality. If we write the $q$ expansion of this, the coefficient of the first term must be $1$. The first term comes from only the $Z_0^R$ part since the other one has a nontrivial phase attached to it. As a result we see that $A = 2^{-\frac{1}{2}}$, which implies that the $g$ function of this state is reduced by that factor giving $\hat g_a = \frac{1}{\sqrt{2}} g_a$. Since the Neumann boundaries are Dirichlet boundaries in the $T$-dual theory we have also calculated those by accident. 
+
+What about the special points? Well the only thing we need to calculate really is the partition function of the ishibashi states coming from the orbifold $\phi_a^{\pm}$. We employ the same tactic but now it's almost easier since there is no zero mode! Therefore we find
+$$
+\langle \phi_a^{+}, q^{\frac{1}{2}H} \phi_a^{+}\rangle = q^{\frac{1}{48}} \prod_{n=0}^{\infty}\frac{1}{1-\sqrt{q}^{n+\frac{1}{2}}} = \sqrt{\frac{\eta(\sqrt{q})}{\theta_4(\sqrt{q})}} = \sqrt{\frac{\eta(\tilde q^2)}{\theta_2(\tilde q^2)}}.
+$$
+where this time $H = L_0^\sigma + \bar L_0^{\sigma} - \frac{1}{12} = \frac{1}{2}(L_{0}+\bar L_{0}) + \frac{1}{24}$. To be clear on the vacuum state $L_0v_{0} = L_0 v_{\pi} = 0$, so this is just a sum of the number operators in the twisted sector. Ok! So we are done. I mean we can put them all together but it won't matter much. because there are a couple of interesting observations. There is a radius where $\hat g_a = 1$ 
+
+
+
 ## Orbifold g-functions
 
 To find their $g$-functions we can do so via integrality constraints using Cardy's constraint. Let's start with the boundary states that do not include any of the twisted sector contributions. But check something out that is so cool! A nontrivial fact if you may. We have normalizied the ishibashi states such that if $\psi_V$ is the ishibahsi state associated to irreducible module $V$ we have that
@@ -801,17 +825,7 @@ But BUT WAIT! We don't have to calculate it! We have that $\sum_{i}S_{i1} = 1$ b
 > $$
 > what this really means is that $S_{i1}$, physically, encodes the high temperature behavior of character $\chi_i$. That's why we use this for the quantum dimension. 
 
-Take your favorite maximal (chiral) algebra $A$ of your theory. Any Hilbert space in your theory is built by simple objects in $\text{Rep}(A)$ in various configurations. Now take any outer automorphism of $A$ and say that this is a representation of some group $G$. Then this representation lifts to $\text{Rep}(A)$. Each module $i \in \text{Rep}(A)$ forms an orbit $O_i = G\cdot i$. Assume that the orbit is stabilized by $H_i \coloneqq \{g\in G \mid gi=i\}$, which is a subgroup of $G$. Then we know that $|O_i| = |G|/|H_i|$. 
 
-Now let's think about the orbifold. Now pick a module $i$ and build its orbit. Then we know that the orbifold is going to contain a module 
-$$
-P_GO_i = \frac{1}{|G|}\sum_{g\in G} gO_i.
-$$
-By the way we call the orbit free if $|H_i| = 1$. Now one quick way is that we can figure out what $\hat S_{i0}$ is in the orbifold by taking cool limits. In particular, we know that the identity module is a fixed point of the action of the group. So $O_1$ has 1 element. However, just because the action fixes the identity module it doesn't mean that it's trivial there. In particular we have
-$$
-\hat S_{i0} = \lim_{\tau \to i\infty}\frac{\hat \chi_{i}(-1/\tau)}{\hat \chi_{1}(\tau)}.
-$$
-If the orbit is free then we can see that $\hat\chi_i = \chi_i$. Then we can relate this to the original $S$ matrix by
 
 
 
