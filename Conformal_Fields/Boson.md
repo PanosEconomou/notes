@@ -44,7 +44,7 @@ where $C_L,C_R \in \mathbb{C}$ and $p\in \mathbb{R}$, we also conventionally cal
 $$
 X(z,\bar z) = x + ip\log z\bar z + i\sum_{n\in \mathbb{Z}} \frac{1}{n} \left( \alpha_n z^{-n} + \tilde \alpha_n\bar z^{-n} \right),
 $$
-with the requirement that $\alpha_n^\ast = \alpha_{-n}$ in order for $X$ to remain real. We are almost ready to quantize this model. 
+with the requirement that $\alpha_n^\ast = \alpha_{-n}$ in order for $X$ to remain real. We are almost ready to quantize this model. But we won't use these conventions so that I can make things hard enough to force myself to worth through all the conventions at least once.
 
 
 
