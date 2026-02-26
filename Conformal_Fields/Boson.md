@@ -561,10 +561,6 @@ YES! We are done! Notice that in the normalization where the Dirichlet defects h
 
 
 
-
-
-
-
 # Interesting $\mathbb{Z}_2$'s
 
 One thing we could have noticed above is that if the free Boson is diagonal with respect to the $\mathfrak{u}(1)$ chiral algebra. Let's derive the conformal weights carefully. The stress tensor is defined by
@@ -799,7 +795,7 @@ Z_{ab}(q) = A^2\langle \phi_a, q^{\frac{1}{2}H}\phi_a\rangle + 2 A^2\langle \phi
 $$
 where $H=L_0 + \bar L_0 - \frac{1}{12}$. Now we can immediately solve for $A$ by using integrality. If we write the $q$ expansion of this, the coefficient of the first term must be $1$. The first term comes from only the $Z_0^R$ part since the other one has a nontrivial phase attached to it. As a result we see that $A = 2^{-\frac{1}{2}}$, which implies that the $g$ function of this state is reduced by that factor giving
 $$
-\hat g_a = \frac{1}{\sqrt{2}} \langle v, \phi_a + \phi_{-a}\rangle = \frac{g_a + g_{-a}}{\sqrt{2}}  = \sqrt{2}g_a.
+\hat g_a = \frac{1}{\sqrt{2}} \langle v, \phi_a + \phi_{-a}\rangle = \frac{g_a + g_{-a}}{\sqrt{2}}  = \sqrt{2}g_a = \sqrt{\frac{2}{\sqrt{4\pi gR^2}}}.
 $$
 Since the Neumann boundaries are Dirichlet boundaries in the $T$-dual theory we have also calculated those by accident. 
 
@@ -807,7 +803,7 @@ What about the special points? Well the only thing we need to calculate really i
 $$
 \langle \phi_a^{+}, q^{\frac{1}{2}H} \phi_a^{+}\rangle = q^{\frac{1}{48}} \prod_{n=0}^{\infty}\frac{1}{1-\sqrt{q}^{n+\frac{1}{2}}} = \sqrt{\frac{\eta(\sqrt{q})}{\theta_4(\sqrt{q})}} = \sqrt{\frac{\eta(\tilde q^2)}{\theta_2(\tilde q^2)}}.
 $$
-where this time $H = L_0^\sigma + \bar L_0^{\sigma} - \frac{1}{12} = \frac{1}{2}(L_{0}+\bar L_{0}) + \frac{1}{24}$. To be clear on the vacuum state $L_0v_{0} = L_0 v_{\pi} = 0$, so this is just a sum of the number operators in the twisted sector. Ok! So we are done. I mean we can put them all together but it won't matter much. because there are a couple of interesting observations. There is a radius where $\hat g_a = 1$ this is at $R = (4\pi g)^{-\frac{1}{2}}$ which is the $\text{Ising}^2$ CFT! I am realizing now that I have flipped which defects are the Neumann defects and which are the Dirichlet but this doesn't matter for our discussion.
+where this time $H = L_0^\sigma + \bar L_0^{\sigma} - \frac{1}{12} = \frac{1}{2}(L_{0}+\bar L_{0}) + \frac{1}{24}$. To be clear on the vacuum state $L_0v_{0} = L_0 v_{\pi} = 0$, so this is just a sum of the number operators in the twisted sector. Ok! So we are done. I mean we can put them all together but it won't matter much. because there are a couple of interesting observations. There is a radius where $\hat g_a = 1$ this is at $R = \frac{1}{\sqrt{\pi g}}$ which is the $\text{Ising}^2$ CFT! I am realizing now that I have flipped which defects are the Neumann defects and which are the Dirichlet but this doesn't matter for our discussion.
 
 
 
@@ -833,11 +829,19 @@ But BUT WAIT! We don't have to calculate it! We have that $\sum_{i}S_{i1} = 1$ b
 > $$
 > what this really means is that $S_{i1}$, physically, encodes the high temperature behavior of character $\chi_i$. That's why we use this for the quantum dimension. 
 
+Anyway what we can notice is that the orbifold boundaries at $R=\frac{1}{\sqrt{\pi g}}$ (i.e. at the $\text{Ising}^2$ CFT) satisfy some cool things. For example the partition function of $\text{Ising}$ is given by
+$$
+Z(q) = \frac{\theta_2(\tau) + \theta_3(\tau) + \theta_4(\tau)}{2\eta(\tau)}.
+$$
+Now notice that the Dirichlet defects for angle $\alpha$ have partition functions
+$$
+Z_\alpha(q) = \frac{1}{\sqrt{2} \ \eta(\tau)} \left[\theta_3\left( \frac{\alpha}{\pi} \middle| \frac{\tau}{4} \right) + \theta_3\left(\frac{\tau}{4} \right)\right]
+$$
+[This paper](https://arxiv.org/abs/1502.04603) has a collection of theta identities and its awesome. We also know that $2\theta_3(\tau) = \theta_3(\tau/4) + \theta_4(\tau/4)$, as well as $\theta_3(z + m + \frac{1}{2} | \tau) = \theta_4(z|\tau)$ for integer $m$. I will not write all of them out.
 
 
 
-
-
+ 
 
 
 
