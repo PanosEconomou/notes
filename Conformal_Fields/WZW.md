@@ -432,6 +432,27 @@ $$
 F^{\phi}_{\phi\phi\phi} = \frac{1}{\phi}\begin{pmatrix}1 & \sqrt{\phi}\\ \sqrt{\phi} & -1\end{pmatrix}.
 $$
 
+### Tube Algebra
+
+As practice, since this theory has the simplest MTC with a noninvertible defect, it is a great playground to find its tube algebra for $C$. 
+
+
+
+## Boundaries
+
+Boundaries here are relatively simple. In fact there are only two conformal boundaries that preserve the $G_2$ symmetry. By Cardy's constraints these are classified by the two defects and their boundary states are given by linear combinations of Ishibashis $\psi_1, \psi_\phi$ for both primaries like so
+$$
+\begin{align*}
+\alpha = \frac{1}{\phi} \psi_1 + \frac{1}{\sqrt{\phi}} \psi_2 && \beta = \frac{1}{\sqrt{\phi}} \psi_1 - \frac{1}{\phi} \psi_2.
+\end{align*} 
+$$
+These two boundaries have entropies $g_\alpha = \frac{1}{\phi}, g_{\beta} = \frac{1}{\sqrt{\phi}}$. In fact we could think about it via studying module categories. In particular let's study the Sym-TFT. In this case the SymTFT is $TV(\text{Fib})$ with two boundaries. Both boundaries are modules of $Z(\text{Fib}) = \text{Fib}\boxtimes \text{Fib}^{rev}$. One is the $B_{reg}(\text{Fib}) \cong \text{Fib}$ itself, while the other is where the dynamical degrees of freedom live. We call that other boundary the **physical** boundary. Operationally the way we think about this is that if a defect ends on that boundary the set of excitations it can have is defined by the corresponding module in the CFT. For example if there is an endpoint of the $1\boxtimes 1$ defect, then we expect that it ends in a weight $0$ operator in the module $1\otimes 1$ of $(G_2)_1$. To be more precise, if we take $TV_C$ and calculate the Hilbert space on a disk with one puncture of a defect $\mu \in Z(C)$ and the physical boundary placed on the boundary of the disk we would get the module $V_\mu$ in the $S^1$ Hilbert space of the CFT. Technically this isn't the complete picture. If $C$ is anything other than the Verlinde lines for some rational maximal chiral algebra of the CFT, the untwisted Hilbert space of the CFT is given by $V_\mu \otimes W^{\mu}_1$  where $W^{\mu}_a \coloneqq \text{Hom}_{C}(F(\mu),a)$, where $F: Z(C) \to C$ is the forgetful functor.  There is a very nice picture associated with this.  Similarly twisted Hilbert spaces by $a\in C$ are given by $V_\mu \otimes W^\mu_a$.
+
+
+
+
+
+
 
 ## Folded $G_2$
 

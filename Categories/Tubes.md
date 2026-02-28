@@ -71,9 +71,19 @@ With all this mess out of the way, let's reintroduce it in the context of physic
 
 
 
-# Tube Algebras in 2D CFT
+# Tube Algebra Definitions
 
+The main definition of a tube algebra is done with just a fusion category. 
 
+**<u>Proposition:</u>** Let $C$ be some fusion category. Then the vector space
+$$
+\text{Tube}(C) \coloneqq \bigoplus_{a,b,c \in \text{Irr}(C)} \text{Hom}_C(a\otimes c, c\otimes b),
+$$
+has an algebra structure with multiplication defined for $f \in \text{Hom}_C(x\otimes a,a\otimes y)$, $g\in \text{Hom}_C(z\otimes b, b\otimes t)$ by
+$$
+f\cdot g \coloneqq \delta_{yz} \sum_{r \in \text{Irr}(C)} \sum_{s \in \text{Hom}(a\otimes b, r)} (s \otimes \text{Id}_t) \circ (\text{Id}_a \otimes g)\circ (f\otimes \text{Id}_b)\circ (\text{Id}_x \otimes s^\ast).
+$$
+A good exercise is to draw the picture that corresponds to this construction. The name tube becomes apparent once we realize that the sum over the irreducible defects can be thought of as putting part of the defect configuration over the compact direction on a tube.
 
 
 
