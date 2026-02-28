@@ -250,11 +250,11 @@ $$
 
 > Notice that the representation of $A$ is still a $C^\ast$ algebra and not necessarily a Von Neumann algebra. We can take its double commutant though and obtain a nice Von Neumann algebra.
 >
-> Also, a cyclic vector $v\in H$ is such that $\text{span\,}Av = H$.
+> Also, a cyclic vector $v\in H$ is such that $Av \subset H_\omega$ is dense in $H_\omega$.
 
 Before we sketch out the proof, let's see why this is cool. Apart from the (quite amusing honestly) fact that all the structure that a $C^\ast$ algebra forgot about the Hilbert space was a single state, this offers a great way to classify the representations of such an algebra through states! We are used to that by the way. If you know the angular momentum algebra, you only need the state with largest angular momentum to figure out which irreducible representation you are in! But it looks so obscure here that I thought I should mention it.
 
-***Proof:*** Let $a,b \in A$, then we can define a sesquilinear form (bilinear but constant are pulled out conjugated from one arfument) like so
+***Proof:*** Let $a,b \in A$, then we can define a sesquilinear form (bilinear but constant are pulled out conjugated from one argument) like so
 $$
 \langle a,b \rangle \coloneqq \omega(a^\dagger b).
 $$
@@ -331,7 +331,70 @@ One very interesting thing to keep in mind is that if our subsystem has a type $
 
 **<u>Proposition:</u>** There are no pure states in a type $\text{II}$ von Neumann algebra. 
 
-***Proof:*** Let $\omega$ be a pure state in a type $\text{II}$ von Neumann algebra. Then the corresponding density operator $\rho$ is a projection that can't be decomposed as a linear combination of projections. Then $\rho$ is minimal which implies that the algebra is not type $\text{II}$. 
+***Proof:*** Let $\psi$ be a pure state in a type $\text{II}$ von Neumann algebra. Then the corresponding density operator $\rho$ is a projection that can't be decomposed as a linear combination of projections. Then $\rho$ is minimal which implies that the algebra is not type $\text{II}$. 
 $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
+
+
+## Type III
+
+Such algebras don't even have a trace. In this case, there is no way to assign a density operator to a state, so measuring the entanglement of a state as the "spread" of the density operator is no longer captured by a Shannon entropy type thing. So instead we might figure out a new way to talk about entanglement entropies. This new way is going to be modular flows.
+
+### Modular Flows
+
+The key idea is that a density operator can be thought of as a probability distribution in the statistical mechanics sense. Here is a concrete way to see it.
+
+**<u>Proposition:</u>** In a type I algebra $A \subset B(H)$ a faithful density operator $\rho$ can always be written in the form of $e^{-K}$, for some bounded hermitian operator $K \in  A$.
+
+***Proof:*** For a given state $\psi \in H$ the density operator can be written by $\rho = \Tr_{A'} \psi\psi^\dagger$ where $A'$ denotes the Hilbert space of the complement system. This operator is bounded because it belongs in $A$ and normalized since it is a state in $A$ and hermitian by construction. So it can be diagonalized with eigenvalues of the form $e^{-k}$ for $k \in \mathbb{R}$ since $\rho$ is faithful and therefore has nonzero eigenvalues. Since $k\geq 0 $ then there is a positive semi definite operator $K$ such that $\rho = e^{-K}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+But we already know how to interpret operators like these! For any $a\in A$ taking $\text{tr\,}a\rho = \langle a \rangle$, i.e. the thermal average of observable $a$ in a system with temperature $1$ and Hamiltonian $K$. So treating $K$ as a unique Hamiltonian defined by a state, can help us study properties of the state (including entanglement) using Hamiltonian mechanics.
+
+We have seen already that an observer of a subsystem in an entangled state will inevitably see a "temperature" in the context of black hole thermodynamics, or the person trapped in a Rindler wedge of Minkowski space. In some sense if that temperature was zero then the state would not be entangled. But there is something else here. A Hamiltonian yields time evolution! 
+
+**<u>Proposition:</u>** Consider a faithful density operator $\rho = e^{-K}$ in a type I von Neumann algebra $A$, then for any $a \in M$ the operator
+$$
+a(s) \coloneqq e^{iKs}ae^{-iKs},
+$$
+is in $A$ for all $s\in \mathbb{R}$.
+
+***Proof:*** It can be written as a weakly convergent sequence of products of $K$ and $a$ by expanding the exponentials. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+The physics of this is that time evolution by the Hamiltonian $K$ keeps the states inside the same subsystem. So if I give you a separating state you can produce a form of time evolution in your subsystem. What is interesting is that using the same state, you can build a time evolution in the complement of the subsystem by repeating the construction to obtain $\rho' = e^{-K'}$ and define the evolution accordingly. In particular we can define the following evolution operator in the joint system by
+$$
+\Delta = \rho \otimes \rho'^{-1}.
+$$
+ The only thing that this requires is that $\rho$ is faithful in $A'$, which would be guaranteed if the state $\psi$ is cyclic and separating with respect to $A$. The point is that we can write a time evolution operator for both systems $\Delta^{-is}$ for $s\in \mathbb{R}$ that evolves $A$ by $s$ and $A'$ by $-s$ in the time direction dictated by Hamiltonians $K$ and $K'$ respectively. 
+
+**<u>Definition:</u>** An operator $\Delta = \rho \otimes \rho'^{-1}$ corresponding to a cyclic and separating state $\psi$ with respect to a Von Neumann Algebra $A$, is a **modular operator**, which defines a **modular flow** $\sigma : A\sqcup A'\times \mathbb{R} \to A\sqcup A'$ such that for any $a \in A\sqcup A'$ 
+$$
+\sigma(a,s) = \Delta^{-is} a \Delta^{is},
+$$
+which preserves the subsystem $a$ belongs to. Specifically $\Delta \psi = \psi$. One can also define an antiunitary **modular charge conjugation operator** $J: H \to H$ such that $J^2 = 1$, $J \psi =\psi$, $J\Delta = \Delta ^{-1} J$ and most importantly $JAJ =  A'$ and $JA'J = A$. 
+
+However, this definition does not help us at all with type III algebras since it relies on defining $K$ using density operators which we don't have access too in type III. The generalization is easy from here because we will soon realize that we never needed $\rho,\rho'$ for its definitions. In fact here it is.
+
+**<u>Theorem:</u>** *(Tomita-Takesaki)* Given a Von Neumann algebra $A\subset B(H)$ with a cyclic, separating vector $\psi \in H$ then then:
+
+1. <u>There exists a positive modular operator</u> $\Delta$: i.e. an operator $\Delta : H\to H$ given by $e^{-K}$, where $K:H\to H$ is a nondegenerate positive definite hermitian map such that $\Delta \psi = \psi$ and it generates a family of inner automorphisms $\sigma_s$ of $A$ and $A'$ given by conjugation with $e^{-iKs}$ for $s\in \mathbb{R}$.
+2. <u>There exists a modular conjugation operator</u> $J$: i.e. an unitary hermitian antilinear operator $J : H\to H$ such that $J\psi =\psi$, $J\Delta = \Delta^{-1} J$, $JAJ = A'$ and $JA'J = A$.
+3. For every $a\in A$ the function $\Delta^{-is} a \psi$ can be analytically continued for $\text{Im\,}s \in [0,\frac{1}{2})$ with $\Delta^{-it+\frac{1}{2}} a\psi = \Delta^{-it} Ja^\dagger \psi$ for $t\in \mathbb{R}$. 
+4. For $a,b\in A$ correlation functions $G_{ab}(s) = \langle \psi, \sigma_s(a)b\psi \rangle$ can be analytically continued to $\text{Im\,}s \in (-1,0]$ such that $G_{ab}(s) = G_{ba}(-s-i)$.
+
+> Notice correlators of the form $G_{ab}$ are effectively the thing you want to analytically cont
+
+However, even with a generalization it seems that we have lost track of entanglement.
+
+
+
+
+
+
+
+
+
