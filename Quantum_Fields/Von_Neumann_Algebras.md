@@ -207,15 +207,20 @@ So here are the categories.
 1. **Type** $\text{I}$ if it contains nonzero minimal projections. We assume that $d(P_0) = 1$ for any minimal projection (we have this freedom) and that the trace takes values in $\bar{\mathbb{Z}}_{\geq0}$. Then it further is
    1. **Type** $\text{I}_n$ if $d(1) = n \in \mathbb{N}$, which means that $d(P) \leq n$ for all projections. 
    2. **Type** $\text{I}_{\infty}$ if $d(1) = \infty$.
-
 2. **Type** $\text{II}$ if it contains finite but not minimal projections. In this case the dimension has to be real valued. It further is
    1. **Type** $\text{II}_1$ if $d(1) < \infty$, in which case we set it to $1$.
    2. **Type** $\text{II}_{\infty}$ if $d(1) = \infty$.
-3. **Type** $\text{III}$ if all nonzero projections are infinite. 
+3. **Type** $\text{III}$ if all nonzero projections are infinite.
+   1. **Type** $\text{III}_0$ if $S(M) = \{0,1\}$
+   2. **Type** $\text{III}_\lambda$ if $S(M) = \{0\} \cup \{\lambda^n \in \mathbb{R}_+\mid  n\in \mathbb{Z}\}$ for $\lambda \in (0,1)$
+   3. **Type** $\text{III}_\infty$ if $S(M) = \{0\} \cup \mathbb{R}_+$
+
+
+where $S(M)$ is the Conne's invariant of $M$.
 
 
 
-With the formalities out of the way we can play a bit with some intuition. 
+With the formalities out of the way we can play a bit with some intuition. By the way the classificaiton of Type $\text{III}$ is explained in detail in a later section. We will not need the Connes invariant in any of the subsequent discussion until we introduce it so you can safely ignore the subclassification of Type $\text{III}$ factors.
 
 **<u>Example:</u>** *(Type $I$ Algebras)* The algebras we are familiar with from Quantum Mechanics are all type $\text{I}$. There not only is there a well defined dimension, but the existance of a minimal projection implies that everything is graded, so the subspaces that can be included have to have nonnegative integer dimensions, which is exactly the sort of situtation that we are used to in the separable Hilbert spaces of QM. Therefore we can count states in such algebras. In fact, say that we have a separable Hilbert space $H = A\otimes \bar A$ where $A$ is $n$-dimensional while $\bar A$ is infinite dimensional. Then the alegebra $M = B(A)\otimes \bar 1$ is of type $\text{I}_n$ while $N = 1\otimes B(\bar A)$ is of type $\text{I}_{\infty}$, and the trace in both is the standrard trace in $A$ and $\bar A$. Not only that but also $M' = N$.
 
@@ -337,11 +342,9 @@ $$
 $$
 
 
-## Type III
+## Modular Flows
 
-Such algebras don't even have a trace. In this case, there is no way to assign a density operator to a state, so measuring the entanglement of a state as the "spread" of the density operator is no longer captured by a Shannon entropy type thing. So instead we might figure out a new way to talk about entanglement entropies. This new way is going to be modular flows.
-
-### Modular Flows
+Type $\text{III}$ algebras don't even have a trace. In this case, there is no way to assign a density operator to a state, so measuring the entanglement of a state as the "spread" of the density operator is no longer captured by a Shannon entropy type thing. So instead we might figure out a new way to talk about entanglement entropies. This new way is going to be modular flows.
 
 The key idea is that a density operator can be thought of as a probability distribution in the statistical mechanics sense. Here is a concrete way to see it.
 
@@ -379,20 +382,143 @@ which preserves the subsystem $a$ belongs to. Specifically $\Delta \psi = \psi$.
 
 However, this definition does not help us at all with type III algebras since it relies on defining $K$ using density operators which we don't have access too in type III. The generalization is easy from here because we will soon realize that we never needed $\rho,\rho'$ for its definitions. In fact here it is.
 
-**<u>Theorem:</u>** *(Tomita-Takesaki)* Given a Von Neumann algebra $A\subset B(H)$ with a cyclic, separating vector $\psi \in H$ then then:
+**<u>Theorem:</u>** *(Tomita-Takesaki)* Given a Von Neumann algebra $A\subset B(H)$ with a cyclic, separating vector $\psi \in H$ then:
 
 1. <u>There exists a positive modular operator</u> $\Delta$: i.e. an operator $\Delta : H\to H$ given by $e^{-K}$, where $K:H\to H$ is a nondegenerate positive definite hermitian map such that $\Delta \psi = \psi$ and it generates a family of inner automorphisms $\sigma_s$ of $A$ and $A'$ given by conjugation with $e^{-iKs}$ for $s\in \mathbb{R}$.
 2. <u>There exists a modular conjugation operator</u> $J$: i.e. an unitary hermitian antilinear operator $J : H\to H$ such that $J\psi =\psi$, $J\Delta = \Delta^{-1} J$, $JAJ = A'$ and $JA'J = A$.
 3. For every $a\in A$ the function $\Delta^{-is} a \psi$ can be analytically continued for $\text{Im\,}s \in [0,\frac{1}{2})$ with $\Delta^{-it+\frac{1}{2}} a\psi = \Delta^{-it} Ja^\dagger \psi$ for $t\in \mathbb{R}$. 
 4. For $a,b\in A$ correlation functions $G_{ab}(s) = \langle \psi, \sigma_s(a)b\psi \rangle$ can be analytically continued to $\text{Im\,}s \in (-1,0]$ such that $G_{ab}(s) = G_{ba}(-s-i)$.
 
-> Notice correlators of the form $G_{ab}$ are effectively the thing you want to analytically cont
+> The reason for that last condition is that we want whatever the time evolution is to behave as a hamiltonian in a Gibbs ensemble, i.e. the trace is a density matrix divided by a partition function. **Kubo, Martin, and Schwinger** showed that the condition on the analytic continuation of correlation functions in $4$ is enough to guarantee that whatever we get out will transfer the same intuition. Amusingly this condition, first introduced in '57 is known as the **KMS condition**.
 
-However, even with a generalization it seems that we have lost track of entanglement.
-
-
+However, even with a generalization it seems that we have lost track of entanglement. Like cool, we have found that there might be a collection of states that give rize to hamiltonians between a subsystem and its conjugate and that there are thermal relations. But what about entanglement entropy?
 
 
+
+## Relative Entropy
+
+What we said in a type II algebra was that an absolute notion of entropy was illdefined, however, we were able to define a Von-Neumann entropy measured relative to the highest projection. The highest projection, i.e. $1$ has entropy zero, since $\text{tr\,} 1 = 1$ enen though sometimes that projector could indeed correspond to an infinitely entangled state. The difference between Type II and Type III is that while in Type II we were able to define this relative entropy for all states by redefining the trace, while Type III the absence of a trace is evidence that we might not be able to. Instead studying entropy in Type III devolves into finding pairs of states that we can compare their entropy. Here is how this starts.
+
+**<u>Definition:</u>** Given a Von Neumann algebra $A\subset B(H)$ with two cyclic, separating vectors $\psi,\phi \in H$ the tomita operator $S_{\psi\phi}$ is the linear map that satisfies that for all $a\in A, a' \in A'$
+$$
+\begin{align*}
+S_{\psi\phi} a\phi = a^\dagger \psi && S_{\psi\phi}^\dagger a' \phi = a'^\dagger \psi.
+\end{align*} 
+$$
+One can show that such operators admit a decomposition of modular flow $\Delta_{\psi\phi}$ and modular conjugation $J_{\psi\phi}$ such that $S_{\psi\phi} = J_{\psi\phi}\Delta^{\frac{1}{2}}_{\psi\phi}$. These are known as **relative flow** and **relative conjugation,** while the decomposition itself is known as a **polar decomposition**.
+
+Why do we care about this decomposition? Because these relative flows generate actual modular flows.
+
+**<u>Proposition:</u>** Consider a relative flow opeartor $\Delta_{\phi\psi}$ where $\psi,\phi$ are cyclic separating vectors with respect to a Von Neumann algebra $A$, and $\Delta_\psi$, $\Delta_\phi$ are their respective modular operators. Then for all $a\in A, a' \in A'$ 
+$$
+\begin{align*}
+\Delta_{\psi\phi}^{-is}a\Delta_{\psi\phi}^{is} &= \Delta_{\psi}^{-is}a\Delta_{\psi}^{is}\\
+\Delta_{\psi\phi}^{-is}a'\Delta_{\psi\phi}^{is} &= \Delta_{\phi}^{-is}a'\Delta_{\phi}^{is}.
+\end{align*} 
+$$
+**<u>Corollary:</u>** Given cyclic separating vectors $\psi,\phi\in H$ the operator
+$$
+u_{\psi\phi}(s) \coloneqq \Delta_{\psi\omega}^{-is}\Delta_{\omega\phi}^{is},
+$$
+is the same for any choice of cyclic separating vector $\omega \in H$, and more importantly it satisfies
+$$
+\sigma_\psi(a,s) = u_{\psi \phi}(s) \sigma_{\phi}(a,s) u_{\psi\phi}^\dagger(s).
+$$
+
+
+In other words, modular flows are related to each other by inner automorphisms! That means that the properties in one modular flow are pretty much all you need to study the rest. So let's use this to bring back our intuition of measuring the "spread" of the map between a subsystem and its complement. In this case, by definition, the mere existence of the modular flow gives an isomorphism (the charge conjugation) between the two subsystems, therefore cylic separating states are all infinitely entangled, so it would make sense to try to quantify their differences. 
+
+In Type I, the Von-Neumann entropy of a cyclic separating state $\psi$ in subsystem $A$ is given by
+$$
+-\text{tr\,} \rho \log \rho = \text{tr\,}e^{-K_\psi} K_\psi = \langle \psi, K_\psi \psi \rangle,
+$$
+But wait we have done something cool! We have seen that each cyclic seperating state $\psi$ defines a time direction and a time evolution via a modular flow in which the subsystem evolves on itself. So what the "spread" of the map really was all this time was how much energy is there in this evolution! 
+
+In the finite dimensional setting, $\psi = \psi^{i} e_i\otimes e_i'$ for some orthonormal eigenbasis $e_i\otimes e_i'$ of $K_\psi$ (the axioms of $K$ allow us to do this since it generates flow on both $A$ and $A'$ separately). Then we can solve $e^{-K_\psi} e_{i}\otimes e_i' = |\psi^i|^2 e_{i}\otimes e_i'$, which implies that the eigenvalues of $K_\psi$ are $-\log |\psi^i|^2$. 
+
+Interestingly we see that the higher energy states contribute less in $\langle \psi, K_\psi \psi \rangle = -|\psi^i|^2 \log |\psi^i|^2$. So a highly entangled state is one where almost all states in the time evolution have about the same energy. If that is the case, the average energy of $\psi$ is going to be large. In other words, the less chaotic the flow, the more entangled the state is, which makes sense with our intuition of the more even the spread is the more entangled the state. 
+
+Therefore, if we had two states $\psi,\phi$, we could measure the relative entropy of $\psi$ with respect to $\phi$ by seeing how their energy differs, aka 
+$$
+S_\phi(\psi) = \langle \psi, K_\psi\psi \rangle - \langle \psi, K_\phi\psi \rangle.
+$$
+If they both have similar energies under the two different time evolutions this means that they generate similarly chaotic flows. Let's now write it down for a general case.
+
+**<u>Definition:</u>** *(Araki Entropy)* Given two cyclic separating states $\psi,\phi \in H$ with respect to some von Neumann algebra $A$ the **entropy of** $\psi$ **relative to** $\phi$ is given by
+$$
+S_\phi(\psi) \coloneqq -\langle \psi, \log \Delta_{\psi\phi} \psi \rangle.
+$$
+
+>  That is because in the finite dimensional setting $\Delta_{\psi\phi} = \rho_\psi\rho_\phi'^{-1} = e^{-K_\psi + K_\phi'}$, so it generalizes even when the density matrices are not defined.
+
+One interesting clarification is that this only holds for cyclic separating states, which are pretty unnatural. They are always maximally entangled and things like that, but here is the thing. If a state is not infinitely entangled, then you can put it in a Type II or even a Type III subsystem and calculate its entropy there! So in some sense, there is selective pressure to find such states for Type III subsystems.
+
+
+
+## Type III Classification
+
+So we are finally able to classify Type III factors and algebras based on how much of these nice modular flows we can find in them. We have found that cyclic separating states $\psi \in H$ with respect to some Von neumann algebra $A$ give rise to modular flows $\sigma^\psi_s = \sigma^\psi(\cdot, s)$ which are automorphisms of $A$ and $A'$ for a range of $s\in \mathbb{R}$. We've also seen that for two such states $\psi,\phi$ we can find a unitary transformation $u_{s}^{\psi\phi} \in A$ such that $\sigma_s^\psi = u_{s}^{\psi\phi}\sigma_s^\phi u_{s}^{\psi\phi\dagger }$, that relate families of inner automorphisms for the two states.
+
+So in some sense the set 
+$$
+T(A) = \{ s\in \mathbb{R} \mid \exists u_s \in A \text{ s.t. } \sigma_s^\psi(a) = u_s a u_s^\dagger \ \forall a\in A \}
+$$
+for some cyclic separating $\psi$ is an invariant of $A$ since for all the rest of the states there is a canonical isomoprhism. By the way another way to describe this set is the times when modular flows are also inner automorphisms of $A$.
+
+**<u>Proposition:</u>** If $A$ is a type I or type II factor, then $T(A) = \mathbb{R}$. Also $T(A)$ is a closed subgroup of $\mathbb{R}$.
+
+***Proof:*** if $A$ is type I or II, we see that one such $\sigma_s$ is the one that corresponds to the tracial state of the algebra. These give identity flows, which implies that all $\sigma_s$ are inner automorphisms.
+
+For the second claim we know that $\sigma_s\sigma_t = \sigma_{s+t}$, so if $s,t \in T(A)$ then $\sigma_s (a) = u_sau_s^\dagger$ and similar for $t$. Therefore $u_{s+t} = u_{t}u_{s}$ which implies that $s+t \in T(A)$ which means that it is a subgroup. Since the set of inner automorphisms $\sigma_s$ is closed in $A$, the so is $T(A)$ in $\mathbb{R}$. This means in particular that $T(A)$ is either $\{0\},\mathbb{R}$ or $\alpha \mathbb{Z} \subset \mathbb{R}$ for some $\alpha \in \mathbb{R}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Invariants can be used to classify stuff into classes with the same invariant, so let's look for another one. A useful tool is the spectrum of an operator.
+
+**<u>Definition:</u>** Let $a\in B(H)$, then $\lambda \in \mathbb{C}$ is in the **spectrum of** $a$, denoted by $\sigma(a)$, iff $a - \lambda$ is not bijective in $H$.
+
+In the finite dimensional context this is just the set of eigenvalues, but in a more general setting, when you start having weirndess inherited from sequences this is might contain more stuff that you would naturally assume it would. Anyway here is a cool invariant. 
+
+**<u>Definition:</u>** Let $A \subset B(H)$ be a von Neumann algebra and $C(A)$ the set of cyclic separating vectors of $H$ with respect to $A$. Then the **Connes invariant** $S(A) \subset \mathbb{R}_{\geq 0}$ is given by
+$$
+S(A) \coloneqq \bigcap_{\psi \in C(A)} \sigma(\Delta_{\psi}).
+$$
+
+
+In other words is the collection of the spectra of all possible cyclic separating vectors with respect to $A$. Let's get some intuition for this. 
+
+**<u>Lemma:</u>** $S(A)\cap \mathbb{R}_+$ is a closed multiplicative subgroup of $\mathbb{R}_+$.
+
+***Proof:*** It's closed because the spectrum of any bounded hermitian operator is a closed subset of $\mathbb{R}$ (Why? the intuition is that bounded operators have endpoints in their spectrum. For more intuition see a functional analysis textbook). It must contain the identity because $\Delta_\psi \psi = \psi$ by definition and therefore $1$ will always be in the spectrum for all $\psi \in C(A)$. To show that it needs to be a group (lmao) we need more tools from group cohomology but [here they are](https://en.wikipedia.org/wiki/Radon–Nikodym_theorem) if one's interested. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+The point of the previous thing though is that there is only a finite thing it can be! Because the closed multiplicative groups of $\mathbb{R}_+$ have been classified. Here they are.
+
+**<u>Lemma:</u>** The closed multiplicative subgroups of $\mathbb{R}_+$ are, $\{1\}, \mathbb{R}_+$ and $\lambda^{\mathbb{Z}} \coloneqq \{\lambda^n \mid n \in \mathbb{Z}\}$ for some $\lambda \in (0,1)$. 
+
+So now we are ready to classify Type III factors and the classification is presented in the classification theorem in the previous section. What is interesting to say here perhaps is the following proposition.
+
+**<u>Proposition:</u>** For a type I or II factor $A$ the Connes invariannt $S(A) = \{1\}$.
+
+***Proof:*** We have a tracial state that is cyclic and separating, therefore it must have eigenvalue 1 for all states and nothing else. 
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Out of the three subtypes of type III factors, $\text{III}_0$ is considered to be the most *excotic* in some sense. $S(A)$ effectively tells us which is the collection of common eigenvalues for modular flows. In other words, if you find $\lambda \in S(A)$ it means that for any possible cyclic separating (aka vacuum) state, the modular flow is going to contain at least one fluctuation with energy $\lambda$ under the corresponding time evolution. The larger $S(A)$ is the more common energy eigenvalues you are guaranteed to have amongst all the "vacuua." In the type $\text{III}_0$ case, the spectrum is freaking wild, that you basically no nothing about the energies for different vacua, which kind of sucks. 
+
+This in combination with $T(A)$ gives us a lot of information about modular flows. Here is a table.
+
+|        |  $\text{I}$  | $\text{II}$  | $\text{III}_0$ |       $\text{III}_\lambda$        |      $\text{III}_1$       |
+| :----: | :----------: | :----------: | :------------: | :-------------------------------: | :-----------------------: |
+| $S(A)$ |   $\{1\}$    |   $\{1\}$    |   $\{0,1\}$    | $\{0\} \cup \lambda^{\mathbb{Z}}$ | $\{0\} \cup \mathbb{R}^+$ |
+| $T(A)$ | $\mathbb{R}$ | $\mathbb{R}$ |    $\{0\}$     |   $(-\log \lambda) \mathbb{Z}$    |       $\mathbb{R}$        |
+
+So you can see that while both $\text{I}$, $\text{II}$, and $\text{III}_0$ have pretty much just $1$ in $S(A)$ (the zero is because none of the faithful operators in type $\text{III}$ are truly bijective in $H$) the modular structure is terrifying! Except the trivial inner automorphism, all modular flows are outer in $\text{III}_0$, unlike the completely opposite scenario in $\text{I}$, and $\text{II}$. So if you have a system in such an algebra you can't really say much in general about the possible time evolutions of anything. Oh, by the way here:
+
+**<u>Proposition:</u>** If $A$ is a type III factor then $S(A) = e^{T(A)} \cup \{0\}$.
+
+So in some sense you only need one invariant to talk about their behavior. The important point really is that the type $III$ subclassification is basically how much "alike" are the possible vacuua of modular flows.
 
 
 
