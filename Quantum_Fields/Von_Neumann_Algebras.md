@@ -341,7 +341,6 @@ $$
 \begin{equation}\tag*{$\Box$}\end{equation}
 $$
 
-
 ## Modular Flows
 
 Type $\text{III}$ algebras don't even have a trace. In this case, there is no way to assign a density operator to a state, so measuring the entanglement of a state as the "spread" of the density operator is no longer captured by a Shannon entropy type thing. So instead we might figure out a new way to talk about entanglement entropies. This new way is going to be modular flows.
@@ -509,16 +508,93 @@ Out of the three subtypes of type III factors, $\text{III}_0$ is considered to b
 
 This in combination with $T(A)$ gives us a lot of information about modular flows. Here is a table.
 
-|        |  $\text{I}$  | $\text{II}$  | $\text{III}_0$ |       $\text{III}_\lambda$        |      $\text{III}_1$       |
-| :----: | :----------: | :----------: | :------------: | :-------------------------------: | :-----------------------: |
-| $S(A)$ |   $\{1\}$    |   $\{1\}$    |   $\{0,1\}$    | $\{0\} \cup \lambda^{\mathbb{Z}}$ | $\{0\} \cup \mathbb{R}^+$ |
-| $T(A)$ | $\mathbb{R}$ | $\mathbb{R}$ |    $\{0\}$     |   $(-\log \lambda) \mathbb{Z}$    |       $\mathbb{R}$        |
+|        |  $\text{I}$  | $\text{II}$  | $\text{III}_0$ |          $\text{III}_\lambda$           |      $\text{III}_1$       |
+| :----: | :----------: | :----------: | :------------: | :-------------------------------------: | :-----------------------: |
+| $S(A)$ |   $\{1\}$    |   $\{1\}$    |   $\{0,1\}$    |    $\{0\} \cup \lambda^{\mathbb{Z}}$    | $\{0\} \cup \mathbb{R}^+$ |
+| $T(A)$ | $\mathbb{R}$ | $\mathbb{R}$ |    $\{0\}$     | $\frac{2\pi }{\log \lambda} \mathbb{Z}$ |       $\mathbb{R}$        |
 
-So you can see that while both $\text{I}$, $\text{II}$, and $\text{III}_0$ have pretty much just $1$ in $S(A)$ (the zero is because none of the faithful operators in type $\text{III}$ are truly bijective in $H$) the modular structure is terrifying! Except the trivial inner automorphism, all modular flows are outer in $\text{III}_0$, unlike the completely opposite scenario in $\text{I}$, and $\text{II}$. So if you have a system in such an algebra you can't really say much in general about the possible time evolutions of anything. Oh, by the way here:
+So you can see that while both $\text{I}$, $\text{II}$, and $\text{III}_0$ have pretty much just $1$ in $S(A)$ (the zero is because none of the faithful operators in type $\text{III}$ are truly bijective in $H$) the modular structure is terrifying! Except the trivial inner automorphism, all modular flows are outer in $\text{III}_0$, unlike the completely opposite scenario in $\text{I}$, and $\text{II}$. So if you have a system in such an algebra you can't really say much in general about the possible time evolutions of anything.
 
-**<u>Proposition:</u>** If $A$ is a type III factor then $S(A) = e^{T(A)} \cup \{0\}$.
+In some sense you only need one invariant to talk about their behavior. The important point really is that the type $\text{III}$ subclassification is basically how much "alike" are the possible vacuua of modular flows. One last and super powerful thing is this:
 
-So in some sense you only need one invariant to talk about their behavior. The important point really is that the type $III$ subclassification is basically how much "alike" are the possible vacuua of modular flows.
+**<u>Theorem:</u>** *(Connes)* If $A$ is a factor, then $\sigma(\Delta_\psi)$ is the same for all cyclic and separating $\psi$. 
+
+***Proof:*** lol
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+This is a fantastic theorem! It helps us to avoid checking all the possible modular flows for factors! So if you know your factor decomposition figuring out the type is a breeze!
+
+
+
+## Example | Infinite entangled spins
+
+We saw this example before but let's explore it a bit more. The setup is that you have $N$ pairs of spins, each pair has Hilbert space $\mathbb{C}^2 \times \mathbb{C}^2$ and each spin is in a state $\psi_\theta = \cos\theta \ket{00} + \sin\theta \ket{11}$. We call the system of all the right spins $R$ and the system of all left spins $L$. Then for a tuple $\theta = (\theta_i)_{i\in \mathbb{N}}, \theta_i \in (0,\pi/4]$ we consider the state
+$$
+\Psi_\theta = \bigoplus_{i\in \mathbb{N}}  \psi_{\theta_{i}}.
+$$
+Then we define a $C^\ast$ algebra $C_R$ as the collection of bounded linear operators that act trivially in all but finitely many spins on $\Psi_\theta$ closed under (norm) convergence. In particular we form $C_R$ by picking $a \in C_R$ a product of the form $\bigotimes_{i\in I} a_i$ where $a_i$ is a boudned linear operator on the $i^{\text{th}}$ pair of spins and the index set $I$ is finite, and then closing under the product topology of $4\times 4$ complex matrices thought of as a vector space. If we only have access to the right spins, then we can certainly measure more than just $C_R$. To find what we have access to we will use GNS to find a von neumann algebra $R \subset B(H_{\theta})$, where $H_\theta$ is the hilbert space in which $\Psi_{\theta}$ is cyclic with respect to $C_R$ (notice that it is also separating since there are no trivially acting elements in $C_R$ by construction). Now we can define $R = (C_R)''$ and we are ready to start playing. This contains all the operators in $B(H_\theta)$ that act on the right system, therefore $L = R'$ since they must commute by construction. 
+
+Let's study some entanglement for $\theta = \frac{\pi}{4}$ for all spins. In this case, we can even define a trace as follows. Let $a \in R$ be a product operator $a = \otimes_{i\in I} a_i$ that we described before then 
+$$
+\text{tr\,}a \coloneqq \langle \Psi_{\frac{\pi}{4}}, a \Psi_{\frac{\pi}{4}} \rangle = \prod_{i \in I} \langle \psi_{\frac{\pi}{4}}, a_i \psi_{\frac{\pi}{4}} \rangle = \frac{1}{2^{|I|}}\prod_{i\in I} \text{Tr\,}a_i.
+$$
+This is well defined because $I$ is finite. But also (by construction) the collections of product operators $a$ is dense by construction. Since the trace we wrote is uniformly continuous (i.e. if you pick $\epsilon > 0$ there is $\delta > 0$ such that any pair of points  under a distance $\delta$ apart has images separated by at most $\epsilon$. This is a stronger form of continuity that controls how fast you can explode, for example $x^2$ is not uniformly continuous but $x$ is.) we can extend it to the entirety of $R$. 
+
+Since we have a trace this $R$ is either type I or II. If pick a minimal projection $p : \mathbb{C}^2 \to \mathbb{C}^2$ and $q = 1-p$ then any tuple $\pi = (\pi_i)_{i\in I}$ where $\pi_i \in \{p,q,1\}$ for a finite index set $I$ defines a projection $P_\pi$ where all the factors are $1$ except in locations $i \in I$ where they are $\pi_i$. Clearly there is a maximal projection $1$ which has $\text{tr\,}1 = \langle \Psi_{\frac{\pi}{4}},\Psi_{\frac{\pi}{4}} \rangle = 1$ and any other projection we described is going to be smaller since we would have to flip one of the identity factors to $p$ ro $q$ picking up a factor of $\frac{1}{2}$ since $\frac{1}{2}\text{Tr\,} p = \frac{1}{2} \text{Tr\,}q = \frac{1}{2}$. This means that we are in a Type $\text{II}_{1}$ situation, with no minimal projections but a normalizable maximal projection.
+
+We can now calculate the entropy of a couple of states. One quick thing we can do is calculate the entropy of $\Psi_{\frac{\pi}{4}}$. This corresponds to the identity projection. Therefore we see that
+$$
+S\left(\Psi_{\frac{\pi}{4}}  \right) = -\text{tr\,} 1 \log 1 = 0.
+$$
+Almost immidiately we see that the von-neumann entropy we have defined in here is a weird thing. We started these notes by trying to argue that the whole point of needing to redefine our system is that this state is infinitely entangled and here we are getting nothing. Let's see what happens when we measure a different state. Let's construct the following density matrix. It will be given by a tuple $(\rho_i)_{i\in \mathbb{N}}$ where $\rho_i$ is a density matrix on the $i^{\text{th}}$ pair of qubits and all but finitely many of them are the identity matrices. Since our trace has these pesky factors of 2, our density operator in $R$ will be given by
+$$
+\rho = \bigotimes_{i\in \mathbb{N}}  2\rho_i.
+$$
+One quick thing that we can see is that $\rho(\Psi_{\frac{\pi}{4}}) = 1$ because for each qubit $2\langle \psi_{\frac{\pi}{4}}, \rho_i\psi_{\frac{\pi}{4}}\rangle = \text{Tr\,}\rho_i = 1$. So we can calculate the entropy to be
+$$
+\begin{align*}
+S(\rho) 
+&= -\text{tr\,}\rho \log \rho \\
+&= -\prod_{i\in \mathbb{N}} \langle \psi_{\frac{\pi}{4}}, 2\rho_i \log 2\rho_i \psi_{\frac{\pi}{4}} \rangle\\ 
+&= -\prod_{i\in \mathbb{N}} \text{Tr\,}\left(\rho_i \log \rho_i - \rho_i \frac{1}{2}\log 2\right)\\ 
+&= -\prod_{i\in \mathbb{N}} \text{Tr\,}\rho_i \log \rho_i +  \prod_{i\in \mathbb{N}} \frac{1}{2}\log 2\\ 
+&= \lim_{N\to \infty} - S_N(\rho) + S_{N}(1) = -S_{\Psi_{\frac{\pi}{4}}}(\rho),
+\end{align*}
+$$
+where $S_N$ is the entropy for $N$ pairs. This is so cool! It is just the negative of the relative entropy with respect to $\Psi_{\frac{\pi}{4}}$. So every state has lower entropy than $\Psi_{\frac{\pi}{4}}$ which is such a cool result. In some sense the ground state of the system is the most entangled it can possibly get but still the relative entropy is zero. 
+
+Alternatively what we could do is instead of picking the perfect value $\theta = \frac{\pi}{4}$ we can just pick another one in $(0,\frac{\pi}{4})$. For a general angle the state $\Psi_{\theta}$ is still separating and cyclic by construction, so we can construct a modular operator by considering the following limit. We define $\rho_N(\theta)$ the density operator in $R$ dual to $\Psi_\theta$ for $N$ spins, and $\rho'_N(\theta)$ the same thing for $L=R'$. Then we have
+$$
+\Delta_{\theta} = \lim_{N\to \infty} \rho_N(\theta) \otimes \rho_N'(\theta)^{-1}.
+$$
+Notice that in the case of $N=1$ the operator $\rho_1(\theta) = \cos^2\theta \ketbra{00} + \sin^2\theta\ketbra{11}$ then the matrix $\rho_1(\theta) \otimes \rho'_1(\theta)^{-1}$ has only their product as eigenvalues given by $1, \tan^2 \theta, \cot^2\theta$. If we define $\lambda = \tan^2\theta \in (0,1)$ we see that the full matrix $\Delta_\theta$ at the limit has spectrum
+$$
+\sigma(\Delta_\theta) = \{0\} \cup \lambda^{\mathbb{Z}},
+$$
+the reson for the $0$ is because the spectrum has to be a closed subset of $\mathbb{R}$. Since we have one such operator the only thing this system could be for a generic $\theta$ is either type $\text{III}_0$ or $\text{III}_\lambda$.  There is a theorem, called Connes' theorem that says that for a factor the spectrum of a flow is the same for all cyclic and separating states. So if $R(\theta)$ is a factor, then $\sigma(\Delta_\theta) = S(R(\theta))$. Now consider an operator $k$ in the center of $R(\theta)$. We have that at every finite $N$, $k$ must commute with everything in $R^N(\theta) = B(\mathbb{C}^{2^N}) = \text{Mat}_{\mathbb{C}}(2^N)$. However, the center of all the matrices is trivial. So $k$ must act as a multiple of the identity in $\cup_{N\in \mathbb{N}} R^N(\theta) \subset R(\theta)$. Since that subset is dense, $k$ must be a multiple of the identity, making $R(\theta)$ a type $\text{III}_{\lambda}$ factor.
+
+By the way, if we now allow the angles to not be the same for every pair, we will find that the algebra is of type $\text{III}_1$ which as we will see in the following example is the same type of algebra you get when you try to separate your local observables in a QFT by regions. In other words this example models the kind of algebra you'd get by the infinite entanglement you expect to see at the border of two spacetime regions. 
+
+
+
+## Example | Spacetime Regions
+
+Rindler! Let's bring it all full circle and see how to handle the fact that the two rindler wedges of Minkowski $\mathbb{R}^{1,1}$ are connected at a point. For our algebra $R$ we will consider all local operators $O(x)$ that lie on the positive $x$ axis of some fixed inerital frame. Now here is a cool thing. By causality any measurement we can do at $x>0$ fully determines what will happen in thr right rindler wedge. When we try to write the von neumann algebra $R$ we will inevitably, in our completion, include all the local operators supported on the right Rindler wedge. Moreover, by the same argument we will not have access to the observables on the left rindler wedge, which would form the von Neumann algebra $L = R'$ (By the way this is a famous result known as **Haag duality**).We have only assumed locality and causality in this argument, and it can be rigorously shown entirely at the level of Ward identities.  
+
+Let the QFT vacuum be $\Omega$, since a dense set of states are obtained by acting with local operators on $\Omega$, then it is separating and cyclic. In our case Carl has shown that $\Omega \Omega^\dagger = e^{-2\pi K}$, where $K$ is a boost. This can be done explicitly by writing the path integral on the half space. This result is also known as the Unruh effect in which an observer trapped in the right rindler wedge feels a temperature $\frac{1}{2\pi}$ even if the universe is at its vacuum state.
+
+However, you can boost at any speed, therefore $K$ must have a continuous spectrum which implies that $\sigma(e^{-2\pi K}) = \overline{\mathbb{R}_+}=\{0\}\cup \mathbb{R}_+$. In addition, one of the nontrivial, yet still intuitive, results from Haag duality is that the only operator that commutes with all the local observables on $\mathbb{R} \subset \mathbb{R}^{1,1}$ has to be a multiple of the identity. The reason why that's intuitive is that all states are given by acting with local observables on the vacuum, so if something commutes with all of them, it has to map the identity onto itseld. Therefore $R$ is a factor! As a reuslt by Connes' theorem $S(R) =\{0\}\cup \mathbb{R}_+$ and thus the algebra of observables is of type $\text{III}_{1}$. In fact this result generalizes to all open regions that contain cauchy slices, which leads to famous subregion-subalgebra duality and other cool things to study.
+
+> **Split Property:** Uder certain niceness assumptions (known as the numeclear property of Relativistic QFT) given two open sets $X \subset Y$ such that $\bar X \subset Y$ there exists a Type $I$ factor $N$ such that 
+> $$
+> A_X \subset N \subset A_Y, 
+> $$
+> where $A_X$ is the von Neumann algebra of local observables in $X$. TYPE I! But there is more. Turns out that if this is true, then the type  $\text{III}_1$ algebras $A_X$ for all open regions $X$ are *hyperfinite* (that is an increasing sequence of finite dimensional matrix algebras is dense in them). But the catch is that there is only one such algebra, up to isomorphism. What that means is that all the measurements you can make in any region are pretty much the same, and all the physics is in the "global data" of the theory, namely on how you glue them together. 
+
+
+
+
 
 
 
