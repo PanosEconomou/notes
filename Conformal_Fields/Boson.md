@@ -640,7 +640,7 @@ Also we have an interesting conjugation matrix that simply flips $(n,m)\mapsto (
 
 
 
-# Gauging 
+# Gauging
 
 Charge conjugation or orientation revelrsal can be gauged. We do so in the usual two step process of including out twisted sectors and then projecting out states that are not invariant under the gauge group. Let's first have a look at the kind of configurations we will include. In particular we want configurations such that 
 $$
@@ -662,7 +662,7 @@ with equations of motion of the form
 $$
 0=d_A \ast d_A X = d_A (\ast dX + \ast XA) = d\ast dX + 2 A \wedge \ast dX + XA\wedge \ast A.
 $$
-In complex coordinates this becomes what we had before, but with the insertion of this $A$. Notice that in the sphere $A = -\frac{dz}{4z} + \frac{d\bar z}{4\bar z}$ so we see that we can modify the Dulbeault operators  to $\partial_A = \partial - \frac{dz}{4z}$ and $\bar \partial_A = \bar \partial + \frac{d\bar z}{4z}$. What this really shows intuitively is that the solutions that satisfy this are no longer holomophic. Which is to be expected because $\theta$ itself seems to be having a brunch cut in order to satsisfy that perdiodicity. Now we could proceed in two ways: (a) continue quantization directly for our new equation of motion $\partial_A \bar \partial_A \theta = 0$, or we can impose the periodicity in $\theta$ directly in terms of modes. For variety in presentation let's do the second one (enen though they are functionally the same).
+In complex coordinates this becomes what we had before, but with the insertion of this $A$. Notice that in the sphere $A = -\frac{dz}{4z} + \frac{d\bar z}{4\bar z}$ so we see that we can modify the Dulbeault operators  to $\partial_A = \partial - \frac{dz}{4z}$ and $\bar \partial_A = \bar \partial + \frac{d\bar z}{4z}$. What this really shows intuitively is that the solutions that satisfy this are no longer holomophic. Which is to be expected because $\theta$ itself seems to be having a brunch cut in order to satisfy that periodicity. Now we could proceed in two ways: (a) continue quantization directly for our new equation of motion $\partial_A \bar \partial_A \theta = 0$, or we can impose the periodicity in $\theta$ directly in terms of modes. For variety in presentation let's do the second one (enen though they are functionally the same).
 
 If we want $\theta(\sigma + 2\pi) = -\theta(\sigma)$ we can no longer use the mode expansion above. In fact we see that $\partial \theta(\sigma + 2\pi) = -\partial \theta(\sigma)$. This can be easily fixed by
 $$
@@ -734,7 +734,7 @@ So we can finally derive the $L_n^{\sigma}$ in the twisted sector to be
 $$
 L_n^{\sigma} = \frac{L_{2n}}{2} + \frac{\delta_{n,0}}{16}.
 $$
-By the way if we use the nice notation where we take half integer stuff we find that $L_{k} = \frac{L_{2k-1}}{2} + \frac{\delta_{k,\frac{1}{2}}}{16}$. This means that what we would call $L_0^\sigma$ or simply $L_{\frac{1}{2}} = \frac{1}{2} L_0 + \frac{1}{16}$ can give us the new conformal weights of the primaries in the twisted sector which, more importantly, means that they are half the weights of the untwisted sector plus this $\frac{1}{16}$ thing. This means that our "vacuum" is not conformally invariant, since it picks up factors under scalings and whatnot. In fact $\frac{1}{16}$ is the smallest conformal weight one can write in the twisted sector, and we have seen there are two such states: one where $\Theta = \pi$ and one where it vanishes.
+By the way if we use the nice notation where we take half integer stuff we find that $L_{k} = \frac{L_{2k-1}}{2} + \frac{\delta_{k,\frac{1}{2}}}{16}$. This means that what we would call $L_0^\sigma$ or simply $L_{\frac{1}{2}} = \frac{1}{2} L_0 + \frac{1}{16}$ can give us the new conformal weights of the primaries in the twisted sector which, more importantly, means that they are half the weights of the untwisted sector plus this $\frac{1}{16}$ thing. This means that our "vacuum" is not conformally invariant, since it picks up factors under scalings and whatnot. In fact $\frac{1}{16}$ is the smallest conformal weight one can write in the twisted sector, and we have seen there are four such states: corresponding to combinations where $\tilde \Theta, \Theta \in \{0,\pi\} $.
 
 To gauge, we simply have to project to states that are invariant under charge conjugation. The charge conjugation action does the same thing in the twisted sector so we see that $\theta_{n} \mapsto -\theta_n$ and so for $\tilde \theta_n$. So orbifold states from the twisted and untwisted sectors are going to be oscillator excitations that have even numbers of $\theta_n$ generators where $n \in \frac{1}{2}\mathbb{Z}$. For now this will be enough to start playing around.
 
