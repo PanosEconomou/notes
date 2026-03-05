@@ -734,7 +734,7 @@ So we can finally derive the $L_n^{\sigma}$ in the twisted sector to be
 $$
 L_n^{\sigma} = \frac{L_{2n}}{2} + \frac{\delta_{n,0}}{16}.
 $$
-By the way if we use the nice notation where we take half integer stuff we find that $L_{k} = \frac{L_{2k-1}}{2} + \frac{\delta_{k,\frac{1}{2}}}{16}$. This means that what we would call $L_0^\sigma$ or simply $L_{\frac{1}{2}} = \frac{1}{2} L_0 + \frac{1}{16}$ can give us the new conformal weights of the primaries in the twisted sector which, more importantly, means that they are half the weights of the untwisted sector plus this $\frac{1}{16}$ thing. This means that our "vacuum" is not conformally invariant, since it picks up factors under scalings and whatnot. In fact $\frac{1}{16}$ is the smallest conformal weight one can write in the twisted sector, and we have seen there are four such states: corresponding to combinations where $\tilde \Theta, \Theta \in \{0,\pi\} $.
+By the way if we use the nice notation where we take half integer stuff we find that $L_{k} = \frac{L_{2k-1}}{2} + \frac{\delta_{k,\frac{1}{2}}}{16}$. This means that what we would call $L_0^\sigma$ or simply $L_{\frac{1}{2}} = \frac{1}{2} L_0 + \frac{1}{16}$ can give us the new conformal weights of the primaries in the twisted sector which, more importantly, means that they are half the weights of the untwisted sector plus this $\frac{1}{16}$ thing. This means that our "vacuum" is not conformally invariant, since it picks up factors under scalings and whatnot. In fact $\frac{1}{16}$ is the smallest conformal weight one can write in the twisted sector, and we have seen there are 2 such states: corresponding to combinations where $\Theta \in \{0,\pi\}$.
 
 To gauge, we simply have to project to states that are invariant under charge conjugation. The charge conjugation action does the same thing in the twisted sector so we see that $\theta_{n} \mapsto -\theta_n$ and so for $\tilde \theta_n$. So orbifold states from the twisted and untwisted sectors are going to be oscillator excitations that have even numbers of $\theta_n$ generators where $n \in \frac{1}{2}\mathbb{Z}$. For now this will be enough to start playing around.
 
@@ -742,7 +742,27 @@ This is something interesting. Such configurations allow you to flip the orienta
 
 
 
-## Boundary states in the Orbifold
+## The twisted sector in detail
+
+We can study the twisted sector by realizing that each path that satisfies $\theta(\sigma + 2\pi) = - \theta(\sigma) + 2k\pi$ must also satisfy $\theta(\sigma + 4\pi) = \theta(\sigma)$. In other words each field configuration on the twisted sector can be expanded as a special field configuration in the vacuum module of a boson living on a sphere (or cylinder or whatever) that has twice the radius. Reparameterizing the so that everything has radius 1 we get that
+$$
+S(\theta) = 2gR^2 \int_{\Sigma} d\theta \wedge \ast d\theta,
+$$
+meaning that our radius $R' = 2R$ is larger. This will be helpful later as all conformal weights will be  restricted by half as we saw earlier. In particular in terms of modes this will have
+$$
+\theta(z,\bar z) = \Theta - i\sum_{n\in 2\mathbb{Z}+1} \frac{1}{n} \left( \theta_n z^{-n} + \tilde \theta_n \bar z^{-n} \right),
+$$
+where we have gotten rid of the winding modes (the $\log$ terms) and have restricted to the odd modes so that this satisfies $\theta(\sigma + \pi) = -\theta(\sigma) + 2\pi k$. The same equation implies that $\Theta = 2\pi k$. However, unlike the case where the boson was free, and there was a U(1) translation symmetry going on, $\Theta$ is no longer independent from the oscillators $\theta_n$, forcing periodic boundary conditions, i.e. $\theta \sim \theta +2k\pi$ (added as functions not per point this time) relates the two. In particular if we define the vacuum state as the one that is annihilated by all positive modes, we see that there are only two options for $\Theta$ that satisfy the boundary conditions. These are $0,\pi$ as expected. So there are two different, isomorphic sectors of our theory, built on top of these two states using odd free boson modes. Note that what we did was to explicitly break the U(1) symmetry into a $\mathbb{Z}_2$ through our boundary conditions, so the Goldstone mode is no longer there. 
+
+One interesting question we can ask is if there's a meaning of T duality in this description since with these boundary conditions, there are no electric and magnetic currents to exchange. However, nothing stops us from writing a dual field description $\phi = 2\pi gR'^2 (\theta_L - \theta_R)$ which would have modes
+$$
+\phi = \Phi -2\pi gR'^2 i\sum_{n\in 2\mathbb{Z}+1} \frac{1}{n} \left( \theta_n z^{-n} - \tilde \theta_n \bar z ^{-n}\right).
+$$
+We also notice that $\Phi = 2\pi gR'^2 (\Theta_L - \Theta_R)$, while $\Theta = \Theta_L + \Theta_R$, and that both have to have eigenvalues $0,\pi$ since both of them are descriptions of a free boson at that radius. Yet, it is not clear in this description why 
+
+
+
+## Boundary states in the orbifold
 
 It would be interesting to characterize boundary states in the orbifold the same way we did in the untwisted sector. We have seen how we can define the dual field $\tilde\theta = 2\pi g R^2 (\theta_L - \theta_R)$. One quick thing we can notice is that in the presence of a Neumann boundary parameterized by $\alpha$ with boundary state $\psi_\alpha$ we have
 $$
