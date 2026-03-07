@@ -93,7 +93,7 @@ d\rho(h,k) =  \frac{\rho(kh)}{\rho(h)\rho(k)} = \frac{\omega(k,h,g) \omega(g,k,h
 $$
 What we do know is that for $g = C$ there are only two such maps $\rho$. This constrains what $\omega$ can be. Since $\omega$ is a 3-cochain, its contraction by $g$ is a fixed 2-cochain such that $d\rho = \iota_g \omega$, more importantly this cochain is in the kernel of $d$. We also know that that cochain is such that there are only 2 one-chains $\rho$. Notice that $d \iota_g \omega = dd\rho = 0$ but also that $\iota_g \omega \in \text{im\,}d^1$ therefore it must be in the trivial cohomology class as a 2-cochain because we already know that such $\rho$ exists. Out of the $8$ $\omega$ we can constrain to the ones where this contraction is trivial, which will give us a total of $4$ possible cocycles.
 
-Now I'm stuck. Let's bring more CFT data. In particular we can calculate the S-matrix in the twisted sector. We know that the partition function of the twisted sector is given by
+Now I'm stuck. Let's bring more CFT data. We know that the partition function of the twisted sector is given by
 $$
 Z_C(q) = \text{Tr}_{\mathbb{H}} \, C\tilde q^{L_0 -\frac{1}{24}}\tilde {\bar q}^{\bar L_0 -\frac{1}{24}} = \left|\tilde q^{-\frac{1}{24}}\prod_{n\in \mathbb{N}}\frac{1}{1+\tilde q^n}\right|^2 = \left|\frac{\eta(\tilde \tau)}{\eta(2\tilde \tau)}\right|^2 = 2\left| \frac{\eta (\tau)}{\eta(\tau/2)}\right|^2.
 $$

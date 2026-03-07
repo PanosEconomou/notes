@@ -57,7 +57,11 @@ One of the most useful of analytic continuation though is through curves. If we 
 
 **<u>Theorem:</u>** If a an open set is simply connected, and $f$ can be continued along all curves between two points in that set then the analytic continuation defines a single valued function on the entire set.
 
-That is fantastic and breaking this is exactly the kind of thing that will lead to branches and coverings.
+That is fantastic and breaking this is exactly the kind of thing that will lead to branches and coverings. 
+
+# Branching
+
+The prototypical case is the one of $\log z$. If we try to analytically continue along any simple curve around the origin then it will find that we can't because any way we come back to where we started we would have been off by $2\pi$. The idea is that there is a surface that locally looks like $\mathbb{C}$ and where $\log z$ is analytic everywhere. In particular that surface $\Sigma$ would contain a projection $\pi: \Sigma \to \mathbb{C}$ such t
 
 
 
