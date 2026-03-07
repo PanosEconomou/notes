@@ -61,9 +61,7 @@ That is fantastic and breaking this is exactly the kind of thing that will lead 
 
 # Branching
 
-The prototypical case is the one of $\log z$. If we try to analytically continue along any simple curve around the origin then it will find that we can't because any way we come back to where we started we would have been off by $2\pi$. The idea is that there is a surface that locally looks like $\mathbb{C}$ and where $\log z$ is analytic everywhere. In particular that surface $\Sigma$ would contain a projection $\pi: \Sigma \to \mathbb{C}$ such t
-
-
+The prototypical case is the one of $\log z$. If we try to analytically continue along any simple curve around the origin then it will find that we can't because any way we come back to where we started we would have been off by $2\pi$. The idea is that there is a surface that locally looks like $\mathbb{C}$ and where $\log z$ is analytic everywhere. In particular that surface $\Sigma$ would contain a projection $\pi: \Sigma \to \mathbb{C}$ such that
 
  
 
