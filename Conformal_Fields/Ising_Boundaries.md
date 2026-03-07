@@ -99,6 +99,13 @@ Z_C(q) = \text{Tr}_{\mathbb{H}} \, C\tilde q^{L_0 -\frac{1}{24}}\tilde {\bar q}^
 $$
 Which, by the way is so satisfying because it shows us the presence of the two vacua. 
 
+Here is a strategy on how to calculate the relevant partition function $Z_{C,S}(q) = \text{Tr}_{\mathbb{H}_C} S e^{-\beta H}$.
+
+1. We know that we can undo $S$ by coupling to an appropriately defined flat gauge field $A$ on the action. 
+2. This action description can be turned into one for the dual field $\tilde \theta$ where we can read off the action of $S$ by changing $\tilde \theta \mapsto \tilde \theta + \pi$
+3. Redo mode quantization with new momenta and everything
+4. Calculate the action on the states, and do the trace.
+
 
 
 
