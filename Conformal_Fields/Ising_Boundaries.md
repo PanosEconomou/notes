@@ -26,7 +26,7 @@ S = \frac{1}{8\pi} \int \psi \bar \partial \psi + \bar \psi \partial \psi
 $$
 This theory itself has 4 (untwisted) Virasoro primaries coming from the Neveau Schwartz sector. One is the vacuum, two are $\psi$ and $\bar \psi$ themselves with conformal weights $(\frac{1}{2},0), (0,\frac{1}{2})$, and finally there is $\epsilon =i{:}\psi\bar\psi {:}$ with conformal weight $(\frac{1}{2},\frac{1}{2})$. The fermion parity operator is the one that flips the sign of the holonomy of the fermion effectively switching sectors to the Ramond sector, where there are two primaries $\mu, \sigma$ both with conformal weights $(\frac{1}{16},\frac{1}{16})$, out of which only one is invariant under the parity operation. Therefore when we orbifold by the Fermion parity, the only invariant fields are $1,\epsilon, \sigma$, the familiar Ising Primaries. 
 
-So we can build $\text{ising}^2$ by gauging the fermion parity of two Majorana-Weyl fermions. However, two Majorana Fermions after gauging Fermion parity are the $R=2, c=1$ conformal field theory (where the self dual radius is $R^\ast = \sqrt{2}$, in other conventions this is $\alpha'=2 = \frac{1}{2\pi g}$), aka the bozonized free Dirac Fermion. To see this we write the Dirac fermion in $2D$ as
+So we can build $\text{Ising}^2$ by gauging the fermion parity of two Majorana-Weyl fermions. However, two Majorana Fermions after gauging Fermion parity are the $R=2, c=1$ conformal field theory (where the self dual radius is $R^\ast = \sqrt{2}$, in other conventions this is $\alpha'=2 = \frac{1}{2\pi g}$), aka the bozonized free Dirac Fermion. To see this we write the Dirac fermion in $2D$ as
 $$
 \Psi = \frac{1}{\sqrt{2}}\left(\psi_1 + i\psi_2\right)= \frac{1}{\sqrt{2}}\binom{\psi_1 + i\psi_2}{\bar \psi_1 + i\bar\psi_2},
 $$
