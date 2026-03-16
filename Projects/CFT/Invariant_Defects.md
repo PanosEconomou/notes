@@ -70,7 +70,50 @@ $$
 
 
 
-## Questions.
+## Modular Bootstrap
+
+An alternative approach to this is to try and constrain what are the possible operators we can find that act irreducibly on the $\mathcal{V} \otimes \overline{\mathcal{V}}$ modules. This is constrained by modularity as we will see soon. 
+
+For example, consider a TDL $L$ nad let $\chi$ be the vector of characters. Then the partition function with an $L$ insertion can be written as 
+$$
+Z_L^1(q) = \chi(q)^\dagger Z_L \chi(q),
+$$
+where $Z_L$ is the original modular matrix but with the nonzero entries postulated to be different. We know however that this is modular covariant taking us to the twisted sector via an $S$-transform. In the twisted sector, the partition function has to be integral and with positive coefficients. This constrains what $Z_L^1(q)$ can be quite a lot. Notice that $\chi(\tilde q) = S\chi(q)$ and therefore
+$$
+Z^{L}_1(q)  = Z_L^1(\tilde q) = \chi(\tilde q)^\dagger Z_L \chi(\tilde q) =  \chi(q)^\dagger  S^\dagger Z_L S \chi(q).
+$$
+We know most of the quantities here so we can find some more constraints. There is one more thing though in this case before we continue. We know the Verlinde lines for the bigger chiral algebra $W_3$ (which are not necessarily simple but we can use them). Namely there is a transformation $M$ of the characters given by
+$$
+M = \begin{pmatrix}
+1 & 0 & 0 & 0 & 1 & 0\\
+0 & 1 & 0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 1\\
+\end{pmatrix}
+$$
+This transformation takes the character vector to the characters of the irreducible $W_3$ characters of the 3-state Potts model. Where the modular matrix is given by
+$$
+Z = M^T \hat Z M \implies \hat Z = \begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 2 & 0\\
+0 & 0 & 0 & 2
+\end{pmatrix}.
+$$
+We know the Verlinde lines here, as well as the $S$ matrix. In particular the $S$ matrix is given by
+$$
+\hat S = \frac{2}{\sqrt{15}}\begin{pmatrix}
+s_1 &  s_2 &  2s_2 &  2s_1\\
+s_2 & -s_1 & -2s_1 &  2s_2\\
+s_2 & -s_1 &   s_1 &  -s_2\\
+s_1 &  s_2 & - s_2 &  -s_1
+\end{pmatrix},
+$$
+where $s_1 = \sin \frac{\pi}{5}$ and $s_2 = \sin \frac{2\pi}{5}$. So now we know the $4$ Verlinde lines with respect to $W_3$, and they are all invertible.
+
+
+
+## Questions
 
 These are not enough constraints, and there is no obvious way that I can use the $S$-matrix yet. So either I am missing something essential that I can add to keep constraining them, or this whole approach is not at all optimal.
 
