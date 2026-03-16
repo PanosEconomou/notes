@@ -49,15 +49,33 @@ which means that $Z = n^- (n^+)^T$. So we are constraining what the simple invar
 
 One strong constraint is that $Z_{\bar j i} \geq n^-_{ik}n^+_{kj}$ for all $k \in \text{Irr}_AC_A$. So if $h_i \neq h_j \text{ mod } 1$ then $n_{ik}^-n_{kj}^+ = 0$ for all $k$. This is a result of modular invariance under $T$ we can have a similar result using $S$ transforms. We also know that all the entries of $Z$ are either $0$ or $1$. A main point that I am struggling with is how to constrain the dimension of the codomain, or in other words the number of simple bimodules $k$. Since $\alpha$ inductions are not guaranteed to be simple, even though we know that the Verlinde lines are invariant under the chiral algebra, this doesn't mean that we have at least as many simple bimodules. 
 
-
-
-
-
-
-
-
-
 # Three State Potts
+
+If we take $\mathcal{V}=\text{Vir}_{c=\frac{4}{5}}$ we have $6$ simple objects labeled by $\{1,\epsilon, \sigma, X,Y,Z\}$ with conformal weights $h=\{0,\frac{2}{5},\frac{1}{15},\frac{7}{5},3,\frac{2}{3}\}$, and the modular mass matrix given by
+$$
+Z = \begin{pmatrix}
+1 & 0 & 0 & 0 & 1 & 0\\
+0 & 1 & 0 & 1 & 0 & 0\\
+0 & 0 & 2 & 0 & 0 & 0\\
+0 & 1 & 0 & 1 & 0 & 0\\
+1 & 0 & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & 2
+\end{pmatrix}.
+$$
+This implies that $A = 1\oplus Y$. So we are looking for $2\times 6 = 12$ vectors with nonnegative integer coefficients in some unknown but finite dimension, such that $n_i^+ \cdot n_j^- = Z_{ij}$. The start of this is quite simple since $\alpha^+(1) = \alpha^-(1)$  and $\alpha^+(Y) = \alpha^-(Y)$ we can see that
+$$
+n^{\pm}_1 = n^{\pm}_Y = e_1 = \begin{pmatrix}1 \\ 0 \\ \vdots\\0 \end{pmatrix},
+$$
+ for however many dimensions we have. 
+
+
+
+## Questions.
+
+These are not enough constraints, and there is no obvious way that I can use the $S$-matrix yet. So either I am missing something essential that I can add to keep constraining them, or this whole approach is not at all optimal.
+
+
 
   # Folded Tricritical Ising
 
+(TBD)
