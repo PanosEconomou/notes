@@ -82,43 +82,51 @@ where $Z_L$ is the original modular matrix but with the nonzero entries postulat
 $$
 Z^{L}_1(q)  = Z_L^1(\tilde q) = \chi(\tilde q)^\dagger Z_L \chi(\tilde q) =  \chi(q)^\dagger  S^\dagger Z_L S \chi(q).
 $$
-We know most of the quantities here so we can find some more constraints. There is one more thing though in this case before we continue. We know the Verlinde lines for the bigger chiral algebra $W_3$ (which are not necessarily simple but we can use them). Namely there is a transformation $M$ of the characters given by
+We know most of the quantities here so we can find some more constraints. The first nontrivial constraint is that $S^\dagger Z_L S$ is a nonnegative integer matrix since the the twisted sector by any inner automorphism of the chiral algebra is a represetation of the original algebra. 
+
+
+
+## S-Matrix
+
+What is a bit tricky here is the $S$-matrix. If $\mathcal{C}= \text{Rep\,}\text{Vir}_{c=\frac{4}{5}}$, then we know using Kac's formula the $S$ matrix of the modular tensor category. What we don't know however, is what the $S$-matrix for the specific model is. In particular, looking at $Z$ above we find that there are two primaries with multiplicity two in this theory. We can call them $\sigma^\pm$ and $Z^\pm$. Therefore we can write $Z$ as an $8\times 8$ matrix where each entry is either $0$ or $1$. Then in order to find how the modular $S$ transform works in this theory we need to work out how charge conjugation acts, and then we can use the fact that
 $$
-M = \begin{pmatrix}
-1 & 0 & 0 & 0 & 1 & 0\\
-0 & 1 & 0 & 1 & 0 & 0\\
-0 & 0 & 1 & 0 & 0 & 0\\
-0 & 0 & 0 & 0 & 0 & 1\\
-\end{pmatrix}
+S^2 = C = (ST)^3,
 $$
-This transformation takes the character vector to the characters of the irreducible $W_3$ characters of the 3-state Potts model. Where the modular matrix is given by
+to fully determine $S$ for the $S$ matrix in the modular tensor category. The charge conjugation matrix is such that $C_{ij} = \delta_{i\bar j}$ where $i,j \in \text{Irr\,}\mathcal{C}$. What we know by Di-Francesco is that there is a global $\mathbb{Z}_3$ symmetry such that the $\pm$ fields have charges $e^{\pm 2\pi i/3}$ respectively. Therefore, charge conjugation symmetry would exchange these charges. Therefore the charge conjugation matrix in the basis $\{1,\epsilon, \sigma^+, \sigma^-, X,Y,Z^+, Z^-\}$ is given by
 $$
-Z = M^T \hat Z M \implies \hat Z = \begin{pmatrix}
-1 & 0 & 0 & 0\\
-0 & 1 & 0 & 0\\
-0 & 0 & 2 & 0\\
-0 & 0 & 0 & 2
+C = \begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0\\
 \end{pmatrix}.
 $$
-We know the Verlinde lines here, as well as the $S$ matrix. In particular the $S$ matrix is given by
+The conformal weights in order are $h=\{0,\frac{2}{5},\frac{1}{15},\frac{1}{15},\frac{7}{5},3,\frac{2}{3},\frac{2}{3}\}$. So now we can use modular covariance to figure out the $S$ matrix. 
+
+Notice that $[S,C] = SC - CS = S^3 - S^3 =0$, therefore we can simultaneously diagonalize everything. A basis of eigenstates we can pick are 
 $$
-\hat S = \frac{2}{\sqrt{15}}\begin{pmatrix}
-s_1 &  s_2 &  2s_2 &  2s_1\\
-s_2 & -s_1 & -2s_1 &  2s_2\\
-s_2 & -s_1 &   s_1 &  -s_2\\
-s_1 &  s_2 & - s_2 &  -s_1
-\end{pmatrix},
+\{1, \epsilon, X, Y, \frac{\sigma^+ + \sigma^-}{\sqrt {2}}, \frac{Z^+ + Z^-}{\sqrt {2}}\} \cup \{ \frac{\sigma^+ - \sigma^-}{\sqrt {2}}, \frac{Z^+ - Z^-}{\sqrt {2}}\},
 $$
-where $s_1 = \sin \frac{\pi}{5}$ and $s_2 = \sin \frac{2\pi}{5}$. So now we know the $4$ Verlinde lines with respect to $W_3$, and they are all invertible.
+the stuff on the left have eigenvalue $1$ under $C$ while the stuff on ther right have eigenvalue $-1$, which means that we can now write the $S$ and $T$ matrices as block diagonal of the form
+$$
+\begin{align*}
+S = \begin{pmatrix}S_{+} & 0 \\ 0 & S_-,\end{pmatrix} && T = \begin{pmatrix}T_{+} & 0 \\ 0 & T_-,\end{pmatrix},
+\end{align*} 
+$$
+where we know $T_\pm$ from the conformal weights of the primaries, but we don't know $S_{\pm}$. 
 
 
 
-## Questions
-
-These are not enough constraints, and there is no obvious way that I can use the $S$-matrix yet. So either I am missing something essential that I can add to keep constraining them, or this whole approach is not at all optimal.
 
 
 
-  # Folded Tricritical Ising
 
-(TBD)
+
+
+
+
+
