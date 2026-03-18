@@ -109,7 +109,7 @@ The conformal weights in order are $h=\{0,\frac{2}{5},\frac{1}{15},\frac{1}{15},
 
 Notice that $[S,C] = SC - CS = S^3 - S^3 =0$, therefore we can simultaneously diagonalize everything. A basis of eigenstates we can pick are 
 $$
-\{1, \epsilon, X, Y, \frac{\sigma^+ + \sigma^-}{\sqrt {2}}, \frac{Z^+ + Z^-}{\sqrt {2}}\} \cup \{ \frac{\sigma^+ - \sigma^-}{\sqrt {2}}, \frac{Z^+ - Z^-}{\sqrt {2}}\},
+\{1, \epsilon, X, Y, \frac{Z^+ + Z^-}{\sqrt {2}}, \frac{\sigma^+ + \sigma^-}{\sqrt {2}}\} \cup \{ \frac{Z^+ - Z^-}{\sqrt {2}}, \frac{\sigma^+ - \sigma^-}{\sqrt {2}}\},
 $$
 the stuff on the left have eigenvalue $1$ under $C$ while the stuff on ther right have eigenvalue $-1$, which means that we can now write the $S$ and $T$ matrices as block diagonal of the form
 $$
@@ -117,7 +117,13 @@ $$
 S = \begin{pmatrix}S_{+} & 0 \\ 0 & S_-,\end{pmatrix} && T = \begin{pmatrix}T_{+} & 0 \\ 0 & T_-,\end{pmatrix},
 \end{align*} 
 $$
-where we know $T_\pm$ from the conformal weights of the primaries, but we don't know $S_{\pm}$. 
+where we know $T_\pm$ from the conformal weights of the primaries, but we don't know $S_{\pm}$. We do know though that $S_{\pm}^2 = \pm 1$ and $(S_{\pm}T_{\pm})^3 = \pm 1$ which means that $S_+$ is simply the projection of the $\mathcal{C}$ S matrix on the fields $1,\epsilon, X,Y,Z, \sigma$ while the other one is a 2x2 matrix that can be bootstrapped right here. 
+
+$S_-$ is a $2\times 2$ symmetric and unitary matrix. The fact that it squares to $-1$ implies that it has determinant $1$ which constrains all the degrees of freedom to one angle. Using the remaining $T$ values we find that 
+$$
+S_{-} = \frac{i}{\sqrt{1 + \phi^2}} \begin{pmatrix} - 1 & \phi \\ \phi & 1 \end{pmatrix},
+$$
+ which (up to a factor of $-i$) is unsirprisingly but still delightfully the $\text{Fib}$ category $S$-matrix. Putting everything together we can build the full $S$  matrix by putting everything together and undoing our coordinate transformation. 
 
 
 
