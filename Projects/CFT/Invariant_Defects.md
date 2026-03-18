@@ -117,13 +117,27 @@ $$
 S = \begin{pmatrix}S_{+} & 0 \\ 0 & S_-,\end{pmatrix} && T = \begin{pmatrix}T_{+} & 0 \\ 0 & T_-,\end{pmatrix},
 \end{align*} 
 $$
-where we know $T_\pm$ from the conformal weights of the primaries, but we don't know $S_{\pm}$. We do know though that $S_{\pm}^2 = \pm 1$ and $(S_{\pm}T_{\pm})^3 = \pm 1$ which means that $S_+$ is simply the projection of the $\mathcal{C}$ S matrix on the fields $1,\epsilon, X,Y,Z, \sigma$ while the other one is a 2x2 matrix that can be bootstrapped right here. 
+where we know $T_\pm$ from the conformal weights of the primaries, but we don't know $S_{\pm}$. We do know though that $S_{\pm}^2 = \pm 1$ and $(S_{\pm}T_{\pm})^3 = \pm 1$. 
 
 $S_-$ is a $2\times 2$ symmetric and unitary matrix. The fact that it squares to $-1$ implies that it has determinant $1$ which constrains all the degrees of freedom to one angle. Using the remaining $T$ values we find that 
 $$
 S_{-} = \frac{i}{\sqrt{1 + \phi^2}} \begin{pmatrix} - 1 & \phi \\ \phi & 1 \end{pmatrix},
 $$
- which (up to a factor of $-i$) is unsirprisingly but still delightfully the $\text{Fib}$ category $S$-matrix. Putting everything together we can build the full $S$  matrix by putting everything together and undoing our coordinate transformation. 
+ which (up to a factor of $-i$) is unsirprisingly but still delightfully the $\text{Fib}$ category $S$-matrix. 
+
+On the other hand a wrong guess for $S_+$ is simply the projection of the $\mathcal{C}$ $S$ matrix on the fields $1,\epsilon, X,Y,Z, \sigma$. One will quickly notice that this does not square to $1$. So what gives? If we say that the $S$ matrix is simply a projection onto the primaries in the untwisted sector, we assumed that there is no way that we will obtain the remaining representations of $\mathcal{V}$ in twisted sectors. This can't be the case. One would expect that we should be able to write down a CFT with $A=1$ as modular invariant, and then, via gauging obtain the 3-state Potts model with $A=1\oplus Y$ modular invariant. So this means, that the rest of the fields should appear in the twisted sector. 
+
+I wonder if we can figure this out directly from bootstrap constraints without working out what we gauged explicitly. Clearly one solution here is to say that the fields that don't appear in the untwisted sector appear with multiplicity 1 in the twisted sectors. This will give $S_+$ to be the exact $S$ matrix of $\mathcal{C}$, which squares to $1$ as expected. 
+
+[Tachikawa](https://arxiv.org/pdf/2002.12283) says that we can get $3$-state Potts via $\mathbb{Z}_2$ gauging of the diagonal theory which is known as the tetracritical Ising model. Apparently it is a well known fact that $D$ modular invariants are obtained via $\mathbb{Z}_2$ gauging in minimal models from $A$ modular invariants. For tetracritical ising the $\mathbb{Z}_2$ we are gauging is the one that flips the signs of $4$ primaries leaving the rest invariant (similar to the $\eta$ line in $\text{Ising}$). The fields that flip sign are
+$$
+(r,s) \in \{(2,1),(2,2),(4,1),(4,2)\},
+$$
+with conformal weights $\{\frac{1}{8},\frac{1}{40},\frac{13}{8}, \frac{21}{40}\}$ which unsurprisingly are the primaries with conformal weights that we don't see in the untwisted sector of the Potts model. So we only have to see what contributions we will get from the even part of the twisted sector where we simply get two extra copies of the $Z,\sigma$. 
+
+I didn't read this but [this](https://arxiv.org/pdf/hep-th/9601078) is a paper that seems relevant to read here. 
+
+Putting everything together we can build the full $S$  matrix by undoing our coordinate transformation to obtain 
 
 
 
