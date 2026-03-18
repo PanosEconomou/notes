@@ -148,5 +148,3 @@ Putting everything together we can build the full $S$  matrix by undoing our coo
 
 
 
-
-
