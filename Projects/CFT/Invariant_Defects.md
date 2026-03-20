@@ -49,6 +49,24 @@ which means that $Z = n^- (n^+)^T$. So we are constraining what the simple invar
 
 One strong constraint is that $Z_{\bar j i} \geq n^-_{ik}n^+_{kj}$ for all $k \in \text{Irr}_AC_A$. So if $h_i \neq h_j \text{ mod } 1$ then $n_{ik}^-n_{kj}^+ = 0$ for all $k$. This is a result of modular invariance under $T$ we can have a similar result using $S$ transforms. We also know that all the entries of $Z$ are either $0$ or $1$. A main point that I am struggling with is how to constrain the dimension of the codomain, or in other words the number of simple bimodules $k$. Since $\alpha$ inductions are not guaranteed to be simple, even though we know that the Verlinde lines are invariant under the chiral algebra, this doesn't mean that we have at least as many simple bimodules. 
 
+
+
+# Modular Bootstrap
+
+An alternative way to solve this problem is to use modular data in a rational theory. In here we will consider minimal models, just to motivate concrete calculations, but make comments on how this can be extended. A great reference is [this](https://arxiv.org/abs/hep-th/0011021). Given a chiral algebra $\mathcal{V}=\text{Vir}_c$ it is possible that one might find multiple copies of a simple module $i \in \mathcal{C}=\text{Rep}\,\mathcal{V}$ in the Hilbert space. In particular since we already know that the untwisted sector of the theory is given by 
+$$
+\mathbb{H}_{1} = \bigoplus_{i,j \in \text{Irr}\mathcal{C}} Z_{i j}\, i \boxtimes \bar j.
+$$
+In the case where one of the $Z_{ij} > 1$ we have that that representation appears multiple time. Since the defects that we are looking for must commute with Virasoro they are composed out of zero maps and isomorphisms. But in the case where the multiplicity of a representation is more than 1 such isomorphisms can be intertwiners between the isomorphic representations. So we should expect to have at most $\sum_{i,j\in \text{Irr}\mathcal{C}} |Z_{ij}|^2$ many independent defects. More importantly let $a$ be an index that denotes the multiplicity we have that the defects must be given by
+$$
+L = \sum_{i,j\in \text{Irr}\mathcal{C}}\sum_{a,a'}L_{ij}^{aa'}P_{ij}^{aa'},
+$$
+ where $P_{ij}^{aa'}: (i\boxtimes \bar j)^a \to (i\boxtimes \bar j)^{a'}$ are intertwiners that restrict to a fixed basis of isomorphisms $P_i \boxtimes P_{\bar j}$ (which we can pick to be the corresponding identity maps of modules).
+
+
+
+
+
 # Three State Potts
 
 If we take $\mathcal{V}=\text{Vir}_{c=\frac{4}{5}}$ we have $6$ simple objects labeled by $\{1,\epsilon, \sigma, X,Y,Z\}$ with conformal weights $h=\{0,\frac{2}{5},\frac{1}{15},\frac{7}{5},3,\frac{2}{3}\}$, and the modular mass matrix given by
@@ -70,7 +88,7 @@ $$
 
 
 
-## Modular Bootstrap
+## Bootstrap
 
 An alternative approach to this is to try and constrain what are the possible operators we can find that act irreducibly on the $\mathcal{V} \otimes \overline{\mathcal{V}}$ modules. This is constrained by modularity as we will see soon. 
 
@@ -138,7 +156,6 @@ with conformal weights $\{\frac{1}{8},\frac{1}{40},\frac{13}{8}, \frac{21}{40}\}
 I didn't read this but [this](https://arxiv.org/pdf/hep-th/9601078) is a paper that seems relevant to read here. 
 
 Putting everything together we can build the full $S$  matrix by undoing our coordinate transformation to obtain 
-
 
 
 
