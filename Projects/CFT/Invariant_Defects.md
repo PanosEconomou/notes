@@ -100,7 +100,7 @@ where $Z_L$ is the original modular matrix but with the nonzero entries postulat
 $$
 Z^{L}_1(q)  = Z_L^1(\tilde q) = \chi(\tilde q)^\dagger Z_L \chi(\tilde q) =  \chi(q)^\dagger  S^\dagger Z_L S \chi(q).
 $$
-We know most of the quantities here so we can find some more constraints. The first nontrivial constraint is that $S^\dagger Z_L S$ is a nonnegative integer matrix since the the twisted sector by any inner automorphism of the chiral algebra is a represetation of the original algebra. 
+We know most of the quantities here so we can find some more constraints. The first nontrivial constraint is that $S^\dagger Z_L S$ is a nonnegative integer matrix since the the twisted sector by any inner automorphism of the chiral algebra is a representation of the original algebra. [Here](https://arxiv.org/abs/2310.19703) is a nice reference that talks about this.
 
 
 
