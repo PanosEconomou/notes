@@ -57,7 +57,7 @@ An alternative way to solve this problem is to use modular data in a rational th
 $$
 \mathbb{H}_{1} = \bigoplus_{i,j \in \text{Irr}\mathcal{C}} Z_{i j}\, i \boxtimes \bar j.
 $$
-In the case where one of the $Z_{ij} > 1$ we have that that representation appears multiple time. Since the defects that we are looking for must commute with Virasoro they are composed out of zero maps and isomorphisms. But in the case where the multiplicity of a representation is more than 1 such isomorphisms can be intertwiners between the isomorphic representations. So we should expect to have at most $\sum_{i,j\in \text{Irr}\mathcal{C}} |Z_{ij}|^2$ many independent defects. More importantly let $a$ be an index that denotes the multiplicity we have that the defects must be given by
+In the case where one of the $Z_{ij} > 1$ we have that that representation appears multiple times. Since the defects that we are looking for must commute with Virasoro they are composed out of zero maps and isomorphisms. But in the case where the multiplicity of a representation is more than 1 such isomorphisms can be intertwiners between the isomorphic representations. So we should expect to have at most $\sum_{i,j\in \text{Irr}\mathcal{C}} |Z_{ij}|^2$ many independent simple defects. More importantly let $a$ be an index that denotes the multiplicity we have that the defects must be given by
 $$
 L = \sum_{i,j\in \text{Irr}\mathcal{C}}\sum_{a,a'}L_{ij}^{aa'}P_{ij}^{aa'},
 $$
@@ -101,6 +101,98 @@ $$
 Z^{L}_1(q)  = Z_L^1(\tilde q) = \chi(\tilde q)^\dagger Z_L \chi(\tilde q) =  \chi(q)^\dagger  S^\dagger Z_L S \chi(q).
 $$
 We know most of the quantities here so we can find some more constraints. The first nontrivial constraint is that $S^\dagger Z_L S$ is a nonnegative integer matrix since the the twisted sector by any inner automorphism of the chiral algebra is a representation of the original algebra. [Here](https://arxiv.org/abs/2310.19703) is a nice reference that talks about this.
+
+However, finding $Z_L$ doesn't mean that we have all the defects, because there is still a residual ambiguity on the entries where $Z_{ij} > 1$. We will resolve this using consistency under fusion, but first lets find a collection of matrices $Z_L$. Getting a general form of $Z_L$ and imposing the condition that $S^\dagger Z_L S$ is a nonnegative integer matrix, we get $100$ equations out of which $10$ are independent. A set of $10$ independent solutions is given below where we show how defects are constrained to act on the primaries of the theory.
+
+|         $(h,\bar h)$          |     Label      | $\tilde 1$ | $\tilde \eta$ | $\tilde C$ | $\tilde \alpha$ | $\tilde \beta$ | $\tilde \gamma$ | $\tilde N$ | $\tilde M$ |     $\tilde A$     |     $\tilde B$     |
+| :---------------------------: | :------------: | :--------: | :-----------: | :--------: | :-------------: | :------------: | :-------------: | :--------: | :--------: | :----------------: | :----------------: |
+|            $(0,0)$            |      $1$       |    $1$     |      $1$      |    $1$     |     $\phi$      |     $\phi$     |     $\phi$      |  $\delta$  |  $\delta$  |    $\delta\phi$    |    $\delta\phi$    |
+|            $(0,3)$            |     $\Phi$     |    $1$     |      $1$      |    $-1$    |     $\phi$      |     $\phi$     |     $-\phi$     |  $\delta$  | $-\delta$  |    $\delta\phi$    |   $-\delta\phi$    |
+|  $(\frac{2}{3},\frac{2}{3})$  |   $Z_{\pm}$    |    $2$     |     $-1$      |    $0$     |     $2\phi$     |    $-\phi$     |       $0$       |    $0$     |    $0$     |        $0$         |        $0$         |
+|            $(3,0)$            |  $\Phi^\ast$   |    $1$     |      $1$      |    $-1$    |     $\phi$      |     $\phi$     |     $-\phi$     | $-\delta$  |  $\delta$  |   $-\delta\phi$    |    $\delta\phi$    |
+|            $(3,3)$            |      $Y$       |    $1$     |      $1$      |    $1$     |     $\phi$      |     $\phi$     |     $\phi$      | $-\delta$  | $-\delta$  |   $-\delta\phi$    |   $-\delta\phi$    |
+|  $(\frac{2}{5},\frac{2}{5})$  |   $\epsilon$   |    $1$     |      $1$      |    $1$     |  $-\phi^{-1}$   |  $-\phi^{-1}$  |  $-\phi^{-1}$   | $-\delta$  | $-\delta$  | $\delta\phi^{-1}$  | $\delta\phi^{-1}$  |
+|  $(\frac{2}{5},\frac{7}{5})$  |     $\Psi$     |    $1$     |      $1$      |    $-1$    |  $-\phi^{-1}$   |  $-\phi^{-1}$  |   $\phi^{-1}$   | $-\delta$  |  $\delta$  | $\delta\phi^{-1}$  | $-\delta\phi^{-1}$ |
+| $(\frac{1}{15},\frac{1}{15})$ | $\sigma_{\pm}$ |    $2$     |     $-1$      |    $0$     |  $-2\phi^{-1}$  |  $\phi^{-1}$   |       $0$       |    $0$     |    $0$     |        $0$         |        $0$         |
+|  $(\frac{7}{5},\frac{2}{5})$  |  $\Psi^\ast$   |    $1$     |      $1$      |    $-1$    |  $-\phi^{-1}$   |  $-\phi^{-1}$  |   $\phi^{-1}$   |  $\delta$  | $-\delta$  | $-\delta\phi^{-1}$ | $\delta\phi^{-1}$  |
+|  $(\frac{7}{5},\frac{7}{5})$  |      $X$       |    $1$     |      $1$      |    $1$     |  $-\phi^{-1}$   |  $-\phi^{-1}$  |  $-\phi^{-1}$   |  $\delta$  |  $\delta$  | $-\delta\phi^{-1}$ | $-\delta\phi^{-1}$ |
+
+Where $\phi = \frac{1 + \sqrt{5}}{2}$ is the golden ratio, and $\delta = \sqrt{3}$. I also wrote a Mathematica notebook that does this automatically for any minimal model (or $S$ and $Z$ matrices) here. 
+
+It is important to emphasize that these are **classes** of defects because the action on the fields $Z_{\pm}$ and $\sigma_{\pm}$ is not resolved. In reality each defect $L$ would act as a $2\times 2$ matrix on either of the degenerate fields. We can define traces that only pick out these subspaces so what we see in these entries is $\text{tr}_{Z}L$ and $\text{tr}_{\sigma}L$ respectively. The reason is that in the partition function the coefficient that appears is $L_{Z^+Z^+} + L_{Z^-Z^-}$ and the corresponding one for $\sigma$. Now we will try to explicitly constrain these matrices.
+
+The general principle we will do this by is that the defects above are all simple. Therefore if we take fusion of two classes and we get another class, then the corresponding defect is guaranteed to be simple. I am not explaining this right, but the examples should make it clear. Let's go class by class.
+
+### Identity $\tilde 1$
+
+Consider a defect $L \in \tilde 1$ then we can see that $L\otimes L \in \tilde 1 \cup \tilde \eta$ and is simple because of the $8$ unambiguous actions on the remaining fields. Let's focus on the restriction of $L$ on $Z$ given by the matrix $L_Z$, and then we will similarly argue for $L_\sigma$. Since $\text{Tr\,}L_Z = 2$ we see that
+$$
+L_Z = \begin{pmatrix}x & y\\z & 2-x\end{pmatrix},
+$$
+for $x,y,z\in \mathbb{C}$. If $L^2 \in \tilde \eta$ then it must have $\text{Tr\,}L_Z^2 = -1$. We then know that since $L_Z$ is a root of its characteristic polynomial we can multiply by $L_Z$ and take a trace to get
+$$
+\begin{align*}
+\text{Tr\,}L_Z^2 &= 4 - 2 \text{det\,}L_Z = -1 \implies \det L_Z = \frac{5}{2} \\
+\text{Tr\,}L_Z^3 &= -2 - 2\det L_Z = -7,
+\end{align*}
+$$
+This can't happen because no nonnegative integer combination of simple lines gives this trace. Therefore $L^2 \in \tilde 1 \implies \text{det\,}L_Z = 1$. However, since its conformal dimension is $1$ $L_Z$ must be unitary, which implies that $z = -\bar y$ and $\bar x = 2- x$ and $|x|^2 + |y|^2 = 1$, this implies $\text{Re\,}x = 1$ and therefore $|y| = 0$ is the only solution that keeps this unitary. Therefore $\tilde {1} = \{1\}$ where $1$ is the identity defect.
+
+### $\mathbb{Z}_3$ Defects $\tilde \eta$
+
+We do a similar analysis for an $L\in \tilde \eta$. We can see using the same reasoning as above that $L\otimes L \in \tilde 1 \cup \tilde \eta$. If $L\otimes L = 1$ by writing $L_Z$ as
+$$
+L_Z = \begin{pmatrix}x & y\\z & -1-x\end{pmatrix},
+$$
+with the condition $L_Z^2 = 1$ we see that $y=z=0$ and $x^2 = (1+x)^2 = 1$ which has no solution. Therefore for any line in $\tilde \eta$ we have that $L\otimes L \in \tilde \eta$. In a similar way as above we find that
+$$
+L_Z^2 = -L_Z - \det L_Z \implies \det L_Z = 1.
+$$
+This should also be a unitary matrix such that $z = -\bar y$, $|x|^2 + |y|^2 = 1$, and $\bar x = - 1 - x \implies \text{Re\,} x = -\frac{1}{2}$. Also notice that if $\text{Tr\,}L_Z^2 = -1$ we find that $\text{Tr\,}L_Z^3 = 2$. This implies that for an such $L$ we have $L\otimes L\otimes L = 1$. This fixes $x^3 = 1, y=0$. If we call $\omega = e^{\frac{2\pi i }{3}}$ we have only two possible matrices for $L_Z$
+$$
+\begin{align*}
+\eta_1 = \begin{pmatrix}\omega & 0 \\ 0&\omega^2\end{pmatrix} && \eta_2 = \begin{pmatrix}\omega^2 & 0 \\ 0&\omega\end{pmatrix}.
+\end{align*}
+$$
+This doesn't completely fix what defects we have in $\tilde \eta$. Since there are two ambiguous pairs we can have 4 possible combinations. But we can show that all $4$ of them can't exist at a given time. In particular, let $L,L' \in \tilde \eta$ such that $L_Z = L_\sigma = L'_Z = \eta_1$ but $L'_\sigma = \eta_2$. We see that $(L\otimes L')_Z = \eta_2$ and $(L\otimes L')_\sigma = 1$ which means that there is a simple line $Q = L\otimes L'$ with $\text{tr}_\sigma Q = -1 \neq  \text{tr}_{Z} Q $ which is not possible from our previous accounting. So we get to have a choice. The choice really is which field we call $\sigma^{\pm}$ and $Z^{\pm}$. Let's fix the line $\eta$ such that $\eta_{Z} = \eta_{\sigma} = \eta_1$ and then we find that $\tilde \eta = \{\eta,\eta^2 =\eta \otimes \eta\}$.
+
+### Charge Conjugation $\tilde C$
+
+ Consider a defect $L \in \tilde C$. We see that $L\otimes L \in \tilde 1 \cup \tilde \eta$, but now this is a much stronger constraint because we know all the defects here. We also know that $L_Z$ traces to zero which implies that $\det L_Z = - \frac{1}{2}\text{tr\,} L_Z^2$. If $L_Z \in \tilde \eta$ we have that $|\text{det\,}L_Z|\neq 1$ so it can't be unitary. Therefore we have that $L\otimes L = 1$ which constrains this to be
+$$
+L_Z^\theta=\begin{pmatrix}0&e^{i\theta}\\e^{-i\theta}&0\end{pmatrix}.
+$$
+But there can't be infinitely many simple lines since we can see that $L_Z^\theta L_Z^\phi$ only has a trace in the defects we found when $\theta = \phi$. So we have another choice, effectively fixing the relative phase between $Z_{\pm}$. So, we pick
+$$
+L_Z=L_\sigma=C=\begin{pmatrix}0&1\\1&0\end{pmatrix},
+$$
+which implies that there is only $1$ defect $\tilde C = \{C\}$.
+
+### Tambara Yamagami Lines $\tilde N$
+
+Let's focus on the classes $\tilde N, \tilde M$. We notice that for any $L \in \tilde N$ then $C\otimes L \in \tilde M$. Since $\text{Tr\,}L_Z = 0 = \text{Tr\,}CL_Z$ we find that 
+$$
+L_Z = \begin{pmatrix}x&y\\-y&-x\end{pmatrix}.
+$$
+In addition we notice that $\eta \otimes L \in \tilde N$, which implies that $x=0$ and similarly $\eta \otimes C\otimes L \in \tilde M \implies y = 0$. So, we have that $L_z = L_\sigma = 0$ for any defect in $\tilde N,\tilde M$ which further proves that $M = C\otimes N$. Notice that exactly the same reasoning applies to the lines in $\tilde A, \tilde B$ which leads us to conclude that $B = C\otimes A$.
+
+### Fib Lines $\tilde \alpha, \tilde \beta, \tilde \gamma$ 
+
+Take a line $L \in \tilde \alpha$. Since we know its trace we can write
+$$
+L_Z = \begin{pmatrix}x & y\\z & 2\phi-x\end{pmatrix}.
+$$
+Using the fact that $C\otimes L, C\otimes \eta \otimes L \in \tilde \gamma$ we find that $y=z=0$. Also we notice that $\eta \otimes L \in \tilde \alpha \cup \tilde \beta$. Now we can calculate 
+$$
+\text{Tr\,} \eta L_Z = \omega x + \omega^2 (2\phi -x).
+$$
+If $\eta \otimes L \in \tilde \alpha$ we have that this trace is $2\phi$ which implies that $x=-2 \phi \omega$. Then we see that $\text{Tr\,}\eta^2L_z = -4\phi$ which doesn't match any line. We can use the same reasoning to show that $\eta\otimes L, \eta^2\otimes L \in \tilde \beta$, which would imply that there is one solution where $x=\phi$. Now we do the same thing for $L\in \tilde \beta$. By a similar argument we see that if $\eta \otimes L \in \tilde \alpha$ then $L = \eta^2 \otimes \alpha$. Otherwise we have that $L = \eta \otimes \alpha$. Finally, we see that for any $L \in \tilde \gamma$ then $C\otimes L \in \{\alpha,\eta \otimes \alpha, \eta^2 \otimes \alpha\}$, and since $C^2 =1$ we have that
+$$
+\begin{align*}
+\tilde \alpha = \{\alpha\} && \tilde \beta = \{\eta \otimes \alpha, \eta^2 \otimes \alpha \} && \tilde \gamma = C \otimes (\tilde \alpha \cup \tilde \beta).
+\end{align*} 
+$$
+Finally, we have the remaining line in $\tilde A$, where we can see that $A = \alpha \otimes N$. WE ARE DONE! These are the 16 lines we predicted, so there can't be any more. 
 
 
 
