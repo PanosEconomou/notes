@@ -194,7 +194,28 @@ $$
 $$
 Finally, we have the remaining line in $\tilde A$, where we can see that $A = \alpha \otimes N$. WE ARE DONE! These are the 16 lines we predicted, so there can't be any more. 
 
+## Summary
 
+Finally, we have everything we hoped for. Our fusion category has the following lines $\{1,\eta,C, \alpha, N\}$ with the following fusion rules
+$$
+\begin{align*}
+\eta\otimes \eta \otimes \eta &= 1\\
+C\otimes C &=1 \\
+N\otimes N &= 1 \oplus \eta \oplus \eta \otimes \eta\\
+\alpha \otimes \alpha &= 1 \oplus \alpha\\
+\eta \otimes N &= N = N\otimes \eta\\
+
+\eta \otimes C &= C\otimes \eta\\
+\eta \otimes \alpha &= \alpha\otimes \eta\\
+C\otimes a &= a \otimes C\\
+C\otimes N &= N \otimes C.
+\end{align*}
+$$
+And the remaining simple lines are the inequivalent fusions of these $5$ lines given by
+$$
+\text{Irr\,}\mathcal{C}=\{1,\eta,C, \alpha, N,\eta^2, C\eta, C\eta^2, \eta \alpha, \eta^2 \alpha, C\alpha, C\eta \alpha, C\eta^2\alpha, \alpha N, CN, C\alpha N\}.
+$$
+With this we can identify $\mathcal{C} = (\text{TY}(\mathbb{Z}_3) \boxtimes \text{Fib}) \rtimes \mathbb{Z}_2$, at least at the fusion ring level. It is worth noting that the ungaged theory has symmetry $\mathcal{C}=\text{Rep}(\text{Vir}_{c=\frac{4}{5}})$. 
 
 ## S-Matrix
 
@@ -239,15 +260,11 @@ On the other hand a wrong guess for $S_+$ is simply the projection of the $\math
 
 I wonder if we can figure this out directly from bootstrap constraints without working out what we gauged explicitly. Clearly one solution here is to say that the fields that don't appear in the untwisted sector appear with multiplicity 1 in the twisted sectors. This will give $S_+$ to be the exact $S$ matrix of $\mathcal{C}$, which squares to $1$ as expected. 
 
-[Tachikawa](https://arxiv.org/pdf/2002.12283) says that we can get $3$-state Potts via $\mathbb{Z}_2$ gauging of the diagonal theory which is known as the tetracritical Ising model. Apparently it is a well known fact that $D$ modular invariants are obtained via $\mathbb{Z}_2$ gauging in minimal models from $A$ modular invariants. For tetracritical ising the $\mathbb{Z}_2$ we are gauging is the one that flips the signs of $4$ primaries leaving the rest invariant (similar to the $\eta$ line in $\text{Ising}$). The fields that flip sign are
+[Tachikawa](https://arxiv.org/pdf/2002.12283) says that we can get $3$-state Potts via $\mathbb{Z}_2$ gauging of the diagonal theory which is known as the tetracritical Ising model. Apparently it is a well known fact that $D$ modular invariants are obtained via $\mathbb{Z}_2$ gauging in minimal models from $A$ modular invariants. For tetracritical Ising the $\mathbb{Z}_2$ we are gauging is the one that flips the signs of $4$ primaries leaving the rest invariant (similar to the $\eta$ line in $\text{Ising}$). The fields that flip sign are
 $$
 (r,s) \in \{(2,1),(2,2),(4,1),(4,2)\},
 $$
-with conformal weights $\{\frac{1}{8},\frac{1}{40},\frac{13}{8}, \frac{21}{40}\}$ which unsurprisingly are the primaries with conformal weights that we don't see in the untwisted sector of the Potts model. So we only have to see what contributions we will get from the even part of the twisted sector where we simply get two extra copies of the $Z,\sigma$. 
-
-I didn't read this but [this](https://arxiv.org/pdf/hep-th/9601078) is a paper that seems relevant to read here. 
-
-Putting everything together we can build the full $S$  matrix by undoing our coordinate transformation to obtain 
+with conformal weights $\{\frac{1}{8},\frac{1}{40},\frac{13}{8}, \frac{21}{40}\}$ which unsurprisingly are the primaries with conformal weights that we don't see in the untwisted sector of the Potts model. So we only have to see what contributions we will get from the even part of the twisted sector where we simply get two extra copies of the $Z,\sigma$. I didn't read this but [this](https://arxiv.org/pdf/hep-th/9601078) is a paper that seems relevant to read here. 
 
 
 
