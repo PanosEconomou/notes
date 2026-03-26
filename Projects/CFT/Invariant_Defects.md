@@ -357,7 +357,7 @@ $$
 \chi^4 &= 1,
 \end{align*}
 $$
-which is $D_4$! So the invertible defects of this category form some version of $\text{Vec}_{D_4}$.
+which is $D_8$! So the invertible defects of this category form some version of $\text{Vec}_{D_8}$.
 
 
 
@@ -381,25 +381,31 @@ $$
 \tilde \delta :& -4&4&-4&0&0&-4&4&0&0&-4&0&0&0&0&0,
 \end{array}
 $$
-This is a particularly plesant situation because by looking at the fusion rules consider any defect $L\in\tilde \alpha \cup \tilde \beta$, we know that $\chi \otimes L, \sigma \otimes L \in \tilde \gamma$ which implies that the matrices of $L$ acting on the primaries have a fixed diagonal with one degree of freedom fixed by the trace. 
+This is a particularly pleasant situation because by looking at the fusion rules consider any defect $L\in\tilde \alpha$, we know that $\chi \otimes L, \sigma \otimes L \in \tilde \gamma$ which implies that the matrices of $L$ acting on the primaries have a fixed diagonal with one degree of freedom fixed by the trace. 
 
-Let's assume first, that $L\otimes L$ is not simple, then the only things it can be are $L\otimes L \in \{2,2\eta,1\oplus \eta\}$, however we can rule that out becuase there is no $2\times 2$ matrix with trace $\sqrt{2}$ such that when multiplied by $a,b$ has trace $0$ and squares to $2,-2,0$. Therefore $L\otimes L$ must be simple.
-
-This means that $L\otimes L$ must be in $\tilde \delta$ which would fix the remaining degrees of freedom. So in an extreme degree of satisfaction, there is only 2 defects hidden in here since all the degrees of freedom are fixed. To describe them consider the matrix $c=\frac{1 + i b}{\sqrt{2}}$, which satisfies $\text{Tr\,}c = \sqrt{2}$ and $\text{Tr\,}c^2=0$. Unfortunately, there are two solutions since $\bar c$ also satisfies this. 
-
-then we know that a solution for $\alpha$ is given by
+Let's assume first that $L\otimes L$ is simple, which would it imply that it must be in $\tilde \delta$. In a primary $\phi$ that this traces to $\sqrt{2}$ then we have that 
 $$
-\begin{array}{cccccccccccccccc}
-\alpha :& \sqrt{2}ib&\sqrt{2}&\sqrt{2}ib&c&c&\sqrt{2}ib&-\sqrt{2}&-c&-c&\sqrt{2}ib&c&c&-c&-c&0,
-\end{array}
+\begin{align*}
+L_\phi = \begin{pmatrix}x & y\\z& \sqrt{2} -x\end{pmatrix} && \text{Tr\,}a L_{\phi} = \text{Tr\,}\bar b  L_{\phi} = 0 && \text{Tr\,}L_{\phi}^2 = 0 \implies L_\phi = \frac{1 \pm i b}{\sqrt{2}}.
+\end{align*}
 $$
-while the same thing would work for $\bar c$, which is a minor problem.
+We also know that $L\otimes \chi \in \tilde \gamma$, and we can also see that $\sigma \chi \otimes \tilde \gamma \subset \tilde \gamma$. If we calculate $(L\otimes \chi)_{\phi} = L_\phi \bar b = \frac{\bar b \mp ia}{\sqrt{2}}= \bar b L_\phi^\dagger$ we can see that $(\sigma \otimes \chi \otimes L\otimes \chi)_{\phi}= -aL^\dagger_\phi$. We also know that $\sigma\otimes \tilde \gamma \subset \tilde \alpha \cup \tilde \beta$ which implies that $-L_\phi^{\dagger}$ is a line in $\tilde \beta$, and $L_\phi^\dagger$ is another line in $\tilde \alpha$. Now consider the line $L_\phi L^\dagger_\phi = 1$. This implies that we should be able to build a line with trace $2$ for that primary, but quantum dimension $2$. The only way to construct such a defect would be to consider either $1\oplus \chi \sigma$ or $1 \oplus \sigma \chi$, while both of these have trace $2$, none of them act as the identity on the $\phi$ space. Therefore $L\otimes L$ can't be simple.
 
-while $\beta = \chi^2\otimes \alpha$. Now we know that $\{\chi\otimes \alpha,\sigma\otimes \alpha, \chi^3\otimes \alpha, \sigma\otimes \chi^2\otimes  \alpha\} \subset \tilde \gamma$, simply by looking at the action on the nondegenerate primaries. Now assume that there is another line $L \in \tilde \gamma$, then it must satisfy that $\chi \otimes L \in \{\alpha, \chi^2 \otimes \alpha\}$, whic0
+Since $L\otimes L$ is not simple, then the only things it can be are $L\otimes L \in \{1\oplus\sigma \chi, 1 \oplus \chi \sigma, \chi^2 \oplus \sigma \chi,\chi^2 \oplus \chi \sigma\}$. Let's consider the case where $L\otimes L \in \{\chi^2 \oplus \chi \sigma\}$ which would imply $L_\phi^2 = -1 \pm b$ and therefore $x^2 = -1, y=z=2^{-\frac{1}{2}}$. However this would yield $\text{Tr\,}aL_\phi= 2i-\sqrt{2} \neq 0$, so this can't be the case. If on the other hand $L\otimes L \in \{1\oplus \sigma \chi, 1\oplus \chi \sigma\}$ we find two solutions
+$$
+L_\phi^{\pm}=c^{\pm} = \frac{1 \pm b}{\sqrt{2}},
+$$
+which satisfy all the other fusion rules we mentioned.  In this case we have $L_\phi^{\pm}L_\phi^{\mp} = 0$ where the only way for this to happen is if they fuse in $\tilde \delta$. We also know that $(L\otimes \chi)_{\phi} = L^{\pm}_{\phi}\bar b=\bar b L^{\mp}_\phi$, which implies that $-L^{\pm}$ are two lines in $\tilde \beta$ and $L^{\pm}$ are in $\tilde \alpha$ by looking at their traces. 
 
-
-
-
+Now for a primary $\psi$ such that $\text{Tr\,}L_\psi = 2\sqrt{2}$ the only solution is $L_\psi = \sqrt{2}$, while for the primary $\omega$ where $\text{Tr\,}L_\omega = 0$ we find that 
+$$
+L_\omega^x = \sqrt{2} \begin{pmatrix}0 & x\\ x^{-1} &0\end{pmatrix},
+$$
+for some $x\in \mathbb{C}$. Now we know that picking two defects $L\neq L' \in \tilde \alpha$ they should fuse by $L\otimes L' \in \tilde\delta$. Then we can show that 
+$$
+\text{Tr\,}L_\omega^xL_\omega^y = -4 \implies x = -y.
+$$
+Therefore, as expected, while there is an ambiguity in the choice of $x \in \mathbb{C}$ there are only two defects $L_\omega^{\pm}=\pm L_\omega^{x}$. For now we can leave $x$ as an unknown, but we will constrain it soon.
 
 
 
