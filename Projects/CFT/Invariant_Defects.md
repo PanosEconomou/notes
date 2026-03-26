@@ -331,16 +331,26 @@ Now consider the vector $T = (\text{Tr\,} \tilde 1,\text{Tr\,} \tilde \eta,\text
 
 The next inequivalent case is when $T=(2,2,-2,0,0)$ in which case the only action compatible with our basis choice is still unambiguous and is given by $(1,1,-1,a,-a)$.
 
-Finally, the last case is $T=(2,2,0,0,0)$. Here we, unfortunately have 4 consistent solutions of the fusion rules, each with a 2-fold ambiguity. They are up to a choice of basis
+Finally, the last case is $T=(2,-2,0,0,0)$. Here we, unfortunately have 4 consistent solutions of the fusion rules, each with a 2-fold ambiguity. They are given by, up to a choice of basis,
 $$
 \begin{align*}
-(1,1,\pm b,\pm a,\pm \bar b) && (1,1,\pm \bar b,\pm a,\pm b)\\
-(1,1,\pm i\bar b,\pm ia,\pm b) && (1,1,\pm i b,\pm ia,\pm \bar b)
+(1,-1,\pm b,\pm a,\pm \bar b) && (1,-1,\pm \bar b,\pm a,\pm b)\\
+(1,-1,\pm i\bar b,\pm ia,\pm b) && (1,-1,\pm i b,\pm ia,\pm \bar b)
 \end{align*},
 $$
-where we can reject the second row because we already know we have a defect that acts with $a$ on that primary.
+where we can reject the second row because we already know we have a defect in $\tilde \sigma$ that acts with $a$ on that primary. Now we need to see which set of inequivalent fusion rules we have. In the first case we have that any $L\in \tilde \chi$ is such that $L^2 = 1$ while in the second $L^2=-1$. One way to resolve this is to look into the lines we already know from Tricritical Ising. We know that this has symmetry $\text{Fib}\boxtimes \text{Ising}$, therefore we must be able to build various $\mathbb{Z}_2$ lines that are Verlinde lines in $\mathcal{V}$. In particular you can see that what we called $\tilde \chi$ must contain the lines $\eta \boxtimes 1,1\boxtimes \eta$ just by looking at how it acts on the nondegenerate sector. We immediately see that these lines should square to the identity, so the only possible set of consistent TDLs has to act like $(1,-1,\pm b, \pm a, \pm \bar b)$ on the corresponding primary.
 
+However, there is some residual ambiguity left. For example let's pick a defect in $\tilde \sigma$. There are $8$ primaries that have $T=(2,-2,0,0,0)$, therefore, naively we should expect to have $2^{8}$ possible defects in $\tilde \sigma$. However this is not true. Let $\psi,\phi$ be two different primaries and assume that there exists $L,L' \in \tilde \sigma$ such that $L_{\phi}=L_{\psi}=L'_{\phi}=a$ while $L'_{\psi} = -a$. Then we have that $\text{tr}_{\phi} L\otimes L' = -\text{tr}_{\psi} L\otimes L' = 2$, which implies that $L\otimes L' = \eta$ and $L\otimes L' = 1$. So we can conclude that there are only 2 defects in the families $\tilde \chi, \tilde \sigma, \tilde \rho$.
 
+So finally we have that the invertible simple TDLs are given by $1, \sigma, \chi$ such that $\chi\otimes \chi = \eta \boxtimes \eta$, or more specifically with fusion rules (I am not writing the tensor product symbol)
+$$
+\begin{align*}
+\sigma^2 &= 1\\
+\sigma\chi &= \chi^3 \sigma\\
+\chi^4 &= 1,
+\end{align*}
+$$
+which guess what? It's $D_4$! So the invertible defects of this category form $\text{Vec}_{D_4}$.
 
 
 
