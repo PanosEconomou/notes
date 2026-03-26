@@ -300,9 +300,9 @@ $$
 \begin{array}{ccccccccccccccccccccccccc}
  \tilde 1: & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
  \tilde \eta: & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
- \tilde \chi: & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
+ \tilde \rho: & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
  \tilde \sigma: & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 \\
- \tilde \rho: & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 \\
+ \tilde \chi: & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 & -1 & 1 & -1 & 1 & 1 & -1 & -1 & 1 & 1 & -1 \\
 \end{array}
 $$
 I'm not labeling all the primaries, there really isn't  enough space. On the $15$ pairs of degenerate primaries their trace is given by
@@ -310,14 +310,14 @@ $$
 \begin{array}{cccccccccccccccc}
  \tilde 1: &2  & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 & 2 \\
  \tilde \eta: & 2 & 2 & 2 & -2 & -2 & 2 & 2 & -2 & -2 & 2 & -2 & -2 & -2 & -2 & 2 \\
- \tilde \chi: & 2 & 2 & 2 & 0 & 0 & 2 & 2 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & -2 \\
+ \tilde \rho: & 2 & 2 & 2 & 0 & 0 & 2 & 2 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & -2 \\
  \tilde \sigma: & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
- \tilde \rho: & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ \tilde \chi: & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 \end{array}
 $$
 We also know that all of these defects have conformal dimension $1$, and therefore are invertible, which means that they should act as $2\times 2$ unitary matrices on the degenerate subspaces. One cool fact is that since the eigenvalues of a unitary matrix are phases, there is exactly $1$ such matrix that traces to $2$ and exactly $1$ that traces to $-2$ (these are the matrices $\pm 1$). If the trace is nonzero, there is no ambiguity on how the defect acts on that pair of primaries. However, when the trace does vanish we need more constraints. 
 
-One cool constraint is that all defects should square to $\pm 1$ and that for any lines $L\in \tilde \sigma, L' \in \tilde \rho$ it must be that $L\otimes L' \in \tilde \chi$. If we fix a degenerate primary, there are three different cases on how these $5$ defects act on it. 
+One cool constraint is that all defects should square to $\pm 1$ and that for any lines $L\in \tilde \sigma, L' \in \tilde \chi$ it must be that $L\otimes L' \in \tilde \rho$. If we fix a degenerate primary, there are three different cases on how these $5$ defects act on it. 
 
 In the following let's define the following matrices that will be helpful.
 $$
@@ -327,7 +327,7 @@ a=\begin{pmatrix}1&0\\0&-1\end{pmatrix} && b = \begin{pmatrix}0&1\\1&0\end{pmatr
 $$
 Notice that all these are traceless and satisfy the identities $a^2=b^2 = -\bar b^2 = 1$, $a = \bar b b$, and $ab = \bar b  = -ba$. We will see that up to basis change on the primary states there are no more degrees of freedom left over.
 
-Now consider the vector $T = (\text{Tr\,} \tilde 1,\text{Tr\,} \tilde \eta,\text{Tr\,}\tilde \chi,\text{Tr\,}\tilde \sigma,\text{Tr\,}\tilde \rho )$ where it is understood that the trace is taken on the subspace of a particular degenerate field of any defect in that class. If we focus on the case where $T=(2,2,2,0,0)$ we know that there are only two consistent with fusion solutions are defects acting as $(1,1,1,a,a)$ and $(1,1,1,b,b)$, up to a basis choice. Both of them can't coexist since $ab = \bar b$ that has trace $0$ and not $2$. Luckily we know that in the basis we have chosen there must be a topological defect $\sigma$ that acts as identity on half of the degenerate fields and as the negative of that on the remaining ones. This comes from the fact that we have diagonalized the action of $\sigma$. So in our basis we know that when $T=(2,2,2,0,0)$ the invertible defects must act as $(1,1,1,a,a)$ which resolves the ambiguity.
+Now consider the vector $T = (\text{Tr\,} \tilde 1,\text{Tr\,} \tilde \eta,\text{Tr\,}\tilde \rho,\text{Tr\,}\tilde \sigma,\text{Tr\,}\tilde \chi )$ where it is understood that the trace is taken on the subspace of a particular degenerate field of any defect in that class. If we focus on the case where $T=(2,2,2,0,0)$ we know that there are only two consistent with fusion solutions are defects acting as $(1,1,1,a,a)$ and $(1,1,1,b,b)$, up to a basis choice. Both of them can't coexist since $ab = \bar b$ that has trace $0$ and not $2$. Luckily we know that in the basis we have chosen there must be a topological defect $\sigma$ that acts as identity on half of the degenerate fields and as the negative of that on the remaining ones. This comes from the fact that we have diagonalized the action of $\sigma$. So in our basis we know that when $T=(2,2,2,0,0)$ the invertible defects must act as $(1,1,1,a,a)$ which resolves the ambiguity.
 
 The next inequivalent case is when $T=(2,2,-2,0,0)$ in which case the only action compatible with our basis choice is still unambiguous and is given by $(1,1,-1,a,-a)$.
 
@@ -335,14 +335,21 @@ Finally, the last case is $T=(2,-2,0,0,0)$. Here we, unfortunately have 4 consis
 $$
 \begin{align*}
 (1,-1,\pm b,\pm a,\pm \bar b) && (1,-1,\pm \bar b,\pm a,\pm b)\\
-(1,-1,\pm i\bar b,\pm ia,\pm b) && (1,-1,\pm i b,\pm ia,\pm \bar b)
+(1,-1,\pm i\bar b,\pm a,\pm ib) && (1,-1,\pm i b,\pm a,\pm i\bar b)
 \end{align*},
 $$
-where we can reject the second row because we already know we have a defect in $\tilde \sigma$ that acts with $a$ on that primary. Now we need to see which set of inequivalent fusion rules we have. In the first case we have that any $L\in \tilde \chi$ is such that $L^2 = 1$ while in the second $L^2=-1$. One way to resolve this is to look into the lines we already know from Tricritical Ising. We know that this has symmetry $\text{Fib}\boxtimes \text{Ising}$, therefore we must be able to build various $\mathbb{Z}_2$ lines that are Verlinde lines in $\mathcal{V}$. In particular you can see that what we called $\tilde \chi$ must contain the lines $\eta \boxtimes 1,1\boxtimes \eta$ just by looking at how it acts on the nondegenerate sector. We immediately see that these lines should square to the identity, so the only possible set of consistent TDLs has to act like $(1,-1,\pm b, \pm a, \pm \bar b)$ on the corresponding primary.
+where we can reject the second row because we already know we have a defect in $\tilde \sigma$ that acts with $a$ on that primary. Now we need to see which set of inequivalent fusion rules we have. In the first case we have that any $L\in \tilde \rho$ is such that $L^2 = 1$ while in the second $L^2=-1$. One way to resolve this is to look into the lines we already know from Tricritical Ising. We know that this has symmetry $\text{Fib}\boxtimes \text{Ising}$, therefore we must be able to build various $\mathbb{Z}_2$ lines that are Verlinde lines in $\mathcal{V}$. In particular you can see that what we called $\tilde \rho$ must contain the lines $\eta \boxtimes 1,1\boxtimes \eta$ just by looking at how it acts on the nondegenerate sector. We immediately see that these lines should square to the identity, so the only possible set of consistent TDLs has to act like $(1,-1,\pm b, \pm a, \pm \bar b)$ on the corresponding primary.
 
-However, there is some residual ambiguity left. For example let's pick a defect in $\tilde \sigma$. There are $8$ primaries that have $T=(2,-2,0,0,0)$, therefore, naively we should expect to have $2^{8}$ possible defects in $\tilde \sigma$. However this is not true. Let $\psi,\phi$ be two different primaries and assume that there exists $L,L' \in \tilde \sigma$ such that $L_{\phi}=L_{\psi}=L'_{\phi}=a$ while $L'_{\psi} = -a$. Then we have that $\text{tr}_{\phi} L\otimes L' = -\text{tr}_{\psi} L\otimes L' = 2$, which implies that $L\otimes L' = \eta$ and $L\otimes L' = 1$. So we can conclude that there are only 2 defects in the families $\tilde \chi, \tilde \sigma, \tilde \rho$.
+However, there is some residual ambiguity left. For example let's pick a defect in $\tilde \sigma$. There are $8$ primaries that have $T=(2,-2,0,0,0)$, therefore, naively we should expect to have $2^{8}$ possible defects in $\tilde \sigma$. However this is not true. Let $\psi,\phi$ be two different primaries and assume that there exists $L,L' \in \tilde \sigma$ such that $L_{\phi}=L_{\psi}=L'_{\phi}=a$ while $L'_{\psi} = -a$. Then we have that $\text{tr}_{\phi} L\otimes L' = -\text{tr}_{\psi} L\otimes L' = 2$, which implies that $L\otimes L' = \eta$ and $L\otimes L' = 1$. So we can conclude that there are only 2 defects in the families $\tilde \rho, \tilde \sigma, \tilde \chi$.
 
-So finally we have that the invertible simple TDLs are given by $1, \sigma, \chi$ such that $\chi\otimes \chi = \eta \boxtimes \eta$, or more specifically with fusion rules (I am not writing the tensor product symbol)
+So finally we have that the invertible simple TDLs are given by $1, \sigma, \chi$ such that $\chi\otimes \chi = \eta \boxtimes \eta$, given by
+$$
+\begin{array}{cccccccccccccccc}
+ \sigma: & a & a & a & a & a & a & a & a & a & a & a & a & a & a & a \\
+ \chi: & a & a & a & \bar b & \bar b & a & a & \bar b & \bar b & a & \bar b & \bar b & \bar b & \bar b & -a \\
+\end{array}
+$$
+or more specifically with fusion rules (I am not writing the tensor product symbol)
 $$
 \begin{align*}
 \sigma^2 &= 1\\
@@ -350,7 +357,45 @@ $$
 \chi^4 &= 1,
 \end{align*}
 $$
-which guess what? It's $D_4$! So the invertible defects of this category form $\text{Vec}_{D_4}$.
+which is $D_4$! So the invertible defects of this category form some version of $\text{Vec}_{D_4}$.
+
+
+
+### Quantum Dimension $\sqrt{2}$
+
+We have 3 families of defects with quantum dimension $\sqrt{2}$ and 1 family with $2$. In the nondegenerate primaries these 4 defects act by
+$$
+\begin{array}{cccccccccccccccccccccccc}
+\tilde \alpha: & \sqrt{2}&\sqrt{2}&\sqrt{2}&\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&\sqrt{2}&\sqrt{2}&\sqrt{2}&\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&0&0&0&0&0&0&0&0\\
+\tilde \beta: & \sqrt{2}&\sqrt{2}&\sqrt{2}&\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&\sqrt{2}&\sqrt{2}&\sqrt{2}&\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&-\sqrt{2}&0&0&0&0&0&0&0&0\\
+\tilde \gamma: & \sqrt{2}&-\sqrt{2}&-\sqrt{2}&\sqrt{2}&-\sqrt{2}&\sqrt{2}&\sqrt{2}&-\sqrt{2}&\sqrt{2}&-\sqrt{2}&-\sqrt{2}&\sqrt{2}&-\sqrt{2}&\sqrt{2}&\sqrt{2}&-\sqrt{2}&0&0&0&0&0&0&0&0\\
+\tilde \delta: & 2&2&2&2&2&2&2&2&2&2&2&2&2&2&2&2&0&0&0&0&0&0&0&0
+\end{array}
+$$
+while on the degenerate primaries they act by
+$$
+\begin{array}{cccccccccccccccc}
+\tilde \alpha :& 0&2\sqrt{2}&0&\sqrt{2}&\sqrt{2}&0&-2\sqrt{2}&-\sqrt{2}&-\sqrt{2}&0&\sqrt{2}&\sqrt{2}&-\sqrt{2}&-\sqrt{2}&0\\
+\tilde \beta :& 0&2\sqrt{2}&0&-\sqrt{2}&-\sqrt{2}&0&-2\sqrt{2}&\sqrt{2}&\sqrt{2}&0&-\sqrt{2}&-\sqrt{2}&\sqrt{2}&\sqrt{2}&0\\
+\tilde \gamma :& 0&0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+\tilde \delta :& -4&4&-4&0&0&-4&4&0&0&-4&0&0&0&0&0,
+\end{array}
+$$
+This is a particularly plesant situation because by looking at the fusion rules consider any defect $L\in\tilde \alpha \cup \tilde \beta$, we know that $\chi \otimes L, \sigma \otimes L \in \tilde \gamma$ which implies that the matrices of $L$ acting on the primaries have a fixed diagonal with one degree of freedom fixed by the trace. 
+
+Let's assume first, that $L\otimes L$ is not simple, then the only things it can be are $L\otimes L \in \{2,2\eta,1\oplus \eta\}$, however we can rule that out becuase there is no $2\times 2$ matrix with trace $\sqrt{2}$ such that when multiplied by $a,b$ has trace $0$ and squares to $2,-2,0$. Therefore $L\otimes L$ must be simple.
+
+This means that $L\otimes L$ must be in $\tilde \delta$ which would fix the remaining degrees of freedom. So in an extreme degree of satisfaction, there is only 2 defects hidden in here since all the degrees of freedom are fixed. To describe them consider the matrix $c=\frac{1 + i b}{\sqrt{2}}$, which satisfies $\text{Tr\,}c = \sqrt{2}$ and $\text{Tr\,}c^2=0$. Unfortunately, there are two solutions since $\bar c$ also satisfies this. 
+
+then we know that a solution for $\alpha$ is given by
+$$
+\begin{array}{cccccccccccccccc}
+\alpha :& \sqrt{2}ib&\sqrt{2}&\sqrt{2}ib&c&c&\sqrt{2}ib&-\sqrt{2}&-c&-c&\sqrt{2}ib&c&c&-c&-c&0,
+\end{array}
+$$
+while the same thing would work for $\bar c$, which is a minor problem.
+
+while $\beta = \chi^2\otimes \alpha$. Now we know that $\{\chi\otimes \alpha,\sigma\otimes \alpha, \chi^3\otimes \alpha, \sigma\otimes \chi^2\otimes  \alpha\} \subset \tilde \gamma$, simply by looking at the action on the nondegenerate primaries. Now assume that there is another line $L \in \tilde \gamma$, then it must satisfy that $\chi \otimes L \in \{\alpha, \chi^2 \otimes \alpha\}$, whic0
 
 
 
