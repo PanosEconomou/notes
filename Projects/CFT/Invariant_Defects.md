@@ -405,8 +405,49 @@ for some $x\in \mathbb{C}$. Now we know that picking two defects $L\neq L' \in \
 $$
 \text{Tr\,}L_\omega^xL_\omega^y = -4 \implies x = -y.
 $$
-Therefore, as expected, while there is an ambiguity in the choice of $x \in \mathbb{C}$ there are only two defects $L_\omega^{\pm}=\pm L_\omega^{x}$. For now we can leave $x$ as an unknown, but we will constrain it soon.
+Therefore, as expected, while there is an ambiguity in the choice of $x \in \mathbb{C}$ there are only two defects $L_\omega^{\pm}=\pm L_\omega^{x}$. Turns out this $x$ is also a constant that depends on a choice of basis. If we assume that the basis is orthonormal then we can show that $|x| = 1$ and we can therefore pick a basis such that $x^2 = 1$. It is not apparent right now that we have a choice for $x \in \mathbb{C}\setminus \{0\}$ So we will fix the complete form of the $L$ defects later (that said we know that these defects are of the form $1\boxtimes N$ and $N\boxtimes 1$ from how they act in the nondegenerate fields). But just so that I have results, here are the lines. $\tilde \alpha$ has two lines $N,N'$, while $\tilde \beta$ also has two lines $\chi\sigma \otimes N,\sigma\chi \otimes N'$, where $N,N'$ act as
+$$
+\begin{array}{cccccccccccccccc}
+N :& \sqrt{2}b&\sqrt{2}&-\sqrt{2}b&\frac{1+b}{\sqrt{2}}&\frac{1-b}{\sqrt{2}}&\sqrt{2}b&-\sqrt{2}&-\frac{1+b}{\sqrt{2}}&-\frac{1-b}{\sqrt{2}}&-\sqrt{2}b&\frac{1+b}{\sqrt{2}}&\frac{1-b}{\sqrt{2}}&-\frac{1-b}{\sqrt{2}}&-\frac{1+b}{\sqrt{2}}&0\\
+N' :& -\sqrt{2}b&\sqrt{2}&\sqrt{2}b&\frac{1-b}{\sqrt{2}}&\frac{1+b}{\sqrt{2}}&-\sqrt{2}b&-\sqrt{2}&-\frac{1-b}{\sqrt{2}}&-\frac{1+b}{\sqrt{2}}&\sqrt{2}b&\frac{1-b}{\sqrt{2}}&\frac{1+b}{\sqrt{2}}&-\frac{1+b}{\sqrt{2}}&-\frac{1-b}{\sqrt{2}}&0
+\end{array}
+$$
+The lines in $\tilde \gamma$ are given by $\sigma, \chi$ fusing with $\tilde \alpha \cup \tilde \beta$. And the lines in $\tilde \delta$ are obtained by fusing variations of $N,N'$. At the end we will write all the fusion rules and the relationships will be less obscure.
 
+> **Aside:** It looks like there is a clear way to obtain the defects here. We notice that we could have obtained the same fusion rules after identifying that $D_8$ by taking the lines $1\boxtimes N$ and $N\boxtimes 1$ and then closing under fusion with the $D_8$ lines.
+
+
+
+### Quantum Dimension $\phi$
+
+Moving forward we have defects with quantum dimension $\phi = \frac{1+\sqrt{5}}{2}$ the golden ratio. As expected there are $6$ such families (each line splits into three families for $1\boxtimes \phi$, $\phi \boxtimes 1$, and an extra one just like in the $\sqrt{2}$) that act like so on the nondegenerate fields 
+$$
+\begin{array}{cccccccccccccccccccccccc}
+ \varphi  & \varphi  & \varphi  & \varphi  & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & \varphi  & \varphi  & \varphi  & \frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\varphi  & -\varphi  & -\varphi  & -\varphi  \\
+ \varphi  & \varphi  & \varphi  & \varphi  & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & \varphi  & \varphi  & \varphi  & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & \varphi  & \varphi  & \varphi  \\
+ \varphi  & \varphi  & \varphi  & \varphi  & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & \varphi  & \varphi  & \varphi  & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & \varphi  & \varphi  & \varphi  \\
+ \varphi  & \varphi  & \varphi  & \varphi  & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & \varphi  & \varphi  & \varphi  & \frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\varphi  & -\varphi  & -\varphi  & -\varphi  \\
+ \varphi  & -\varphi  & -\varphi  & \varphi  & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & -\varphi  & -\varphi  & \varphi  & \frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \frac{1}{\varphi } & -\varphi  & \varphi  & \varphi  & -\varphi  \\
+ \varphi  & -\varphi  & -\varphi  & \varphi  & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & -\varphi  & -\varphi  & \varphi  & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & -\varphi  & -\varphi  & \varphi  \\
+ \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 \\
+ \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 \\
+ \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\varphi -1 & -\varphi -1 & -\varphi -1 & -\varphi -1 \\
+\end{array}
+$$
+where we've also included the lines with $\phi^2$ so that we can spot some patterns. On the degenerate primaries these act like
+$$
+\begin{array}{ccccccccccccccc}
+ 1 & 1 & 2 \varphi  & \varphi +\frac{1}{\varphi } & 0 & \frac{2}{\varphi } & 1 & 0 & -\varphi -\frac{1}{\varphi } & 1 & 0 & -\varphi -\frac{1}{\varphi } & \varphi +\frac{1}{\varphi } & 0 & -1 \\
+ 1 & 1 & 2 \varphi  & 1 & 2 \varphi  & \frac{2}{\varphi } & 1 & \frac{2}{\varphi } & 1 & 1 & \frac{2}{\varphi } & 1 & 1 & 2 \varphi  & 1 \\
+ 1 & 1 & 2 \varphi  & -1 & -2 \varphi  & \frac{2}{\varphi } & 1 & \frac{2}{\varphi } & -1 & 1 & \frac{2}{\varphi } & -1 & -1 & -2 \varphi  & 1 \\
+ 1 & 1 & 2 \varphi  & -\varphi -\frac{1}{\varphi } & 0 & \frac{2}{\varphi } & 1 & 0 & \varphi +\frac{1}{\varphi } & 1 & 0 & \varphi +\frac{1}{\varphi } & -\varphi -\frac{1}{\varphi } & 0 & -1 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ -2 & -2 & 2 \varphi ^2 & 2 & -2 \varphi ^2 & \frac{2}{\varphi ^2} & -2 & -\frac{2}{\varphi ^2} & 2 & -2 & -\frac{2}{\varphi ^2} & 2 & 2 & -2 \varphi ^2 & -2 \\
+ -2 & -2 & 2 \varphi ^2 & -2 & 2 \varphi ^2 & \frac{2}{\varphi ^2} & -2 & \frac{2}{\varphi ^2} & -2 & -2 & \frac{2}{\varphi ^2} & -2 & -2 & 2 \varphi ^2 & -2 \\
+ -2 & -2 & 2 \varphi ^2 & 0 & 0 & \frac{2}{\varphi ^2} & -2 & 0 & 0 & -2 & 0 & 0 & 0 & 0 & 2 \\
+\end{array}
+$$
 
 
 
