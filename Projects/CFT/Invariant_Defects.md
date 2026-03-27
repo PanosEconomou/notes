@@ -291,7 +291,9 @@ $$
 1 && \sqrt{2} && \varphi && \sqrt{2} \sqrt{1 + \phi^2}.
 \end{align*}
 $$
-So we expect to have $4$ families and obtain the rest of the simple lines by taking products. Let's start with the invertible ones.
+So we expect to have $4$ families and obtain the rest of the simple lines by taking products. Before we jump in here are some interesting observations. The invertible lines on the theory form a $D_8$, though not all of these lines are multiples of the identity in the representation of $\mathcal{V}^{\sigma}$. In particular only a $\mathbb{Z}_2^2$ doesn't intertwine the representations formed by $1,\sigma, \eta\boxtimes \eta$, as expected.
+
+Let's start with the invertible ones.
 
 ### Invertible Lines
 
