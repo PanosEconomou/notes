@@ -288,12 +288,12 @@ $$
  which are all combinations of the following 4 quantum dimensions
 $$
 \begin{align*}
-1 && \sqrt{2} && \varphi && \sqrt{2} \sqrt{1 + \phi^2}.
+1 && \sqrt{2} && \varphi && 2 \sqrt{1 + \phi^2}.
 \end{align*}
 $$
 So we expect to have $4$ families and obtain the rest of the simple lines by taking products. Before we jump in here are some interesting observations. The invertible lines on the theory form a $D_8$, though not all of these lines are multiples of the identity in the representation of $\mathcal{V}^{\sigma}$. In particular only a $\mathbb{Z}_2^2$ doesn't intertwine the representations formed by $1,\sigma, \eta\boxtimes \eta$, as expected.
 
-Let's start with the invertible ones.
+We will see that the last line, which we can call $W$ squares to the sum of the $D_8$ lines plus the $\text{Fib}$ lines which we will see specifically later. Let's start with the invertible ones.
 
 ### Invertible Lines
 
@@ -414,7 +414,7 @@ N :& \sqrt{2}b&\sqrt{2}&-\sqrt{2}b&\frac{1+b}{\sqrt{2}}&\frac{1-b}{\sqrt{2}}&\sq
 N' :& -\sqrt{2}b&\sqrt{2}&\sqrt{2}b&\frac{1-b}{\sqrt{2}}&\frac{1+b}{\sqrt{2}}&-\sqrt{2}b&-\sqrt{2}&-\frac{1-b}{\sqrt{2}}&-\frac{1+b}{\sqrt{2}}&\sqrt{2}b&\frac{1-b}{\sqrt{2}}&\frac{1+b}{\sqrt{2}}&-\frac{1+b}{\sqrt{2}}&-\frac{1-b}{\sqrt{2}}&0
 \end{array}
 $$
-The lines in $\tilde \gamma$ are given by $\sigma, \chi$ fusing with $\tilde \alpha \cup \tilde \beta$. And the lines in $\tilde \delta$ are obtained by fusing variations of $N,N'$. At the end we will write all the fusion rules and the relationships will be less obscure.
+Notice that $N' = \sigma \otimes N\otimes \sigma$ as expected. The lines in $\tilde \gamma$ are given by $\sigma, \chi$ fusing with $\tilde \alpha \cup \tilde \beta$. And the lines in $\tilde \delta$ are obtained by fusing variations of $N,N'$. At the end we will write all the fusion rules and the relationships will be less obscure.
 
 > **Aside:** It looks like there is a clear way to obtain the defects here. We notice that we could have obtained the same fusion rules after identifying that $D_8$ by taking the lines $1\boxtimes N$ and $N\boxtimes 1$ and then closing under fusion with the $D_8$ lines.
 
@@ -461,7 +461,13 @@ We can start with the invertible lines. Since they form a $D_8$ the $F$ symbols 
 
 
 
+## Tube Algebra
 
+Since we already know how to calculate partition functions and how to $S$-transform them, we should be able to put our minds together and calculate the tube algebra by taking advantage of the Fusion rules induced by $T$ transforming various stuff. We introduce the notation $Z_{a}^b$ for the partition function corresponding to being $a$ twisted with a $b$ insertion. For example one thing we can do is
+$$
+Z_{N}^{\sigma \chi} = T^2Z_N -  Z_N,
+$$
+It is important to note that we won't be able to get all tube algebra elements this way, but we might be able to get enough to fix its representation.
 
 
 
