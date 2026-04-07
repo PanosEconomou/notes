@@ -418,7 +418,26 @@ Notice that $N' = \sigma \otimes N\otimes \sigma$ as expected. The lines in $\ti
 
 > **Aside:** It looks like there is a clear way to obtain the defects here. We notice that we could have obtained the same fusion rules after identifying that $D_8$ by taking the lines $1\boxtimes N$ and $N\boxtimes 1$ and then closing under fusion with the $D_8$ lines.
 
+Working out the fusion rules we have that the following identities
 
+**<u>Lemma:</u>** The following identities hold ignoring the $\otimes$ symbols
+
+1. $\sigma \chi N = N \sigma \chi = N$
+2. $\chi^2 N = N \chi^2$
+3. $NN = 1 \oplus \sigma \chi$.
+4. $N\sigma N \sigma = \sigma N \sigma N$
+
+***Proof:*** If we look at a primary where $N$ acts as $\frac{1 + b}{\sqrt{2}}$ we know from the previous discussion that $\sigma$ acts as $a$ and $\chi$ acts as $\bar b$. Using the fact that $b = a \bar b $ proves the first identity because in the remaining primaries $\sigma, \chi$ act the same so the identity is always satisfied. The second one is proven by noticing that $\chi^2$ acts like $-1$, while the third one is explicitly calculated. The last one can be shown by noticing that $N\sigma = \frac{a + \bar b^3}{\sqrt 2}$ while $\sigma N = \frac{a + \bar b}{\sqrt{2}}$, which when they are squared they both give the algebra object for the $\mathbb{Z}_2\times \mathbb{Z}_2$ subgroup of $D_8$ given by $\{1, \sigma \chi, \chi \sigma, \chi^2\}$.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+Using these three identities we can conclude that there are 8 distinct simple lines with dimension $\sqrt{2}$ and are given by
+
+|   $\tilde \alpha$    |     $\tilde \beta$      |           $\tilde \gamma$            |        $\tilde \delta$         |
+| :------------------: | :---------------------: | :----------------------------------: | :----------------------------: |
+| $N, \sigma N \sigma$ | $\chi^2 N, \chi N \chi$ | $\sigma N, N\sigma, \chi^3 N, N\chi$ | $\sigma N \sigma N, N\sigma N$ |
+
+Their fusion rules can be obtained using the identities on the above lemma and the $D_8$ group multiplication.
 
 ### Quantum Dimension $\phi$
 
