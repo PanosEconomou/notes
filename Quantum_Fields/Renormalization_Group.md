@@ -47,28 +47,24 @@ $$
 
 The renormalization group transformation $R$, however, it is not just any function. It depends on some external scaling parameter $b \in \mathbb{R}$. This is known as the **rescaling factor**. The idea is that it quantifies how large our zoom out + averaging  steps are. So in some sense we need to define a series of $R:M\to M$ maps that depend on $b$ and have certain properties. 
 
-**<u>Definition:</u>** A **renormalization group transformation** is a continuous path $R:\mathbb{R}^+ \to C^0(M,M)$ in $C^0(M,M)$ such that $R_0 = \text{Id}_M$, there exists a fixed point $K_\ast \in M$ where $R_b(K_\ast) = K_\ast$ and where $R_b$ is smooth at $K_\ast$ for all $b \in \mathbb{R}^+$, and the function $R_{-}(K)$ is smooth around $0 \in \mathbb{R}^+$ for any $K \in M$.
+**<u>Definition:</u>** A **renormalization group transformation** is a continuous path $R_{\bullet}:\mathbb{R}^+ \to C^0(M,M)$ in $C^0(M,M)$ such that $R_1 = \text{Id}_M$, there exists a fixed point $K_\ast \in M$ where $R_b(K_\ast) = K_\ast$ and where $R_b$ is smooth at $K_\ast$ for all $b \in \mathbb{R}^+$ with $R_1^\ast = \text{Id}_{T^\ast_{K^\ast}M}$, and the function $R_{\bullet}(K)$ is smooth around $1 \in \mathbb{R}^+$ for any $K \in M$.
 
 This is basically a collection of transformations that starts with the identity, and has a fixed point that doesn't depend on the value of scaling. With that we can make some pretty cool assumptions. 
 
 **<u>Proposition:</u>** Given a renormalization group transformation $R$ an eigenvalue $\lambda$ of $R^\ast_b$ satisfies 
 $$
-\frac{\log \lambda(b)}{\log b} = y + \mathcal{O}(b),
+\lambda(b) = b^{y}\left[ 1 + \mathcal{O}(b-1) \right]
 $$
 for some $y \in \mathbb{R}$.
 
-***Proof:*** We know that $R_0^\ast = 0$ since  $R_0 = \text{Id}_M$. We also know that $R_{b}^\ast$ must be smooth as a function of $b$ at $b=0$ for any point on the manifold. Since the matrix $R^\ast _b$ can be written in terms of (possibly complex) eigenvectors and associated eigenvalues as
+***Proof:*** We know that $R_1^\ast = 1$. We also know that $R_{b}^\ast$ must be smooth as a function of $b$ at $b=1$ for any point on the manifold. Since the matrix $R^\ast _b$ can be written in terms of (possibly complex) eigenvectors and associated eigenvalues as
 $$
-R^\ast_b =\lambda^i(b) \epsilon^i(b) \otimes \epsilon_i(b) = \lambda^i(b) \left[\epsilon^i(0)\otimes \epsilon_i(0) + \mathcal{O}(b)\right].
+R^\ast_b =\lambda^i(b) \epsilon^i(b) \otimes \epsilon_i(b) = \lambda^i(b) \left[\epsilon^i(1)\otimes \epsilon_i(1) + \mathcal{O}(b-1)\right].
 $$
 
-We also know that $\lambda^i(0) = 0$, therefore, for a point sufficiently close to $b=0$ we can write it as
+We also know that $\lambda(1) = 1$, therefore, for a point sufficiently close to $b=1$ we can write it as
 $$
-\lambda^i(b) = 0 + (\lambda^i)'(0) b + \mathcal{O}(b^2),
-$$
-which results to the expansion 
-$$
-\log \frac{\lambda(b)}{b} = \log (\lambda^i)'(0) + \mathcal{O}(b).
+\log \lambda(b) = \frac{\lambda'(1)}{\lambda(1)} (b-1).
 $$
 
 $$

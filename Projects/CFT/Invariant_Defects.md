@@ -482,11 +482,7 @@ We can start with the invertible lines. Since they form a $D_8$ the $F$ symbols 
 
 ## Tube Algebra
 
-Since we already know how to calculate partition functions and how to $S$-transform them, we should be able to put our minds together and calculate the tube algebra by taking advantage of the Fusion rules induced by $T$ transforming various stuff. We introduce the notation $Z_{a}^b$ for the partition function corresponding to being $a$ twisted with a $b$ insertion. For example one thing we can do is
-$$
-Z_{N}^{\sigma \chi} = T^2Z_N -  Z_N,
-$$
-It is important to note that we won't be able to get all tube algebra elements this way, but we might be able to get enough to fix its representation.
+One thing we could be interested in doing is to calculate which Ishibashi states (twisted or not) are invariant under the action of some of these defects. To do this completely one would have to calculate the representation of certain tube algebra elements. We will cheat this via using bootstrap and contending ourselves with figuring out the ishibashi states and not the actual action of each tube algebra element. Here is how we would do such a thing.
 
 
 
