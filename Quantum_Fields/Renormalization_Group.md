@@ -26,52 +26,53 @@ Though *renormalization group flow* is a misnomer, there is sense in which renor
 
 > To be rigorous without using unapproachably abstract terminology we will stick to studying everything on a manifold. However, these things can be extended by relaxing assumptions in various ways that we will encounter over time. Ideally, I would like to write these notes in the language of [smooth sets](https://ncatlab.org/nlab/show/geometry+of+physics+--+smooth+sets) one day, because this is the actual rigorous way of thinking that physicists use.
 
-Consider a smooth manifold $M$ and a function $R: M \to M$. We will say that there exists a point $K_\ast \in M$ such that $R(K_\ast) = K_\ast$, aka a fixed point of $R$. We also assume that $R^\ast$ is smooth at $K_\ast$. Let's fix some tools that can help us do calculations around $K_\ast$, namely we can fix a chart $(U,\phi)$ in which $R$ is smooth and invertible in, we will see the non-invertible case soon. 
+We want to capture the intuition of a scaling transformation on some manifold $M$. That will be comprized of a series of endomorphisms of $M$ controlled by some scaling parameter $b$ which is known as the **rescaling factor** such as they compose in a natural way and so on. Here is the natural setting where we can study this.
 
-**<u>Definition:</u>** A **dual $R$ basis** $\epsilon \in \Omega(U)^{\dim M}$ is defined for any $b\in \mathbb{R}$ by
-$$
-R^\ast_b \epsilon^j = \lambda^j(b)\epsilon^j.
-$$
-where $\lambda^j \in \mathbb{C}$ is an eigenvalue of $R_\ast$. Using them we can define a bilinear form $g = \delta_{ij} \epsilon^i\otimes \epsilon^j$. Namely, these are a basis of **left eigenvectors** of $R$. Given a vector $X \in T_{K_\ast} M$ its corresponding **scaling vector** $u_X \in T_{K_\ast}^\ast M$ is the covector defined by the musical isomorphism of $g$, i.e. 
-$$
-u_X = \iota_X g = \delta_{ij}\epsilon^i(X) \epsilon^j.
-$$
+**<u>Definition:</u>** A **monoid** is a set $G$ together with a binary associative map $\cdot : G\times G \to G$ as well as an identity element $1 \in G$ such as $1\cdot a = a\cdot 1 = a$ for any $a\in G$ . A **monoid homomorphism** is a map compatible with the binary operation that preserves the identity.
 
-Using dual vectors we will examine simplifications of the transformation, but for now, what we really care about is the intuition. Roughly $X$ defines a direction and speed away from the critical point, and $u_X$ retains all this information. The difference is that unlike the components of $X$, the components of $u_X$ simply scale by an eigenvalue.
+This is what will parameterize our flows. For example $\mathbb{R}^+$ with the multiplication is a monoid, and so is $\text{End}(M)$ with composition. 
 
-**<u>Proposition:</u>** Given such a map $R : M\to M$ a vector $X \in T_{K_\ast}M$ then
-$$
-R^\ast u_X = \delta_{ij}\lambda^j\epsilon^i(X) \epsilon^j.
-$$
+**<u>Definition:</u>** A **renormalization group transformation** is a monoid homomorphism $R_{\bullet}: \mathbb{R}^+ \to \text{End}(M)$. We say that $K_\ast \in M$ is a **fixed point** if $R_b(K_\ast) = K_\ast$ for any $b\in \mathbb{R}^+$.
 
+This implies that $R_1 = 1$ and that scaling compounds like $R_{b}\circ R_c = R_{bc}$ which gives the intuition of scaling. If around a fixed point the function $R_b$ is smooth we can study its stability by looking at its pushforward aka its differential. 
 
-The renormalization group transformation $R$, however, it is not just any function. It depends on some external scaling parameter $b \in \mathbb{R}$. This is known as the **rescaling factor**. The idea is that it quantifies how large our zoom out + averaging  steps are. So in some sense we need to define a series of $R:M\to M$ maps that depend on $b$ and have certain properties. 
+**<u>Proposition:</u>** Assuming $R_b$ is smooth for all $b$ around a fixed point $K_\ast \in M$ then $D_{K_\ast} R_{\bullet} : \mathbb{R}^+ \to \text{End}(T_{K_\ast} M)$ is a monoid homomorphism.
 
-**<u>Definition:</u>** A **renormalization group transformation** is a continuous path $R_{\bullet}:\mathbb{R}^+ \to C^0(M,M)$ in $C^0(M,M)$ such that $R_1 = \text{Id}_M$, there exists a fixed point $K_\ast \in M$ where $R_b(K_\ast) = K_\ast$ and where $R_b$ is smooth at $K_\ast$ for all $b \in \mathbb{R}^+$ with $R_1^\ast = \text{Id}_{T^\ast_{K^\ast}M}$, and the function $R_{\bullet}(K)$ is smooth around $1 \in \mathbb{R}^+$ for any $K \in M$.
+The reason why this is nice is that what that is is a linear representation of the multiplicative group $\mathbb{R}^+$ to the tangent space which is completely classified. All such representations are of the form $b^y$ for some $y\in \mathbb{R}$. Isn't that awesome? So we can always pick a basis of eigenvectors in the tangent space $u_i \in T_{K_\ast}M$ with eigenvalues $b^{y_i}$.
 
-This is basically a collection of transformations that starts with the identity, and has a fixed point that doesn't depend on the value of scaling. With that we can make some pretty cool assumptions. 
+**<u>Definition:</u>** Assume that $R_b$ is smooth for all $b$ around a fixed point $K_\ast$, and consider an eigenvalue $b^{y}$ of $D_{K_\ast}R_b$ . Then the corresponding eigenvector is called:
 
-**<u>Proposition:</u>** Given a renormalization group transformation $R$ an eigenvalue $\lambda$ of $R^\ast_b$ satisfies 
-$$
-\lambda(b) = b^{y}\left[ 1 + \mathcal{O}(b-1) \right]
-$$
-for some $y \in \mathbb{R}$.
+1. **relevant** if $y>0$, i.e. the rescaling pushes you away from the fixed point in that direction,
+2. **marginal** if $y=0$, i.e. we don't know if the rescaling pushes us closer or away from the fixed point,
+3. **irrelevant** if $y<0$, i.e. the rescaling pushes us towards the fixed point.
 
-***Proof:*** We know that $R_1^\ast = 1$. We also know that $R_{b}^\ast$ must be smooth as a function of $b$ at $b=1$ for any point on the manifold. Since the matrix $R^\ast _b$ can be written in terms of (possibly complex) eigenvectors and associated eigenvalues as
-$$
-R^\ast_b =\lambda^i(b) \epsilon^i(b) \otimes \epsilon_i(b) = \lambda^i(b) \left[\epsilon^i(1)\otimes \epsilon_i(1) + \mathcal{O}(b-1)\right].
-$$
+We will discuss the reasoning behind this classification in the context of RG flows later.
 
-We also know that $\lambda(1) = 1$, therefore, for a point sufficiently close to $b=1$ we can write it as
-$$
-\log \lambda(b) = \frac{\lambda'(1)}{\lambda(1)} (b-1).
-$$
+One more tool that we will need soon is the $\beta$**-function**, which appears so often when we study RG flows around critical points. 
 
-$$
-\begin{equation}\tag*{$\Box$}\end{equation} 
-$$
+**<u>Definition:</u>** If $R_\bullet$ is smooth near $b=1$ then the vector field $\beta \coloneqq R_\ast \left.\frac{d}{db}\right|_{1} \in \mathfrak{X}(M)$ is called the **beta function**. 
 
-In some sense we want to consider RG transformations only in the case where the rest of the terms in this expansion vanish. However, we can see that locally this is an ok assumption to make. In fact we will see that these variables $y$, i.e. the first term of these expansion can be written as 
+This vector field has components in some coordinate system $K^i$ of $M$ 
+$$
+\beta^i(K) = \left.\frac{d}{db}\right|_{b=1} K^i\circ R_b(K),
+$$
+and zeros exactly at the fixed points. Finding zeros of a vector field is often much easier than finding fixed points so a lot of the computation tools of RG flow in physics center around calculating and using $\beta$ functions.
+
+## The Partition Function
+
+Let's do some physics. As always the case with complicated abstract things let's find a couple of simple systems we can study. A class of them is called the $O(n)$ model. We will present it in its abstract generality first and then specialize in commonly found cases.
+
+Consider a lattice $\Lambda$ where at each point we have attached a sphere $S^{n-1}$. We can do this by considering a map $s:\Lambda \to S^{n-1}$. This has the picture of a bunch of spins each located at a lattice point in $\Lambda$. We will now consider two functions $J:\Lambda\times \Lambda \to \mathbb{R}$ such that it falls off sufficiently fast with distance between lattice points and $h \in \R^3$ which we will call the applied field. We often call $\Gamma$, the space of maps $s \in (S^{n-1})^{\Lambda}$, the configuration space. We then consider the Hamiltonian $H: \Gamma \to \mathbb{R}$  to be
+$$
+H(s) = -\frac{1}{2} \sum_{r,r' \in \Lambda} J(r,r') s(r)\cdot s(r') - \sum_{r\in \Lambda} h \cdot s(r).
+$$
+The reason why this is called the $O(n)$ model is that in the absence of external field (i.e. $h=0$) it has a global $O(n)$ symmetry because we can rotate all spins around the sphere by the same amount. For $n=1$ we have the familiar Ising model, while for $n=2$ we have the $XY$-model also known as the planar model. 
+
+Given a Hamiltonian we can calculate its partition function defined by
+$$
+Z(\beta) = \text{Tr}_\Gamma e^{-\beta H} = \sum_{s\in \Gamma} e^{-\beta H(s)}.
+$$
+The partition function will serve as the basis by which we decide what "rescaling" our system really means, so it is worth taking a little time to figure it out.
 
 
 
