@@ -72,7 +72,7 @@ Given a Hamiltonian we can calculate its partition function defined by
 $$
 Z(\beta) = \text{Tr}_\Gamma e^{-\beta H} = \sum_{s\in \Gamma} e^{-\beta H(s)}.
 $$
-The partition function will serve as the basis by which we decide what "rescaling" our system really means, so it is worth taking a little time to figure it out.
+The partition function will serve as the basis by which we decide what "rescaling" our system really means, so it is worth taking a little time to figure it out. 
 
 
 
