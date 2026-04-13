@@ -486,7 +486,45 @@ One thing we could be interested in doing is to calculate which Ishibashi states
 
 
 
+## A general way
 
+Having resolved the action of the invertible defects we have perhaps accumulated enough constraints to algorithmically solve for the rest. Let's take a look at this for a second
+
+**<u>Lemma:</u>** Let $L,M \in \text{Irr}(\mathcal{C})$ where $\mathcal{C}$ is some separable fusion category and $L$ is invertible. Then $L\otimes M$ is simple.
+
+***Proof:*** If it wasn't simple then we would have $L\otimes M = \bigoplus_{i \in I } i$ which implies that $M= \bigoplus_{i\in I} \bar L\otimes i$ for some index set $I$ which is a contradiction.
+$$
+\begin{equation}\tag*{$\Box$}\end{equation}
+$$
+This means that some invertible simple lines in $\mathcal{C}$ form a group $G$, then if we pick any simple line $L$, then the orbit of $\hat L$ under $G$ should form a representation of $G$ in the degenerate subspace where the action is left ambiguous by bootstrap. Finite dimensional representations of finite groups are often highly constrained, so we can use them to constrain the action on the degenerate subspaces especially given that we know the traces. Therefore we can use characters to figure everything out.
+
+**<u>Proposition:</u>** *(Representations and Characters of $D_8$)* The irreducible representations of $D_8$ and their characters are listed below to be
+
+| Irreducible Representation | Character $([1],[\chi^2], [\chi],[\sigma],[\sigma \chi])$ |
+| -------------------------- | :-------------------------------------------------------: |
+| $\rho_1$                   |                       $(1,1,1,1,1)$                       |
+| $\rho_2$                   |                      $(1,1,1,-1,-1)$                      |
+| $\rho_3$                   |                      $(1,1,-1,1,-1)$                      |
+| $\rho_4$                   |                      $(1,1,-1,-1,1)$                      |
+| $\rho_5$                   |                      $(2,-2,0,0,0)$                       |
+
+As a result there are $\binom{4 + 2 -1}{2} + 1= \binom{5}{2} + 1 = 11$ two dimensional complex representations of $D_8$. Their characters are
+
+|  $2D$ Representations  | Character $([1],[\chi^2], [\chi],[\sigma],[\sigma \chi])$ |
+| :--------------------: | :-------------------------------------------------------: |
+| $\rho_1 \oplus \rho_1$ |                       $(2,2,2,2,2)$                       |
+| $\rho_1 \oplus \rho_2$ |                       $(2,2,2,0,0)$                       |
+| $\rho_1 \oplus \rho_3$ |                       $(2,2,0,2,0)$                       |
+| $\rho_1 \oplus \rho_4$ |                       $(2,2,0,0,2)$                       |
+| $\rho_2 \oplus \rho_2$ |                      $(2,2,2,-2,-2)$                      |
+| $\rho_2 \oplus \rho_3$ |                      $(2,2,0,0,-2)$                       |
+| $\rho_2 \oplus \rho_4$ |                      $(2,2,0,-2,0)$                       |
+| $\rho_3 \oplus \rho_3$ |                      $(2,2,-2,2,-2)$                      |
+| $\rho_4 \oplus \rho_4$ |                      $(2,2,-2,0,0)$                       |
+| $\rho_4 \oplus \rho_4$ |                      $(2,2,-2,-2,2)$                      |
+|        $\rho_5$        |                      $(2,-2,0,0,0)$                       |
+
+We can quickly see from our results that three representations appear in the degenerate spaces. These are $a = \rho_5, b=\rho_1\oplus \rho_4,$ and $c=\rho_2 \oplus \rho_3$. Not only that, but we have also fixed the basis by which they should act. So for the remaining lines 
 
 
 
