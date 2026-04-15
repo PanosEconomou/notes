@@ -526,7 +526,7 @@ As a result there are $\binom{4 + 2 -1}{2} + 1= \binom{5}{2} + 1 = 11$ two dimen
 
 We can quickly see from our results that three representations appear in the degenerate spaces. These are $a = \rho_5, b=\rho_1\oplus \rho_4,$ and $c=\rho_2 \oplus \rho_3$. Not only that, but we have also fixed the basis by which they should act. So for the remaining lines 
 
-
+We could try and get rid of the remaining ambiguities checking if two matrices are similar via similarity transformations. In particular we can find the similarity transformations that preserve the $D_8$ representation that we have picked, and then check if the ambiguous degrees of freedom are related by these similarity transformations.
 
 
 
