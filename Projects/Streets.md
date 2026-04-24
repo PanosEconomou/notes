@@ -1,6 +1,6 @@
 # The Dictionary of Ways
 
-I live in a *place*, which apparently is a street that ends at a roundabout esque thing. When I googled to find out I saw [this video](https://www.youtube.com/watch?v=yqmso0c9CBs) which launched an insane rabbithole for different street naming conventions which lead to [this Wikipedia article](https://en.wikipedia.org/wiki/Glossary_of_road_transport_terms#R) that defines road as:
+I live in a *place*, which apparently is a street that ends somewhere. When I googled to find out I saw [this video](https://www.youtube.com/watch?v=yqmso0c9CBs) which launched an insane rabbithole for different street naming conventions which lead to [this Wikipedia article](https://en.wikipedia.org/wiki/Glossary_of_road_transport_terms#R) that defines road as:
 
 > "A thoroughfare, route, or way on land between two places that has been paved or otherwise improved to allow travel by foot or some form of conveyance, including a motor vehicle, cart, bicycle, or horse."
 
@@ -116,7 +116,7 @@ This unlocks for us the language of highways.
 5. A **parkway** is a throughway road that does not connect any two neighborhoods. 
 6. An **interchange** is an intersection of roads.
 7. A **freeway** is a highway whose only intersections are interchanges. 
-8. A **ramp** is a segment roadthat intersects at least one street and ends at an interchange.
+8. A **ramp** is a segment road that intersects at least one street and ends at an interchange.
 
 
 
