@@ -4,7 +4,7 @@ I live in a *place*, which apparently is a street that ends at a roundabout esqu
 
 > "A thoroughfare, route, or way on land between two places that has been paved or otherwise improved to allow travel by foot or some form of conveyance, including a motor vehicle, cart, bicycle, or horse."
 
-which apart from the self reference had me look up the word *"conveyance"* which apart from a legal term is also "the action of [conveying](https://www.merriam-webster.com/dictionary/convey)," which in turn is to move form one place to another, so the entier statement is a road is road. Not only that, but the rest of the things like:
+which apart from the self reference had me look up the word *"conveyance"* which apart from a legal term is also "the action of [conveying](https://www.merriam-webster.com/dictionary/convey)," which in turn is to move form one place to another, so the entire statement is a road is road. Not only that, but the rest of the things like:
 
 1. Highway
 2. Beltway
@@ -27,7 +27,7 @@ The terms that we will leave undefined are **ways, intersections,** and **buildi
 
 ## Axioms
 
-We want to incoroporate some ideas of what a networ of ways and intersections should have in common in order to help us define what we need. This leeds us to the following **4 axioms**.
+We want to incorporate some ideas of what a network of ways and intersections should have in common in order to help us define what we need. This leeds us to the following **4 axioms**.
 
 **<u>Axiom #1:</u>** *(Line)* A way can end in at most two intersections.
 
@@ -91,7 +91,7 @@ A lot of ways are named according to how they face each other. Here is a useful 
 This might seem strange but it can work. Here are some common examples.
 
 1. An **avenue** is a street that intersects at least two parallel streets. 
-2. In a grid of streets $G$ one elements of one parallel collection are called $G$**-avengues** and elements of the other are $G$**-streets**.
+2. In a grid of streets $G$ one elements of one parallel collection are called $G$**-avenues** and elements of the other are $G$**-streets**.
 
 This way of defining parallel ways has interesting consequences.
 
@@ -99,7 +99,7 @@ This way of defining parallel ways has interesting consequences.
 
 Another useful construction is a route. 
 
-**<u>Definition:</u>** A **route** between intersections $a$ and $b$ is a sequence of ways such that the first intersects at $a$ and the last intersects at $b$ while consequtibe ways intersect.
+**<u>Definition:</u>** A **route** between intersections $a$ and $b$ is a sequence of ways such that the first intersects at $a$ and the last intersects at $b$ while consecutive ways intersect.
 
 
 
