@@ -530,6 +530,26 @@ We could try and get rid of the remaining ambiguities checking if two matrices a
 
 
 
+## Gauge Fixing
+
+One thing we need to take into account in order to solve the general problem is that there is a lot of ambiguity in the action of the primaries in the degenerate subspace. The biggest one is basis transformations! If a subspace has degeneracy $n$, then there is a $GL(\mathbb{C},n)$ ambiguity where the action is by conjugation. We would like to fix a gauge when doing so. We could do this in multiple ways. One would be to fix the action of a bunch of defects manually, fixing a fundamental domain, or we can do it automatically. Regardless here is the theory.
+
+Assume that we have a Lie subgroup $G\subset GL(\mathbb{C}^{n})$, such that the representation on $\text{End}(\mathbb{C}^n)$ via conjugation $\rho$ is faithful. Effectively we don't want to increase the variables of a matrix in a direction that moves us along the orbit. Assume $X \in \mathfrak{g}$, then there exists a Lie algebra representation $\rho_\ast$. Assume that $A:\mathbb{C}^k \to \text{End}(\mathbb{C}^n)$ parameterizes some matrices there. If A does not move along the orbit, then its flow will be perpendicular to the one by conjugation pointwise. A straightforward calculation reveals that this implies that for all $X\in \mathfrak{g}$ and $Y\in T\mathbb{C}^k$
+$$
+\text{Tr\,}\left([X,A]^\dagger A_\ast Y\right) = 0.
+$$
+This gives us a nonlinear equation to parameterize gauge-fixed flows. One thing we could impose is $\text{Tr\,}X^\dagger A = c(X)$ for some linear function $c: \mathfrak{g}\to \mathbb{C}$. 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
