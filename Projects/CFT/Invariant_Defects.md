@@ -486,7 +486,9 @@ One thing we could be interested in doing is to calculate which Ishibashi states
 
 
 
-## A general way
+
+
+# A general way
 
 Having resolved the action of the invertible defects we have perhaps accumulated enough constraints to algorithmically solve for the rest. Let's take a look at this for a second
 
@@ -538,9 +540,13 @@ Assume that we have a Lie subgroup $G\subset GL(\mathbb{C}^{n})$, such that the 
 $$
 \text{Tr\,}\left([X,A]^\dagger A_\ast Y\right) = 0.
 $$
-This gives us a nonlinear equation to parameterize gauge-fixed flows. One thing we could impose is $\text{Tr\,}X^\dagger A = c(X)$ for some linear function $c: \mathfrak{g}\to \mathbb{C}$. 
+This gives us a nonlinear equation to parameterize gauge-fixed flows.
 
 
+
+## Orbit Fixing
+
+If we know the invertible defects in out setup then we can get a really strong constraint. Fusion of invertible lines with simple lines, always yields simple lines, so we can partition our solved families from modular bootstrap into orbits of the invariant defects. This significantly reduces the amount of ambiguity in the system. But in order to do so we need a way to parameterize the orbit. Since in a semisimple fusion category the invertible lines must form a finite group, one way to do this is to calculate invariants under the orbits. 
 
 
 
