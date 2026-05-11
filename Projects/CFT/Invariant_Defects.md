@@ -470,6 +470,19 @@ $$
 \end{array}
 $$
 
+### Quantum Dimension $2\sqrt{1+\phi^2}$  
+
+Before we continue one nice thing to notice is that $2\sqrt{1 + \phi^2} = 4\cos\frac{\pi}{10}$, which doesn't appear there by accident. 
+$$
+\begin{array}{ccccccccccccccccccccccccccccccccccccccc}
+ 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+ 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\end{array}
+$$
+
+
 
 
 ## F-Symbols
