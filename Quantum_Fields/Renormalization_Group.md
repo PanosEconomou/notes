@@ -62,17 +62,19 @@ and zeros exactly at the fixed points. Finding zeros of a vector field is often 
 
 Let's do some physics. As always the case with complicated abstract things let's find a couple of simple systems we can study. A class of them is called the $O(n)$ model. We will present it in its abstract generality first and then specialize in commonly found cases.
 
-Consider a lattice $\Lambda$ where at each point we have attached a sphere $S^{n-1}$. We can do this by considering a map $s:\Lambda \to S^{n-1}$. This has the picture of a bunch of spins each located at a lattice point in $\Lambda$. We will now consider two functions $J:\Lambda\times \Lambda \to \mathbb{R}$ such that it falls off sufficiently fast with distance between lattice points and $h \in \R^3$ which we will call the applied field. We often call $\Gamma$, the space of maps $s \in (S^{n-1})^{\Lambda}$, the configuration space. We then consider the Hamiltonian $H: \Gamma \to \mathbb{R}$  to be
+Consider a lattice $\Lambda$ where at each point we have attached a sphere $S^{n-1}$. We can do this by considering a map $s:\Lambda \to S^{n-1}$. This has the picture of a bunch of spins each located at a lattice point in $\Lambda$. We will now consider two functions $J:\Lambda\times \Lambda \to \mathbb{R}$ such that it falls off sufficiently fast with distance between lattice points and $h \in \mathbb{R}^3$ which we will call the applied field. We often call $\Gamma$, the space of maps $s: \Lambda \to S^{n-1}$, the configuration space. We then consider the Hamiltonian $H: \Gamma \to \mathbb{R}$  to be
 $$
 H(s) = -\frac{1}{2} \sum_{r,r' \in \Lambda} J(r,r') s(r)\cdot s(r') - \sum_{r\in \Lambda} h \cdot s(r).
 $$
-The reason why this is called the $O(n)$ model is that in the absence of external field (i.e. $h=0$) it has a global $O(n)$ symmetry because we can rotate all spins around the sphere by the same amount. For $n=1$ we have the familiar Ising model, while for $n=2$ we have the $XY$-model also known as the planar model. 
+The $\frac{1}{2}$ appears because in this sum each particle appears twice in the first sum. The reason why this is called the $O(n)$ model is that in the absence of external field (i.e. $h=0$) it has a global $O(n)$ symmetry because we can rotate all spins around the sphere by the same amount. For $n=1$ we have the familiar Ising model, while for $n=2$ we have the $XY$-model also known as the planar model. 
 
 Given a Hamiltonian we can calculate its partition function defined by
 $$
 Z(\beta) = \text{Tr}_\Gamma e^{-\beta H} = \sum_{s\in \Gamma} e^{-\beta H(s)}.
 $$
-The partition function will serve as the basis by which we decide what "rescaling" our system really means, so it is worth taking a little time to figure it out. 
+The partition function will serve as the basis by which we decide what "rescaling" our system really means, so it is worth taking a little time to figure it out. One simple case is to pick $J$ to be $0$ unless the points are neighboring.
+
+The way we could construct an RG transformation in this case, would be to obtain a sub-lattice $\hat \Lambda$ comprized of blocks and average out what happens in each block. So, we can define the transformation $T:\Gamma$
 
 
 
