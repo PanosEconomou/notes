@@ -452,7 +452,7 @@ $$
  \varphi  & -\varphi  & -\varphi  & \varphi  & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & -\varphi  & -\varphi  & \varphi  & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & -\varphi  & -\varphi  & \varphi  \\
  \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 \\
  \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 \\
- \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\varphi -1 & -\varphi -1 & -\varphi -1 & -\varphi -1 \\
+ \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\varphi^2 & -\varphi^2 & -\varphi^2 & -\varphi^2 \\
 \end{array}
 $$
 where we've also included the lines with $\phi^2$ so that we can spot some patterns. On the degenerate primaries these act like
@@ -472,15 +472,43 @@ $$
 
 ### Quantum Dimension $2\sqrt{1+\phi^2}$  
 
-Before we continue one nice thing to notice is that $2\sqrt{1 + \phi^2} = 4\cos\frac{\pi}{10}$, which doesn't appear there by accident. 
+Before we continue one nice thing to notice is that $i=2\sqrt{1 + \phi^2} = 4\cos\frac{\pi}{10}$, which means that there must be some decagon or pentagon appearing here somewhere. Anyway this new family of defects doesn't arise from fusion with the existing lines of $\text{Vir}^2$ will be essential in finding the boundaries obtained by folding Tricritical Ising along a defect line.
+
+
+
+On the nondegenerate primaries modular bootstrap spits out 4 families related to each other by fusion with the $D_8$ conjugacy classes ($[1],[\chi^2]$ have the same representation on the nondegenerate primaries which is why we see 4 instead of 5 families of defects)
 $$
-\begin{array}{ccccccccccccccccccccccccccccccccccccccc}
- 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
- 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
- 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
- 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & 2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & -2 \sqrt{4-\phi ^2} & 2 \sqrt{\phi ^2+1} & 2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -2 \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & \sqrt{2} \sqrt{\phi ^2+1} & -\sqrt{2} \sqrt{4-\phi ^2} & -\sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & \sqrt{2} \sqrt{4-\phi ^2} & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\begin{array}{cccccccccccc}
+ u & -u & u & -u & v & -v & v & -v & v & -v & v & -v & u & -u & u & -u & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} \\
+ u & -u & u & -u & v & -v & v & -v & v & -v & v & -v & u & -u & u & -u & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} \\
+ u & u & -u & -u & v & v & -v & -v & v & v & -v & -v & u & u & -u & -u & \frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}}\\
+ u & u & -u & -u & v & v & -v & -v & v & v & -v & -v & u & u & -u & -u & -\frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} \\
 \end{array}
 $$
+
+where $u^2 + v^2 = 4^2$ implying $v=4\sin \frac{\pi}{10}$. The interesting thing is that on the degenerate primaries all of the defects trace out to zero, which implies (by using the orbit of $D_8$) and the fact that $L\otimes \bar L = 1\oplus \cdots$ that they must act by vanishing all degenerate primaries. This is particularly nice, because solving the modular bootstrap becomes quite easy, as the remaining lines are obtained by fusion with these. 
+
+For the rest of this we will use the notation $M$ (for mirror) to denote the first such line above.
+
+
+
+### Aside on Boundaries from Folded Verlinde Lines
+
+What boundary do we obtain by folding Tricritical Ising along some Verlinde line $L_k$? Now we have enough to answer this question. The corresponding boundary state will be 
+$$
+\ket{L_k} = \sum_{i \in \text{Irr\,}\text{Vir}_{c=\frac{7}{12}}} \frac{s_{ki}}{s_{1i}}|i\otimes i\rangle\!\rangle ,
+$$
+where $|i\otimes i\rangle\!\rangle$ is the ishibashi state in the folded Tricritical Ising model corresponding to the module $(i\otimes i)\otimes \overline{(i\otimes i)}$, and $s_{ij}$ is the $S$-matrix of the unfolded Tricritical Ising model. Since we have worked out the decomposition of the diagonal modules in terms of the [fixed point algebra modules](./Fixed_Point_Algebra.md), we know that the ishibashi states are going to be given by $|i\otimes i\rangle\!\rangle= |i\otimes i\rangle\!\rangle^+ + |i\otimes i\rangle\!\rangle^-$  where using modular bootstrap we know how the lines we have already calculated act (since these primaries are nondegenerate).
+
+One more ingredient that we will need is the Cardy states of the folded Tricritical Ising model using $\text{Vir}_c^2$ as the chiral algebra. Assuming $S = s\otimes s$ is the modular $S$-matrix we can then describe the Cardy states as
+$$
+\ket{kl} = \sum_{i,j \in \text{Irr\,}\text{Vir}_{c=\frac{7}{12}}} \frac{S_{ij,kl}}{\sqrt{S_{11,kl}}} |i\otimes j\rangle\!\rangle.
+$$
+Using our results from above and the decomposition of ishibashi states from the full chiral algebra to the fixed point one we notice that $\ket{L_1} = M\ket{11}$. In fact, we can then use this to figure out the rest of the Verlinde lines as follows:
+$$
+\ket{L_k} = (1\boxtimes L_k) \otimes M \ket{11} = (L_k\boxtimes 1) \otimes M \ket{11}.
+$$
+
 
 
 
