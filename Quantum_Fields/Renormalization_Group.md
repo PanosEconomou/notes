@@ -78,6 +78,70 @@ The way we could construct an RG transformation in this case, would be to obtain
 
 
 
+# Motivating Example: Spin Chains
+
+Spin chains are an awesome motivating example for this. Let's do the simplest thing we can possibly write down which is the transverse Ising model, in 1D, where we consider the "critical" Hamiltonian given  by 
+$$
+H = -J \sum_{n=-N}^N x_nx_{n+1} + z_n,
+$$
+seems notice that the transverse field coupling $h= J$. Each lattice site is comprized of a 2D Hilbert space. 
+
+## Jordan Wigner transformation
+
+We want to express this into a useful notation in which this allows us to take the limits of $N\to \infty$ while spacing goes to zero, and show that we recover a conformal field theory. Spin Hilbert spaces are naturally defined using fermions so we can do that. On each site $n$ we can introduce
+$$
+\begin{align*}
+\{c_n,c_m^\dagger\} = \delta_{nm} && \{c_n,c_m\} = \{c_n^\dagger,c_m^\dagger\} = 0.
+\end{align*} 
+$$
+While on a single site basis we can write our Pauli's in terms of these new operators, they don't naturally commute among sites. Instead they anticommute. We can get around this by introducing a new operator based on the number operator at each cite: $n_n = c_n^\dagger c_n$ given by $k_n = e^{i\pi n_n}$ which satisfies
+$$
+\begin{align*}
+k_m c_n = (1 - 2\delta_{nm}) c_n k_m && k_m^2 = 1 && k_m = k_m^\dagger = 1- 2n_m = z_m.
+\end{align*} 
+$$
+These are easily verified by direct computation as the two states $\ket{0},\ket{1}$ are eigenstates of n. With this we can introduce the operator 
+$$
+K_n = \prod_{m<n} k_n = e^{i\pi \sum_{m<n} n_m}.
+$$
+Notice that this is a nonlocal operator. However we get some nice identifications:
+$$
+\begin{align*}
+z_n = k_n && x_n = K_n \left(c^\dagger_n + c_n\right)&& y_n = iK_n \left(c^\dagger_n - c_n\right).
+\end{align*}
+$$
+Notice that all  $K_n$ is is simply a sign that counts the parity flips before the $n^\text{th}$ spin. It is nonlocal, but it does give us the right commutation relations! One more thing that is useful is
+$$
+x_nx_{n+1} = (c_n^\dagger + c_n)K_nK_{n+1} (c_{n+1}^\dagger + c_{n+1}) = (c_{n}^\dagger + c_{n}) k_n (c_{n+1}^\dagger + c_{n+1}) = c_n^\dagger c_{n+1}^\dagger + c_n^\dagger c_{n+1} - c_n c_{n+1}^\dagger - c_n c_{n+1}.
+$$
+Specifically, we can now write our Hamiltonian as 
+$$
+H = -J \sum_{n=-N}^N(c_n^\dagger c_{n+1}^\dagger + c_n^\dagger c_{n+1} - c_n c_{n+1}^\dagger - c_n c_{n+1} + k_n).
+$$
+But here is something cool! We can define two fermionic operators like so 
+$$
+\begin{align*}
+a_n = c_n^\dagger + c_n && b_n = i(c_n^\dagger - c_n).
+\end{align*} 
+$$
+These look like Majorana fermions simply because $2c_n = a_n + i b_n$ and so on. But then the Hamiltonian is written as
+$$
+H = -Ji \sum_{n=-N}^N b_n a_{n+1} + a_n b_n.
+$$
+where we can introduce a proper Dirac fermion $\gamma^\dagger_n = \frac{1}{2}\left( a_{n+1} + ib_n \right)$ composed out of the Majorana fermions at shifted neighboring sites that has the same kinetic energy as follows:
+$$
+H = J\sum_{n=-N}^N (\gamma_n^\dagger \gamma_n+ \gamma_{n-1}\gamma_n^\dagger + \gamma_{n-1}^\dagger \gamma_n^\dagger + \text{h.c.}).
+$$
+
+
+
+
+
+
+
+
+
+
 
 
 
