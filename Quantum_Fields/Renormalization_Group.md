@@ -62,17 +62,83 @@ and zeros exactly at the fixed points. Finding zeros of a vector field is often 
 
 Let's do some physics. As always the case with complicated abstract things let's find a couple of simple systems we can study. A class of them is called the $O(n)$ model. We will present it in its abstract generality first and then specialize in commonly found cases.
 
-Consider a lattice $\Lambda$ where at each point we have attached a sphere $S^{n-1}$. We can do this by considering a map $s:\Lambda \to S^{n-1}$. This has the picture of a bunch of spins each located at a lattice point in $\Lambda$. We will now consider two functions $J:\Lambda\times \Lambda \to \mathbb{R}$ such that it falls off sufficiently fast with distance between lattice points and $h \in \R^3$ which we will call the applied field. We often call $\Gamma$, the space of maps $s \in (S^{n-1})^{\Lambda}$, the configuration space. We then consider the Hamiltonian $H: \Gamma \to \mathbb{R}$  to be
+Consider a lattice $\Lambda$ where at each point we have attached a sphere $S^{n-1}$. We can do this by considering a map $s:\Lambda \to S^{n-1}$. This has the picture of a bunch of spins each located at a lattice point in $\Lambda$. We will now consider two functions $J:\Lambda\times \Lambda \to \mathbb{R}$ such that it falls off sufficiently fast with distance between lattice points and $h \in \mathbb{R}^3$ which we will call the applied field. We often call $\Gamma$, the space of maps $s: \Lambda \to S^{n-1}$, the configuration space. We then consider the Hamiltonian $H: \Gamma \to \mathbb{R}$  to be
 $$
 H(s) = -\frac{1}{2} \sum_{r,r' \in \Lambda} J(r,r') s(r)\cdot s(r') - \sum_{r\in \Lambda} h \cdot s(r).
 $$
-The reason why this is called the $O(n)$ model is that in the absence of external field (i.e. $h=0$) it has a global $O(n)$ symmetry because we can rotate all spins around the sphere by the same amount. For $n=1$ we have the familiar Ising model, while for $n=2$ we have the $XY$-model also known as the planar model. 
+The $\frac{1}{2}$ appears because in this sum each particle appears twice in the first sum. The reason why this is called the $O(n)$ model is that in the absence of external field (i.e. $h=0$) it has a global $O(n)$ symmetry because we can rotate all spins around the sphere by the same amount. For $n=1$ we have the familiar Ising model, while for $n=2$ we have the $XY$-model also known as the planar model. 
 
 Given a Hamiltonian we can calculate its partition function defined by
 $$
 Z(\beta) = \text{Tr}_\Gamma e^{-\beta H} = \sum_{s\in \Gamma} e^{-\beta H(s)}.
 $$
-The partition function will serve as the basis by which we decide what "rescaling" our system really means, so it is worth taking a little time to figure it out. 
+The partition function will serve as the basis by which we decide what "rescaling" our system really means, so it is worth taking a little time to figure it out. One simple case is to pick $J$ to be $0$ unless the points are neighboring.
+
+The way we could construct an RG transformation in this case, would be to obtain a sub-lattice $\hat \Lambda$ comprized of blocks and average out what happens in each block. So, we can define the transformation $T:\Gamma$
+
+
+
+# Motivating Example: Spin Chains
+
+Spin chains are an awesome motivating example for this. Let's do the simplest thing we can possibly write down which is the transverse Ising model, in 1D, where we consider the "critical" Hamiltonian given  by 
+$$
+H = -J \sum_{n=-N}^N x_nx_{n+1} + z_n,
+$$
+seems notice that the transverse field coupling $h= J$. Each lattice site is comprized of a 2D Hilbert space. 
+
+## Jordan Wigner transformation
+
+We want to express this into a useful notation in which this allows us to take the limits of $N\to \infty$ while spacing goes to zero, and show that we recover a conformal field theory. Spin Hilbert spaces are naturally defined using fermions so we can do that. On each site $n$ we can introduce
+$$
+\begin{align*}
+\{c_n,c_m^\dagger\} = \delta_{nm} && \{c_n,c_m\} = \{c_n^\dagger,c_m^\dagger\} = 0.
+\end{align*} 
+$$
+While on a single site basis we can write our Pauli's in terms of these new operators, they don't naturally commute among sites. Instead they anticommute. We can get around this by introducing a new operator based on the number operator at each cite: $n_n = c_n^\dagger c_n$ given by $k_n = e^{i\pi n_n}$ which satisfies
+$$
+\begin{align*}
+k_m c_n = (1 - 2\delta_{nm}) c_n k_m && k_m^2 = 1 && k_m = k_m^\dagger = 1- 2n_m = z_m.
+\end{align*} 
+$$
+These are easily verified by direct computation as the two states $\ket{0},\ket{1}$ are eigenstates of n. With this we can introduce the operator 
+$$
+K_n = \prod_{m<n} k_n = e^{i\pi \sum_{m<n} n_m}.
+$$
+Notice that this is a nonlocal operator. However we get some nice identifications:
+$$
+\begin{align*}
+z_n = k_n && x_n = K_n \left(c^\dagger_n + c_n\right)&& y_n = iK_n \left(c^\dagger_n - c_n\right).
+\end{align*}
+$$
+Notice that all  $K_n$ is is simply a sign that counts the parity flips before the $n^\text{th}$ spin. It is nonlocal, but it does give us the right commutation relations! One more thing that is useful is
+$$
+x_nx_{n+1} = (c_n^\dagger + c_n)K_nK_{n+1} (c_{n+1}^\dagger + c_{n+1}) = (c_{n}^\dagger + c_{n}) k_n (c_{n+1}^\dagger + c_{n+1}) = c_n^\dagger c_{n+1}^\dagger + c_n^\dagger c_{n+1} - c_n c_{n+1}^\dagger - c_n c_{n+1}.
+$$
+Specifically, we can now write our Hamiltonian as 
+$$
+H = -J \sum_{n=-N}^N(c_n^\dagger c_{n+1}^\dagger + c_n^\dagger c_{n+1} - c_n c_{n+1}^\dagger - c_n c_{n+1} + k_n).
+$$
+But here is something cool! We can define two fermionic operators like so 
+$$
+\begin{align*}
+a_n = c_n^\dagger + c_n && b_n = i(c_n^\dagger - c_n).
+\end{align*} 
+$$
+These look like Majorana fermions simply because $2c_n = a_n + i b_n$ and so on. But then the Hamiltonian is written as
+$$
+H = -Ji \sum_{n=-N}^N b_n a_{n+1} + a_n b_n.
+$$
+where we can introduce a proper Dirac fermion $\gamma^\dagger_n = \frac{1}{2}\left( a_{n+1} + ib_n \right)$ composed out of the Majorana fermions at shifted neighboring sites that has the same kinetic energy as follows:
+$$
+H = J\sum_{n=-N}^N (\gamma_n^\dagger \gamma_n+ \gamma_{n-1}\gamma_n^\dagger + \gamma_{n-1}^\dagger \gamma_n^\dagger + \text{h.c.}).
+$$
+
+
+
+
+
+
+
 
 
 

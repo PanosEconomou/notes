@@ -452,7 +452,7 @@ $$
  \varphi  & -\varphi  & -\varphi  & \varphi  & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & -\varphi  & -\varphi  & \varphi  & -\frac{1}{\varphi } & \frac{1}{\varphi } & \frac{1}{\varphi } & -\frac{1}{\varphi } & \varphi  & -\varphi  & -\varphi  & \varphi  \\
  \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 \\
  \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 \\
- \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\varphi -1 & -\varphi -1 & -\varphi -1 & -\varphi -1 \\
+ \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \frac{1}{\varphi ^2} & \varphi ^2 & \varphi ^2 & \varphi ^2 & \varphi ^2 & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\frac{1}{\varphi ^2} & -\varphi^2 & -\varphi^2 & -\varphi^2 & -\varphi^2 \\
 \end{array}
 $$
 where we've also included the lines with $\phi^2$ so that we can spot some patterns. On the degenerate primaries these act like
@@ -470,6 +470,47 @@ $$
 \end{array}
 $$
 
+### Quantum Dimension $2\sqrt{1+\phi^2}$  
+
+Before we continue one nice thing to notice is that $i=2\sqrt{1 + \phi^2} = 4\cos\frac{\pi}{10}$, which means that there must be some decagon or pentagon appearing here somewhere. Anyway this new family of defects doesn't arise from fusion with the existing lines of $\text{Vir}^2$ will be essential in finding the boundaries obtained by folding Tricritical Ising along a defect line.
+
+
+
+On the nondegenerate primaries modular bootstrap spits out 4 families related to each other by fusion with the $D_8$ conjugacy classes ($[1],[\chi^2]$ have the same representation on the nondegenerate primaries which is why we see 4 instead of 5 families of defects)
+$$
+\begin{array}{cccccccccccc}
+ u & -u & u & -u & v & -v & v & -v & v & -v & v & -v & u & -u & u & -u & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} \\
+ u & -u & u & -u & v & -v & v & -v & v & -v & v & -v & u & -u & u & -u & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} \\
+ u & u & -u & -u & v & v & -v & -v & v & v & -v & -v & u & u & -u & -u & \frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}}\\
+ u & u & -u & -u & v & v & -v & -v & v & v & -v & -v & u & u & -u & -u & -\frac{u}{\sqrt{2}} & -\frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & \frac{u}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & -\frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} & \frac{v}{\sqrt{2}} \\
+\end{array}
+$$
+
+where $u^2 + v^2 = 4^2$ implying $v=4\sin \frac{\pi}{10}$. The interesting thing is that on the degenerate primaries all of the defects trace out to zero, which implies (by using the orbit of $D_8$) and the fact that $L\otimes \bar L = 1\oplus \cdots$ that they must act by vanishing all degenerate primaries. This is particularly nice, because solving the modular bootstrap becomes quite easy, as the remaining lines are obtained by fusion with these. 
+
+For the rest of this we will use the notation $M$ (for mirror) to denote the first such line above.
+
+
+
+### Aside on Boundaries from Folded Verlinde Lines
+
+What boundary do we obtain by folding Tricritical Ising along some Verlinde line $L_k$? Now we have enough to answer this question. The corresponding boundary state will be 
+$$
+\ket{L_k} = \sum_{i \in \text{Irr\,}\text{Vir}_{c=\frac{7}{12}}} \frac{s_{ki}}{s_{1i}}|i\otimes i\rangle\!\rangle ,
+$$
+where $|i\otimes i\rangle\!\rangle$ is the ishibashi state in the folded Tricritical Ising model corresponding to the module $(i\otimes i)\otimes \overline{(i\otimes i)}$, and $s_{ij}$ is the $S$-matrix of the unfolded Tricritical Ising model. Since we have worked out the decomposition of the diagonal modules in terms of the [fixed point algebra modules](./Fixed_Point_Algebra.md), we know that the ishibashi states are going to be given by $|i\otimes i\rangle\!\rangle= |i\otimes i\rangle\!\rangle^+ + |i\otimes i\rangle\!\rangle^-$  where using modular bootstrap we know how the lines we have already calculated act (since these primaries are nondegenerate).
+
+One more ingredient that we will need is the Cardy states of the folded Tricritical Ising model using $\text{Vir}_c^2$ as the chiral algebra. Assuming $S = s\otimes s$ is the modular $S$-matrix we can then describe the Cardy states as
+$$
+\ket{kl} = \sum_{i,j \in \text{Irr\,}\text{Vir}_{c=\frac{7}{12}}} \frac{S_{ij,kl}}{\sqrt{S_{11,kl}}} |i\otimes j\rangle\!\rangle.
+$$
+Using our results from above and the decomposition of ishibashi states from the full chiral algebra to the fixed point one we notice that $\ket{L_1} = M\ket{11}$. In fact, we can then use this to figure out the rest of the Verlinde lines as follows:
+$$
+\ket{L_k} = (1\boxtimes L_k) \otimes M \ket{11} = (L_k\boxtimes 1) \otimes M \ket{11}.
+$$
+
+
+
 
 
 ## F-Symbols
@@ -486,7 +527,9 @@ One thing we could be interested in doing is to calculate which Ishibashi states
 
 
 
-## A general way
+
+
+# A general way
 
 Having resolved the action of the invertible defects we have perhaps accumulated enough constraints to algorithmically solve for the rest. Let's take a look at this for a second
 
@@ -527,6 +570,30 @@ As a result there are $\binom{4 + 2 -1}{2} + 1= \binom{5}{2} + 1 = 11$ two dimen
 We can quickly see from our results that three representations appear in the degenerate spaces. These are $a = \rho_5, b=\rho_1\oplus \rho_4,$ and $c=\rho_2 \oplus \rho_3$. Not only that, but we have also fixed the basis by which they should act. So for the remaining lines 
 
 We could try and get rid of the remaining ambiguities checking if two matrices are similar via similarity transformations. In particular we can find the similarity transformations that preserve the $D_8$ representation that we have picked, and then check if the ambiguous degrees of freedom are related by these similarity transformations.
+
+
+
+## Gauge Fixing
+
+One thing we need to take into account in order to solve the general problem is that there is a lot of ambiguity in the action of the primaries in the degenerate subspace. The biggest one is basis transformations! If a subspace has degeneracy $n$, then there is a $GL(\mathbb{C},n)$ ambiguity where the action is by conjugation. We would like to fix a gauge when doing so. We could do this in multiple ways. One would be to fix the action of a bunch of defects manually, fixing a fundamental domain, or we can do it automatically. Regardless here is the theory.
+
+Assume that we have a Lie subgroup $G\subset GL(\mathbb{C}^{n})$, such that the representation on $\text{End}(\mathbb{C}^n)$ via conjugation $\rho$ is faithful. Effectively we don't want to increase the variables of a matrix in a direction that moves us along the orbit. Assume $X \in \mathfrak{g}$, then there exists a Lie algebra representation $\rho_\ast$. Assume that $A:\mathbb{C}^k \to \text{End}(\mathbb{C}^n)$ parameterizes some matrices there. If A does not move along the orbit, then its flow will be perpendicular to the one by conjugation pointwise. A straightforward calculation reveals that this implies that for all $X\in \mathfrak{g}$ and $Y\in T\mathbb{C}^k$
+$$
+\text{Tr\,}\left([X,A]^\dagger A_\ast Y\right) = 0.
+$$
+This gives us a nonlinear equation to parameterize gauge-fixed flows.
+
+
+
+## Orbit Fixing
+
+If we know the invertible defects in out setup then we can get a really strong constraint. Fusion of invertible lines with simple lines, always yields simple lines, so we can partition our solved families from modular bootstrap into orbits of the invariant defects. This significantly reduces the amount of ambiguity in the system. But in order to do so we need a way to parameterize the orbit. Since in a semisimple fusion category the invertible lines must form a finite group, one way to do this is to calculate invariants under the orbits. 
+
+
+
+
+
+
 
 
 
