@@ -130,6 +130,69 @@ Finally we can talk about codes!
 
 **<u>Definition:</u>** A code is **pointlike** if $Q_L^i =0$ for $i>0$.
 
+A nicer representation is as follows
+$$
+\xymatrix{
+& & L\ar@{^{(}->}[d] \\
+\cdots \ar[r]^{d_2}& F_1\ar@{->>}[ur]\ar[r]^{d_1^\ast \Omega} & \mathcal{P}\ar[r]^{d_1^\ast} & F_1^\ast\ar[r]^{d_2^\ast} & F_2^\ast\\
+& & F_0\ar@{=}[u]
+}
+$$
+
+## Fractons
+
+There is this idea of mobility which is efffectively the idea that one can create an operator that can be translated by the application of plaquette operators. Then the idea that ther eare excitation that break mobility means that they can localized. These are what we call fractons
+
+~~Fill in the definitions~~
+
+**<u>Definition:</u>** Let $M$ be an $R$-Module, then the **anihilator ideal** of $M$ 
+$$
+\text{Ann}(M) = \{r\in R \mid rm =0\ \forall m \in M\}
+$$
+then **krull dimension** of $M$ is the maximal $k$ such that $\text{Ann}(M) \subset P_0 \subset P_1 \subset \cdots \subset P_k$ where $P_i \subset R$ are prime ideals. 
+
+**<u>Lemma:</u>** *(Mobility)* $\dim M=0$ iff there exists $k\geq1$ such that 
+$$
+(1-x^k_1, 1-x_2^k, \cdots, 1-x_d^k) \subset \text{Ann}(M).
+$$
+In other words it is zer if any $m$ can be nearby any location in space. 
+
+**<u>Definition:</u>** A code is **non-liquid topological** or **fractonic** if $$\dim Q^i_L > 0$ for some $i$ otherwise it is called **liquid topological** or **fully mobile**.
+
+**<u>Theorem:</u>** If $L$ is a Lagrnagian code then
+$$
+\dim Q^i_L \leq d-2-i \qquad \forall i.
+$$
+
+
+## Stacking
+
+The idea is that we can calculate stuff by stacking models with the same $d,n$ on top of each other. Si we can do something of the form
+$$
+(L\subset P) \oplus (L'\subset P') = (L\oplus L', P\oplus P')
+$$
+where the new hamiltonian is going to be 
+$$
+\tilde H = H\otimes 1 + 1\otimes H'.
+$$
+The interesting result is that
+$$
+Q_{L\oplus L'}^i \cong Q_L^i \oplus Q_{L'}^i
+$$
+This means that coes form a **monoid** under stacking. 
+
+There is an equivalence of $R$ modules 
+
+**<u>Definition:</u>** An isomorphism $\alpha : P \xrightarrow\cong B$ of $R$ modules is an **isometry** if $\Omega$ is invariant under it. We then say that $L,L'$ are **isometry equivalent** if there exists an isometry $\alpha$ such that $\alpha(L) = L'$.
+
+**<u>Theorem:</u>** If $L$ is split then $L = \alpha(L_X^{\oplus k})$.
+
+Here are some cool examples of isometries
+
+**<u>Example:</u>** $L_X \cong L_Z$. A much cooler one is that we can permute qudits. 
+
+
+
 
 
 

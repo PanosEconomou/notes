@@ -44,13 +44,18 @@ If we are expecting that $(J_n - \bar J_{-n}) D_{IR} = 0$ then it must be factor
 
 The perturbation looks like
 $$
-e^{\lambda \int_L J(x) + \bar J(x) dx}
+e^{\lambda \int_L S\cdot(J(x) + \bar J(x))dx}
 $$
 So we can calculate this term by term to obtain
 $$
 (J_n - \bar J_{-n})(J_m x^{-m-1} + \bar J_m x^{- m- 1}) =
 $$
 
+$$
+\lambda\bar \lambda\int_L \int_L J(x) \bar J (y)
+$$
+
+At the fixed point there are two boundary states in $\mathfrak{su}(2)_1$ that can be obtained by the $S$-matrix as 
 
 
 
