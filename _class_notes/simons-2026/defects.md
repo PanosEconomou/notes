@@ -24,7 +24,7 @@ As an entry point we can study the two famous impurities in free fermionic model
 
 We pick $R=\sqrt{2}$ because this gives us a special SU(2) symmetry with an associated current $J$ such that
 $$
-S_{K} = \int_{L} \iota^\ast J,
+S_{K} = \int_{L} \iota^\ast J ,
 $$
 the embedding $\iota$ is an extra degree of freedom. Sometimes we write this as $J\cdot S$ for some "spin" degree of freedom for the fermion that we just introduced. In reality this is just a qubit.  So the path integral sums over the two possible qubit orientations. 
 
