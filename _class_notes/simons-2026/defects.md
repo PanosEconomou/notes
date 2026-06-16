@@ -46,16 +46,57 @@ The perturbation looks like
 $$
 e^{\lambda \int_L S\cdot(J(x) + \bar J(x))dx}
 $$
-So we can calculate this term by term to obtain
-$$
-(J_n - \bar J_{-n})(J_m x^{-m-1} + \bar J_m x^{- m- 1}) =
-$$
+# Defect Dynamics
 
-$$
-\lambda\bar \lambda\int_L \int_L J(x) \bar J (y)
-$$
+We want to find properties of IR fixed points of deffect perturbations. We really want to understand things like symmetries and anomalies but also we can combine this iwht dynamical input to obtain defect observables. 
 
-At the fixed point there are two boundary states in $\mathfrak{su}(2)_1$ that can be obtained by the $S$-matrix as 
+Let's do this by some examples. 
+
+## Ising Category Symmetry
+
+We can search for 2d cfts with Ising symmetry. We can calculate what happens when $N$ the noninvertible defect in Ising is preturbed. 
+
+**<u>Claim:</u>** The fusion structure of $N$ is preserved under $\mathbb{Z}_2$ deformations.
+
+> In Ising CFT the deformations of the Duality defect we can integrate the energy operator deforming the defect. Show that we can recover the fusion rules of $N$ and the nontrivial $F$ symbol between $N$ and $\eta$. 
+>
+> To take the fusion product of the nontopological defect we need to renormalize by removing the casimir energy divergence. 
+
+The F symbol should be preserved because it encodes an animaly between $N$ and $\eta$ and anomaly matching is a thing. Why is it an anomaly? Well if we take a time reversal transformation the operator that acts on the N twisted sector is going ot be picking up a minus sign because of the F symbol, so we will see an 't Hooft anomaly.
+
+We can also see this on the lattice! On the lattice we get
+$$
+H = - \sum_{i\neq 0}( \hat z_i \hat z_{i+1} + \hat x_{i+1}) - \hat z_0 \hat x_1
+$$
+where we have periodic boundary condtions. The defect operator in the $N$ twisted sector is going to be
+$$
+\hat \eta = \hat z_1 \hat x_1 \cdots \hat x_N.
+$$
+Immediately we can see that $\hat \eta^2 = -1$ but it is invariant under time reversal. 
+
+An interesting idea is that $\text{Ising}^2$ has a cool line: $N\boxtimes N$ which one could ask how it flows under the marginal parameter of the $c=1$ orbifold branch. The corresponding term in the action that implements $N\boxtimes N$ is
+$$
+\mathcal{O}=\epsilon_1 \epsilon_2.
+$$
+The other thing we could ask is what happens if we perturb this by something that lives on the defect itself. Of course we know the Ising flows
+
+![image-20260616114419758](_defects.assets/image-20260616114419758.png)
+
+which would imply that we can get rid of some of the $N$ operators by permuting with $\epsilon_i$. But there could be more stuff. 
+
+So along the radius we can find what happens. This calculation can be done in perturbation theory by literally averaging at the different radius after writing $\epsilon_i$ in terms of the $c=1$ fields.
+
+Another way one can solve this problem is by reframing into anyon condensation. So in the folded theory this is a boundary which is a $D$ brane. In particular folding  along the defect gives us a special D brane state, that ends up flowing to a bound state of D1 and 2D0 branes. The flow is going to be done using tachyon condensation. 
+
+> **Question:** How do we know that we should flow to a dbrane? 
+
+
+
+## IR Factorization
+
+It is often the case that a topological defect flows into a factorized defect. People have not just seen thsi in 2D they have seen it in 3D too!. This was observed in the $O(N)$ model on a surface defect. 
+
+
 
 
 
