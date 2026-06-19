@@ -92,7 +92,7 @@ Take any $A \in \text{Ab}$, then consider the functor $\text{Hom}(\cdot, A): \te
 $$
 \cdots \leftarrow C^{n+1} \xleftarrow{d_{n}} C^{n} \xleftarrow{d_{n-1}} C^{n-1} \leftarrow \cdots
 $$
-which also satisfies $d_n \circ d_{n-1} = 0$. This sequence is known as a cochain complex which then defines the cohomology groups as $H^n(X,A) \coloneqq \text{ker\,}d_n /\text{im\,}d_{n-1}$, by the way we could have done this with homology groups values in $R$ too.
+which also satisfies $d_n \circ d_{n-1} = 0$. This sequence is known as a cochain complex which then defines the cohomology groups as $H^n(X,A) :=\text{ker\,}d_n /\text{im\,}d_{n-1}$, by the way we could have done this with homology groups values in $R$ too.
 
 **<u>Example:</u>** Now the cohomology valued in $A$ is a contravariant functor $H^n(\cdot, A) : \text{Top}^{\text{op}} \to \text{Ab}$, since homology and by extension cohomology classes are homotopy invariant, this functor factors through the quotient $\text{Top}\to \text{Htpy}$, i.e. the category of homotopy equivalent topological spaces.
 
@@ -100,7 +100,7 @@ which also satisfies $d_n \circ d_{n-1} = 0$. This sequence is known as a cochai
 
 # Limits and Colimits
 
-A diagram is a graph, it has arrows and objects and whatnot. If we agree that we conventionally hid the identity arrows the we can take the set of labels and arrows and form an **indexing category** $J$. Therefore fundamentally what a diagram does for a category $C$ is to tell you which label maps to which object and which arrow to which morphism of $C$, in such a way that relationships are preserved! So a diagram is a functor! 
+A diagram is a graph, it has arrows and objects and whatnot. If we agree that we conventionally hide the identity arrows the we can take the set of labels and arrows and form an **indexing category** $J$. Therefore fundamentally what a diagram does for a category $C$ is to tell you which label maps to which object and which arrow to which morphism of $C$, in such a way that relationships are preserved! So a diagram is a functor! 
 
 **<u>Definition:</u>** A **diagram** for a category $C$ indexed by a category $J$ is a functor $J\to C$.
 

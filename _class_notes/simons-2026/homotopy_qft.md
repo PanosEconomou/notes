@@ -34,4 +34,55 @@ Consider $M$ some kind of topological space. Maybe a manifold. Then we can pick 
 
 The thing that a category would break here is invertibilty of paths. In some abstract sense we can think of an infinity category as a generalization of a space in which paths are not invertible.
 
+Now take a group $G$. That group is a category with one object and a hom with invertible elements. But as a 1-category it is also an $\infty$ groupoid, which means that we can think of it (up to homotopy) as some kind of "space" we call that algebraic structure $BG$, the **classifying space**.
+
+Some interesting examples are for $G=\mathbb{Z}_2$ this ends up being the space $\mathbb{R}P^\infty$, that is the infinite projective space. Another interesting fact is that $B\mathbb{Z} = S^1$. These are just facts so it would be cool to understand them more precisely. 
+
+We can build $\infty$-categories simply by allowing up to $n$-morphisms to (potentially) be noninvertible. In particular we call that an $(\infty,n)$ category. So for example an infinity groupoid would be an $(\infty,0)$ category.
+
+Notice that if we fix two objects we can build a category using the morphisms between the objects. In some sesne in an $(\infty,1)$ category the morphisms of any two objects form a $(\infty,0)$ category. In fact an $(\infty,n)$ category has an $\infty$ groupoid attached to every pair of $n$ morphisms. 
+
+In particular an $(\infty,1)$ catetgory is effectively a collection of $\infty$ groupoids each attached to a pair of objects. 
+
+One question that we might ask would be what does it mean to have a functor between two $\infty$-categories. Well, a functor has to commute with composition nad assign maps to maps and objects to objects and so on. The problem is that we don't know how to say that "it commutes with composition" because that would lead to a statement like
+$$
+F(f) \circ F(g) = F(f\circ g),
+$$
+but since the morphisms are not just a set, they are a category we need some relevant notion of equality that doesn't necessarily exist! So we have to be careful. The idea is that we want some version of homotopy.
+
+
+
 ## Symmetries $\leftrightarrow$ Deformations
+
+One notion of symmetry that we are generalizing constantly is the idea that it is a **group action**. In the language of categories this is a functor $R:G\to \text{C}$, where $C$ is some category of stuff we are interested in. For example if we are looking for a representation we could pick $C = \text{Vec}$.
+
+But since we talked about how categorically the information of the group can be included in its classifying space we would then see that having a symmetry action would be effectively having a functor $BG\to C$. We would still need to define what a "functor from a space" is, but the idea is important.
+
+
+
+## What about Tensors?
+
+A big part of what we want to do in physics is to have the ability to do a tensor product. In particualr we would like to sum over finite sets! So whatever an $\infty$ symmetric monoidal category is we should be able to define maps from finite sets and some version of commutative sums. Here is how we can study this. 
+
+If $A$ is a commutative monoid and $X,Y$ are two finite sets we want to be able to take $f : X\to Y$ and define 
+$$
+\begin{align*}
+f_+ :A^X &\to A^Y\\
+\{a_x\}_{x\in X} &\mapsto \{\sum_{f(x) = y} a_x\}_{y \in Y}.
+\end{align*} 
+$$
+We can also define a pullback.
+$$
+\begin{align*}
+f^\ast : A^Y &\to A^X\\
+\{a_y\}_{y \in Y} &\mapsto \{a_{f(x)}\}_{x \in X}.
+\end{align*} 
+$$
+These look and are functorial 
+
+
+
+
+
+
+

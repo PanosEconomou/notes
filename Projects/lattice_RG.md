@@ -17,3 +17,22 @@ Lattices can appear in all shapes and sizes. Since we are in some exploratory ap
 **<u>Lemma:</u>** The only connected 1 dimensional manifolds with no boundary are $\mathbb{R}$ and $S^1$. 
 
 That's a very pretty classification theorem. In particular, since the only conceivable boundary conditions (for now) are periodic, fixed, or asymptotic, all of these can be given by taking quotients of $\mathbb{R}$. Therefore we can literally treat a lattice in this case as quotients of $\mathbb{Z}$ defined by various embeddings in $\mathbb{R}$. The goal is that as we go on we will constantly trying to "tweak" our setup to make it more interesting but I have no idea what path we will follow so let's start here.
+
+
+
+## Physics Rules
+
+
+
+# Making Things Denser
+
+
+
+
+
+
+
+
+
+
+
