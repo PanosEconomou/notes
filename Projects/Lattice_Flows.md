@@ -38,6 +38,14 @@ The thing is, after we have functions on the lattice one would be interested in 
 
 
 
+> Maybe one idea is that we consider everything to be sections over the manifold that are identified by some version of the group action of the lattice. If we do that then we can possibly find a way to make things denser and denser until we actually create stuff. For now we will leave this alone.
+
+
+
+
+
+
+
 ## Course Graining
 
 The next question now is:
@@ -54,9 +62,19 @@ Therefore using a conurse graining we can define a maeasure on the lattice such 
 $$
 \mu(\{g\}) = \int_{M} \ast \chi_g,
 $$
-So now we have a way of measuring functions on the lattice. If we start with a function $f:M\to B$ we can define $\langle \mu,\lambda^\ast f \rangle$ directly as $\sum_{g \in G}\int_{M}\ast \chi_gf = \int_M \ast f$.
+So now we have a way of measuring functions on the lattice. If we start with a function $f:M\to B$ we can define $\langle \mu, f \rangle$ directly as $\sum_{g \in G}\int_{M}\ast \chi_gf = \int_M \ast f$.
+
+This however has a limitation. It implies that we somehow have access to more information than just the values of the functions at the points. So we can use a different way to pullback the measure would be different.
+
+
 
 ## Physics Rules
+
+Now we can think of our total hibert space as attaching a $\mathbb{C}^k$ on each point of our lattice. If we want to attach a qubit then we pick $k=2$ 
+
+
+
+
 
 
 
