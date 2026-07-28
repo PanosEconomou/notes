@@ -1,8 +1,8 @@
 # Lattice Flows
 
-One of the coolest stuff we can in a physical model is Lattice RG flow into the continuum. I am curious to see how we can start with a lattic emode and what nobs do we need to adjust to find a continuum behavior. We will start from absolutely nothing and then slowly try to play with a simple example. 
+One of the coolest stuff we can in a physical model is Lattice RG flow into the continuum. I am curious to see how we can start with a lattice mode and what nobs do we need to adjust to find a continuum behavior. We will start from absolutely nothing and then slowly try to play with a simple example. 
 
-Spin chains offer a nice playground because they are simple to describe using 2D hilbert spaces per site but they still have pretty cool dynamics available. 
+Spin chains offer a nice playground because they are simple to describe using 2D Hilbert spaces per site but they still have pretty cool dynamics available. 
 
 [toc]
 
@@ -24,53 +24,47 @@ Let's start simple by fixing $M \in \{\mathbb{R},S^1\}$ and a group $G= \mathbb{
 
 ***Proof:*** Homomorphism is so restrictive here because $1$ is cyclic in $G$ so we can pick everything like so. We call $a$ the **lattice-spacing**.
 
-let's restrict our attention on **finite** $n$. Then the only two parameters that define our lattice are $n$ and $a$, because we have implicitly fixed $M=S^1$. Notice that the radius of the circle is given by $R = \frac{na}{2\pi}$. So for us:
+Let's restrict our attention to **finite** $n$. Then the only two parameters that define our lattice are $n$ and $a$, because we have implicitly fixed $M=S^1$. Notice that the radius of the circle is given by $R = \frac{na}{2\pi}$. So for us:
 
 **<u>Definition:</u>** A **lattice** $\lambda : G\to M$ is an embedding of a discrete Abelian group $G$ to a manifold $M$. It is called **regular** if $\lambda$ is also a Lie group homomorphism.
 
 ## Functions On Lattices
 
-What we are interested now is functions over the lattice itself. The embedding formalism for the lattice gives us convenient rules for the fucntions. For example the pullback may end up rescaling tensors and so on. So there are a couple of cool results that we can use already. 
+What we are interested now is functions over the lattice itself. The embedding formalism for the lattice gives us convenient rules for the functions. For example the pullback may end up rescaling tensors and so on. So there are a couple of cool results that we can use already. 
 
-The whole idea of *local fields* is that we can keep track of the degrees of freedom of our physics using objects that depend on position. For example, here we have chosen to parameterize our space using a lattice in a circle so it would make sense to consider *lcoal fields* to be **functions** on that lattice. We will later find out that this is wayyy too restrictive, but for now we can proceed.
+The whole idea of *local fields* is that we can keep track of the degrees of freedom of our physics using objects that depend on position. For example, here we have chosen to parameterize our space using a lattice in a circle so it would make sense to consider *local fields* to be **functions** on that lattice. We will later find out that this is too restrictive, but for now we can proceed.
 
-The thing is, after we have functions on the lattice one would be interested in scoring them. Often the whole point of quantum mechanics is to take field configurations and then spit out a score of "how physical" the configuration is. So in some sense we need a way to measure objects of the from $f: M \to B$ for some banach space $B$.  Without going too much into the weeds this means that whatever we will accept to be a *field* has to be measureable on the lattice with respect to whatever measure we put there.  
-
-
+The thing is, after we have functions on the lattice one would be interested in scoring them. Often the whole point of quantum mechanics is to take field configurations and then spit out a score of "how physical" the configuration is. So in some sense we need a way to measure objects of the from $f: M \to B$ for some Banach space $B$.  Without going too much into the weeds this means that whatever we will accept to be a *field* has to be measurable on the lattice with respect to whatever measure we put there.  
 
 > Maybe one idea is that we consider everything to be sections over the manifold that are identified by some version of the group action of the lattice. If we do that then we can possibly find a way to make things denser and denser until we actually create stuff. For now we will leave this alone.
 
 
 
+## Coarse Graining
 
-
-
-
-## Course Graining
-
-The next question now is:
+The next question is:
 
 > "What kind of measure do we put on our lattice?"
 
-Since lattices have discrete topology there are so many measures we can put that are easy to describe. However, it would be nice to introduce one directly from the embedding of the lattice onto whatever manifold we are looking at. A way to do this is called **course graining**.
+Since lattices have discrete topology there are so many measures we can put that are easy to describe. However, it would be nice to introduce one directly from the embedding of the lattice onto whatever manifold we are looking at. A way to do this is called **coarse graining**.
 
-Very basically, we can't just pull back the measure of $M$ onto the lattice because that spits out zero since $G$ is $0$ dimensional. However, we can cover regions of $M$ using our lattice by simply picking a partition $U$ of $M$ labelled by the lattice points in $G$. 
+Very basically, we can't just pull back the measure of $M$ onto the lattice because that spits out zero since $G$ is $0$ dimensional. However, we can cover regions of $M$ using our lattice by simply picking a partition $U$ of $M$ labeled by the lattice points in $G$. 
 
-**<u>Definition:</u>** Given a lattice $\lambda: G\to M$ then a **course graining** is a partition of unity $\mathcal{\chi}=\{\chi_g\}_{g\in G}$ of $M$ peacked on $\lambda(g)$. 
+**<u>Definition:</u>** Given a lattice $\lambda: G\to M$ then a **course graining** is a partition of unity $\mathcal{\chi}=\{\chi_g\}_{g\in G}$ of $M$ peaked on $\lambda(g)$. 
 
-Therefore using a conurse graining we can define a maeasure on the lattice such that 
+Therefore using a coarse graining we can define a measure on the lattice such that 
 $$
 \mu(\{g\}) = \int_{M} \ast \chi_g,
 $$
-So now we have a way of measuring functions on the lattice. If we start with a function $f:M\to B$ we can define $\langle \mu, f \rangle$ directly as $\sum_{g \in G}\int_{M}\ast \chi_gf = \int_M \ast f$.
+So now we have a way of measuring functions on the lattice. If we start with a function $f:M\to B$ we can define $\langle \mu, f \rangle$ directly as $\sum_{g \in G}\int_{M}\ast \chi_gf = \int_M \ast f$. This however has a limitation. It implies that we somehow have access to more information than just the values of the functions at the points. So we can use a different way to pullback the measure. But for now we will go with something much more different.
 
-This however has a limitation. It implies that we somehow have access to more information than just the values of the functions at the points. So we can use a different way to pullback the measure would be different.
+**<u>Definition:</u>** A **classical configuration** over a lattice is a section $f \in \Gamma(E)$ where $p:E\to G$ is a bundle over $G$.   A **quantum state** is an element of $$
 
 
 
 ## Physics Rules
 
-Now we can think of our total hibert space as attaching a $\mathbb{C}^k$ on each point of our lattice. If we want to attach a qubit then we pick $k=2$ 
+In classical 
 
 
 
