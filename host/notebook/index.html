@@ -1,52 +1,27 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Noteboook</title>
+  <title>Notebook</title>
   <script>
-    MathJax = {
-      loader: {
-        load: ['[custom]/xypic.js', 'input/tex-full', '[tex]/textmacros'],
-        paths: { custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/' },
-      },
+    window.MathJax = {
+      // tex-chtml-full already bundles every standard TeX extension, so
+      // nothing needs loading here unless you want xy-pic diagrams.
+      // To re-enable xypic, uncomment the loader block below and add
+      // 'xypic' to tex.packages. Note: no trailing slash on the path —
+      // '[custom]/xypic.js' supplies the separator, and a doubled slash
+      // 404s on jsDelivr.
+      //
+      // loader: {
+      //   load: ['[custom]/xypic.js'],
+      //   paths: { custom: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build' },
+      // },
       tex: {
         processEnvironments: true,
         processRefs: true,
         inlineMath: [['$', '$'], ['\\(', '\\)']],
         displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        packages: {
-          '[+]': [
-            'textmacros',
-            'xypic',
-            'base',
-            'bracket',
-            'bussproofs',
-            'bbox',
-            'cancel',
-            'ams',
-            'amscd',
-            'extpfeil',
-            'boldsymbol',
-            'mathtools',
-            'amsthm',
-            'amssymb',
-            'centernot',
-            'noerror',
-            'mhchem',
-            'html',
-            'color',
-            'newcommand',
-            'enclose',
-            'action',
-            'verb',
-            'extpfeil',
-            'physics',
-            'noundefined',
-            'autoload',
-            'textmacros']
-        },
         macros: {
           R: '\\mathbb{R}',
           part: '\\partial',
@@ -58,18 +33,23 @@
         }
       },
       options: {
+        // These are regex sources, not literal class names. Matching both
+        // spellings covers remark-math v4 (math) and v5+ (language-math).
         ignoreHtmlClass: '.*',
-        processHtmlClass: 'language-math',
+        processHtmlClass: 'language-math|math',
         enableMenu: false,
+      },
+      startup: {
+        // React owns #root, so there is nothing to typeset at load time.
+        // NotebookPage typesets its own subtree once mounted.
+        typeset: false,
       }
     };
   </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml-full.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
 </head>
-
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
-
 </html>

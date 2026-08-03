@@ -45,7 +45,8 @@ export default function NotebookPage({ }) {
   const [menuIsOpen, setMenuIsOpen] = useState("closed");
   const markdownRef = useRef(null);
   const tocRefs = useRef([]);
-  const headingRefs = useRef([]);
+  const headings = useRef([]);
+  const typesetChain = useRef(Promise.resolve());
   const [toc, setToc] = useState(<h2>Table of Contents</h2>);
 
   var timer = null;
@@ -157,8 +158,18 @@ export default function NotebookPage({ }) {
     }
   }
 
+  // Records a heading's React children so the TOC can be built from the
+  // component tree rather than from typeset DOM. Deduped by slug so
+  // StrictMode's double render doesn't produce duplicate entries.
+  const recordHeading = (level, children) => {
+    const slug = slugify(children);
+    if (!headings.current.some(h => h.slug === slug)) {
+      headings.current.push({ level, slug, children });
+    }
+  }
+
   const markdownRender = useMemo(() => {
-    headingRefs.current = [];
+    headings.current = [];
     tocRefs.current = [];
     return (
       <Markdown
@@ -183,15 +194,18 @@ export default function NotebookPage({ }) {
           },
           h1(props) {
             const { node, ...rest } = props
-            return <h1 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
+            recordHeading('h1', rest.children);
+            return <h1 id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
           },
           h2(props) {
             const { node, ...rest } = props
-            return <h2 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
+            recordHeading('h2', rest.children);
+            return <h2 id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
           },
           h3(props) {
             const { node, ...rest } = props
-            return <h3 ref={el => (headingRefs.current[headingRefs.current.length] = el)} id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
+            recordHeading('h3', rest.children);
+            return <h3 id={slugify(rest.children)} onMouseEnter={stickUnder} onMouseLeave={unstick} {...rest} />
           },
           a(props) {
             const { node, ...rest } = props
@@ -236,30 +250,14 @@ export default function NotebookPage({ }) {
   }, [markdown, toc]);
 
   const createTOC = () => {
-
-
-    const tocObject = headingRefs.current.map((item) => {
-      if (item !== null) {
-        const headerLevel = item.tagName.toLowerCase();
-        const headerText = item.textContent;
-        const headerInner = item.innerHTML;
-
-        return {
-          level: headerLevel,
-          text: headerText,
-          inner: headerInner,
-        }
-      }
-    }).filter(item => item !== undefined);
-
     setToc(
       <ul>
-        {tocObject.map((item, index) => {
+        {headings.current.map((item, index) => {
           const Tag = item.level
           return (
-            <li key={index}>
-              <Link to={`#${slugify(item.text)}`} onMouseEnter={stickLink} onMouseLeave={unstick}>
-                <Tag dangerouslySetInnerHTML={{ __html: item.inner }}></Tag>
+            <li key={item.slug ?? index}>
+              <Link to={`#${item.slug}`} onMouseEnter={stickLink} onMouseLeave={unstick}>
+                <Tag>{item.children}</Tag>
               </Link>
             </li>
           );
@@ -269,7 +267,7 @@ export default function NotebookPage({ }) {
   }
 
   useEffect(() => {
-    if (headingRefs.current.length != 0) createTOC();
+    if (headings.current.length != 0) createTOC();
 
   }, [markdown])
 
@@ -283,11 +281,25 @@ export default function NotebookPage({ }) {
 
   }, [markdownRender, location])
 
-  // Trigger MathJax typesetting after the content is rendered
+  // Typeset after each render of the markdown subtree. Waits on
+  // startup.promise so the first pass cannot run before the CDN bundle
+  // has finished loading, and chains so that the two renders per page
+  // load (content, then TOC) never typeset the same nodes concurrently.
   useEffect(() => {
-    if (window.MathJax.typesetPromise) {
-      window.MathJax.typesetPromise();
-    }
+    const el = markdownRef.current;
+    if (!el || !window.MathJax?.startup) return;
+    let cancelled = false;
+
+    typesetChain.current = typesetChain.current
+      .then(() => window.MathJax.startup.promise)
+      .then(() => {
+        if (cancelled) return;
+        window.MathJax.typesetClear([el]);
+        return window.MathJax.typesetPromise([el]);
+      })
+      .catch(err => console.error('MathJax typeset failed:', err));
+
+    return () => { cancelled = true; };
   }, [markdownRender])
 
   return (
@@ -295,14 +307,6 @@ export default function NotebookPage({ }) {
       <Cursor cursorVariant={cursorVariant} setCursorVariant={setCursorVariant} stickTo={stickTo} />
       <PageButton onClick={handleMenu}>
         <Magnetic>
-          {/* <h2
-            className="noSelect buttonTextVert"
-            style={{
-              fontSize: '24px',
-            }}
-            onMouseEnter={stick}
-            onMouseLeave={unstick}
-          >menu</h2> */}
           <motion.div className="buttonTextVert"
             onMouseEnter={stick}
             onMouseLeave={unstick}
