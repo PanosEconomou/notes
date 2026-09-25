@@ -690,7 +690,7 @@ where $\Omega_\rho$ is the set of (distinct) weights appearing in the $\rho$ rep
 
 **<u>Definition:</u>** The character $\chi : \mathfrak{g}\to \mathbb{C}$ of a highest weight unitary representation of a Lie algebra with weights $\Omega$ is given by
 $$
-\chi \coloneqq \sum_{\lambda \in \Omega} \text{mult}(\lambda ) e^{\lambda}.
+\chi := \sum_{\lambda \in \Omega} \text{mult}(\lambda ) e^{\lambda}.
 $$
 **<u>Theorem:</u>** *(Weyl Character Formula)* The character for a unitary Lie algebra representation with highest weight $\lambda$, associated Weyl group $W$, and Weyl vector $\rho$, satisfies for all $\alpha \in \mathfrak{h}^\ast$ 
 $$
@@ -698,13 +698,15 @@ $$
 $$
 where $D_\mu : \mathfrak{h}^\ast \to \mathbb{C}$ is given by
 $$
-D_{\mu}(\alpha) \coloneqq \sum_{w \in W} \epsilon(w) e^{w\mu},
+D_{\mu}(\alpha) := \sum_{w \in W} \epsilon(w) e^{w\mu},
 $$
 where $\epsilon$ is the sign of the element $w \in W$.
 
 This is a foundational result that we will use multiple times in calculating representations.
 
+## Embeddings
 
+We can pick a subalgebra $\mathfrak{p}$ of $\mathfrak{g}$ 
 
 # Affine Lie Algebras
 
