@@ -13,14 +13,36 @@ This is a super fun exercise about radially quantizing a statistical CFT that co
 
 # A toy model
 
-Let's stupify this issue as much as possible. In a toy model on $\mathbb{Z}^2$ we can consider a finite region $D \subset \mathbb{Z}^2$ where there is equal probability to move to a neighbor. We can put the probability of moving from $x$ to $y$ in one step in the column of a matrix $P_{xy}$. We can think of $P$ as a map $P : \mathbb{Z}^2 \to I$, where $I$ is the unit interval, which we can think of as a matrix
+Let's stupify this issue as much as possible. In a toy model on $\Lambda =\mathbb{Z}^2$ we can consider a finite region $D \subset \mathbb{Z}^2$ where there is equal probability to move to a neighbor. The idea is to do everything there, and then extrapolate to the continuum.
+
+## Measuring paths
+
+The first thing we need to come up with is a way to measure paths on the domain. One measure we can put on them, is to assign a probability for going to a neighbor, and then calculate the total probability that this path was followed. Other things we could do is to assign mass and just use the length, but then we miss the spacetime intuition (perhaps. But honestly I am not entirely sure.) 
+
+Assume on our lattice each point has $N$ neighbors that we now set to $4$. If we further assume equal probability then we have that the probability of a path of $n$ steps will be $m= N^{-n}$. This in some sense is the same as measuring its length though, but it's just like parameterizing $1/\text{length}$ kinda. In the way that the length can be given by $L = - \log(m) = n \log(N)$, where we think of $\log(N)$ as the length of the spacing. 
+
+Going away from this stupid tangent, here is a cool thing. We can put the probability of moving from $x$ to $y$ in one step in the column of a matrix $P_{xy}$. We can think of $P$ as a map $P : \Lambda^2 \to I$, where $I$ is the unit interval, which we can think of as a matrix
 $$
 P_{xy} = \begin{cases} 
-\frac{1}{4} & \text{if x, y neighbors in } D\\ 
+\frac{1}{N} & \text{if x, y neighbors in } D\\ 
 0 			& \text{otherwise}
 \end{cases}
 $$
-Therefore, we can see that $(P^2)_{xy}$ is 2 times the probability to get from $x$ to $y$ in 2 steps, since it is given by $\sum_{z \in \mathbb Z^2} P_{xz} P_{zy}$. Similarly we can see that $P^k$ contains the probabilities of getting from any two points in $k$ steps within $D$ multiplied by the number of ways to get there. By the way, this sum is always guaranteed to converge since $D$ is finite so all but finitely many cells of $P$ are nonzero. This is almost identical to a path integral discretization so hopefully it kinda gives the intuition of why this should count the "probabilities".
+Therefore, we can see that $(P^2)_{xy}$ is 2 times the probability to get from $x$ to $y$ in 2 steps, since it is given by $\sum_{z \in \mathbb Z^2} P_{xz} P_{zy}$. Similarly we can see that $P^k$ contains the probabilities of getting from any two points in $k$ steps within $D$ multiplied by the number of ways to get there. By the way, this sum is always guaranteed to converge since $D$ is finite so all but finitely many cells of $P$ are nonzero.
+
+So if the *mass* of a single path between two fixed oriented endpoints $N^{-n}$, then the mass of all such paths, which we can call $m^n_{xy}$ is given by:
+$$
+m^n_{xy} = (\text{all possible ways to go from x to y}) \times N^{-n} = (P^n)_{xy}.
+$$
+ So in some sense we have that the mass of all loops from $x \to y$ that reside in $D$ is going to be given by
+$$
+m_{xy} = \sum_{n=1}^{\infty} m^n_{xy} = \left(\sum_{n=1}^\infty P^n\right)_{xy}.
+$$
+So let's calculate the matrix $m$. The first thing we would need to check is that it converges. The good thing, is that 
+
+
+
+## Measuring loops
 
 Notice that $\tr P^k = \sum_{x \in D} (P^k)_{xx}$ is the sum of loops of length $k$ in D each multiplied by its probability. This contains some double counting for our purposes because if a loop passes through point $y \neq x$ then it both be counted at $(P^k)_{xx}$ and $(P^k)_{yy}$. So to avoid counting the basepoints of the loops we can divide this by $k$. 
 
@@ -38,7 +60,6 @@ $$
 $$
 S(D) = \sum_{x,y \in D} P_{xy}(\phi_x - \phi_y)^2,
 $$
-
 
 
 
