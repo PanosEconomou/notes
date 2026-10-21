@@ -38,7 +38,7 @@ $$
 $$
 m_{xy} = \sum_{n=1}^{\infty} m^n_{xy} = \left(\sum_{n=1}^\infty P^n\right)_{xy}.
 $$
-So let's calculate the matrix $m$. The first thing we would need to check is that it converges. The good thing, is that 
+So let's calculate the matrix $m$. The first thing we would need to check is that it converges. 
 
 
 
