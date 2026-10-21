@@ -38,7 +38,21 @@ $$
 $$
 m_{xy} = \sum_{n=1}^{\infty} m^n_{xy} = \left(\sum_{n=1}^\infty P^n\right)_{xy}.
 $$
-So let's calculate the matrix $m$. The first thing we would need to check is that it converges. 
+So let's calculate the matrix $m$. The first thing we would need to check is that it converges. To do this it is helpful to come up with the following cute way to describe $P$.
+
+$P$ is a matrix of translations to neighbors. Assuming the lattice is repeating in a well defined sense, we can define a set of translations $T$ where $N = |T|$ such that
+$$
+P = \frac{1}{N} \sum_{t\in T} t.
+$$
+Let's abuse notation a little bit since each translation can be defined by an element of $\Lambda$ we can call both the translation and the element $t$. The operator $P$ I wrote above is the one where the region $D$ is the entire space. If we introduce the projector $\Pi_D$ to be the one that only keeps vectors inside the region $D$ we can then write
+$$
+P_D = \Pi_DP\Pi_D.
+$$
+It is clear that eigenvectors of $P$ can be given in terms of eigenvectors of translations. Given a translation $t$ we have that the vector $\psi_k = \sum_{x\in\Lambda}e^{-ik\cdot x} \phi_x$, where $\phi_x$ is some basis of vectors associated to each point, satisfies $t\psi_k = e^{i k\cdot t}\psi_k$, therefore these will also be eigenvectors of $P$ with the following relation
+$$
+P\psi_k= \left(\frac{1}{N}\sum_{t\in T} e^{ik\cdot t}\right)\psi_k.
+$$
+But $P_D$ breaks translation invariance in a potentially ugly way. So we need to be more careful.  
 
 
 
