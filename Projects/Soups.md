@@ -28,7 +28,7 @@ P_{xy} = \begin{cases}
 0 			& \text{otherwise}
 \end{cases}
 $$
-Therefore, we can see that $(P^2)_{xy}$ is 2 times the probability to get from $x$ to $y$ in 2 steps, since it is given by $\sum_{z \in \mathbb Z^2} P_{xz} P_{zy}$. Similarly we can see that $P^k$ contains the probabilities of getting from any two points in $k$ steps within $D$ multiplied by the number of ways to get there. By the way, this sum is always guaranteed to converge since $D$ is finite so all but finitely many cells of $P$ are nonzero.
+Therefore, we can see that $(P^2)_{xy}$ is 2 times the probability to get from $x$ to $y$ in 2 steps, since it is given by $\sum_{z \in \mathbb Z^2} P_{xz} P_{zy}$. Similarly we can see that $P^k$ contains the probabilities of getting from any two points in $k$ steps within $D$ multiplied by the number of ways to get there. By the way, this sum is always guaranteed to converge since $D$ is finite so all but finitely many cells of $P$ are nonzero. 
 
 So if the *mass* of a single path between two fixed oriented endpoints $N^{-n}$, then the mass of all such paths, which we can call $m^n_{xy}$ is given by:
 $$
@@ -38,35 +38,37 @@ $$
 $$
 m_{xy} = \sum_{n=1}^{\infty} m^n_{xy} = \left(\sum_{n=1}^\infty P^n\right)_{xy}.
 $$
-So let's calculate the matrix $m$. The first thing we would need to check is that it converges. To do this it is helpful to come up with the following cute way to describe $P$.
+So let's calculate the matrix $m$. The first thing we would need to check is that it converges. 
 
-$P$ is a matrix of translations to neighbors. Assuming the lattice is repeating in a well defined sense, we can define a set of translations $T$ where $N = |T|$ such that
+**<u>Proposition:</u>** All eigenvalues of $P$ are in $(-1,1)$.
+
+***Proof:*** Notice that $P$ is symmetric, real, and therefore diagonalizable. As a result, the eigenvalues are all real. Let $\psi = \sum_{x\in\Lambda} \psi^x \phi_x$ be an eigenvector with eigenvalue $\lambda$ normalized such that the largest component of $\psi$ in some basis $\phi_x$ is $1$. Therefore we can find that
 $$
-P = \frac{1}{N} \sum_{t\in T} t.
+\begin{align*}
+\abs{\lambda} = \abs{\langle\phi_\ast,P\psi\rangle} \leq \sum_{x\in\Lambda} \abs{P_{\ast x}} \leq 1,
+\end{align*}
 $$
-Let's abuse notation a little bit since each translation can be defined by an element of $\Lambda$ we can call both the translation and the element $t$. The operator $P$ I wrote above is the one where the region $D$ is the entire space. If we introduce the projector $\Pi_D$ to be the one that only keeps vectors inside the region $D$ we can then write
-$$
-P_D = \Pi_DP\Pi_D.
-$$
-It is clear that eigenvectors of $P$ can be given in terms of eigenvectors of translations. Given a translation $t$ we have that the vector $\psi_k = \sum_{x\in\Lambda}e^{-ik\cdot x} \phi_x$, where $\phi_x$ is some basis of vectors associated to each point, satisfies $t\psi_k = e^{i k\cdot t}\psi_k$, therefore these will also be eigenvectors of $P$ with the following relation
-$$
-P\psi_k= \left(\frac{1}{N}\sum_{t\in T} e^{ik\cdot t}\right)\psi_k.
-$$
-But $P_D$ breaks translation invariance in a potentially ugly way. So we need to be more careful.  
+where in the last step we have used the fact that inside $D$ any point can have at most $N$ neighbors, and throughout we have assumed that the maximum is at $\ast \in D$. But this doesn't show the strict inequality yet. For that we need boundaries. Assume that $\lambda = 1$ with an eigenvector $\psi$. Then the above inequality implies that $\sum_{x\in\Lambda} P_{\ast x} = 1$ which is only possible if $\ast$ is not at the boundary. But also we know that in this case, $1=\sum_{x}\frac{\psi^x}{N}$, where $x$ runs over the $N$ neighbors of $\ast$. As a result, that would imply that $\psi^x= 1$ for all $x \in \Lambda$ which isn't possible, since states outside of $D$ are projected out by $P$. So it can never attain $\lambda = 1$. The same argument can be shown for $\lambda = -1$.
 
 
+
+Using the above proposition, we can quickly see that the sum does in fact converge. And using some rudimentary diagonalization we can see that
+$$
+m = \frac{P}{1-P}.
+$$
+Which is a very cute result, because this is quite easy to calculate in practice. But we need to beware. This is a theory of loops after all!
 
 ## Measuring loops
 
-Notice that $\tr P^k = \sum_{x \in D} (P^k)_{xx}$ is the sum of loops of length $k$ in D each multiplied by its probability. This contains some double counting for our purposes because if a loop passes through point $y \neq x$ then it both be counted at $(P^k)_{xx}$ and $(P^k)_{yy}$. So to avoid counting the basepoints of the loops we can divide this by $k$. 
+Notice that $\tr P^k = \sum_{x \in D} (P^k)_{xx}$ is the sum of loops of length $k$ in D each multiplied by its probability. This contains some double counting for our purposes because if a loop passes through point $y \neq x$ then both will be counted at $(P^k)_{xx}$ and $(P^k)_{yy}$. So to avoid counting the basepoints of the loops we can divide this by $k$. 
 
-I think that then this is the lattice proxy of the mass of the loops in $D$:
+So in some sense, $\tr m$ double counts the loops by a lot. I think that then this is the lattice proxy of the mass of the loops in $D$:
 $$
-\mu(D) = \sum_{k \in \mathbb{N}} \frac{\tr P^k}{k} = -\tr \log(1 - P) = - \log \det (1-P).
+\mu(D) = \sum_{k \in \mathbb{N}} \frac{\tr P^k}{k} = -\tr \log(1 - P) = - \log \det (1-P) = \tr \log m.
 $$
-If we write the partition function then as $Z(D) = e^{\lambda \mu(D)} = \det(1-P)^{-\lambda}$. With this we can check the free Boson partition function. 
+If we write the partition function then as $Z(D) = e^{\lambda \mu(D)} = \det(1-P)^{-\lambda}$. With this we can check the free Boson partition function. Notice that this is simply $\tr\log m$. I am very curious to see why this is the case. We can get the $\log$ by integrating in $P$ but there must be a reason why counting like this helps. I don't know what this is though. 
 
-The Lagrangian of the free boson is $\frac{1}{2} (\partial_x \phi)^2 + \frac{1}{2}(\partial_y\phi)^2$ in Euclidean space, so we can discretize the action like so
+The Lagrangian of the free boson is $\frac{1}{2} (\partial_x \phi)^2 + \frac{1}{2}(\partial_y\phi)^2$ in Euclidean space, so we can discretized the action like so
 $$
 S(D) = \sum_{x,y \in D} P_{xy}(\phi_x - \phi_y)^2,
 $$
@@ -75,11 +77,14 @@ $$
 S(D) = \sum_{x,y \in D} P_{xy}(\phi_x - \phi_y)^2,
 $$
 
+## Vacuum Mass
 
+Let's figure out something close to the vacuum state, because we now have the ingredients to do so. Consider states $\psi,\chi$ based on $\partial D$ we can calculate the mass of all loops in D that cross at the points specified by the states. This would then be
 
-
-
-
+$$
+\langle \psi, m\chi\rangle + \mu.
+$$
+Notice that there will always be this offset because we have to add the mass of loops that are contained in $D$. Then we can proceed in a cute way. Assume that the probability measure is proportional to the mass. Then our insertions can be formulated by something. I am not sure what the answer should be in the first place so we need to step back in a sense. I believe that we will end up finding 
 
 
 
