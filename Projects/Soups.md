@@ -107,10 +107,19 @@ To find the vacuum state we can take inspiration from the path integral. Let's f
 $$
 Z_D = \sum_{n}\prod_{l \in L_D} \frac{(\lambda m_l)^{n_l}}{n_l!} = e^{\lambda \mu(D)}.
 $$
-Now the trick is to split this based on what crosses a "circle" $S$ contained in $D$. The cool way of answering this would be to characterize the points on $S$ that the curve is going into and the ones that it's coming out of. This is parameterized by the powerset of $S$. For a subset $\sigma\in \mathcal{P}(S)$ we can construct the state $\sigma = \sum_{x \in \sigma} \phi_x$ please allow me some abuse of notation here, and for a configuration we ingoing points described by $\sigma$ and outgoing by $\tau$ we can come up with the map $\rho = \sigma \tau^\dagger$ under which the mass of all arcs with these boundary conditions on $S = \partial A$ is given by $\alpha(A,\rho) = \tr (\rho m_A)$.
-
-Now we need to figure out how to split the sum of $Z_D$ in terms of the states $\rho$. Let's use some notation by fixing $A$ be a convex subset of $D$. Let $L_{\partial A}\subset L_D$ denote the loops in $D$ that cross into $A$. Then we have that $L_D = L_A \sqcup L_{\partial A}\sqcup L_{D\setminus A}$. This means that our partition function also factorizes into
+So given a partition function we should be able to split it into an inner product of states. Consider a convex subset $A\subset D$ and let $L_{\partial A}\subset L_D$ denote the loops in $D$ that cross into $A$. Then we have that $L_D = L_A \sqcup L_{\partial A}\sqcup L_{D\setminus A}$. This means that our partition function also factorizes into
 $$
 Z_D = Z_{A} Z_{D\setminus A} \sum_{n}\prod_{l\in L_{\partial A}} \frac{(\lambda m_l)^{n_l}}{n_l!} = Z_{A} Z_{D\setminus A} e^{\lambda \mu(\partial A)}
 $$
-where $\mu(\partial A)$ is the mass of loops crossing $A$. This factor is what we want to split over a sum of the configurations on $\partial A$.
+where $\mu(\partial A)$ is the mass of loops crossing $A$. This factor is what we want to split over a sum of the configurations passing through $\partial A$. Let's cut D along the edges that connect it to $\partial A$. In that case, each loop that crosses into $A$ can be split into arcs. Once we know the configuration of edges, i.e. where they enter and exit and how they're paired up into arcs we have enough data to calculate their mass, and then combine them. So let's call a sequence of pairs of edges $E$, where $E_k = (i_k,f_k)$ with $i_k$ being the initial edge, and $f_k$ being the final edge. So if $i_k$ is the edge from $x\in D\setminus A$ to $y \in A$, then $i_k = \phi_x + \phi_y$ in the basis we have been using. 
+
+The mass of all arcs associated to an edge configuration $E$ inside $A$ is given by $\alpha_A(E) = \prod_{k} \langle f_k, m_A i_k\rangle$. So we can now see that
+$$
+e^{\lambda \mu(\partial A)} = \sum_{E,F} C_{EF} \alpha_A(E) \alpha_{D\setminus A}(F),
+$$
+where $C_{EF} = \lambda^k$ if the edge configurations $E, F$ lead to making $k$ loops in $D$ and is otherwise $0$. This can be thought of as the bilinear form that defines the inner product in our case. From this we can identify the vacuum state $\psi$ as a function from the edge configurations to $\mathbb{R}$ given for all configurations $E$ by
+$$
+\psi(E) := Z_A \alpha_{A}(E).
+$$
+
+
