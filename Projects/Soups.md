@@ -113,7 +113,7 @@ Z_D = Z_{A} Z_{D\setminus A} \sum_{n}\prod_{l\in L_{\partial A}} \frac{(\lambda 
 $$
 where $\mu(\partial A)$ is the mass of loops crossing $A$. This factor is what we want to split over a sum of the configurations passing through $\partial A$. Let's cut D along the edges that connect it to $\partial A$. In that case, each loop that crosses into $A$ can be split into arcs. Once we know the configuration of edges, i.e. where they enter and exit and how they're paired up into arcs we have enough data to calculate their mass, and then combine them. So let's call a sequence of pairs of edges $E$, where $E_k = (i_k,f_k)$ with $i_k$ being the initial edge, and $f_k$ being the final edge. So if $i_k$ is the edge from $x\in D\setminus A$ to $y \in A$, then $i_k = \phi_x + \phi_y$ in the basis we have been using. 
 
-The mass of all arcs associated to an edge configuration $E$ inside $A$ is given by $\alpha_A(E) = \prod_{k} \langle f_k, m_A i_k\rangle$. So we can now see that
+The mass of all arcs associated to an edge configuration $E$ inside $A$ is given by $\alpha_A(E) = \frac{1}{N}\prod_{k} \langle f_k, m_A i_k\rangle$. So we can now see that
 $$
 e^{\lambda \mu(\partial A)} = \sum_{E,F} C_{EF} \alpha_A(E) \alpha_{D\setminus A}(F),
 $$
@@ -122,4 +122,11 @@ $$
 \psi(E) := Z_A \alpha_{A}(E).
 $$
 
+## Sphere Partition Function
 
+The first observable that we can calculate is the sphere partition function. In regular CFT with central charge $c$, the sphere partition function should depend on the radius up to some power given by $c$.  We can try to compute that for the states that we have already.
+
+In this case, we can calculate it as the inner product of two vacuum states, where $D\setminus A\cong A$ with $A$ being a disk of radius $R$, or so would I expect to be honest. We will figure out to what extent I am being dumb. The inner product is well defined to be
+$$
+Z_D = Z_A^2 \sum_{E,F} \alpha_A(E) \alpha_{A}(F).
+$$
